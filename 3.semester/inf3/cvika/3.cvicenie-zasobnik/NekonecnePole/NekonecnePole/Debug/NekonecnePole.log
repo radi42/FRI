@@ -1,0 +1,15 @@
+﻿Build started 10/9/2014 12:58:12 PM.
+     1>Project "D:\Dokumenty\FRI\3.semester\inf3\cvika\3.cvicenie-zasobnik\NekonecnePole\NekonecnePole\NekonecnePole.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Programme\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt test.cpp
+         test.cpp
+     1>c:\programme\microsoft visual studio 12.0\vc\include\sal.h(2381): error C2144: syntax error : 'int' should be preceded by ';'
+     1>c:\programme\microsoft visual studio 12.0\vc\include\sal.h(2381): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>d:\dokumenty\fri\3.semester\inf3\cvika\3.cvicenie-zasobnik\nekonecnepole\nekonecnepole\test.cpp(28): error C2065: 'text' : undeclared identifier
+     1>d:\dokumenty\fri\3.semester\inf3\cvika\3.cvicenie-zasobnik\nekonecnepole\nekonecnepole\test.cpp(29): error C2065: 'text' : undeclared identifier
+     1>d:\dokumenty\fri\3.semester\inf3\cvika\3.cvicenie-zasobnik\nekonecnepole\nekonecnepole\test.cpp(29): error C3861: 'vypis': identifier not found
+     1>Done Building Project "D:\Dokumenty\FRI\3.semester\inf3\cvika\3.cvicenie-zasobnik\NekonecnePole\NekonecnePole\NekonecnePole.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.95

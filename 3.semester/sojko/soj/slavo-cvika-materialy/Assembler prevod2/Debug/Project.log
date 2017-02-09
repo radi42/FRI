@@ -1,0 +1,14 @@
+﻿Build started 17.11.2014 17:41:55.
+     1>Project "D:\Moje dokumenty\Slavko\Škola\Vysoká\3. semester\Informatika 3\VisualProjekty\Assembler prevod2\Project.vcxproj" on node 2 (Build target(s)).
+     1>_MASM:
+         Assembling main.asm...
+         cmd.exe /C "C:\Users\Dobroslav Grygar\AppData\Local\Temp\tmp410afd8ad4964c7798590c25a66cbc8c.cmd"
+         ml.exe /c /nologo /Zi /Fo"Debug\main.obj" /I "c:\Irvine" /W3 /errorReport:prompt  /Tamain.asm
+     1>main.asm(9): error A2008: syntax error : [
+     1>main.asm(14): fatal error A1010: unmatched block nesting : skuska
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\BuildCustomizations\masm.targets(50,5): error MSB3721: The command "ml.exe /c /nologo /Zi /Fo"Debug\main.obj" /I "c:\Irvine" /W3 /errorReport:prompt  /Tamain.asm" exited with code 1.
+     1>Done Building Project "D:\Moje dokumenty\Slavko\Škola\Vysoká\3. semester\Informatika 3\VisualProjekty\Assembler prevod2\Project.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.18

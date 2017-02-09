@@ -1,0 +1,10 @@
+-Refer to the exhibit. A network administrator issues the show ipv6 route command on R1. What two conclusions can be drawn from the routing table? (Choose two.)
+	R1 does not know a route to any remote networks.
+	The interface Fa0/1 is configured with IPv6 address 2001:DB8:ACAD:A::12.
+
+-Which command is used to configure an IPv6 address on a router interface so that the router will combine a manually specified network prefix with an automatically generated interface identifier?
+	ipv6 address ipv6-address/prefix-length eui-64
+
+-What two pieces of information are displayed in the output of the show ip interface brief command? 
+	Layer 1 statuses
+	IP addresses

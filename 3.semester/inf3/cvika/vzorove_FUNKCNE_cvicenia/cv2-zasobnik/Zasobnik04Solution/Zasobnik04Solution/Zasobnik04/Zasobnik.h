@@ -1,0 +1,24 @@
+#pragma once
+
+#define NEPLATNA_HODNOTA 0
+
+struct Zasobnik
+{
+	struct InfoBox
+	{
+		unsigned int info;
+		InfoBox *dalsi;
+	} *sp;
+
+	//	InfoBox *sp;
+	unsigned int pocet;
+};
+
+unsigned int pop(Zasobnik *zasobnik);
+bool push(Zasobnik *zasobnik, unsigned int val);
+unsigned int peek(Zasobnik *zasobnik);
+
+void init(Zasobnik *z);
+void nacitaj(Zasobnik *zasobnik);
+void kopiruj(Zasobnik *cielzasobnik, const Zasobnik *zdrojzasobnik);
+void zrus(Zasobnik *zasobnik);

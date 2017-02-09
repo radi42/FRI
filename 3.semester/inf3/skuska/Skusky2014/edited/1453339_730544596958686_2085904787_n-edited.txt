@@ -1,0 +1,21 @@
+class T{
+//private: int cislo;
+public: int cislo;
+		T(int i = 0) { cislo = i;}
+		T operator -- () { return cislo--; }	//najprv skusame cislo--, potom --cislo
+		operator int() { return cislo; }
+};
+
+void priklad_11(){
+	int a, b;
+	T o(6);
+	a = --o;
+	b = o--;
+
+
+
+
+return --cislo			return cislo--
+a = 5				a = 6
+b = 4				b = 5
+o.cislo = 4			o.cislo = 4

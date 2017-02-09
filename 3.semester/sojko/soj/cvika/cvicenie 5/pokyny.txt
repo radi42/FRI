@@ -1,0 +1,7 @@
+zober prvu cislicu
+
+doterajsi vysledok
+vynasob desiatimi
+pripocitaj dalsiu cislicu
+
+00406000

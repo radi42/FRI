@@ -1,0 +1,16 @@
+﻿Build started 11/5/2014 10:23:35 AM.
+     1>Project "E:\Dokumenty\FRI\3.semester\inf3\cvika\7.cvicenie-textove_menu\textove_menu\textove_menu\textove_menu.vcxproj" on node 2 (Build target(s)).
+     1>Link:
+         C:\Programme\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\Dokumenty\FRI\3.semester\inf3\cvika\7.cvicenie-textove_menu\textove_menu\Debug\textove_menu.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\Dokumenty\FRI\3.semester\inf3\cvika\7.cvicenie-textove_menu\textove_menu\Debug\textove_menu.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\Dokumenty\FRI\3.semester\inf3\cvika\7.cvicenie-textove_menu\textove_menu\Debug\textove_menu.lib" /MACHINE:X86 Debug\HVystup.obj
+         Debug\KoniecCommand.obj
+         Debug\main.obj
+         Debug\TextCommand.obj
+         Debug\TextMenu.obj
+         Debug\VVystup.obj
+     1>VVystup.obj : error LNK2005: "public: virtual void __thiscall HVystup::zobraz(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > &)" (?zobraz@HVystup@@UAEXAAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z) already defined in HVystup.obj
+     1>E:\Dokumenty\FRI\3.semester\inf3\cvika\7.cvicenie-textove_menu\textove_menu\Debug\textove_menu.exe : fatal error LNK1169: one or more multiply defined symbols found
+     1>Done Building Project "E:\Dokumenty\FRI\3.semester\inf3\cvika\7.cvicenie-textove_menu\textove_menu\textove_menu\textove_menu.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:01.59

@@ -1,0 +1,12 @@
+AX
+010A
+AH	AL
+01	0A
+
+inc AX
+
+AH	AL
+01	0B
+
+200h	0Bh
+201h	01h

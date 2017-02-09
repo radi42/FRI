@@ -1,0 +1,35 @@
+-Interface Fa0/1 is connected to a PC. Fa0/2 is a trunk link to another switch. All other ports are unused. Which security best practice did the administrator forget to configure?
+	All user ports are associated with VLANs distinct from VLAN 1 and distinct from the ‘black-hole’ VLAN.
+
+-A Cisco switch currently allows traffic tagged with VLANs 10 and 20 across trunk port Fa0/5. What is the effect of issuing a switchport trunk allowed vlan 30 command on Fa0/5?
+	It allows only VLAN 30 on Fa0/5.
+
+-Refer to the exhibit. A frame is traveling between PC-A and PC-B through the switch. Which statement is true concerning VLAN tagging of the frame?
+	No VLAN tag is added to the frame.
+
+-What happens to a port that is associated with VLAN 10 when the administrator deletes VLAN 10 from the switch?
+	The port becomes inactive.
+
+-Which switch feature ensures that no unicast, multicast, or broadcast traffic is passed between ports that are configured with this feature?
+	PVLAN protected port
+
+-A network administrator is determining the best placement of VLAN trunk links. Which two types of point-to-point connections utilize VLAN trunking?? (Choose two.)
+	between a switch and a server that has an 802.1Q NIC
+	between two switches that utilize multiple VLANs
+
+-In a basic VLAN hopping attack, which switch feature do attackers take advantage of?
+	the default automatic trunking configuration
+
+-Which two statements are true about VLAN implementation? (Choose two.)
+	VLANs logically group hosts, regardless of physical location.
+	Devices in one VLAN do not hear the broadcasts from devices in another VLAN.
+
+-Which two Layer 2 security best practices would help prevent VLAN hopping attacks? (Choose two.)
+	Change the native VLAN number to one that is distinct from all user VLANs and is not VLAN 1.
+	Disable DTP autonegotiation on end-user ports.
+
+-Under which two occasions should an administrator disable DTP while managing a local area network? (Choose two.)
+	on links that should not be trunking
+	when connecting a Cisco switch to a non-Cisco switch
+
+ak zabranime pristup portu ku urcitej vlanke, port sa automaticky zaradi do defaultnej vlan (vlan 1). ale ak vymazeme celu vlan, potom sa porty, ktore do nej patrili, stanu vypnutymi

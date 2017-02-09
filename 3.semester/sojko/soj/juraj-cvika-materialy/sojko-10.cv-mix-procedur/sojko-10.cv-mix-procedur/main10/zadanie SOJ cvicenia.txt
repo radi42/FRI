@@ -1,0 +1,12 @@
+8 cvicenie: procedury nacitaj a vypis cislo + zisti ci je v postupnosti zadane cislo
+
+9 cvicenie: 
+- zisti najmensie cislo v postupnosti a vypis
+- nacitajte postupnost DW ...
+Pocet EQU ($-POstupnost)/2 pomocou uz spravenej proc Nacitaj
+- potom v tom najdi minimum cez uz spravenu proc NajdiMinimum
+
+- mnoziny s prvkami v rozsahu od 0 do n-1, reprezentovane ako bitove pole s n prvkami, v ktorom n-ty prvok vyjadruje hodnotu prvku mnoziny a nastaveny jeho bit na n-tej pozicii na 1=prvok sa nachadza v mnozine, 0=prvok sa nenachadza v mnozine
+- vygenerujte mnozinu X pozostavajucu z 10 cisiel z intervalu <0,31>. Vypiste ju. nahodne cisla generuje procedura RandomRange z irvine32 - vygeneruje cislo z <0,n-1> kde n je vstupny parameter v EAX, cislo sa vrati v EAX
+
+

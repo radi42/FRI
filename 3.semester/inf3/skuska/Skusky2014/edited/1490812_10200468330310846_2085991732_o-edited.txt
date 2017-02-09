@@ -1,0 +1,4 @@
+In C++, the compiler automatically generates the default constructor, copy constructor, copy-assignment operator, 
+and destructor for a type if it does not declare its own.
+
+Zdroj: http://msdn.microsoft.com/en-us/library/dn457344.aspx

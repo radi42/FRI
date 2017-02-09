@@ -1,0 +1,22 @@
+﻿Build started 30.10.2014 11:43:22.
+     1>Project "c:\Users\kostka2\documents\visual studio 2013\Projects\BinarneCislo\BinarneCislo\BinarneCislo.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt BinCislo.cpp
+         BinCislo.cpp
+     1>c:\users\kostka2\documents\visual studio 2013\projects\binarnecislo\binarnecislo\bincislo.cpp(19): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
+     1>c:\users\kostka2\documents\visual studio 2013\projects\binarnecislo\binarnecislo\bincislo.cpp(20): warning C4996: 'strrev': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _strrev. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(257) : see declaration of 'strrev'
+     1>c:\users\kostka2\documents\visual studio 2013\projects\binarnecislo\binarnecislo\bincislo.cpp(26): warning C4334: '<<' : result of 32-bit shift implicitly converted to 64 bits (was 64-bit shift intended?)
+     1>c:\users\kostka2\documents\visual studio 2013\projects\binarnecislo\binarnecislo\bincislo.cpp(63): warning C4996: 'strrev': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _strrev. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(257) : see declaration of 'strrev'
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"c:\users\kostka2\documents\visual studio 2013\Projects\BinarneCislo\Debug\BinarneCislo.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"c:\users\kostka2\documents\visual studio 2013\Projects\BinarneCislo\Debug\BinarneCislo.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"c:\users\kostka2\documents\visual studio 2013\Projects\BinarneCislo\Debug\BinarneCislo.lib" /MACHINE:X86 Debug\BinCislo.obj
+         Debug\main.obj
+         Debug\Test.obj
+         BinarneCislo.vcxproj -> c:\users\kostka2\documents\visual studio 2013\Projects\BinarneCislo\Debug\BinarneCislo.exe
+     1>Done Building Project "c:\Users\kostka2\documents\visual studio 2013\Projects\BinarneCislo\BinarneCislo\BinarneCislo.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.66

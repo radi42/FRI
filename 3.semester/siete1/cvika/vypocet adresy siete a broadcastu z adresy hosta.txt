@@ -1,0 +1,14 @@
+H: 209.165.200.226		M: 255.255.255.224
+				4. oktet masky podsiete je zaujimavy
+				Odcitame 224 od 256
+				256-224=32
+
+Vyslednym cislom podelime 4. oktet adresy hosta
+226/32=7
+
+A spatne vynasobime, cim nam vyjde cislo na 4. oktete adresy siete
+7*32=210+14=224 = cislo na 4. oktete adresy siete
+32-27=6 => 2 na 5 adries = 32 adries
+
+Siet: 209.165.200.224
+Broadcast: 209.165.200.(224+32-1) => 209.165.200.255

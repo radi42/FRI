@@ -1,0 +1,7 @@
+stacia dve zapojenia (jeden kombinacny system a jeden automat )
+vyuzit na nerobenie praktickej casti skusky
+4 a viac zapojeni - nerobis skusku
+
+logsys domace ulohy
+-navrhnut 8bitovu scitacku tj vstup tvoria dve 8-bitove cisla a vystup jedno 9-bitove
+-program na nasobenie cez posun bitov a scitavanie

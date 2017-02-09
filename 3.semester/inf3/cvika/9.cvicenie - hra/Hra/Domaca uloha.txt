@@ -1,0 +1,10 @@
+-doplnene predmety 2 a 3 tj. teraz su predmety 3
+-hra sa nikdy neskonci
+-po kliknuti lopty sa znovu vygeneruju na nahodnom mieste s nahodnou rychlostou
+-suradnice nie su osetrene, preto moze niektora lopta padnut do "ciernej diery"
+-objekty su odstranene z pamati v destruktore prikazom "delete" a vykreslovane su naraz, prekreslovane su naraz, vymazavane su naraz
+
+upravene subory:
+HraciaPlocha.h
+HraciaPlocha.cpp
+Predmet.cpp

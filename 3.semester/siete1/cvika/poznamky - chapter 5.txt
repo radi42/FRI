@@ -1,0 +1,18 @@
+To enable the routing functionality on the 2960 switch, the sdm prefer lanbase-routing global configuration command must be entered and the router must be reloaded.
+
+show vlan
+show ip route
+
+When a problem is suspected with a switch configuration, use the various verification commands to examine the configuration and identify the problem.
+"show interfaces interface-id switchport"
+
+verify
+show interfaces
+show running-config
+
+show ip interface
+
+The Cisco Switch Database Manager (SDM) provides multiple templates for the 2960 switch. The templates can be enabled to support specific roles depending on how the switch is used in the network. The SDM template can be changed in global configuration mode with the "sdm prefer" command.
+
+IP routing is enabled with the "ip routing global" configuration mode command.
+Note: The ip routing command is automatically enabled on Cisco routers; however, the corresponding command for IPv6, ipv6 unicast-routing, is disabled, by default, on Cisco routers and switches.

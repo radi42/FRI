@@ -1,0 +1,37 @@
+kopirovaci konstruktor
+
+  MyClass( const MyClass& other );
+  MyClass( MyClass& other );
+  MyClass( volatile const MyClass& other );
+  MyClass( volatile MyClass& other );
+  MyClass( MyClass* other );
+  MyClass( const MyClass* other );
+
+
+
+konverzny konstruktor
+#include<iostream>
+ 
+using namespace std;
+class Test
+{
+ private:
+   int x;
+ public:
+   Test(int i) {x = i;}
+   void show() { cout<<" x = "<<x<<endl; }
+};
+ 
+int main()
+{
+ Test t(20);
+ t.show();
+ t = 30; // conversion constructor is called here.
+ t.show();
+ getchar();
+ return 0;
+}
+
+//The above program prints:
+//x = 20
+//x = 30

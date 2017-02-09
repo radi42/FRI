@@ -1,0 +1,15 @@
+úndf 	- úplna normálna disjunktívna forma
+ndf	- normálna disjunktívna forma
+indf	- IREDUNDANTNÁ normálna disjunktívna forma - ideálna
+
+1.nsf	- 1. normálna shafferova forma
+2.npf	- 2. normálna pierceova forma
+
+===========================================
+
+únkf	- úplna normálna konjuktívna forma
+nkf	- normálna konjuktívna forma
+inkf	- IREDUNDANTNÁ normálna konjuktívna forma - ideálna
+
+1.nps	- 1. normálna pierceova forma
+2.nsf	- 2. normálna shafferova forma

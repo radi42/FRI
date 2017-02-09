@@ -1,0 +1,18 @@
+What is different between IPv6 routing table entries compared to IPv4 routing table entries?
+	By design IPv6 is classless so all routes are effectively level 1 ultimate routes.
+
+Refer to the exhibit. Based on the partial output from the show ip route command, what two facts can be determined about the RIP routing protocol? (Choose two.)
+
+	RIP version 2 is running on this router and its RIP neighbor.
+	The command no auto-summary has been used on the RIP neighbor router.
+
+The command 	"version 2" is used in RIP router configuration mode to enable the sending of subnet masks with the routing updates.
+
+Which route will a router use to forward an IPv4 packet after examining its routing table for the best match with the destination address?
+	a level 1 ultimate route
+
+When configuring RIPng, the 	"default-information originate"	 command instructs the router to propagate a static default route.
+
+Which two requirements are used to determine if a route can be considered as an ultimate route in a router’s routing table? (Choose two.)
+	contain a next-hop IP address
+	contain an exit interface

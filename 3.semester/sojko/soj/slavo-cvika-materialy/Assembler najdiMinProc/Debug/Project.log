@@ -1,0 +1,14 @@
+﻿Build started 18.11.2014 19:52:28.
+     1>Project "C:\Users\Dobroslav Grygar\Documents\Visual Studio 2013\Projects\Assembler najdiMinProc\Project.vcxproj" on node 2 (Build target(s)).
+     1>_MASM:
+         Assembling main.asm...
+         cmd.exe /C "C:\Users\Dobroslav Grygar\AppData\Local\Temp\tmp75e3fbcba768405cb8102832a7318fb9.cmd"
+         ml.exe /c /nologo /Zi /Fo"Debug\main.obj" /I "c:\Irvine" /W3 /errorReport:prompt  /Tamain.asm
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Dobroslav Grygar\Documents\Visual Studio 2013\Projects\Assembler najdiMinProc\Debug\ASM_Project.exe" /NOLOGO /LIBPATH:c:\Irvine user32.lib irvine32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Dobroslav Grygar\Documents\Visual Studio 2013\Projects\Assembler najdiMinProc\Debug\ASM_Project.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"C:\Users\Dobroslav Grygar\Documents\Visual Studio 2013\Projects\Assembler najdiMinProc\Debug\ASM_Project.lib" /MACHINE:X86 /SAFESEH:NO Debug\main.obj
+         Project.vcxproj -> C:\Users\Dobroslav Grygar\Documents\Visual Studio 2013\Projects\Assembler najdiMinProc\Debug\ASM_Project.exe
+     1>Done Building Project "C:\Users\Dobroslav Grygar\Documents\Visual Studio 2013\Projects\Assembler najdiMinProc\Project.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.24

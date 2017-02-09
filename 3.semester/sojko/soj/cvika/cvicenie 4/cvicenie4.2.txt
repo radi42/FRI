@@ -1,0 +1,5 @@
+nacitaj slovo				'prasa'
+nacitaj nahradzovanu cast		'as'
+najdi nahradzovanu cast v slove
+a nahrad ju znakom *			'as' -> *
+vyskedne slovo				pr*a

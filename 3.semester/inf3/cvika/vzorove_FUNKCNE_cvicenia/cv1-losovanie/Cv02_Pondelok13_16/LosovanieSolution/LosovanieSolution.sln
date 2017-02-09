@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Losovanie", "Losovanie\Losovanie.vcxproj", "{3CEF7EDB-6781-49E2-9FAB-76B9283B3ED6}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LosovanieC_CPP", "LosovanieC_CPP\LosovanieC_CPP.vcxproj", "{BE112559-6D6A-4833-8A6A-1A1BD1F03242}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3CEF7EDB-6781-49E2-9FAB-76B9283B3ED6}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3CEF7EDB-6781-49E2-9FAB-76B9283B3ED6}.Debug|Win32.Build.0 = Debug|Win32
+		{3CEF7EDB-6781-49E2-9FAB-76B9283B3ED6}.Release|Win32.ActiveCfg = Release|Win32
+		{3CEF7EDB-6781-49E2-9FAB-76B9283B3ED6}.Release|Win32.Build.0 = Release|Win32
+		{BE112559-6D6A-4833-8A6A-1A1BD1F03242}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BE112559-6D6A-4833-8A6A-1A1BD1F03242}.Debug|Win32.Build.0 = Debug|Win32
+		{BE112559-6D6A-4833-8A6A-1A1BD1F03242}.Release|Win32.ActiveCfg = Release|Win32
+		{BE112559-6D6A-4833-8A6A-1A1BD1F03242}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,1500 @@
+
+Andrej-Switch#
+Andrej-Switch#
+Andrej-Switch#
+Andrej-Switch#
+Andrej-Switch#sh vlan
+
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Fa0/16, Fa0/17, Fa0/18, Fa0/19
+                                                Fa0/20, Fa0/21, Fa0/22, Fa0/23
+                                                Fa0/24, Gi0/2
+10   UCTO                             active    Fa0/1, Fa0/2, Fa0/3, Fa0/4
+                                                Fa0/5
+20   MARKETING                        active    Fa0/6, Fa0/7, Fa0/8, Fa0/9
+                                                Fa0/10
+30   VYROBA                           active    Fa0/11, Fa0/12, Fa0/13, Fa0/14
+                                                Fa0/15
+80   PARIKING                         suspended
+90   MANAZMENT                        active
+99   NATIVE                           active
+1002 fddi-default                     act/unsup
+1003 token-ring-default               act/unsup
+1004 fddinet-default                  act/unsup
+1005 trnet-default                    act/unsup
+
+VLAN Type  SAID       MTU   Parent RingNo BridgeNo Stp  BrdgMode Trans1 Trans2
+---- ----- ---------- ----- ------ ------ -------- ---- -------- ------ ------
+1    enet  100001     1500  -      -      -        -    -        0      0
+
+VLAN Type  SAID       MTU   Parent RingNo BridgeNo Stp  BrdgMode Trans1 Trans2
+---- ----- ---------- ----- ------ ------ -------- ---- -------- ------ ------
+10   enet  100010     1500  -      -      -        -    -        0      0
+20   enet  100020     1500  -      -      -        -    -        0      0
+30   enet  100030     1500  -      -      -        -    -        0      0
+80   enet  100080     1500  -      -      -        -    -        0      0
+90   enet  100090     1500  -      -      -        -    -        0      0
+99   enet  100099     1500  -      -      -        -    -        0      0
+1002 fddi  101002     1500  -      -      -        -    -        0      0
+1003 tr    101003     1500  -      -      -        -    -        0      0
+1004 fdnet 101004     1500  -      -      -        ieee -        0      0
+1005 trnet 101005     1500  -      -      -        ibm  -        0      0
+
+Remote SPAN VLANs
+------------------------------------------------------------------------------
+
+
+Primary Secondary Type              Ports
+------- --------- ----------------- ------------------------------------------
+
+Andrej-Switch#sh int tr
+Andrej-Switch#sh int trunk
+
+Port        Mode             Encapsulation  Status        Native vlan
+Gi0/1       on               802.1q         trunking      99
+
+Port        Vlans allowed on trunk
+Gi0/1       1-4094
+
+Port        Vlans allowed and active in management domain
+Gi0/1       1,10,20,30,90,99
+
+Port        Vlans in spanning tree forwarding state and not pruned
+Gi0/1       1,10,20,30,90,99
+Andrej-Switch#
+% Please answer 'yes' or 'no'.
+Would you like to enter the initial configuration dialog? [yes/no]: no
+
+
+Press RETURN to get started!
+
+sslinit fn
+
+*Dec  1 11:49:33.903: %VPN_HW-6-INFO_LOC: Crypto engine: onboard 0  State changed to: Initialized
+*Dec  1 11:49:33.907: %VPN_HW-6-INFO_LOC: Crypto engine: onboard 0  State changed to: Enabled
+*Dec  1 11:49:34.775: %LINEPROTO-5-UPDOWN: Line protocol on Interface VoIP-Null0, changed state to up
+*Dec  1 11:49:34.775: %LINK-3-UPDOWN: Interface Serial0/1/0, changed state to down
+*Dec  1 11:49:34.775: %LINK-3-UPDOWN: Interface Serial0/1/1, changed state to down
+*Dec  1 11:49:34.775: %LINK-3-UPDOWN: Interface Serial0/2/0, changed state to down
+*Dec  1 11:49:34.775: %LINK-3-UPDOWN: Interface Serial0/2/1, changed state to down
+*Dec  1 11:49:35.775: %LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/1/0, changed state to down
+*Dec  1 11:49:35.775: %LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/1/1, changed state to down
+*Dec  1 11:49:35.775: %LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/2/0, changed state to down
+*Dec  1 11:49:35.775: %LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/2/1, changed state to down
+*Dec  1 11:49:41.191: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to down
+*Dec  1 11:49:41.291: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to down
+*Dec  1 12:25:02.631: %SYS-5-RESTART: System restarted --
+Cisco IOS Software, 2801 Software (C2801-ADVENTERPRISEK9-M), Version 12.4(25d), RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2010 by Cisco Systems, Inc.
+Compiled Wed 18-Aug-10 06:39 by prod_rel_team
+*Dec  1 12:25:02.635: %SNMP-5-COLDSTART: SNMP agent on host Router is undergoing a cold start
+*Dec  1 12:25:02.979: %CRYPTO-6-ISAKMP_ON_OFF: ISAKMP is OFF
+*Dec  1 12:25:03.959: %LINK-5-CHANGED: Interface FastEthernet0/0, changed state to administratively down
+*Dec  1 12:25:03.963: %LINK-5-CHANGED: Interface FastEthernet0/1, changed state to administratively down
+*Dec  1 12:25:03.963: %LINK-5-CHANGED: Interface Serial0/1/0, changed stat
+Router>
+Router>
+Router>
+Router>
+Router>
+Router>
+Router>e to administratively down
+*Dec  1 12:25:03.963: %LINK-5-CHANGED: Interface Serial0/1/1, changed state to administratively down
+*Dec  1 12:25:03.963: %LINK-5-CHANGED: Interface Serial0/2/0, changed state to administratively down
+*Dec  1 12:25:03.963: %LINK-5-CHANGED: Interface Serial0/2/1, changed state to administratively down
+Router>
+Router>
+Router>
+Router>ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#hostname Andrej-Router
+Andrej-Router(config)#line con 0
+Andrej-Router(config-line)#pass
+Andrej-Router(config-line)#password cisco
+Andrej-Router(config-line)#login
+Andrej-Router(config-line)#logg
+Andrej-Router(config-line)#logging sybn
+Andrej-Router(config-line)#logging sy
+Andrej-Router(config-line)#logging synchronous
+Andrej-Router(config-line)#exit
+Andrej-Router(config)#ena
+Andrej-Router(config)#enable se
+Andrej-Router(config)#enable secret class
+Andrej-Router(config)#no ip dom
+Andrej-Router(config)#no ip domain-loo
+Andrej-Router(config)#no ip domain-lookup
+Andrej-Router(config)#ser
+Andrej-Router(config)#service pass
+Andrej-Router(config)#service password-encryption
+Andrej-Router(config)#banner motd
+% Incomplete command.
+
+Andrej-Router(config)#banner motd#
+Enter TEXT message.  End with the character 'm'.
+**********************
+NEPOVOLANYM VSTUP ZAKAZANY
+************************
+#
+motd#
+Andrej-Router(config)#banner motd #
+Enter TEXT message.  End with the character '#'.
+************************
+NEPOVOLANYM VSTUP ZAKAZANY
+************************
+#
+Andrej-Router(config)#exit
+Andrej-Router#
+*Dec  1 12:29:21.291: %SYS-5-CONFIG_I: Configured from console by console
+Andrej-Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Andrej-Router(config)#int f0/0
+Andrej-Router(config-if)#exit
+Andrej-Router(config)#int f0/0.10
+Andrej-Router(config-subif)#ip addre
+Andrej-Router(config-subif)#ip address 192.168.10.40 255.255.255.0
+
+% Configuring IP routing on a LAN subinterface is only allowed if that
+subinterface is already configured as part of an IEEE 802.10, IEEE 802.1Q,
+or ISL vLAN.
+
+Andrej-Router(config-subif)#en
+Andrej-Router(config-subif)#encapsulation dot1Q 10
+Andrej-Router(config-subif)#ip address 192.168.10.40 255.255.255.0
+Andrej-Router(config-subif)#ip address 192.168.10.4 255.255.255.0
+Andrej-Router(config-subif)#exit
+Andrej-Router(config)#int lo1
+Andrej-Router(config-if)#
+*Dec  1 12:32:06.415: %LINEPROTO-5-UPDOWN: Line protocol on Interface Loopback1, changed state to up
+Andrej-Router(config-if)#ip address 200.200.200.1 255.255.255.192
+Andrej-Router(config-if)#no shut
+Andrej-Router(config-if)#exit
+Andrej-Router(config)#int lo2
+Andrej-Router(config-if)#exit
+*Dec  1 12:32:59.279: %LINEPROTO-5-UPDOWN: Line protocol on Interface Loopback2, changed state to up
+Andrej-Router(config-if)#ip address 200.200.200.129 255.255.255.192
+Andrej-Router(config-if)#no shut
+Andrej-Router(config-if)#exit
+Andrej-Router(config)#int f0/0.20
+Andrej-Router(config-subif)#enc
+Andrej-Router(config-subif)#encapsulation dot1q
+Andrej-Router(config-subif)#encapsulation dot1q 20
+Andrej-Router(config-subif)#ip add
+Andrej-Router(config-subif)#ip address 192.168..20.4 255.255.255.0
+                                               ^
+% Invalid input detected at '^' marker.
+
+Andrej-Router(config-subif)#ip address 192.168.20.4 255.255.255.0
+Andrej-Router(config-subif)#int f0/0.30
+Andrej-Router(config-subif)#ip add
+Andrej-Router(config-subif)#encapsulation dot1q 30
+Andrej-Router(config-subif)#ip address 192.168.30.4 255.255.255.0
+Andrej-Router(config-subif)#int f0/0.40
+Andrej-Router(config-subif)#en
+Andrej-Router(config-subif)#encapsulation dot1q
+% Incomplete command.
+
+Andrej-Router(config-subif)#encapsulation dot1q 40
+Andrej-Router(config-subif)#ip
+Andrej-Router(config-subif)#ip a
+Andrej-Router(config-subif)#ip ad
+Andrej-Router(config-subif)#ip add
+Andrej-Router(config-subif)#ip address 192.168.40.4 255.255.255.0
+Andrej-Router(config-subif)#exit
+Andrej-Router(config)#int f0/0
+Andrej-Router(config-if)#no shut
+Andrej-Router(config-if)#
+*Dec  1 12:36:08.687: %LINK-3-UPDOWN: Interface FastEthernet0/0, changed state to up
+*Dec  1 12:36:09.687: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+Andrej-Router(config-if)#
+*Dec  1 12:36:10.819: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to down
+Andrej-Router(config-if)#end
+Andrej-Router#sh ip int
+*Dec  1 12:36:19.179: %SYS-5-CONFIG_I: Configured from console by console
+Andrej-Router#sh ip int b
+Interface                  IP-Address      OK? Method Status                Protocol
+FastEthernet0/0            unassigned      YES unset  up                    down
+FastEthernet0/0.10         192.168.10.4    YES manual up                    down
+FastEthernet0/0.20         192.168.20.4    YES manual up                    down
+FastEthernet0/0.30         192.168.30.4    YES manual up                    down
+FastEthernet0/0.40         192.168.40.4    YES manual up                    down
+FastEthernet0/1            unassigned      YES unset  administratively down down
+Serial0/1/0                unassigned      YES unset  administratively down down
+Serial0/1/1                unassigned      YES unset  administratively down down
+Serial0/2/0                unassigned      YES unset  administratively down down
+Serial0/2/1                unassigned      YES unset  administratively down down
+Loopback1                  200.200.200.1   YES manual up                    up  
+Loopback2                  200.200.200.129 YES manual up                    up  
+Andrej-Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Andrej-Router(config)#int serial 0/1/0
+Andrej-Router(config-if)#clock
+Andrej-Router(config-if)#clock r
+Andrej-Router(config-if)#clock rate ?
+        Speed (bits per second)
+  1200
+  2400
+  4800
+  9600
+  14400
+  19200
+  28800
+  32000
+  38400
+  48000
+  56000
+  57600
+  64000
+  72000
+  115200
+  125000
+  128000
+
+  <300-4000000>    Choose clockrate from list above
+
+Andrej-Router(config-if)#clock rate 128000
+Andrej-Router(config-if)#end
+Andrej-Router#
+*Dec  1 12:39:49.119: %SYS-5-CONFIG_I: Configured from console by console
+Andrej-Router#sh contr
+Andrej-Router#sh controllers
+Interface FastEthernet0/0
+Hardware is GT96K FE ADDR: 64525734, FASTSEND: 629310AC, MCI_INDEX: 0
+DIST ROUTE ENABLED: 0Route Cache Flag: 11
+GPIO 2 CONF= 67FF07A8 GPIO 2 IO= 187D303F  CIU arbit = 80F002BF
+ PHY add register = 0xA4  PHY data register = 0x3A40000
+ Port Conf Reg= 0x80 ENABLE HT8K HMOD0
+ Port Conf Ex Reg= 0x10CD00
+TX1:1 RXPRI=DE(00) ~FLCNTL ~FLNKP MFL64KB E RMII
+Port Com Reg= 0x0
+ Port Status Reg= 0x0 10MB  HDPX FCTL EN  LNK DN ~PAUSED TX oFF
+ Serial Param Reg= 0x218823  Hash table pointer= 0x7398960
+Source ADDR L= 0x9D6A Source ADDR H= 0x1E1375
+SDMA conf reg= 0x223C RETX 15 RX BE TX BE FRINT BSIZE 4
+SDMA com reg= 0x30080 STP TXL STP TXH EN RX
+IMASK= 0x90003DCD ICause= 0x20000000 SMI
+Serial 0 mask 30FFFC3Serial 0 cause 0
+IpDiffservP0L= 0x0 IpDiffservP0H= 0x0 IpDiffservP1L= 0x0 IpDiffservP1H= 0x0
+ IP VLAN TAG PRI= 0xF0CC  IP VLAN TAG PRI= 0xF0CC
+ First rxd Q0= 0x73D89E0  Curr rxd Q0= 0x73D89E0
+ First rxd Q1= 0x73D8E40  Curr rxd Q1= 0x73D8E40
+ First rxd Q2= 0x73D92A0  Curr rxd Q2= 0x73D92A0
+ First rxd Q3= 0x73D9700  Curr rxd Q3= 0x73D9700
+ First txd Q0= 0x73D9B60  First txd Q1= 0x73DA3A0
+gt96kfe_instance=0x645267FC, registers=0x24084800
+RxRing entries=64, tx ring entries=128
+       RxR0=0x 73D89E0, RxR1=0x 73D8E40, RxR2=0x 73D92A0, RxR3=0x 73D9700
+Malloc RxR0=0xE73D89E0, RxR1=0xE73D8E40, RxR2=0xE73D92A0, RxR3=0xE73D9700
+SDOW RxR0=0x64526DF4, RxR1=0x64526F28, RxR2=0x6452705C, RxR3=0x64527190
+HEAD RxR0=0x0, RxR1=0x0, RxR2=0x0, RxR3=0x0
+TAIL RxR0=0x0, RxR1=0x0, RxR2=0x0, RxR30x0
+
+tx_limited=0(128)
+TxR0=0x 73D9B60, TxR1=0x 73DA3A0
+COUNT TxR0=0x0, TxR1=0x0
+Head TxR0=0x0, TxR1=0x0 Tail TxR0=0x0, TxR1=0x0
+
+ PHY registers:
+  Register 0x00:   1000  7809  0040  61E4  01E1  0000  0004  2001
+  Register 0x08:   0000  0000  0000  0000  0000  0000  0000  0000
+  Register 0x10:   1000  0000  0000  0000  0200  0600  0100  0000
+  Register 0x18:   0038  1002  9F10  008A  0828  0000  0010
+Bytes_recvd 0 Bytes_sent 0 Frames_recvd 0 Frames_sent 0
+total_bytes_RX 0 Total_frames_RX 0 Bcast_frames_recvd 0
+Mcast_frames_RX 0 CRC_err 0 Ovr_sized_frames 0
+Fragments 0 Jabber 0 collision 0
+Late_collision 0 64B frame 0; 65_127B_frames 0
+128_255B_frames 0 256_511B_frames 0 512_1023B_frames 0
+1023_maxB_frames 0 Rx_error 0 Dropped_frames 0
+Mcast_frames_tx 0 Bcast_frames_tx 0 Sml_frame_recvd 0
+
+
+ Software MAC address filter(hash:length/addr/mask/hits):
+  0x00:  0  ffff.ffff.ffff  0000.0000.0000         0
+  0x79:  0  001e.1375.9d6a  0000.0000.0000         0
+  0xC0:  0  0100.0ccc.cccc  0000.0000.0000         0
+
+======= Driver Counters =======
+Number of Transmitter Hang =  0
+tx_more_col_err=  0 tx_one_col_err=  0
+tx_exc_collision_err=  0 tx_late_collision_err=  0
+tx_underrun_err=  0 tx_error_intr=  0
+rx_soft_overflow_err=  0  rx_overflow_err= 0
+
+Interface FastEthernet0/1
+Hardware is GT96K FE ADDR: 64532A50, FASTSEND: 629310AC, MCI_INDEX: 0
+DIST ROUTE ENABLED: 0Route Cache Flag: 11
+GPIO 2 CONF= 67FF07A8 GPIO 2 IO= 187D303F  CIU arbit = 80F002BF
+ PHY add register = 0xA4  PHY data register = 0xFC40010
+ Port Conf Reg= 0x0 DISABLE HT8K HMOD0
+ Port Conf Ex Reg= 0x10CD00
+TX1:1 RXPRI=DE(00) ~FLCNTL ~FLNKP MFL64KB E RMII
+Port Com Reg= 0x0
+ Port Status Reg= 0x0 10MB  HDPX FCTL EN  LNK DN ~PAUSED TX oFF
+ Serial Param Reg= 0x218823  Hash table pointer= 0x74AAC20
+Source ADDR L= 0x9D6B Source ADDR H= 0x1E1375
+SDMA conf reg= 0x223C RETX 15 RX BE TX BE FRINT BSIZE 4
+SDMA com reg= 0x30000 STP TXL STP TXH
+IMASK= 0x90003DCD ICause= 0x20000000 SMI
+Serial 0 mask 30FFFC3Serial 0 cause 0
+IpDiffservP0L= 0x0 IpDiffservP0H= 0x0 IpDiffservP1L= 0x0 IpDiffservP1H= 0x0
+ IP VLAN TAG PRI= 0xF0CC  IP VLAN TAG PRI= 0xF0CC
+ First rxd Q0= 0x74EACA0  Curr rxd Q0= 0x74EACA0
+ First rxd Q1= 0x74EB100  Curr rxd Q1= 0x74EB100
+ First rxd Q2= 0x74EB560  Curr rxd Q2= 0x74EB560
+ First rxd Q3= 0x74EB9C0  Curr rxd Q3= 0x74EB9C0
+ First txd Q0= 0x74EBE20  First txd Q1= 0x74EC660
+gt96kfe_instance=0x64533B18, registers=0x24088800
+RxRing entries=64, tx ring entries=128
+       RxR0=0x 74EACA0, RxR1=0x 74EB100, RxR2=0x 74EB560, RxR3=0x 74EB9C0
+Malloc RxR0=0xE74EACA0, RxR1=0xE74EB100, RxR2=0xE74EB560, RxR3=0xE74EB9C0
+SDOW RxR0=0x6453402C, RxR1=0x64534160, RxR2=0x64534294, RxR3=0x645343C8
+HEAD RxR0=0x0, RxR1=0x0, RxR2=0x0, RxR3=0x0
+TAIL RxR0=0x0, RxR1=0x0, RxR2=0x0, RxR30x0
+
+tx_limited=0(128)
+TxR0=0x 74EBE20, TxR1=0x 74EC660
+COUNT TxR0=0x0, TxR1=0x0
+Head TxR0=0x0, TxR1=0x0 Tail TxR0=0x0, TxR1=0x0
+
+ PHY registers:
+  Register 0x00:   1400  7809  0040  61E4  01E1  0000  0004  2001
+  Register 0x08:   0000  0000  0000  0000  0000  0000  0000  0000
+  Register 0x10:   3000  0000  0000  0000  0200  0600  0100  0000
+  Register 0x18:   0038  1002  1F10  008A  0828  0008  0018
+Bytes_recvd 0 Bytes_sent 0 Frames_recvd 0 Frames_sent 0
+total_bytes_RX 0 Total_frames_RX 0 Bcast_frames_recvd 0
+Mcast_frames_RX 0 CRC_err 0 Ovr_sized_frames 0
+Fragments 0 Jabber 0 collision 0
+Late_collision 0 64B frame 0; 65_127B_frames 0
+128_255B_frames 0 256_511B_frames 0 512_1023B_frames 0
+1023_maxB_frames 0 Rx_error 0 Dropped_frames 0
+Mcast_frames_tx 0 Bcast_frames_tx 0 Sml_frame_recvd 0
+
+
+ Software MAC address filter(hash:length/addr/mask/hits):
+  0x00:  0  ffff.ffff.ffff  0000.0000.0000         0
+  0x78:  0  001e.1375.9d6b  0000.0000.0000         0
+  0xC0:  0  0100.0ccc.cccc  0000.0000.0000         0
+
+======= Driver Counters =======
+Number of Transmitter Hang =  0
+tx_more_col_err=  0 tx_one_col_err=  0
+tx_exc_collision_err=  0 tx_late_collision_err=  0
+tx_underrun_err=  0 tx_error_intr=  0
+rx_soft_overflow_err=  0  rx_overflow_err= 0
+
+Interface Serial0/1/0
+Hardware is GT96K
+No serial cable attached
+idb at 0x6454170C, driver data structure at 0x64543A30
+wic_info 0x64544034
+Physical Port 0, SCC Num 0
+MPSC Registers:
+MMCR_L=0x00030400, MMCR_H=0x00000000, MPCR=0x00000000
+CHR1=0x00FE007E, CHR2=0x80000000, CHR3=0x0000064A, CHR4=0x00000000
+CHR5=0x00000000, CHR6=0x00000000, CHR7=0x00000000, CHR8=0x00000000
+CHR9=0x00000000, CHR10=0x00000003
+SDMA Registers:
+SDC=0x00002201, SDCM=0x00000000, SGC=0x0000C000
+CRDP=0x075BCEE0, CTDP=0x075BD120, FTDB=0x075BD120
+Main Routing Register=0x00007038 BRG Conf Register=0x0049013F
+Rx Clk Routing Register=0x76848818 Tx Clk Routing Register=0x76543210
+GPP Registers:
+Conf=0x430002  , Io=0x46C408  , Data=0x7F7FFFFF, Level=0x0
+Conf0=0x430002  , Io0=0x46C408  , Data0=0x7F7FFFFF, Level0=0x0
+TDM FPGA Registers:
+TDM FPGA Version: 33.0
+vmcr[0] = 0x80 @ 0x4B000010, vmcr[1] = 0x30A @ 0x4B000014,
+ vmcr[2] = 0x30A @ 0x4B000018 vmcr[3]= 0x0 @ 0x4B00001C
+vtcr[0] = 0x0 @ 0x4B000020, vtcr[1] = 0x0 @ 0x4B000024,
+ vtcr[2] = 0x0 @ 0x4B000028, vtcr[3]= 0x0 @ 0x4B00002C
+nhr = 0x3F00 @ 0x4B00004C, isr = 0x0 & 0x4B000050, imr = 0x0 @ 0x4B000054
+ atcr = 0x0 @ 0x4B000030
+prcr = 0x10404 @ 0x4B000040, psr = 0xA00002 @ 0x4B000044, gtcr = 0x0 @ 0x4B000034
+rcr = 0x110000 @ 0x4B000004
+pphr = 0x1 @ 0x4B000058
+tshr = 0x1 @ 0x4B00005C
+sr1 = 0x0 @ 0x4B00006C
+sr2 = 0x0 @ 0x4B000070
+sr3 = 0x0 @ 0x4B000074
+chpir = 0x0 @ 0x4B000064
+drcr = 0x0 @ 0x4B000060
+miscr = 0x400000 @ 0x4B000000
+d_ihpr = 0x0 @ 0x4B000080
+d_ehpr[i] = 0x0 @ 0x4B000090
+d_ehpr[i] = 0x0 @ 0x4B000094
+d_ehpr[i] = 0x0 @ 0x4B000098
+d_ehpr[i] = 0x0 @ 0x4B00009C
+d_ehpr[i] = 0x0 @ 0x4B0000A0
+d_ehpr[i] = 0x0 @ 0x4B0000A4
+d_ehpr[i] = 0x0 @ 0x4B0000A8
+d_ehpr[i] = 0x0 @ 0x4B0000AC
+0 input aborts on receiving flag sequence
+0 throttles, 0 enables
+0 overruns
+0 transmitter underruns
+0 transmitter CTS losts
+0 rxintr, 0 txintr, 0 rxerr, 0 txerr
+0 mpsc_rx, 0 mpsc_rxerr, 0 mpsc_rlsc, 0 mpsc_rhnt, 0 mpsc_rfsc
+0 mpsc_rcsc, 0 mpsc_rovr, 0 mpsc_rcdl, 0 mpsc_rckg, 0 mpsc_bper
+0 mpsc_txerr, 0 mpsc_teidl, 0 mpsc_tudr, 0 mpsc_tctsl, 0 mpsc_tckg
+0 sdma_rx_sf, 0 sdma_rx_mfl, 0 sdma_rx_or, 0 sdma_rx_abr, 0 sdma_rx_no
+0 sdma_rx_de, 0 sdma_rx_cdl, 0 sdma_rx_ce, 0 sdma_tx_rl, 0 sdma_tx_ur, 0 sdma_tx_ctsl
+0 sdma_rx_reserr, 0 sdma_tx_reserr
+0 rx_bogus_pkts, rx_bogus_flag FALSE
+0 sdma_tx_ur_processed
+
+tx_limited = 1(2), errata19 count1 - 0, count2 - 0
+Receive Ring
+rxr head (0)(0x075BCEE0), rxr tail (0)(0x075BCEE0)
+  rmd(75BCEE0): nbd 75BCEF0 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75BD9C0
+  rmd(75BCEF0): nbd 75BCF00 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75BE020
+  rmd(75BCF00): nbd 75BCF10 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75BE680
+  rmd(75BCF10): nbd 75BCF20 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75BECE0
+  rmd(75BCF20): nbd 75BCF30 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75BF340
+  rmd(75BCF30): nbd 75BCF40 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75BF9A0
+  rmd(75BCF40): nbd 75BCF50 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C0000
+  rmd(75BCF50): nbd 75BCF60 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C0660
+  rmd(75BCF60): nbd 75BCF70 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C0CC0
+  rmd(75BCF70): nbd 75BCF80 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C1320
+  rmd(75BCF80): nbd 75BCF90 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C1980
+  rmd(75BCF90): nbd 75BCFA0 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C1FE0
+  rmd(75BCFA0): nbd 75BCFB0 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C2640
+  rmd(75BCFB0): nbd 75BCFC0 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C2CA0
+  rmd(75BCFC0): nbd 75BCFD0 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C3300
+  rmd(75BCFD0): nbd 75BCFE0 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C3960
+  rmd(75BCFE0): nbd 75BCFF0 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C3FC0
+  rmd(75BCFF0): nbd 75BD000 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C4620
+  rmd(75BD000): nbd 75BD010 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C4C80
+  rmd(75BD010): nbd 75BD020 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C52E0
+  rmd(75BD020): nbd 75BD030 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C5940
+  rmd(75BD030): nbd 75BD040 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C5FA0
+  rmd(75BD040): nbd 75BD050 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C6600
+  rmd(75BD050): nbd 75BD060 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C6C60
+  rmd(75BD060): nbd 75BD070 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C72C0
+  rmd(75BD070): nbd 75BD080 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C7920
+  rmd(75BD080): nbd 75BD090 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C7F80
+  rmd(75BD090): nbd 75BD0A0 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C85E0
+  rmd(75BD0A0): nbd 75BD0B0 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C8C40
+  rmd(75BD0B0): nbd 75BD0C0 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C92A0
+  rmd(75BD0C0): nbd 75BD0D0 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C9900
+  rmd(75BD0D0): nbd 75BCEE0 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C9F60
+Transmit Ring
+txr head (0)(0x075BD120), txr tail (0)(0x075BD120)
+  tmd(75BD120): nbd 75BD130 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD130): nbd 75BD140 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD140): nbd 75BD150 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD150): nbd 75BD160 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD160): nbd 75BD170 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD170): nbd 75BD180 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD180): nbd 75BD190 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD190): nbd 75BD1A0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD1A0): nbd 75BD1B0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD1B0): nbd 75BD1C0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD1C0): nbd 75BD1D0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD1D0): nbd 75BD1E0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD1E0): nbd 75BD1F0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD1F0): nbd 75BD200 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD200): nbd 75BD210 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD210): nbd 75BD220 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD220): nbd 75BD230 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD230): nbd 75BD240 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD240): nbd 75BD250 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD250): nbd 75BD260 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD260): nbd 75BD270 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD270): nbd 75BD280 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD280): nbd 75BD290 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD290): nbd 75BD2A0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD2A0): nbd 75BD2B0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD2B0): nbd 75BD2C0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD2C0): nbd 75BD2D0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD2D0): nbd 75BD2E0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD2E0): nbd 75BD2F0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD2F0): nbd 75BD300 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD300): nbd 75BD310 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD310): nbd 75BD320 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD320): nbd 75BD330 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD330): nbd 75BD340 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD340): nbd 75BD350 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD350): nbd 75BD360 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD360): nbd 75BD370 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD370): nbd 75BD380 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD380): nbd 75BD390 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD390): nbd 75BD3A0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD3A0): nbd 75BD3B0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD3B0): nbd 75BD3C0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD3C0): nbd 75BD3D0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD3D0): nbd 75BD3E0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD3E0): nbd 75BD3F0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD3F0): nbd 75BD400 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD400): nbd 75BD410 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD410): nbd 75BD420 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD420): nbd 75BD430 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD430): nbd 75BD440 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD440): nbd 75BD450 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD450): nbd 75BD460 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD460): nbd 75BD470 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD470): nbd 75BD480 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD480): nbd 75BD490 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD490): nbd 75BD4A0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD4A0): nbd 75BD4B0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD4B0): nbd 75BD4C0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD4C0): nbd 75BD4D0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD4D0): nbd 75BD4E0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD4E0): nbd 75BD4F0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD4F0): nbd 75BD500 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD500): nbd 75BD510 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD510): nbd 75BD520 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD520): nbd 75BD530 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD530): nbd 75BD540 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD540): nbd 75BD550 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD550): nbd 75BD560 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD560): nbd 75BD570 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD570): nbd 75BD580 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD580): nbd 75BD590 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD590): nbd 75BD5A0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD5A0): nbd 75BD5B0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD5B0): nbd 75BD5C0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD5C0): nbd 75BD5D0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD5D0): nbd 75BD5E0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD5E0): nbd 75BD5F0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD5F0): nbd 75BD600 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD600): nbd 75BD610 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD610): nbd 75BD620 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD620): nbd 75BD630 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD630): nbd 75BD640 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD640): nbd 75BD650 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD650): nbd 75BD660 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD660): nbd 75BD670 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD670): nbd 75BD680 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD680): nbd 75BD690 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD690): nbd 75BD6A0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD6A0): nbd 75BD6B0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD6B0): nbd 75BD6C0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD6C0): nbd 75BD6D0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD6D0): nbd 75BD6E0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD6E0): nbd 75BD6F0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD6F0): nbd 75BD700 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD700): nbd 75BD710 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD710): nbd 75BD720 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD720): nbd 75BD730 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD730): nbd 75BD740 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD740): nbd 75BD750 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD750): nbd 75BD760 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD760): nbd 75BD770 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD770): nbd 75BD780 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD780): nbd 75BD790 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD790): nbd 75BD7A0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD7A0): nbd 75BD7B0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD7B0): nbd 75BD7C0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD7C0): nbd 75BD7D0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD7D0): nbd 75BD7E0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD7E0): nbd 75BD7F0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD7F0): nbd 75BD800 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD800): nbd 75BD810 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD810): nbd 75BD820 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD820): nbd 75BD830 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD830): nbd 75BD840 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD840): nbd 75BD850 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD850): nbd 75BD860 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD860): nbd 75BD870 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD870): nbd 75BD880 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD880): nbd 75BD890 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD890): nbd 75BD8A0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD8A0): nbd 75BD8B0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD8B0): nbd 75BD8C0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD8C0): nbd 75BD8D0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD8D0): nbd 75BD8E0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD8E0): nbd 75BD8F0 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD8F0): nbd 75BD900 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD900): nbd 75BD910 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+  tmd(75BD910): nbd 75BD120 cmd_sts 00C30000 byt_cnt ABCDABCD buf_ptr 0
+
+buffer size 1524
+
+Interface Serial0/1/1
+Hardware is GT96K
+No serial cable attached
+idb at 0x64546D0C, driver data structure at 0x64549030
+wic_info 0x64549634
+Physical Port 2, SCC Num 2
+MPSC Registers:
+MMCR_L=0x00030400, MMCR_H=0x00000000, MPCR=0x00000000
+CHR1=0x00FE007E, CHR2=0x80000000, CHR3=0x0000064A, CHR4=0x00000000
+CHR5=0x00000000, CHR6=0x00000000, CHR7=0x00000000, CHR8=0x00000000
+CHR9=0x00000000, CHR10=0x00000003
+SDMA Registers:
+SDC=0x00002201, SDCM=0x00000000, SGC=0x0000C000
+CRDP=0x075D71A0, CTDP=0x075D73E0, FTDB=0x075D73E0
+Main Routing Register=0x00007038 BRG Conf Register=0x0049013F
+Rx Clk Routing Register=0x76848818 Tx Clk Routing Register=0x76543210
+GPP Registers:
+Conf=0x43004343, Io=0x46004646, Data=0x7F7F7F7F, Level=0x0
+Conf0=0x430002  , Io0=0x46C408  , Data0=0x7F7FFFFF, Level0=0x0
+TDM FPGA Registers:
+TDM FPGA Version: 33.0
+vmcr[0] = 0x80 @ 0x4B000010, vmcr[1] = 0x30A @ 0x4B000014,
+ vmcr[2] = 0x30A @ 0x4B000018 vmcr[3]= 0x0 @ 0x4B00001C
+vtcr[0] = 0x0 @ 0x4B000020, vtcr[1] = 0x0 @ 0x4B000024,
+ vtcr[2] = 0x0 @ 0x4B000028, vtcr[3]= 0x0 @ 0x4B00002C
+
+Andrej-Router#sh con
+Andrej-Router#sh contro
+Andrej-Router#sh controllers s0/1/0
+Interface Serial0/1/0
+Hardware is GT96K
+No serial cable attached
+idb at 0x6454170C, driver data structure at 0x64543A30
+wic_info 0x64544034
+Physical Port 0, SCC Num 0
+MPSC Registers:
+MMCR_L=0x00030400, MMCR_H=0x00000000, MPCR=0x00000000
+CHR1=0x00FE007E, CHR2=0x80000000, CHR3=0x0000064A, CHR4=0x00000000
+CHR5=0x00000000, CHR6=0x00000000, CHR7=0x00000000, CHR8=0x00000000
+CHR9=0x00000000, CHR10=0x00000003
+SDMA Registers:
+SDC=0x00002201, SDCM=0x00000000, SGC=0x0000C000
+CRDP=0x075BCEE0, CTDP=0x075BD120, FTDB=0x075BD120
+Main Routing Register=0x00007038 BRG Conf Register=0x0049013F
+Rx Clk Routing Register=0x76848818 Tx Clk Routing Register=0x76543210
+GPP Registers:
+Conf=0x430002  , Io=0x46C408  , Data=0x7F7FFFFF, Level=0x0
+Conf0=0x430002  , Io0=0x46C408  , Data0=0x7F7FFFFF, Level0=0x0
+TDM FPGA Registers:
+TDM FPGA Version: 33.0
+vmcr[0] = 0x80 @ 0x4B000010, vmcr[1] = 0x30A @ 0x4B000014,
+ vmcr[2] = 0x30A @ 0x4B000018 vmcr[3]= 0x0 @ 0x4B00001C
+
+Andrej-Router#sh ip int b
+Interface                  IP-Address      OK? Method Status                Protocol
+FastEthernet0/0            unassigned      YES unset  up                    down
+FastEthernet0/0.10         192.168.10.4    YES manual up                    down
+FastEthernet0/0.20         192.168.20.4    YES manual up                    down
+FastEthernet0/0.30         192.168.30.4    YES manual up                    down
+FastEthernet0/0.40         192.168.40.4    YES manual up                    down
+FastEthernet0/1            unassigned      YES unset  administratively down down
+Serial0/1/0                unassigned      YES unset  administratively down down
+Serial0/1/1                unassigned      YES unset  administratively down down
+Serial0/2/0                unassigned      YES unset  administratively down down
+Serial0/2/1                unassigned      YES unset  administratively down down
+Loopback1                  200.200.200.1   YES manual up                    up  
+Loopback2                  200.200.200.129 YES manual up                    up  
+Andrej-Router#
+Andrej-Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Andrej-Router(config)#int ser
+Andrej-Router(config)#int serial 0/1/0
+Andrej-Router(config-if)#no shut
+Andrej-Router(config-if)#
+*Dec  1 12:43:32.971: %LINK-3-UPDOWN: Interface Serial0/1/0, changed state to down
+Andrej-Router(config-if)#end
+Andrej-Router#sh ip int
+*Dec  1 12:43:39.227: %SYS-5-CONFIG_I: Configured from console by console
+Andrej-Router#sh ip int b
+Interface                  IP-Address      OK? Method Status                Protocol
+FastEthernet0/0            unassigned      YES unset  up                    down
+FastEthernet0/0.10         192.168.10.4    YES manual up                    down
+FastEthernet0/0.20         192.168.20.4    YES manual up                    down
+FastEthernet0/0.30         192.168.30.4    YES manual up                    down
+FastEthernet0/0.40         192.168.40.4    YES manual up                    down
+FastEthernet0/1            unassigned      YES unset  administratively down down
+Serial0/1/0                unassigned      YES unset  down                  down
+Serial0/1/1                unassigned      YES unset  administratively down down
+Serial0/2/0                unassigned      YES unset  administratively down down
+Serial0/2/1                unassigned      YES unset  administratively down down
+Loopback1                  200.200.200.1   YES manual up                    up  
+Loopback2                  200.200.200.129 YES manual up                    up
+Andrej-Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Andrej-Router(config)#int ser
+Andrej-Router(config)#int serial 0/1/0
+Andrej-Router(config-if)#ip addre
+Andrej-Router(config-if)#ip address 11.11.11.4 255.255.255.252
+Bad mask /30 for address 11.11.11.4
+Andrej-Router(config-if)#no shut
+Andrej-Router(config-if)#exit
+Andrej-Router(config)#exit
+Andrej-Router#sh co
+*Dec  1 12:45:15.947: %SYS-5-CONFIG_I: Configured from console by console
+Andrej-Router#sh cont
+Andrej-Router#sh contr
+Andrej-Router#sh controllers ser
+Andrej-Router#sh controllers serial 0/1/0
+Interface Serial0/1/0
+Hardware is GT96K
+No serial cable attached
+idb at 0x6454170C, driver data structure at 0x64543A30
+wic_info 0x64544034
+Physical Port 0, SCC Num 0
+MPSC Registers:
+MMCR_L=0x00030440, MMCR_H=0x00000000, MPCR=0x00000000
+CHR1=0x00FE007E, CHR2=0x80000000, CHR3=0x0000064A, CHR4=0x00000000
+CHR5=0x00000000, CHR6=0x00000000, CHR7=0x00000000, CHR8=0x00000000
+CHR9=0x00000000, CHR10=0x0000000B
+SDMA Registers:
+SDC=0x00002201, SDCM=0x00000000, SGC=0x0000C000
+CRDP=0x075BCEE0, CTDP=0x075BD120, FTDB=0x075BD120
+Main Routing Register=0x00007038 BRG Conf Register=0x0005011F
+Rx Clk Routing Register=0x76848818 Tx Clk Routing Register=0x76543210
+GPP Registers:
+Conf=0x430002  , Io=0x46C408  , Data=0x7F7BBFFF, Level=0x0
+Conf0=0x430002  , Io0=0x46C408  , Data0=0x7F7BBFFF, Level0=0x0
+TDM FPGA Registers:
+TDM FPGA Version: 33.0
+vmcr[0] = 0x80 @ 0x4B000010, vmcr[1] = 0x30A @ 0x4B000014,
+ vmcr[2] = 0x70E @ 0x4B000018 vmcr[3]= 0x0 @ 0x4B00001C
+vtcr[0] = 0x0 @ 0x4B000020, vtcr[1] = 0x0 @ 0x4B000024,
+ vtcr[2] = 0x0 @ 0x4B000028, vtcr[3]= 0x0 @ 0x4B00002C
+nhr = 0x3F00 @ 0x4B00004C, isr = 0x0 & 0x4B000050, imr = 0x0 @ 0x4B000054
+ atcr = 0x0 @ 0x4B000030
+prcr = 0x10404 @ 0x4B000040, psr = 0xA00012 @ 0x4B000044, gtcr = 0x0 @ 0x4B00003
+rcr = 0x110000 @ 0x4B000004
+pphr = 0x1 @ 0x4B000058
+tshr = 0x1 @ 0x4B00005C
+sr1 = 0x0 @ 0x4B00006C
+sr2 = 0x0 @ 0x4B000070
+sr3 = 0x0 @ 0x4B000074
+chpir = 0x0 @ 0x4B000064
+drcr = 0x0 @ 0x4B000060
+miscr = 0x400000 @ 0x4B000000
+d_ihpr = 0x0 @ 0x4B000080
+d_ehpr[i] = 0x0 @ 0x4B000090
+d_ehpr[i] = 0x0 @ 0x4B000094
+d_ehpr[i] = 0x0 @ 0x4B000098
+d_ehpr[i] = 0x0 @ 0x4B00009C
+d_ehpr[i] = 0x0 @ 0x4B0000A0
+d_ehpr[i] = 0x0 @ 0x4B0000A4
+d_ehpr[i] = 0x0 @ 0x4B0000A8
+
+Andrej-Router#sh ip int b
+Interface                  IP-Address      OK? Method Status                Prot
+FastEthernet0/0            unassigned      YES unset  up                    down
+FastEthernet0/0.10         192.168.10.4    YES manual up                    down
+FastEthernet0/0.20         192.168.20.4    YES manual up                    down
+FastEthernet0/0.30         192.168.30.4    YES manual up                    down
+FastEthernet0/0.40         192.168.40.4    YES manual up                    down
+FastEthernet0/1            unassigned      YES unset  administratively down down
+Serial0/1/0                unassigned      YES unset  down                  down
+Serial0/1/1                unassigned      YES unset  administratively down down
+Serial0/2/0                unassigned      YES unset  administratively down down
+Serial0/2/1                unassigned      YES unset  administratively down down
+Loopback1                  200.200.200.1   YES manual up                    up
+Loopback2                  200.200.200.129 YES manual up                    up
+Andrej-Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Andrej-Router(config)#int serial 0/1/0
+Andrej-Router(config-if)#ip address 11.11.11.1 255.255.255.252
+Andrej-Router(config-if)#end
+Andrej-Router#sh ip in
+*Dec  1 12:47:16.111: %SYS-5-CONFIG_I: Configured from console by console
+Andrej-Router#sh ip int b
+Interface                  IP-Address      OK? Method Status                Prot
+FastEthernet0/0            unassigned      YES unset  up                    down
+FastEthernet0/0.10         192.168.10.4    YES manual up                    down
+FastEthernet0/0.20         192.168.20.4    YES manual up                    down
+FastEthernet0/0.30         192.168.30.4    YES manual up                    down
+FastEthernet0/0.40         192.168.40.4    YES manual up                    down
+FastEthernet0/1            unassigned      YES unset  administratively down down
+Serial0/1/0                11.11.11.1      YES manual down                  down
+Serial0/1/1                unassigned      YES unset  administratively down down
+Serial0/2/0                unassigned      YES unset  administratively down down
+Serial0/2/1                unassigned      YES unset  administratively down down
+Loopback1                  200.200.200.1   YES manual up                    up
+Loopback2                  200.200.200.129 YES manual up                    up
+Andrej-Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Andrej-Router(config)#int serial 0/1/0
+Andrej-Router(config-if)#no shut
+Andrej-Router(config-if)#exnd
+                           ^
+% Invalid input detected at '^' marker.
+
+Andrej-Router(config-if)#end
+Andrej-Router#sh i
+*Dec  1 12:47:37.471: %SYS-5-CONFIG_I: Configured from console by console
+Andrej-Router#sh ip int b
+Interface                  IP-Address      OK? Method Status                Prot
+FastEthernet0/0            unassigned      YES unset  up                    down
+FastEthernet0/0.10         192.168.10.4    YES manual up                    down
+FastEthernet0/0.20         192.168.20.4    YES manual up                    down
+FastEthernet0/0.30         192.168.30.4    YES manual up                    down
+FastEthernet0/0.40         192.168.40.4    YES manual up                    down
+FastEthernet0/1            unassigned      YES unset  administratively down down
+Serial0/1/0                11.11.11.1      YES manual down                  down
+Serial0/1/1                unassigned      YES unset  administratively down down
+Serial0/2/0                unassigned      YES unset  administratively down down
+Serial0/2/1                unassigned      YES unset  administratively down down
+Loopback1                  200.200.200.1   YES manual up                    up
+Loopback2                  200.200.200.129 YES manual up                    up
+Andrej-Router# sh ip int b
+Interface                  IP-Address      OK? Method Status                Prot
+FastEthernet0/0            unassigned      YES unset  up                    down
+FastEthernet0/0.10         192.168.10.4    YES manual up                    down
+FastEthernet0/0.20         192.168.20.4    YES manual up                    down
+FastEthernet0/0.30         192.168.30.4    YES manual up                    down
+FastEthernet0/0.40         192.168.40.4    YES manual up                    down
+FastEthernet0/1            unassigned      YES unset  administratively down down
+Serial0/1/0                11.11.11.1      YES manual down                  down
+Serial0/1/1                unassigned      YES unset  administratively down down
+Serial0/2/0                unassigned      YES unset  administratively down down
+Serial0/2/1                unassigned      YES unset  administratively down down
+Loopback1                  200.200.200.1   YES manual up                    up
+Loopback2                  200.200.200.129 YES manual up                    up
+Andrej-Router#sh int s0/1/0
+Serial0/1/0 is down, line protocol is down
+  Hardware is GT96K Serial
+  Internet address is 11.11.11.1/30
+  MTU 1500 bytes, BW 128 Kbit/sec, DLY 20000 usec,
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation HDLC, loopback not set
+  Keepalive set (10 sec)
+  Last input never, output never, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/75/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: weighted fair
+  Output queue: 0/1000/64/0 (size/max total/threshold/drops)
+     Conversations  0/0/32 (active/max active/max total)
+     Reserved Conversations 0/0 (allocated/max allocated)
+     Available Bandwidth 96 kilobits/sec
+  5 minute input rate 0 bits/sec, 0 packets/sec
+  5 minute output rate 0 bits/sec, 0 packets/sec
+     0 packets input, 0 bytes, 0 no buffer
+     Received 0 broadcasts, 0 runts, 0 giants, 0 throttles
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored, 0 abort
+     0 packets output, 0 bytes, 0 underruns
+     0 output errors, 0 collisions, 19 interface resets
+     0 unknown protocol drops
+     0 output buffer failures, 0 output buffers swapped out
+     0 carrier transitions
+     DCD=down  DSR=down  DTR=up  RTS=up  CTS=down
+
+Andrej-Router#
+*Dec  1 12:50:09.263: %LINK-3-UPDOWN: Interface Serial0/1/0, changed state to up
+*Dec  1 12:50:10.263: %LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/1/
+Andrej-Router#sh int s0/1/0
+Serial0/1/0 is up, line protocol is up
+  Hardware is GT96K Serial
+  Internet address is 11.11.11.1/30
+  MTU 1500 bytes, BW 128 Kbit/sec, DLY 20000 usec,
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation HDLC, loopback not set
+  Keepalive set (10 sec)
+  Last input 00:00:03, output 00:00:08, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/75/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: weighted fair
+  Output queue: 0/1000/64/0 (size/max total/threshold/drops)
+     Conversations  0/1/32 (active/max active/max total)
+     Reserved Conversations 0/0 (allocated/max allocated)
+     Available Bandwidth 96 kilobits/sec
+  5 minute input rate 0 bits/sec, 0 packets/sec
+  5 minute output rate 0 bits/sec, 0 packets/sec
+     2 packets input, 361 bytes, 0 no buffer
+     Received 2 broadcasts, 0 runts, 0 giants, 0 throttles
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored, 0 abort
+     1 packets output, 24 bytes, 0 underruns
+     0 output errors, 0 collisions, 20 interface resets
+     0 unknown protocol drops
+     0 output buffer failures, 0 output buffers swapped out
+     1 carrier transitions
+     DCD=up  DSR=up  DTR=up  RTS=up  CTS=up
+
+Andrej-Router#sh contr
+Andrej-Router#sh controllers s0/1/0
+Interface Serial0/1/0
+Hardware is GT96K
+DTE V.35 TX and RX clocks detected.
+idb at 0x6454170C, driver data structure at 0x64543A30
+wic_info 0x64544034
+Physical Port 0, SCC Num 0
+MPSC Registers:
+MMCR_L=0x000304C0, MMCR_H=0x00000000, MPCR=0x00000000
+CHR1=0x00FE007E, CHR2=0x00000000, CHR3=0x0000064A, CHR4=0x00000000
+CHR5=0x00000000, CHR6=0x00000000, CHR7=0x00000000, CHR8=0x00000000
+CHR9=0x00000000, CHR10=0x00003008
+SDMA Registers:
+SDC=0x00002201, SDCM=0x00000080, SGC=0x0000C000
+CRDP=0x075BCF10, CTDP=0x075BD150, FTDB=0x075BD150
+Main Routing Register=0x00007038 BRG Conf Register=0x0005011F
+Rx Clk Routing Register=0x76848818 Tx Clk Routing Register=0x76543219
+GPP Registers:
+Conf=0x30002   , Io=0x6C408   , Data=0x7F7BBFFB, Level=0x180000
+Conf0=0x30002   , Io0=0x6C408   , Data0=0x7F7BBFFB, Level0=0x180000
+TDM FPGA Registers:
+TDM FPGA Version: 33.0
+vmcr[0] = 0x80 @ 0x4B000010, vmcr[1] = 0x30A @ 0x4B000014,
+ vmcr[2] = 0x706 @ 0x4B000018 vmcr[3]= 0x0 @ 0x4B00001C
+vtcr[0] = 0x0 @ 0x4B000020, vtcr[1] = 0x0 @ 0x4B000024,
+ vtcr[2] = 0x0 @ 0x4B000028, vtcr[3]= 0x0 @ 0x4B00002C
+nhr = 0x1F00 @ 0x4B00004C, isr = 0x2000 & 0x4B000050, imr = 0x0 @ 0x4B000054
+ atcr = 0x0 @ 0x4B000030
+prcr = 0x10404 @ 0x4B000040, psr = 0xA00012 @ 0x4B000044, gtcr = 0x0 @ 0x4B00003
+rcr = 0x110000 @ 0x4B000004
+pphr = 0x1 @ 0x4B000058
+tshr = 0x1 @ 0x4B00005C
+sr1 = 0x0 @ 0x4B00006C
+sr2 = 0x0 @ 0x4B000070
+sr3 = 0x0 @ 0x4B000074
+chpir = 0x0 @ 0x4B000064
+drcr = 0x0 @ 0x4B000060
+miscr = 0x400000 @ 0x4B000000
+d_ihpr = 0x0 @ 0x4B000080
+d_ehpr[i] = 0x0 @ 0x4B000090
+d_ehpr[i] = 0x0 @ 0x4B000094
+d_ehpr[i] = 0x0 @ 0x4B000098
+d_ehpr[i] = 0x0 @ 0x4B00009C
+d_ehpr[i] = 0x0 @ 0x4B0000A0
+d_ehpr[i] = 0x0 @ 0x4B0000A4
+d_ehpr[i] = 0x0 @ 0x4B0000A8
+d_ehpr[i] = 0x0 @ 0x4B0000AC
+0 input aborts on receiving flag sequence
+0 throttles, 0 enables
+0 overruns
+0 transmitter underruns
+0 transmitter CTS losts
+6 rxintr, 6 txintr, 0 rxerr, 0 txerr
+14 mpsc_rx, 0 mpsc_rxerr, 0 mpsc_rlsc, 1 mpsc_rhnt, 13 mpsc_rfsc
+1 mpsc_rcsc, 0 mpsc_rovr, 0 mpsc_rcdl, 0 mpsc_rckg, 0 mpsc_bper
+0 mpsc_txerr, 6 mpsc_teidl, 0 mpsc_tudr, 0 mpsc_tctsl, 0 mpsc_tckg
+0 sdma_rx_sf, 0 sdma_rx_mfl, 0 sdma_rx_or, 0 sdma_rx_abr, 0 sdma_rx_no
+0 sdma_rx_de, 0 sdma_rx_cdl, 0 sdma_rx_ce, 0 sdma_tx_rl, 0 sdma_tx_ur, 0 sdma_tx
+0 sdma_rx_reserr, 0 sdma_tx_reserr
+0 rx_bogus_pkts, rx_bogus_flag FALSE
+0 sdma_tx_ur_processed
+
+tx_limited = 1(2), errata19 count1 - 0, count2 - 0
+Receive Ring
+rxr head (6)(0x075BCF40), rxr tail (0)(0x075BCEE0)
+  rmd(75BCEE0): nbd 75BCEF0 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75CA5C0
+  rmd(75BCEF0): nbd 75BCF00 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75BD9C0
+  rmd(75BCF00): nbd 75BCF10 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75BE020
+  rmd(75BCF10): nbd 75BCF20 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75BE680
+  rmd(75BCF20): nbd 75BCF30 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75BECE0
+  rmd(75BCF30): nbd 75BCF40 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75BF340
+  rmd(75BCF40): nbd 75BCF50 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C0000
+  rmd(75BCF50): nbd 75BCF60 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C0660
+  rmd(75BCF60): nbd 75BCF70 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C0CC0
+  rmd(75BCF70): nbd 75BCF80 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C1320
+  rmd(75BCF80): nbd 75BCF90 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C1980
+  rmd(75BCF90): nbd 75BCFA0 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C1FE0
+  rmd(75BCFA0): nbd 75BCFB0 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C2640
+  rmd(75BCFB0): nbd 75BCFC0 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C2CA0
+  rmd(75BCFC0): nbd 75BCFD0 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C3300
+  rmd(75BCFD0): nbd 75BCFE0 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C3960
+  rmd(75BCFE0): nbd 75BCFF0 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C3FC0
+  rmd(75BCFF0): nbd 75BD000 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C4620
+  rmd(75BD000): nbd 75BD010 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C4C80
+  rmd(75BD010): nbd 75BD020 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C52E0
+  rmd(75BD020): nbd 75BD030 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C5940
+  rmd(75BD030): nbd 75BD040 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C5FA0
+  rmd(75BD040): nbd 75BD050 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C6600
+  rmd(75BD050): nbd 75BD060 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C6C60
+  rmd(75BD060): nbd 75BD070 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C72C0
+  rmd(75BD070): nbd 75BD080 cmd_sts 80800000 buf_sz 06000000 buf_ptr 75C7920
+
+Andrej-Router#sh ip int b
+Interface                  IP-Address      OK? Method Status                Prot
+FastEthernet0/0            unassigned      YES unset  up                    down
+FastEthernet0/0.10         192.168.10.4    YES manual up                    down
+FastEthernet0/0.20         192.168.20.4    YES manual up                    down
+FastEthernet0/0.30         192.168.30.4    YES manual up                    down
+FastEthernet0/0.40         192.168.40.4    YES manual up                    down
+FastEthernet0/1            unassigned      YES unset  administratively down down
+Serial0/1/0                11.11.11.1      YES manual up                    up
+Serial0/1/1                unassigned      YES unset  administratively down down
+Serial0/2/0                unassigned      YES unset  administratively down down
+Serial0/2/1                unassigned      YES unset  administratively down down
+Loopback1                  200.200.200.1   YES manual up                    up
+Loopback2                  200.200.200.129 YES manual up                    up
+Andrej-Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Andrej-Router(config)#int fa0/0.40
+Andrej-Router(config-subif)#no ip address
+Andrej-Router(config-subif)#exit
+Andrej-Router(config)#exit
+Andrej-Router#s
+*Dec  1 12:54:15.299: %SYS-5-CONFIG_I: Configured from console by console
+Andrej-Router#sh ip int b
+Interface                  IP-Address      OK? Method Status                Prot
+FastEthernet0/0            unassigned      YES unset  up                    down
+FastEthernet0/0.10         192.168.10.4    YES manual up                    down
+FastEthernet0/0.20         192.168.20.4    YES manual up                    down
+FastEthernet0/0.30         192.168.30.4    YES manual up                    down
+FastEthernet0/0.40         unassigned      YES manual up                    down
+FastEthernet0/1            unassigned      YES unset  administratively down down
+Serial0/1/0                11.11.11.1      YES manual up                    up
+Serial0/1/1                unassigned      YES unset  administratively down down
+Serial0/2/0                unassigned      YES unset  administratively down down
+Serial0/2/1                unassigned      YES unset  administratively down down
+Loopback1                  200.200.200.1   YES manual up                    up
+Loopback2                  200.200.200.129 YES manual up                    up
+Andrej-Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Andrej-Router(config)#no int f0/0.40
+% Not all config may be removed and may reappear after reactivating the sub-inte
+Andrej-Router(config)#do sh ip int b
+Interface                  IP-Address      OK? Method Status                Prot
+FastEthernet0/0            unassigned      YES unset  up                    down
+FastEthernet0/0.10         192.168.10.4    YES manual up                    down
+FastEthernet0/0.20         192.168.20.4    YES manual up                    down
+FastEthernet0/0.30         192.168.30.4    YES manual up                    down
+FastEthernet0/0.40         unassigned      YES manual deleted               down
+FastEthernet0/1            unassigned      YES unset  administratively down down
+Serial0/1/0                11.11.11.1      YES manual up                    up
+Serial0/1/1                unassigned      YES unset  administratively down down
+Serial0/2/0                unassigned      YES unset  administratively down down
+Serial0/2/1                unassigned      YES unset  administratively down down
+Loopback1                  200.200.200.1   YES manual up                    up
+Loopback2                  200.200.200.129 YES manual up                    up
+Andrej-Router(config)#conf t
+                           ^
+% Invalid input detected at '^' marker.
+
+Andrej-Router(config)#conf t
+                           ^
+% Invalid input detected at '^' marker.
+
+Andrej-Router(config)#int f0/0.90
+Andrej-Router(config-subif)#enc
+Andrej-Router(config-subif)#encapsulation dot1q
+% Incomplete command.
+
+Andrej-Router(config-subif)#encapsulation dot1q 90
+Andrej-Router(config-subif)#ip addres
+Andrej-Router(config-subif)#ip address 192.168.40.4 255.255.255.0
+Andrej-Router(config-subif)#ip address 192.168.90.4 255.255.255.0
+Andrej-Router(config-subif)#no shut
+Andrej-Router(config-subif)#end
+Andrej-Router#sh ip
+*Dec  1 12:55:49.535: %SYS-5-CONFIG_I: Configured from console by console
+Andrej-Router#sh ip int b
+Interface                  IP-Address      OK? Method Status                Prot
+FastEthernet0/0            unassigned      YES unset  up                    down
+FastEthernet0/0.10         192.168.10.4    YES manual up                    down
+FastEthernet0/0.20         192.168.20.4    YES manual up                    down
+FastEthernet0/0.30         192.168.30.4    YES manual up                    down
+FastEthernet0/0.40         unassigned      YES manual deleted               down
+FastEthernet0/0.90         192.168.90.4    YES manual up                    down
+FastEthernet0/1            unassigned      YES unset  administratively down down
+Serial0/1/0                11.11.11.1      YES manual up                    up
+Serial0/1/1                unassigned      YES unset  administratively down down
+Serial0/2/0                unassigned      YES unset  administratively down down
+Serial0/2/1                unassigned      YES unset  administratively down down
+Loopback1                  200.200.200.1   YES manual up                    up
+Loopback2                  200.200.200.129 YES manual up                    up
+Andrej-Router#
+************************
+NEPOVOLANYM VSTUP ZAKAZANY!
+*************************
+
+
+User Access Verification
+
+Password:
+Password:
+Andrej-Switch>ena
+Password:
+Andrej-Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Andrej-Switch(config)#ip de
+Andrej-Switch(config)#ip def
+Andrej-Switch(config)#ip default-gateway 192.168.90.4
+Andrej-Switch(config)#ip default-gateway 192.168.90.4 255.255.255.0
+                                                      ^
+% Invalid input detected at '^' marker.
+
+Andrej-Switch(config)#ip default-gateway 192.168.90.4
+Andrej-Switch(config)#end
+Andrej-Switch#
+*Mar  1 01:08:30.753: %SYS-5-CONFIG_I: Configured from console by console
+Andrej-Switch#
+Andrej-Switch#
+Andrej-Switch#
+Andrej-Switch#sh ip int b
+Interface              IP-Address      OK? Method Status                Protocol
+Vlan1                  unassigned      YES unset  up                    up
+Vlan90                 192.168.90.4    YES manual up                    up
+FastEthernet0/1        unassigned      YES unset  up                    up
+FastEthernet0/2        unassigned      YES unset  down                  down
+FastEthernet0/3        unassigned      YES unset  down                  down
+FastEthernet0/4        unassigned      YES unset  down                  down
+FastEthernet0/5        unassigned      YES unset  down                  down
+FastEthernet0/6        unassigned      YES unset  down                  down
+FastEthernet0/7        unassigned      YES unset  down                  down
+FastEthernet0/8        unassigned      YES unset  down                  down
+FastEthernet0/9        unassigned      YES unset  down                  down
+FastEthernet0/10       unassigned      YES unset  down                  down
+FastEthernet0/11       unassigned      YES unset  down                  down
+FastEthernet0/12       unassigned      YES unset  down                  down
+FastEthernet0/13       unassigned      YES unset  down                  down
+FastEthernet0/14       unassigned      YES unset  down                  down
+FastEthernet0/15       unassigned      YES unset  down                  down
+FastEthernet0/16       unassigned      YES unset  administratively down down
+FastEthernet0/17       unassigned      YES unset  administratively down down
+FastEthernet0/18       unassigned      YES unset  administratively down down
+FastEthernet0/19       unassigned      YES unset  administratively down down
+FastEthernet0/20       unassigned      YES unset  administratively down down
+FastEthernet0/21       unassigned      YES unset  administratively down down
+FastEthernet0/22       unassigned      YES unset  administratively down down
+FastEthernet0/23       unassigned      YES unset  administratively down down
+FastEthernet0/24       unassigned      YES unset  down                  down
+GigabitEthernet0/1     unassigned      YES unset  up                    up
+GigabitEthernet0/2     unassigned      YES unset  down                  down
+Andrej-Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Andrej-Switch(config)#int vlan 90
+Andrej-Switch(config-if)#ip add
+Andrej-Switch(config-if)#ip address 192.168.90.14 255.255.255.0
+Andrej-Switch(config-if)#no shut
+Andrej-Switch(config-if)#
+Andrej-Switch(config-if)#
+Andrej-Switch(config-if)#
+Andrej-Switch(config-if)#end
+Andrej-Switch#
+*Mar  1 01:15:03.944: %SYS-5-CONFIG_I: Configured from console by console
+Andrej-Switch#
+Andrej-Router#sh ip route
+Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+     200.200.200.0/26 is subnetted, 2 subnets
+C       200.200.200.128 is directly connected, Loopback2
+C       200.200.200.0 is directly connected, Loopback1
+     11.0.0.0/30 is subnetted, 1 subnets
+C       11.11.11.0 is directly connected, Serial0/1/0
+Andrej-Router#ip route 10.10.10.0 255.255.255.252 11.11.11.2
+               ^
+% Invalid input detected at '^' marker.
+
+Andrej-Router#ip route 10.10.10.0 255.255.255.252 11.11.11.2
+               ^
+% Invalid input detected at '^' marker.
+
+Andrej-Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Andrej-Router(config)#ip route 10.10.10.0 255.255.255.252 11.11.11.2
+Andrej-Router(config)#do sh ip route
+Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+     200.200.200.0/26 is subnetted, 2 subnets
+C       200.200.200.128 is directly connected, Loopback2
+C       200.200.200.0 is directly connected, Loopback1
+     10.0.0.0/30 is subnetted, 1 subnets
+S       10.10.10.0 [1/0] via 11.11.11.2
+     11.0.0.0/30 is subnetted, 1 subnets
+C       11.11.11.0 is directly connected, Serial0/1/0
+Andrej-Router(config)#ip route 172.16.0.0 255.255.255.192 11.11.11.2
+Andrej-Router(config)#ip route 172.16.0.128 255.255.255.192 11.11.11.2
+Andrej-Router(config)#do sh ip int b
+Interface                  IP-Address      OK? Method Status                Protocol
+FastEthernet0/0            unassigned      YES unset  up                    down
+FastEthernet0/0.10         192.168.10.4    YES manual up                    down
+FastEthernet0/0.20         192.168.20.4    YES manual up                    down
+FastEthernet0/0.30         192.168.30.4    YES manual up                    down
+FastEthernet0/0.40         unassigned      YES manual deleted               down
+FastEthernet0/0.90         192.168.90.4    YES manual up                    down
+FastEthernet0/1            unassigned      YES unset  administratively down down
+Serial0/1/0                11.11.11.1      YES manual up                    up  
+Serial0/1/1                unassigned      YES unset  administratively down down
+Serial0/2/0                unassigned      YES unset  administratively down down
+Serial0/2/1                unassigned      YES unset  administratively down down
+Loopback1                  200.200.200.1   YES manual up                    up  
+Loopback2                  200.200.200.129 YES manual up                    up  
+Andrej-Router(config)#int f0/0
+Andrej-Router(config-if)#no shut
+Andrej-Router(config-if)#exit
+Andrej-Router(config)#do sh ip int b
+Interface                  IP-Address      OK? Method Status                Protocol
+FastEthernet0/0            unassigned      YES unset  up                    down
+FastEthernet0/0.10         192.168.10.4    YES manual up                    down
+FastEthernet0/0.20         192.168.20.4    YES manual up                    down
+FastEthernet0/0.30         192.168.30.4    YES manual up                    down
+FastEthernet0/0.40         unassigned      YES manual deleted               down
+FastEthernet0/0.90         192.168.90.4    YES manual up                    down
+FastEthernet0/1            unassigned      YES unset  administratively down down
+Serial0/1/0                11.11.11.1      YES manual up                    up  
+Serial0/1/1                unassigned      YES unset  administratively down down
+Serial0/2/0                unassigned      YES unset  administratively down down
+Serial0/2/1                unassigned      YES unset  administratively down down
+Loopback1                  200.200.200.1   YES manual up                    up  
+Loopback2                  200.200.200.129 YES manual up                    up  
+Andrej-Router(config)#
+*Dec  1 13:11:43.303: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+Andrej-Router(config)#do sh ip int b
+Interface                  IP-Address      OK? Method Status                Protocol
+FastEthernet0/0            unassigned      YES unset  up                    up  
+FastEthernet0/0.10         192.168.10.4    YES manual up                    up  
+FastEthernet0/0.20         192.168.20.4    YES manual up                    up  
+FastEthernet0/0.30         192.168.30.4    YES manual up                    up  
+FastEthernet0/0.40         unassigned      YES manual deleted               down
+FastEthernet0/0.90         192.168.90.4    YES manual up                    up  
+FastEthernet0/1            unassigned      YES unset  administratively down down
+Serial0/1/0                11.11.11.1      YES manual up                    up  
+Serial0/1/1                unassigned      YES unset  administratively down down
+Serial0/2/0                unassigned      YES unset  administratively down down
+Serial0/2/1                unassigned      YES unset  administratively down down
+Loopback1                  200.200.200.1   YES manual up                    up  
+Loopback2                  200.200.200.129 YES manual up                    up  
+Andrej-Router(config)#do sh ip r
+% Ambiguous command:  "sh ip r"
+Andrej-Router(config)#do sh ip r
+Andrej-Router(config)#do sh ip rou
+Andrej-Router(config)#do sh ip route
+Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+     200.200.200.0/26 is subnetted, 2 subnets
+C       200.200.200.128 is directly connected, Loopback2
+C       200.200.200.0 is directly connected, Loopback1
+C    192.168.90.0/24 is directly connected, FastEthernet0/0.90
+C    192.168.30.0/24 is directly connected, FastEthernet0/0.30
+C    192.168.10.0/24 is directly connected, FastEthernet0/0.10
+     172.16.0.0/26 is subnetted, 2 subnets
+S       172.16.0.128 [1/0] via 11.11.11.2
+S       172.16.0.0 [1/0] via 11.11.11.2
+C    192.168.20.0/24 is directly connected, FastEthernet0/0.20
+     10.0.0.0/30 is subnetted, 1 subnets
+S       10.10.10.0 [1/0] via 11.11.11.2
+     11.0.0.0/30 is subnetted, 1 subnets
+C       11.11.11.0 is directly connected, Serial0/1/0
+Andrej-Router(config)#ip route 200.200.102.0 255.255.255.0 11.11.11.2
+Andrej-Router(config)#ip route 200.200.101.0 255.255.255.0 11.11.11.2
+Andrej-Router(config)#end
+Andrej-Router#sh
+*Dec  1 13:14:15.027: %SYS-5-CONFIG_I: Configured from console by console
+Andrej-Router#sh ip int b
+Interface                  IP-Address      OK? Method Status                Protocol
+FastEthernet0/0            unassigned      YES unset  up                    up  
+FastEthernet0/0.10         192.168.10.4    YES manual up                    up  
+FastEthernet0/0.20         192.168.20.4    YES manual up                    up  
+FastEthernet0/0.30         192.168.30.4    YES manual up                    up  
+FastEthernet0/0.40         unassigned      YES manual deleted               down
+FastEthernet0/0.90         192.168.90.4    YES manual up                    up  
+FastEthernet0/1            unassigned      YES unset  administratively down down
+Serial0/1/0                11.11.11.1      YES manual up                    up  
+Serial0/1/1                unassigned      YES unset  administratively down down
+Serial0/2/0                unassigned      YES unset  administratively down down
+Serial0/2/1                unassigned      YES unset  administratively down down
+Loopback1                  200.200.200.1   YES manual up                    up  
+Loopback2                  200.200.200.129 YES manual up                    up  
+Andrej-Router#sh ip route
+Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+     200.200.200.0/26 is subnetted, 2 subnets
+C       200.200.200.128 is directly connected, Loopback2
+C       200.200.200.0 is directly connected, Loopback1
+C    192.168.90.0/24 is directly connected, FastEthernet0/0.90
+C    192.168.30.0/24 is directly connected, FastEthernet0/0.30
+S    200.200.102.0/24 [1/0] via 11.11.11.2
+C    192.168.10.0/24 is directly connected, FastEthernet0/0.10
+     172.16.0.0/26 is subnetted, 2 subnets
+S       172.16.0.128 [1/0] via 11.11.11.2
+S       172.16.0.0 [1/0] via 11.11.11.2
+S    200.200.101.0/24 [1/0] via 11.11.11.2
+C    192.168.20.0/24 is directly connected, FastEthernet0/0.20
+     10.0.0.0/30 is subnetted, 1 subnets
+S       10.10.10.0 [1/0] via 11.11.11.2
+     11.0.0.0/30 is subnetted, 1 subnets
+C       11.11.11.0 is directly connected, Serial0/1/0
+Andrej-Router#  172.16.0.128 [1/0] via 11.11.11.2
+                ^
+% Invalid input detected at '^' marker.
+
+Andrej-Router#S       172.1
+show       172.1
+           ^
+% Invalid input detected at '^' marker.
+
+Andrej-Router#
+Andrej-Router#
+Andrej-Router#
+Andrej-Router#
+Andrej-Router#
+Andrej-Router#
+Andrej-Router#
+Andrej-Router#
+Andrej-Router#
+Andrej-Router#
+Andrej-Router#
+Andrej-Router#
+Andrej-Router#
+Andrej-Router#
+Andrej-Router#
+Andrej-Router#
+Andrej-Router#
+Andrej-Router#
+Andrej-Router#
+Andrej-Router#
+Andrej-Router#
+Andrej-Router#
+Andrej-Router#
+Andrej-Router#
+Andrej-Router#
+Andrej-Router#
+Andrej-Router#
+Andrej-Router#
+Andrej-Router#sh ip route
+Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+     200.200.200.0/26 is subnetted, 2 subnets
+C       200.200.200.128 is directly connected, Loopback2
+C       200.200.200.0 is directly connected, Loopback1
+C    192.168.90.0/24 is directly connected, FastEthernet0/0.90
+C    192.168.30.0/24 is directly connected, FastEthernet0/0.30
+S    200.200.102.0/24 [1/0] via 11.11.11.2
+C    192.168.10.0/24 is directly connected, FastEthernet0/0.10
+     172.16.0.0/26 is subnetted, 2 subnets
+S       172.16.0.128 [1/0] via 11.11.11.2
+S       172.16.0.0 [1/0] via 11.11.11.2
+S    200.200.101.0/24 [1/0] via 11.11.11.2
+C    192.168.20.0/24 is directly connected, FastEthernet0/0.20
+     10.0.0.0/30 is subnetted, 1 subnets
+S       10.10.10.0 [1/0] via 11.11.11.2
+     11.0.0.0/30 is subnetted, 1 subnets
+C       11.11.11.0 is directly connected, Serial0/1/0
+Andrej-Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Andrej-Router(config)#no ip route 200.200.102.0 255.255.255.0 11.11.11.2
+Andrej-Router(config)#do sh ip route
+Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+     200.200.200.0/26 is subnetted, 2 subnets
+C       200.200.200.128 is directly connected, Loopback2
+C       200.200.200.0 is directly connected, Loopback1
+C    192.168.90.0/24 is directly connected, FastEthernet0/0.90
+C    192.168.30.0/24 is directly connected, FastEthernet0/0.30
+C    192.168.10.0/24 is directly connected, FastEthernet0/0.10
+     172.16.0.0/26 is subnetted, 2 subnets
+S       172.16.0.128 [1/0] via 11.11.11.2
+S       172.16.0.0 [1/0] via 11.11.11.2
+S    200.200.101.0/24 [1/0] via 11.11.11.2
+C    192.168.20.0/24 is directly connected, FastEthernet0/0.20
+     10.0.0.0/30 is subnetted, 1 subnets
+S       10.10.10.0 [1/0] via 11.11.11.2
+     11.0.0.0/30 is subnetted, 1 subnets
+C       11.11.11.0 is directly connected, Serial0/1/0
+Andrej-Router(config)#ip route 200.200.100.0 255.255.255.0 11.11.11.2
+Andrej-Router(config)#  172.16.0.128 [1/0] via 11.11.11.2
+                        ^
+% Invalid input detected at '^' marker.
+
+Andrej-Router(config)#
+Andrej-Router(config)#exit
+Andrej-Router#sh i
+*Dec  1 13:20:53.443: %SYS-5-CONFIG_I: Configured from console by console
+Andrej-Router#sh ip int b
+Interface                  IP-Address      OK? Method Status                Protocol
+FastEthernet0/0            unassigned      YES unset  up                    up  
+FastEthernet0/0.10         192.168.10.4    YES manual up                    up  
+FastEthernet0/0.20         192.168.20.4    YES manual up                    up  
+FastEthernet0/0.30         192.168.30.4    YES manual up                    up  
+FastEthernet0/0.40         unassigned      YES manual deleted               down
+FastEthernet0/0.90         192.168.90.4    YES manual up                    up  
+FastEthernet0/1            unassigned      YES unset  administratively down down
+Serial0/1/0                11.11.11.1      YES manual up                    up  
+Serial0/1/1                unassigned      YES unset  administratively down down
+Serial0/2/0                unassigned      YES unset  administratively down down
+Serial0/2/1                unassigned      YES unset  administratively down down
+Loopback1                  200.200.200.1   YES manual up                    up  
+Loopback2                  200.200.200.129 YES manual up                    up  
+Andrej-Router#sh ip route
+Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+     200.200.200.0/26 is subnetted, 2 subnets
+C       200.200.200.128 is directly connected, Loopback2
+C       200.200.200.0 is directly connected, Loopback1
+C    192.168.90.0/24 is directly connected, FastEthernet0/0.90
+C    192.168.30.0/24 is directly connected, FastEthernet0/0.30
+C    192.168.10.0/24 is directly connected, FastEthernet0/0.10
+S    200.200.100.0/24 [1/0] via 11.11.11.2
+     172.16.0.0/26 is subnetted, 2 subnets
+S       172.16.0.128 [1/0] via 11.11.11.2
+S       172.16.0.0 [1/0] via 11.11.11.2
+S    200.200.101.0/24 [1/0] via 11.11.11.2
+C    192.168.20.0/24 is directly connected, FastEthernet0/0.20
+     10.0.0.0/30 is subnetted, 1 subnets
+S       10.10.10.0 [1/0] via 11.11.11.2
+     11.0.0.0/30 is subnetted, 1 subnets
+C       11.11.11.0 is directly connected, Serial0/1/0
+Andrej-Router#sh history
+   sh ip int b
+  sh int s0/1/0
+  sh controllers s0/1/0
+  sh ip int b
+  conf t
+  sh ip int b
+  conf t
+  sh ip int b
+  sh ip route
+  ip route 10.10.10.0 255.255.255.252 11.11.11.2
+  conf t
+  sh ip int b
+  sh ip route
+    172.16.0.128 [1/0] via 11.11.11.2
+  S       172.1
+  sh ip route
+  conf t
+  sh ip int b
+  sh ip route
+  sh history
+Andrej-Router#
+Andrej-Router#
+Andrej-Router#
+Andrej-Router#

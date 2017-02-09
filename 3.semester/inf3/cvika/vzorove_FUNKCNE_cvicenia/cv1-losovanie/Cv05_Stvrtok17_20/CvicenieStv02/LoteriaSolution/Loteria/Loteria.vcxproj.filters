@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Vstup">
+      <UniqueIdentifier>{b73c029e-99a1-40ac-8bae-83bbafb39f5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Vystup">
+      <UniqueIdentifier>{3b61b9c2-2902-4e84-b4e0-c551466e6402}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Loteria">
+      <UniqueIdentifier>{5896eb18-395b-4121-8e48-37221d8c9f7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Data">
+      <UniqueIdentifier>{97e32697-8c90-4c8a-97da-1783f7b4bbc1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="data.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vstup.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vystup.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="losovanie.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stavkKanc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="data.h">
+      <Filter>Header Files\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="losovanie.h">
+      <Filter>Header Files\Loteria</Filter>
+    </ClInclude>
+    <ClInclude Include="stavkKanc.h">
+      <Filter>Header Files\Loteria</Filter>
+    </ClInclude>
+    <ClInclude Include="vstup.h">
+      <Filter>Header Files\Vstup</Filter>
+    </ClInclude>
+    <ClInclude Include="vystup.h">
+      <Filter>Header Files\Vystup</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

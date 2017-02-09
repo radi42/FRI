@@ -1,0 +1,2 @@
+;pre bitovu reprezentaciu mnoziny potrebujeme vektor
+;vygenerujeme si bitovu mnozinu, kde na nultom bite je jednotka a vsetky ostatne su nuly

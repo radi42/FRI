@@ -1,0 +1,4 @@
+
+
+
+void vystup(int paPocet);

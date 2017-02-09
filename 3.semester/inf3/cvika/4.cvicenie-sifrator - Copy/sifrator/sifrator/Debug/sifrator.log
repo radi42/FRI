@@ -1,0 +1,33 @@
+﻿Build started 10/22/2014 10:44:09 AM.
+Project "D:\Dokumenty\FRI\3.semester\inf3\cvika\4.cvicenie-sifrator - Copy\sifrator\sifrator\sifrator.vcxproj" on node 2 (Rebuild target(s)).
+ClCompile:
+  C:\Programme\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp pomocnik.cpp Sifrator.cpp Vstup.cpp Vystup.cpp
+  Vystup.cpp
+d:\dokumenty\fri\3.semester\inf3\cvika\4.cvicenie-sifrator - copy\sifrator\sifrator\vystup.cpp(22): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\programme\microsoft visual studio 12.0\vc\include\stdio.h(211) : see declaration of 'fopen'
+  Vstup.cpp
+d:\dokumenty\fri\3.semester\inf3\cvika\4.cvicenie-sifrator - copy\sifrator\sifrator\vstup.cpp(22): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\programme\microsoft visual studio 12.0\vc\include\stdio.h(211) : see declaration of 'fopen'
+  Sifrator.cpp
+d:\dokumenty\fri\3.semester\inf3\cvika\4.cvicenie-sifrator - copy\sifrator\sifrator\koder.h(64): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\programme\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'sprintf'
+d:\dokumenty\fri\3.semester\inf3\cvika\4.cvicenie-sifrator - copy\sifrator\sifrator\koder.h(96): warning C4018: '<' : signed/unsigned mismatch
+  pomocnik.cpp
+d:\dokumenty\fri\3.semester\inf3\cvika\4.cvicenie-sifrator - copy\sifrator\sifrator\pomocnik.cpp(6): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\programme\microsoft visual studio 12.0\vc\include\stdio.h(211) : see declaration of 'fopen'
+d:\dokumenty\fri\3.semester\inf3\cvika\4.cvicenie-sifrator - copy\sifrator\sifrator\pomocnik.cpp(20): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\programme\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
+  main.cpp
+  Generating Code...
+Link:
+  C:\Programme\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Dokumenty\FRI\3.semester\inf3\cvika\4.cvicenie-sifrator - Copy\sifrator\Debug\sifrator.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Dokumenty\FRI\3.semester\inf3\cvika\4.cvicenie-sifrator - Copy\sifrator\Debug\sifrator.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Dokumenty\FRI\3.semester\inf3\cvika\4.cvicenie-sifrator - Copy\sifrator\Debug\sifrator.lib" /MACHINE:X86 Debug\main.obj
+  Debug\pomocnik.obj
+  Debug\Sifrator.obj
+  Debug\Vstup.obj
+  Debug\Vystup.obj
+  sifrator.vcxproj -> D:\Dokumenty\FRI\3.semester\inf3\cvika\4.cvicenie-sifrator - Copy\sifrator\Debug\sifrator.exe
+Done Building Project "D:\Dokumenty\FRI\3.semester\inf3\cvika\4.cvicenie-sifrator - Copy\sifrator\sifrator\sifrator.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:17.00
