@@ -1,0 +1,11 @@
+miso varga
+	skype: mysiak13
+
+jaro.janiga@gmail.com
+	0903 627 859
+	skype: jardooo851 (od 22:00)
+
+
+Linky na repozitare pre TortoiseHg:
+PedSim:		https://frdsa.fri.uniza.sk/pedsim/hg/PedSim/
+PedTrack:	https://frdsa.fri.uniza.sk/pedsim/hg/PedTrack/

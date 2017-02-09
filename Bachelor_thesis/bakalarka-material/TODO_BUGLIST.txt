@@ -1,0 +1,59 @@
+TODO:
+-zariadit, aby sa aplikacia spustala po starte?
+-zobrazovat ikonku aplikacie v notifikacnej liste (boundservice notification)
+-obnovenie UI pri ukonceni aplikacie zaskrtnute checkboxy nie su zaskrtnute pri zatvoreni a znovuotvoreni aplikacie (MainActivity)
+-checkboxy nereaguju, ich zaskrtnutie/odskrtnutie nema ziaden vplyv po zavreti a znovuotvoreni aplikacie
+-vytvorit hlavnu sluzbu ktora bude kazdych 5 sekund volat trackery a odosielat subor s polohami serveru-umoznit zapnut/vypnut bluetooth priamo v nastaveniach cez CheckBox
+#######################################################################
+-bluetooth beacon - google
+-prienik dvoch guli - signal z wifi aj z bluetooth beacnov - analyticka geometria - priblizna poloha
+-bin
+-zacat bluetooth beacnami
+-kto spocita polohy? na telefon alebo na server -> TELEFON
+#######################################################################
+-HLAVNE ULOHY PRE 7. TYZDEN:
+-zmena GPS na event - poloha sa odosle len ak sa uzivatel pohol o napr 6m - ODSKUSAT
+-zmenit architekturu aplikacie na model z UML
+-ukladat subory cez json (lepsie pre prenos cez siet)
+	-povinna a volitelna sekcia (ak sa suradnice nezistia, dana sekcia sa nebude vyplnat)
+-ukladanie suboru cez systemovu premennu
+-subor bude iba JEDEN pre kazdy den - budu v nom polohy z celeho dna
+-dohodnut sa s jarom, ako spravime odosielanie suboru
+-vymysliet mechanizmus na odoslanie suboru na server
+#######################################################################
+DOKONCENE ULOHY
+-refaktoring
+-ukladanie a obnovovanie stavu gui pri znovuotvoreni
+#######################################################################
+TODO na 8. tyzden
+-refaktorovat podla navrhu
+-ukladat a obnovovat aj latitude, longitude a altitude textView-y
+-upravit alert na GPS checkbox - uz to nebude upozornovat pri odskrtnutom GPS checkboxe (GPS settings alert zostane)
+-prerobit to tak, aby to islo na vsetky trackre, nie len na GPS (MainActivity)
+-import JSON kniznice
+-ukladanie pozicie do JSONu do internej pamate
+-odoslanie suboru cez HTTPS
+-otestovat na HTC Desire Z
+-zmena GPS na event - toto bude bolest v zadku, asi to neurobim
+#######################################################################
+DOKONCENE ULOHY 8. TYZDEN
+refaktorovane
+#######################################################################
+TODO na 9. tyzden
+-poloha sa aktualizuje iba raz (po odskrtnuti a znova zaskrtnuti checkboxu a stlacenim buttonu sa znova aktualizuje)
+-uloz polohy do JSONu - skontrolovat obsah suboru
+-odosli JSON subor cez HTTPS
+-otestovat na HTC Desire Z
+
+
+#######################################################################
+Bugy/Todo 10. tyzden
+-suradnice sa ani po opakovanom stlaceni tlacidla neaktualizuju - SOLVED - zle nalinkovany interfejs
+-pri odosielani json stringu sa vyskytne chyba - neodosle poziadavku (IO chyba) - SOLVED - importy potrebnych kniznic su uz osetrene
+-ako zistim poziciu zo vsetkych trackerov naraz? Suradnice sa mozu miesat - SOLVED - budem ich volat z kazdeho trackeru jeden po druhom
+-GUI laguje ako biatch - checkboxy pri starte aplikacie su uplne cele zle - odkliknuto-zakliknuty checkbox
+#######################################################################
+DOKONCENE ULOHY 10. TYZDEN
+-java objekt sa vie ulozit ako json
+-pozicia sa uz aktualizuje po opakovanom stlaceni tlacidla - pricina: zle nalinkovany interface z MainService do MainActivity
+-200 OK na tri zo styroch sprav - okrem pushRecord

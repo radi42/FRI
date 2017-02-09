@@ -1,0 +1,4 @@
+tortoisehg
+	sisila; haxor
+bugtracker
+	sisila; branching
