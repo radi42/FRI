@@ -1,0 +1,25 @@
+#!/bin/bash
+#Prikaz let umoznuje vykonavat aritmeticke operacie
+#operacie nad premennymi shellu
+
+JEDEN=1
+DVA=2
+let TRI=JEDEN+DVA
+printf "1+2=%d\n" $TRI
+
+#increment
+
+let TRI++
+printf "3+1=%d\n" $TRI
+
+#mocniny
+
+let TRI=DVA**3
+printf "2^3=%d\n" $TRI
+
+#zatvorky tiez ficia
+
+#testy
+printf "3>2?\n"
+let "VYSL=TRI>DVA"
+printf "Navratova hodnota: %d Vysledok hodnotenia:%d\n"$? $VYSL

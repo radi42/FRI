@@ -1,0 +1,27 @@
+Rozhodujeme sa medzi kupou benzinoveho a naftoveho auta. Benzinove auto ma spotrebu 7 litrov / 100 km a naftove 5 litrov / 100km. Benzin stoji 1,1€ liter a nafta 1€ liter. Rocne s autom najazdime TRIA(10000, 20000, 18000). Zvazujeme kupu auta na 8 rokov. Naftove auto je drahsie o 2500€ od benzinoveho.
+Urèite pomocou metody Monte Carlo ktore auto sa nam oplati kupit viac. Urcite pravdepodobnost ze sa nam oplati kupit naftove auto.
+
+cyklus od 1 po 1000  {                                                     // pocet replikacii = 1000
+
+    benzin = 0;                                                                     // pri kazdej replikacii sa rata benzin odznova
+    nafta = 0;                                                                        // pri kazdej replikacii sa rata nafta odznova
+
+    cyklus od 1 po 8 {                                                         // cyklus pre 8 rokov jazdenia
+        najazdene = TRIA (10000, 20000, 18000);         // kazdy rok sa najazdi iny pocet km
+        benzin += (najazdene/100) * 7 * 1,1;                    // kolko miniem za 8 rokov za benzin?
+        nafta += (najazdene/100) * 5 * 1;                          // kolko miniem za 8 rokov za naftu?
+    }
+
+    if (nafta+2500 < benzin) {              // kolko krat bolo vyhodnejsie kupit naftove?
+        p=p+1;
+        }
+    suma_benzin += benzin;              // celkove naklady na kupu benzinoveho po 1000 opakovaniach
+    suma_nafta += nafta + 2500;      // celkove naklady na kupu naftoveho po 1000 opakovaniach
+    }
+
+if ( (suma_nafta/1000) < (suma_benzin/1000) ) {             // ak su celkove naklady na kupu naftoveho nizsie tak
+        "kupa naftoveho auta je vyhodnejsia";
+}
+else "kupa benzinoveho auta je vyhodnejsia";
+
+pravdepodobnost = p/1000;                                                  // pravdepodobnost ze sa nam oplati kupit auto na naftu

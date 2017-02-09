@@ -1,0 +1,78 @@
+1. algorytmi pohybu ramienka po disku
+2. preco je dolezita synchronizacia procesov, vysvetlit ake prostriedky existuju cize aktivnym a pasivnym cakanim, vymenovat ich, a vybrat si jeden a ten popisat 
+3. segment·cia, princÌp, preklad logickej adresy do fyzickej 
+5. princip algorytmu Round Robin
+
+1-bola dana tabulka a pomocou algoritmu bankara zistit ci system je bezpecny 
+2-zase tabulka stranok a bolo treba zistit ktora pojde do prdele pomocou 
+	a-algoritmu FIFO 
+	b-algoritmu najdlhsie nepouzity LRU 
+	c-pomocou upraveneho algoritmu druhej sance pricom sme mali zadane aj dva referencne bity 
+4-semafori - sematika a popis 
+
+2. komunik·cia medzi procesmi. jeden typ popÌsaù aj do podrobna 
+3. virtu·lna pam‰ù - str·nkovanie na poûiadanie 
+4. vl·kna. porovnanie s procesmi. implement·cia 
+5. synchroniz·cia cez SWAP.
+
+2. popiste indexove pridelovanie diskoveho priestoru suborom - princip, vlastnosti, fragmentacia 
+
+1. Uvedte aspon 2 sposoby implementacie zoznamu volnych blokov na disku a popiste ich 
+2. Uvedte zakladne systemove volania pre spravu procesov a ich ulohy 
+3. Aku ulohu riesi dlhodoby planovac a aku kratkodoby planovac 
+4. Ako je organizovany system suborov a ake su ulohy jednotlivych vrstiev 
+5. Co je zahltenie, kedy vznika a ako sa mu predchadza 
+
+
+1. Popiste algoritmy planovania procesov FCFS a RR, ich vyhody a nedostatky 
+2. Ake vyhody poskytuje vyuzitie diskovych poli 
+3. Ake metody pre obsluhu uviaznutia existuju 
+4. V ktorej faze spracovania programu je mozne pridelit fyzicke adresy k logickym, v ktorych pripadoch je vysledny program relokovatelny, co znamena pojem relokovatelny a za akych podmienok 
+5. Popiste transformaciu logickej adresy na fyzicku pri strankovani 
+
+1) riadenie procesov - viac frontov zo spetnou vezbou 
+2) popisat semafory 
+3)implementacie adresarov 
+4)virtualna pamet - strankovanie na poziadanie 
+5)zadane matice a algoritmom bankara urcit ci je system v bezpecnom stave
+
+1. 4 Coffmanove podmienky popisat a ich POUZITIE - od Mrs Penky som sa dozvedel, ze to pouzitie znamena pre kazdu podmienku napisat, ako ju porusit, aby sme sa vyhli(predisli) uviaznutiu 
+2. algoritmus RR 
+3. HW prostriedky synchronizacie 
+4. indexove priradenie pamate 
+5. postupnost krokov, ktore sa vykonaju pri zmene stranky 
+
+
+3. Ak· fragment·cia vznik· pri segment·ciÌ a str·nkovanÌ a ako sa minimalizuje 
+
+- vlakna, rozdiel medzi LWP a procesmi, implementacia, modely 
+- FAT 
+- TSL, sematika, pouzitie, ... 
+- postupnost krokov OS pri zmene kontextu
+
+1. su 4 stranky kazda ma 1024b a 64 ramcov je. bola tabulka stranok. a trebalo urcit fyzicku a logicku adresu. a potom fyzicku adresu v 152 bajte 3 tej stranky. A zdovodnit, ze preco 
+3. Ake preemptivne algoritmy poznas? jeden popisat 
+4. popis vlasnosti, semantiku a pouzitie jedneho synchronizacneho prostriedku pri synchronizacii s aktivnym cakanim 
+5.indexovane pridelovanie priestoru suborom (problemy, fragmentacia)
+
+2. MetÛdy prevencie pred uviaznutÌm. 
+5. SpÙsoby implement·cie adres·rov. 
+
+1.vlastnosti, sÈmantika a prÌklad pouûitia semaforov. 
+2.prideæovanie diskovÈho priestoru pomocou FAT tabuæky - popÌsaù 
+3.Ë. proc. - poûad.Ëas procesora - Ëas prÌchodu 
+p1	 4	 0 
+p2	 1	 2 
+p3	 2	 3 
+p4	 5	 5 
+p5	 4	 6 
+- urËte poradie ukonËenia procesov a) FCFS b) SRTF 
+4.popÌöte Ëinnosù virtu·lnej pam‰te 
+5.popÌöte vl·kna - vlastnosti a modely pouûitia
+
+1. Optimalny a LRU algoritmus nahradzovania stranok. Boli 3 ramce a mali sme ho na danom priklade ukazat oboma algoritmami (taka ta tabulka ako v skriptach) a urcit povet vypadkov 
+2. Ako sa vyuzivaju Coffmanove podimenky na uviaznutie, jedni popisat blizsie (odporucam aj napisat, co to je uviaznutie aj podmienky, pytala sa ma na ne potom) 
+3. FCFS, RR - popisat pouzitie, vyhody, nevyhody, vlastne vsetko, co o nic vieme 
+4. Monitory - definicia, pouzitie, vyhody, nevyhody 
+5. Urcit typy pridelovania diskoveho priestoru a jeden popisat 
+

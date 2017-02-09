@@ -1,0 +1,2 @@
+sha1 - skript - skript pouziva klienta
+skript vklada do databazy rozne kluce a zistuje duplicitu podla hashu

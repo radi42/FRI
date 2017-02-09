@@ -1,0 +1,288 @@
+RPC
+- remote procedure call, volanie vzdialenej procedury
+- zalozene na klient-server architekture
+- podobne volaniu lokalnej procedury, akurat vzdialena je na inom uzle v sieti
+- komunikacia pomocou sprav
+- zavola sa poziadavka, lokalny system ju prenesie na vzdialeny, ten ju spracuje a odpovie uspech/neuspech a vysledok
+- potreba adresovat na konkretny port priradeny danej procedure, ktora je volana
+- port sa zistuje staticky (port je priradeny uz pri preklade procedury) or dynamicky (posle sa poziadavka, portmapper pocuva a odpovie cislo portu)
+
+Coffmanove podmienky pre uviaznutie
+- musia byt splnene musia byt naraz
+- vzajomne vylucenie (aspon 1 prostriedok prideleny vylucne, bez zdielania)
+- vlastnit a ziadat (proces vlastni aspon jeden a ziada dalsi, ktory vlastni iny proces)
+- pouzivanie bez preempcie (prostriedok nesmie byt odnaty, je prideleny procesu kym s nim neskonci pracu a dobovolne ho nepusti)
+- kruhove cakanie (P1 caka na prostriedky procesa P2, ... , Pn na P1)
+
+Cyklické plánovanie (Round Robin)
+- podobny FCFS, ale preemptivny ak procesu treba viac ako q casu na obsluhu
+- definuje sa casove kvantum q (zvycajne 10 - 100 ms)
+- front pripravenych procesov sa spracuva ako cyklicky front (nove sa prida na koniec, berie sa zo zaciatku)
+- kazdemu procesu je priradeny procesor na cas q
+- procesu staci na dokoncenie menej ako q - uvolni procesor, planovac ho prirady dalsiemu
+- procesu nestaci q - po ubehnuti casu q sa proces znova zaradi na koniec frontu s tym, ze sa zapamata jeho kontext a planovac vyberie dalsi proces 
+- ak je q nekonecne velke, RR je rovnaky ako FCFS
+
+SJF shortest job first
+- jeden z pristupov k planovaniu procesov
+- poradie planovanie sa urcuje podla najkratsej doby obsluhy procesora
+- ak dva procesy maju rovnaku najkratsiu dobu na obsluhu procesora, vyberie sa podla poradia ich prichodu
+- nedostatok je potreba vediet dobu obsluhy procesorom
+- optimalne vysledky
+- moze byt aj nepreemptivny - ak je procesor priradeny procesu so SJF az kym ho proces neprestane po trebovat a dobrovolne neuvolni alebo nepoziada o VV
+- moze byt aj preemptivny - ak pride do frontu proces s kratsou dlzkou, procesy su prepnute a je obsluhovany ten novy
+
+
+
+FAT
+- variacia na pridelovanie diskoveho priestoru zretazenim blokov
+- na zaciatku kazdej partition je jedna sekcia disku urcena pre FAT tabulku 
+- tabulka ma 1 polozku pre kazdy subor a je indexovana podla cisel blokov
+- polozka suboru v adresari obsahuje cislo jeho prveho bloku
+- polozka v tabulke s tymto cislom obsahuje cislo dalsieho bloku
+- zretazenie blokov pokracuje, na konci je polozka odkazujuca na specialnu hodnotu (nil)
+- pridelenie noveho bloku = najdenie bloku 0, ktora sa nahradi hodnotou noveho konca, najdenie terajsieho konca a zapisanie noveho
+
+Indexove priradenie suborov na disk
+- riesi problem vonkajsej fragmentaciel podporuje priamy pristup
+- sustreduje vsetky ukazovatelene na vsetky bloky subortu do tzv indexoveho bloku
+- kazdy subor ma svoj index blok, i-ta polozka urcuje i-ty blok
+- pri vytvarani noveho index bloku odkazuju vsetky polozky na nil 
+- ked sa zapisuje i-ty blok, najprv sa vyziada adresa volneho pristoru a ta sa zapise do itej polozky
+- plytvanie miestom na indexove bloky (hlavne ked ma subor malo blokov, 1-2)
+- index blok co najmensi, aby sa neplytvalo pristorom, ale dost velky na zaznamenanie blokov velkych suborov
+ 
+Uviaznutie
+- nastane, ak kazdy proces z mnoziny caka na udalost, ktoru moze vyvolat proces z tejto mnoziny
+- len ak su splnene vsetky 4 coffmanove podmienky sucasne
+- metody obsluhy: zaistit, ze sa to nikdy nestane (porusit aspon jednu podmienku - prevencia pred uviaznutim), zaistit zotavenie systemu, ignorovat
+- potrebna detekcia uviaznutia 
+- zotavenie - ukoncenie vsetkych procesov alebo postupne jeden po druhom ukoncovanie procesov v cykle, pozor na prave prebiehajuce VV a konzistenciu dat
+- zotavenie - odobratie prostriedku - vyberie sa obet, ktorej sa odoberie prostriedok
+
+Komunikacia
+- spravy send, receive
+- priama komunikacia, ak sa pomenuje partner
+- nepriama - pouzivanie mailboxov 
+- informacie o ukonceni procesu odosielatela alebo prijimatela
+- buffrovanie - pocet cakajucich sprav vo fronte (0, konecny pocet, neobmedzene)
+- potvrdenie o prijati
+- stratena a poskodena sprava
+- blokujuca send aj receive - obaja su zablokovani
+
+Synchronizacia s aktivnym cakanim, pomocou TSL popisat
+- odsun kritickej sekcie sa uskutocnuje vlozenim pomocnych prazdnych instrukcii 
+- proces aktivne caka, nevykonava uzitocnu pracu, je mu pridelovany cas procesora
+- na zosuladenie rychlosti dvoch procesov, ktore vyuzivaju zdielane prostriedky, ich KS sa nesmu prekryvat, v KS moze byt vzdy len 1
+
+Instrukcia swap
+- swap zaistuje atomicku vymenu obsahu dvoch premennych
+    procedure swap ( var a, b : boolean)
+    var temp : boolean
+    begin
+        temp := a;
+        a := b;
+        b := temp;
+    end
+- ked 2 procesy potrebuju vzajomne vylucenie v KS, pouzije sa spolocna premenna lock, na zaciatku na false
+repeat
+    key := true;
+    repeat
+        swap (lock, key);
+    until key = false;
+    KS
+    lock := false;
+    zostavajuca sekcia
+until false;
+- aktivne cakanie, nevyhody
+- mozna strvacia aj uviaznutie
+
+Instrukcia Test And Set
+function SetAndTest ( var target : boolean) : boolean
+begin
+    SetAndTest := target
+    target := true
+end
+- na vzajomne vylucenie pristupu ku KS
+repeat
+    while SetAndTest(lock) do noop;
+    KS
+    lock := false
+    zostavajuca sekcia
+until false
+
+
+Prostriedky s aktívnym čakaním (vlastnosti, sémantika, príklad)
+softverove 
+- instrukcie swap, test and set
+- dekker algoritmus
+- algoritmus pekara
+hardverove
+- zakaz prerusenia pocas modifikacie zdielanych premennych, tj vykonanie bez preempcie, nebezpecne, nie pro viac procesorov
+- specialne instukcie swap, test and set, su atomicke
+
+Semafory, semantika, vysvetlit
+- abstrakt datovy typcharakterizovany svojou hodnotou a operaciami nad nim (atomicke):
+wait: while S <= 0 do noop;
+        S := S - 1;
+signal: S := S + 1;
+- nazyvany aj spinlock, zalozeny na aktivnom cakani
+- pre riesenie KS pre n procesov sluzi mutex
+repeat
+    wait (mutex);
+    KS
+    signal (mutex);
+    zostavajuca sekcia
+until false
+- pre prekonananie nedostatkom aktivneho cakania uprava tak, aby ked po wait zisti, ze hodnota semafora nie je kladna, necaka aktivne, ale zablokuje sa
+- proces je umiestneny do frontu cakajucich, priradeny k semaforu, kym nebude v stave pripraveny - tam sa dostane, ked iny proces urobi signal nad semaforom
+- riziko uviaznutia
+wait (S)            wait (Q)
+wait (Q)            wait (S)
+...                 ...
+signal (S)          signal (Q)
+- sttarvacia ak je front pripravenych ako LIFO
+
+Hardvérové možnosti synchronizácie
+- pri aktivnom cakani swap, test and set, zakaz prerusenia
+
+Monitory
+- abstraktny datovy typ charakterizovany zdielanymi datami a operaciami nad nimi
+- vyssi stupen abstrakcie ako semafory, jednoduchsie, bezpecnejsie
+- procesory, ktore vyuzivaju monitor maju pristup len k proceduram definovanym v nom
+- procedury v nom maju pristup len k premmennym v nom a k formalnym premennym
+- procesury sa nesmu navzajom volat ani byt rekurzivne
+- niekedy potrebo dodefinovat dodatocny datovy typ condition, ktory kym nie je splneny, tak je proces zablokovany
+- operacie nad condition su iba wait a signal
+- volanie wait uvolni uzamknutie a uspi proces
+- signal zobudi jeden z procesov cakajucich na monitor
+
+Preemptivne algoritmy
+- SRTF shortest remaining time first
+- prioritne planovanie (moze byt aj aj)
+- RR cyklicke planovanie
+
+Co robi OS pri prepinani kontextu procesu
+- kontext prepina dispecer - modul, ktory umoznouje riadit procesy vybrane kratkodobym planovanim
+- vola sa pri kazdom prepnuti kontextu , tj pri kazdej zmene obsluhovanych procesov
+- funkcie: prepinanie kontextu, prepinanie do uzivatelskeho rezimu, skok na prislusnu adresu v programe po opatovnom spusteni procesu
+- co najrychlejsi
+- potreba udrzat data v konzistentnom stave, neprepnut proces behom zavisu do suboru alebo VV 
+
+Rozdiel medzi procesmi a vlaknami
+- proces aj vlakna su podobne, obe v stavoch novy, beziaci, zablokovany, ukonceny, obe mozu vytvarat potomkov a cakat na ine vlakno v stave zablokovany, len jedno vlakno vyuziva procesor
+- proces vytvoreny pomocou fork je ako vlakno - zdiela prostriedky, preto aj boli vlakna vytvorene a podporovane vacsinou OS
+- pri vlaknach nie je potreba ochrany - su navrhovane na spolupracu
+- vlakno je odlahceny proces
+- proces je uloha s jednym vlaknom
+- na rozdiel od procesov, nie su od seba nezavisle, su navrhnute na spolupracu a zdielanie prostriedkov, nie su chranene pred zasahom inych vlakien (netreba)
+
+Modelove situacie vyuzitia vlakien
+- pan a otrok, jedno vlakno dostava riadiacu fciu a riadi ostatne, ktore spracovavaju poziadavky
+- clen skupiny - n vlakien sa deli o poziadavku, kazde je zodpovedne za splnenie jej casti pricom ju mozu plnit paralelne, vysledky jedneho vlakna neovplyvnia druhe
+- postupny model - kazde vlakno vykonava cast, vystup z 1 ide ako vstup d 2 atd, navzajom sa ovplyvnuju
+
+Kriteria pri volbe planovacich algoritmov
+- vyuzitie procesora max - snaha co najviac vyuzit procesorovy cas
+- cas vykonania min - cas od vzniku do ukoncenia vratane casov cakania vo frontoch
+- priepustnost max - pocet ukoncenych procesov za jednu casu
+- cas cakania min - vo fronte
+- cas odozvy min - cas od poziadavky po jej prvu odozvu
+
+Komunikacia medzi procesmi
+- spravy, priamo - oznacenim partnera, nepriamo - mailbox
+- zdielana pamat - hned po zapisani z nej mozu vsetky, ktore maju pristup citat, treba sync pristupu
+- rury - najstarsie, najjednoduchsie, jedno aj obojsmerne, jednosmerne - do jedneho konca zapisuje jeden, z druheho konca cita druhy, medztym front
+- medzi vzdialenymi procesmi: volanie vzdialenej procesury, volanie vzdialenej metody, sokety
+
+Fork
+- vytvorenie noveho procesu s rovnakym kodom ako ma rodic
+- mozno vytvorit aj viac potomkov a potom pracovat tiez alebo cakat na ukoncenie jedneho alebo viacerych
+
+Algoritmus bankara
+- suvisi s uviaznutim procesov
+- meno dostal podla pouzitia v bankovnictve, banka nemoze pozicat vsetky peniaze, nemohla by obsluzit ostatne poziadavky
+- pri vstupe kazdy proces deklaruje svoje poziadavky na prostriedky a ich pocet, pricom pocet pozadovanych nesmie prekrocit pocet existujucich v systeme
+- system pomocou tohto alg zisti, ci moze poziadavky uspokojit, ci ho to nedovedie do nebezpecneho stavu
+    - ak je to ok, uspokoji poziadavky
+    - ak nie, proces musi pockat, kym sa zmeni situacia a prostriedky sa uvolnia
+n pocet procesov
+m pocet typov prostriedkov
+pristupne - vektor, ktory obsahuje pocty pristupnych prostriedkov, napr. ak pristupne[i]=k, z prostriedku Ri mame k prostriedkov
+max - matica n x m, definuje maximalne poziadavky procesu, k jednotiek prostriedku Ri
+pridelene - matica n x m, definuje pocet pridelenych
+zostavajuce - matica n x m, definuje pocet zostavajucich, pricom zostavajuce = max - pridelene
+
+Popis transferu logickej adresy na fyzicku pri segmentacii
+- pri segmentacii sa pouzivatelsky pohlad na pamat lisi od skutocnej fyzickej pamate
+- logicky adresny pristor je sada segmentov, kazdy segment na dlzku a velkost
+- segmenty sa cisluju pre zjednodusenie
+- adresa specifikuje meno segmentu a posuv vo vnutri segmentu
+- logicka adresa pozostava z cisla segmentu a posuvu v segmente <cislo segmentu, posuv>
+- pouzivatel sa odkazuje na objekty dvojrozmernou premennou, ktoru treba namapovat do jednorozmernej na zistenie fyzickej adresy
+- pomocou tabulky segmentov: cislo segmentu (index), posuv (od 0 po velkost segmentu)
+
+Virtualna pamat
+- technika na vykonanie procesov, ktore nie su v pamati cele
+- strankovanie na ziadost 
+- segmentacia na ziadost
+
+Strankovanie
+- procesy su umiestnene na disku
+- ak chcem nejaky vykonat, treba ho premiestnit do pamate
+- namiesto presunu celeho presuniem len jeho cast
+- strankovac predpoklada, ktore stranky budu potrebne, kym proces nebude znova odmiestneny z pamate na disk a premiestni ich
+- vyhne sa presunu nepotrebnych a usetri cas
+- potreba HW podpory pre rozlisenie, ktore stranky v pamati su a ktore nie, nastavuje sa bit valid/invalid
+    - ak valid, stranka je v pamati
+    - ak invalid, stranka bud nie je v pamati alebo je neplatna
+- ak sa nikdy neobrati na invalid stranku, je to akoby bol v pamati cely proces
+- ak sa obrati, nastave vypadok stranky, nastane prerusenie pre nepritomnost danej stranky v pamati, stranka sa presunie do pamate
+
+Postupnosť krokov, ktoré vykoná OS pri obsluhe výpadku stránky pri stránkovaní na žiadosť
+- skontroluje sa vnutorna tabulka, tj zisti sa, ci je odkaz valid alebo invalid
+- ak invalid a stranka je neplatna, obsluzi sa chyba
+- ak valid, ale stranka nie je v pamati, zahaji sa jej presun
+- najde sa volny ramec, mozno treba najst obet
+- nacita sa stranka do ramca, zatial bezi iny proces
+- modifikuje sa vnutorna tabulka kvoli tymto zmenam
+- restartuje sa instrukcia, ktora sposobila vypadok
+
+Rozdiel medzi strankovanim a strankovanim na ziadost
+- stranovanie je rozdelenie logickej pamate na stranky a fyzickej na rovnako velke ramce
+- pri vykonavani procesu a jeho stranky presunu do ramcov v pamati
+- pri strankovani na ziadost sa presunu len vytipovane, v extremnom pripade ziadne a potom su sposobovane a obslihovane vypadky stranky
+
+Opisat vsetky algoritmy posuvu hlavicky disku. 
+- FCFS - podla poradia, nevyhodou je, ze musi prekonavat velke vzdialenosti a tym straca cas
+- algoritmus najkratsieho posunu Shortest Seek Time First - obsluhuje nejprv tu, ktora sposobi najmensi pohyb ramienka, moze sposobit starvaciu
+- alg vytahu SCAN - najprv jednym smerom, potom druhym
+- C-SCAN, iba jednym smerom obsluhuje, druhym ide naprazdno
+- LOOK, ramienko sa pohybuje len po poslednu obsluhovanu, nie az po koniec disku
+- C-LOOK
+
+Metódy prideľovania diskového priestoru súborom + jedno popísať
+- suvisle - disk sa prideluje suvislo, subor sa uklada postupne blok po bloku vedla seba
+    - netreba velky pohyb hlav pri citani
+    - problem je najdenie volneho pristoru na rozsirenie suboru (first fit, best fit)
+        - ak nie je miesto pre rozsirenie, nastane chyba - nevhodne
+        - ak nie je miesto, presuniem subor inam, kde miesto je a povodny usek uvolnim - casovo narocne
+        - subor je niekde ulozeny, pripoji sa k nemu tzv extent, rozsirenie, dodatocny ulozny priestor
+    - vznika vonkajsia fragmentacia, rozdrobuju sa nam subory a cely priestor
+- zretazene
+    - polozka suboru obsahuje odkaz na dalsi blok, ten na dalsi atd
+    - tvorba je jednoducha, z posledneho dam novy odkaz na novy blok a z noveho bloku nil
+    - problem s prehladavanim, len zaradom po blokoch
+    - problem s poskodenim a stratou udajov, ak sa poskodi odkaz niektoreho bloku 
+    - vonkajsia fragmentacia nie je
+    - ulozene ukazovatele zaberaju priestor (riesi sa to pridelovanim v clustroch - vacsich blokoch)
+    - FAT tabulka je takto implementovana
+- indexove
+    - ukazovatele su sustredene do jedneho index bloku
+    - ity riadok je ukazovatel na ity blok suboru
+    - na zaciatku su riadky nil, postupne pribudaju adresy
+    - problem so stratou udajov, ak sa poskodi index blok
+    - otazka velkosti bloku - nie prilis velky, lebo zabera miesto, nie prilis maly, aby bol vhodny aj pre velke subory
+        - retazovo prepojene index bloky
+        - viacurovnovy index
+

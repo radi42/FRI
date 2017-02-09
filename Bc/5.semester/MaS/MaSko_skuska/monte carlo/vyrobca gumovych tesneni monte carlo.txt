@@ -1,0 +1,20 @@
+Vyrobca gumovych tesneni sa chysta kupit novu vyrobnu linku. Vyrobna linka je schopna vyrobit denne pocet
+vyrobkov ktore sa generuju z TRIA (200, 500, 400). Vyrobca musi odovzdat mesacne (30 dni) 13000 vyrobkov.
+Ak nedoda tak plati pokutu 5000 €. Vyrobcovi sa oplati kupit linku ak pokuty dokopy za rok (12 mesiacov)
+nepresiahnu 30 000 €. Vypocitajte pomocou MC pravdepodobnost s akou sa vyrobcovi oplati kupit vyrobnu linku.
+
+for ( i = 0; i < 1000; i++) {
+    pokuta = 0;
+    for ( j = 0; j < 12; j++) {
+        vyroba = 0;
+        for ( k = 0; k < 30; k++) {
+            vyroba += TRIA (200, 500, 400);
+        }
+        if ( vyroba < 13 000) {
+            pokuta += 5000; }
+    }
+    if ( pokuta <= 3000 ) {
+        oplati += 1; }
+}
+pravdepodobnost ze sa vyrobcovi oplati kupit linku je oplati/1000;
+

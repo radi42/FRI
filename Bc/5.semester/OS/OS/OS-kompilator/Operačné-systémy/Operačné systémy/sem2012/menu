@@ -1,0 +1,92 @@
+clear
+echo "Martin Komara"
+echo "5ZI031"
+echo "18. Usporiadane procesy"
+echo "Napiste s pouzitim semaforov programovu strukturu piatich procesov, ktorych"
+echo "vykonanie bude usporiadane v case podla nasledujuceho orientovano grafu."
+echo "Kazdy nasledujuci proces sa spusta vtedy, ked sa jeho predchodca skoncil."
+echo ""
+echo "      --> P2 --> P3" 
+echo "    /              \  "
+echo "   /                \ "
+echo " P1 ------> P4 ----> P5"
+echo ""
+echo "Navrhnite vhodne cinnosti procesov, aby z vystupu bolo zrejme, ze poradie"
+echo "vykonania bolo dodrzane."
+echo ""
+echo ""
+echo "Zobrazit dokumentaciu (ano/nie) ?" 
+
+
+
+
+# subor s dokumentaciou
+DOC_FILE="dokumentacia.txt"
+ 
+
+
+ 
+# funkcia na polozenie ano/nie otazky uzivatelovi
+# vracia ano/nie na standardny vystup
+function display_yesno {
+    read -p "$1 " zobraz
+    while [ "$zobraz" != "ano" ] && [ "$zobraz" != "nie" ]
+    do
+        read -p "Musite zadat ano alebo nie: " zobraz
+    done
+   
+    echo $zobraz
+}
+ 
+# funkcia, ktora na zaklade pokynu od uzivatela zobrazi dokumentaciu
+# na zobrazenie dokumentacie vyuziva prikaz less
+function display_doc() {
+    if [ $(display_yesno "Chcete zobrazit dokumentaciu? (ano/nie):" ) == "nie" ]; then
+    return; fi
+   
+    fold -s "$DOC_FILE" | less
+}
+ 
+# funkcia, ktora na zaklade pokynu od uzivatela zobrazi zdrojovy kod programu
+function display_src() {
+    if [ $(display_yesno "Chcete zobrazit zdrojovy kod? (ano/nie):") == "nie" ]; then
+    return; fi
+   
+    echo "Zoznam súborov zdrojoveho kódu:"
+    ls *.h *.c
+   
+    zobraz_src="ano"
+    while [ $zobraz_src == "ano" ]
+    do
+        read -ep "Vyberte súbor, ktory chcete zobrazit: " file
+        if [ ! -f $file ]
+        then
+            echo "Zadany subor neexistuje"
+            continue
+        fi
+       
+        fold -s "$file" | less
+       
+        zobraz_src=$(display_yesno "Chcete zobrazit ïalsi súbor?")
+    done
+}
+ 
+display_doc
+ 
+make
+if [ $? -ne 0 ]
+then
+    echo 'Chyba pri kompilovaní programu.'
+    exit 1
+fi
+ 
+
+ 
+./sem
+ 
+# zobrazenie zdrojoveho kodu
+display_src
+ 
+# zobrazenie dokumentacie
+display_doc
+ 

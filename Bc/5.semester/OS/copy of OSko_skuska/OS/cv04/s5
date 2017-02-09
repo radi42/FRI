@@ -1,0 +1,9 @@
+#!/bin/bash
+case $(date +%A -d "$*") in
+    Monday) echo "je pondelok";;
+    Tuesday) echo "je utorok";;
+    Wednesday) echo "je streda";;
+    Saturday) echo "je stvrtok";;
+    Friday) echo "je paitok";;
+    *) echo "je nieco ine";;
+esac

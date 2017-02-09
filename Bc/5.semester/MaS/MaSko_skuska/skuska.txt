@@ -1,0 +1,240 @@
+ROZDIELY MEDZI STATICKYM A DYNAMICKYM SYSTEMOM
+- pri vymedzovani statickeho systemu abstrahujeme od casu
+- pri dynamickom systeme cas nezanedbavame, hra dolezitu ulohu
+
+STAV DYNAMICKEHO SYSTEMU V CASE T
+- je dany prvkami systemu a hodnotami ich atributov v case t
+
+MODEL
+- oznacenie modelujuceho systemu
+- originalny system je nahradeny modelom
+- kazdemu prvku PO originalu je priradeny prvok PM modelu
+- kazdemu atributu AO z PO je priradeny atribut AM z PM
+
+MODELOVANIE
+- vyskumna metoda, podstatou ktorej je nahradenie skumaneho systemu modelom, cielom je ziskat informacie o originali pomocou experimentov.
+
+SIMULACIA
+- vyskumna metoda, ktorej podstatou je nahradenie skumaneho dynamickeho sytsemu jeho simulacnym modelom s cielom ziskat informacie o originale pomocou vykonania experimentov
+
+VYHODY SIMULACIE
+- kontrolovane experimenty
+- komplexne systemy
+- nizka cena
+- setrenie casu
+- treningovy nastroj
+- vhodny na pochopenie fungovania systemu
+- neovplyvnuje cinnost originalu
+
+NEVYHODY SIMULACIE
+- nezarucuje ziskanie optimalnych vysledkov
+- na tvorbu modelu treba odborne znalosti
+- komplexne modely su casovo narocne
+- vysledky treba dokladne statisticky spracovat kvoli stochastickosti vstupov
+
+ROZDIEL MEDZI SPOJITYM A DISKRETNYM MODELOM
+- spojity model - zmeny stavu systemu nastavaju priebezne v case
+- diskretny model - zmeny stavu systemu nastavaju len v urcitych diskretnych casovych okamihoch
+
+ROZDIEL MEDZI DETERMINISTICKYMI A STOCHASTICKYMI MODELMI
+- deterministicke modely - vsetky vstupy su pevne dane a nemenne, v kazdom okamihu viem presne urcit nasledujuci stav systemu
+- stochasticke modely - vstupy su nahodne premenne
+
+PRINCIP MONTE CARLO
+- numericka metoda na riesenie typov uloh, ktore sa daju vyjadrit jednym alebo viacerymi matematickymi vztahmi, pricom niektore premenne vo vztahu mozu byt nahodne generovane
+- cas nehra dolezitu ulohu
+
+MONTE CARLO - VYPOCET INTEGRALU
+- integral je plocha pod funkciou
+S/Q = pocet pokusov, kde (x,y) patri S / pocet vsetkych pokusov
+(x,y) je nahodny bod z Q
+S = integral_a-b f(x)dx
+Q  je cela stvorcova plocha
+S ~ (b-a)^2 * ( suma_1-N Xi / N ), kde Xi = 1, ak (x,y) patri S, inak Xi = 0
+
+PROCES
+- postupnost na seba nadvazujucich aktivit, ktore spolu tvoria logicky celok
+
+REPLIKACIA
+- spustenie simulacneho experimentu s rovnakymi parametrami ale s odlisnym prudom generatora nahodnych cisel
+
+AKO ZABRANIT VPLYVU POCIATOCNEHO STAVU PRI SIMULACII BEZ UKONCENIA S USTALENYMI PODMIENKAMI
+- zacat s naplnenym systemom (problem ako a cim ho naplnit)
+- simulovat tak dlho, kym sa vplyv strati 
+- nechat model sa zahriat (vysledky budem zbierat az po zahriati, ked bude simulacia v ustalenom stave)
+
+METODY ZISKAVANIA IID
+- spektralna metoda
+- regenerativna metoda
+- metoda skratenych replikacii 
+    - identifikujem dobu zahrievania
+    - vykonam n nezavislych replikacii, pricom data zbieram az po zahriati
+    - dalej pokracujem ako pri analyze simulacie s ukoncenim
+    - ak chcem presnejsie, urobim viac replikacii alebo simulujem dlhsie pri kazdej replikacii
+    - casovo narocne, ak je faza zahrievania dlha
+- metoda davok
+    - pouzijem len jeden velmi dlhy beh (len 1 replikacia => data nie su IID, nemozem ich pouzit)
+    - rozdelim vysledky do davok (zahrievanie vylucim)
+    - pre kazdu davku vypocitam priemer, ktory mozem povazovat za IID nahodne premenne
+
+INTERAKCIE KOMBINOVANEJ SIMULACIE
+- diskretna udalost moze sposobit diskretnu zmenu hodnoty spojitej premennej
+- diskretna udalost moze sposobit zmenu vztahu na vypocet hodnoty spojitej premennej
+- dosiahnutie kritickej hodnoty spojitej premennej moze sposobit vznik (or naplanovanie) udalosti v diskretnej casti modelu
+
+ZAKLADNE FAZY SIMULACNEHO PROJEKTU
+- formulovanie problemu, vymedzenie objektu skumania
+- stanovanie casoveho planu a cielov
+- vymedzenie systemu
+- tvorba konceptualneho modelu vymedzeneho systemu
+- zber a analyza dat pre model
+- verifikacia
+- validacia
+- plan experimentov
+- vykonanie a analyza experimentov
+- zistenie, ci treba dalsie experimenty
+- zaverecna sprava, dokumentacia
+- vyuzitie vysledkov
+
+KEDY NIE JE VHODNE POUZIT SIMULACIU
+- problem sa da vyuzit sedliackym rozumom
+- problem sa da vyriesit analytickymi matematickymi metodami
+- jednoduchsie je experimentovat s realnym systemom
+- naklady su prilis vysoke
+- nemam dostatok zdrojov na ukoncenie projektu
+- nedostatok casu
+- nedostatok dat 
+- model sa neda verifikovat/validovat
+- nie je mozne splnit ocakavane ciele
+- system je prilis komplikovany alebo sa neda dobre definovat
+
+VERIFIKACIA
+- zodpoveda implementovany model konceptualnemu modelu? je spravne naprogramovany?
+- treba vykonavat priebezne
+- debuggovanie, krokovanie, trasovanie
+- rozdelenie programu do mensich blokov
+- kontrola kodu inou osobou
+- pozorovanie animacneho vystupu
+- testy vstupnych generatorov
+
+VALIDACIA
+- je model spravou reprezentaciou modelovaneho systemu?
+- ziskam vierohodne vysledky?
+- treba vykonavat priebezne
+- porovnavanie s realitou
+- porovnavanie s inym modelom
+- empiricka validacia (posudenie expertom)
+
+KREDIBILITA
+- model je kredibilny, ak je zakaznikom povazovany za validny a jeho vysledky su pouzite pri rozhodovani
+- ziskanie kredibility:
+    - klient rozumie a suhlasi so zjednoduseniami
+    - model bol verifikovany a validovany
+    - klient je sucastou projektu
+    - simulacny tim ma dobru povest
+
+ATRIBUTY UDALOSTI
+- cas vyskytu
+- akcie spojene s udalostou (zmena stavu systemu)
+
+KROKY PLANOVANIA UDALOSTI
+- inicializacia simulacneho casu Ts
+- ak je kalendar udalosti prazdny alebo vyprsal cas simulacie, koniec
+- inak vyber udalost z vrchu kalendara udalosti (s najmensou hodnotou Tu - cas vyskytu udalosti)
+- aktualizacia simulacneho casu
+- vykonanie akcie spojenej s vyskytom udalosti
+- goto krok 2    
+
+SIMULACIA S UKONCENIM, SPRACOVANIE VYSLEDKOV
+- simulacia s ukoncenim
+    - v originalnom systeme existuje prirodzena udalost, ktora v simulatore urcuje koniec simulacie
+    - simulacny cas je konecny a dobre definovany
+    - dane pociatocne a koncove podmienky, pociatovne vplyvaju na vysledky
+- vykonam seriu IID replikacii (aspon 4-5), vysledky si ulozim
+- vysledky treba statisticky spracovat a urcit intervaly spolahlivosti pre jednotlive veliciny
+    - interval spolahlivosti - hodnota je priemer z nekonecneho poctu replikacii
+    - 95% IS je taky nahodny interval, ktory s 95% pravdepodobnostou obsiahne hladanu hodnotu
+- mozem aj porovnavat vysledky dvoch roznych konfiguracii - urobim behy, zistim vysledky, urcim IS, skontrolujem, ci sa intervaly prekryvaju
+
+SIMULACNE METODY SPOJITYCH SYSTEMOV
+- stav modelu je reprezentovany premennymi, ktore sa v case spojito menia
+- zmeny hodnot premennych v case modeluju dynamicke spravanie sa systemu
+- spojity model sa vytvara definovanym explicitnych fciii, deferencnych rovnic alebo diferencialnych rovnic
+- vacsinou sa vyuzivaju diferencialne rovnice, vyjadrit mieru rastu (derivaciu) hodnoty v danom case je jednoduchsie ako vyjadrit jej hodnotu v danom case
+- pouzivaju sa iba rovnice prveho ranu, rovnice vyssieho radu sa prevedu na rovnice prveho radu
+- je potrebne definovat pociatocne podmienky
+
+EULEROVA METODA
+- numericka metoda pouzivana pri modelovani spojitych systemov
+- metoda prveho radu
+- bod - dotycnica
+- dobra pre jednoduche funkcie
+- konstatny krok
+- pri "nekonecne" malom kroku je skoro dokonala
+- cim vacsi krok, tym vacsia chyba, ktora sa kumuluje
+- z pociatocneho bodu sa posunim v smere, ktory urci dif rovnica o dlzku kroku, bod v ktorom som povazujem za sucast krivky
+(aj ked v skutocnosti nie je jej sucastou, iba sa ku krivke priblizujem), znova vypocitam smer a posuniem sa o dlzku kroku
+
+VYHODY RKF, KDE SA POUZIVA
+- pouziva sa pri modelovani spojitych systemov
+- metoda 4-5. radu
+- variabilny krok
+- flexibilnejsia
+- aj pre zlozitejsie fcie
+
+TESTY DOBREJ ZHODY, VYUZITIE
+- test hypotezy, ci vybrane rozdelenie dobre modeluje vzorku dat
+- chi kvadrat test
+    - test ci dve vzorky dat pochadzaju z rovnakeho rozdelenia
+    - zistuje sa hodnota kriteria chi kvadrat pre stanovenu hladinu vyznamnosti (alfa, vacsinou 0,05)
+    - porovna sa s kritickou hodnotou rozdelenia chi kvadrat na pozadovanej hladine vyznamnosti s prislusnym poctom stupnov volnosti
+    - hypotezu zamietame, ak chi kvadrat > p (tabulkova hodnota)
+    - pocet stupnov volnosti: k-1 (pocet intervalov - 1)
+        chi^2 = suma_1-k (Xi - N*Pi)^2 / N*Pi
+        k je pocet  intervalov histogramu (aspon 5)
+        Xi je pocetnost hodnot v itom intervale
+        N je celkovy pocet udajov
+        Pi je pravdepodobnost, ze hodnota NP lezi v itom intervale
+    - potrebuje vacsie mnozstvo dat
+    - vyzaduje rozdelenie do intervalov
+- kolmogorovov-smirnovov test
+    - staci mu mensie mnozstvo dat, pri vacsom mnozstve je menej presny
+
+
+DISKRETNE ROZDELENIA
+- alternativne 
+    - nahodne javy
+    - uspech or neuspech
+- binomicke
+    - pocet uspesnych pokusov v n pokusoch
+    - pocet chybnych kusov v krabici, kde je n kusov
+- geometricke
+    - pocet neuspechov pred prvym uspechom
+    - pocet kontrolovanych vyrobkov pred najdenim chybneho
+- poissonovo 
+    - pocestnost nastatia javu za fixny case
+    - pocet zakaznikov za hodinu, pocet prideneho tovaru za minutu
+
+SPOJITE ROZDELENIA
+- expo
+    - casy medzi javmi
+    - casy medzi prichodmi zakaznikov, casy medzi poruchami
+- erlang
+    - suma k nezavislych expo NP
+    - cas potrebny na dokoncenie aktivity (fazy aktivity maju expo rozdelenie)
+- gamma
+    - cas trvania aktivity
+    - obsluha zakaznika, lisovanie
+- weib
+    - modelovanie spolahlivosti
+    - cas medzi poruchami zariadenia z velkeho poctu dielov, ktore sa kazia nezavisle a vyradia cely stroj
+- norm
+    - chyby rozneho druhu
+    - vazenie vyrobkov, chyby strelby na terc
+- log normal
+    - cas trvania aktivity
+- trojuholnikove, beta
+    - nedostatok dat
+
+
+

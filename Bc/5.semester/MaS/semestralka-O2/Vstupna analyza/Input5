@@ -1,0 +1,35 @@
+
+	Distribution Summary
+
+Distribution:	Exponential  
+Expression:	0.5 + EXPO(4.24)
+Square Error:	0.001337
+
+Chi Square Test
+  Number of intervals	= 2
+  Degrees of freedom 	= 0
+  Test Statistic     	= 0.302
+  Corresponding p-value	< 0.005
+
+	Data Summary
+
+Number of Data Points	= 50
+Min Data Value       	= 1
+Max Data Value       	= 21
+Sample Mean          	= 4.74
+Sample Std Dev       	= 3.76
+
+	Histogram Summary
+
+Histogram Range    	= 0.5 to 21.5
+Number of Intervals	= 3
+
+
+==================================================================
+Int.   No. of               Probability           Cumulative      
+No.    Data Pts.   x        Density               Distribution    
+------------------------------------------------------------------
+                            Data   Function       Data   Function   
+   0    42       4.00      0.840      0.808      0.840      0.808
+   1     7       11.0      0.140      0.155      0.980      0.963
+   2     1       18.0     0.0200     0.0298       1.00      0.993

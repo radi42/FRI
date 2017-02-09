@@ -1,0 +1,42 @@
+Pretekajú autá 2 znaèiek FAST a FURIOUS. Autá FAST dosahujú èasy z trojuholníkového rozdelenia (parametre si nepamätám), autá FURIOUS tiež, ale s inými parametrami (tiež neviem, aké presne boli). Z každej znaèky preteká 5 áut. Za prvé miesto je 10 bodov, za druhé 9, za tretie 8, atï. Popíšte (pomocou pseudokódu / vývojového diagramu) postup metódy Monte carlo na zistenie, ktorá znaèka dosahuje viac bodov za 1 roèník, ktorý sa skladá z 15 pretekov.
+
+0 pre FAST              TRIA(a,b,c)
+1 pre FURIOUS      TRIA(x,y,z)
+
+PSEUDOKOD:
+
+auta = array [2][10]            // zoznam vsetkych aut na preteku (prva suradnica urcuje o aky typ auta ide a druha poradie)
+body = array [2][10]             // zoznam vsetkych bodov aut na preteku (prva suradnica urcuje o aky typ auta ide a druha pocet bodov)
+
+for ( k = 0; k<1000; k++) {         // 1000 replikacii
+
+    for ( i = 0; i<15; i++) {              // 15 pretekov
+
+        for ( j = 0; j<5; j++) {                    // prvych 5 aut budu auta typu FAST
+            auta[ 0 ][ j ] = TRIA(a,b,c);       // kazde auto dostane cas
+            auta[ 1 ][ j ] = 0;                         // do prvej suradnice sa zapise ze je to auto typu FAST = 0
+        }
+
+        for ( j = 5; j<10; j++) {                   // druhych 5 aut budu auta typu FURIOUS
+            auta[ 0 ][ j ] = TRIA(x,y,z);       // kazde auto dostane cas
+            auta[ 1 ][ j ] = 1;                         // do prvej suradnice sa zapise ze je to auto typu FURIOUS = 1
+        }
+
+        auta[0][ ].zotried_podla_druhej_suradnice();    // auta sa zoradia podla casov
+
+        bod = 10;
+        for ( j = 0; j<10; j++) {
+            body[0][j] = bod;                       // kazdemu autu pridelime podla casu body
+            bod--;                                          // horsi cas uz dostane o bod menej
+            body[1][ j ] = auta[1][ j ];            // do prvej suradnice sa zapise aky typ auta ziskal tolko bodov co je v druhej suradnici
+        }
+
+        for ( j = 0; j<10; j++) {                                               // spocita sa kolko bodov ziskali auta typu FAST a kolko typu FURIOUS
+            if (body[1][ j ] == 0) {fast  += body[0][ j ];}
+            else {furious  += body[0][ j ];}
+        }
+    }
+}
+
+if ( (fast/1000) > (furious/1000) ) {"znacka fast dosahuje viac bodov ra rocnik";}
+else  {"znacka furious dosahuje viac bodov ra rocnik";}

@@ -1,0 +1,23 @@
+#!/bin/bash
+#ukazka citania z klavesnice
+printf "%s\n" "Zadavajte slova, skoncite stlacenim ctrl + d"
+while read line
+do
+printf "%s\n" "$line"
+
+done
+
+POCITADLO=1
+
+while let "POCITADLO < 10"
+do
+printf "%d\n" $POCITADLO
+let POCITADLO++
+done
+
+#nekonecna slicka
+while :
+do
+printf "%s\n" "BUM!"
+sleep 5
+done

@@ -1,0 +1,35 @@
+18. Usporiadane procesy
+
+Dokumentacia
+
+Cielom semestralnej prace bolo vytvorit programovu strukturu piatich
+procesov, ktore boli usporiadane v case podla zadaneho orientovaneho grafu.
+
+Ako procesy som si zvolil nasledujuce akcie :
+
+P1 - Nacita den, mesiac a rok zo vstupu a zapise tieto udaje do suboru
+     datum.txt.
+
+P2 - Nacita datum zo suboru datum.txt nasledne vypocita aky den v tyzdni je
+     tento nacitany datum. Vysledok vypise na obrazovku.
+
+P3 - Nacita datum zo suboru datum.txt a nasledne vypocita ktory den v roku
+     tento datum je. Vysledok vypise na obrazovku.
+
+P4 - Nacita datum zo suboru datum.txt. Nasledne prevedie vypocet, ktorym
+     zisti rozdiel medzi dnesnym datumom a datumom nacitanym zo suboru.
+     Vysledok zapise do suboru vystup.txt.
+
+P5 - Nacita subor vystup.txt, v ktorom je ulozeny vysledok operacie P4
+     procesu. Vypise vysledok tejto operacie na obrazovku. 
+
+
+
+Hlavna cast programovej struktury semestralnej prace tvori subor sem.c.
+V programe su pouzite semfory ako synchronizacne prostriedky. Program
+obsahuje konkretne 5 semaforov : semA, semB, semC, semD, semE.
+
+V main funkcii suboru sem.c sa vytvoria 4 vlakna. Nasledne sa v kazdom
+vlakne zavola novy proces pomocou funkcie fork(). V kazdom potomkovy sa
+vykona execlp, ktory spusti ziadany proces. Rodic caka na potomka a ak je
+ten ukonceny zavola sa funkcia sem_post(), na pustenie potrebneho semaforu.

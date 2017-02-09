@@ -1,0 +1,111 @@
+\hypertarget{databaza__server_8c}{\section{databaza\+\_\+server.\+c File Reference}
+\label{databaza__server_8c}\index{databaza\+\_\+server.\+c@{databaza\+\_\+server.\+c}}
+}
+{\ttfamily \#include $<$sys/types.\+h$>$}\\*
+{\ttfamily \#include $<$sys/socket.\+h$>$}\\*
+{\ttfamily \#include $<$netinet/in.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+{\ttfamily \#include $<$sys/stat.\+h$>$}\\*
+Include dependency graph for databaza\+\_\+server.\+c\+:
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{databaza__server_8c_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{databaza__server_8c_a0ddf1224851353fc92bfbff6f499fa97}{\index{databaza\+\_\+server.\+c@{databaza\+\_\+server.\+c}!main@{main}}
+\index{main@{main}!databaza\+\_\+server.\+c@{databaza\+\_\+server.\+c}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{databaza__server_8c_a0ddf1224851353fc92bfbff6f499fa97}
+Hlavna funkcia servera zodpoveda za vykonanie prikazu klienta a informovanie klienta o vysledku operacie 
+\begin{DoxyParams}{Parameters}
+{\em argc} & pocet argumentov \\
+\hline
+{\em argv} & hodnoty argumentov \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+filedescriptor socketu, filedescriptor noveho socketu
+
+Bufferom sa odosiela odpoved klientovi
+
+komunikujeme cez I\+Pv4
+
+zadana adresa moze byt lubovolna platna I\+Pv4 adresa
+
+konverzia cisla portu do obrateneho poradia, kvoli prenosu cez siet
+
+najviac moze na splnenie poziadavky cakat 5 klientov
+
+Nekonecny cyklus Server moze prijmat poziadavky neustale, narozdiel od klienta, ktory uzavrie spojenie, akonahle odosle prikaz
+
+Prijatie poziadavky o pripojenie klienta
+
+server precita prikaz od klienta
+
+rozparsuj spravu od klienta a zisti prikaz nazov suboru sa nesmie zacinat oddelovacom
+
+skopiruj originalny string do premennej, lebo funkcia strtok poskodi zdrojovy string
+
+prejdi stringom a spocitaj pocet znakov '\#'
+
+inkrementuj pocet argumentov o jedna, lebo pocet argumentov je o jeden viac ako pocet '\#'
+
+init pola prikazov arr do dynamickej pamate daj kazdy argument do samostatneho stringu -\/ rozdel ich podla znaku '\#'
+
+alokujem pole o takom pocte prvkov, aky je argumentov, kde kazdy prvok (argument) moze mat 511 najviac znakov
+
+Rozdelenie retazca odoslaneho klientom podla znaku '\#'
+
+Kazdy jednotlivy argument pridaj do pola argumentov arr
+
+Ak priecinok pre ukladanie suborov neexistuje, vytvori sa
+
+Vetvenie podla prikazu od klienta
+
+Insert Prikaz insert vytvori novy subor, ak subor s danym nazvom este neexistuje v opacnom pripade sa sprava ako update -\/ aktualizuje obsah suboru podla kluca
+
+ukladanie do suboru kluc je nazov suboru hodnota je obsah suboru
+
+zakladna cesta ukladania D\+B suborov
+
+zapis hodnotu do suboru
+
+Daj spravu klientovo, ze sa subor ulozil
+
+Select Prikaz select vypysuje obsah suboru podla zadaneho kluca Ak subor s danym nazvom neexituje, server vrati klientovi prazdny retazec
+
+Jedno pismeno obsahu suboru
+
+Subor, ktory chceme citat
+
+Cely obsah suboru -\/ maximalne 1023 znakov
+
+Vynuluj pole obsah\+Suboru
+
+Otvor subor na danej ceste iba na citanie
+
+ak subor existuje, do pola sa ulozi jeho obsah po jednotlivych znakoch, inak sa nevypise nic
+
+Posli klientovi obsah suboru podla zadaneho kluca
+
+Delete Prikaz delete vymaze subor podla, kluca zadaneho ako parameter Ak subor neexistuje, klient o tom dostane spravu
+
+Posli klientovi spravu o vymazani suboru
+
+vynuluj pole stav\+Vymazania
+
+uvolni alokovane miesto v pamati pre pole argumentov
+
+Server bezi v slucke, a nie je mozne ho ukonit z klienta, preto ho treba ukoncit cez ctrl + c

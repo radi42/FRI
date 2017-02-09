@@ -1,0 +1,29 @@
+-aplikacia ma byt jeden prikaz + parameter (insert/delete/select) + parametre (v zavislosti od prikazu)
+-na server sa budu odosielat parametre od klienta jeden po druhom
+
+kluc = nazob suboru
+hodnota = lubovolny retazec
+
+Podrobne parametre:
+insert -k kluc -h hodnota
+delete -k kluc
+select -k kluc
+
+Poznamka: insert sa sprava aj ako update
+
+-do semestralky dokodit: 
+	-tcp socket komunikacia funguje
+	-klient posiela na server spravy
+	-server vie teraz prijmat spravy neustale od viacerych hostov
+	-klient vie poslat cely prikaz na server aj s parametrami oddelenymi delimitermi
+	-server si vie string aj s argumentami poslany klientom rozparsovat a ulozit do samostatneho pola na vetvenie
+	-vytvaranie zaznamu (suboru) klientom: (insert)
+	-zmazavanie zaznamu (suboru) klientom podla kluca (delete)
+	-ziskanie hodnoty zaznamu (suboru) podla kluca (select)
+	-upravit cestu ukladania suborov
+	-povymazavat zbytocne vypisy u klienta
+	-uvolnit naalokovane pole arr (free arr)
+	-nech server posiela klientovi to, co klient ziada (insert - subor <nazov suboru> bol vlozeny; select - <obsah suboru>; delete - subor <nazov suboru> bol odstraneny)
+
+	-napisat bash skript na zabranenie vkladaniu duplicitnych suborov
+	-napisat dokumentaciu

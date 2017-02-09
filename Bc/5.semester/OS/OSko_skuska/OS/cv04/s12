@@ -1,0 +1,8 @@
+#!/bin/bash
+cut -d':' -f5 /etc/passwd |
+while read Meno Priezvisko
+do 
+    if [ ${#Priezvisko} -gt 0 ]
+    then echo "$Priezvisko ${Meno:0:1}."
+    fi
+done | sort | cat -n

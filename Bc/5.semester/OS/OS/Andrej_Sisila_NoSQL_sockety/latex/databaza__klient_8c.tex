@@ -1,0 +1,63 @@
+\hypertarget{databaza__klient_8c}{\section{databaza\+\_\+klient.\+c File Reference}
+\label{databaza__klient_8c}\index{databaza\+\_\+klient.\+c@{databaza\+\_\+klient.\+c}}
+}
+{\ttfamily \#include $<$sys/types.\+h$>$}\\*
+{\ttfamily \#include $<$sys/socket.\+h$>$}\\*
+{\ttfamily \#include $<$netinet/in.\+h$>$}\\*
+{\ttfamily \#include $<$netdb.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+Include dependency graph for databaza\+\_\+klient.\+c\+:
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{databaza__klient_8c_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{databaza__klient_8c_a0ddf1224851353fc92bfbff6f499fa97}{\index{databaza\+\_\+klient.\+c@{databaza\+\_\+klient.\+c}!main@{main}}
+\index{main@{main}!databaza\+\_\+klient.\+c@{databaza\+\_\+klient.\+c}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{databaza__klient_8c_a0ddf1224851353fc92bfbff6f499fa97}
+Hlavna funkcia klienta odosiela udaje serveru prostrednictvom domenoveho mena a portu, na ktorom server pocuva, zadanych ako parametre 
+\begin{DoxyParams}{Parameters}
+{\em argc} & pocet argumentov \\
+\hline
+{\em argv} & hodnoty argumentov \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+sockfd je filedescriptor socketu a premenna cislo\+Deskriptora na ukladanie navratovych hodnot metod
+
+Bufferom klient odosiela udaje na server
+
+Najde I\+P adresu servera podla domenoveho mena
+
+Adresa je vo formate I\+Pv4
+
+konvertuj cislo portu do opacneho poradia, kvoli prenosu cez siet
+
+inicializuj strukturu bzero buffrom a jeho velkostou
+
+Prikaz insert ulozenie/upravenie obsahu suboru Na server sa posiela 5 argumentov, 3. az 7., ako jeden retazec, oddeleny znakom '\#' insert -\/k kluc -\/h hodnota
+
+Prikaz select zobrazenie obsahu suboru Na server sa posiela 3 argumenty, 3. az 5., ako jeden retazec, oddeleny znakom '\#' select -\/k kluc
+
+Prikaz delete vymazanie suboru Na server sa posiela 3 argumenty, 3. az 5., ako jeden retazec, oddeleny znakom '\#' delete -\/k kluc
+
+Pri zadani neplatneho prikazu sa nic nevykona
+
+H\+T\+T\+P -\/ Bad Request
+
+Odoslanie retazca na server (nesmie byt vacsi ako 255 znakov + \textbackslash{}0)
+
+Prijatie spravy od servera (nesmie byt vacsia ako 255 znakov + \textbackslash{}0) 

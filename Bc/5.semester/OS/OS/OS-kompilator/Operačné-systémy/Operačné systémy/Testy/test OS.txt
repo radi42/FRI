@@ -1,0 +1,207 @@
+1
+
+1 Známky
+Ktorá z uvedenıch moností sa pouíva pre overenie identity pouívate¾a?
+
+Odpoveï:  
+a. heslo       ****
+b. datum a èas
+c. odt¾aèok prsta       ****
+d. uívate¾ské meno       ****
+e. magnetická karta     ****
+f. IP adresa servera
+
+2
+
+1 Známky
+Máme proces, ktorého logickı adresnı priestor pozostáva z 4 stránok po 1024
+bajtov, ktoré sú mapované do fyz. pamäte, ktorá pozostáva z 32 rámcov. Ak máme
+tabu¾ku stránok:
+è. str. rámec
+0 1
+1 14
+2 5
+3 28
+aká je fyzická adresa 256-tého bajtu zo stránky è.1?
+14*1024+256
+Odpoveï: 
+
+3
+
+1 Známky
+Na virtualizáciu pamäte môeme poui
+
+Odpoveï:
+a. segmentácia
+b. stránkovanie
+c. segmentáciu na iados       ****
+d. stránkovanie na ziados       ****
+e. segmentáciu so stránkovaním
+
+4
+
+1 Známky
+Viacúrovòové stránkovanie je moné charakterizova ako:
+
+Odpoveï:  
+a. rozdelením tabu¾ky stránok na N èastí
+b. segmentáciou tabu¾ky stránok
+c. stránkovanie tabu¾ky stránok       ****
+d. distribúciou tabu¾ky stránok na viecero poèítaèov v sieti
+
+5
+
+1 Známky
+RAID5 vyuíva  Vybra si...rotujúcu paritu
+RAID1 vyuíva  Vybra si...zrkadlenie diskov 
+RAID4 vyuíva  Vybra si...paritnı disk 
+
+6
+
+1 Známky
+Máme nasledovnú mnoinu procesov, ktorıch poiadavky na èas procesora sú uvedené
+v tabu¾ke:
+proces po. èas èas príchodu
+P1........ 10...........0
+P2 .........1............1 -
+P3 .........2............2 -
+P4 .........1............3
+P5 .........5............4
+
+V akom poradí sa ukonèia procesy pri pouití algoritmu plánovania „najkratší
+najskôr" (SJF) s preempciou?
+(Poznámka: pri odpovedi pouzite tvar P1,P2, ... bez medzier a inıch znakov
+
+Odpoveï: P2,P4,P3,P5,P1
+
+7
+
+1 Známky
+
+DMA sa pouíva na Vybra si... prenos dát
+z-do pamäte 
+Segment Table Base Register (STBR) sa pouíva na Vybra si..uloenie zaèiatoènej adresy tabu¾ky segmentov 
+Asociatívna pamä TLB sa pouíva na Vybra si...uloenie èasti tabu¾ky stránok
+Èítaè inštrukcií (PC) sa pouíva na Vybra si...uloenie adresy nasledujúcej inštrukcie
+
+8
+
+1 Známky
+Máme nasledujúcu tabu¾ku segmentov
+
+Segment Zaèiatok Dåka
+0 219 600
+1 2300 14
+2 90 100
+3 1327 580
+4 1952 96
+
+Je zodpovedajúca fyzická adresa pre logickú adresu
+<3, 400> ---> 1727
+
+Odpoveï:  Správne       ****
+ Nesprávne
+
+
+9
+
+1 Známky
+7. Ktorá z nasledujúcich podmienok pre uviaznutie nie je správne formulovaná :
+
+a) vıluènı prístup procesom k prostriedkom
+
+b) postupne pride¾ovanie prostriedkov procesom
+
+c) preemptívne plánovanie prostriedkov
+
+d) kruhové èakanie
+
+Odpoveï:  
+a. c       ****
+b. a
+c. b      
+d. d
+
+10
+
+1 Známky
+Adresár je mone implementova pomocou
+
+Odpoveï:  
+a. mnoinou
+b. hešovacej tabu¾ky       ****
+c. bitovım vektorom
+d. lineárneho zoznamu       ****
+
+11
+
+1 Známky
+Priraïte správne popisy do diagramu stavov procesu.
+1 Vybra si...ukonèenıV/V operácia alebo èakanie na udalosèakajúcibeiacikoniec
+V/V alebo príchod udalostipripravenıvstup do systémuprerušenienaplánovanınovı 
+6 Vybra si...ukonèenıV/V operácia alebo èakanie na udalosèakajúcibeiacikoniec
+V/V alebo príchod udalostipripravenıvstup do systémuprerušenienaplánovanınovı 
+7 Vybra si...ukonèenıV/V operácia alebo èakanie na udalosèakajúcibeiacikoniec
+V/V alebo príchod udalostipripravenıvstup do systémuprerušenienaplánovanınovı 
+8 Vybra si...ukonèenıV/V operácia alebo èakanie na udalosèakajúcibeiacikoniec
+V/V alebo príchod udalostipripravenıvstup do systémuprerušenienaplánovanınovı 
+3 Vybra si...ukonèenıV/V operácia alebo èakanie na udalosèakajúcibeiacikoniec
+V/V alebo príchod udalostipripravenıvstup do systémuprerušenienaplánovanınovı 
+4 Vybra si...ukonèenıV/V operácia alebo èakanie na udalosèakajúcibeiacikoniec
+V/V alebo príchod udalostipripravenıvstup do systémuprerušenienaplánovanınovı 
+2 Vybra si...ukonèenıV/V operácia alebo èakanie na udalosèakajúcibeiacikoniec
+V/V alebo príchod udalostipripravenıvstup do systémuprerušenienaplánovanınovı 
+5 Vybra si...ukonèenıV/V operácia alebo èakanie na udalosèakajúcibeiacikoniec
+V/V alebo príchod udalostipripravenıvstup do systémuprerušenienaplánovanınovı 
+10 Vybra si...ukonèenıV/V operácia alebo èakanie na udalosèakajúcibeiacikoniec
+V/V alebo príchod udalostipripravenıvstup do systémuprerušenienaplánovanınovı 
+9 Vybra si...ukonèenıV/V operácia alebo èakanie na udalosèakajúcibeiacikoniec
+V/V alebo príchod udalostipripravenıvstup do systémuprerušenienaplánovanınovı 
+
+12
+
+1 Známky
+V ktorom z uvedenıch prípadov je moná synchronizácia procesov pomocou správ?
+
+Odpoveï:  
+a. blokujúca operácia send , blokujúca operácia receive ****
+b. neblokujúca operácia send , neblokujúca operácia receive
+c. blokujúca operácia send , neblokujúca operácia receive
+d. neblokujúca operácia send , blokujúca operácia receive
+
+13
+
+1 Známky
+Aká je kapacita bufra pri komunikácií medzi 2 procesmi v prípade, ktorı sa
+nazıva rendezvous (randevu)
+
+Odpoveï:  
+a. N (N je prirodzené èislo)
+b. 0                 ****
+c. neobmedzená
+
+14
+
+1 Známky
+Monitor
+
+Odpoveï:  
+a. dovo¾uje vykonavanie iba jednej zo svojich procedúr ****
+b. ma procedury, ktoré môu by rekrzívne
+c. je prostriedok vyuuvajúci aktívne èakanie
+d. dovo¾uje èaka na podmienku ****
+e. ma procedury, ktoré nesmú by reentrantné ****
+
+15
+
+1 Známky
+Na zadanom reazcov odkazov na stránky a poèet rámcov porovnajte poèty vıpadkov
+stránok nahradzovacich algoritmov FIFO a Optimálneho algoritmu: (rátajte aj
+poèiatoèné vıpadky)
+
+Poèet rámcov – 2 , reazec odkazov – A B A C B A C
+
+Odpoveï:  
+a. FIFO - 5, OPT - 3
+b. FIFO - 5, OPT - 4       ****
+c. FIFO - 4, OPT - 3

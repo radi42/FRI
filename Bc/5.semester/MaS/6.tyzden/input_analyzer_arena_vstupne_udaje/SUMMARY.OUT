@@ -1,0 +1,18 @@
+Fit All
+
+Document:  F:\vstupne_udaje.txt
+Data File: F:\vstupne_udaje.txt
+
+
+Function       Sq Error
+-----------------------
+Weibull        0.0105
+Gamma          0.0113
+Erlang         0.0219
+Exponential    0.0219
+Lognormal      0.0304
+Beta           0.0316
+Normal         0.0473
+Triangular     0.0896
+Uniform        0.127
+Poisson        0.386

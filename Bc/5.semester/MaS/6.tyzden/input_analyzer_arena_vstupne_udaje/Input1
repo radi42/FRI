@@ -1,0 +1,140 @@
+
+	Distribution Summary
+
+Distribution:	Weibull      
+Expression:	1.5 + WEIB(14.9, 1.15)
+Square Error:	0.010531
+
+Chi Square Test
+  Number of intervals	= 4
+  Degrees of freedom 	= 1
+  Test Statistic     	= 1.77
+  Corresponding p-value	= 0.201
+
+	Data Summary
+
+Number of Data Points	= 30
+Min Data Value       	= 2
+Max Data Value       	= 58
+Sample Mean          	= 15.7
+Sample Std Dev       	= 12.4
+
+	Histogram Summary
+
+Histogram Range    	= 1.5 to 58.5
+Number of Intervals	= 8
+
+
+==================================================================
+Int.   No. of               Probability           Cumulative      
+No.    Data Pts.   x        Density               Distribution    
+------------------------------------------------------------------
+                            Data   Function       Data   Function   
+   0     9       5.00      0.300      0.344      0.300      0.344
+   1    10       12.0      0.333      0.263      0.633      0.607
+   2     6       19.0      0.200      0.167      0.833      0.774
+   3     2       26.0     0.0667     0.0996      0.900      0.874
+   4     1       33.0     0.0333     0.0572      0.933      0.931
+   5     1       40.0     0.0333     0.0320      0.967      0.963
+   6     0       47.0      0.000     0.0175      0.967      0.980
+   7     1       54.5     0.0333     0.0103       1.00      0.991
+
+
+=================================================================
+
+
+Data File: F:\vstupne_udaje.txt
+
+
+Function       Sq Error
+-----------------------
+Weibull        0.0105
+Gamma          0.0113
+Erlang         0.0219
+Exponential    0.0219
+Lognormal      0.0304
+Beta           0.0316
+Normal         0.0473
+Triangular     0.0896
+Uniform        0.127
+Poisson        0.386
+
+	Distribution Summary
+
+Distribution:	Exponential  
+Expression:	1.5 + EXPO(14.2)
+Square Error:	0.021905
+
+Chi Square Test
+  Number of intervals	= 3
+  Degrees of freedom 	= 1
+  Test Statistic     	= 1.92
+  Corresponding p-value	= 0.185
+
+	Data Summary
+
+Number of Data Points	= 30
+Min Data Value       	= 2
+Max Data Value       	= 58
+Sample Mean          	= 15.7
+Sample Std Dev       	= 12.4
+
+	Histogram Summary
+
+Histogram Range    	= 1.5 to 58.5
+Number of Intervals	= 8
+
+
+==================================================================
+Int.   No. of               Probability           Cumulative      
+No.    Data Pts.   x        Density               Distribution    
+------------------------------------------------------------------
+                            Data   Function       Data   Function   
+   0     9       5.00      0.300      0.390      0.300      0.390
+   1    10       12.0      0.333      0.238      0.633      0.628
+   2     6       19.0      0.200      0.145      0.833      0.773
+   3     2       26.0     0.0667     0.0885      0.900      0.861
+   4     1       33.0     0.0333     0.0540      0.933      0.915
+   5     1       40.0     0.0333     0.0330      0.967      0.948
+   6     0       47.0      0.000     0.0201      0.967      0.969
+   7     1       54.5     0.0333     0.0136       1.00      0.982
+
+	Distribution Summary
+
+Distribution:	Exponential  
+Expression:	1.5 + EXPO(14.2)
+Square Error:	0.021905
+
+Chi Square Test
+  Number of intervals	= 3
+  Degrees of freedom 	= 1
+  Test Statistic     	= 1.92
+  Corresponding p-value	= 0.185
+
+	Data Summary
+
+Number of Data Points	= 30
+Min Data Value       	= 2
+Max Data Value       	= 58
+Sample Mean          	= 15.7
+Sample Std Dev       	= 12.4
+
+	Histogram Summary
+
+Histogram Range    	= 1.5 to 58.5
+Number of Intervals	= 8
+
+
+==================================================================
+Int.   No. of               Probability           Cumulative      
+No.    Data Pts.   x        Density               Distribution    
+------------------------------------------------------------------
+                            Data   Function       Data   Function   
+   0     9       5.00      0.300      0.390      0.300      0.390
+   1    10       12.0      0.333      0.238      0.633      0.628
+   2     6       19.0      0.200      0.145      0.833      0.773
+   3     2       26.0     0.0667     0.0885      0.900      0.861
+   4     1       33.0     0.0333     0.0540      0.933      0.915
+   5     1       40.0     0.0333     0.0330      0.967      0.948
+   6     0       47.0      0.000     0.0201      0.967      0.969
+   7     1       54.5     0.0333     0.0136       1.00      0.982

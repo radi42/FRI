@@ -1,0 +1,19 @@
+01. Ake zakladne ulohy plni operacny system?
+02. Co je PCB, co obsahuje, k comu sluzi?
+03. Mame 3 ramce, ktore su na zaciatku prazdne a nasledovny retazec odkazov na stranky: 1,2,3,4,2,3,4,5,3,4,5,6,2,6,2,5
+    Pre algoritmus nahradzovania OPT vypocitajte celkovy pocet vypadkov stranoj
+04. Co je virtualna pamat ? Akym sposobom spravy pamate sa dosiahne ?
+05. Popiste princip komunikacie medzi procesmi pomocou mailboxu na vhodne zvolenom priklade.
+06. Ako sa urychli pristup k pamati pri strankovani ?
+07. Popiste vlastnosti asemantiku a pouzitie instrukcie Test_and_Set pre synchronizaciu.
+08. Aky je rozdiel medzi uviaznutim a starvaciou ?
+09. Ktora z nasledujucich podmienok nieje nutna pre uviaznutie ? ( postupnos? procesov )
+10. Uvedte zakladne operacie nad subormi
+11. Popiste suvisle pridelovanie diskoveho priestoru suborom
+12. Co robia prikazy: A) echo $PATH  B) ipcs
+13. Ake prostriedky komunikacie poznate pod OS Linux pre komunikaciu medzi procesmi
+14. Ktore udalosti pocas vykonania programu mozu zmenit jeho stav ?
+15. Uvedte typy bezpecnostnych hrozieb
+
+
+

@@ -1,0 +1,382 @@
+
+	Distribution Summary
+
+Distribution:	Exponential  
+Expression:	-0.5 + EXPO(2.62)
+Square Error:	0.005891
+
+Chi Square Test
+  Number of intervals	= 1
+  Degrees of freedom 	= -1
+  Test Statistic     	= 0.22
+  Corresponding p-value	< 0.005
+
+	Data Summary
+
+Number of Data Points	= 50
+Min Data Value       	= 0
+Max Data Value       	= 10
+Sample Mean          	= 2.12
+Sample Std Dev       	= 1.87
+
+	Histogram Summary
+
+Histogram Range    	= -0.5 to 10.5
+Number of Intervals	= 2
+
+
+==================================================================
+Int.   No. of               Probability           Cumulative      
+No.    Data Pts.   x        Density               Distribution    
+------------------------------------------------------------------
+                            Data   Function       Data   Function   
+   0    48       2.50      0.960      0.899      0.960      0.899
+   1     2       8.00     0.0400     0.0862       1.00      0.985
+
+	Distribution Summary
+
+Distribution:	Uniform      
+Expression:	UNIF(-0.5, 10.5)
+Square Error:	0.343696
+
+Chi Square Test
+  Number of intervals	= 2
+  Degrees of freedom 	= 1
+  Test Statistic     	= 34.7
+  Corresponding p-value	< 0.005
+
+	Data Summary
+
+Number of Data Points	= 50
+Min Data Value       	= 0
+Max Data Value       	= 10
+Sample Mean          	= 2.12
+Sample Std Dev       	= 1.87
+
+	Histogram Summary
+
+Histogram Range    	= -0.5 to 10.5
+Number of Intervals	= 2
+
+
+==================================================================
+Int.   No. of               Probability           Cumulative      
+No.    Data Pts.   x        Density               Distribution    
+------------------------------------------------------------------
+                            Data   Function       Data   Function   
+   0    48       2.50      0.960      0.545      0.960      0.545
+   1     2       8.00     0.0400      0.455       1.00       1.00
+
+	Distribution Summary
+
+Distribution:	Weibull      
+Expression:	-0.5 + WEIB(2.92, 1.51)
+Square Error:	0.000251
+
+Chi Square Test
+  Number of intervals	= 1
+  Degrees of freedom 	= -2
+  Test Statistic     	= 0.007
+  Corresponding p-value	< 0.005
+
+	Data Summary
+
+Number of Data Points	= 50
+Min Data Value       	= 0
+Max Data Value       	= 10
+Sample Mean          	= 2.12
+Sample Std Dev       	= 1.87
+
+	Histogram Summary
+
+Histogram Range    	= -0.5 to 10.5
+Number of Intervals	= 2
+
+
+==================================================================
+Int.   No. of               Probability           Cumulative      
+No.    Data Pts.   x        Density               Distribution    
+------------------------------------------------------------------
+                            Data   Function       Data   Function   
+   0    48       2.50      0.960      0.948      0.960      0.948
+   1     2       8.00     0.0400     0.0509       1.00      0.999
+
+
+=================================================================
+
+
+Data File: E:\Skola\FRI\5.semester\MS\semestralka-O2\Data\pozrietTelefon.txt
+
+
+Function       Sq Error
+-----------------------
+Weibull        0.000251
+Erlang         0.000524
+Gamma          0.000733
+Lognormal      0.00217
+Beta           0.00218
+Normal         0.00527
+Exponential    0.00589
+Triangular     0.119
+Uniform        0.344
+Poisson        1.4
+
+	Distribution Summary
+
+Distribution:	Uniform      
+Expression:	UNIF(-0.5, 10.5)
+Square Error:	0.343696
+
+Chi Square Test
+  Number of intervals	= 2
+  Degrees of freedom 	= 1
+  Test Statistic     	= 34.7
+  Corresponding p-value	< 0.005
+
+	Data Summary
+
+Number of Data Points	= 50
+Min Data Value       	= 0
+Max Data Value       	= 10
+Sample Mean          	= 2.12
+Sample Std Dev       	= 1.87
+
+	Histogram Summary
+
+Histogram Range    	= -0.5 to 10.5
+Number of Intervals	= 2
+
+
+==================================================================
+Int.   No. of               Probability           Cumulative      
+No.    Data Pts.   x        Density               Distribution    
+------------------------------------------------------------------
+                            Data   Function       Data   Function   
+   0    48       2.50      0.960      0.545      0.960      0.545
+   1     2       8.00     0.0400      0.455       1.00       1.00
+
+	Distribution Summary
+
+Distribution:	Poisson      
+Expression:	POIS(2.12)
+Square Error:	1.400784
+
+Chi Square Test
+  Number of intervals	= 2
+  Degrees of freedom 	= 0
+  Test Statistic     	= 334
+  Corresponding p-value	< 0.005
+
+	Data Summary
+
+Number of Data Points	= 50
+Min Data Value       	= 0
+Max Data Value       	= 10
+Sample Mean          	= 2.12
+Sample Std Dev       	= 1.87
+
+	Histogram Summary
+
+Histogram Range    	= -0.5 to 10.5
+Number of Intervals	= 2
+
+
+==================================================================
+Int.   No. of               Probability           Cumulative      
+No.    Data Pts.   x        Density               Distribution    
+------------------------------------------------------------------
+                            Data   Function       Data   Function   
+   0    48       2.50      0.960      0.120      0.960      0.120
+   1     2       8.00     0.0400      0.874       1.00      0.994
+
+	Distribution Summary
+
+Distribution:	Triangular   
+Expression:	TRIA(-0.5, 2.5, 10.5)
+Square Error:	0.119161
+
+Chi Square Test
+  Number of intervals	= 2
+  Degrees of freedom 	= 0
+  Test Statistic     	= 14.6
+  Corresponding p-value	< 0.005
+
+	Data Summary
+
+Number of Data Points	= 50
+Min Data Value       	= 0
+Max Data Value       	= 10
+Sample Mean          	= 2.12
+Sample Std Dev       	= 1.87
+
+	Histogram Summary
+
+Histogram Range    	= -0.5 to 10.5
+Number of Intervals	= 2
+
+
+==================================================================
+Int.   No. of               Probability           Cumulative      
+No.    Data Pts.   x        Density               Distribution    
+------------------------------------------------------------------
+                            Data   Function       Data   Function   
+   0    48       2.50      0.960      0.716      0.960      0.716
+   1     2       8.00     0.0400      0.284       1.00       1.00
+
+	Distribution Summary
+
+Distribution:	Empirical    
+Expression:	CONT or DISC (0.000, -0.500,
+                              0.960,  5.500,
+                              0.960, 10.500)
+
+
+	Data Summary
+
+Number of Data Points	= 50
+Min Data Value       	= 0
+Max Data Value       	= 10
+Sample Mean          	= 2.12
+Sample Std Dev       	= 1.87
+
+	Histogram Summary
+
+Histogram Range    	= -0.5 to 10.5
+Number of Intervals	= 2
+
+
+	Distribution Summary
+
+Distribution:	Beta         
+Expression:	-0.5 + 11 * BETA(1.44, 4.28)
+Square Error:	0.002184
+
+Chi Square Test
+  Number of intervals	= 1
+  Degrees of freedom 	= -2
+  Test Statistic     	= 0.105
+  Corresponding p-value	< 0.005
+
+	Data Summary
+
+Number of Data Points	= 50
+Min Data Value       	= 0
+Max Data Value       	= 10
+Sample Mean          	= 2.12
+Sample Std Dev       	= 1.87
+
+	Histogram Summary
+
+Histogram Range    	= -0.5 to 10.5
+Number of Intervals	= 2
+
+
+==================================================================
+Int.   No. of               Probability           Cumulative      
+No.    Data Pts.   x        Density               Distribution    
+------------------------------------------------------------------
+                            Data   Function       Data   Function   
+   0    48       2.50      0.960      0.919      0.960      0.919
+   1     2       8.00     0.0400     0.0631       1.00      0.983
+
+	Distribution Summary
+
+Distribution:	Erlang       
+Expression:	-0.5 + ERLA(1.31, 2)
+Square Error:	0.000524
+
+Chi Square Test
+  Number of intervals	= 1
+  Degrees of freedom 	= -2
+  Test Statistic     	= 0.0159
+  Corresponding p-value	< 0.005
+
+	Data Summary
+
+Number of Data Points	= 50
+Min Data Value       	= 0
+Max Data Value       	= 10
+Sample Mean          	= 2.12
+Sample Std Dev       	= 1.87
+
+	Histogram Summary
+
+Histogram Range    	= -0.5 to 10.5
+Number of Intervals	= 2
+
+
+==================================================================
+Int.   No. of               Probability           Cumulative      
+No.    Data Pts.   x        Density               Distribution    
+------------------------------------------------------------------
+                            Data   Function       Data   Function   
+   0    48       2.50      0.960      0.943      0.960      0.943
+   1     2       8.00     0.0400     0.0551       1.00      0.998
+
+	Distribution Summary
+
+Distribution:	Lognormal    
+Expression:	-0.5 + LOGN(2.71, 2.4)
+Square Error:	0.002172
+
+Chi Square Test
+  Number of intervals	= 1
+  Degrees of freedom 	= -2
+  Test Statistic     	= 0.0827
+  Corresponding p-value	< 0.005
+
+	Data Summary
+
+Number of Data Points	= 50
+Min Data Value       	= 0
+Max Data Value       	= 10
+Sample Mean          	= 2.12
+Sample Std Dev       	= 1.87
+
+	Histogram Summary
+
+Histogram Range    	= -0.5 to 10.5
+Number of Intervals	= 2
+
+
+==================================================================
+Int.   No. of               Probability           Cumulative      
+No.    Data Pts.   x        Density               Distribution    
+------------------------------------------------------------------
+                            Data   Function       Data   Function   
+   0    48       2.50      0.960      0.922      0.960      0.922
+   1     2       8.00     0.0400     0.0674       1.00      0.990
+
+	Distribution Summary
+
+Distribution:	Normal       
+Expression:	NORM(2.12, 1.85)
+Square Error:	0.005273
+
+Chi Square Test
+  Number of intervals	= 1
+  Degrees of freedom 	= -2
+  Test Statistic     	= 0.629
+  Corresponding p-value	< 0.005
+
+	Data Summary
+
+Number of Data Points	= 50
+Min Data Value       	= 0
+Max Data Value       	= 10
+Sample Mean          	= 2.12
+Sample Std Dev       	= 1.87
+
+	Histogram Summary
+
+Histogram Range    	= -0.5 to 10.5
+Number of Intervals	= 2
+
+
+==================================================================
+Int.   No. of               Probability           Cumulative      
+No.    Data Pts.   x        Density               Distribution    
+------------------------------------------------------------------
+                            Data   Function       Data   Function   
+   0    48       2.50      0.960      0.888      0.960      0.966
+   1     2       8.00     0.0400     0.0339       1.00       1.00

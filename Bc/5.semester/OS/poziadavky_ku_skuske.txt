@@ -1,0 +1,31 @@
+﻿
+Prejsť k hlavnému obsahu
+Operačné systémy
+Požiadavky ku skúške
+Požiadavky ku skúške
+
+Na získanie prístupu (dostatočný počet bodov) ku skúške musíte splniť nasledujúce kritériá:
+* navštevovať všetky cvičenia, účasť je povinná. Ak sa študent nemôže zúčastniť, musí upozorniť cvičiaceho a zároveň mu oznámiť v ktorej skupine si cvičenie nahradí. Od príslušného cvičiaceho si vypýta potvrdenie o náhrade. Náhrada je možná len v tom istom týždni pretože témy sa neopakujú.
+    * vypracovať a odovzdať semestrálnu prácu v požadovanej kvalite a termíne,
+    * získať minimálne 70 bodov za semestrálku (maximálny počet je 100 bodov),
+    * urobiť záverečný test v 11 týždni aspoň na 12 bodov (maximálny počet je 20 bodov). V prípade neúspechu na teste bude možné ho zopakovať v januári.
+
+Poznámka: Zadania, ktoré sa majú vypracovať na cvičení sa budú kontrolovať a v prípade, že študent nemá vypracované zadanie sa mu strhne 5 bodov z bodov na semestrálku.
+
+Semestrálna práca:
+    * zadania budú distribuované na 3.  cvičení,
+    * vypracúvajú sa samostatne,
+    * semestrálna práca pozostáva z 2 častí: script v bashi a program v C jazyku. Zadanie, ktoré dostanete vypracujete v C jazyku a všetky podporné činnosti pre spustenie a otestovanie programu budú napísane v bashi.
+    * k semestrálnej práce je potrebné spracovať  programátorskú dokumentáciu, v ktorej sa vysvetlia teoretické východiska pre riešenie problému a na vhodne zvolených vstupných údajoch sa ukáže správnosť riešenia (to zabezpečí script).
+    * semestrálna práca sa odovzdáva v 12. a 13. týždni semestra. Poradie odovzdávania bude podla prihlásenia sa na príslušný týždeň na Moodl-i
+
+      Ak semestrálna práca nespĺňa požiadavky, vyučujúci ju neuzná a vráti na prerobenie, pričom je možné opravovať len 2 krát. Opätovná prezentácia je možná len v termínoch, ktoré zadá vyučujúci.
+
+    Hodnotenie semestrálnych prác  - maximálne 100 bodov za semestrálku, pričom hodnotenie závisí od splnenia požiadaviek na vypracovanie zadania.                 
+Hodnotí sa:
+          - funkčnosť semestrálnej práce a splnenie všetkých bodov zadania - program v C jazyku - 50b.
+                                                                                                                    - script v bashi - 30b.
+          - dokumentácia  semestrálnej práce - 20b.
+                -  prezentácia riešenia v dokumentácií               
+                -  znalosť problematiky (odpoveď na otázky)
+Posledná zmena: Thursday, 18 September 2014, 17:08

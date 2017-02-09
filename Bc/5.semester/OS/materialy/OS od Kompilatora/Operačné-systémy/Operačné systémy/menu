@@ -1,0 +1,42 @@
+clear
+echo "Martin Komara"
+echo "5ZI031"
+echo "18. Usporiadane procesy"
+echo "Napiste s pouzitim semaforov programovu strukturu piatich procesov, ktorych"
+echo "vykonanie bude usporiadane v case podla nasledujuceho orientovano grafu."
+echo "Kazdy nasledujuci proces sa spusta vtedy, ked sa jeho predchodca skoncil."
+echo ""
+echo "      --> P2 --> P3" 
+echo "    /              \  "
+echo "   /                \ "
+echo " P1 ------> P4 ----> P5"
+echo ""
+echo "Navrhnite vhodne cinnosti procesov, aby z vystupu bolo zrejme, ze poradie"
+echo "vykonania bolo dodrzane"
+echo ""
+echo ""
+echo "Zobrazit dokumentaciu (ano/nie) ?" 
+
+make
+./sem
+echo "Zobrazit zdrojovy kod programu (ano/nie) ?"
+read zobraz
+case "$zobraz" in
+a|ano|A|ANO|Ano )
+less sem.c;;
+n|nie|N|NIE|Nie )
+echo "";;
+*) echo "Nespravny vstup";;
+esac 
+
+echo "Zobrazit dokumentaciu (ano/nie)?"
+read dok
+case "$dok" in
+a|ano|A|ANO|Ano )
+ echo ""
+ echo "zobraz dokumentaciu";;
+n|nie|N|NIE|Nie )
+echo "";;
+*) "Nespravny vstup";;
+esac
+echo "koniec"

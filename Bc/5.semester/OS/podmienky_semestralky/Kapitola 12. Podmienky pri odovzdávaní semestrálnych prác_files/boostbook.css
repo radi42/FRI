@@ -1,0 +1,140 @@
+body
+{
+	margin: 1em;
+	font-family: sans-serif;
+}
+
+div.spirit-nav
+{
+	padding: 8px;
+	border: solid gray 1px;
+	background-color: #E0F0E0;
+}
+
+div.blockquote
+{
+	padding-top: 2px;
+	padding-bottom: 2px;
+	border: solid #E0E8E0 1px;
+	background-color: #E8F0E8;
+}
+
+div.tip
+{
+	border: solid #E8E8D0 1px;
+	background-color: #FFFFE8;
+}
+
+div.note
+{
+	border: solid #D0D0E8 1px;
+	background-color: #E8E8FF;
+}
+
+div.important
+{
+	border: solid #E8E8D0 1px;
+	background-color: #FFFFD0;
+}
+
+div.warning
+{
+	border: solid #E8D0D0 1px;
+	background-color: #FFD0D0;
+}
+
+pre.programlisting
+{
+	margin-top: 0;
+	margin-bottom: 0;
+	border: solid gray 1px;
+	background-color: #E8E8E4;
+	padding-right: 1em;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	float: left;
+	width: 60%;
+	overflow: hidden;
+}
+
+.programlisting .preprocessor
+{
+	font-weight: 600;
+	color: #303090;
+}
+.programlisting .keyword
+{
+	font-weight: 500;
+	color: #4040A0;
+}
+.programlisting .identifier
+{
+	font-weight: 400;
+	color: #101020;
+}
+.programlisting .string
+{
+	font-weight: 700;
+	color: #4040A0;
+}
+
+div.section,
+div.blockquote,
+pre.programlisting + :not(.calloutlist)
+{
+	padding-top: 0.5em;
+	clear: both;
+}
+
+.calloutlist
+{
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	border: solid #E0E0E0 1px;
+	background-color: #F8F8F4;
+	float: right;
+	width: 37%;
+	overflow: hidden;
+}
+
+.calloutlist table
+{
+	font-size: 75%;
+}
+
+div > p
+{
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+code
+{
+	padding: 2px;
+	border: solid #E0E0E0 1px;
+	background-color: #F0F0F0;
+}
+
+code.literal
+{
+	color: #101020;
+}
+
+strong code
+{
+	padding: 2px;
+	border: solid #D0D0D0 1px;
+	background-color: #E0E0E0;
+}
+
+.table
+{
+	border: solid black 1px;
+	border-collapse: collapse;
+}
+
+.table td, .table th
+{
+	border: solid black 1px;
+}

@@ -1,0 +1,40 @@
+
+	Distribution Summary
+
+Distribution:	Weibull      
+Expression:	1.5 + WEIB(14.9, 1.15)
+Square Error:	0.010531
+
+Chi Square Test
+  Number of intervals	= 4
+  Degrees of freedom 	= 1
+  Test Statistic     	= 1.77
+  Corresponding p-value	= 0.201
+
+	Data Summary
+
+Number of Data Points	= 30
+Min Data Value       	= 2
+Max Data Value       	= 58
+Sample Mean          	= 15.7
+Sample Std Dev       	= 12.4
+
+	Histogram Summary
+
+Histogram Range    	= 1.5 to 58.5
+Number of Intervals	= 8
+
+
+==================================================================
+Int.   No. of               Probability           Cumulative      
+No.    Data Pts.   x        Density               Distribution    
+------------------------------------------------------------------
+                            Data   Function       Data   Function   
+   0     9       5.00      0.300      0.344      0.300      0.344
+   1    10       12.0      0.333      0.263      0.633      0.607
+   2     6       19.0      0.200      0.167      0.833      0.774
+   3     2       26.0     0.0667     0.0996      0.900      0.874
+   4     1       33.0     0.0333     0.0572      0.933      0.931
+   5     1       40.0     0.0333     0.0320      0.967      0.963
+   6     0       47.0      0.000     0.0175      0.967      0.980
+   7     1       54.5     0.0333     0.0103       1.00      0.991

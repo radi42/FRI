@@ -1,0 +1,5 @@
+#!/bin/bash
+read -p "Zadaj A: " A
+read -p "Zadaj B: " B
+echo "$A + $B = $((A+B))"
+echo "$A - $B = $[$A-$B]"

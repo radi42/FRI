@@ -1,0 +1,72 @@
+simulacny cas:                  195s
+zdroj:                          obsadeny zakaznikom 4
+front:                          caka zakaznik 5, bude obsluhovany 114s
+ukoncene cakania vo fronte:     4
+suma casov cakania vo fronte:   80s
+
+kalendar udalosti: 
+    266s, vystup zakaznika 4
+    597s, vstup zakaznika 6 (dlzka obsluby 75s)
+    879s, vstup zakaznika 7 (dlzka obsluby 35s)
+    1000s, koniec
+
+UDALOST1
+simulacny cas:                  266s
+zdroj:                          obsadeny zakaznikom 5 //v case 266s odisiel zakaznik 4 a kedze zakaznik 5 cakal vo fronte, hned sa narval do zdroja
+front:                          prazdny
+ukoncene cakania vo fronte:     5   //tento cas je vzdy zhodny s cislom zakaznika v zdroji
+suma casov cakania vo fronte:   80 + (266 - 195) = 151s //v case 266 sa zakaznik 5 dostal do zdroja, od casu 195s cakal v fronte - to bol cas jeho prichodu
+
+kalendar udalosti: 
+    380s, vystup zakaznika 5    //266 + 114, odkedy sa zakaznik 5 dostal do zdroja + dlzka jeho obsluhy
+    597s, vstup zakaznika 6     //zvysok kalendara sa nemeni.. ak by v predchadzajucom riadku, tj vystup zakaznika 5 vysiela vacsi ako 597s, tak sa do kalendara udalosti zapise az za tento riadok -> kalendar je usporiadany podla casov od najmensieho
+    879s, vstup zakaznika 7
+    1000s, koniec
+
+UDALOST2
+simulacny cas:                  380s
+zdroj:                          prazdny
+front:                          prazdny
+ukoncene cakania vo fronte:     5   
+suma casov cakania vo fronte:   151s
+
+kalendar udalosti: 
+    597s, vstup zakaznika 6 (dlzka obsluby 75s)
+    879s, vstup zakaznika 7 (dlzka obsluby 35s)
+    1000s, koniec    
+
+___
+simulacny cas:                  207s
+zdroj:                          prazdny
+front:                          prazdny
+ukoncene cakania vo fronte:     5
+suma casov cakania vo fronte:   165s
+
+kalendar udalosti: 
+    248s, vstup zakaznika 6 (dlzka obsluhy 30s)
+    380s, vstup zakaznika 7 (dlzka obsluhy 63s)
+    1000s, koniec
+
+UDALOST1
+simulacny cas:                  248s
+zdroj:                          obsadeny zakaznikom 6
+front:                          prazdny
+ukoncene cakania vo fronte:     6 //priratam zakaznika, aj ked v skutocnosti vo fronte nebol.. je to akoby cakal vo fronte 0s
+suma casov cakania vo fronte:   165s + 0s //siel rovno do zdroja, vo fronte bol 0s
+
+kalendar udalosti: 
+    278s, vystup zakaznika 6 //248 + 30
+    380s, vstup zakaznika 7 (dlzka obsluhy 63s)
+    1000s, koniec
+
+UDALOST2
+simulacny cas:                  278s
+zdroj:                          prazdny
+front:                          prazdny
+ukoncene cakania vo fronte:     6
+suma casov cakania vo fronte:   165s
+
+kalendar udalosti: 
+    380s, vstup zakaznika 7 (dlzka obsluhy 63s)
+    1000s, koniec
+

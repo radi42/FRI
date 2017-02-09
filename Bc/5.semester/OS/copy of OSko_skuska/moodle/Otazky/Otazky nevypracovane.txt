@@ -1,0 +1,123 @@
+﻿III.Kapitola (Struktura OS)
+---------------------------
+01. Zakladne moduly OS
+02. Virtualny pocitac 
+03. Ake zakladne ulohy plni operacny system?
+04. Popís architektúru klient-server; vrtstvovú architektúru OS
+
+IV. Kapitola (Procesy)
+----------------------
+05. Definicia procesu
+06. Popiste prepinanie kontextu
+07. Proces - stavy
+*08*. Ktoré udalosti počas vykonania programu môžu zmeniť jeho stav? 
+*09*. Čo je PCB, čo obsahuje, k čomu slúži. 
+*10*. Stavovy diagram procesu 
+*11*. Implementacia vlakna 
+*12*. Vlákna je mozné  implementovat dvomi  spôsobmi. To sú
+13. Definujte: multiprogramovanie, vlakno
+
+V. Kapitola (Planovanie procesov)
+---------------------------------
+*14*. Round Robin 
+15. Vsetky planovacie algoritmy, planovanie so spatnou vazbou
+16 Pri zavádzaní nového procesu, ktorý proces bude uvolnený z pamäte podla algoritmu (FIFO,LRU,2.druhej sance)
+
+
+VI. Kapitola (Synchronizacia procesov)
+--------------------------------------
+*17*. semantika SWAP , pouzitie pri synchronizacii 
+18. Popiste vlastnosti a semantiku a pouzitie instrukcie Test_and_Set pre synchronizaciu.
+19. Popíste semafor - struktúra, operácie, pouzitie
+20. Hlavný princíp monitora je:
+21. Hardwarove instrukcie z aktivnym cakanim (test 'n set, swap)
+
+VII. Kapitola (Komunikacie medzi procesmi)
+------------------------------------------
+22. Popiste princip komunikacie medzi procesmi pomocou sprav na vhodnom zvolenom priklade
+23. Popiste princip komunikacie medzi procesmi pomocou mailboxu na vhodne zvolenom priklade.
+*24*. Aké prostriedky komunikácie poznáte pod OS Linux pre komunikáciu medzi procesmi - v distribuovanych systemoch (str 119)
+25. Popís komunikáciu medzi procesmi na základe volania vzdialenej procedúry RPC 
+26. Posielanie sprav v distribucnom systeme
+
+
+VIII. Kapitola (Uviaznutie procesov)
+------------------------------------
+27. V akom stave je system. obr. (pozri word)
+*28*. Ktorá z nasledujúcich podmienok nieje nutná pre uviaznutie ? (bolo na vyber - spravna je ... postupnosť procesov )
+*29*. Ktora z nasledujucich podmienok nieje nutna pre uviaznutie ? ( postupnos? procesov )
+*30*. Aky je rozdiel medzi uviaznutim a starvaciou ?
+31. Coffmanove podmienky
+32. Algoritmus bankara
+
+
+IX. Kapitola (Sprava pamate)
+----------------------------
+*33*. kedy sa daju pridelit fyzicke adresy k logockym 
+*34*. Ako sa urychli pristup k pamati pri strankovani ?        (pomocou TLB)
+35. Aky je rozdiel medzi swapovanim a segmentaciou ?
+36. Ako sa urychli pristup k pamat pri segmentacii? 
+37. Ochrana pamäte pri stránkovaní
+38. tranformacia logicke na fyzicku pri pouziti strankovania 
+39. Popíste transformáciu logickej adresy na fyzickú pri pouzití segmentácie
+40. Popís nahradzovanie stránok pri stránkovaní na ziadost
+41. Kedy mozeme do procesu pridelit pamatovu adresu
+
+
+X. Kapitola (Virtualna pamat)
+-----------------------------
+42. Co je virtualna pamat? Na co sluzi? Akym sposobom spravy pamate sa dosiahne ?
+*43*. Máme 3 rámce, ktoré sú na začiatku prázdne a nasledovný reťazec odkazov na stránky: 1,2,3,4,2,3,4,5,3,4,5,6,2,6,2,5  
+    (moznu byt rozne cisla stranok) Pre algoritmus FIFO vypočítajte celkový počet výpadkov stránok. 
+*44*. Mame 3 ramce, ktore su na zaciatku prazdne a nasledovny retazec odkazov na stranky: 1,2,3,4,2,3,4,5,3,4,5,6,2,6,2,5
+       Pre algoritmus nahradzovania OPT vypocitajte celkovy pocet vypadkov stranoj
+45. Working list 
+
+       
+XI. Kapitola (Sprava suborov)
+-----------------------------
+46. Popiste suvisle pridelovanie diskoveho priestoru suborom
+*47*. Popiste indexovane pridelovanie diskoveho priestoru suborom. 
+*48*. Ake  operacie nad adresarmi pozname?
+*49*. Uvedte zakladne operacie nad subormi
+*50*. Ktoré metódy prístupu k súborom poznáte
+51. Popiste suvisle pridelovanie diskoveho priestoru suborom
+*52*. struktura adresarov 
+53. Ktoré metódy pridelovanie volného priestoru súborom na disku poznáte
+54. Popíste FAT tabulku. K comu slúzi
+55. Ako je organizovaný systém súborov? Aké sú úlohy jednotlivých vrstiev ?
+56. Metody pristupu k suborom
+
+
+XII. Kapitola (sprava perifernych zariadeni)
+-------------------------------------------- 
+57. spooling 
+58. Popiste synchronny a asynchronny priebeh perifernej operacie
+59. Ktoré z nasledujúcich zariadení vyuzíva metódu spooling,popis
+
+
+
+XIII. Kapitola (Sprava diskovych zariadeni)
+-------------------------------------------
+60. Diskove polia
+61. Uvedte aspon dva spôsoby implementácie zoznamu volných blokov na disku
+62. Cím sa zaoberá pridelovanie diskového priestoru
+63. Mame disk, ktory ma 200 stop, ocislovane od 0 po 200. Momentalna pozicia ramienka je na 140 stope. Front poziadavok je:
+   85,145,90,175,95,150,102,180,130
+   Spocitajte kolko pohybov (v stopach) vykona ramienko, ak je pouzity alg.
+      a) vytahu (ide najskor hore)
+      b) najkratsieho presunu
+64. Metody pohybu hlavicky
+
+
+XIV. Kapitola (Pocitacova bezpecnost)
+-------------------------------------
+*65*. Uvedte typy bezpecnostnych hrozieb
+
+
+Shell scipty
+------------
+*66*. Co urobia prikazy $PATH=PATH:.   ipcrm sem id 
+*67*. Co robia prikazy: A) echo $PATH          B) ipcs
+*68*. script – vypis suborov, ktore obsahuju zadany retazec 
+

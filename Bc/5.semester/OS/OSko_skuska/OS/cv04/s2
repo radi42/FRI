@@ -1,0 +1,7 @@
+#!/bin/bash
+if [ -f "$1" ]
+then echo "$1 je subor"
+elif [ -d "$1" ]
+then echo "$1 je adresar"
+else echo "$1 nieje ani subor ani adresar"
+fi

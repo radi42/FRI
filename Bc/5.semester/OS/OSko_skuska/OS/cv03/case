@@ -1,0 +1,15 @@
+#!/bin/bash
+
+function testcase {
+case $1 in
+jeden|Jeden|JEDEN)printf "%s\n" "Jeden";;
+dva|Dva|DVA)printf "%s\n" "Dva";;
+tri|TRI|Tri)printf "%s\n" "Tri";;
+*)printf "%s\n" "Taketo slovo nepoznam";;
+esac
+}
+
+testcase Jeden
+testcase DVA
+testcase tri
+testcase styri

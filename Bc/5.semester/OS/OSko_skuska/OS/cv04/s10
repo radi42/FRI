@@ -1,0 +1,11 @@
+#!/bin/bash
+echo ${1}
+echo ${1:-default1}
+echo ${2:-default2}
+echo ${#1}
+echo ${1:1}
+echo ${1:1:2}
+echo ${1/he/ho}
+echo ${1%}
+echo ${1#}
+echo ${1//he/ho}

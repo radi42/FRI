@@ -1,0 +1,4 @@
+#!/bin/bash
+for arg in $(echo $PATH | tr ':' ' ')
+do echo $arg 
+done

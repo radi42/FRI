@@ -1,0 +1,18 @@
+Letecka spolocnost ma v pohotovosti 50000 na naklady na stravu pre zakaznikov.
+ Pri vacsom meskani ako 1 hod musi kazdemu zakaz. zaplatiti stravu za 10
+ Prevadzkuje 12 letov denne, cely mesiac. Meskanie je z TRIA rozdelenia (x,y,z), a
+ zakaznici su z POISS(x). Aka je pravdepodobnost ze bude stacit tych 50000 na
+ mesiac a este priemerne mesacne naklady.
+
+for ( i = 0; i<1000; i++) {                 // 1000 replikacii
+     for ( j = 0; j<30; j++) {                  // 30 dni
+         for ( k = 0; k<12; k++) {          // 12 letov denne
+             meskanie = TRIA (x,y,z);                                         // meskanie na jeden let
+             zakaznici = POISS (x);                                              // pocet zakaznikov na jeden let
+             if ( meskanie > 1) {naklady += zakaznici*10;}
+         }
+    }
+    if (naklady <= 50000) { staci += 1;}
+}
+
+pravdepodobnost = staci/1000;

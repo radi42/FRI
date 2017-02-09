@@ -1,0 +1,12 @@
+NoSQL DBM systém implementovanı pomocou soketov (1)
+
+Vytvorte jednoduchı NoSQL databázovı systém v jazyku C, ktorı umoní aplikácii uklada dvojicu údajov – k¾úè a hodnotu. Obe poloky sú reazce znakov. Server bude prijíma príkazy pomocou soketov v inet doméne. Navrhnite vhodnı komunikaènı protokol pre vımenu údajov medzi serverom a klientom. Klientská èas umoní:
+
+posla na server novú dvojicu údajov, zadanú ako parameter
+opıta sa na hodnotu asociovanú s danım k¾úèom, zadanım ako parameter
+odstráni dvojicu pod¾a zadaného k¾úèa, zadaného ako parameter
+Údaje odoslané na server musia by zachované aj v prípade ukonèenia a opätovného spustenia servera. Vytvorenı server otestujte pomocou nasledujúcej aplikácie:
+
+Testovacie skripty
+
+Vytvorte skript na h¾adanie a manipuláciu s duplicitnımi súbormi. Zvo¾te vhodnı spôsob detekcie duplicít (ve¾kos súboru, md5,...). Vısledkom èinnosti skriptu bude bash skript, ktorı bude obsahova príkazy na odstránenie duplicitnıch súborov. Ponechanı bude ten súbor, ktorı sa vyskytol pri preh¾adávaní súborového systému ako prvı.

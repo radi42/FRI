@@ -1,0 +1,22 @@
+Mas dve pece(p1 pecie 20000 rozkov),(p2 pecie 18000 rozkov)
+Predaj rozkov(predaj) je dany troj.roz(10000,17000,20000)-z tohoto budes generovat tych 1000 repl.
+Z predaneho rozku mas zisk 0,3sk a za nepredany stratu 0,4sk.
+Mas zistit ktora pec je pre teba vyhodnejsia
+
+cyklus od 1 po 1000 {
+    dopyt = TRIA (10000, 17000, 20000);
+    p1 = 20 000 - dopyt;                                        // strata pece 1
+    p2 = 18 000 - dopyt;                                        // strata pece 2
+
+    if (p1 < 0) { zisk1 = 20 000*0,3;}                          // ak je dopyt vacsi ako ponuka zarobime iba tolko kolko nam da pec za den
+    else {zisk1 = (dopyt*0.3) - (p1*0.4);}          // ak bol dopyt mensi ako upecieme tak od zisku odratame straty
+
+    if (p2 < 0) { zisk2 = 18 000*0,3;}                           // ak je dopyt vacsi ako ponuka zarobime iba tolko kolko nam da pec za den
+    else {zisk2 = (dopyt*0.3) - (p2*0.4);}          // ak bol dopyt mensi ako upecieme tak od zisku odratame straty
+
+    if (zisk1 > zisk2) { prva += 1;}                        // zistime kolko krat sa nam pocas replikacii oplatilo kupit pec 1
+    else {druha += 1;}                                          // alebo pec 2
+}
+
+if ((prva/1000) > (druha/1000)) {"prva pec sa oplati viac";}
+else {"druha pec sa oplati viac";}

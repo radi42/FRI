@@ -1,0 +1,15 @@
+Vlákno (thread), niekedy nazıvané od¾ahèenı proces (LWP - Lightweight process) je základná jednotka pre plánovanie èinnosti procesora a kadé vlákno má vlastné toto:
+- èítaè inštrukcií,
+- sadu registrov,
+- zásobník.
+S ostatnımi „príbuznımi“ vláknami zdie¾a kód, dáta a prostriedky (otvorené súbory, signály, atï.). 
+Tradiènı proces ako sme ho doteraz poznali, je úloha s jednım vláknom. Tvorba vlákien a prepínanie medzi nimi je 
+„lacnejšie“ ako u tradiènıch procesov a ochrana pamäte nie je potrebná.
+Vlákna v mnohom fungujú obdobne ako procesy. Vlákno môe by v stave pripravenı, zablokovanı, beiaci alebo ukonèenı.
+ Obdobne len jedno vlákno v danom èase vyuíva procesor. V rámci procesu sa vlákna vykonávajú sekvenène. 
+Vlákna môu vytvára potomkov a môu sa zablokova, kım sa uskutoèní systémové volanie. Kım je jedno vlákno zablokované,
+ vykonáva sa iné. Na rozdiel od procesov vlákna nie sú od seba nezávislé. 
+Pretoe vlákna majú prístup k celému adresnému priestoru úlohy, môu èíta a zapisova do zásobníkov inıch vlákien.
+ Tieto štruktúry nie sú chránené pred zásahom inıch vlákien. 
+Takáto ochrana nie je potrebná, pretoe vlákna patria jednému uívate¾ovi a sú navrhované za úèelom spolupráce
+ v rámci jednej úlohy.

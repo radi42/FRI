@@ -1,0 +1,29 @@
+echo -n "Zadaj cestu ku skriptu ktory chces ladit: "
+read cesta
+
+if ! test -f $cesta
+  then
+    echo "Dany subor neexistuje!"
+	echo "Vytvaram novy subor $cesta"
+	touch $cesta
+	echo "Nastavujem parametre na 777"
+	chmod 777 $cesta
+fi
+
+while true
+  do
+    vi "$cesta"
+	"$cesta"
+	navrat=$?
+    echo "Navratova hodnota je $navrat"
+	if test $navrat -eq 0
+	  then
+	  break
+	fi
+	echo -n "Pokracovat v ladeni (n/ine)?"
+	read rozhod
+	if test "$rozhod" = "n"
+	  then
+	  break
+	fi
+  done

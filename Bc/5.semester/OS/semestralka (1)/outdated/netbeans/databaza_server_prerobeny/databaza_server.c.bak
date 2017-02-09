@@ -1,0 +1,30 @@
+make: *** No rule to make target `databaza_server', needed by `all'.  Stop.
+om tam nemal informacie o stave
+	//najprv budem zadavat kluc (nazov suboru) a hodnotu (obsah suboru)
+	
+	FILE *pFile;
+	char kluc[11]; //posledny znak pola musi byt volny - znak konca retazca
+	char hodnota[101]; //treba nechat jeden volny znak ako terminator pola
+	
+	pFile = fopen("/home/debian/OS/semestralka/netbeans/databaza_server/databaza.txt", "w");
+	printf("otvoril som subor\n");
+	
+	//zadaj kluc
+	printf("zadaj kluc\n");
+	scanf("%s", kluc);
+	
+	//zadaj hodnotu
+	printf("zadaj hodnotu\n");
+	scanf("%s", hodnota);
+	
+	//zapis kluc a hodnotu do suboru
+	fputs(kluc, pFile);
+	fputs("|", pFile); //oddelovac
+	fputs(hodnota, pFile);
+	fputs("\n", pFile);
+	fputs("koniec suboru", pFile);
+	
+	fclose(pFile);
+	printf("uzavrel som subor\n");
+	return 0;
+}

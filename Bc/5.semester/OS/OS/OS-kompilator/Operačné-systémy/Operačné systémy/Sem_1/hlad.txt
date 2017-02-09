@@ -1,0 +1,145 @@
+q=0
+while (( "$#" ))
+do
+
+ for u in $1/*
+   do
+     if test -f $u
+     then
+    poleSuborov[q]=$u
+    q=$q+1
+     fi
+   done
+   shift
+ done
+
+function rav(){
+for t in ${poleSuborov[*]}
+do
+echo $t
+done
+}
+
+
+function porovnajPodlaVelkosti()
+{
+
+
+k=0 
+z=0
+y=0
+x=0
+for i in ${poleSuborov[*]}
+do
+ if test -f $i
+     then
+         pom=$(stat -c %s $i)  
+         let k=$k+1
+         l=0
+         p=0
+		    for j in ${poleSuborov[*]}
+			do
+			h=0
+			let l=$l+1
+			 if [ $l \> $k ]
+			 then
+              if [ $i != $j ]
+			  then
+				pom1=$(stat -c %s $j) 
+				  if [ $pom == $pom1 ]
+					then 
+					echo "subor $i  a $j sa rovnaju vo velkosti "
+
+						for c in ${poleDuplicit[*]}
+					 do
+						if [ $c == $i ]
+                                           then
+					   	x=$x+1
+					        fi	 	
+					 done
+					   if [ $x == 0 ]
+						then
+                                            poleDuplicit[z]=$i
+							z=$z+1             
+					   fi
+                                       x=0
+  					 for b in ${poleDuplicit[*]}
+					 do
+						if [ $b == $j ]
+                                         then
+						y=$y+1
+					  fi	 	
+					 done
+					if [ $y == 0  ]
+					then
+					 poleDuplicit[z]=$j
+                                    z=$z+1				        
+					fi
+                                    y=0
+
+
+       fi
+     fi
+    fi
+done
+ fi
+done
+}
+
+ 
+function je_parameter()
+{
+    if [ $# -eq 1 ]
+    then
+        if test -d $1
+        then
+ 	return 0
+        fi
+    fi
+    return 1
+}
+
+function je_textovy()
+{
+    typ=`file $1 | grep ASCII`
+    if [ -n "$typ" ]
+    then
+	return 0
+    fi
+    return 1
+}
+
+function vypisDuplicit()
+{
+for k in ${poleDuplicit[*]}
+do
+echo   ${k} 
+done
+}
+
+function menuUpravene(){
+echo ""
+echo "Najdene Duplicity"
+echo ""
+vypisDuplicit | nl
+echo ""
+echo "Vyberte s ktorou duplicitou chcete pracovat:"
+read vyb
+let vyb=$vyb-1
+pom=${poleDuplicit[$vyb]}
+echo "Co chcete urobit s duplicitou cislo $pom"
+echo "o- Odstranit"
+echo "k-Koniec"
+read vyber
+echo ""
+case $vyber in
+"o"|"O") rm $pom;;
+"k"|"K");; 
+esac
+
+}
+
+
+
+porovnajPodlaVelkosti
+menuUpravene

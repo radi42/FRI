@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Session Name="/home/debian/OS/semestralka/codelite_ide_option/databaza_klient/databaza_klient.workspace">
+  <int Value="0" Name="m_selectedTab"/>
+  <wxString Value="/home/debian/OS/semestralka/codelite_ide_option/databaza_klient/databaza_klient.workspace" Name="m_workspaceName"/>
+  <TabInfoArray Name="TabInfoArray"/>
+  <SerializedObject Name="m_breakpoints">
+    <long Value="0" Name="Count"/>
+  </SerializedObject>
+</Session>

@@ -1,0 +1,166 @@
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Kapitola 12. Podmienky pri odovzdávaní semestrálnych prác</title>
+<link rel="stylesheet" href="Kapitola%2012.%20Podmienky%20pri%20odovzd%C3%A1van%C3%AD%20semestr%C3%A1lnych%20pr%C3%A1c_files/boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="http://kifri.fri.uniza.sk/%7Echochlik/frios/index.html" title="FRI-OS">
+<link rel="up" href="http://kifri.fri.uniza.sk/%7Echochlik/frios/frios/sk/semestralky.html" title="Časť&nbsp;III.&nbsp;Semestrálne práce">
+<link rel="prev" href="http://kifri.fri.uniza.sk/%7Echochlik/frios/frios/sk/semestralky.html" title="Časť&nbsp;III.&nbsp;Semestrálne práce">
+<link rel="next" href="http://kifri.fri.uniza.sk/%7Echochlik/frios/frios/sk/semestralky/zadania.html" title="Kapitola 13. Zadania">
+</head>
+<body alink="#0000FF" bgcolor="white" link="#0000FF" text="black" vlink="#840084">
+<div class="spirit-nav">
+<a accesskey="p" href="http://kifri.fri.uniza.sk/%7Echochlik/frios/frios/sk/semestralky.html"><img src="Kapitola%2012.%20Podmienky%20pri%20odovzd%C3%A1van%C3%AD%20semestr%C3%A1lnych%20pr%C3%A1c_files/prev.png" alt="Predchádzajúci"></a><a accesskey="u" href="http://kifri.fri.uniza.sk/%7Echochlik/frios/frios/sk/semestralky.html"><img src="Kapitola%2012.%20Podmienky%20pri%20odovzd%C3%A1van%C3%AD%20semestr%C3%A1lnych%20pr%C3%A1c_files/up.png" alt="Hore"></a><a accesskey="h" href="http://kifri.fri.uniza.sk/%7Echochlik/frios/index.html"><img src="Kapitola%2012.%20Podmienky%20pri%20odovzd%C3%A1van%C3%AD%20semestr%C3%A1lnych%20pr%C3%A1c_files/home.png" alt="Domov"></a><a accesskey="n" href="http://kifri.fri.uniza.sk/%7Echochlik/frios/frios/sk/semestralky/zadania.html"><img src="Kapitola%2012.%20Podmienky%20pri%20odovzd%C3%A1van%C3%AD%20semestr%C3%A1lnych%20pr%C3%A1c_files/next.png" alt="Nasledujúci"></a>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div><h2 class="title">
+<a name="frios.sk.semestralky.podmienky"></a>Kapitola 12. Podmienky pri odovzdávaní semestrálnych prác</h2></div></div></div>
+<div class="toc">
+<p><b>Obsah</b></p>
+<dl class="toc"><dt><span class="section"><a href="http://kifri.fri.uniza.sk/%7Echochlik/frios/frios/sk/semestralky/podmienky.html#frios.sk.semestralky.podmienky.vypracovanie_semestr_lnej_pr_ce">Vypracovanie
+          semestrálnej práce</a></span></dt></dl>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="frios.sk.semestralky.podmienky.vypracovanie_semestr_lnej_pr_ce"></a><a class="link" href="http://kifri.fri.uniza.sk/%7Echochlik/frios/frios/sk/semestralky/podmienky.html#frios.sk.semestralky.podmienky.vypracovanie_semestr_lnej_pr_ce" title="Vypracovanie semestrálnej práce">Vypracovanie
+          semestrálnej práce</a>
+</h2></div></div></div>
+<p>
+            Študent zadanú semestrálnu prácu musí vypracovať samostatne, na
+            základe vedomostí z prednášok, cvičení a dostupných materiálov
+            (napr. z internetu). Semestrálna práca ako celok musí byť originálne
+            dielo študenta a študent musí vedieť vysvetliť účel a fungovanie
+            jednotlivých časti zdrojového kódu ako aj celkovú architektúru
+            odovzdávaného riešenia. V prípade, že študent nie je schopný vysvetliť
+            fungovanie semetrálnej práce, cvičiaci ju nebude hodnotiť.
+          </p>
+<h4>
+<a name="frios.sk.semestralky.podmienky.vypracovanie_semestr_lnej_pr_ce.h0"></a>
+            <span class="phrase"><a name="frios.sk.semestralky.podmienky.vypracovanie_semestr_lnej_pr_ce.build_syst_m"></a></span><a class="link" href="http://kifri.fri.uniza.sk/%7Echochlik/frios/frios/sk/semestralky/podmienky.html#frios.sk.semestralky.podmienky.vypracovanie_semestr_lnej_pr_ce.build_syst_m">Build-systém</a>
+          </h4>
+<p>
+            Súčasťou semestrálnej práce musí byť <a class="link" href="http://kifri.fri.uniza.sk/%7Echochlik/frios/frios/sk/cvicenia/procesy/make.html" title="Build-system, nástroj make">makefile</a>
+            s inštrukciami pre skompilovanie celej semestrálnej práce zo zdrojových
+            súborov a tiež pre <span class="emphasis"><em>'vyčistenie'</em></span> projektu (t.j.
+            minimálne ciele <code class="literal">all</code> a <code class="literal">clean</code>).
+          </p>
+<h4>
+<a name="frios.sk.semestralky.podmienky.vypracovanie_semestr_lnej_pr_ce.h1"></a>
+            <span class="phrase"><a name="frios.sk.semestralky.podmienky.vypracovanie_semestr_lnej_pr_ce.varovania_kompil_tora"></a></span><a class="link" href="http://kifri.fri.uniza.sk/%7Echochlik/frios/frios/sk/semestralky/podmienky.html#frios.sk.semestralky.podmienky.vypracovanie_semestr_lnej_pr_ce.varovania_kompil_tora">Varovania
+            kompilátora</a>
+          </h4>
+<p>
+            Pri kompilovaní zdrojových súborov do binárnej formy nesmie kompilátor
+            vypisovať žiadne varovania. Pre kompiláciu zdrojových súborov je
+            potrebné pridať kompilátoru v <code class="literal">Makefile</code> dodatočné
+            argumenty <code class="literal">-Wall</code> a <code class="literal">-Werror</code>.
+          </p>
+<h4>
+<a name="frios.sk.semestralky.podmienky.vypracovanie_semestr_lnej_pr_ce.h2"></a>
+            <span class="phrase"><a name="frios.sk.semestralky.podmienky.vypracovanie_semestr_lnej_pr_ce.parametre_na_pr_kazovom_riadku"></a></span><a class="link" href="http://kifri.fri.uniza.sk/%7Echochlik/frios/frios/sk/semestralky/podmienky.html#frios.sk.semestralky.podmienky.vypracovanie_semestr_lnej_pr_ce.parametre_na_pr_kazovom_riadku">Parametre
+            na príkazovom riadku</a>
+          </h4>
+<p>
+            V prípade, že konkrétne zadanie určuje zoznam parametrov pre vytvorené
+            programy, musí byť analýza zoznamu parametrov implementovaná dostatočne
+            robustne aby bolo možné parametre zadávať aj v inom poradí ako je
+            to určené v zadaní.
+          </p>
+<p>
+            Napríklad ak zadanie hovorí, že program <code class="literal">semestrálka</code>,
+            má mať nasledovné parametre:
+          </p>
+<pre class="programlisting">semestralka -p1 -p2 -p3 hodnota
+</pre>
+<p>
+            Program musí podporovať aj ostatné kombinácie (ktoré majú zmysel),
+            napríklad.
+          </p>
+<pre class="programlisting">semestralka -p2 -p3 hodnota -p1
+</pre>
+<h4>
+<a name="frios.sk.semestralky.podmienky.vypracovanie_semestr_lnej_pr_ce.h3"></a>
+            <span class="phrase"><a name="frios.sk.semestralky.podmienky.vypracovanie_semestr_lnej_pr_ce.o_etrenie_chybov_ch_stavov"></a></span><a class="link" href="http://kifri.fri.uniza.sk/%7Echochlik/frios/frios/sk/semestralky/podmienky.html#frios.sk.semestralky.podmienky.vypracovanie_semestr_lnej_pr_ce.o_etrenie_chybov_ch_stavov">Ošetrenie
+            chybových stavov</a>
+          </h4>
+<p>
+            Program musí byť robustný a musí ošetrovať chyby pri zadávaní
+            parametrov na príkazovom riadku alebo vo vstupných dátach a tiež
+            chyby, ktoré môžu vzniknúť pri systémových volaniach alebo pri
+            volaní knižničných funkcií.
+          </p>
+<h4>
+<a name="frios.sk.semestralky.podmienky.vypracovanie_semestr_lnej_pr_ce.h4"></a>
+            <span class="phrase"><a name="frios.sk.semestralky.podmienky.vypracovanie_semestr_lnej_pr_ce.tandardn_a_chybov_v_stup_program"></a></span><a class="link" href="http://kifri.fri.uniza.sk/%7Echochlik/frios/frios/sk/semestralky/podmienky.html#frios.sk.semestralky.podmienky.vypracovanie_semestr_lnej_pr_ce.tandardn_a_chybov_v_stup_program">Štandardný
+            a chybový výstup programu</a>
+          </h4>
+<p>
+            Program musí dôsledne rozdeľovať <a class="link" href="http://kifri.fri.uniza.sk/%7Echochlik/frios/frios/sk/cvicenia/bash_uvod2/vstup_vystup.html" title="Štandardný vstup a výstup">bežný
+            výstup a chybový výstup</a> a na ich výpis použiť správny pseudosúbor
+            <code class="literal">stdout</code> alebo <code class="literal">stderr</code>.
+          </p>
+<h4>
+<a name="frios.sk.semestralky.podmienky.vypracovanie_semestr_lnej_pr_ce.h5"></a>
+            <span class="phrase"><a name="frios.sk.semestralky.podmienky.vypracovanie_semestr_lnej_pr_ce.n_vratov_hodnota_programu"></a></span><a class="link" href="http://kifri.fri.uniza.sk/%7Echochlik/frios/frios/sk/semestralky/podmienky.html#frios.sk.semestralky.podmienky.vypracovanie_semestr_lnej_pr_ce.n_vratov_hodnota_programu">Návratová
+            hodnota programu</a>
+          </h4>
+<p>
+            Program musí dodržiavať <a class="link" href="http://kifri.fri.uniza.sk/%7Echochlik/frios/frios/sk/cvicenia/bash_pokr/func_cmd.html#frios.sk.cvicenia.bash_pokr.func_cmd.rv">konvenciu</a>,
+            že po úspešnom vykonaní je ako návratová hodnota funkcie <code class="literal">main</code>
+            vrátená hodnota <code class="literal">0</code> (nula). V prípade chyby musí
+            <code class="literal">main</code> vrátiť nenulový chybový kód.
+          </p>
+<h4>
+<a name="frios.sk.semestralky.podmienky.vypracovanie_semestr_lnej_pr_ce.h6"></a>
+            <span class="phrase"><a name="frios.sk.semestralky.podmienky.vypracovanie_semestr_lnej_pr_ce.kon_tanty_a_cesty"></a></span><a class="link" href="http://kifri.fri.uniza.sk/%7Echochlik/frios/frios/sk/semestralky/podmienky.html#frios.sk.semestralky.podmienky.vypracovanie_semestr_lnej_pr_ce.kon_tanty_a_cesty">Konštanty
+            a cesty</a>
+          </h4>
+<p>
+            Konštanty v kóde musia byť uložené v symbolických premenných,
+            aby ich bolo možné jednoducho zmeniť na jednom mieste v programe.
+            Ak program potrebuje ukladať dočasné pracovné súbory na disk, musia
+            byť cesty zadané tak, aby program bez zmeny zdrojového kódu pracoval
+            aj u iného používateľa, t.j. cesty nemôžu obsahovať napríklad
+            priamo zadanú cestu do domovského adresára autora semestrálnej práce.
+            Namiesto toho je potrebné načítať cestu z <a class="link" href="http://kifri.fri.uniza.sk/%7Echochlik/frios/frios/sk/cvicenia/procesy/getenv.html" title="Premenné prostredia, getenv">premennej
+            prostredia</a> <code class="literal">HOME</code>.
+          </p>
+<h4>
+<a name="frios.sk.semestralky.podmienky.vypracovanie_semestr_lnej_pr_ce.h7"></a>
+            <span class="phrase"><a name="frios.sk.semestralky.podmienky.vypracovanie_semestr_lnej_pr_ce.odsadzovanie"></a></span><a class="link" href="http://kifri.fri.uniza.sk/%7Echochlik/frios/frios/sk/semestralky/podmienky.html#frios.sk.semestralky.podmienky.vypracovanie_semestr_lnej_pr_ce.odsadzovanie">Odsadzovanie</a>
+          </h4>
+<p>
+            Príkazy v zdrojovom kóde musia byť správne odsadené tabulátorom
+            (nie medzerami). Neporiadne odsadený zdrojový kód nebude vyučujúcim
+            hodnotený.
+          </p>
+<h4>
+<a name="frios.sk.semestralky.podmienky.vypracovanie_semestr_lnej_pr_ce.h8"></a>
+            <span class="phrase"><a name="frios.sk.semestralky.podmienky.vypracovanie_semestr_lnej_pr_ce.k_dovanie_textu"></a></span><a class="link" href="http://kifri.fri.uniza.sk/%7Echochlik/frios/frios/sk/semestralky/podmienky.html#frios.sk.semestralky.podmienky.vypracovanie_semestr_lnej_pr_ce.k_dovanie_textu">Kódovanie
+            textu</a>
+          </h4>
+<p>
+            V prípade, že je nutné v zdrojových kódoch alebo v dokumentácií
+            zadávať text s diakritikou, musí byť tento kódovaný pomocou <a href="http://en.wikipedia.org/wiki/UTF-8" target="_top">UTF-8</a>.
+          </p>
+<p>
+            TODO
+          </p>
+</div>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tbody><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright © 2014, 2015 Katedra informatiky, Fakulta
+        riadenia a informatiky, ŽU<p>
+        <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_top"><span class="inlinemediaobject"><img src="Kapitola%2012.%20Podmienky%20pri%20odovzd%C3%A1van%C3%AD%20semestr%C3%A1lnych%20pr%C3%A1c_files/88x31.png" alt="88x31"></span></a>
+
+      </p>
+</div></td>
+</tr></tbody></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="http://kifri.fri.uniza.sk/%7Echochlik/frios/frios/sk/semestralky.html"><img src="Kapitola%2012.%20Podmienky%20pri%20odovzd%C3%A1van%C3%AD%20semestr%C3%A1lnych%20pr%C3%A1c_files/prev.png" alt="Predchádzajúci"></a><a accesskey="u" href="http://kifri.fri.uniza.sk/%7Echochlik/frios/frios/sk/semestralky.html"><img src="Kapitola%2012.%20Podmienky%20pri%20odovzd%C3%A1van%C3%AD%20semestr%C3%A1lnych%20pr%C3%A1c_files/up.png" alt="Hore"></a><a accesskey="h" href="http://kifri.fri.uniza.sk/%7Echochlik/frios/index.html"><img src="Kapitola%2012.%20Podmienky%20pri%20odovzd%C3%A1van%C3%AD%20semestr%C3%A1lnych%20pr%C3%A1c_files/home.png" alt="Domov"></a><a accesskey="n" href="http://kifri.fri.uniza.sk/%7Echochlik/frios/frios/sk/semestralky/zadania.html"><img src="Kapitola%2012.%20Podmienky%20pri%20odovzd%C3%A1van%C3%AD%20semestr%C3%A1lnych%20pr%C3%A1c_files/next.png" alt="Nasledujúci"></a>
+</div>
+
+
+</body></html>

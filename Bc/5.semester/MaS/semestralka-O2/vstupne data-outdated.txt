@@ -1,0 +1,30 @@
+streda 11.11.2015
+meranie od 19:45 do 21:00
+prichod pocet ludi odchod (validacia)
+19:55 1 19:59
+20:28 1 20:38
+20:35 1 20:48 
+20:42 1 20:43 - odisiel bez obsluhy
+
+otvaracie hodiny: 9:00 - 21:00
+
+
+stvrtok 12.11.2015
+meranie od 19:17 do 21:00
+19:29 1 19:33 v
+19:33 1 19:36
+19:34 1 19:34 hned odisiel
+19:38 1 19:45 v
+19:46 1 19:47 hned odisla
+19:55 1 20:14
+19:59 1 m
+19:59 1 m
+20:00 1 20:14 par
+20:01 1 20:09
+20:09 1
+20:10 1
+20:16 1 
+20:19 1 par
+20:23 1
+
+o2 duben

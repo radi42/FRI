@@ -1,0 +1,18 @@
+Fit All
+
+Document:  E:\Skola\FRI\5.semester\MS\semestralka-O2\Data\info.txt
+Data File: E:\Skola\FRI\5.semester\MS\semestralka-O2\Data\info.txt
+
+
+Function       Sq Error
+-----------------------
+Lognormal      0.00304
+Exponential    0.00584
+Erlang         0.00584
+Weibull        0.00593
+Beta           0.0215
+Normal         0.131
+Triangular     0.435
+Uniform        0.581
+Poisson        1.7
+Gamma          36.5

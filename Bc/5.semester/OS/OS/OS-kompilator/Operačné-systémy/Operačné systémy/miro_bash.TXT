@@ -1,0 +1,72 @@
+#!/bin/bash
+# parametre skriptu
+
+# subor s dokumentaciou
+DOC_FILE="doc.txt"
+
+# subor s uvodom
+INTRO_FILE="intro.ftxt"
+
+# kontrola, ci uvodny subor existuje
+if [ -f "$INTRO_FILE" ]
+then
+    cat intro.txt
+else
+    echo "S˙bor s ˙vodom $INTRO_FILE neexistuje."
+fi
+
+# funkcia na polozenie ano/nie otazky uzivatelovi
+# vracia ano/nie na standardny vystup
+function display_yesno {
+    read -p "$1 " zobraz
+    while [ "$zobraz" != "ano" ] && [ "$zobraz" != "nie" ]
+    do
+        read -p "Musite zadaù ano alebo nie: " zobraz
+    done
+    
+    echo $zobraz
+}
+
+# funkcia, ktora na zaklade pokynu od uzivatela zobrazi dokumentaciu
+# na zobrazenie dokumentacie vyuziva prikaz less
+function display_doc() {
+    if [ $(display_yesno "Chcete zobraziù dokument·ciu? (ano/nie):" ) == "nie" ]; then
+    return; fi
+    
+    fold -s "$DOC_FILE" | less
+}
+
+# funkcia, ktora na zaklade pokynu od uzivatela zobrazi zdrojovy kod programu
+function display_src() {
+    if [ $(display_yesno "Chcete zobraziù zdrojovy kod? (ano/nie):") == "nie" ]; then
+    return; fi
+    
+    echo "Zoznam s˙borov zdrojovÈho kÛdu:"
+    ls *.h *.c
+    
+    zobraz_src="ano"
+    while [ $zobraz_src == "ano" ]
+    do
+        read -ep "Vyberte s˙bor, ktor˝ chcete zobraziù: " file
+        if [ ! -f $file ]
+        then
+            echo "Zadany s˙bor neexistuje"
+            continue
+        fi
+        
+        fold -s "$file" | less
+        
+        zobraz_src=$(display_yesno "Chcete zobraziù ÔalöÌ s˙bor?")
+    done
+}
+
+display_doc
+
+echo 'TODO: kontrola s˙borov'
+# make
+echo 'TODO: spustit program'
+
+display_src
+display_doc
+
+echo "EOF"

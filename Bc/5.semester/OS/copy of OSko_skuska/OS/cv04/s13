@@ -1,0 +1,8 @@
+#!/bin/bash
+IFS=':'
+for dir in $PATH
+do
+    if [ -x $dir/$1 ]
+    then echo $dir/$1
+    fi
+done

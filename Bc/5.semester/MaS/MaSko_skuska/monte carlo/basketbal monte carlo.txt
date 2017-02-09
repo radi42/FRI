@@ -1,0 +1,12 @@
+Basketbalovy tim odohra 15 zapasov. Kazdy zapas je rozdeleny na styri stvrtiny po 12 minut.V prvej stvrtine ziskava body z TRIA(22,44,66), v druhej stvrtine ziskava body z UNIF(25,45), v tretej stvrtine body z UNIF(30,60) a v stvrtej stvrtine body z TRIA(28,40,65).
+ Zistite aka je pravdepodobnost, ze nase druzstvo odohra aspon 5 zapasov, ktorych sucet bodov bude vacsi ako 100.
+
+ cyklus od 0 po 1000 {
+     pocet = 0;
+     cyklus od 0 po 15 {
+         body = TRIA(22,44,66) + UNIF(25,45) + UNIF(30,60) + TRIA(28,40,65);
+         if ( body > 100 ) { pocet += 1;}
+     }
+     if (pocet >= 5) { p+= 1;}
+ }
+ pravdepodobnost = p/1000;

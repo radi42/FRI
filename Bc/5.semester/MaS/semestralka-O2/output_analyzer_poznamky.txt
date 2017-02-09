@@ -1,0 +1,15 @@
+File -> Data File -> load ascii file: batched
+
+Analyze -> compare means
+porovnava, rozdiely medzi strednymi hodnotami
+prvy subor je standardny, druhy je zmeneny
+
+parovy t-test - jeden den pivo, druhy den vino, ten isty student, miera opitosti
+two sample t-test - jeden den pivo, v rovnaky den vino, dva rozny studenti, miera opitosti
+
+mozme si vybrat bud jedno alebo druhe
+
+hypotezu nezamietam
+
+
+-vyhodnotenie vystupnej analyzy-tally; vysledok vystupnej analyzy hodit ako screenshot do dokumentacie a okomentovat; MEANS ARE NOT EQUAL

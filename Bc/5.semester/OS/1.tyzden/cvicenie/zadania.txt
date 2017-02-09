@@ -1,0 +1,12 @@
+﻿Zadania
+- zistite kde v súborovom systéme sa nachádza váš domáci adresár a vypíšte si jeho obsah
+
+- skontrolujte si prístupové práva do vášho domáceho adresára – mali by byť nastavené tak, aby sa nikto iný do neho nedostal
+
+- vyskúšajte si rôzne textové editory poskytované vaším OS a aspoň jeden si obľúbte a naučte sa s ním efektívne pracovať
+
+- vytvorte nejaký textový súbor vo vašom domácom adresári pomocou vášho obľúbeného editora, skopírujte tento súbor do adresára /tmp. Potom zmeňte prístupové práva tak, aby si mohol váš súbor prečítať aj váš kolega, potom ich nastavte tak, aby bol súbor prístupný len pre vás
+
+- vytvorte si v adresári /tmp štruktúru adresárov a vyskúšajte si zmenu prístupových práv do adresárov, otestujte čo spôsobí nastavenie/odobratie jednotlivých prístupových práv
+
+- vytvorte v tejto štruktúre adresárov „skrytý“ adresár – len ten, kto pozná jeho meno, sa doň dostane 

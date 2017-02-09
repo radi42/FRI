@@ -1,0 +1,19 @@
+monte carlo priblizne zadanie: distribujeme vakciny, na sklad mesacne dodame 4500 ks. dopyt po vaknicach je trojholnikove rozdelenie(1000,4000,8500). Ak mame nedostatok vakcin (dopyt je vacsi) tak musime vakciny doviest a zaplatit 150 € za ks. Ak mame vakcin prebytok tak za kazdu prebytkovu mame stratu 50 €. bolo treba zistit optimalne mnozstvo ake ma byt na sklade , t.j. priblizne odhadnut/minimalizovat náklady.
+
+pole = array[7500];
+j=0;
+
+for (sklad = 1000, sklad <= 8500, sklad++;)             // hladame optimalne mnozstvo vakcin na sklade
+    for (i=0;i<1000;i++) {                                                  // 1000 replikacii
+        dopyt = TRIA(1000,4000,8500);
+        if (dopyt < sklad) { naklady += (sklad - dopyt)*50; }
+        if (dopyt == sklad) {naklady += 0;}
+        if (dopyt > sklad) { naklady += (dopyt - sklad)*150; }
+    }
+    pole[ j ]  = naklady/1000;                                          // do pola sa budu postupne ukladat naklady prisluchajuce poctom vakciny na sklade
+    j++;
+}
+index = pole[].najdi_minimum();         // funkcia vrati index najmensieho prvku
+minimalne_naklady = pole[index];      // podla indexu najdeme kedy boli najmensie naklady
+
+"minimalne naklady boli vtedy ked sme mali na sklade " + (index+1000) + "vakcin";

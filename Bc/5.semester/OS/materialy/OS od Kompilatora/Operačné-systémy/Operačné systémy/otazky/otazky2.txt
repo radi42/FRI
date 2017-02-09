@@ -1,0 +1,66 @@
+1. Definujte proces 
+2. Popíšte transformáciu logickej adresy na fyzickú pri pouití segmentácie 
+3. Napíšte malı script, ktorı Vám vypíše procesy, ktoré vykonáva uívate¾, ktorého meno zadaváte ako parameter 
+4. Popíšte semafor – štruktúra, operácie, pouitie 
+5. Nahradzovací algoritmus stránok v pamäti FIFO 
+6. Nakreslite stavovı diagram procesu 
+7. Ktoré met?dy pride¾ovanie vo¾ného priestoru súborom na disku poznáte? 
+8. Ktoré met?dy prístupu k súborom poznáte? 
+9. Mame disk, ktorı ma 200 stôp, oèíslované od 0 po 200. 
+Momentálna pozícia ramienka je na 140 stope. Front poiadavkov je: 85, 145, 90, 175, 95, 150, 102, 180, 130 
+
+Spoèítajte, ko¾ko pohybov (v stopách) vykoná ramienko, ak je pouitı algoritmus: 
+a)	vıahu (ide najskôr hore) 
+
+10. Popíšte FAT tabu¾ku. K èomu slúi 
+11. Uveïte aspoò dva spôsoby implementácie zoznamu vo¾nıch blokov na disku 
+12. Ktoré zariadenie vyuíva spooling? 
+13. Hlavnı princíp monitora 
+14. Èím sa zaoberá pridelovanie diskového priestoru 
+metody pridelovania diskoveho priestoru a jednu popisat podrobne 
+15. Mame log. adresnı priestor z 8 stranok po 1024 slov, ktorı sa mapuje do fyz. priestoru s 32 rámcami. Ko¾ko bitov ma log. adresa? Ko¾ko bitov ma fyz. adresa? 
+16. Coffmanove podmienky - Nutné podmienky na uviaznutie 
+17. Popis architekturu: klient-server, vrstvovu arch. OS 
+18. Popis komunikaciu medzi procesmi na základe volania vzdialenej procedury RPC 
+19. Fazy spracovania programu, kedy je mozne mu priradit pamätové adresy 
+20. Ako je organizovany system suborov? Aké sú úlohy jednotlivych vrstiev? 
+21. Èo urobia príkazy: 
+
+a)	ps –ef | grep $USER 
+b)	cd 
+c)	PATH=$PATH 
+d)	env 
+e)	echo $PATH 
+f)	cd $HOME 
+
+22. Napíš 2 spôsoby implementacie vlakna 
+23. Popis vlákien 
+24. Popíš cyklicke plánovanie (Round-Robin) 
+25. Bola zadana uloha a matice z alg. Bankara. Urci, ci je pod¾a alg. Bankara proces v bezpeènom stave 
+26. Ake sú spôsoby implementácie adresara (jeden popisat podrobne) 
+27. Popiš nahradzovanie stranok pri strankovani na iados 
+28. Bola dana tabu¾ka procesov a hodnoty: èas zaèiatku procesu a posledného pouitia. Pri zavádzaní nového procesu, ktorı proces bude uvolneny z pamäte pod¾a algoritmu: 
+
+a)	FIFO 
+b)	LRU 
+c)	Modifikovanı 2. Šance 
+
+29. PCB 
+30. Prostriedky na komunikáciu procesov 
+31. Posielanie správ v distribuovanom systéme 
+32. Hardverové prostriedky pre synchronizáciu aktívnım èakaním 
+33. Stránkovanie 
+34. Algoritmy nahradzovanie stránok 
+35. Štruktúra adresárov 
+36. Algoritmy pohybu ramienka po disku 
+37. Preco je dolezita SYNCHRONIZÁCIA procesov, vysvetlit ake prostriedky existuju cize aktivnym a pasivnym cakanim, 
+vymenovat ich, a vybrat si jeden a ten popisat ( toto chcela dost do hlbky vysvetlit ) 
+38. Komunikácia medzi procesmi. Jeden typ popísa aj do podrobna. 
+39. Virtuálna pamä - stránkovanie na poiadanie 
+40. Vlákna. Porovnanie s procesmi. Implementácia 
+41. Synchronizácia cez SWAP 
+42. Uvedte zakladne systemove volania pre spravu procesov a ich ulohy 
+43. Aku ulohu riesi dlhodoby planovac a aku kratkodoby planovac? 
+44. Co je zahltenie, kedy vznika a ako sa mu predchadza? 
+45. Popiste algoritmy planovania procesov FCFS a RR, ich vyhody a nedostatky 
+46. Algoritmus pekára

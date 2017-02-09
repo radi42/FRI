@@ -1,0 +1,28 @@
+Vo firme sa vyrabaju PC komponenty - CPU a RAM.
+ Pravdepodobnost vyrobenia chybneho CPU je 5 % a chybnej RAM 1 %
+ Komponenty sa balia do sad, pricom kazda sada obsahuje 1x CPU + 2x RAM
+ Pokial sa v sade nachadza aspon 1 zly komponent, povazujeme sadu za chybnu.
+ Sady sa dalej balia do paliet po 2000ks.
+ Ak jedna paleta obsahuje viac ako 15 chybnych sad, firma plati pokutu 5 000 Euro.
+ Mesacne firma vyrobi 3000 paliet.
+ Zistite aka je pravdepodobnost, ze pokuty mesacne presiahnu ciastku 15 000 Euro.
+
+
+ Pozn. - stacilo vypocitat pre 1 mesiac ( neuvazujte ze za rok a podobne.. )
+
+ cyklus od 0 po 1000 {
+     pokuta = 0;
+     cyklus od 0 po 3000 {
+         chybne = 0;
+         cyklus od 0 po 2000 {
+             CPU = random(od 1 po 100);
+             RAM1 = random(od 1 po 100);
+             RAM2 = random(od 1 po 100);
+             if (CPU <= 5 || RAM1 <= 1 || RAM2 <=1) {chybne += 1}
+         }
+         if (chybne > 15) { pokuta += 5000;}
+     }
+     if(pokuta > 15000) { p += 1; }
+ }
+ pravdepodobnost = p/1000;
+
