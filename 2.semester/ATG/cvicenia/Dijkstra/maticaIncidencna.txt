@@ -1,0 +1,11 @@
+Bratislava Trnava 5
+Trnava Nitra 5
+Bratislava Nitra 9
+Trnava Trencin 8
+Trencin Zilina 8
+Zilina BanskaBystrica 9
+Zilina Presov 25
+Nitra BanskaBystrica 13
+Presov Kosice 3
+BanskaBystrica Kosice 25
+Bratislava BanskaBystrica 22

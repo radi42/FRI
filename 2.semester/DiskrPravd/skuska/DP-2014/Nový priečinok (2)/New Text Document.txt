@@ -1,0 +1,162 @@
+test skúška, teória - Pokus 1
+
+Question 1
+Známky: 1
+Pre bábiku máme 3 rôzne ciapky, 4 rôzne sukne a neznámy pocet rôznych triciek. Vieme, že pre nu môžeme vytvorit 60 rôznych oblecení. Kolko máme rôznych triciek?
+Vyberte jednu odpoved
+	 a. 15	
+	 b. 5	
+	 c. 53	
+	 d. 12	
+	 e. 3	
+	 f. 4	
+	 g. 6	
+Question 2
+Známky: 1
+?Vyjadrite Pr(A|B) pomocou Pr(A prienik B), ak vieme, že Pr(B)=0,3
+Vyberte jednu odpoved
+	 a. Pr(A|B)=Pr(A prienik B)/0,3	
+	 b. Pr(A|B)=Pr(A prienik B)*0,3	
+	 c. Pr(A|B)=Pr(A prienik B)^0,3	
+	 d. Pr(A|B)=0,3/Pr(A prienik B)	
+Question 3
+Známky: 1
+Náhodná premenná nadobúda hodnoty x1 až x10. PDF(x1) sme zmenšili o 0,02 a PDF(x2) zväcšili o 0,01. O kolko sa zmenila stredná hodnota náhodnej premennej?
+Vyberte jednu odpoved
+	 a. zmenila sa o 0,01*x1-0,02*x2	
+	 b. zmenila sa o 0,01*PDF(x2)-0,02*PDF(x1)	
+	 c. zmenila sa o 0,01*x2-0,02*x1	
+	 d. zmenila sa o 0,02*x2+0,01*x1	
+	 e. zmenila sa o 0,02*x2-0,01*x1	
+Question 4
+Známky: 1
+Náhodná premenná Y má strednú hodnotu 50 a smerodajnú odchýlku 5. Odhadnite, s akou pravdepodobnostou sa nachádzajú hodnoty náhodnej premennej v intervale [25;75]
+Vyberte jednu odpoved
+	 a. aspon 74/75	
+	 b. aspon 4/5	
+	 c. aspon 24/25	
+Question 5
+Známky: 1
+O kolko sa môže líšit hodnota Pr(A|B) od Pr(A|B´), ak sú udalosti A a B nezávislé? (Udalost B' je opacná k udalosti B.)
+Vyberte jednu odpoved
+	 a. 0,4	
+	 b. 0,2	
+	 c. 1	
+	 d. 0,5	
+	 e. 0	
+Question 6
+Známky: 1
+Namerali sme hodnoty teplôt 8, 12, 5, 9, 6, 10, 13. Pre ktorú hodnotu T je súcet absolútnych hodnôt odchýlky T od nameraných teplôt najmenšia?
+Vyberte jednu odpoved
+	 a. 10	
+	 b. 8	
+	 c. 6	
+	 d. všetky hodnoty z intervalu <8;9>	
+	 e. všetky hodnoty z intervalu <9;10>	
+	 f. 9	
+Question 7
+Známky: 1
+Výraz (a+b)^2 po umocnení má 4 scítance, v ktorých sa nenachádzajú císla. Sú to a^2, a*b, b*a, b^2. Kolko takýchto scítancov má po umocnení výraz (a+b+c+d)^4?
+Vyberte jednu odpoved
+	 a. 140	
+	 b. 256	
+	 c. 35	
+Question 8
+Známky: 1
+Aká je hodnota PDF(3) pre náhodnú premennú s rozdelením pravdepodobnosti Geo0(0,6)?
+Vyberte jednu odpoved
+	 a. 0,4^2*0,6	
+	 b. 0,4^2*0,6^2	
+	 c. 0,4^3*0,6	
+Question 9
+Známky: 1
+Navrhnite predpis bijekcie medzi všetkými stolickami na prvej prednáške DP a medzi všetkými študentmi, ktorí sa prednášky zúcastnili. Ak to nie je možné, vysvetlite preco.
+Vyberte jednu odpoved
+	 a. nie je to možné, lebo študentov bolo viac ako stoliciek	
+	 b. každému študentovi priradíme stolicku, na ktorej nesedel	
+	 c. nie je to možné, lebo študentov bolo menej ako stoliciek	
+	 d. každému študentovi priradíme dve lubovolné stolicky	
+	 e. každému študentovi priradíme stolicku, na ktorej sedel	
+Question 10
+Známky: 1
+Nech jav B´ je opacný k javu B. Comu sa rovná Pr(A) - Pr(A|B)*Pr(B) ?
+Vyberte jednu odpoved
+	 a. Pr(A|B)	
+	 b. Pr(A|B´)*Pr(B´)	
+	 c. 1	
+	 d. 0	
+	 e. 1 - Pr(A|B)	
+Question 11
+Známky: 1
+Rozložte na súcet dvoch zlomkov 1/(3*7)
+Vyberte jednu odpoved
+	 a. (1/4)*(1/3 - 1/7)	
+	 b. (1/4)*(1/7 + 1/3)	
+	 c. 1/3 - 1/7	
+Question 12
+Známky: 1
+Roznásobte (1+x+x^2)*(1+x^2+3x^4). Aký koeficient je v súcine pri x^4?
+Vyberte jednu odpoved
+	 a. 4	
+	 b. 2	
+	 c. 3	
+Question 13
+Známky: 1
+Napíšte vytvárajúcu funkciu k poctu možností naplnenie zabíjackovej misy klobáskami (lubovolný pocet), jaternicami (násobky troch) a krvavnickami (najviac 5)
+Vyberte jednu odpoved
+	 a. [1/(1-x)]*[1+x+x^2+x^3+x^4+x^5]	
+	 b. [1/(1-x)]*[1/(1-x^3)]*[1+x+x^2+x^3+x^4+x^5+x^6+x^7]	
+	 c. [1/(1-x)]*[1/(1-x^3)]*[(1-x^6)/(1-x)]	
+Question 14
+Známky: 1
+Rozhodnite, ci postupné vytahovanie kariet z balícka (pricom sledujeme, ci vytiahneme srdcovú kartu) sú Bernoulliho náhodné pokusy. Karty do balícka nevraciame.
+Vyberte jednu odpoved
+	 a. áno	
+	 b. niekedy	
+	 c. nie	
+Question 15
+Známky: 1
+Comu sa rovná Pr(A)+Pr(A')?
+Vyberte jednu odpoved
+	 a. 0	
+	 b. 1	
+	 c. 0,5	
+Question 16
+Známky: 1
+Pre náhodnú premennú Y s geometrickým rozdelením Geo0(p) vieme, že PDF(2) = 0,032 a PDF(3) = 0,0064. Aká môže byt hodnota p? Kolko môže byt E(Y)?
+Vyberte jednu odpoved
+	 a. napríklad p=0,8 a E(Y)=0,25	
+	 b. napríklad p=0,8 a E(Y)=1,25	
+	 c. napríklad p=0,2 a E(Y)=5	
+Question 17
+Známky: 1
+Hádžeme 10 kockami naraz a na každej sledujeme, ci padne trojka. Rozhodnite, ci sú to Bernoulliho náhodné pokusy.
+Vyberte jednu odpoved
+	 a. niekedy	
+	 b. áno	
+	 c. nie	
+Question 18
+Známky: 1
+Aká je stredná hodnota a disperzia náhodnej premennej s rozdelením pravdepodobnosti Bi(20, 1/5)?
+Vyberte jednu odpoved
+	 a. E(X)=4; D(X)=15/5	
+	 b. E(X)=20; D(X)=4	
+	 c. E(X)=4; D(X)=16/5	
+	 d. E(X)=5; D(X)=15/4	
+	 e. E(X)=5; D(X)=16/5	
+Question 19
+Známky: 1
+Nech Markovov retazec X má stavy s1, s2, s3 a pravdepodobnosti prechodov medzi nimi sú: Pr(X=s1|X=s2)=0,1, Pr(X=s3|X=s2)=0,2, Pr(X=s3|X=s1)=0,3, Pr(X=s2|X=s3)=0,4. V case 0 bol retazec v stave s2. Aká je pravdepodobnost, že v case 1 bude v stave s2?
+Vyberte jednu odpoved
+	 a. 0,7	
+	 b. 0,2	
+	 c. 0,3	
+Question 20
+Známky: 1
+Co je väcšie? (n nad k)*(n-k nad m-k) alebo (n nad m)*(m nad k)?
+Vyberte jednu odpoved
+	 a. (n nad k)*(n-k nad m-k)=(n nad m)*(m nad k)?	
+	 b. (n nad k)*(n-k nad m-k)	
+	 c. (n nad m)*(m nad k)	
+ 
+Cas zostávajúci do ukoncenia testu

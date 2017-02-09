@@ -1,0 +1,1 @@
+Toto je balicek (package) rozhrani v projekte 'programy'.

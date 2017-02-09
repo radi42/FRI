@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.params=vaha\ cviceny
+comment0.target=Simpanz(double,\ boolean)
+comment0.text=\r\n\ Konstruktor\r\n\ dedi\ konstruktor\ triedy\ zivocich\r\n
+comment1.params=
+comment1.target=boolean\ jeCviceny()
+comment2.params=
+comment2.target=double\ getVaha()
+comment3.params=cviceny
+comment3.target=void\ setCviceny(boolean)
+comment4.params=vaha
+comment4.target=void\ setVaha(double)
+comment5.params=
+comment5.target=java.lang.String\ toString()
+comment5.text=\r\n\ metoda\ toString\r\n
+numComments=6

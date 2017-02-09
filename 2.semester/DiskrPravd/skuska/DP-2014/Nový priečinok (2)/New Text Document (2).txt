@@ -1,0 +1,160 @@
+test skúška, teória - Pokus 1
+
+Question 1
+Známky: 1
+Po dostihoch dostanú kone, ktoré sa umiestnili na prvých troch miestach OVOS a kone, ktoré sa umiestnili na zvyšných miestach SENO. Kolko rôznych rozdelení do skupín OVOS a SENO sa dá urobit, ak vieme, že sútažilo 6 koní?
+Vyberte jednu odpoved
+	 a. 6*5*4*3	
+	 b. 6*5*4/(3!*2!)	
+	 c. 6*5*4/(3*2*1)	
+Question 2
+Známky: 1
+Comu sa rovná (5 nad 3)*3! ?
+Vyberte jednu odpoved
+	 a. 5!	
+	 b. 60	
+	 c. 10	
+Question 3
+Známky: 1
+Pre dve za sebou nasledujúce hodnoty x9 a x10 náhodnej premennej platí CDF(x9)=0,9 a TDF(x10)=0,05. Aká je hodnota PDF(x10)?
+Vyberte jednu odpoved
+	 a. 0,85	
+	 b. 0,1	
+	 c. 0,9	
+	 d. 0,05	
+	 e. 0,95	
+Question 4
+Známky: 1
+Napíšte postupnost k vytvárajúcej funkcii 1/(1-x^2)
+Vyberte jednu odpoved
+	 a. <2,2,2,2,2,2,2 ...>	
+	 b. <0,1,0,1,0,1,0 ...>	
+	 c. <1,0,1,0,1,0,1, ...>	
+Question 5
+Známky: 1
+V zápase vo vodnom póle, ktoré sa hrá na 4 štvrtiny, padlo celkovo 8 gólov. Kolkými rôznymi spôsobmi mohli byt rozdelené do jednotlivých štvrtín (zaujíma nás len pocet gólov v štvrtine)?
+Vyberte jednu odpoved
+	 a. (12 nad 5)	
+	 b. (11 nad 3)	
+	 c. (12 nad 4)	
+	 d. (8 nad 4)	
+	 e. (8 nad 3)	
+Question 6
+Známky: 1
+Aké je invariantné (ustálené) rozdelenie (F, P) náhodného retazca, opisujúceho chod zariadenia, F je pravdepodobnost, že zariadenie funguje, P je pravdepodobnost, že zariadenie je pokazené. Pravdepodobnost, že sa zariadenie v priebehu dna pokazí, je každý den 0,2. Pravdepodobnost, že pokazené zariadenie bude v priebehu dna opravené je 0,7. Nech chyby zariadenia sú navzájom nezávislé. Na zaciatku zariadenie funguje.
+Vyberte jednu odpoved
+	 a. (F, P)=(0,777;0,222)	
+	 b. (F, P)=(0,222;0,777)	
+	 c. (F, P)=(1;0)	
+Question 7
+Známky: 1
+Vieme, že Pr(A|B) = 1/4. Aká je pravdepodobost Pr(A´|B) ((opacného javu k A za podmienky B)
+Vyberte jednu odpoved
+	 a. 1	
+	 b. 3/4	
+	 c. Pr(B) - Pr(A|B)	
+	 d. 2/4	
+	 e. 0	
+Question 8
+Známky: 1
+Náhodná X premenná má Poissonove rozdelenie Po(10)? Ktorú hodnotu nadobúda s najväcšou pravdepodobnostou? Kolko je E(X)?
+Vyberte jednu odpoved
+	 a. hodnoty 9 a 10; E(X)=10	
+	 b. hodnoty 0 a 1; E(X)=1/10	
+	 c. hodnotu 6; E(X)=6	
+Question 9
+Známky: 1
+Napíšte strednú hodnotu rovnomerného rozdelenia R(5).
+Vyberte jednu odpoved
+	 a. 1/5	
+	 b. 2,5	
+	 c. 3	
+Question 10
+Známky: 1
+Náhodná premenná X nadobúda hodnoty x1, x2, ... a strednú hodnotu E(X). Náhodná premenná Y nadobúda hodnoty x1 - E(X), x2- E(X), ... , teda Y = X - E(X). Aká je hodnota E(Y)?
+Vyberte jednu odpoved
+	 a. E(X)-Y	
+	 b. 0	
+	 c. E(Y)-E(X)	
+Question 11
+Známky: 1
+A kolko sa môže líšit hodnota Pr(A|B) od Pr(A|B´), ak sú udalosti A a B závislé? Udalost B' je doplnková (opacná) udalost ku B.
+Vyberte jednu odpoved
+	 a. 0,5	
+	 b. 0	
+	 c. 0,2	
+	 d. 1	
+	 e. 0,4	
+Question 12
+Známky: 1
+Napíšte vytvárajúcu funkciu k poctu možností naplnenie ovocného košíka jablkami (párny pocet), citrónmi (nepárny pocet) a ananásom (najviac 1)
+Vyberte jednu odpoved
+	 a. x/[(1-x)*(1-x)]	
+	 b. x/[(1-x^2)*(1-x^2)]	
+	 c. x/[(1-x)*(1-x)*(1+x)]	
+Question 13
+Známky: 1
+Náhodná premenná s rozdelením pravdepodobnosti Bi(n,p) má strednú hodnotu 4 a disperziu 2,4. Aká je hodnota n a p ?
+Vyberte jednu odpoved
+	 a. n=10; p=0,6	
+	 b. n=10; p=0,4	
+	 c. n=40; p=0,4	
+	 d. n=40; p=0,6	
+	 e. n=40; p=0,1	
+Question 14
+Známky: 1
+Udalost A nastane s pravdepodobnostou p. S akou pravdepodobnostou nastane opacná udalost A'?
+Vyberte jednu odpoved
+	 a. 1/p	
+	 b. p-1	
+	 c. 1-p	
+Question 15
+Známky: 1
+Napíšte pravdepodobnostnú funkciu PDF(2) pre binomické rozdelenie Bi(3; 0,2).
+Vyberte jednu odpoved
+	 a. 0,6	
+	 b. (3 nad 2)*0,2*0,8^2	
+	 c. 3*0,2*0,2*0,8	
+Question 16
+Známky: 1
+Aká je stredná hodnota a disperzia náhodnej premennej s rozdelením pravdepodobnosti Alt(1/3)?
+Vyberte jednu odpoved
+	 a. E(X)=1/3; D(X)=1/9	
+	 b. E(X)=3; D(X)=1/9	
+	 c. E(X)=3; D(X)=3	
+	 d. E(X)=1/3; D(X)=2/9	
+	 e. E(X)=3; D(X)=2/9	
+Question 17
+Známky: 1
+?Nech A={1, 2, 3, 5, 8} a B={2, 3, 4, 5, 6, 7, 10}. Kolko prvkov má zjednotenie množín A, B?
+Vyberte jednu odpoved
+	 a. 18	
+	 b. 10	
+	 c. 9	
+	 d. 12	
+	 e. 8	
+Question 18
+Známky: 1
+Aká je hodnota CDF(2) pre náhodnú premennú s rozdelením pravdepodobnosti Geo1(0,8)?
+Vyberte jednu odpoved
+	 a. 0,84	
+	 b. 0,96	
+	 c. 0,16	
+Question 19
+Známky: 1
+Môže pre hodnoty náhodnej premennej x1 a x2 platit x1 < x2 a súcasne CDF(x1)>CDF(x2)?
+Vyberte jednu odpoved
+	 a. áno	
+	 b. iba v prípade, že sa jedná o Poissonove rozdelenie pravdepodobnosti	
+	 c. iba v prípade, že sa jedná o binomické rozdelenie pravdepodobnosti	
+	 d. nie	
+	 e. iba v prípade, že sa jedná o geometrické rozdelenie pravdepodobnosti	
+Question 20
+Známky: 1
+Vyjadrite funkciu F(x) z rovnice x^2F(x)=x*F(x)+5*F(x)+1
+Vyberte jednu odpoved
+	 a. 1/(x^2-x-5)	
+	 b. (x+6)/x^2	
+	 c. x^2/(x+5+1)	
+ 
+Cas zostávajúci do ukoncenia testu

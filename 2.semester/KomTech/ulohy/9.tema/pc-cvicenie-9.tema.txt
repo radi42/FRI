@@ -1,0 +1,10 @@
+Simplex
+BCA
+Half-duplex
+CAB 
+Full-duplex
+BAC
+mutiplex
+ABC
+fyzickou vrstvou
+relacnou vrstvou

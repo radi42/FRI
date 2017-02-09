@@ -1,0 +1,40 @@
+simulator konfiguracie pocitacovych sieti
+
+konfiguracie sieti 1.1 riesenie - zabezpecenie vzajomnej konektivity pomocou statickeho smerovania
+
+Amsterdam#config terminal
+Amsterdam(config)# ip route 192.168.254.0 255.255.255.252 172.16.1.1
+Amsterdam(config)# ip route 192.168.100.0 255.255.255.240 172.16.1.1
+Amsterdam(config)# ip route 0.0.0.0 0.0.0.0 172.16.1.1
+Amsterdam(config)#^z
+Amsterdam#show ip route
+Brusel(config)# terminal
+Brusel(config)# ip route 192.168.5.0 255.255.255.0 172.16.1.2
+Brusel(config)# ip route 192.168.100.0 255.255.255.240 10.0.1.1
+Brusel(config)# ip route 0.0.0.0 0.0.0.0 69.42.1.254
+Brusel(config)#^z
+Brusel#show ip route
+Luxemburg#config terminal
+Luxemburg(config)# ip route 192.168.5.0 255.255.255.0 10.0.1.2
+Luxemburg(config)# ip route 192.168.252.0 255.255.255.252 10.0.1.2
+Luxemburg(config)# ip route 0.0.0.0 0.0.0.0 10.0.1.2
+Luxemburg(config)#^z
+Luxemburg(config)#show ip route
+
+
+konfiguracie sieti 1.2 riesenie - zabezpecenie vzajomnej konektivity pomocou statickeho smerovania
+
+Kuala-lumpur#configure terminal
+Kuala-lumpur(config)# interface s0
+Kuala-lumpur(config-if)# no ip route cache
+Kuala-lumpur(config-if)# interface s1
+Kuala-lumpur(config-if)# no ip route cache
+Kuala-lumpur(config)# ip route 192.168.128.0 255.255.128.0 172.16.1.1
+Kuala-lumpur(config)# ip route 192.168.128.0 255.255.128.0 172.16.1.5
+TaiPei# configure terminal
+TaiPei(config)# interface s0
+TaiPei(config-if)# no ip route cachce (ano je tam chyba - "cachce" namiesto "cache", ale zoberie to iba s chybou)
+TaiPei(config-if)# interface s1
+TaiPei(config-if)# no ip route cahce (to je naschval robene ako chytak?)
+TaiPei(config-if)# ip route 192.168.0.0 255.255.128.0 172.16.1.2
+TaiPei(config-if)# ip route 192.168.0.0 255.255.128.0 172.16.1.6

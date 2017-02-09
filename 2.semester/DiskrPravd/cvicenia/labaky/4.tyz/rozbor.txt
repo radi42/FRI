@@ -1,0 +1,4 @@
+ak je cislo karticky delitelne 2 so zvyskom, nastav bunku na 1, inak na 0
+=IF(MOD(C10, 2) > 0; E10 = 1; E10 = 0)
+=IF(MOD(C10, 2) > 0, E10 = 1, E10 = 0)
+

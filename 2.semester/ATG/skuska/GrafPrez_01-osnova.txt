@@ -1,0 +1,16 @@
+definicia usporiadanej dvojice
+definicia grafu
+diagram grafu
+rovinny graf
+vseobecne grafove struktury
+podgraf
+uplny graf
+maximalny/minimalny podgraf grafu s vlastnostou v
+incidentny vrchol/hrana
+okolie, vstupna/vystupna hviezda
+stupen vrchola
+pravidelny/komplementarny graf
+bipartitny graf
+hranovo ohodnotene grafy
+izomorfizmus grafov
+reprezentacia grafov a digrafov: diagramom, mmaticou prilahlosti, maticou ohodnoteni hran, zoznamom vrcholov okolia kazdeho vrchola, 

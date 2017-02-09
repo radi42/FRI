@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.params=pocZiak
+comment0.target=Ziaci(int)
+comment0.text=\r\n\ Parametricky\ konstruktor\r\n\ @param\ pocZiak\ datovy\ typ\ int,\ nastavuje\ pocet\ ziakov\ na\ celociselnu\ hodnotu\r\n
+comment1.params=
+comment1.target=Ziaci()
+comment2.params=
+comment2.target=int\ getPocetZiakov()
+comment3.params=pocZiak
+comment3.target=void\ setPocetZiakov(int)
+comment4.params=
+comment4.target=void\ naplnDvojiceZiakmi()
+comment5.params=
+comment5.target=java.lang.String\ toString()
+numComments=6

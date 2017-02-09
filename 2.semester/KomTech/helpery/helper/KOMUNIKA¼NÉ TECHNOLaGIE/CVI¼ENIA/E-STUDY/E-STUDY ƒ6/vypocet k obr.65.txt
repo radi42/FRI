@@ -1,0 +1,4 @@
+konvertuj prijatu spravu v binarnom kode na dekadicke cislo
+konvertuj ireducibilny polynom na dekadicke cislo
+vydel dekadicke cislo prijatej spravy ireducibilnym polynomom tiez v dekadickom tvare
+vysledok konvertuj na binarne cislo

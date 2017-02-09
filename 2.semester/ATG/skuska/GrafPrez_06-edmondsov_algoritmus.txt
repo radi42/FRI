@@ -1,0 +1,5 @@
+krok 1: v grafe G najdi vsetky vrcholy neparneho stupna. Tych je 2t (parny pocet)
+	Z vrcholov neparnho stupna vytvor uplny graf K2t. Jeho hrany ohodnot cenami prislusnych hran v 	povodnom grafe G.
+krok 2: V grafe K2t najdi uplne parenie s minimalnou cenou
+krok 3: Hrany parenia pridaj ku hranovej mnozine povodneho grafu G. Ziskame tym multigraf G' , v ktorom 	mozeme hladat uzavrety eulerovsky tah.
+krok 4: Hrany parenia nahrad prislusnymi najkratsimi hranami v grafe G a oznac ich ako prejdene naprazdno. 	Ziskame tym najkratsi uzavrety eulerovsky sled.

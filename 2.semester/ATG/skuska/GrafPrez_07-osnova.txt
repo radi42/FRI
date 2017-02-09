@@ -1,0 +1,13 @@
+siet
+tok v sieti - definicia + vlastnosti
+maximalny tok v sieti
+rezervna a zvacsujuca polocesta, rezerva hrany/polocesty, rezervna polocesta, zvacsujuca polocesta
+zvacsovanie toku pomocoi zvacsujucej cesty
+kirchoffove zakony
+ford-fulkersonova veta o maximalnom toku
+ford-fulkersonov algoritmus
+algoritmus na hladanie zvacujucej polocesty
+najlacnejsi tok danej velkosti, cena toku
+rezerva hrany v polocykle, rezervny polocyklus, rezerva polocyklu, cena polocyklu
+kriterium optimality toku
+algoritmus na hladanie najlacnejsieho toku

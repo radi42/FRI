@@ -1,0 +1,15 @@
+sled, tah cesta
+orientovany sled, tah, cesta
+polo- sled, tah, cesta
+uzavrety sled, tah
+uzavreta cesta a polocesta -> cize cyklus a polocyklus
+dosiahnutelnost vrcholov
+suvislost grafov - typy
+komponent grafu - most, artikulacia
+Tarryho algoritmus
+Dlzka sledu, tahu, cesty
+Najkratsia cesta v grafe/digrafe
+Zakladny algoritmus hladania najkratsej cesty
+Dijkstrov algoritmus
+Floydov algoritmus
+Cesta maximalnej spolahlivosti

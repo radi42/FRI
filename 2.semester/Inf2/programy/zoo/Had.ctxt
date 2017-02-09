@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.params=dlzka\ vaha\ jedovaty
+comment0.target=Had(double,\ double,\ boolean)
+comment0.text=\r\n\ Konstruktor\r\n
+comment1.params=
+comment1.target=double\ getDlzka()
+comment2.params=
+comment2.target=double\ getVaha()
+comment3.params=
+comment3.target=boolean\ getJedovaty()
+comment4.params=dlzka
+comment4.target=void\ setDlzka(double)
+comment5.params=vaha
+comment5.target=void\ setVaha(double)
+comment6.params=jedovaty
+comment6.target=void\ setJedovaty(boolean)
+comment7.params=
+comment7.target=java.lang.String\ toString()
+comment7.text=\r\n\ prekryty\ toString\r\n
+numComments=8

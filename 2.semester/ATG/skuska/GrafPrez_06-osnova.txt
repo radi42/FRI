@@ -1,0 +1,10 @@
+eulerovsky tah
+eulerova veta o existencii eulerovskeho tahu
+algoritmus na konstrukciu eulerovskeho tahu
+flueryho algoritmus na hladanie uzavreteho eulerovskeho tahu v suvislom grafe, v ktorom maju vsetky vrcholy parny stupen
+labyrintovy algoritmus
+uloha cinskeho postara - slovna formulacia, matematicka formulacia, parenie, cena parenia, maximalne/najpocetnejsie/uplne parenie
+edmondsov algoritmus na hladanie najkratsieho uzavreteho eulerovskeho sledu v suvislom hranovo ohodnotenom grafe
+hamiltonovsky sled/cyklus, podmientky na zistenie, ci je graf hamiltonovsky
+uloha obchodneho cestujuceho - slovna formulacia, matematicka formulacia
+algoritmy na riesenie ulohy obchodneho cestujuceho: pazrava metoda, metoda zdvojenia kostry, algoritmus kostry a parenia, vkladacia heuristika, algoritmus prehladavania okoli

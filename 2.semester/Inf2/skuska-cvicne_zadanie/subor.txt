@@ -1,0 +1,16 @@
+turista 
+150 
+Duro 
+1950
+strelec 
+95 
+Jano 
+1965
+turista 
+150 
+Jozo 
+1990
+strelec 
+85 
+Fero 
+1991

@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.params=menoVlak
+comment0.target=Spoj(java.lang.String)
+comment1.params=
+comment1.target=java.lang.String\ getMenoVlak()
+comment2.params=
+comment2.target=java.lang.String\ getStanice()
+comment3.params=menoVlak
+comment3.target=void\ setNazovVlak(java.lang.String)
+comment4.params=index\ stan
+comment4.target=void\ setStanica(int,\ Stanica)
+comment5.params=
+comment5.target=void\ addSpoj()
+comment6.params=
+comment6.target=void\ jazdaVlaku()
+comment7.params=
+comment7.target=java.lang.String\ toString()
+numComments=8

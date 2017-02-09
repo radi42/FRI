@@ -1,0 +1,18 @@
+binarny polynom
+
+pri crc kodovani spravy vypocitat chybajuce 3 bity ked sme spravu kodovali cislom 1011
+1000xxx
+ako zistit xxx ?
+
+spravu doplnime od tri nuly (lebo hladame tri bity) a hodnotu vydelime binarnym cislom, ktorym sme spravu kodovali
+
+1000 000 / 1011 = vysledok a zvysok
+
+v nasom pripade nas zaujima iba ten trojbitovy zvysok ktory len doplnime do spravy.
+
+
+
+
+Najdi na ktorej pozicii sa nachadza chybny bit podla syndromu (zvysku) ak sme spravu 1010100 kodovali cislom 1011
+
+znovu spravu vydelime kodovanym cislom 1010100 / 1011 a vyjde nam vysledok a zvysok. Zaujima nas zvysok, ktory pororvname s tabulkou. Syndrom sa musi rovnat zvysku

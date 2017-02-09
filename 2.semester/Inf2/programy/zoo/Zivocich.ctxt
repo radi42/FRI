@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.params=nazovDruhu\ umiestnenie\ datNar
+comment0.target=Zivocich(java.lang.String,\ java.lang.String,\ lib.Datum)
+comment0.text=\r\n\ Konstruktor\ -\ plny\r\n
+comment1.params=nazovDruhu\ umiestnenie
+comment1.target=Zivocich(java.lang.String,\ java.lang.String)
+comment1.text=\r\n\ Konstruktor\ -\ testovaci\ -\ pretazeny\r\n
+comment2.params=
+comment2.target=java.lang.String\ getNazovDruhu()
+comment3.params=
+comment3.target=java.lang.String\ getUmiestnenie()
+comment4.params=
+comment4.target=lib.Datum\ getDatNar()
+comment5.params=nazovDruhu
+comment5.target=void\ setNazovDruhu(java.lang.String)
+comment6.params=umiestnenie
+comment6.target=void\ setUmiestnenie(java.lang.String)
+comment7.params=datNar
+comment7.target=void\ setDatum(lib.Datum)
+comment8.params=
+comment8.target=java.lang.String\ toString()
+comment8.text=\r\n\ toString\r\n\ vypis\ vlastnost\r\n
+numComments=9

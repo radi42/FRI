@@ -1,0 +1,2 @@
+pre 50 centovky
+=IF(D5>1, E5,IF(E5-2>=0, E5-2))

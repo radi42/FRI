@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.params=stranaA
+comment0.target=Stvorec(int)
+comment0.text=\r\n\ konstruktor\r\n
+comment1.params=
+comment1.target=int\ getStranaA()
+comment1.text=\r\n\ getter\ na\ stranuA\r\n
+comment2.params=stranaA
+comment2.target=void\ setStranaA(int)
+comment2.text=\r\n\ setter\ na\ stranuA\r\n
+comment3.params=
+comment3.target=void\ nakresliSa()
+comment3.text=\r\n\ povinna\ metoda\ nakresliSa\r\n
+comment4.params=
+comment4.target=double\ dajObvod()
+comment4.text=\r\n\ vracia\ obvod\ stvorca\r\n\ @return\ obvod\r\n
+numComments=5

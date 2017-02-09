@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.params=stranaA\ stranaB
+comment0.target=Kruh(int,\ int)
+comment0.text=\r\n\ konstruktor\r\n
+comment1.params=
+comment1.target=int\ getStranaA()
+comment1.text=\r\n\ getter\ na\ stranuA\r\n
+comment2.params=stranaA
+comment2.target=void\ setStranaA(int)
+comment2.text=\r\n\ setter\ na\ stranuA\r\n
+comment3.params=
+comment3.target=int\ getStranaB()
+comment3.text=\r\n\ getter\ na\ stranuB\r\n
+comment4.params=stranaA
+comment4.target=void\ setStranaB(int)
+comment4.text=\r\n\ setter\ na\ stranuB\r\n
+comment5.params=
+comment5.target=void\ nakresliSa()
+comment6.params=
+comment6.target=double\ dajObvod()
+numComments=7

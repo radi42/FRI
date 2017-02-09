@@ -1,0 +1,20 @@
+Vykonnostna trieda 1 
+================================================ 
+Duro, nar. 1950, turista, presiel 150 km 
+Pocet sportovcov:   1 
+ 
+Vykonnostna trieda 2 
+================================================ 
+Jano, nar. 1965, strelec, nastrel 95 bodov 
+Jozo, nar. 1990, turista, presiel 150 km 
+Pocet sportovcov:   2 
+ 
+Vykonnostna trieda 3 
+================================================ 
+Pocet sportovcov:   0 
+ 
+Vykonnostna trieda 0 
+================================================ 
+Fero, nar. 1991, strelec, nastrel 85 bodov 
+Pocet sportovcov:   1 
+ 

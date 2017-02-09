@@ -1,0 +1,159 @@
+
+test skúška, teória - Pokus 1
+Question 1
+Známky: 1
+Napíšte vytvárajúcu funkciu k poctu možností naplnenie ovocného košíka jablkami (párny pocet), citrónmi (nepárny pocet) a ananásom (najviac 1)
+Vyberte jednu odpoved
+	a. x/[(1-x)*(1-x)*(1+x)] 	
+	b. x/[(1-x)*(1-x)] 	
+	c. x/[(1-x^2)*(1-x^2)] 	
+Question 2
+Známky: 1
+Kolko podmnožín má množina AxB? (AxB je množina všetkých možných usporiadaných dvojíc (a,b), takých, že a je z A , b je z B). Predpokladáme, že|A|=2 a|B|=2.
+Vyberte jednu odpoved
+	a. 4 	
+	b. 16 	
+	c. 32 	
+	d. 8 	
+	e. 64 	
+Question 3
+Známky: 1
+?Nech Markovov retazec X má stavy s1, s2, s3 a pravdepodobnosti prechodov medzi nimi sú: Pr(X=s1|X=s2)=0,1, Pr(X=s3|X=s2)=0,2, Pr(X=s3|X=s1)=0,3, Pr(X=s1|X=s1)=0,7, Pr(X=s2|X=s3)=0,4. V case 0 bol retazec v stave s2. Aká je pravdepodobnost, že v case 2 bude v stave s2?
+Vyberte jednu odpoved
+	a. 0,27 	
+	b. 0,7 	
+	c. 0,57 	
+Question 4
+Známky: 1
+Môže pre hodnoty náhodnej premennej x1 a x2 platit x1 < x2 a súcasne TDF(x1)>TDF(x2)?
+Vyberte jednu odpoved
+	a. áno 	
+	b. nie 	
+	c. iba v prípade, že sa jedná o geometrické rozdelenie pravdepodobnosti 	
+	d. iba v prípade, že sa jedná o rovnomerné rozdelenie pravdepodobnosti 	
+	e. iba v prípade, že sa jedná o Poissonove rozdelenie pravdepodobnosti 	
+Question 5
+Známky: 1
+Rozložte na súcet dvoch zlomkov 1/(3*7)
+Vyberte jednu odpoved
+	a. 1/3 - 1/7 	
+	b. (1/4)*(1/7 + 1/3) 	
+	c. (1/4)*(1/3 - 1/7) 	
+Question 6
+Známky: 1
+Aká je disperzia náhodnej premennej s binomickým rozdelením pravdepodobnosti Bi(10;1/6)?
+Vyberte jednu odpoved
+	a. D(X)=10/6 	
+	b. D(X)=50/36 	
+	c. D(X)=10/36 	
+	d. D(X)=50/6 	
+Question 7
+Známky: 1
+Vydelte (1-x^4) : (1-x). Aký koeficient je v podieli pri x^2?
+Vyberte jednu odpoved
+	a. 1 	
+	b. 0 	
+	c. 4 	
+Question 8
+Známky: 1
+?Vyjadrite Pr(A|B) pomocou Pr(A prienik B), ak vieme, že Pr(B)=0,3
+Vyberte jednu odpoved
+	a. Pr(A|B)=Pr(A prienik B)*0,3 	
+	b. Pr(A|B)=Pr(A prienik B)/0,3 	
+	c. Pr(A|B)=0,3/Pr(A prienik B) 	
+	d. Pr(A|B)=Pr(A prienik B)^0,3 	
+Question 9
+Známky: 1
+Nech pri hode kockou je udalost A "padlo párne císlo" a udalost B "padol násobok 3". Aké císlo môže padnút na kocke v prípade udalosti (A prienik B)´? Aká je pravdepodobnost udalosti (A prienik B )´? (Znacka ´oznacuje opacnú udalost.)
+Vyberte jednu odpoved
+	a. v prípade udalosti (A prienik B)´ môžu padnút na kocke napríklad aj císla 2 alebo 4, Pr(A prienik B )´=5/6 	
+	b. v prípade udalosti (A prienik B)´ môžu padnút na kocke napríklad aj císla 1, 3 alebo 4, Pr(A prienik B )´=3/6 	
+	c. v prípade udalosti (A prienik B)´ môžu padnút na kocke napríklad aj císla 3 alebo 6, Pr(A prienik B )´=2/6 	
+Question 10
+Známky: 1
+Aká je pravdepodobnost, že náhodná premenná s geometrickým rozdelením Geo1(0,2) nadobudne hodnotu menšiu ako 3?
+Vyberte jednu odpoved
+	a. 0,96 	
+	b. 0,64 	
+	c. 0,36 	
+Question 11
+Známky: 1
+Vieme, že náhodná premenná má rovnomerné rozdelenie a PDF(3)=1/7. Aké hodnoty náhodná premenná nadobúda?
+Vyberte jednu odpoved
+	a. {3, 4, 5, 6, 7} 	
+	b. {1, 2, 3, 4, 5, 6, 7} 	
+	c. {1, 2, 3} 	
+Question 12
+Známky: 1
+Kolko podmnožín má trojprvková množina?
+Vyberte jednu odpoved
+	a. 27 	
+	b. 6 	
+	c. 4 	
+	d. 8 	
+	e. 9 	
+Question 13
+Známky: 1
+Aká je hodnota PDF(5) pre náhodnú premennú s rozdelením pravdepodobnosti Po(3)?
+Vyberte jednu odpoved
+	a. 0,1465 	
+	b. 0,1953 	
+	c. 0,1008 	
+Question 14
+Známky: 1
+Napíšte distribucnú funkciu CDF(1) pre binomické rozdelenie Bi(3; 0,2).
+Vyberte jednu odpoved
+	a. 0,992 	
+	b. 0,512 	
+	c. 0,896 	
+Question 15
+Známky: 1
+Náhodná premenná X nadobúda hodnoty x1, x2, ... a strednú hodnotu E(X). Náhodná premenná Y nadobúda hodnoty x1 - E(X), x2- E(X), ... , teda Y = X - E(X). Aká je hodnota E(Y)?
+Vyberte jednu odpoved
+	a. E(X)-Y 	
+	b. E(Y)-E(X) 	
+	c. 0 	
+Question 16
+Známky: 1
+Pre dve za sebou nasledujúce hodnoty x4 a x5 náhodnej premennej platí CDF(x4)=0,6 a TDF(x5)=0,3. Oznacte pravdivé tvrdenie.
+Vyberte jednu odpoved
+	a. CDF(x5)=0,6 	
+	b. CDF(x5)=0,7 	
+	c. TDF(x4)=0,9 	
+	d. PDF(x4)=0,7 	
+	e. TDF(x4)=0,3 	
+Question 17
+Známky: 1
+Namerali sme hodnoty teplôt 8, 12, 5, 9, 6, 10, 13. Pre ktorú hodnotu T je súcet absolútnych hodnôt odchýlky T od nameraných teplôt najmenšia?
+Vyberte jednu odpoved
+	a. 10 	
+	b. všetky hodnoty z intervalu <9;10> 	
+	c. 8 	
+	d. 6 	
+	e. 9 	
+	f. všetky hodnoty z intervalu <8;9> 	
+Question 18
+Známky: 1
+Vieme, že jav B je podmonožinou javu A. Platí, že Pr(B)=1/5. Aká je Pr(A|B)?
+Vyberte jednu odpoved
+	a. 1/5 	
+	b. 0 	
+	c. 1 	
+	d. 4/5 	
+	e. 2/5 	
+Question 19
+Známky: 1
+V triede je 40 žiakov, a každý ovláda aspon jeden z dvoch jazykov: anglicky alebo francúzsky. Vieme, že oba jazyky ovláda 23 žiakov a anglicky vie 33 žiakov. Kolko ich vie francúzsky?
+Vyberte jednu odpoved
+	a. 7 	
+	b. 17 	
+	c. 30 	
+	d. 20 	
+Question 20
+Známky: 1
+Velitel si z desiatich vojakov vybral 6 prieskumníkov, a z nich vybral dvoch velitelov. Kolkými spôsobmi to mohol spravit?
+Vyberte jednu odpoved
+	a. (10 nad 6,2) 	
+	b. 6!*2! 	
+	c. (10 nad 2)*(8 nad 4) 	
+Cas zostávajúci do ukoncenia testu

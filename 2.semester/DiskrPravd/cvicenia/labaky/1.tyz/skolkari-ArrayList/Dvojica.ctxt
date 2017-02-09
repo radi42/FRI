@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=ziak1\ ziak2
+comment0.target=Dvojica(int,\ int)
+comment1.params=
+comment1.target=int\ getZiak1()
+comment2.params=
+comment2.target=int\ getZiak2()
+comment3.params=
+comment3.target=java.lang.String\ toString()
+numComments=4

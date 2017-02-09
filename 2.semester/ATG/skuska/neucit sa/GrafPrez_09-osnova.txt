@@ -1,0 +1,6 @@
+strediska obsluhy v dopravnych sietach: depa, havarijne strediska
+vzdialenost vrchola od mnoziny vrcholov
+suhrnna vazena vzdialenost vsetkych vrcholov grafu G od mnoziny, vazeny p-median, vazena excentricita ecc(D) mnoziny
+vazene p-centrum
+heuristicky algoritmus na hladanie vazeneho p-medianu v suvislom hranovo a vrcholovo ohodnotenom grafe
+atrakcny obvod, prvotny atrakcny obvod, system pridelenych atrakcnych obvodov

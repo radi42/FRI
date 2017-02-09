@@ -1,0 +1,5 @@
+TelkaCrt 100 30 true true
+TelkaLcd 400 95 false true
+TelkaPlazma 1000 120 false false
+
+ciel: vytvorit metodu v interface ITelevizor s nazvom "zapisTxt" a prekryt ju v nadtriede (Televizor) a vsetkych podtriedach (lcd, plazma, crt). Citanie zo suboru pojde slovo po slove, a to tak, ze sa precita prve slovo a podla toho sa urci, aky konstruktor sa zavola. Este pred samotnym citanim zo suboru sa cely arraylist vymaze.

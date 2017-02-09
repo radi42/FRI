@@ -1,0 +1,21 @@
+acyklicky graf, orientovany strom
+vlastnosti orientovanych stromov
+vlastnosti acyklickych digrafov
+monotonne ocislovanie vrcholov acyklickeho grafu
+algoritmus na monotonne ocislovanie vrcholov acyklickeho grafu
+tranzitivny graf
+tranzitivny uzaver/redukcia
+algoritmus na hladanie najkratsich orientovanych u-v ciest
+najdlhsia cesta; najdlsia orientovana u-v cesta
+projekt-metody casoveho planovania
+relacia precedencie
+bezprostredna precedencia, uloha casoveho planovania
+digraf precedencie, digraf bezprostrednej precedencie
+rozvrh, pripustny rozvrh
+trvanie projektu
+najskor mozny zaciatok, najneskor mozny koniec, casova rezerva
+kriticke cinnosti, kriticka cesta
+algoritmus na urcenie najskor moznych zaciatkov z(v) elementarnych cinnosti v digrafe
+klasicka interpretacia metody cpm, sietovy digraf, zaciatok vykonavania projektu, koniec vykonavania projektu
+kriticka cesta, kriticke cinnosti, casova rezerva
+konstrukcia sietoveho grafu

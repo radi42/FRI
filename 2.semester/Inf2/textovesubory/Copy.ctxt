@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=
+comment0.target=void\ main()
+comment1.params=subor1\ subor2
+comment1.target=void\ kopiruj(java.lang.String,\ java.lang.String)
+comment2.params=subor1\ subor2
+comment2.target=void\ kopirujDoRetazca(java.lang.String,\ java.lang.String)
+numComments=3

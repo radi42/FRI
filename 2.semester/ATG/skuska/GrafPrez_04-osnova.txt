@@ -1,0 +1,12 @@
+cyklus, kruznica
+definicia acyklickeho grafu a stromu
+vlastnosti stromov
+korenovy strom, uroven vrchola, vyska korenoveho stromu
+hranicna hrana, zaradeny/volny vrchol
+prehladavanie grafu do hlbky
+prehladavanie grafu do sirky
+kostra, najlacnejsia/najdrahsia kostra
+kruskalov algoritmus I, II
+priepustnost, cesta maximalnej priepustnosti
+algoritmus na hladanie u-v cesty s maximalnou priepustnostou v suvislom hranovo ohodnotenom grafe
+algoritmus na hladanie najkratsej u-v cesty s maximalnej priepustnosti

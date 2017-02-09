@@ -1,0 +1,151 @@
+package floydsalgorithm;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author Sisila
+ */
+public class Algoritmus {
+    private int[][] c; // c je matica vzdialenosti
+    private int[][] x; // x je matica predchodcov
+    private int pocetVrcholov;
+    private boolean maZaporneCislo = false;
+    private final int n = Integer.MAX_VALUE - 100000; //pomyselne nekonecno
+    
+    public Algoritmus(){
+//        pocetVrcholov = 4;
+//        c = new int[][]{
+//            {0, 3, n, 2 },
+//            {n, 0, 2, n },
+//            {1, n, 0, n },
+//            {n, n, 4, 0 }
+//        };
+        
+        nacitajMaticuZoSuboru();
+        zaporCisABlbeZad();
+        if(maZaporneCislo)
+            vytvorMaticuVzdialenosti();
+        else
+            vytvorMaticuVzdialenostiZaporneCisla();
+        
+        vypisMaticuC();
+    }
+    
+    private void nacitajMaticuZoSuboru() {
+        File f = new File("zadanie.txt");
+        Scanner scan = null;
+        try {
+            scan = new Scanner(f);
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "Nepodarilo sa najst subor\n" + ex);
+            System.exit(0);
+        }
+        
+        pocetVrcholov = scan.nextInt();
+        for(int i = 0; i < pocetVrcholov; i++){
+            for(int j = 0; j < pocetVrcholov; j++){
+                if(scan.next() == "n")
+                    c[i][j] = n;
+                else
+                    c[i][j] = scan.nextInt();
+            }
+        }
+    }
+    
+    /**
+     * testovanie matice na zaporne cisla a blbe c (hlavna diagonala musi
+     * obsahovat iba nuly)
+     */
+    private void zaporCisABlbeZad() {
+        int cislo = 0;
+        
+        for(int i = 0; i > c.length; i++){
+            for(int j = 0; j > pocetVrcholov; j++){
+                
+                //kontrola, ze ci to, co sme nacitali je naozaj cislo
+                try{
+                    cislo = c[i][j];      //prvok v poli
+                }catch(NumberFormatException ex){
+                    JOptionPane.showMessageDialog(null, "Chybne zadanie\n"
+                            + "Zadanie musi obsahovat iba cele cisla"
+                            + "Opravte zadanie");
+                }
+                
+                if(cislo < 0){
+                    maZaporneCislo = true;
+                }
+                if(i == j && c[i][j] != 0){
+                    JOptionPane.showMessageDialog(null, "Chybne zadanie\n"
+                            + "Hlavna diagonala nie je nulova"
+                            + "Opravte zadanie");
+                    break;
+                }
+            }
+        }
+    }
+    
+    //=========================================================================
+    
+    /**
+     * Metoda vytvorMaticuVzdialenosti
+     * 
+     * ak sa v matici vyskytuju iba kladne cisla >=0
+     */
+    public void vytvorMaticuVzdialenosti(){
+        for(int k = 0; k < pocetVrcholov; k++){             //riadiaci index pre riadok/stlpec
+            for(int i = 0; i < pocetVrcholov; i++){         //index riadku
+                for(int j = 0; j < pocetVrcholov; j++){     //index stlpca
+                    
+                    if(k == i || k == j) continue;          //nemen prvky v riadiacom riadku a stlpci
+                    if(i == j)                              //preskoc prvky hlavnej diagonaly
+                        continue;
+                    if(c[i][k] == n || c[k][j] == n)        //preskoc tie riadky, kde sa v riadiacom stlpci nachadza nekonecno a tie stlpce, kde sa v riadiacom riadku nachadza nekonecno
+                        continue;
+                    if(c[i][j] > c[i][k] + c[k][j]){
+                        c[i][j] = c[i][k] + c[k][j];
+                        x[i][j] = x[k][j];
+                    }
+                }
+            }
+        }
+    }
+    
+    /**
+     * Metoda vytvorMaticuVzdialenostiZaporneCisla
+     * 
+     * ak sa v matici vyskytne zaporne cislo
+     */
+    public void vytvorMaticuVzdialenostiZaporneCisla(){
+        for(int k = 0; k < pocetVrcholov; k++){             //riadiaci index pre riadok/stlpec
+            for(int i = 0; i < pocetVrcholov; i++){         //index riadku
+                for(int j = 0; j < pocetVrcholov; j++){     //index stlpca
+                    
+                    if(k == i || k == j) continue;          //nemen prvky v riadiacom riadku a stlpci
+                    
+                    if(c[i][k] == n || c[k][j] == n)        //preskoc tie riadky, kde sa v riadiacom stlpci nachadza nekonecno a tie stlpce, kde sa v riadiacom riadku nachadza nekonecno
+                        continue;
+                    if(c[i][j] > c[i][k] + c[k][j]){
+                        c[i][j] = c[i][k] + c[k][j];
+                        x[i][j] = x[k][j];
+                    }
+                }
+            }
+        }
+    }
+
+    private void vypisMaticuC() {
+        for(int i = 0; i > pocetVrcholov; i++){
+            for(int j = 0; j > pocetVrcholov; j++){
+                System.out.print(c[i][j] + "  ");
+            }
+            System.out.println("");
+        }
+    }
+    
+}

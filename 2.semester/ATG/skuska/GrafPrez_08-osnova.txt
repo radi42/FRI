@@ -1,0 +1,16 @@
+rovinny graf - definicia
+stena - vonkajsia, vnutorna
+eulerova polyedricka formula
+maximum poctu hran rovineho grafu
+grafy, ktore nie su rovinne: uplny graf o piatich vrcholoch (k5) a bipartitny graf (k3,3)
+rozpolenie hrany
+homeomorfne grafy
+kuratowskeho veta
+problem farbenia map
+zafarbenie grafu -> pripustne zafarbenie -> k-zafarbitelnost -> chromaticke cislo grafu
+heuristiky pre farbenie grafu: sekvencne farbenie
+horny odhad chromatickeho cisla grafu
+farbenie rovnakych grafov a farbenie map
+paralelne farbenie grafu
+farbenie grafu ldf (largest degree first)
+aplikacie

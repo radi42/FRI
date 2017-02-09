@@ -1,0 +1,17 @@
+cas prenesenia jedneho symbolu
+
+vm = 1/a
+kde vm je v Baudoch,
+a a je cas za ktory je jeden symbol preneseny
+
+
+rozdiel prenosovych rychlosti na zaklade poctu stavov
+vp = vs*log n pri zaklade 2
+
+vp - prenosova rychlost
+vs - symbolova rychlost
+n - pocet stavov
+
+
+maximalna prenosova rychlost
+max. prenosova rychlost = sirka pasma * log (1+signal/sum) pri zaklade 2
