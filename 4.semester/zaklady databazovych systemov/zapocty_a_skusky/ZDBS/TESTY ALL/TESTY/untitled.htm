@@ -1,0 +1,474 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+	<HEAD>
+  	<META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=".CHARSET>
+		<TITLE>
+			Sk˙öacÌ systÈm FRI                        - dobiasm		</TITLE>
+		<LINK REL="StyleSheet" HREF="styly.css" type="text/css">
+	</HEAD>
+	
+	<BODY>	   
+<SCRIPT LANGUAGE="Javascript">
+<!--
+   function validate(formular) {
+
+		if (formular.newlogin.value == "") {
+			alert("Nezadali ste vöetky povinnÈ ˙daje!");
+	 return false;
+		}
+      else
+	return true;
+   };
+//-->
+</SCRIPT>
+
+  <TABLE width="100%">
+    <TR>
+      <TD colspan="2">     <TABLE width="100%">
+      <TR>
+        <TD>
+                    <IMG src="frilogo.bmp">
+          <BR>
+          <a href="doc/uzivatel_help.htm" charset="windows-1250">HELP</a> 
+        </TD><TD>
+          <H1> Sk˙öacÌ systÈm FRI </H1>
+        </TD><TD align="right" valign="top" width="10%">
+Prihl·sen˝:<BR>Dobiaö          Michal         <BR>		<DIV ALIGN="right">
+			<A HREF="index.php?SubmitButton=logout&PHPSESSID=1b5c6813a4490cdd00500eb5b0bb5ec7">
+			Odhl·siù sa</A><BR>
+		</DIV>
+<BR><A href=set_skrok.php?PHPSESSID=1b5c6813a4490cdd00500eb5b0bb5ec7&action=chooseSkrok>Zvoliù ökolsk˝ rok</A><BR>2005<BR>	</TD>
+      </TR>
+    </TABLE>
+
+ </TD>
+    </TR><TR>
+      <TD width="20%" valign="top">       &nbsp;&nbsp;&nbsp; 
+      04.05.2006, 09:49 <BR><BR><BR>
+
+      <TABLE width="130" class="leftmenu">
+         <TR>
+	   <TH> <B> ätudent </B> </TH>
+ 	 </TR><TR>
+ 	    <TD>
+	      <A HREF="frame_st.php?PHPSESSID=1b5c6813a4490cdd00500eb5b0bb5ec7&Login=dobiasm                 &Language=sk">Zmeniù heslo / login</A>
+	    </TD>
+         </TR><TR>
+	   <TD>
+<BR><BR>
+             <A HREF="student.php?PHPSESSID=1b5c6813a4490cdd00500eb5b0bb5ec7&action=viewsubjects">ZapÌsanÈ predmety</A>
+	   </TD>
+         </TR><TR>
+	    <TD>
+              <A HREF="student.php?PHPSESSID=1b5c6813a4490cdd00500eb5b0bb5ec7&action=signOnExam">ZapÌsaù na sk˙öku</A>
+	    </TD>
+         </TR><TR>
+	    <TD>
+              <A HREF="student.php?PHPSESSID=1b5c6813a4490cdd00500eb5b0bb5ec7&action=viewtests">ZadanÈ testy</A>
+<BR><BR>
+	    </TD>
+         </TR><TR>
+	    <TD>
+              <A HREF="student.php?PHPSESSID=1b5c6813a4490cdd00500eb5b0bb5ec7&action=viewmsgs">Prezeraù spr·vy</A>
+	    </TD>
+         </TR><TR>
+	    <TD>
+              <A HREF="student.php?PHPSESSID=1b5c6813a4490cdd00500eb5b0bb5ec7&action=sendmsg">Poslaù spr·vu</A>
+	    </TD>
+         </TR><TR>
+	    <TD>
+<BR><BR>
+              <A HREF="student.php?PHPSESSID=1b5c6813a4490cdd00500eb5b0bb5ec7&action=chooseDef">Zvoliù implicitn˝ predmet</A>
+	    </TD>
+         </TR>
+      </TABLE>
+ </TD>
+      <TD width="80%" align="left" valign="top">
+     <DIV ALIGN="center"> <H3>ätudent -
+     Vypracovaù test 2/3 </H3></DIV>
+         <H2 align="center">
+           BI06 - Z·poËtov˝ 2/2005 C Str0809         </H2>
+	 <FORM method="post" name="myform">
+           <TABLE width="100%"><TR><TD>
+             <HR>
+»as zaËiatku : 2006-05-04 09:15:27<BR>               <INPUT TYPE="Text" name="minutky" SIZE="6" READONLY="on"
+               VALUE="26:43">
+               min˙t do konca.
+               <HR>
+	       </TD></TR><TR><TD>
+  <TABLE class="form"  align="center" width = "100%">
+        <TR>
+          <TH colspan=3>
+             View	  </TH>
+	</TR>
+    <TR align="left">
+      <TD valign="top">
+        1.      </TD><TD colspan="2" align="left">
+Majme nasledovn˝ pohæad a prÌkaz Insert.<br>CREATE OR REPLACE VIEW pohl6 (meno, priezvisko,rod_cislo) <br>AS<BR>SELECT ou_meno, ou_priezvisko, ou_rod_cislo<br>
+FROM os_udaje<BR>WHERE ou_meno LIKE 'S%'<BR>WITH CHECK OPTION;<BR><BR>
+INSERT INTO pohl6<BR> VALUES  ('Karol', 'Novy', '790502/1212');<BR><BR>»o sa stane?
+<BR>      </TD>
+    </TR>
+    <TR><TD colspan="3" align="right">Body: 2</TD></TR>
+	<TR>
+     	  <TD>&nbsp;</TD><TD align="left">
+	    	      <INPUT TYPE="radio" NAME="od_ids[2697]"
+	    VALUE="7089" >          </TD><TD align="left">riadok bude vloûen˝ iba do tabuæky os_udaje</TD>
+	</TR>
+	</TD></TR>
+
+	<TR>
+     	  <TD>&nbsp;</TD><TD align="left">
+	    	      <INPUT TYPE="radio" NAME="od_ids[2697]"
+	    VALUE="7088" checked>          </TD><TD align="left">riadok bude vloûen˝ iba do pohæadu</TD>
+	</TR>
+	</TD></TR>
+
+	<TR>
+     	  <TD>&nbsp;</TD><TD align="left">
+	    	      <INPUT TYPE="radio" NAME="od_ids[2697]"
+	    VALUE="7090" >          </TD><TD align="left">riadok nebude nikam vloûen˝ ñ nastane chyba</TD>
+	</TR>
+	</TD></TR>
+
+	<TR>
+     	  <TD>&nbsp;</TD><TD align="left">
+	    	      <INPUT TYPE="radio" NAME="od_ids[2697]"
+	    VALUE="7087" >          </TD><TD align="left">riadok bude vloûen˝ do pohæadu aj do tabuæky os_udaje</TD>
+	</TR>
+	</TD></TR>
+
+        <TR>
+          <TH colspan=3>
+             RelaËn· integrita 2	  </TH>
+	</TR>
+    <TR align="left">
+      <TD valign="top">
+        2.      </TD><TD colspan="2" align="left">
+Koæko prim·rnych kæ˙Ëov m· dan· rel·cia?<br>Telefonny_hovor(id_hovoru, kedy, cislo_kto, cislo_komu dlzka_hovoru).<br> 
+PriËom uvaûujeme len s moûnosùou, ûe z jednÈho telefÛnu nie je moûnÈ naraz volaù na viac a kedy obsahuje aj d·tum aj Ëas.
+<BR>      </TD>
+    </TR>
+    <TR><TD colspan="3" align="right">Body: 1</TD></TR>
+	<TR>
+     	  <TD>&nbsp;</TD><TD align="left">
+	    	      <INPUT TYPE="radio" NAME="od_ids[2707]"
+	    VALUE="7128" checked>          </TD><TD align="left">tri PK - PK1=id_hovoru ,<br>     PK2=cislo_kto, kedy,<br>    PK3= cislo_kto, cislo_komu, kedy</TD>
+	</TR>
+	</TD></TR>
+
+	<TR>
+     	  <TD>&nbsp;</TD><TD align="left">
+	    	      <INPUT TYPE="radio" NAME="od_ids[2707]"
+	    VALUE="7127" >          </TD><TD align="left">jeden PK - PK=id_hovoru</TD>
+	</TR>
+	</TD></TR>
+
+	<TR>
+     	  <TD>&nbsp;</TD><TD align="left">
+	    	      <INPUT TYPE="radio" NAME="od_ids[2707]"
+	    VALUE="7130" >          </TD><TD align="left">dva PK ñ PK1=id_hovoru, <br>    PK2=cislo_kto, kedy</TD>
+	</TR>
+	</TD></TR>
+
+	<TR>
+     	  <TD>&nbsp;</TD><TD align="left">
+	    	      <INPUT TYPE="radio" NAME="od_ids[2707]"
+	    VALUE="7129" >          </TD><TD align="left">viac ako 3 PK</TD>
+	</TR>
+	</TD></TR>
+
+        <TR>
+          <TH colspan=3>
+             Select 1  - l_isfr	  </TH>
+	</TR>
+    <TR align="left">
+      <TD valign="top">
+        3.      </TD><TD colspan="2" align="left">
+VypÌöte n·zvy vöetk˝ch obcÌ.<BR>      </TD>
+    </TR>
+    <TR><TD colspan="3" align="right">Body: 1</TD></TR>
+      <TR>
+        <TD>&nbsp;</TD><TD colspan="2">
+          <TEXTAREA NAME="textodpoved[2714]" COLS="70" ROWS="7">
+            SELECT nazov FROM obec            </TEXTAREA>
+        </TD>
+      </TR>
+        <TR>
+          <TH colspan=3>
+             Select 2  - l_isfr	  </TH>
+	</TR>
+    <TR align="left">
+      <TD valign="top">
+        4.      </TD><TD colspan="2" align="left">
+VypÌöte email na öt˙dijnÈ oddelenie Fakulty riadenia a informatiky v ökolskom roku 2003.<BR>      </TD>
+    </TR>
+    <TR><TD colspan="3" align="right">Body: 1</TD></TR>
+      <TR>
+        <TD>&nbsp;</TD><TD colspan="2">
+          <TEXTAREA NAME="textodpoved[2715]" COLS="70" ROWS="7">
+            SELECT email_stud FROM info,fakulta
+WHERE fakulta.id=info.id
+AND fakulta.nazov='FRI'
+AND info.skrok='2003'</TEXTAREA>
+        </TD>
+      </TR>
+        <TR>
+          <TH colspan=3>
+             Select 3  - l_isfr	  </TH>
+	</TR>
+    <TR align="left">
+      <TD valign="top">
+        5.      </TD><TD colspan="2" align="left">
+VypÌöte zoznam katedier, z ktor˝ch m·me aspoÚ jednÈho uËiteæa (potlaËte duplicity)<BR>      </TD>
+    </TR>
+    <TR><TD colspan="3" align="right">Body: 1</TD></TR>
+      <TR>
+        <TD>&nbsp;</TD><TD colspan="2">
+          <TEXTAREA NAME="textodpoved[2722]" COLS="70" ROWS="7">
+            SELECT DISCINCT nazov FROM katedra,ucitel
+WHERE katedra.cis_kat=ucitel.cis_kat            </TEXTAREA>
+        </TD>
+      </TR>
+        <TR>
+          <TH colspan=3>
+             Insert, Delete, Update - cascade  - l_isfr	  </TH>
+	</TR>
+    <TR align="left">
+      <TD valign="top">
+        6.      </TD><TD colspan="2" align="left">
+Vymaûte vöetky ˙daje o fakult·ch, ktorÈ nemaj˙ ani jednu katedru.<BR>      </TD>
+    </TR>
+    <TR><TD colspan="3" align="right">Body: 2</TD></TR>
+      <TR>
+        <TD>&nbsp;</TD><TD colspan="2">
+          <TEXTAREA NAME="textodpoved[2734]" COLS="70" ROWS="7">
+            DELETE FROM fakulta
+WHERE count(katedra) = 0</TEXTAREA>
+        </TD>
+      </TR>
+        <TR>
+          <TH colspan=3>
+             AgregaËnÈ funkcie 2  - l_isfr	  </TH>
+	</TR>
+    <TR align="left">
+      <TD valign="top">
+        7.      </TD><TD colspan="2" align="left">
+VypÌöte n·zvy fak˙lt s poËtom katedier, ktorÈ s˙ na fakulte.<BR>      </TD>
+    </TR>
+    <TR><TD colspan="3" align="right">Body: 2</TD></TR>
+      <TR>
+        <TD>&nbsp;</TD><TD colspan="2">
+          <TEXTAREA NAME="textodpoved[2737]" COLS="70" ROWS="7">
+            SELECT nazov,count(katedra) FROM fakulta,katedra
+WHERE fakulta.id=katedra.id           </TEXTAREA>
+        </TD>
+      </TR>
+        <TR>
+          <TH colspan=3>
+             Bonus - Select	  </TH>
+	</TR>
+    <TR align="left">
+      <TD valign="top">
+        8.      </TD><TD colspan="2" align="left">
+BONUS: VypÌöte menn˝ zoznam uËiteæov, ktorÌ patrili (patria) na najviac katedier. <BR>      </TD>
+    </TR>
+    <TR><TD colspan="3" align="right">Body: 3</TD></TR>
+      <TR>
+        <TD>&nbsp;</TD><TD colspan="2">
+          <TEXTAREA NAME="textodpoved[2742]" COLS="70" ROWS="7">
+            SELECT meno,priezvisko FROM os_udaje,ucitel
+WHERE ucitel.cis_kat=katedra.cis_kat
+ORDER BY count(cis_kat) DESC           </TEXTAREA>
+        </TD>
+      </TR>
+        <TR>
+          <TH colspan=3>
+             Hodnota Count	  </TH>
+	</TR>
+    <TR align="left">
+      <TD valign="top">
+        9.      </TD><TD colspan="2" align="left">
+Ak˝ bude v˝sledok z nasledovnÈho selectu.<BR>
+SELECT count(rocnik) FROM Citatel<BR>
+GROUP BY cislo_citatela;<BR>
+<BR>       <IMG src="picture.php?&id=2746&oo=ot" align=textbottom>
+           </TD>
+    </TR>
+    <TR><TD colspan="3" align="right">Body: 2</TD></TR>
+      <TR>
+        <TD>&nbsp;</TD><TD colspan="2">
+          <TEXTAREA NAME="textodpoved[2746]" COLS="70" ROWS="7">
+                        </TEXTAREA>
+        </TD>
+      </TR>
+        <TR>
+          <TH colspan=3>
+             Select 4  - l_isfr	  </TH>
+	</TR>
+    <TR align="left">
+      <TD valign="top">
+        10.      </TD><TD colspan="2" align="left">
+VypÌöte zoznam katedier, z ktor˝ch nem·me ani jednÈho uËiteæa.<BR>      </TD>
+    </TR>
+    <TR><TD colspan="3" align="right">Body: 2</TD></TR>
+      <TR>
+        <TD>&nbsp;</TD><TD colspan="2">
+          <TEXTAREA NAME="textodpoved[2748]" COLS="70" ROWS="7">
+            SELECT nazov FROM katedra, ucitel
+WHERE katedra.cis_kat=ucitel.cis_kat
+AND cis.kat IS NULL          </TEXTAREA>
+        </TD>
+      </TR>
+        <TR>
+          <TH colspan=3>
+             Insert, Delete, Update 1  - l_isfr	  </TH>
+	</TR>
+    <TR align="left">
+      <TD valign="top">
+        11.      </TD><TD colspan="2" align="left">
+Vloûte nasledovnÈ d·ta o uËiteæovi: meno=Peter, priezvisko=Kapusta, , obec=1234, rod_cislo=120406/1234, titul_p=Mgr., cis_kat=5321 d·tum n·stupu naplÚte systÈmov˝m d·tumom, ËÌslo uËiteæa=KI005.<BR>      </TD>
+    </TR>
+    <TR><TD colspan="3" align="right">Body: 1</TD></TR>
+      <TR>
+        <TD>&nbsp;</TD><TD colspan="2">
+          <TEXTAREA NAME="textodpoved[2750]" COLS="70" ROWS="7">
+            INSERT INTO ucitel (meno,priezvisko,obec,rod_cislo)           </TEXTAREA>
+        </TD>
+      </TR>
+        <TR>
+          <TH colspan=3>
+             Select 5  - l_isfr	  </TH>
+	</TR>
+    <TR align="left">
+      <TD valign="top">
+        12.      </TD><TD colspan="2" align="left">
+VypÌöte menn˝ zoznam uËiteæov spolu s d·tumom narodenia.<BR>      </TD>
+    </TR>
+    <TR><TD colspan="3" align="right">Body: 2</TD></TR>
+      <TR>
+        <TD>&nbsp;</TD><TD colspan="2">
+          <TEXTAREA NAME="textodpoved[2759]" COLS="70" ROWS="7">
+            SELECT meno,priezvisko            </TEXTAREA>
+        </TD>
+      </TR>
+        <TR>
+          <TH colspan=3>
+             RelaËn· integrita 1	  </TH>
+	</TR>
+    <TR align="left">
+      <TD valign="top">
+        13.      </TD><TD colspan="2" align="left">
+UveÔte prÌklad uûÌvateæskej integrity pre dan˙ datab·zu<BR>       <IMG src="picture.php?&id=2764&oo=ot" align=textbottom>
+           </TD>
+    </TR>
+    <TR><TD colspan="3" align="right">Body: 2</TD></TR>
+      <TR>
+        <TD>&nbsp;</TD><TD colspan="2">
+          <TEXTAREA NAME="textodpoved[2764]" COLS="70" ROWS="7">
+                        </TEXTAREA>
+        </TD>
+      </TR>
+        <TR>
+          <TH colspan=3>
+             BONUS Select 2	  </TH>
+	</TR>
+    <TR align="left">
+      <TD valign="top">
+        14.      </TD><TD colspan="2" align="left">
+BONUS: VypÌöte n·zvy okresov, z ktor˝ch m·me najviac uËiteæov.<BR>      </TD>
+    </TR>
+    <TR><TD colspan="3" align="right">Body: 3</TD></TR>
+      <TR>
+        <TD>&nbsp;</TD><TD colspan="2">
+          <TEXTAREA NAME="textodpoved[2768]" COLS="70" ROWS="7">
+            SELECT okres FROM obec,os_udaje,ucitel
+WHERE os_udaje.rod_cislo=ucitel.rod_cislo
+AND obec.id=os_udaje.id
+GROUP BY okres
+HAVING count(ucitel)            </TEXTAREA>
+        </TD>
+      </TR>
+        <TR>
+          <TH colspan=3>
+             triggre	  </TH>
+	</TR>
+    <TR align="left">
+      <TD valign="top">
+        15.      </TD><TD colspan="2" align="left">
+Majme nasledovn˝ trigger:<BR>
+CREATE OR REPLACE TRIGGER t_log_zp<BR>
+...... UPDATE ON zap_predmety<BR>
+begin<BR>
+&nbsp;&nbsp;INSERT INTO log_table_zp<BR>
+&nbsp;&nbsp;VALUES (USER, SYSDATE);<BR>
+END;<BR>
+DoplÚte do tela triggra ?<BR>      </TD>
+    </TR>
+    <TR><TD colspan="3" align="right">Body: 1</TD></TR>
+	<TR>
+     	  <TD>&nbsp;</TD><TD align="left">
+	    	      <INPUT TYPE="radio" NAME="od_ids[3117]"
+	    VALUE="7945" >          </TD><TD align="left">len AFTER</TD>
+	</TR>
+	</TD></TR>
+
+	<TR>
+     	  <TD>&nbsp;</TD><TD align="left">
+	    	      <INPUT TYPE="radio" NAME="od_ids[3117]"
+	    VALUE="7951" >          </TD><TD align="left">BEFORE alebo AFTER</TD>
+	</TR>
+	</TD></TR>
+
+	<TR>
+     	  <TD>&nbsp;</TD><TD align="left">
+	    	      <INPUT TYPE="radio" NAME="od_ids[3117]"
+	    VALUE="7941" checked>          </TD><TD align="left">len BEFORE</TD>
+	</TR>
+	</TD></TR>
+
+	<TR>
+     	  <TD>&nbsp;</TD><TD align="left">
+	    	      <INPUT TYPE="radio" NAME="od_ids[3117]"
+	    VALUE="7952" >          </TD><TD align="left">len INSTEAD OF</TD>
+	</TR>
+	</TD></TR>
+
+  </TABLE>
+            </TD></TR><TR><TD align="center">
+	    <BR><INPUT TYPE="Submit" NAME="action" VALUE="Odoslaù test">
+                          <INPUT TYPE="submit" NAME="action" VALUE="Preruöiù test">
+            	    </TD></TR>
+          </TABLE>
+            <SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+            <!--
+              sekund=1603;
+              function DecSec() {
+                minut=(sekund-(sec=sekund%60))/60
+                document.myform.minutky.value = minut+":"+sec;
+                if (sekund <= 0) {
+                  if(document.myform.action[0])
+                    document.myform.action[0].click();
+                  else
+                    document.myform.action.click();
+                    //alert('»as na vypracovanie testu vypröal!');
+                };
+                sekund--;
+                setTimeout("DecSec()", 985);//odhad podla merani
+              }
+              DecSec();
+            //-->
+            </SCRIPT>
+
+</FORM>                <BR>
+		<DIV ALIGN="center">
+			<A HREF="student_menu.php?unregBack=1&PHPSESSID=1b5c6813a4490cdd00500eb5b0bb5ec7">Home</A>
+		</DIV>
+		<BR>
+  </TD>
+  </TR>
+  </TABLE>
+	</BODY>
+</HTML>
+
+

@@ -1,0 +1,27 @@
+S tym casom bys a to dalo spravit a maly by sme to spravit, pretoze nam to asi len takto (ako rozdiel dni 
+bez ohladu na to kedy chodi vlak) odjebu a budeme to bud musiet prerobit aleb nam strhnu body... 
+
+Spravil som funkciu ktora rata pocet prejazdov daneho vlaku pocas daneho casoveho obdobia
+najdes ju v prejazd_vlaku.sql, spustis ju run_prejazd_vlaku.. Mohol by si sa nou inspirovat
+a upravit aj tie veci ktore si vytvaral ty, nie je to az taky problem.. Myslim ze sa da pouzit aj 
+ta funkcia samotna.. Keby si to spravil tak uz nam toho vela nezostane a ten zbytok by som zbuchal a doladil 
+aj v nedelu ked pridem.. Urcite bude riesenie tych "vypisov za obdobie" analogicke tomu mojmu :sel3_4.sql
+BTW vypis "create table" sa vypina SET FEEDBACK OFF.. 
+
+Ked si toto precitas tak mi napis...
+
+sel1_1.sql - hotovy - vypis radenia jednotlivych vagonov vo vlakoch
+sel2_3.sql - hotovy - vypis vlakov a ich kapacit a kolkokrat su k dispozicii za obdobie.. 
+sel2_4.sql - hotovy - cestovny poriadok
+sel3_4.sql - hotovy - vypis poctu vlakov prechzajucich stanicou za dane obdobie
+sel3_5.sql - hotovy - vypis vsetkych stanic na danej linke
+
+trig_vlak.sql - hotovy - zmaze vlak, usek, vagony
+trig_usek.sql - hotovy - zmaze usek a usek_listka k nemu prisluchajuci
+trig_vagon.sql -hotovy - zmaze vagon a usek_listka k nemu prisluchajuci
+
+trig_update_vlak.sql -hotovy - zmeni prisluchajuce atributy pri zmene cisla_vlaku
+insert.sql - moze sluzit ako zaklad pre nahadzovanie dalsich udajov.. spravim este asi aj nejake listky..
+
+prejazd_vlaku.sql - zisti jazd vlaku v danom obdobi podla chodi_v_dnoch.. :)
+run_prejazd_vlaku.sql - vykona prejazd_vlaku... -treba zmenit parametre

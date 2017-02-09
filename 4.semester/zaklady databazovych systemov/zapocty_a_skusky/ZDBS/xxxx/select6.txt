@@ -1,0 +1,5 @@
+select meno, priezvisko, nazov, datum_sk-zapocet as pocet_dni
+from zap_predmety join predmet using(cis_predm)
+join student using(os_cislo)
+join os_udaje using(rod_cislo)
+where months_between(datum_sk, zapocet)>1;

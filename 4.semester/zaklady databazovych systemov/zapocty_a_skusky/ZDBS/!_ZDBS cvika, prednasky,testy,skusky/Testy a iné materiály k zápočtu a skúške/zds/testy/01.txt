@@ -1,0 +1,38 @@
+Dnesni zadani z Databazi (Riha)
+zkouskova:
+
+1)Zotaveni po chybe systemu. (chtel 5 hlavnich pojmu okolo a popsat jak to
+funguje)
+
+2) Kino (IdK,Kapacita), Film (IdF,Reziser), Prog(IdK,IdF,Termin)  - klice
+Idk v Kino , IdF ve Film a vsechno v Prog
+a)Filmy s nejvetsi potencionalni navstevnosi (nejvetsi suma kapacit)
+b)filmy ktere jdou ve vsech kinech
+c)Kina davajici pouze filmy rezisera XY
+
+3)ER->DM binarni vztahy - chtel popsat 5 moznosti prevodu do tabulek (ruzne
+kardinality vztahu)
+
+4)a)architektura DBS
+  b) Rrelacni uplnost
+
+Zapoctovka:
+dekompozice a synteza:
+{A,C,D,E,W,X}
+{AC->D,AE->DC,A->X,DX->WE,CE->W,EX->DA}
+
+dotazy:
+Chovatel(Ch-klic,Od-oblibeny druh), Zvire(Z - klic, druh), Pece(Ch,Z - klic
+oboji)
+RA: ktery chovatel pecuje jen o sva oblibena zviratka
+DRK: O ktera zvirata se nestara nikdo kdo je nema rad
+NRK: Kdo ma rad vsechna zviratka
+
+mam zmrzly prsty, takze za preklepy nerucim.
+
+Good Luck
+Ondrej Luciu$ Luks
+
+
+
+Vybrané kapitoly z teorie optimalizace (MOD014)

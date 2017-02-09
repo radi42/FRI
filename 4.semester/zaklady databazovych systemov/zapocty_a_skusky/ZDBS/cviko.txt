@@ -1,0 +1,85 @@
+/*
+--1)
+select os.meno, os.priezvisko, os_cislo, count(*) as poc_predm
+	from os_udaje os join student st using(rod_cislo)
+		join zap_predmety zp using(os_cislo) 
+			group by os.meno, os.priezvisko, os_cislo
+			   having count(*)>=4;
+
+
+--2a)
+select os.meno, os.priezvisko, os_cislo 
+	from os_udaje os join student using(rod_cislo) 
+	 where os_cislo not in (select zp.os_cislo from zap_predmety zp);
+
+
+--2b)
+select os.meno, os.priezvisko, os_cislo 
+	from os_udaje os join student st using(rod_cislo) 
+	 where not exists 
+		(select zp.os_cislo from zap_predmety zp where zp.os_cislo = st.os_cislo);
+
+--3a)
+select os.meno, os.priezvisko, os_cislo, count(*) as opakuje
+	from os_udaje os join student st using(rod_cislo)
+	 join zap_predmety zp using(os_cislo) 
+	  group by os.meno, os.priezvisko, os_cislo, cis_predm
+	   having count(zp.cis_predm)>1;
+
+
+--3b)
+select os.meno, os.priezvisko, st.os_cislo, zp1.skrok, zp2.skrok from os_udaje os 
+	join student st using(rod_cislo)
+	  join zap_predmety zp1 on(st.os_cislo = zp1.os_cislo)
+	    join zap_predmety zp2 
+		on (zp1.os_cislo = zp2.os_cislo and zp1.cis_predm = zp2.cis_predm and zp1.skrok < zp2.skrok);
+
+--4)
+select os.meno, os.priezvisko, os_cislo, substr(rod_cislo,5,2) as den, 
+	decode(substr(rod_cislo,3,1),5,0,6,1,0,0,1)||substr(rod_cislo,4,1) as mesiac,
+	 substr(rod_cislo,1,2) as rok from os_udaje os join student st using(rod_cislo);
+
+
+--5)
+select os.meno, os.priezvisko, os_cislo, zp.datum_sk - zp.zapocet as rozdiel
+	 from os_udaje os join student st using(rod_cislo) join zap_predmety zp using(os_cislo)
+	  where (zp.datum_sk is not null and zp.zapocet is not null);
+
+
+--6)
+select os.meno, os.priezvisko, os_cislo, zp.cis_predm from os_udaje os 
+	join student st using(rod_cislo) 
+	 join zap_predmety zp using(os_cislo)
+	  where zp.datum_sk - zp.zapocet > 30; 
+
+
+--7)
+select os.meno, os.priezvisko, os_cislo, zp.cis_predm 
+	from os_udaje os 
+	 join student st using(rod_cislo)
+    join zap_predmety zp using(os_cislo)
+	  where (to_char(datum_sk,'YYYY') <> skrok and to_char(datum_sk,'MM') between 9 and 12 or
+           to_char(datum_sk,'YYYY') <> skrok+1 and to_char(datum_sk,'MM') between 01 and 08 );
+
+
+--8) CONSTRAINT - UNIQUE ERROR
+insert into zap_predmety(os_cislo, skrok, cis_predm, prednasajuci, kredity)
+select st.os_cislo, pr.skrok, cis_predm, prd.garant, prd.kredit
+	from student st
+         join priklad_db2.st_program pr on (st.rocnik = pr.rocnik and st.st_odbor = pr.c_st_odboru and st.st_zameranie = pr.c_specializacie)
+          join predmet prd using (cis_predm)
+	   where pr.skrok = 2008 and pr.typ_povin = 'P' and pr.rocnik = 2 and pr.c_st_odboru = 100 and pr.c_specializacie = 0;
+--commit;
+
+--9)
+delete from ucitel uc 
+  where uc.os_cislo not in (select distinct garant from predmet) 
+  and uc.os_cislo not in (select distinct prednasajuci from zap_predemty);
+
+--10)
+update zap_predmety zp set kredity=(select kredity from predmet pr where zp.cis_predm = pr.cis_predm) 
+  where zp.kredity in (select kredit from predmet);
+*/
+
+
+

@@ -1,0 +1,454 @@
+
+SKI - Úvod 2
+1. Logická nezávislos dát je
+
+Body: 1
+  ****Nezávislos programu od organizácie dát
+  Nezávislos dátového modelu na programe
+  Nezávislos dát od prístupovıch metód
+SKI - Úvod 4
+2. Perzistentné dáta sú
+
+Body: 1
+  ***dáta existujúce aj po ukonèení programu
+  dáta, ktoré zanikajú po ukonèení programu
+  odvodené dáta
+SKI - Úvod 3
+3. V ktorıch prípadoch je prípustnı viacnásobnı vıskyt rovnakıch dát
+
+Body: 1
+  ****pri riadenej redundancii
+  vdy
+  nikdy
+SKI - Úvod 5
+4. Aké sú úlohy databázového administrátora (DBA)
+
+Body: 1
+  *****Sprava databazy, manipulacia s datami, nastavovanie pristupovych metod
+SKI - ERA 5
+5. Urèite, ktorı z ERA diagramov modeluje ISA hierarchiu.
+
+Body: 2
+
+SKI - RDB 1
+6. Relácia je
+
+Body: 2
+  **** je podmnoinou kartézskeho súèinu mnoiny domén Di na mnoine atribútov Ai
+  podmnoina kartézskeho súèinu mnoiny atribútov
+  je mnoina mien atribútov a ich typov
+  je mnoina dvojíc Ai:Di (A-atribút, D-doména)
+SKI - RDB 3
+7. Vymenujte a popíšte VLASTNOSTI relácie
+
+Body: 1
+  ****ANNU = atomickos, neusporiadanos z¾ava doprava, neusporiadanos
+zhora dole, jednoznaènos
+  CRUDE = ståpcová, referenèná, uívate¾ská, domenová, entitná
+  ACID = atomickos, konzistencia, nezávislos, trvácnos
+SKI - RI 4
+8. Referenèná integrita hovorí
+
+Body: 2
+  hodnota FK v relácii R2 sa môe rovna hodnote PK z relácie R1
+  hodnota FK v relácii R2 sa nemusí rovna hodnote PK z relácie R1
+  *****hodnota FK v relácii R2 sa musí rovna hodnote PK z relácie R1, alebo NULL
+  FK je mnoina atribútov definovaná v relácii R2, ktorá môe by v
+inej relácii R1 definovaná ako primárny k¾úè PK alebo kandidát PK
+SKI - RI 5
+9. Uveïte príklad uívate¾skej integrity
+
+Body: 2
+  Napr: Datum vratene vo vypozicky nesmie byt mensi ako datum od;
+Datum vratene vo vypozicky nemsie byt vacsi ako sysdate
+SKI - RI 2
+10. Popíšte ståpcovú integritu
+
+Body: 2
+  Je to doplnkove integritne obmedzenie pre danu domenu, pouziva sa DISTINCT
+SKI - NORM 6
+11. Kedy je relácia v BCNF
+
+Body: 1
+  ****keï kadı determinant je kandidátom primárneho k¾úèa
+  keï je v 3NF a kadı nek¾úèovı atribút je determinantom
+  keï je v 2NF a iaden nek¾úèovı atribút nie je tranzitívne funkène
+závislı na primárnom k¾úèi.
+  keï kadı kandidát primárneho k¾úèa je determinantom
+SKI - Úvod 1
+12. Systém riadenia bázy dát je
+
+Body: 1
+  aplikaèné programové vybavenie
+  popis dátového modelu a dáta
+ ***** programové vybavenie pre definíciu dát, manipuláciu s dátami
+SKI - ERA 1
+13. Entita je
+
+Body: 1
+  Popis dát a atribútov objektu
+  *****Objekt reálneho sveta schopnı nezávislej existencie
+  Mnoina objektov rovnakého typu
+SKI - RDB 4
+14. Definujte Kandidáta primárneho k¾úèa
+
+Body: 2
+  Mnoina atribútov, ktorá spåòa podmienku jednoznaènosti a
+minimálnosti a je definovaná v inej relácii
+  *****Mnoina atribútov, ktorá spåòa podmienku jednoznaènosti a minimálnosti
+  Atribút, ktorı urèuje jednoznaènos
+SKI - Úvod 6
+15. Do ktorej úrovne patrí stanovenie aká metóda indexácie bude pouitá?
+
+Body: 1
+  konceptuálnej
+  externej
+  ****internej
+  aplikaènej
+SKI - RDB 2
+16. Ko¾ko kandidátov primárneho k¾úèa môe ma relácia
+
+Body: 1
+  ******Môe ma viac KPK
+  Môe ma vdy len jeden jednoduchı KPK (z jedného atribútu)
+  Môe ma vdy len jeden jednoduchı alebo kompozitnı KPK (z jedného
+alebo mnoiny atribútov)
+SKI - RI 3
+17. Integrita entít sa tıka
+
+Body: 2
+  atribútov primárneho a cudzieho k¾úèa
+  len atribútov cudzieho k¾úèa
+  len atribútov primárneho, alebo cudzieho k¾úèa
+  ******len atribútov primárneho k¾úèa
+SKI - SQL I. - 1
+18. Urèite príkaz, ktorı vytvorí PK tabu¾ky ET2.
+
+Body: 2
+  ALTER TABLE ET2 ADD
+( PRIMARY KEY(ID,POR,TEXT));
+  
+ALTER TABLE ET2 ADD ( PRIMARY KEY(ID));
+ALTER TABLE ET2 ADD ( PRIMARY KEY(POR));
+
+  ALTER TABLE ET2 ADD
+( PRIMARY KEY(ID, POR));
+
+  ALTER TABLE ET2 ADD (PRIMARY KEY(ID));
+SKI - SQL III. - 1
+
+19. Vypíšte mennı zoznam všetkıch zamestnancov.
+
+Body: 1
+
+SKI - SQL III. - 2
+20. Vypíšte poèet nákupov úètovanıch zamestnancom s os_cislom = 5204
+v dnešnı deò.
+
+Body: 2
+
+SKI - SQL III. - 5
+21. Vypíšte mennı zoznam zamestnancov spolu s dátumom ich narodenia.
+
+Body: 2
+
+SKI - SQL III. - 4
+22. Vypíšte názvy tovarov, ktoré neboli predané dlhšie ako 1 mesiac
+
+Body: 2
+
+SKI - SQL III. - 3
+23. Vypíšte zoznam zamestnancov, ktorí niekedy predali nejakı tovar.
+(potlaète duplicity)
+
+Body: 2
+
+SKI - SQL I. - 4
+24. Ktorı z príkazov nepatrí do DDL
+
+Body: 1
+  CREATE VIEW
+  CREATE TABLE
+  ****SELECT
+  CREATE INDEX
+SKI - ERA 2
+25. Ktorı z nasledovnıch obrázkov je vıskytovı diagram vzahu 1:N
+medzi ET1 a ET2?
+
+Body: 2
+  len obrázok b
+  len obrázky b,c,d
+  len obrázok c
+  len obrázok d
+SKI - ERA 3
+26. Urèite aké je èlenstvo ET1 a ET2 vo vzahu.
+
+Body: 1
+  ET1 nemôe existova bez ET2, ET2 nemôe existova bez ET1
+  ET1 môe existova bez ET2, ET2 nemôe existova bez ET1
+  N:1
+  ET1 môe existova bez ET2, ET2 môe existova bez ET1
+SKI - ERA 4
+27. Ktorı z obrázkov je správna dekompozícia vzahu M:N medzi ET1 a ET2
+
+Body: 2
+
+SKI - SQL I. - 2
+28. Príkaz GRANT slúi na:
+
+Body: 2
+  pridelenie práv na prístup k zdrojovım kódom aplikácie.
+  odobratie práv uívate¾ovi
+  ****pridelenie prístupovıch práv na databázovı objekt uívate¾ovi
+  odobratie práv èítania zdrojovıch kódov aplikácie.
+SKI - SQL I. - 3
+29. Príkaz ROLLBACK slúi na:
+
+Body: 2
+  ****Vrátenie DB do pôvodného stavu ako bola pred zaèatím transakcie.
+  Potvrdenie transakcie
+  Vrátenie DB do pôvodného stavu ako bola pred poslednım vykonávanım príkazom.
+SKI - SQL II. - 1
+30. Zmeòte poziciu zamestnancovi s os_cislo=25 na SEF.
+
+Body: 1
+
+SKI - SQL II. - 2
+31. Vymate všetky nákupy, ktoré nemajú ani jednu poloku.
+
+Body: 2
+
+SKI - SQL II. - 3
+32. Kaskádovite zmeòte id zamestnanca z '800505/7583' na '820505/7583'
+
+Body: 2
+
+SKI - SQL IV. - 1
+33. Majme nasledovnı trigger, ktorı má automaticky nastavi atribúty
+uziv a datum hodnotami kto a kedy naposledy menil danı riadok.
+CREATE OR REPLACE TRIGGER zap_predmety_log
+......... INSERT OR UPDATE ON zap_predmety
+REFERENCING new as novy
+FOR EACH ROW
+BEGIN
+  select user, sysdate into :novy.uziv, :novy.datum_zm from dual;
+END;
+
+Doplòte do tela triggra ?
+
+Body: 2
+  INSTEAD OF
+  ****BEFORE
+  BEFORE, AFTER, alebo INSTEAD OF
+  BEFORE alebo AFTER
+SKI - SQL IV. - 2
+34. Je moné v procedúre poui nasledovnı select-príkaz?
+  select * from zamestnanec;
+Vysvetlite preèo a kedy áno alebo nie.
+
+Body: 2
+
+SKI - SQL IV. - 3
+35. Ak máme nasledovnı poh¾ad:
+CREATE OR REPLACE VIEW zamest
+AS
+SELECT os_cislo, meno, priezvisko,pozicia
+FROM osoba, zamestnanec WHERE osoba.id=zamestnanec.id; Akı trigger
+budete potrebné definova, aby operácia INSERT INTO zamest fungovala
+správne?
+
+Body: 2
+  BEFORE alebo AFTER INSERT
+  AFTER INSERT
+  ****INSTEAD OF INSERT
+  BEFORE INSERT
+SKI - RA 1
+36. Ktoré z nasledujúcich vırazov sú korektné vırazy relaènej algebry?
+
+Body: 3
+  ani jeden vıraz
+  všetky vırazy
+  vırazy b,d,e
+  vırazy a,c,e
+SKI - RA 3
+37. Urèite vıraz relaènej algebry zodpovedajúci nasledovnému príkazu:
+ SELECT id, meno FROM OSOBA;
+
+Body: 1
+
+SKI - RA 4
+38. Urèite, ktorı z vırazov relaènej algebry zodpovedá naledovnému príkazu:
+ SELECT z.os_cislo, n.kedy, n.id_nakupu FROM zamestnanec z, nakup n;
+
+Body: 1
+
+SKI - RA 5
+39. Uveïte príklad, kde by ste vyuili kartézsky súèin.
+
+Body: 2
+
+SKI - RA 2
+40. Urèite vıraz relaènej algebry zodpovedajúci nasledovnému príkazu:
+  SELECT id FROM OSOBA
+  WHERE id not in
+     (SELECT id FROM ZAMESTNANEC);
+
+Body: 1
+
+SKI - RDB 5
+41. Ako treba opravi danı entitnı diagram?
+
+Body: 2
+  do ET1 pribudnú 2 atribúty FK, ktoré nebudú súèasou PK v ET1; do
+ET2 pribudne 1 atribút FK, ktorı nebude súèasou PK
+  do ET1 pribudne 1 atribút FK, ktorı nebude súèasou PK v ET1; do
+ET2 pribudnú 2 atribúty FK, ktoré nebudú sú èasou PK v ET2
+  do ET1 pribudne 1 atribút FK, ktorı sa stane èasou PK v ET1 a 1
+atribút FK, ktorı nebude súèasou PK v ET1; do ET2 pribudne 1 atribút
+FK, ktorı nebude súèasou PK
+  do ET1 pribudnú 2 atribúty FK, ktoré nebudú súèasou PK v ET1; do
+ET2 pribudne 1 atribút FK, ktorı bude súèasou PK
+SKB - SQL I - 5
+42. Príkazom ALTER TABLE TAB MODIFY (PLAT NUMBER UNIQUE):
+
+Body: 2
+  vytvorí tabu¾ku s jednım ståpcom PLAT
+  nastaví existujúcemu ståpcu PLAT doménu NUMBER a definuje IO na
+danı ståpec. V prípade, e ståpec PLAT neexistuje v tabu¾ke TAB, tımto
+príkazom ho vytvoríme.
+  pridá novı ståpec PLAT do tabu¾ky TAB
+  ****nastaví existujúcemu ståpcu PLAT doménu NUMBER a definuje IO na danı ståpec
+SKB - SQL III. - 8
+43. Vypíšte ku kadému druhu poèet tovarov.
+
+Body: 2
+
+SKB - SQL III. - 9
+44. Zistite názov tovaru, z ktorého sme mali najväèšiu trbu.
+
+Body: 3
+
+SKI - SQL III. - 7
+45. Ku kadému názvu druhu tovaru vypíšte poèet tovarov daného druhu.
+
+Body: 2
+
+SKI - RI 1
+46. Pri operácii DELETE vysvetlite pojem REŠTRIKCIA (RESTICTED)
+
+Body: 1
+
+SKI - NORM 3
+47. Ak máme reláciu
+A (rodne_cislo, meno, priezvisko, telefon, #osobne_cislo, rocnik,
+st_skupina, cislo_predmetu, nazov, pocet_kreditov);
+Urèite závislos osobne_cislo - nazov v relácii A je :
+
+Body: 1
+  vzájomná
+  ****neexistuje
+  tranzitívna
+SKI - NORM 5
+48. Majme reláciu R(#A,B,C,D,E), pre ktorú sú dané nasledované
+funkèné závislosti (B je kandidát PK).
+A->B,A->C,A->D,A->E,B->A,B->C,B->D,D->E
+Potom:
+
+Body: 1
+  Relácia je v BCNF, ale nie je v 3NF
+  *****Relácia nie je ani v BCNF, ani v 3NF
+  Relácia je v 3NF, ale nie je v BCNF
+  Relácia je v 3NF a zároveò je aj v BCNF
+SKI - NORM 1
+49. Majme reláciu R(#A,#B,C,D). Aké sú v relácii funkèné závislosti,
+ak relácia je v 2NF a nie je v 3NF?
+
+Body: 2
+
+SKI - NORM 4
+50. Dekomponujte pomocou lineárneho zápisu nasledovnú reláciu:
+
+Body: 2
+
+SKI - NORM 2
+51. Urèite kandidátov PK danej relácie:
+
+Body: 2
+
+SKB - OPT 3
+52. Vyberte plán, ktorı nezodpovedá nasledovnému selectu:
+Select dt.nazov, t.nazov
+from druh_tovaru dt, tovar t
+where dt.id_druhu = t.id_druhu
+and dt.nazov = 'CD pop';
+
+Body: 1
+
+SKB - Kurzory 1
+53. Èo je to kurzor?
+
+Body: 1
+  kurzor je pomocná štruktúra, v ktorej je uloenı definovanı SQL príkaz
+  ****kurzor je objekt, ktorı sprístupòuje záznamy v mnoine získanej
+príkazom SELECT.
+  kurzor je objekt, ktorı vkladá dáta do databázy
+  kurzor je doèasná tabu¾ka, ktorá je pouívaná pri operácii spojenia.
+SKB - Kurzory 2
+54. Sekvenènı kurzor je
+
+Body: 1
+  kurzor, ktorı umoní priamy prístup k vybranému záznamu
+  ****kurzor, ktorı umoní spracovávanie záznamov len v jednom smere od
+zaèiatku do konca.
+  kurzor, ktorı umoní vytvára nové objekty v DB
+SKB - DW 3
+55. Ak máme nasledovnú schému, urèite ktorá z tabuliek predstavuje meradlo?
+
+Body: 2
+  ****Èas
+  Predaj
+  produkt
+  Predajca
+SKB - DW 4
+56. Ko¾ko tabuliek faktov môe by v jednej dátovej kocke?
+
+Body: 2
+  ****právne jedna
+  maximálne jedna
+  viac ako jedna
+  od dva po maximálne desa
+SKB - Kurzory 3
+57. Zoraïte príkazy do správneho poradia:
+
+Body: 2
+
+SKB - OPT 1
+58. Pre danı select vytvorte dva rovnocenné plány spracovania,
+pomocou operácií relaènej algebry s kardinalitami relácií a poètom
+stránok ak ve¾kos stránky je 2kB.
+
+Body: 3
+
+SKB - OPT 2
+59. Ktorı z nasledovnıch plánov je optimálnejší, ak existujú indexy?
+
+Body: 1
+  Plán A
+  Nie je medzi nimi rozdiel.
+  Plán B
+SKB - DW 1
+60. Dátová kocka ________________obsahova merate¾nú dimenziu. Doplòte
+
+Body: 1
+  *** musí
+  nemusí
+  nesmie
+SKB - DW 2
+61. Vloèková schéma sa pouíva na modelovanie:
+
+Body: 2
+  dátovej kocky
+  Tabu¾ky faktov
+  dimenzie
+
+

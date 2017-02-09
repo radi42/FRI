@@ -1,0 +1,13 @@
+CREATE OR REPLACE TRIGGER cena_listku
+	BEFORE INSERT ON listok
+FOR EACH ROW
+DECLARE
+	cena_miesta	INT;
+BEGIN
+	SELECT TYP_MIESTA.typ__cena INTO cena_miesta
+FROM TYP_MIESTA, VOZEN_TYP_MIESTO
+		WHERE VOZEN_TYP_MIESTO.voze_id=:new.list_vozen_typ__id
+		AND TYP_MIESTA.typ__id=VOZEN_TYP_MIESTO.voze_typ_miesta_id;
+	 :new.list_cena:=1000; 
+END;
+/

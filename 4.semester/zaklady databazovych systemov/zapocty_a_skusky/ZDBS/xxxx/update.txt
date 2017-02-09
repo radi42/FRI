@@ -1,0 +1,2 @@
+update zap_predmety
+set kredity=(select kredit from predmet where zap_predmety.cis_predm=predmet.cis_predm);

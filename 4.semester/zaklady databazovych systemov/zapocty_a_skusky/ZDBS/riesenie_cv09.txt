@@ -1,0 +1,181 @@
+
+/* 1 */
+ALTER TABLE zap_predmety
+ADD(uzivatel varchar2(9), datum DATE);
+
+CREATE OR REPLACE TRIGGER cv_1b BEFORE INSERT or UPDATE
+ON zap_predmety
+REFERENCING new AS novy
+FOR EACH ROW
+BEGIN
+SELECT user,sysdate INTO :novy.uzivatel, :novy.datum FROM dual;
+END;
+/
+
+/* 2 */
+CREATE OR REPLACE TRIGGER cv2 BEFORE INSERT
+ON zap_predmety
+FOR EACH ROW
+DECLARE pocet integer;
+BEGIN
+select count(*) into pocet 
+from zap_predmety
+where os_cislo=:new.os_cislo AND cis_predm=:new.cis_predm;
+IF(pocet>2) then
+RAISE_APPLICATION_ERROR(-20000,'Fatal ERROR - Predmet nemozes opakovane zapisovat!');
+END IF;
+END;
+/
+
+/* 3 */
+CREATE or REPLACE TRIGGER cv3_update_cascade
+before update of os_cislo on student
+referencing new as novy old as stary
+for each row
+declare
+ pocet integer;
+begin
+ select count(*) into pocet from zap_predmety
+ where os_cislo= :stary.os_cislo;
+ dbms_output.put_line('opravenych '||pocet||' zaznamov');
+ update zap_predmety
+ set os_cislo = :novy.os_cislo
+ where os_cislo = :stary.os_cislo;
+end;
+/
+
+/* 4 */
+CREATE table log_table as select * from zap_predmety where os_cislo is null;
+
+alter table log_table
+add (operacia char(1));
+
+create or replace trigger zp_predm
+before INSERT OR UPDATE OR DELETE on zap_predmety
+for each row
+begin
+ if updating then
+   insert into log_table
+     (os_cislo, skrok, cis_predm, prednasajuci, vysledok,
+     datum_sk, termin, zapocet, kredity, uzivatel, datum, operacia)
+     values (:old.os_cislo, :old.skrok, :old.cis_predm, :old.prednasajuci,
+     :old.vysledok, :old.datum_sk, :old.termin, :old.zapocet,
+     :old.kredity, user, sysdate, 'U');
+ ELSIF inserting then
+   insert into log_table
+     (os_cislo, skrok, cis_predm, prednasajuci,
+     vysledok, datum_sk, termin, zapocet, kredity, uzivatel, datum, operacia)
+     values (:new.os_cislo, :new.skrok, :new.cis_predm, :new.prednasajuci,
+     :new.vysledok, :new.datum_sk, :new.termin, :new.zapocet,
+     :new.kredity, user, sysdate, 'I');
+ ELSIF deleting then
+   insert into log_table
+     (os_cislo, skrok, cis_predm, prednasajuci, vysledok,
+     datum_sk, termin, zapocet, kredity, uzivatel, datum, operacia)
+     values (:old.os_cislo, :old.skrok, :old.cis_predm, :old.prednasajuci,
+     :old.vysledok, :old.datum_sk, :old.termin, :old.zapocet,
+     :old.kredity, user, sysdate, 'D');
+ end if;
+end;
+/
+/* PROCEDURY FUNKCIE */
+
+CREATE OR REPLACE PROCEDURE Vypis_typ_predmetu
+  (v_cis_predm in zap_predmety.cis_predm%TYPE,
+   vys_i out varchar2)
+IS
+BEGIN
+  vys_i := substr(v_cis_predm,1,1);
+END Vypis_typ_predmetu;
+
+/* 2 */
+
+CREATE OR REPLACE PROCEDURE vloz_predmet
+  (v_cis_predm in predmet.cis_predm%TYPE DEFAULT 'NIC',
+   v_gestor in predmet.gestor%TYPE DEFAULT 'NIC',
+   v_nazov in predmet.nazov%TYPE DEFAULT 'NIC')
+IS
+BEGIN
+  INSERT INTO predmet (cis_predm,gestor,nazov) 
+  VALUES (v_cis_predm,v_gestor,v_nazov);
+end;
+
+/* 3  */
+
+CREATE OR REPLACE PROCEDURE vloz_predmet
+  (v_cis_predm in predmet.cis_predm%TYPE DEFAULT 'NIC',
+   v_gestor in predmet.gestor%TYPE DEFAULT 'NIC',
+   v_nazov in predmet.nazov%TYPE DEFAULT 'NIC')
+IS
+BEGIN
+  INSERT INTO predmet (cis_predm,gestor,nazov)
+  VALUES (v_cis_predm,v_gestor,v_nazov);
+  EXCEPTION
+  WHEN DUP_VAL_ON_INDEX THEN
+    dbms_output.put_line('Duplicitny primarny kluc!');
+END;
+ 
+/* DU triggre */
+
+/* 1 */
+
+CREATE OR REPLACE trigger tr_del_zap_predm
+  BEFORE DELETE ON zap_predmety
+  FOR EACH ROW
+BEGIN
+  raise_application_error(-20000,'Neeopravnene mazanie!');
+END;
+
+/* 2 */
+
+ALTER TRIGGER tr_del_zap_predm disable;
+ALTER TRIGGER tr_del_zap_predm enable;
+
+DROP TRIGGER tr_up_zap_predm;
+
+/* DU procedury*/
+
+/* 1 */
+
+CREATE OR REPLACE PROCEDURE vloz_predmet
+  (v_cis_predm in predmet.cis_predm%TYPE DEFAULT 'NIC',
+   v_gestor in predmet.gestor%TYPE DEFAULT 'NIC',
+   v_nazov in predmet.nazov%TYPE DEFAULT 'NIC')
+IS
+BEGIN
+  INSERT INTO PREDMET (cis_predm,gestor,nazov)
+  VALUES (v_cis_predm,v_gestor,v_nazov);
+  EXCEPTION
+  WHEN DUP_VAL_ON_INDEX THEN
+    dbms_output.put_line('duplicitny primarny kluc!');
+END;
+
+/* 2 */
+
+CREATE OR REPLACE PROCEDURE Zmen_predmet
+  (v_cis_predm in predmet.cis_predm%TYPE,
+   v_nazov in predmet.nazov%TYPE)
+AS
+  pocet number := 0;
+BEGIN
+  SELECT count(*) INTO pocet FROM predmet WHERE cis_predm=v_cis_predm;
+  IF (pocet =0) THEN
+    raise_application_error(-20000,'Predmet neexistuje v tab. predmety');
+  END IF;
+  UPDATE predmet SET nazov=v_nazov WHERE cis_predm=v_cis_predm;
+END Zmen_predmet;
+
+/* 3 */
+
+CREATE OR REPLACE FUNCTION Zrus_predmet
+  (v_cis_predm predmet.cis_predm%TYPE)
+  RETURN number
+AS
+pocet number := 0;
+BEGIN
+  SELECT count(*) INTO pocet FROM zap_predmety WHERE cis_predm = v_cis_predm;
+  DELETE FROM zap_predmety WHERE cis_predm = v_cis_predm;
+  DELETE FROM predmet where cis_predm = v_cis_predm;
+  pocet := pocet + 1;
+  RETURN pocet;
+END;

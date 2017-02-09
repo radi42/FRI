@@ -1,0 +1,423 @@
+1.  Databázovı systém 
+ 
+Body: 1 
+    Programové vybavenie pre definíciu dát, manipuláciu s dátami  
+    Systém riadenia bázy dát a databáza 
+    Mnoina perzistentnıch dát 
+
+2.  Akı je rozdiel medzi typom entity a entitou
+ 
+Body: 1 
+  entita-je objekt realneho sveta 
+									  
+3.  Relácia je
+ 
+Body: 2 
+    je vzah medzi dvomi atribútmi 
+    je podmnoinou kartézskeho súèinu mnoiny domén Di na mnoine atribútov Ai 
+    je mnoina dvojíc Ai:Di (A-atribút, D-doména) 
+    je zjednotením mnoiny prípustnıch hodnôt atribútov  
+
+4.  Fyzická nezávislos 
+ 
+Body: 1 
+    nezávislos definície dát na konceptuálnom modeli 
+    nezávislos programov na organizácii dát a prístupovıch metódach 
+    nezávislos programov na konceptuálnom modeli 
+
+5.  Architektúra DBS je 
+ 
+Body: 1 
+    dvojúrovòová (externá a interná) 
+    trojúrovòová (externá, konceptuálna, interná) 
+    trojúrovòová (externá, interná a aplikaèná)  
+
+6.  V ktorıch prípadoch je prípustnı viacnásobnı vıskyt rovnakıch dát
+ 
+Body: 1 
+    pri riadenej redundancii 
+    nikdy 
+    vdy 
+
+7.  Aké sú úlohy databázového administrátora (DBA)
+ 
+Body: 1 
+  																																																													zabezpect spravny chod a funkcnost databazoveho systemu
+zabezpecit bezpecnost pristupu k databaze 
+
+
+8.  Databáza je 
+ 
+Body: 1 
+    programové vybavenie pre definíciu dát, manipuláciu s dátami 
+    Mnoina perzistentnıch dát 
+    Systém riadenia bázy dát a databáza 
+
+9.  Vymenujte a popíšte VLASTNOSTI relácie 
+ 
+Body: 2 
+    ACID = atomickos, konzistencia, nezávislos, trvácnos 
+    CRUDE = ståpcová, referenèná, uívate¾ská, domenová, entitná  
+    ANNU = atomickos, neusporiadanos z¾ava doprava, neusporiadanos zhora dole, jednoznaènos  
+
+10.  Integrita entít hovorí
+ 
+Body: 2 
+    atribút primárneho k¾úèa nesmie nadobúda NULL hodnoty 
+    atribút primárneho k¾úèa musí nadobúda NULL hodnotu  
+    atribút primárneho k¾úèa môe nadobúda NULL hodnoty 
+ 
+11.  Uveïte príklad uívate¾skej integrity 
+ 
+Body: 2 
+  																																																						aby datum nastupu do zamestnania bol mensi ako sysdate
+alebo kontrola veku studenta a ucitela 																		  
+
+12.  Popíšte doménovú integritu 
+ 
+Body: 2 
+  																																																						Je mnozina integritnych obmedzeni, kde
+
+domenove integrity:
+Typ dat
+mnozina pripustnych hodnot
+Intervaly hodnot
+																		  
+ 
+13.  Referenèná integrita hovorí
+ 
+Body: 2 
+    hodnota FK v relácii R2 sa musí rovna hodnote PK z relácie R1, alebo NULL 
+    hodnota FK v relácii R2 sa môe rovna hodnote PK z relácie R1 
+    hodnota FK v relácii R2 sa nemusí rovna hodnote PK z relácie R1 
+    FK je mnoina atribútov definovaná v relácii R2, ktorá môe by v inej relácii R1 definovaná ako primárny k¾úè PK alebo kandidát PK  
+
+14.  Ak máme reláciu 
+A (rodne_cislo, meno, priezvisko, telefon, #osobne_cislo, rocnik, st_skupina, #cislo_predmetu, nazov, pocet_kreditov); 
+Urèite závislos osobne_cislo - nazov v relácii A je : 
+ 
+Body: 2 
+    tranzitívna 
+    neexistuje 
+    vzájomná 
+
+15.  Definujte Primárny k¾úè
+ 
+Body: 2 
+    Všetky mnoiny atribútov, ktoré spåòajú podmienku jednoznaènosti a minimálnosti 
+    Mnoina atribútov, ktorá spåòa podmienku jednoznaènosti a minimálnosti a je definovaná v inej relácii ako Kandidát primárneho k¾úèa 
+    Jedna mnoina atribútov, ktorá spåòa podmienku jednoznaènosti a minimálnosti 
+
+16.  Vypíšte mennı zoznam všetkıch zamestnancov.
+ 
+Body: 2 
+  																																													select meno, priezvisko from osoba,zamestnanec
+where
+osoba.id=zamestnanec.id																											  
+
+17.  Vypíšte názvy tovarov, ktoré boli niekedy predané (potlaète duplicity).
+ 
+Body: 2 
+  																																													select distinct nazov from tovar 
+where 
+id_tovaru in 
+(select id_tovaru from polozka)																			  
+ 
+18.  Vypíšte zoznam druhov tovarov, z ktorıch nemáme ani jeden tovar.
+ 
+Body: 2 
+  																																				select distinct nazov from druh_tovaru 
+where 
+id_druhu not in
+(select id_druhu from tovar)  																																				  
+
+19.  Vypíšte ko¾ko má zaplati zákazník za nákup s id_nakupu = 123.
+ 
+Body: 2 
+  																																				select sum(cena) from polozka,nakup
+where
+nakup.id_nakupu=polozka.id_nakupu
+and
+nakup.id_nakupu=128
+																																				  
+
+20.  Vypíšte mennı zoznam zamestnancov spolu s dátumom ich narodenia.
+ 
+Body: 2 
+  																																				select meno,priezvisko, subst(id,5,2)||'.'||
+decode(substr(id,3,1),5,'0',6,'1',0,'0',1,'1')||substr(id,4,1)
+||'.'||substr(id,1,2)
+from osoba,zamestnanec
+where osoba.id=zamestnanec.id																																				  
+
+21.  Vypíšte všetky názvy tovarov nákupu s id_nakupu = 235
+ 
+Body: 2 
+  																																				select nazov from tovar,polozka
+where
+tovar.id_tovaru=polozka.id_tovatu
+and
+id_nakupu=235 																																				  
+
+22.  Pri vytvorení tabu¾ky sa index implicitne vytvára:
+ 
+Body: 2 
+    nad všetkımi ståpcami tabu¾ky 
+    len nad všetkımi ståpcami tabu¾ky, ktoré sú definované ako UNIQUE 
+    nad cudzími k¾úèmi a primárnym k¾úèom 
+    len nad primárnym k¾úèom 
+
+23.  Príkazom ALTER TABLE TAB MODIFY (PLAT NUMBER UNIQUE):
+ 
+Body: 2 
+    nastaví existujúcemu ståpcu PLAT doménu NUMBER a definuje IO na danı ståpec 
+    pridá novı ståpec PLAT do tabu¾ky TAB 
+    vytvorí tabu¾ku s jednım ståpcom PLAT 
+    nastaví existujúcemu ståpcu PLAT doménu NUMBER a definuje IO na danı ståpec. V prípade, e ståpec PLAT neexistuje v tabu¾ke TAB, tımto príkazom ho vytvoríme. 
+
+24.  ISA vzahy v ERA diagrame
+ 
+Body: 2 
+    tvoria neorientovanı cyklus 
+    netvoria orientovanı cyklus 
+    tvoria orientovanı cyklus 
+    tvoria úplnı graf 
+
+25.  Príkaz GRANT slúi na:
+ 
+Body: 2 
+    pridelenie práv na prístup k zdrojovım kódom aplikácie. 
+    pridelenie prístupovıch právna databázovı objekt uívate¾ovi 
+    odobratie práv èítania zdrojovıch kódov aplikácie. 
+    obratie práv uívate¾ovi 
+
+26.  Príkaz ROLLBACK slúi na:
+ 
+Body: 2 
+    Vrátenie DB do pôvodného stavu ako bola pred zaèatím transakcie. 
+    Potvrdenie transakcie 
+    Vrátenie DB do pôvodného stavu ako bola pred poslednım vykonávanım príkazom. 
+
+27.  Vymate všetky nákupy, ktoré nemajú ani jednu poloku.
+ 
+Body: 2 
+  																		delete from nakup
+where 
+id_nakupu not in
+(select id_nakupu from polozka)
+																																																						  
+28.  Vlote nové tovary z doèasnej tabu¾ky, ktorá má rovnakú štruktúru ako tabu¾ka tovar.
+ 
+Body: 3 
+  																																																																								  
+29.  Vymate všetky poloky z nákupu, kde id_nakupu=26. 
+ 
+Body: 1 
+  																		delete from nakup
+where 
+id_nakupu=26
+																																																						  
+
+30.  Kedy je relácia v BCNF
+ 
+Body: 2 
+    keï je v 2NF a iaden nek¾úèovı atribút nie je tranzitívne funkène závislı na primárnom k¾úèi. 
+    keï kadı determinant je kandidátom primárneho k¾úèa 
+    keï je v 3NF a kadı nek¾úèovı atribút je determinantom  
+    keï kadı kandidát primárneho k¾úèa je determinantom 
+
+31.  Majme reláciu R (#A, B, C, D, E), pre ktorú sú dané nasledovné funkèné závislosti:
+A->B, A->E a ED->A 
+Je táto relácia v 3NF? 
+ 
+Body: 2 
+    nie 
+    áno 
+
+32.  Majme nasledovnı trigger:
+CREATE OR REPLACE TRIGGER t_log_zp
+AFTER UPDATE ON zap_predmety
+FOR EACH ROW
+begin
+   INSERT INTO log_table_zp
+   VALUES (USER, SYSDATE);
+END;
+Ko¾ko riadkov bude vloenıch do tabu¾ky log_table_zp, ak operácia Update zap_predmety modifikovala 10 riadkov?
+
+ 
+Body: 3 
+    1 riadok 
+    ani jeden riadok  
+    10 riadkov 
+    2 riadky 
+
+33.  Ak máme nasledovnı poh¾ad:
+CREATE OR REPLACE VIEW zamest
+AS
+SELECT os_cislo, meno, priezvisko,pozicia
+FROM osoba, zamestnanec WHERE osoba.id=zamestnanec.id; Akı trigger budete potrebné definova, aby operácia INSERT INTO zamest fungovala správne? 
+ 
+Body: 3 
+    INSTEAD OF INSERT 
+    BEFORE INSERT 
+    BEFORE alebo AFTER INSERT 
+    AFTER INSERT 
+
+34.  Uveïte príklad, kde by ste vyuili kartézsky súèin.
+ 
+Body: 2 
+  																		vypisat vsetky kombinacie mena,priezviska a cisla predmetu, ktore si moze student zapisat 																																																						  
+
+35.  Ktoré z nasledujúcich vırazov sú korektné vırazy relaènej algebry?
+  
+Body: 3 
+    vırazy b,d,e 
+    všetky vırazy 
+    ani jeden vıraz 
+    vırazy a,c,d,e 
+
+36.  Urèite vıraz relaènej algebry zodpovedajúci nasledovnému príkazu:
+  SELECT id, meno FROM OSOBA;
+ 
+Body: 2 
+      
+   
+37.  Urèite, ktorı z vırazov relaènej algebry zodpovedá naledovnému príkazu: 
+  SELECT z.os_cislo, n.kedy, n.id_nakupu FROM zamestnanec z, nakup n; 
+ 
+Body: 2 
+       
+
+38.  Urèite vıraz relaènej algebry zodpovedajúci nasledovnému príkazu:
+   SELECT id FROM OSOBA
+   WHERE id not in 
+      (SELECT id FROM ZAMESTNANEC); 
+ 
+Body: 2 
+      
+
+39.  Ktorı z nasledovnıch obrázkov je príklad vıskytového diagramu vzahu M:N? 
+  
+Body: 2 
+    všetky obrázky 
+    len obrázky b,d 
+    len obrázok a 
+    len obrázky a,b,d 
+
+40.  Ktorı z obrázkov je správna dekompozícia vzahu M:N medzi ET1 a ET2
+ 
+Body: 2 
+      
+
+41.  Urèite stupeò(s) a kardinalitu(k) nasledovnej relácie
+  
+Body: 2 
+    s=6,k=4 
+    s=4,k=6 
+    s=4,k=4 
+    s=2,k=6 
+
+42.  Ako treba opravi danı entitnı diagram?
+  
+Body: 2 
+    do ET1 pribudnú 2 atribúty FK, ktoré budú sú èasou PK v ET1; do ET2 pribudne 1 atribút 
+    do ET1 pribudne 1 atribút FK, ktorı sa stane èasou PK v ET1 a 1 atribút FK, ktorı nebude súèasou PK v ET1; do ET2 pribudne 1 atribút FK, ktorı nebude súèasou PK 
+    do ET1 pribudnú 2 atribúty FK, ktoré nebudú súèasou PK v ET1; do ET2 pribudne 1 atribút FK, ktorı nebude súèasou PK 
+    do ET1 pribudnú 2 atribúty FK, ktoré nebudú súèasou PK v ET1; do ET2 pribudne 1 atribút FK, ktorı bude súèasou PK 
+
+43.  Je moné v procedúre poui nasledovnı select-príkaz?
+   select * from zamestnanec;
+Vysvetlite preèo a kedy áno alebo nie.
+ 
+Body: 3 
+  									nie nie je mozne pouzit,
+mozne je pouzit len select - into  																																																														  
+
+44.  Urèite aké je èlenstvo ET1 a ET2 vo vzahu.
+  
+Body: 2 
+    ET1 môe existova bez ET2, ET2 nemôe existova bez ET1 
+    ET1 nemôe existova bez ET2, ET2 môe existova bez ET1 
+    1:N 
+    ET1 nemôe existova bez ET2, ET2 nemôe existova bez ET1 
+
+45.  Vypíšte všetky funkèné závislosti z grafu. 
+  
+Body: 2 
+  									A->C
+A->B
+AC->D
+B->E
+E->D
+D->E																																																															  
+
+46.  Napíšte determinanty v zadanej relácii:
+  
+Body: 2 
+  A 
+B
+E
+D
+AC
+																																																																								  
+47.  Vypíšte ku kadej pozícii poèet zamestnancov.
+ 
+Body: 2 
+  select pozicia,count(*) from zamestnanec
+group by pozicia																																																																							  
+
+48.  Zistite názov najpredávanejšieho tovaru.
+ 
+Body: 3 
+  select id_tovaru,cena from polozka into
+xxx;
+
+select sum() from xxx
+group by id_tovaru
+ 
+ 																																																																								  
+49.  Vloèková schéma sa pouíva na modelovanie:
+ 
+Body: 2 
+    dátovej kocky 
+    dimenzie 
+    Tabu¾ky faktov 
+
+50.  V indexovom súbore s hustım (úplnım) indexom – 
+ 
+Body: 2 
+    pre skupinu záznamov v dátovom súbore existuje jeden záznam v indexov súbore 
+    pre kadı záznam v dátovom súbore existuje práve jeden záznam v indexov súbore 
+    pre skupinu záznamov v dátovom súbore existuje aspoò jeden záznam v indexov súbore 
+
+51.  Akı je rozdiel medzi B-stromom a B+stromom?
+ 
+Body: 2 
+    v zreazení listovıch vrcholov 
+    v poète úrovní 
+    v poète smerníkov medzi¾ahlého vrcholu 
+    iadny 
+
+52.  Majme reláciu R (#A, #B, C, D). Aké sú v relácii funkèné závislosti, ak relácia je v 1.NF a nie je v 2.NF
+ 
+Body: 3 
+      
+
+53.  Ktorı z príkazov nepatrí do DAS?
+ 
+Body: 1 
+    REVOKE 
+    CREATE TABLE 
+    GRANT 
+
+54.  Dátová kocka ________________obsahova èasovú dimenziu. Doplòte:
+ 
+Body: 1 
+    nesmie 
+    musí 
+    nemusí 
+
+55.  Pri operácii DELETE vysvetlite pojem REŠTRIKCIA (RESTICTED) 
+ 
+Body: 2 
+  ze ked sa v referencovaniej  tabulke pokusime vymazat hondotu atrubutu ktoru nadobuda FK v inej tabulke tak nebude tato operacia vykonana

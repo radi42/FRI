@@ -1,0 +1,5 @@
+select meno, priezvisko, count(*)
+from os_udaje join student using(rod_cislo)
+join zap_predmety using(os_cislo)
+group by meno, priezvisko, os_cislo
+having count(*)>4;

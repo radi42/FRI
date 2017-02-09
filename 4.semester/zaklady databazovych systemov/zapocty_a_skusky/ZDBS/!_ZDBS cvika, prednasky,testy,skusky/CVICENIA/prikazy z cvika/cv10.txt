@@ -1,0 +1,72 @@
+1. create or replace view pohlad_st
+as select meno, priezvisko from os_udaje;
+
+select view_name from user_views;  desc pohlad_st;
+
+2. create or replace view pohlad_uc as select distinct meno, priezvisko
+ from ucitel, zap_predmety
+where ucitel.os_cislo = zap_predmety.prednasajuci;
+
+   2.b .. from ucitel join zap_predmety on (uc.os_cislo= zp.prednasajuci) where...
+select 
+
+3. create or replace view studenti
+as select meno, priezvisko, rod_cislo from os_udaje;
+
+select os_cislo from student where  rod_cislo ='676767/6767';   {=> os_sislo=13}
+
+delete from zap_predmety where os_cislo = 13;
+delete from student where os_cislo = 13;
+
+delete from studenti where rod_cislo = '676767/6767';  {constraint => musim najprv zmazat tabulky}
+
+4.  create or replace view studenti2 as select meno, priezvisko, rod_cislo, os_cislo 
+from os_udaje join student using (rod_cislo);
+
+a)
+select * from studenti2;
+ii   delete from zap_predmety where os_cislo = 234;
+
+iii   delete from studenti2 where os_cislo = 234;
+
+
+select * from studenti2;
+
+select meno, priezvisko from os_udaje join student using (rod_cislo) 
+join zap_predmety using (os_cislo) where os_cislo = 234;
+
+
+b)
+select * from studenti2;
+ii   delete from zap_predmety where os_cislo = 123;
+
+iii   delete from studenti2 where rod_cislo='121212/1212'
+
+
+select * from studenti2;
+
+select meno, priezvisko from os_udaje join student using (rod_cislo)    {nie je tam}
+join zap_predmety using (os_cislo) where rod_cislo='121212/1212'       {no rows selected}
+
+
+5.
+create or replace trigger mazanie_studenti2
+instead of delete on studenti2
+for each row
+begin
+delete from zap_predmety where os_cislo = :old.os_cislo;
+delete from student where os_cislo = :old.os_cislo;           {alebo os_cislo, to je jedno}
+delete from os_udaje where rod_cislo = :old.rod_cislo;
+end;
+/
+
+na overenie:
+
+delete from studenti2 where os_cislo = 23;
+select * from studenti2;
+
+
+6.
+create or replace view zimne_predmety
+as select cis_predm from zap_predmety 
+where mod (to_number (substr (cis_predm,4,1)), 2) = 1; 

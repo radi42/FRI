@@ -1,0 +1,211 @@
+
+Definície 1.èas  
+1.  Vstupné dáta sú
+ 
+Body: 1 
+                                                  data, ktore vstupuju do db  
+DDL  
+2.  Pri vytvorení tabu¾ky sa index implicitne vytvára:
+ 
+Body: 2 
+    nad všetkými ståpcami tabu¾ky, ktoré sú definované ako UNIQUE 
+    len nad primárnym k¾úèom 
+    nad všetkými ståpcami tabu¾ky 
+    nad cudzími k¾úèmi a primárnym k¾úèom 
+ISA  
+3.  Majme dané dva entitné typy ET1 a ET2. Medzi týmito typmi existuje vzah ET1
+ISA ET2. Aké sú možné kardinality vzahu medzi ET1 a ET2?
+ 
+Body: 2 
+    iba 1:1 
+    iba 1:M 
+    iba 1:N, alebo M:N 
+    1:1, 1:N, alebo M:N 
+Definície 2. èas  
+4.  Stupeò relácie je
+ 
+Body: 1 
+                                               pocet stlpcov v relacii     
+Vlastnosti relácie  
+5.  Vymenujte vlastnosti relácie: 
+ 
+Body: 2 
+                                                    
+Rozdelenie SQL  
+6.  Ktorý z príkazov patrí do DDL
+ 
+Body: 1 
+    DELETE 
+    ALTER TABLE 
+    INSERT 
+    REVOKE 
+Základné znalosti  
+7.  Atribút ADRESA(ŠTÁT,OBEC,ULICA,PSÈ) je 
+ 
+Body: 2 
+    skupinový atribút 
+    rekurzívny atribút 
+    determinant 
+    viachodnotový atribút 
+Foreign key  
+8.  Ako treba opravi daný entitný diagram?
+  
+Body: 2 
+    do ET1 pribudne 1 atribút FK, do ET2 pribudnú 2 atribúty FK 
+    do ET2 pribudne 5 atribútov FK, ktoré nebudú súèasou PK v ET2 
+    do ET2 pribudnú: 4 atribúty FK, ktoré budú súèasou PK v ET2 a 1 atribút FK,
+ktorý nebude súèasou PK v ET2 
+    do ET1 pribudne 1 atribút FK, do ET2 pribudnú 3 atribúty FK 
+Dekompozícia MN  
+9.  Ktorý z obrázkov je správna dekompozícia vzahu M:N medzi ET1 a ET2
+  
+Body: 2 
+    Obrázok a 
+    obrázok b 
+    Obrázky b aj c 
+    Obrázok c 
+Poradie operácií  
+10.  Aké je správne poradie pre drop týchto tabuliek?
+  
+Body: 2 
+    ET5,ET4,ET1,ET3,ET2 
+    ET2,ET5,ET4,ET1,ET3 
+    ET2,ET1,ET5,ET3,ET4 
+    ET2,ET1,ET3,ET4,ET5 
+Relaèná databáza  
+11.  Urèite stupeò(s) a kardinalitu(k) nasledovnej relácie 
+  
+Body: 1 
+    s=5,k=3 
+    s=3,k=5 
+    s=2,k=3 
+    s=5,k=2 
+Vzahy  
+12.  Urèite aké je èlenstvo ET1 a ET2 vo vzahu
+  
+Body: 2 
+    ET1 môže existova bez ET2, ET2 nemôže existova bez ET1 
+    ET1 môže existova bez ET2, ET2 môže existova bez ET1 
+    ET1 nemôže existova bez ET2, ET2 nemôže existova bez ET1 
+    N:1 
+View  
+13.  Majme nasledovný poh¾ad.
+CREATE OR REPLACE VIEW pohl4 (meno, priezvisko, rocnik, os_cislo)
+AS 
+SELECT ou_meno, ou_priezvisko, st_rocnik, st_os_cislo 
+FROM os_udaje, student
+WHERE ou_rod_cislo = st_ou_rod_cislo;
+
+Aký typ triggra je potrebné definova, aby operácia INSERT z poh¾adu fungovala
+korektne?
+ 
+Body: 2 
+    nie je potrebné definova žiadny trigger 
+    nie je možná operácia INSERT 
+    AFTER insert 
+    BEFORE insert 
+Insert, Delete, Update 1  
+14.  Vymažte všetky telefónne èísla z tabu¾ky kontakty.
+ 
+Body: 1 
+                                                    
+Relaèná integrita 2  
+15.  Napíšte apoò dvoch kandidátov primárneho k¾úèa
+Telefonny_hovor(id_hovoru, kedy, cislo_kto, cislo_komu dlzka_hovoru).
+Prièom uvažujeme len s možnosou, že z jedného telefónu nie je možné naraz vola
+na viac telefónov a id_hovoru je unikátne, a kedy obsahuje aj dátum aj èas. 
+ 
+Body: 1 
+                                                  id_hovoru
+(cislo_kto,kedy)  
+Select 3  
+16.  Vypíšte zoznam katedier, z ktorých máme aspoò jedného uèite¾a (potlaète
+duplicity)
+ 
+Body: 1 
+                                                  select discint nazov from
+katedra
+where veduci in (select cis_ucitela from ucitel)  
+Select 2  
+17.  Vypíšte zoznam uèite¾ov s nasledovnými položkami: titul_p, meno,
+priezvisko, titul_za, názov katedry 
+ 
+Body: 1 
+  select titul_p, meno , priezvisko, titul_z, nazov from
+os_udaje,ucitel,katedra
+where os_udaje.rod_cislo=ucitel.rod_cislo and ucitel.cis_ucitela=katedra.veduci 
+   
+Insert, Delete, Update - cascade  
+18.  Vymažte všetky údaje o fakultách, ktoré nemajú ani jednu katedru.
+ 
+Body: 2 
+                                                    
+Agregaèné funkcie 2  
+19.  Zistite priemernú dåžku pracovných pomerov uèite¾ov.
+ 
+Body: 2 
+                                                    
+Hodnota Count  
+20.  Aký bude výsledok z nasledovného selectu.
+SELECT count(*) FROM Kniha, Vypozicky
+WHERE kniha.id_knihy = vypozicky.id_knihy
+GROUP BY cislo_citatela; 
+  
+Body: 2 
+  2
+2
+2
+                      
+triggre  
+21.  Majme nasledovný trigger, ktorý zabezpeèí kaskádu pre operáciu DELETE
+študenta.
+CREATE OR REPLACE TRIGGER ST_DEL_CASCADE
+.......... DELETE ON STUDENT
+FOR EACH ROW
+BEGIN
+  DELETE FROM ZAP_PREDMETY
+WHERE ZP_ST_OS_CISLO = :OLD.ST_OS_CISLO;
+END;
+
+Doplòte do tela triggra ?
+ 
+Body: 1 
+    INSTEAD OF 
+    BEFORE 
+    BEFORE alebo AFTER 
+    AFTER 
+Select 5  
+22.  Vypíšte adresy uèite¾ov v tvare:
+meno+1medzera+priezvisko, ulica, psc (1-3.znak
++1medzera+4-5.znak)+2medzery+nazov obce. 
+Dodržte presne poèet medzier a poèet výsledných ståpcov.
+ 
+Body: 2 
+                        select meno|' '|priezvisko,ulica,substr(psc,1,3)|'
+'|substr(psc,4,5)|'  '| nazov from, obec,os_udaje,ucitel
+where os_udaje.obec_id=obec.id and os_udaje.rod_cislo in (select rod_cislo from
+ucitel)                             
+Relaèná integrita 1  
+23.  Uveïte príklad užívate¾skej integrity pre danú databázu
+  
+Body: 2 
+  porusena uzivatelska integrita pri vypozicke, riadok prvy > kniha vratena skor
+ako bola pozicana  
+Select 4  
+24.  Vypíšte zoznam uèite¾ov, ktorý nie sú vedúcimi žiadnej katedry.
+ 
+Body: 2 
+  select cis_ucitel from ucitel where cis_ucitel not in (select )               
+                                 
+Select 1  
+25.  Vypíšte názvy všetkých fakúlt.
+ 
+Body: 1 
+                                                    
+ 
+
+   
+
+
+
+Home 

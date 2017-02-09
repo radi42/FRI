@@ -1,0 +1,3 @@
+select cis_predm, count(*)
+from zap_predmety
+group by cis_predm, prednasajuci;

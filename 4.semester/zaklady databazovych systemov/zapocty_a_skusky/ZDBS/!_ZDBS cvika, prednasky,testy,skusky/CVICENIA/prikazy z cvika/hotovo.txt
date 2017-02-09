@@ -1,0 +1,114 @@
+***********************************************************************************************************
+select * from ...;   vypise uplne vsetky udaje
+desc MENO;           vypise iba atributy tabulky aj s typmi
+***********************************************************************************************************
+
+
+6.1.1    INSERT  
+
+insert into os_udaje(rod_cislo,meno,priezvisko,ulica,obec,psc,st_prisl,okres) 
+    values('121212/1212','Karol','Novy',NULL,NULL,NULL,NULL,NULL);
+
+alebo:
+    INSERT INTO os_udaje (rod_cislo, meno, priezvisko)
+	VALUES('121212/1212','Karol','Novy');
+   
+insert into student values (123, 100, 0, '121212/1212', 1,'5ZI012', null, null, null, null, null, null);
+
+insert into zap_predmety(os_cislo, skrok, cis_predm, prednasajuci) values (123,2008,'BI11','KMM03');
+
+insert into zap_predmety(os_cislo, skrok, cis_predm, prednasajuci) values (123,2008, 'BI02', 'KI001');
+
+insert into zap_predmety(os_cislo, skrok, cis_predm, prednasajuci) values (123,2003, 'BE01', 'KME02');
+
+insert into zap_predmety(os_cislo,skrok,cis_predm,prednasajuci) values (90,2006, 'II08', 'KDS01');
+
+insert into zap_predmety(os_cislo,skrok,cis_predm,prednasajuci) values (90,2007, 'II07', 'KME02');
+
+
+***********************************************************************************************************
+6.1.2
+
+b)
+INSERT INTO os_udaje (rod_cislo, meno, priezvisko)
+	SELECT rod_cislo, meno, priezvisko FROM [vajsova.]osoba;   
+
+c)
+INSERT INTO  student (rod_cislo, os_cislo, rocnik, st_skupina, st_odbor, st_zameranie)
+	SELECT rod_cislo, os_cislo, rocnik, st_skupina, st_odbor, st_zameranie FROM osoba; 
+
+d)
+INSERT INTO zap_predmety (os_cislo, cis_predm, skrok, prednasajuci, kredity)
+	SELECT os_cislo,predmet.cis_predm, skrok, garant, kredit FROM vajsova.skusky, predmet
+	WHERE vajsova.skusky.cis_predm = predmet.cis_predm;
+
+***************************************************************************************************************
+6.2  UPDATE
+
+1. update os_udaje set priezvisko='Stary' where priezvisko='Novy';
+2. update os_udaje set meno='Carlos' where rod_cislo in (select rod_cislo from student where os_cislo = 8);
+3. update zap_predmety set cis_predm='BI01' where os_cislo in (select os_cislo from student where rocnik=1)and cis_predm='BI11';
+4. update student set stav='S' where stav is NULL;
+
+5.
+update student set st_skupina=substr(st_skupina,1,4)||(rocnik+1)||substr(st_skupina,6,1) , rocnik=rocnik+1 where stav='S' and ((st_odbor>99 and st_odbor<200 and rocnik<3) or (st_odbor>199 and st_odbor<300 and rocnik<2));
+
+prehladnejsie:
+
+update student 
+set st_skupina=substr(st_skupina,1,4)||(rocnik+1)||substr(st_skupina,6,1), rocnik=rocnik+1 
+where stav='S' and ((st_odbor>99 and st_odbor<200 and rocnik<3) or (st_odbor>199 and st_odbor<300 and rocnik<2));
+
+
+*****************************************************************************************************************************
+6.3 DELETE
+
+1. delete zap_predmety where os_cislo=123 and cis_predm='BE01';
+2. delete zap_predmety where cis_predm='BI01' and os_cislo in (select os_cislo from student where st_skupina='5ZI022');
+3.    {0 rows }
+
+       ***   !!!   ***
+delete from student where to_char(dat_prv_zap,'YYYY')='1990';   --- zo studenta mozem, lebo to je ta ista tabulka
+
+delete from student where '1990' in (select to_char(dat_prv_zap,'YYYY') from student);  --- mazanie riadkov urcenych                                                                                      podmienkou z inej relacie
+
+  alebo:
+  delete from zap_predmety where os_cislo in (select os_cislo from student join zap_predmety using(os_cislo) where to_char(dat_prv_zap,'YYYY')='1990'); 
+   
+(    select * from student where '1990' in (select to_char(dat_prv_zap,'YYYY') from student);   )
+
+
+*****************************************************************************************************************************
+
+cvicenie 7.
+
+
+1. select * from student;
+2. select meno, priezvisko from os_udaje where rod_cislo in (select rod_cislo from student where rocnik=2);
+
+3.select meno, priezvisko from os_udaje where rod_cislo in (select rod_cislo from student where (to_number (substr(rod_cislo,1,2))) between 85 and 89);
+3.inak:    
+    select * from os_udaje ou join student s on (ou.rod_cislo= s.rod_cislo);
+
+
+4. select meno, priezvisko from os_udaje ou join student s using(rod_cislo) join 
+     zap_predmety z on (z.os_cislo = s.os_cislo) where z.cis_predm ='BI06' order by priezvisko;
+
+5.select distinct cis_predm, prednasajuci from zap_predmety;
+
+6.select meno, cis_predm from ucitel, zap_predmety;
+
+7.select meno, priezvisko from ucitel uc join zap_predmety zp on (uc.os_cislo = zp.prednasajuci) join student s on (s.os_cislo=zp.os_cislo) where rocnik=2 and (st_odbor between 100 and 199);
+
+8. najprv select:
+     select meno, priezvisko from os_udaje ou join student s on (ou.rod_cislo= s.rod_cislo) join zap_predmety zp using (os_cislo) where skrok=2008; 
+  teraz pocet:
+     select meno, priezvisko, count(*) from os_udaje ou join student s on (ou.rod_cislo= s.rod_cislo) join zap_predmety zp using (os_cislo) where skrok=2008 group by meno, priezvisko; 
+
+9. select meno, priezvisko, count(*) from os_udaje ou join student s on (ou.rod_cislo= s.rod_cislo) join zap_predmety zp using (os_cislo) group by meno, priezvisko;
+
+
+
+10. select nazov from predmet ...
+
+

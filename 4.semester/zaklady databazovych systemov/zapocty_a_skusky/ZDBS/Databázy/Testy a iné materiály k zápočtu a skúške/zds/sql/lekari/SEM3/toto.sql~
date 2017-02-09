@@ -1,0 +1,6 @@
+EXECUTE Vloz_do_zoz_zubov('Neporuseny','DHP9',4);
+EXECUTE Vloz_do_zoz_zubov('Vytrhnuty','DHP2',4);
+EXECUTE Vloz_do_zoz_zubov('Vypln','DHP3',4);
+EXECUTE Vloz_do_zoz_zubov('Neporuseny','DHP4',4);
+EXECUTE Vloz_do_zoz_zubov('Vypln','DHP5',4);
+EXECUTE Vloz_do_zoz_zubov('Neporuseny','DHP6',4);

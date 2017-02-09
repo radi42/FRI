@@ -1,0 +1,17 @@
+Zdravim vsechny, kteri si poradne uzivaj prazdnin jako ja:
+1) Optimisticky protokol (predpoklady, postup, vyhody, nevyhody);    5b
+2) vymyslet v NRK, prepsat do SQL: manazeri, jejichz kazdy podrizeny pracuje na kazdem jejich ukolu;        4b
+kde    R1( manazer, podrizeny )
+         R2( podrizeny, ukol )
+         R3( manazer, ukol )
+3) preklad ISA do RDM pro;        5b
+MUZ-(0,n)-<otec>-(0,1)-OSOBA
+ZENA-(0,n)-<matka>-(0,1)-OSOBA
+MUZ-(0,n)-<partnerstvi>-(0,n)-ZENA
+MUZ ISA OSOBA
+ZENA ISA OSOBA
+4) objektove-orientovany model, objektove-relacni model ( predpoklady, postup, vyhody, nevyhody );        2b
+5) jenom pro ty, co meli slabe napsanou pisemku: delali asi dekompozici pro
+{A, B, C, D, E}
+{ A -> B, AC -> DE, BD -> E }
+dan

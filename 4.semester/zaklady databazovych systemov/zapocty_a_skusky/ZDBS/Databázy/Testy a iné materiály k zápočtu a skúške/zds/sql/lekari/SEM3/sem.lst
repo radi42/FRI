@@ -1,0 +1,232 @@
+Creating Table 'ZOZ_UKONOV'
+
+Table created.
+
+Creating Table 'ZOZ_PRIJAT_MAT'
+
+Table created.
+
+Creating Table 'ZOZ_POIST'
+
+Table created.
+
+Creating Table 'SPOT_MAT_A_LIEKOV'
+
+Table created.
+
+Creating Table 'ZOZ_LIEK_A_MAT'
+
+Table created.
+
+Creating Table 'PRIJEMKA_MATERIALU'
+
+Table created.
+
+Creating Table 'ZOZ_OBJED_MAT'
+
+Table created.
+
+Creating Table 'ZOZ_ZUBOV'
+
+Table created.
+
+Creating Table 'VYK_UKONY'
+
+Table created.
+
+Creating Table 'ADRESAR_DODAVATELOV'
+
+Table created.
+
+Creating Table 'OBJED_PACIENTA'
+
+Table created.
+
+Creating Table 'OBJEDNAVKA_MATERIALU'
+
+Table created.
+
+Creating Table 'OS_UDAJE_PAC'
+
+Table created.
+
+Creating Index 'ZOZ_PRI_MA_ZOZ_L_A_M_FK_I'
+
+Index created.
+
+Creating Index 'ZOZ_PRI_MA_PRIJEM_MAT_FK_I'
+
+Index created.
+
+Creating Index 'SPOT_ML_ZOZ_L_A_M_FK_I'
+
+Index created.
+
+Creating Index 'SPOT_ML_OS_UDAJE_P_FK_I'
+
+Index created.
+
+Creating Index 'PRIJEM_MAT_OBJED_MAT_FK_I'
+
+Index created.
+
+Creating Index 'PRIJEM_MAT_ADRES_DOD_FK_I'
+
+Index created.
+
+Creating Index 'ZOZ_OBJ_MA_OBJED_MAT_FK_I'
+
+Index created.
+
+Creating Index 'ZOZ_OBJ_MA_ZOZ_L_A_M_FK_I'
+
+Index created.
+
+Creating Index 'ZOZ_ZUBOV_OS_UDAJE_P_FK_I'
+
+Index created.
+
+Creating Index 'VYK_UKONY_ZOZ_ZUBOV_FK_I'
+
+Index created.
+
+Creating Index 'VYK_UKONY_ZOZ_UKONOV_FK_I'
+
+Index created.
+
+Creating Index 'OBJED_PAC_ZOZ_UKONOV_FK_I'
+
+Index created.
+
+Creating Index 'OBJED_PAC_OS_UDAJE_P_FK_I'
+
+Index created.
+
+Creating Index 'OBJED_MAT_ADRES_DOD_FK_I'
+
+Index created.
+
+Creating Index 'OS_UDAJE_P_ZOZ_POIST_FK_I'
+
+Index created.
+
+Creating Primary Key on 'ZOZ_UKONOV'
+
+Table altered.
+
+Creating Primary Key on 'ZOZ_PRIJAT_MAT'
+
+Table altered.
+
+Creating Primary Key on 'ZOZ_POIST'
+
+Table altered.
+
+Creating Primary Key on 'SPOT_MAT_A_LIEKOV'
+
+Table altered.
+
+Creating Primary Key on 'ZOZ_LIEK_A_MAT'
+
+Table altered.
+
+Creating Primary Key on 'PRIJEMKA_MATERIALU'
+
+Table altered.
+
+Creating Primary Key on 'ZOZ_OBJED_MAT'
+
+Table altered.
+
+Creating Primary Key on 'ZOZ_ZUBOV'
+
+Table altered.
+
+Creating Primary Key on 'VYK_UKONY'
+
+Table altered.
+
+Creating Primary Key on 'ADRESAR_DODAVATELOV'
+
+Table altered.
+
+Creating Primary Key on 'OBJED_PACIENTA'
+
+Table altered.
+
+Creating Primary Key on 'OBJEDNAVKA_MATERIALU'
+
+Table altered.
+
+Creating Primary Key on 'OS_UDAJE_PAC'
+
+Table altered.
+
+Creating Check Constraint on 'ZOZ_ZUBOV'
+
+Table altered.
+
+Creating Check Constraint on 'VYK_UKONY'
+
+Table altered.
+
+Creating Foreign Key on 'ZOZ_PRIJAT_MAT'
+
+Table altered.
+
+Creating Foreign Key on 'ZOZ_PRIJAT_MAT'
+
+Table altered.
+
+Creating Foreign Key on 'SPOT_MAT_A_LIEKOV'
+
+Table altered.
+
+Creating Foreign Key on 'SPOT_MAT_A_LIEKOV'
+
+Table altered.
+
+Creating Foreign Key on 'PRIJEMKA_MATERIALU'
+
+Table altered.
+
+Creating Foreign Key on 'PRIJEMKA_MATERIALU'
+
+Table altered.
+
+Creating Foreign Key on 'ZOZ_OBJED_MAT'
+
+Table altered.
+
+Creating Foreign Key on 'ZOZ_OBJED_MAT'
+
+Table altered.
+
+Creating Foreign Key on 'ZOZ_ZUBOV'
+
+Table altered.
+
+Creating Foreign Key on 'VYK_UKONY'
+
+Table altered.
+
+Creating Foreign Key on 'VYK_UKONY'
+
+Table altered.
+
+Creating Foreign Key on 'OBJED_PACIENTA'
+
+Table altered.
+
+Creating Foreign Key on 'OBJED_PACIENTA'
+
+Table altered.
+
+Creating Foreign Key on 'OBJEDNAVKA_MATERIALU'
+
+Table altered.
+
+Creating Foreign Key on 'OS_UDAJE_PAC'
+
+Table altered.
+

@@ -1,0 +1,3 @@
+delete from ucitel
+where ucitel.os_cislo not in(select garant from predmet)
+and ucitel.os_cislo not in(select prednasajuci from zap_predmety);

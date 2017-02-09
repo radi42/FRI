@@ -1,0 +1,636 @@
+/*
+uloha c previous   next   contents   elements   attributes   index
+3 On SGML and HTML
+
+Contents
+
+Introduction to SGML
+SGML constructs used in HTML
+Elements
+Attributes
+Character references
+Comments
+How to read the HTML DTD
+DTD Comments
+Parameter entity definitions
+Element declarations
+Content model definitions
+Attribute declarations
+DTD entities in attribute definitions
+Boolean attributes
+This section of the document introduces SGML and discusses its relationship to HTML. A complete discussion of SGML is left to the standard (see [ISO8879]).
+
+3.1 Introduction to SGML
+
+SGML is a system for defining markup languages. Authors mark up their documents by representing structural, presentational, and semantic information alongside content. HTML is one example of a markup language. Here is an example of an HTML document:
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+     "http://www.w3.org/TR/html4/strict.dtd">
+<HTML>
+   <HEAD>
+      <TITLE>My first HTML document</TITLE>
+   </HEAD>
+   <BODY>
+      <P>Hello world!
+   </BODY>
+</HTML>
+An HTML document is divided into a head section (here, between <HEAD> and </HEAD>) and a body (here, between <BODY> and </BODY>). The title of the document appears in the head (along with other information about the document), and the content of the document appears in the body. The body in this example contains just one paragraph, marked up with <P>.
+
+Each markup language defined in SGML is called an SGML application. An SGML application is generally characterized by:
+
+An SGML declaration. The SGML declaration specifies which characters and delimiters may appear in the application.
+A document type definition (DTD). The DTD defines the syntax of markup constructs. The DTD may include additional definitions such as character entity references.
+A specification that describes the semantics to be ascribed to the markup. This specification also imposes syntax restrictions that cannot be expressed within the DTD.
+Document instances containing data (content) and markup. Each instance contains a reference to the DTD to be used to interpret it.
+This specification includes an SGML declaration, three document type definitions (see the section on HTML version information for a description of the three), and a list of character references.
+
+3.2 SGML constructs used in HTML
+
+The following sections introduce SGML constructs that are used in HTML.
+
+The appendix lists some SGML features that are not widely supported by HTML tools and user agents and should be avoided.
+
+3.2.1 Elements
+
+An SGML document type definition declares element types that represent structures or desired behavior. HTML includes element types that represent paragraphs, hypertext links, lists, tables, images, etc.
+
+Each element type declaration generally describes three parts: a start tag, content, and an end tag.
+
+The element's name appears in the start tag (written <element-name>) and the end tag (written </element-name>); note the slash before the element name in the end tag. For example, the start and end tags of the UL element type delimit the items in a list:
+
+<UL>
+<LI><P>...list item 1...
+<LI><P>...list item 2...
+</UL>
+Some HTML element types allow authors to omit end tags (e.g., the P and LI element types). A few element types also allow the start tags to be omitted; for example, HEAD and BODY. The HTML DTD indicates for each element type whether the start tag and end tag are required.
+
+Some HTML element types have no content. For example, the line break element BR has no content; its only role is to terminate a line of text. Such empty elements never have end tags. The document type definition and the text of the specification indicate whether an element type is empty (has no content) or, if it can have content, what is considered legal content.
+
+Element names are always case-insensitive.
+
+Please consult the SGML standard for information about rules governing elements (e.g., they must be properly nested, an end tag closes, back to the matching start tag, all unclosed intervening start tags with omitted end tags (section 7.5.1), etc.).
+
+For example, the following paragraph:
+
+<P>This is the first paragraph.</P>
+...a block element...
+may be rewritten without its end tag:
+
+<P>This is the first paragraph.
+...a block element...
+since the <P> start tag is closed by the following block element. Similarly, if a paragraph is enclosed by a block element, as in:
+
+<DIV>
+<P>This is the paragraph.
+</DIV>
+the end tag of the enclosing block element (here, </DIV>) implies the end tag of the open <P> start tag.
+
+Elements are not tags. Some people refer to elements as tags (e.g., "the P tag"). Remember that the element is one thing, and the tag (be it start or end tag) is another. For instance, the HEAD element is always present, even though both start and end HEAD tags may be missing in the markup.
+
+All the element types declared in this specification are listed in the element index.
+
+3.2.2 Attributes
+
+Elements may have associated properties, called attributes, which may have values (by default, or set by authors or scripts). Attribute/value pairs appear before the final ">" of an element's start tag. Any number of (legal) attribute value pairs, separated by spaces, may appear in an element's start tag. They may appear in any order.
+
+In this example, the id attribute is set for an H1 element:
+
+<H1 id="section1">
+This is an identified heading thanks to the id attribute
+</H1> 
+By default, SGML requires that all attribute values be delimited using either double quotation marks (ASCII decimal 34) or single quotation marks (ASCII decimal 39). Single quote marks can be included within the attribute value when the value is delimited by double quote marks, and vice versa. Authors may also use numeric character references to represent double quotes (&#34;) and single quotes (&#39;). For double quotes authors can also use the character entity reference &quot;.
+
+In certain cases, authors may specify the value of an attribute without any quotation marks. The attribute value may only contain letters (a-z and A-Z), digits (0-9), hyphens (ASCII decimal 45), periods (ASCII decimal 46), underscores (ASCII decimal 95), and colons (ASCII decimal 58). We recommend using quotation marks even when it is possible to eliminate them.
+
+Attribute names are always case-insensitive.
+
+Attribute values are generally case-insensitive. The definition of each attribute in the reference manual indicates whether its value is case-insensitive.
+
+All the attributes defined by this specification are listed in the attribute index.
+
+3.2.3 Character references
+
+Character references are numeric or symbolic names for characters that may be included in an HTML document. They are useful for referring to rarely used characters, or those that authoring tools make it difficult or impossible to enter. You will see character references throughout this document; they begin with a "&" sign and end with a semi-colon (;). Some common examples include:
+
+"&lt;" represents the < sign.
+"&gt;" represents the > sign.
+"&quot;" represents the " mark.
+"&#229;" (in decimal) represents the letter "a" with a small circle above it.
+"&#1048;" (in decimal) represents the Cyrillic capital letter "I".
+"&#x6C34;" (in hexadecimal) represents the Chinese character for water.
+We discuss HTML character references in detail later in the section on the HTML document character set. The specification also contains a list of character references that may appear in HTML 4 documents.
+
+3.2.4 Comments
+
+HTML comments have the following syntax:
+
+<!-- this is a comment -->
+<!-- and so is this one,
+    which occupies more than one line -->
+White space is not permitted between the markup declaration open delimiter("<!") and the comment open delimiter ("--"), but is permitted between the comment close delimiter ("--") and the markup declaration close delimiter (">"). A common error is to include a string of hyphens ("---") within a comment. Authors should avoid putting two or more adjacent hyphens inside comments.
+
+Information that appears between comments has no special meaning (e.g., character references are not interpreted as such).
+
+Note that comments are markup.
+
+3.3 How to read the HTML DTD
+
+Each element and attribute declaration in this specification is accompanied by its document type definition fragment. We have chosen to include the DTD fragments in the specification rather than seek a more approachable, but longer and less precise means of describing an element's properties. The following tutorial should allow readers unfamiliar with SGML to read the DTD and understand the technical details of the HTML specification.
+
+3.3.1 DTD Comments
+
+In DTDs, comments may spread over one or more lines. In the DTD, comments are delimited by a pair of "--" marks, e.g.
+
+<!ELEMENT PARAM - O EMPTY       -- named property value -->
+Here, the comment "named property value" explains the use of the PARAM element type. Comments in the DTD are informative only.
+3.3.2 Parameter entity definitions
+
+The HTML DTD begins with a series of parameter entity definitions. A parameter entity definition defines a kind of macro that may be referenced and expanded elsewhere in the DTD. These macros may not appear in HTML documents, only in the DTD. Other types of macros, called character references, may be used in the text of an HTML document or within attribute values.
+
+When the parameter entity is referred to by name in the DTD, it is expanded into a string.
+
+A parameter entity definition begins with the keyword <!ENTITY % followed by the entity name, the quoted string the entity expands to, and finally a closing >. Instances of parameter entities in a DTD begin with "%", then the parameter entity name, and terminated by an optional ";".
+
+The following example defines the string that the "%fontstyle;" entity will expand to.
+
+<!ENTITY % fontstyle "TT | I | B | BIG | SMALL">
+The string the parameter entity expands to may contain other parameter entity names. These names are expanded recursively. In the following example, the "%inline;" parameter entity is defined to include the "%fontstyle;", "%phrase;", "%special;" and "%formctrl;" parameter entities.
+
+<!ENTITY % inline "#PCDATA | %fontstyle; | %phrase; | %special; | %formctrl;">
+You will encounter two DTD entities frequently in the HTML DTD: "%block;" "%inline;". They are used when the content model includes block-level and inline elements, respectively (defined in the section on the global structure of an HTML document).
+
+3.3.3 Element declarations
+
+The bulk of the HTML DTD consists of the declarations of element types and their attributes. The <!ELEMENT keyword begins a declaration and the > character ends it. Between these are specified:
+
+The element's name.
+Whether the element's tags are optional. Two hyphens that appear after the element name mean that the start and end tags are mandatory. One hyphen followed by the letter "O" indicates that the end tag can be omitted. A pair of letter "O"s indicate that both the start and end tags can be omitted.
+The element's content, if any. The allowed content for an element is called its content model. Element types that are designed to have no content are called empty elements. The content model for such element types is declared using the keyword "EMPTY".
+In this example:
+
+    <!ELEMENT UL - - (LI)+>
+The element type being declared is UL.
+The two hyphens indicate that both the start tag <UL> and the end tag </UL> for this element type are required.
+The content model for this element type is declared to be "at least one LI element". Below, we explain how to specify content models.
+This example illustrates the declaration of an empty element type:
+
+    <!ELEMENT IMG - O EMPTY>
+The element type being declared is IMG.
+The hyphen and the following "O" indicate that the end tag can be omitted, but together with the content model "EMPTY", this is strengthened to the rule that the end tag must be omitted.
+The "EMPTY" keyword means that instances of this type must not have content.
+Content model definitions 
+
+The content model describes what may be contained by an instance of an element type. Content model definitions may include:
+
+The names of allowed or forbidden element types (e.g., the UL element contains instances of the LI element type, and the P element type may not contain other P elements).
+DTD entities (e.g., the LABEL element contains instances of the "%inline;" parameter entity).
+Document text (indicated by the SGML construct "#PCDATA"). Text may contain character references. Recall that these begin with & and end with a semicolon (e.g., "Herg&eacute;'s adventures of Tintin" contains the character entity reference for the "e acute" character).
+The content model of an element is specified with the following syntax. Please note that the list below is a simplification of the full SGML syntax rules and does not address, e.g., precedences.
+
+( ... )
+Delimits a group.
+A
+A must occur, one time only.
+A+
+A must occur one or more times.
+A?
+A must occur zero or one time.
+A*
+A may occur zero or more times.
++(A)
+A may occur.
+-(A)
+A must not occur.
+A | B
+Either A or B must occur, but not both.
+A , B
+Both A and B must occur, in that order.
+A & B
+Both A and B must occur, in any order.
+Here are some examples from the HTML DTD:
+
+   <!ELEMENT UL - - (LI)+>
+The UL element must contain one or more LI elements.
+
+   <!ELEMENT DL    - - (DT|DD)+>
+The DL element must contain one or more DT or DD elements in any order.
+
+   <!ELEMENT OPTION - O (#PCDATA)>
+The OPTION element may only contain text and entities, such as &amp; -- this is indicated by the SGML data type #PCDATA.
+
+A few HTML element types use an additional SGML feature to exclude elements from their content model. Excluded elements are preceded by a hyphen. Explicit exclusions override permitted elements.
+
+In this example, the -(A) signifies that the element A cannot appear in another A element (i.e., anchors may not be nested).
+
+   <!ELEMENT A - - (%inline;)* -(A)>
+Note that the A element type is part of the DTD parameter entity "%inline;", but is excluded explicitly because of -(A).
+
+Similarly, the following element type declaration for FORM prohibits nested forms:
+
+   <!ELEMENT FORM - - (%block;|SCRIPT)+ -(FORM)>
+3.3.4 Attribute declarations
+
+The <!ATTLIST keyword begins the declaration of attributes that an element may take. It is followed by the name of the element in question, a list of attribute definitions, and a closing >. Each attribute definition is a triplet that defines:
+
+The name of an attribute.
+The type of the attribute's value or an explicit set of possible values. Values defined explicitly by the DTD are case-insensitive. Please consult the section on basic HTML data types for more information about attribute value types.
+Whether the default value of the attribute is implicit (keyword "#IMPLIED"), in which case the default value must be supplied by the user agent (in some cases via inheritance from parent elements); always required (keyword "#REQUIRED"); or fixed to the given value (keyword "#FIXED"). Some attribute definitions explicitly specify a default value for the attribute.
+In this example, the name attribute is defined for the MAP element. The attribute is optional for this element.
+
+<!ATTLIST MAP
+  name        CDATA     #IMPLIED
+  >
+The type of values permitted for the attribute is given as CDATA, an SGML data type. CDATA is text that may contain character references.
+
+For more information about "CDATA", "NAME", "ID", and other data types, please consult the section on HTML data types.
+
+The following examples illustrate several attribute definitions:
+
+rowspan     NUMBER     1         -- number of rows spanned by cell --
+http-equiv  NAME       #IMPLIED  -- HTTP response header name  --
+id          ID         #IMPLIED  -- document-wide unique id -- 
+valign      (top|middle|bottom|baseline) #IMPLIED
+The rowspan attribute requires values of type NUMBER. The default value is given explicitly as "1". The optional http-equiv attribute requires values of type NAME. The optional id attribute requires values of type ID. The optional valign attribute is constrained to take values from the set {top, middle, bottom, baseline}.
+
+DTD entities in attribute definitions 
+
+Attribute definitions may also contain parameter entity references.
+
+In this example, we see that the attribute definition list for the LINK element begins with the "%attrs;" parameter entity.
+
+<!ELEMENT LINK - O EMPTY               -- a media-independent link -->
+<!ATTLIST LINK
+  %attrs;                              -- %coreattrs, %i18n, %events --
+  charset     %Charset;      #IMPLIED  -- char encoding of linked resource --
+  href        %URI;          #IMPLIED  -- URI for linked resource --
+  hreflang    %LanguageCode; #IMPLIED  -- language code --
+  type        %ContentType;  #IMPLIED  -- advisory content type --
+  rel         %LinkTypes;    #IMPLIED  -- forward link types --
+  rev         %LinkTypes;    #IMPLIED  -- reverse link types --
+  media       %MediaDesc;    #IMPLIED  -- for rendering on these media --
+  >
+Start tag: required, End tag: forbidden
+
+The "%attrs;" parameter entity is defined as follows:
+
+<!ENTITY % attrs "%coreattrs; %i18n; %events;">
+The "%coreattrs;" parameter entity in the "%attrs;" definition expands as follows:
+
+<!ENTITY % coreattrs
+ "id          ID             #IMPLIED  -- document-wide unique id --
+  class       CDATA          #IMPLIED  -- space-separated list of classes --
+  style       %StyleSheet;   #IMPLIED  -- associated style info --
+  title       %Text;         #IMPLIED  -- advisory title --"
+  >
+The "%attrs;" parameter entity has been defined for convenience since these attributes are defined for most HTML element types.
+
+Similarly, the DTD defines the "%URI;" parameter entity as expanding into the string "CDATA".
+
+<!ENTITY % URI "CDATA"
+    -- a Uniform Resource Identifier,
+       see [URI]
+    -->
+As this example illustrates, the parameter entity "%URI;" provides readers of the DTD with more information as to the type of data expected for an attribute. Similar entities have been defined for "%Color;", "%Charset;", "%Length;", "%Pixels;", etc.
+
+Boolean attributes 
+
+Some attributes play the role of boolean variables (e.g., the selected attribute for the OPTION element). Their appearance in the start tag of an element implies that the value of the attribute is "true". Their absence implies a value of "false".
+
+Boolean attributes may legally take a single value: the name of the attribute itself (e.g., selected="selected").
+
+This example defines the selected attribute to be a boolean attribute.
+
+selected     (selected)  #IMPLIED  -- option is pre-selected --
+The attribute is set to "true" by appearing in the element's start tag:
+
+<OPTION selected="selected">
+...contents...
+</OPTION>
+In HTML, boolean attributes may appear in minimized form -- the attribute's value appears alone in the element's start tag. Thus, selected may be set by writing:
+
+<OPTION selected>
+instead of:
+
+<OPTION selected="selected">
+Authors should be aware that many user agents only recognize the minimized form of boolean attributes and not the full form.
+
+previous   next   contents   elements   attributes   index.1 Triggre
+*/
+
+/*
+1 Rozsirte tabulku zap_predmety o dva stlpce -  uzivatl, datum. 
+Vytvorte trigger, ktory pri zmene naplni tieto stlpce do vsetkych zmenenych 
+riadkov aktualnym uzivatelom a datumom a casom  tejto zmeny. 
+(Tak, aby ste zabranili prepisaniu uzivatelom.)
+*/
+
+/*
+Rozsirenie tabulky
+*/
+
+/*
+Alter table zap_predmety
+  add(uzivatel Varchar2(9),datum DAte);
+*/
+
+/*
+CREATE OR REPLACE TRIGGER tr_up_zap_predm
+before update on zap_predmety
+referencing new as novy
+for each row
+begin
+  select user,sysdate into :novy.uzivatel, :novy.datum from dual;
+end;
+/
+*/
+
+/*
+2. Pomocou triggra(triggrov) zabezpecte, ze ziaden student nemoze predmet 
+opakovat viac ako jeden krat. (Pri operacii insert)
+*/
+
+/*
+CREATE OR REPLACE TRIGGER tr_kon_opak
+  befor insert on zap_predmety
+  referencing new as novy
+  for each row
+  declare pocet integer;
+  begin
+    select count(*) into pocet
+    from zap_predmety
+    where os_cislo = :novy.os_cislo and cis_predm = :novy.cis_predm;
+    
+    if pocet >= 2 then
+      raise_application_error(-20000,'error-nemozes si zapisat predmet 3x');
+    end if;
+  end;
+/
+*/
+
+/*
+3. Spravte trigger, ktory vam zabezpeci kaskadu na operaciu 
+update pre zmenu osobneho cisla.
+*/
+
+/*
+CREATE OR REPLACE TRIGGER trg_kaskada
+before update of os_cislo on student
+referencing new as novy old as stary
+for each row
+declare 
+  pocet integer;
+begin
+  select count(*) into pocet from zap_predmety
+  where os_cislo= :stary.os_cislo;
+  dbms_output.put_line('opravenych '||pocet||' zaznamov');
+  update zap_predmety
+  set os_cislo = :novy.os_cislo
+  where os_cislo = :stary.os_cislo;
+end;
+/
+*/
+
+/*
+4. Vytvorte tabulku pre logovanie operacii vykonavanych 
+nad tabulkou zap_predmety. Potrebne je logovat- kto, kedy, aku operaciu vykonal
+a ako vyzeral povodny zaznam (v pripade Delete, Update) alebo novy zaznam
+v pripade Insert
+*/
+
+/*
+create table log_table
+as select * from zap_predmety where os_cislo is null);
+*/
+
+/*
+alter table log_table
+add (operacia char(1));
+*/
+
+/*
+create or replace trigger zp_predm_ins
+  before insert on zap_predmety
+  referencing new as novy
+  for each row
+begin
+  insert into zp_del(os_cislo, skrok, cis_predm, prednasajuci, 
+                     vysledok, datum_sk, termin, zapocet, kredity, 
+                     uzivatel, datum, operacia)
+  values (:novy.os_cislo, :novy.skrok, :novy.cis_predm, :novy.prednasajuci,
+         :novy.vysledok, :novy.datum_sk, :novy.termin, :novy.zapocet,
+         :novy.kredity, user, sysdate, 'I'); 
+end;
+*/
+
+/*
+create or replace trigger zp_predm_del
+  before delete on zap_predmety
+  referencing old as old
+  for each row
+begin
+  insert into zp_del(os_cislo, skrok, cis_predm, prednasajuci, vysledok,
+                     datum_sk, termin, zapocet, kredity, uzivatel, 
+                     datum, operacia)
+  values (:old.os_cislo, :old.skrok, :old.cis_predm, :old.prednasajuci,
+          :old.vysledok, :old.datum_sk, :old.termin, :old.zapocet,
+          :old.kredity, user, sysdate, 'D');
+end;
+/
+*/
+
+/*
+create or replace trigger zp_predm_up
+  before update on zap_predmety
+  referencing old as stary
+  for each row
+begin
+  insert into zp_del(os_cislo, skrok, cis_predm, prednasajuci, vysledok,
+                     datum_sk, termin, zapocet, kredity, uzivatel, datum,
+                     operacia)
+  values (:stary.os_cislo, :stary.skrok, :stary.cis_predm, :stary.prednasajuci,
+          :stary.vysledok, :stary.datum_sk, :stary.termin, :stary.zapocet,
+          :stary.kredity, user, sysdate, 'U');
+end;
+/
+*/
+
+/*---------------------------------------------------------------------------*/
+
+/*
+Uloha c. 2- Procedury a funkcie
+*/
+
+/*
+1. Vytvorte proceduru Vypis_typ_predmetu, ktora ma dva parametre- jeden ako
+vstupny parameter cislo predmetu a druhy ako vystupny parameter informaciu,
+ci je dany predmet povinny (P), alternativny (A) alebo volitelny (V).
+*/
+
+/*
+create or replace procedure Vypis_typ_predmetu
+  (v_cis_predm in zap_predmety.cis_predm%TYPE,
+   vys_i out varchar2)
+is
+begin
+  vys_i := substr(v_cis_predm,1,1);
+end Vypis_typ_predmetu;
+/
+*/
+
+/*
+2. Vytvorte proceduru Vloz_predmet, ktora vykona INSERT operaciu noveho predmetu
+do tabulky predmet. Zabezpecte aby boli vyplnene vsetky NOT NULL stlpce este
+pred pokusom o vlozenie.
+Skompilujte proceduru a vlozte nasledujuce predmety:
+Cislo predmetu: P614, nazov: Databazove systemy, gestor: KI003
+Cislo predmetu: P112, nazov: Uvod do inzinierstva, gestor: KMME1
+Cislo predmetu: P112, nazov: Uvod do inzinierstva, gestor: KMME1
+(Co sa stalo pri vkladani tohto zaznamu?Nastala chyba?Preco?)
+*/
+
+/*
+create or replace procedure vloz_predmet
+  (v_cis_predm in predmet.cis_predm%TYPE DEFAULT 'NIC',
+   v_gestor in predmet.gestor%TYPE DEFAULT 'NIC',
+   v_nazov in predmet.nazov%TYPE DEFAULT 'NIC')
+is
+begin
+  insert into predmet (cis_predm,gestor,nazov) 
+  values (v_cis_predm,v_gestor,v_nazov);
+end;
+/ 
+*/
+
+/*
+3. Vytvorte prislusnu exception na osetrenie predchadzajucej chyby 
+v procedure Vloz_predmet 
+*/
+
+/*
+create or replace procedure vloz_predmet
+  (v_cis_predm in predmet.cis_predm%TYPE DEFAULT 'NIC',
+   v_gestor in predmet.gestor%TYPE DEFAULT 'NIC',
+   v_nazov in predmet.nazov%TYPE DEFAULT 'NIC')
+is
+begin
+  insert into predmet (cis_predm,gestor,nazov)
+  values (v_cis_predm,v_gestor,v_nazov);
+  exception
+  when DUP_VAL_ON_INDEX then
+    dbms_output.put_line('Pokusas sa vkladat duplicitny primarny kluc');
+end;
+/
+*/
+
+/*
+Uloha c.3- Domaca uloha- triggre
+*/
+
+/*
+1. Napiste trigger, ktorym zakazete vymazavat komukolvek riadky z tabulky
+zap_predmety. Nasledne sa pokuste vymazat niektory riadok.
+*/
+
+/*
+create or replace trigger tr_del_zap_predm
+  before delete on zap_predmety
+  for each row
+begin
+  raise_application_error(-20000,'Nemas pravo mazat udaje');
+end;
+/
+*/
+
+/*
+2. Vyskusajte si odstavenie a znovu aktivovanie triggra z predchadzajuceho
+prikladu.
+*/
+
+/*
+alter trigger tr_del_zap_predm disable;
+
+alter trigger tr_del_zap_predm enable;
+*/
+
+/*
+Dropnite triggerz prikladu c.1.
+*/
+
+/*
+drop trigger tr_up_zap_predm;
+*/
+
+/*
+Uloha c.4 - Domaca uloha- procedury
+*/
+
+/*
+1. Bonus- Upravte proceduru Vloz_predmet, tak aby ste skontrolovali skor ako to
+tam vlozite, ci je mozne vlozit a ak nie vypiste hlasku, inak tam vlozte nove
+udaje.
+*/
+
+/*
+create or replace procedure vloz_predmet
+  (v_cis_predm in predmet.cis_predm%TYPE DEFAULT 'NIC',
+   v_gestor in predmet.gestor%TYPE DEFAULT 'NIC',
+   v_nazov in predmet.nazov%TYPE DEFAULT 'NIC')
+is
+begin
+  insert into predmet (cis_predm,gestor,nazov)
+  values (v_cis_predm,v_gestor,v_nazov);
+  exception
+  when DUP_VAL_ON_INDEX then
+    dbms_output.put_line('Pokusas sa vkladat duplicitny primarny kluc');
+end;
+/
+*/
+
+
+/*
+2. Vytvorte proceduru Zmen_predmet, ktora vykona UPDATE operaciu nazvu predmetu
+v tabulke PREDMET. Ako vstupny parameter odovzdajte cislo predmetu a novy nazov
+predmetu. Vytvorte exception pre osetrenie pripadu, ked zadany predmet 
+neexistuje, t.j. nenastane ziaden update.
+Skompilujte proceduru a otestujte.
+*/
+
+/*
+create or replace procedure Zmen_predmet
+  (v_cis_predm in predmet.cis_predm%TYPE,
+   v_nazov in predmet.nazov%TYPE)
+as
+  pocet number := 0;
+begin
+  select count(*) into pocet from predmet where cis_predm=v_cis_predm;
+  if (pocet =0) then
+    raise_application_error(-20000,'Takyto predmet neexistuje v tabulke predmety');
+  end if;
+  update predmet set nazov=v_nazov where cis_predm=v_cis_predm;
+end Zmen_predmet;
+/
+*/
+
+/*
+3. Vytvorte funkciu Zrus_predmet, kotra vykona DELETE operaciu predmetu v 
+tabulke PREDMET. Ako vstupny parameter odovzdajte cislo predmetu. Navratova 
+hodnota funkcie bude pocet vymazanych riadkov. 
+
+Podla mna zle definovana uloha asi bude treba zabezpecit aj kaskadu na zap_predmety
+*/
+
+/*
+Create or replace function Zrus_predmet
+  (v_cis_predm predmet.cis_predm%TYPE)
+  return number
+as
+pocet number := 0;
+begin
+  select count(*) into pocet from zap_predmety where cis_predm = v_cis_predm;
+  delete from zap_predmety where cis_predm = v_cis_predm;
+  delete from predmet where cis_predm = v_cis_predm;
+  pocet := pocet + 1;
+  return pocet;
+end;
+/
+*/

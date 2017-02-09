@@ -1,0 +1,91 @@
+
+ 
+ 
+Otazky byly:
+1. prevod z ER do relacniho schematu
+a) ISA hierarchie (chtel vic moznosti)
+b) vicenasobne atributy
+2. Implemetnace
+a) vyjmenovat a popsat implementace spojeni relaci
+b) co je hlavni pri implementaci mnozinovych operaci a projekce
+3. Detekce deadlocku
+a) v distribuovanych systemech
+b) v nedistribuovanych systemech
+Odpovedi chtel kratke (rikal 2-3 vety na otazku), cas max. 2hodiny,
+vysledky mailem.
+Hodne stesti vsem (i sobe), snad to pomuze. Misa
+
+> 
+ 
+Cau,
+nevi nekdo, kde se daji najit ty veci jako otazka 2 a 3 ???
+Diky, Filip
+
+>
+
+Jedny z Pokorneho slajdu: http://kocour.ms.mff.cuni.cz/texty/vyhodnoceni/
+(vsechny jeho slajdy: http://kocour.ms.mff.cuni.cz/vsuvky/pokorny.T.en.html;
+neboj se, slajdy jsou cesky)
+
+> > 3. Detekce deadlocku
+> > a) v distribuovanych systemech
+ftp://barbora.ms.mff.cuni.cz/USR/VYUKA/RIHA/distrdb.pdf
+(anglicky, strana 64-74)
+> > b) v nedistribuovanych systemech
+ftp://barbora.ms.mff.cuni.cz/USR/VYUKA/RIHA/transak.doc
+(cesky, strana 20; pouze kratky popis wait-for grafu)
+
+==
+
+
+1. Odvodte B1, B2, B3 z A1 a A2
+
+A1. X podmn. Y => Y -> X
+A2. X -> Y, YZ -> W => XZ -> W
+
+B1. X -> YZ, Z -> W => X -> YZW
+B2. X -> Y, X -> Z => X -> YZ
+B3. X -> Y, Z PODMN. W => XW -> YZ
+
+2. dano {A,B,C,D} a {BC->D, A->D, BA->c, CA->B, BD->C}. Dekompozice +
+synteza.
+
+3. Vytvorte E-R diagram pro nemocnice, pacienty, lekare:
+
+o kazdem pacientovi se eviduje RC, jmeno, adresa, o lekarich RC, jmeno,
+odbornost a adresa, pacienti naji stanovenou diagnozu, praktickeho lekare,
+mohou mit predepsane leky, je stanoveno davkovani leku (kazdy typ
+davkovani ma jednoznacny kod), pokud je pacient v nemocnici, je umisten na
+luzku, eviduje se datum nastupu, o lecich se eviduje nazev, obvykle
+davkovani a cena, pokoje jsou ocislovany v ramci oddeleni, oddeleni
+pojmenovana v ramci nemocnice, oddeleni ma svuj nazev a sveho primare,
+pokoj sve cislo a osetrujiciho lekare, na pokoji muze byt maximalne 8
+luzek cislovanych v ramci pokoje.
+
+4. Transformujte predlozeny E-R diagram ro relacniho dat. schematu
+- schema je nahrano jako png na strance konference
+
+
+karel.
+
+=========
+
+Zkouska se sklada z pisemky a z nekolikatydenniho cekani na znamku.
+
+Ja mel v pisemce takoveto tri priklady (volne prevypraveno):
+1) a) Co udelame kdyz nekdo nepodporuje (1-n):(1-n) ve schematu ?
+(Odpoved: pridame pomocnou entitu, nejlepe nakreslit jak)
+b) Co je tady na tom schematu divne ?
+(+Schema s pojmenovanymi entitami)
+c) Porovnejte tyto dve schemata (na jednom byl trojentitovy vztah, na
+druhem to same rozkreslene na tri vztahy, slo hlavne o kardinality)
+
+2) 4 dotazy v domenovem kalkulu, meli jsme predelat do relacni algebry.
+
+3) transakce, predelat na dvoufazove zamykani s prevenci deathlocku pomoci
+casovych zamku.
+
+Celkove bych rekl ze to byla nuda. Mel jsem to za pul hodiny. Zbytek tridy
+tam asi jeste sedi.
+Honza
+

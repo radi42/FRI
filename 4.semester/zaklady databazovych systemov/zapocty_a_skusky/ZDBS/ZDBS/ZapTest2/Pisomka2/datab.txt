@@ -1,0 +1,38 @@
+  vyber jedál z menu na dnešnı den
+
+select nazov from jedlo,menu
+where menu.id_jedla=jedlo.id_jedla
+and menu.kedy=sysdate;
+
+  prehlad jedal za posledny mesiac
+
+select id_jedla,nazov from jedlo,menu
+where jedlo.id_jedla=menu.id_jedla
+and to_char(menu.kedy,'mm')=to_char(sysdate,'mm')-1;
+
+  ake si objednali Doktorandi za posledné 2 tıdne
+
+select id_jedla from objednavky,stravnik,typ_stravnika
+where objednavky.id_stravnika=stravnik.id_stravnika
+and stravnik.id_typu=typ_stravnika.id_typu
+and typ_stravnika.nazov='doktorand'
+and to_char(objednavky.kedy,'dd')=to_char(sysdate,'dd')-14;
+
+  vypíš jedlo ktoré sa v objednávkach neobjavilo poslednıch 14 dní
+
+select id_jedla,nazov from jedlo,menu,platnost_menu,objednavky
+where jedlo.id_jedla=menu.id_jedla
+and menu.id_jedla=platnost_menu.id_jedla
+and platnost_menu.id_jedla=objednavky.id_jedla
+and kedy not in (select to_char(kedy,'dd')=to_char(sysdate,'dd')-14);
+
+
+zmaza objednávku stravníka meno blablabla...ktoré 
+je na zajtra
+vypísa mennı zoznam stravníkov ktorı si u nieèo 
+objednali
+bol tam dáky pohlad a do pohladu si vloil nieèo cez 
+select a otázka bola e aká bude vısledná záznamová 
+poloka new
+insert menu do zajtrajsieho dna
+

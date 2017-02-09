@@ -1,0 +1,73 @@
+7. Objednajte zákaníka s id_osoby = 332, id_zamestnanca = 3124 na zajtra o 10
+. (Ostatné údaje nastavte na null)
+
+insert into k_objed (kedy, id_zam, id_zak, ukonc, trv)
+  values (to_date(to_char(sysdate+1,'DD.MM.YYYY')||' 10:00','DD.MM.YYYY HH24:MI'), 3124, 332, null, null);
+
+
+9. 	Aký bude výsledok nasledovného selectu?
+
+select count(psc)
+from osoba 
+group by meno;
+
+2
+1
+1
+1
+2
+1
+
+10. 	Opravte priezvisko aktuálnej zamestnankyne z Mudrochová na Patkošová.(Pozor nemeòte zákazníèky )
+
+update k_osoba set priezvisko = 'Patkosova'
+  where k_osoba.priezvisko = 'mudrosova'
+  and k_osoba.id_osoby IN (select id_osoby from osoba o,zamestnanec z 
+    where o.id_osoby = z.id_osoby); 
+
+11. 	Vypíšte menný zoznam zákazníkov, ktorí si boli/sú objednaní na dnešný deò.
+select meno, priezvisko from k_osoba, k_objednavka
+ where k_osoba.id_osoby=k_objednavka.id_zakaznika and
+       kedy=sysdate;
+
+
+12. 	Vypíšte menný zoznam zamestnancov, ktorí robili za posledný mesiac melír (nazov_ukonu). (potlaète duplicity)
+
+select distinct meno, priezvisko from k_osoba, k_zamestnanec, k_polozka, k_ukon
+ where k_osoba.id_osoby=k_zamestnanec.id_osoby and
+       k_zamestnanec.id_zamestnanca=k_polozka.id_zamestnanca and
+       k_polozka.id_ukonu=k_ukon.id_ukonu and
+       k_polozka.kedy between add_months(sysdate,-1) and sysdate and
+       k_ukon.nazov='melir';  
+
+
+
+13. 	Vypíšte meno najvernejšieho zákazníka pod¾a poètu návštev
+
+select id-zakaznika from (
+select id-zakaznika, count(*) from k-objednavka
+  where uskutocnene is not null
+    and uskutocnene = 'a'
+  group by id.zakaznika
+  order by count (*) DESC
+) where rownum < 2;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+select to_date (trunc(sysdate,'DD')) - to_date('21.05.2007','DD.MM.RRRR') A, to_char (sysdate,'DD.MM.RRRR') B from dual;
+
+select trunc (sysdate,'MM') from dual
+

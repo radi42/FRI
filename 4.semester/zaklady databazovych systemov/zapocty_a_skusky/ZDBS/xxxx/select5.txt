@@ -1,0 +1,6 @@
+select meno, priezvisko, nazov, datum_sk-zapocet as pocet_dni
+from zap_predmety join predmet using(cis_predm)
+join student using(os_cislo)
+join os_udaje using(rod_cislo)
+where datum_sk is not null
+and zapocet is not null;

@@ -1,0 +1,90 @@
+insert into os_udaje(rod_cislo, meno, priezvisko)
+values('121212/1212', 'Karol', 'Novy');
+
+insert into student(os_cislo, st_odbor, st_zameranie, rod_cislo, rocnik,
+st_skupina)
+values(123, 100, 0, '121212/1212', 1, '5ZI012');
+
+insert into zap_predmety(os_cislo, skrok, cis_predm, prednasajuci)
+values(123, 2008, 'BI11', 'EX002');
+
+insert into zap_predmety(os_cislo, skrok, cis_predm, prednasajuci)
+values(123, 2008, 'BI02', 'KI001');
+
+insert into zap_predmety(os_cislo, skrok, cis_predm, prednasajuci)
+values(123, 2003, 'BE01', 'KME01');
+
+insert into os_udaje(rod_cislo, meno, priezvisko)
+values('232323/2323', 'Karol', 'Novsi');
+
+insert into student(os_cislo, st_odbor, st_zameranie, rod_cislo, rocnik,
+st_skupina)
+values(90, 200, 2, '232323/2323', 2, '5ZSA21');
+
+insert into zap_predmety(os_cislo, skrok, cis_predm, prednasajuci)
+values(90, 2006, 'II08', 'KDS01');
+
+insert into zap_predmety(os_cislo, skrok, cis_predm, prednasajuci)
+values(90, 2007, 'II07', 'KI001');
+
+insert into os_udaje(rod_cislo, meno, priezvisko)
+select rod_cislo, meno, priezvisko
+from valentik.osoba;
+
+insert into student(rod_cislo, os_cislo, rocnik, st_skupina, st_odbor,
+st_zameranie)
+select rod_cislo, os_cislo, rocnik, st_skupina, st_odbor, st_zameranie
+from valentik.osoba;
+
+insert into zap_predmety(os_cislo, cis_predm, skrok, prednasajuci, kredity)
+select os_cislo, predmet.cis_predm, skrok, garant, kredit
+from valentik.skusky, predmet
+where skusky.cis_predm = predmet.cis_predm;
+
+*/
+
+
+UPDATE os_udaje SET priezvisko='Stary' 
+WHERE priezvisko='Novy';
+
+UPDATE os_udaje SET meno='Carlos' 
+WHERE rod_cislo IN (SELECT rod_cislo 
+FROM student 
+WHERE student.os_cislo=8);
+
+UPDATE zap_predmety SET cis_predm = 'BI01' 
+WHERE ((cis_predm LIKE 'BI11') 
+AND (os_cislo IN (SELECT os_cislo 
+FROM student 
+WHERE rocnik = 1)));
+
+UPDATE student SET stav='S' 
+WHERE stav IS NULL;
+
+UPDATE student SET rocnik=rocnik+1, st_skupina=(substr(st_skupina,1,4) || (substr(st_skupina,5,1)+1) || substr(st_skupina,6,1)) 
+WHERE stav='S' 
+AND (((rocnik between 1 AND 2) 
+AND (st_odbor between 100 AND 199)) 
+OR (rocnik=1 AND (st_odbor between 200 AND 299)));
+
+DELETE FROM zap_predmety 
+WHERE os_cislo=123 
+AND cis_predm='BE01';
+
+DELETE FROM zap_predmety 
+WHERE (cis_predm LIKE 'BI01' AND os_cislo IN(SELECT os_cislo FROM student WHERE st_skupina LIKE '5ZI022'));
+
+create table t2 as select os_cislo,rod_cislo 
+from student 
+where to_char(dat_prv_zap,'YYYY')=1990;
+
+DELETE FROM zap_predmety 
+WHERE (os_cislo IN(SELECT os_cislo FROM t2));
+
+DELETE FROM student 
+WHERE (os_cislo IN (SELECT os_cislo FROM t2));
+
+DELETE FROM os_udaje 
+WHERE (rod_cislo IN (SELECT rod_cislo FROM t2) AND (rod_cislo NOT IN (SELECT rod_cislo FROM student)));
+
+

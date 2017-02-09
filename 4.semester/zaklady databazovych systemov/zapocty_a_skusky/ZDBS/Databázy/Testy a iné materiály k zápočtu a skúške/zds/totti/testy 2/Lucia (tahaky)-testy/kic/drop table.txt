@@ -1,0 +1,17 @@
+drop table osobne_cisla cascade constraints;
+drop table student cascade constraints;
+drop table stud_program  cascade constraints;
+drop table stat cascade constraints;
+drop table obec  cascade constraints;
+drop table narodnost  cascade constraints;
+drop table okres cascade constraints;
+drop table osoba cascade constraints;
+drop table ucitel cascade constraints;
+drop table zameranie cascade constraints;
+drop table zamestnanec cascade constraints;
+drop table pracovisko cascade constraints;
+drop table predmety cascade constraints;
+drop table zap_predmety cascade constraints;
+
+
+select table_name from tabs;

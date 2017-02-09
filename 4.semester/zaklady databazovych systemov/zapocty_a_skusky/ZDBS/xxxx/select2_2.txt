@@ -1,0 +1,3 @@
+select meno, priezvisko
+from os_udaje join student using(rod_cislo)
+where not exists(select 'x' from zap_predmety where student.os_cislo=zap_predmety.os_cislo);

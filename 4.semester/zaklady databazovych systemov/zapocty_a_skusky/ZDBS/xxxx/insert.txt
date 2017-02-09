@@ -1,0 +1,8 @@
+insert into zap_predmety(os_cislo, skrok, cis_predm, prednasajuci, kredity)
+select student.os_cislo, 2008, priklad_db2.st_program.cis_predm, predmet.garant, predmet.kredit
+from student, priklad_db2.st_program, predmet
+where student.st_odbor=100
+and student.rocnik=2
+and priklad_db2.st_program.rocnik=2
+and priklad_db2.st_program.typ_povin='P'
+and priklad_db2.st_program.cis_predm=predmet.cis_predm;

@@ -1,0 +1,463 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+	<HEAD>
+  	<META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=".CHARSET>
+		<TITLE>
+			Skúšací systém FRI                        - barancok		</TITLE>
+		<LINK REL="StyleSheet" HREF="styly.css" type="text/css">
+	</HEAD>
+	
+	<BODY>	   
+<SCRIPT LANGUAGE="Javascript">
+<!--
+   function validate(formular) {
+
+		if (formular.newlogin.value == "") {
+			alert("Nezadali ste všetky povinné údaje!");
+	 return false;
+		}
+      else
+	return true;
+   };
+//-->
+</SCRIPT>
+
+  <TABLE width="100%">
+    <TR>
+      <TD colspan="2">     <TABLE width="100%">
+      <TR>
+        <TD>
+                    <IMG src="frilogo.bmp">
+          <BR>
+          <a href="doc/uzivatel_help.htm" charset="windows-1250">HELP</a> 
+        </TD><TD>
+          <H1> Skúšací systém FRI </H1>
+        </TD><TD align="right" valign="top" width="10%">
+Prihlásenı:<BR>Baranèok        Juraj          <BR>		<DIV ALIGN="right">
+			<A HREF="index.php?SubmitButton=logout&PHPSESSID=8669fd9e83f01434664693b8bb5963f8">
+			Odhlási sa</A><BR>
+		</DIV>
+<BR><A href=set_skrok.php?PHPSESSID=8669fd9e83f01434664693b8bb5963f8&action=chooseSkrok>Zvoli školskı rok</A><BR>2005<BR>	</TD>
+      </TR>
+    </TABLE>
+
+ </TD>
+    </TR><TR>
+      <TD width="20%" valign="top">       &nbsp;&nbsp;&nbsp; 
+      04.05.2006, 11:19 <BR><BR><BR>
+
+      <TABLE width="130" class="leftmenu">
+         <TR>
+	   <TH> <B> Študent </B> </TH>
+ 	 </TR><TR>
+ 	    <TD>
+	      <A HREF="frame_st.php?PHPSESSID=8669fd9e83f01434664693b8bb5963f8&Login=barancok                 &Language=sk">Zmeni heslo / login</A>
+	    </TD>
+         </TR><TR>
+	   <TD>
+<BR><BR>
+             <A HREF="student.php?PHPSESSID=8669fd9e83f01434664693b8bb5963f8&action=viewsubjects">Zapísané predmety</A>
+	   </TD>
+         </TR><TR>
+	    <TD>
+              <A HREF="student.php?PHPSESSID=8669fd9e83f01434664693b8bb5963f8&action=signOnExam">Zapísa na skúšku</A>
+	    </TD>
+         </TR><TR>
+	    <TD>
+              <A HREF="student.php?PHPSESSID=8669fd9e83f01434664693b8bb5963f8&action=viewtests">Zadané testy</A>
+<BR><BR>
+	    </TD>
+         </TR><TR>
+	    <TD>
+              <A HREF="student.php?PHPSESSID=8669fd9e83f01434664693b8bb5963f8&action=viewmsgs">Prezera správy</A>
+	    </TD>
+         </TR><TR>
+	    <TD>
+              <A HREF="student.php?PHPSESSID=8669fd9e83f01434664693b8bb5963f8&action=sendmsg">Posla správu</A>
+	    </TD>
+         </TR><TR>
+	    <TD>
+<BR><BR>
+              <A HREF="student.php?PHPSESSID=8669fd9e83f01434664693b8bb5963f8&action=chooseDef">Zvoli implicitnı predmet</A>
+	    </TD>
+         </TR>
+      </TABLE>
+ </TD>
+      <TD width="80%" align="left" valign="top">
+     <DIV ALIGN="center"> <H3>Študent -
+     Vypracova test 2/3 </H3></DIV>
+         <H2 align="center">
+           BI06 - Zápoètovı 2/2005 B Stv0506         </H2>
+	 <FORM method="post" name="myform">
+           <TABLE width="100%"><TR><TD>
+             <HR>
+Èas zaèiatku : 2006-05-03 20:41:16<BR>               <INPUT TYPE="Text" name="minutky" SIZE="6" READONLY="on"
+               VALUE="55:00">
+               minút do konca.
+               <HR>
+	       </TD></TR><TR><TD>
+  <TABLE class="form"  align="center" width = "100%">
+        <TR>
+          <TH colspan=3>
+             View	  </TH>
+	</TR>
+    <TR align="left">
+      <TD valign="top">
+        1.      </TD><TD colspan="2" align="left">
+Majme nasledovnı poh¾ad a príkaz Insert.<br>CREATE OR REPLACE VIEW pohl6 (meno, priezvisko,rod_cislo) <br>AS<BR>SELECT ou_meno, ou_priezvisko, ou_rod_cislo<br>
+FROM os_udaje<BR>WHERE ou_meno LIKE 'S%'<BR>WITH CHECK OPTION;<BR><BR>
+INSERT INTO pohl6<BR> VALUES  ('Karol', 'Novy', '790502/1212');<BR><BR>Èo sa stane?
+<BR>      </TD>
+    </TR>
+    <TR><TD colspan="3" align="right">Body: 2</TD></TR>
+	<TR>
+     	  <TD>&nbsp;</TD><TD align="left">
+	    	      <INPUT TYPE="radio" NAME="od_ids[2697]"
+	    VALUE="7088" >          </TD><TD align="left">riadok bude vloenı iba do poh¾adu</TD>
+	</TR>
+	</TD></TR>
+
+	<TR>
+     	  <TD>&nbsp;</TD><TD align="left">
+	    	      <INPUT TYPE="radio" NAME="od_ids[2697]"
+	    VALUE="7089" >          </TD><TD align="left">riadok bude vloenı iba do tabu¾ky os_udaje</TD>
+	</TR>
+	</TD></TR>
+
+	<TR>
+     	  <TD>&nbsp;</TD><TD align="left">
+	    	      <INPUT TYPE="radio" NAME="od_ids[2697]"
+	    VALUE="7090" >          </TD><TD align="left">riadok nebude nikam vloenı – nastane chyba</TD>
+	</TR>
+	</TD></TR>
+
+	<TR>
+     	  <TD>&nbsp;</TD><TD align="left">
+	    	      <INPUT TYPE="radio" NAME="od_ids[2697]"
+	    VALUE="7087" >          </TD><TD align="left">riadok bude vloenı do poh¾adu aj do tabu¾ky os_udaje</TD>
+	</TR>
+	</TD></TR>
+
+        <TR>
+          <TH colspan=3>
+             Relaèná integrita 2	  </TH>
+	</TR>
+    <TR align="left">
+      <TD valign="top">
+        2.      </TD><TD colspan="2" align="left">
+Ko¾ko primárnych k¾úèov má daná relácia?
+<br>Rezervacia_izby(cislo_rezervacie, objednavatel, cislo_izby, rezervacia_od, rezervacia_do, datum_rezervacie, zaloha)<BR>      </TD>
+    </TR>
+    <TR><TD colspan="3" align="right">Body: 1</TD></TR>
+	<TR>
+     	  <TD>&nbsp;</TD><TD align="left">
+	    	      <INPUT TYPE="radio" NAME="od_ids[2708]"
+	    VALUE="7123" >          </TD><TD align="left">jeden PK - PK=cislo_rezervacie</TD>
+	</TR>
+	</TD></TR>
+
+	<TR>
+     	  <TD>&nbsp;</TD><TD align="left">
+	    	      <INPUT TYPE="radio" NAME="od_ids[2708]"
+	    VALUE="7126" >          </TD><TD align="left">tri PK - PK1=cislo_rezervacie<br>    PK2=objednavatel, cislo_izby, datum_rezervacie<br>    PK3=objednavatel, cislo_izby, rezervacia_od<br>
+</TD>
+	</TR>
+	</TD></TR>
+
+	<TR>
+     	  <TD>&nbsp;</TD><TD align="left">
+	    	      <INPUT TYPE="radio" NAME="od_ids[2708]"
+	    VALUE="7124" >          </TD><TD align="left">viac ako 3 PK</TD>
+	</TR>
+	</TD></TR>
+
+	<TR>
+     	  <TD>&nbsp;</TD><TD align="left">
+	    	      <INPUT TYPE="radio" NAME="od_ids[2708]"
+	    VALUE="7125" >          </TD><TD align="left">dva PK - PK1=cislo_rezervacie<br>
+&nbsp;&nbsp;&nbsp;&nbsp;PK2=objednavatel,cislo_izby datum_rezervacie
+</TD>
+	</TR>
+	</TD></TR>
+
+        <TR>
+          <TH colspan=3>
+             Select 2  - l_isfr	  </TH>
+	</TR>
+    <TR align="left">
+      <TD valign="top">
+        3.      </TD><TD colspan="2" align="left">
+Vypíšte email na štúdijné oddelenie Fakulty riadenia a informatiky v školskom roku 2003.<BR>      </TD>
+    </TR>
+    <TR><TD colspan="3" align="right">Body: 1</TD></TR>
+      <TR>
+        <TD>&nbsp;</TD><TD colspan="2">
+          <TEXTAREA NAME="textodpoved[2715]" COLS="70" ROWS="7">
+            </TEXTAREA>
+        </TD>
+      </TR>
+        <TR>
+          <TH colspan=3>
+             Relaèná integrita 1	  </TH>
+	</TR>
+    <TR align="left">
+      <TD valign="top">
+        4.      </TD><TD colspan="2" align="left">
+Urèite miesta, kde je porušená ståpcová integrita.<BR>       <IMG src="picture.php?&id=2719&oo=ot" align=textbottom>
+           </TD>
+    </TR>
+    <TR><TD colspan="3" align="right">Body: 2</TD></TR>
+      <TR>
+        <TD>&nbsp;</TD><TD colspan="2">
+          <TEXTAREA NAME="textodpoved[2719]" COLS="70" ROWS="7">
+            </TEXTAREA>
+        </TD>
+      </TR>
+        <TR>
+          <TH colspan=3>
+             Select 3  - l_isfr	  </TH>
+	</TR>
+    <TR align="left">
+      <TD valign="top">
+        5.      </TD><TD colspan="2" align="left">
+Vypíšte zoznam profesií, ktoré majú uèitelia z Katedry technickej kybernetiky (potlaète duplicity).<BR>      </TD>
+    </TR>
+    <TR><TD colspan="3" align="right">Body: 1</TD></TR>
+      <TR>
+        <TD>&nbsp;</TD><TD colspan="2">
+          <TEXTAREA NAME="textodpoved[2728]" COLS="70" ROWS="7">
+            </TEXTAREA>
+        </TD>
+      </TR>
+        <TR>
+          <TH colspan=3>
+             Insert, Delete, Update - cascade  - l_isfr	  </TH>
+	</TR>
+    <TR align="left">
+      <TD valign="top">
+        6.      </TD><TD colspan="2" align="left">
+Vymate všetky údaje o fakultách, ktoré nemajú ani jednu katedru.<BR>      </TD>
+    </TR>
+    <TR><TD colspan="3" align="right">Body: 2</TD></TR>
+      <TR>
+        <TD>&nbsp;</TD><TD colspan="2">
+          <TEXTAREA NAME="textodpoved[2734]" COLS="70" ROWS="7">
+            </TEXTAREA>
+        </TD>
+      </TR>
+        <TR>
+          <TH colspan=3>
+             Agregaèné funkcie 2  - l_isfr	  </TH>
+	</TR>
+    <TR align="left">
+      <TD valign="top">
+        7.      </TD><TD colspan="2" align="left">
+Vypíšte názvy katedier, ktoré majú viac ako 20 uèite¾ov.<BR>      </TD>
+    </TR>
+    <TR><TD colspan="3" align="right">Body: 2</TD></TR>
+      <TR>
+        <TD>&nbsp;</TD><TD colspan="2">
+          <TEXTAREA NAME="textodpoved[2739]" COLS="70" ROWS="7">
+            </TEXTAREA>
+        </TD>
+      </TR>
+        <TR>
+          <TH colspan=3>
+             Bonus - Select	  </TH>
+	</TR>
+    <TR align="left">
+      <TD valign="top">
+        8.      </TD><TD colspan="2" align="left">
+BONUS: Vypíšte mennı zoznam uèite¾ov, ktorí patrili (patria) na najviac katedier. <BR>      </TD>
+    </TR>
+    <TR><TD colspan="3" align="right">Body: 3</TD></TR>
+      <TR>
+        <TD>&nbsp;</TD><TD colspan="2">
+          <TEXTAREA NAME="textodpoved[2742]" COLS="70" ROWS="7">
+            </TEXTAREA>
+        </TD>
+      </TR>
+        <TR>
+          <TH colspan=3>
+             Hodnota Count	  </TH>
+	</TR>
+    <TR align="left">
+      <TD valign="top">
+        9.      </TD><TD colspan="2" align="left">
+Akı bude vısledok z nasledovného selectu.<BR>
+SELECT count(rocnik) FROM Citatel<BR>
+GROUP BY cislo_citatela;<BR>
+<BR>       <IMG src="picture.php?&id=2746&oo=ot" align=textbottom>
+           </TD>
+    </TR>
+    <TR><TD colspan="3" align="right">Body: 2</TD></TR>
+      <TR>
+        <TD>&nbsp;</TD><TD colspan="2">
+          <TEXTAREA NAME="textodpoved[2746]" COLS="70" ROWS="7">
+            </TEXTAREA>
+        </TD>
+      </TR>
+        <TR>
+          <TH colspan=3>
+             Insert, Delete, Update 1  - l_isfr	  </TH>
+	</TR>
+    <TR align="left">
+      <TD valign="top">
+        10.      </TD><TD colspan="2" align="left">
+Vlote nasledovné dáta o uèite¾ovi: meno=Peter, priezvisko=Kapusta, , obec=1234, rod_cislo=120406/1234, titul_p=Mgr., cis_kat=5321 dátum nástupu naplòte systémovım dátumom, èíslo uèite¾a=KI005.<BR>      </TD>
+    </TR>
+    <TR><TD colspan="3" align="right">Body: 1</TD></TR>
+      <TR>
+        <TD>&nbsp;</TD><TD colspan="2">
+          <TEXTAREA NAME="textodpoved[2750]" COLS="70" ROWS="7">
+            </TEXTAREA>
+        </TD>
+      </TR>
+        <TR>
+          <TH colspan=3>
+             Select 5  - l_isfr	  </TH>
+	</TR>
+    <TR align="left">
+      <TD valign="top">
+        11.      </TD><TD colspan="2" align="left">
+Vypíšte adresy uèite¾ov v tvare:<br> meno+1medzera+priezvisko, ulica, psc (1-3.znak +1medzera+4-5.znak)+2medzery+nazov obce. <br>Dodrte presne poèet medzier a poèet vıslednıch ståpcov.<BR>      </TD>
+    </TR>
+    <TR><TD colspan="3" align="right">Body: 2</TD></TR>
+      <TR>
+        <TD>&nbsp;</TD><TD colspan="2">
+          <TEXTAREA NAME="textodpoved[2761]" COLS="70" ROWS="7">
+            </TEXTAREA>
+        </TD>
+      </TR>
+        <TR>
+          <TH colspan=3>
+             BONUS Select 2	  </TH>
+	</TR>
+    <TR align="left">
+      <TD valign="top">
+        12.      </TD><TD colspan="2" align="left">
+BONUS: Vypíšte názvy okresov, z ktorıch máme najviac uèite¾ov.<BR>      </TD>
+    </TR>
+    <TR><TD colspan="3" align="right">Body: 3</TD></TR>
+      <TR>
+        <TD>&nbsp;</TD><TD colspan="2">
+          <TEXTAREA NAME="textodpoved[2768]" COLS="70" ROWS="7">
+            </TEXTAREA>
+        </TD>
+      </TR>
+        <TR>
+          <TH colspan=3>
+             Select 4  - l_isfr	  </TH>
+	</TR>
+    <TR align="left">
+      <TD valign="top">
+        13.      </TD><TD colspan="2" align="left">
+Vypíšte názvy katedier, z ktorıch nemáme ani jednu enu - uèite¾ku.<BR>      </TD>
+    </TR>
+    <TR><TD colspan="3" align="right">Body: 2</TD></TR>
+      <TR>
+        <TD>&nbsp;</TD><TD colspan="2">
+          <TEXTAREA NAME="textodpoved[2775]" COLS="70" ROWS="7">
+            </TEXTAREA>
+        </TD>
+      </TR>
+        <TR>
+          <TH colspan=3>
+             Select 1  - l_isfr	  </TH>
+	</TR>
+    <TR align="left">
+      <TD valign="top">
+        14.      </TD><TD colspan="2" align="left">
+Vypíšte názvy všetkıch fakúlt.<BR>      </TD>
+    </TR>
+    <TR><TD colspan="3" align="right">Body: 1</TD></TR>
+      <TR>
+        <TD>&nbsp;</TD><TD colspan="2">
+          <TEXTAREA NAME="textodpoved[2776]" COLS="70" ROWS="7">
+            </TEXTAREA>
+        </TD>
+      </TR>
+        <TR>
+          <TH colspan=3>
+             triggre	  </TH>
+	</TR>
+    <TR align="left">
+      <TD valign="top">
+        15.      </TD><TD colspan="2" align="left">
+Majme nasledovnı trigger:<br>
+CREATE OR REPLACE TRIGGER t_log_zp<br>
+AFTER UPDATE ON zap_predmety<br>
+FOR EACH ROW<BR>
+begin<BR>
+  INSERT INTO log_table_zp<BR>
+  VALUES (USER, SYSDATE);<BR>
+END;<BR>
+Ko¾ko riadkov bude vloenıch do tabu¾ky log_table_zp, ak operácia Update zap_predmety modifikovala 10 riadkov? <BR><BR>      </TD>
+    </TR>
+    <TR><TD colspan="3" align="right">Body: 1</TD></TR>
+	<TR>
+     	  <TD>&nbsp;</TD><TD align="left">
+	    	      <INPUT TYPE="radio" NAME="od_ids[3127]"
+	    VALUE="7959" >          </TD><TD align="left">1 riadok</TD>
+	</TR>
+	</TD></TR>
+
+	<TR>
+     	  <TD>&nbsp;</TD><TD align="left">
+	    	      <INPUT TYPE="radio" NAME="od_ids[3127]"
+	    VALUE="7961" >          </TD><TD align="left">2 riadky</TD>
+	</TR>
+	</TD></TR>
+
+	<TR>
+     	  <TD>&nbsp;</TD><TD align="left">
+	    	      <INPUT TYPE="radio" NAME="od_ids[3127]"
+	    VALUE="7960" >          </TD><TD align="left">ani jeden riadok</TD>
+	</TR>
+	</TD></TR>
+
+	<TR>
+     	  <TD>&nbsp;</TD><TD align="left">
+	    	      <INPUT TYPE="radio" NAME="od_ids[3127]"
+	    VALUE="7958" >          </TD><TD align="left">10 riadkov</TD>
+	</TR>
+	</TD></TR>
+
+  </TABLE>
+            </TD></TR><TR><TD align="center">
+	    <BR><INPUT TYPE="Submit" NAME="action" VALUE="Odosla test">
+                          <INPUT TYPE="submit" NAME="action" VALUE="Preruši test">
+            	    </TD></TR>
+          </TABLE>
+            <SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+            <!--
+              sekund=3300;
+              function DecSec() {
+                minut=(sekund-(sec=sekund%60))/60
+                document.myform.minutky.value = minut+":"+sec;
+                if (sekund <= 0) {
+                  if(document.myform.action[0])
+                    document.myform.action[0].click();
+                  else
+                    document.myform.action.click();
+                    //alert('Èas na vypracovanie testu vypršal!');
+                };
+                sekund--;
+                setTimeout("DecSec()", 985);//odhad podla merani
+              }
+              DecSec();
+            //-->
+            </SCRIPT>
+
+</FORM>                <BR>
+		<DIV ALIGN="center">
+			<A HREF="student_menu.php?unregBack=1&PHPSESSID=8669fd9e83f01434664693b8bb5963f8">Home</A>
+		</DIV>
+		<BR>
+  </TD>
+  </TR>
+  </TABLE>
+	</BODY>
+</HTML>
+
+

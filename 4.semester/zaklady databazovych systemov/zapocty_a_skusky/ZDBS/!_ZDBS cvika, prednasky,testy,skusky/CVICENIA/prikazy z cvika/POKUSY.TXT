@@ -1,0 +1,254 @@
+select st_odbor, st_zameranie from student where rod_cislo='841106/3456';
+
+select rod_cislo, st_odbor, st_zameranie from student where rod_cislo='841106/3456';
+
+select rod_cislo as RC, st_odbor, st_zameranie from student where rod_cislo='841106/3456'; 
+
+select os_cislo, skrok, cis_predm, prednasajuci from zap_predmety where cis_predm='BI11';
+    - vypise toho viac, ale ja potrebujem pre konkretne ROD_CISLO, a to je v tabulke STUDENT!!!!
+   Takze:
+      select os_cislo, skrok, cis_predm, prednasajuci from zap_predmety where os_cislo in
+          (select os_cislo from student where rod_cislo = '855122/8569'); 
+
+    OS_CISLO      SKROK CIS_ PREDN
+  ---------- ---------- ---- -----
+    550698       2002 IN07 KTK01
+ 
+
+select os_cislo, prednasajuci from zap_predmety where os_cislo in
+          (select os_cislo from student where rod_cislo = '855122/8569'); 
+
+
+
+
+select os_cislo, stav from student where stav= 'S';
+
+select os_cislo, stav from student where os_cislo='501559';
+
+update student set stav=null where os_cislo='501559';
+
+ 
+
+**********************************************************************************************
+select count(*) as pocet from student where rocnik= 3;
+
+     POCET
+----------
+        12
+
+
+
+**********************************************************************************************
+select os_cislo, count(*) as pocet from student where rocnik= 3 group by os_cislo;
+
+OS_CISLO      POCET
+---------- ----------
+         8          1
+    501003          1
+    501201          1
+    501319          1
+    501381          1
+    501402          1
+    501414          1
+    501469          1
+    501512          1
+    501559          1
+    550020          1
+
+  OS_CISLO      POCET
+---------- ----------
+    550807          1
+
+12 rows selected.
+
+
+
+**********************************************************************************************
+ select meno, priezvisko from os_udaje where os_udaje.rod_cislo = student.rod_cislo;
+
+   
+ERROR at line 1:
+ORA-00904: "STUDENT"."ROD_CISLO": invalid identifier
+
+
+select meno,priezvisko from os_udaje, student where (os_udaje.rod_cislo=student.rod_cislo) and (student.rocnik=2);
+    
+ALEBO:
+select meno,priezvisko, rocnik from os_udaje join student using (rod_cislo) where student.rocnik=2;
+
+select meno,priezvisko, from os_udaje join student on (student.rod_cislo = os_udaje.rod_cislo) where student.rocnik=2;
+
+                                                           {ale ked su rovnake, tak staci using}
+                                       {v podstate to iste ako prva varianta, len s pouzijem spojovac}
+
+ select meno, priezvisko from os_udaje where rod_cislo in (select rod_cislo from student where rocnik=2);
+
+**************************************************************************************************
+
+ select meno, priezvisko, cis_predm from os_udaje join student using (rod_cislo) join zap_predmety using (os_cislo) where cis_predm='BI06';
+
+
+ODPOCITAVANIE DATUMOV!!!
+
+select os_cislo, datum_sk-zapocet cas from zap_predmety;
+
+
+MENO, PRIEZVISKO, PREDMET
+select meno, priezvisko, cis_predm from os_udaje join student using (rod_cislo) join zap_predmety using (os_cislo);
+
+MENO, PRIEZVISKO, POCET PREDMETOV
+select meno, priezvisko, count(cis_predm) from os_udaje join student using (rod_cislo) join zap_predmety using (os_cislo) group by meno, priezvisko;
+
+POCET PREDM VACSI AKO 5
+select meno, priezvisko from os_udaje join student using (rod_cislo) join zap_predmety using (os_cislo) group by meno, priezvisko having count (cis_predm)>5;
+
+
+select meno, priezvisko from os_udaje join student using (rod_cislo) join zap_predmety using (os_cislo) group by meno, priezvisko having count(cis_predm)>5;
+
+
+******************************************************************************
+VNORENE SELECTY:
+
+select nazov from predmet where cis_predm not in (select cis_predm from zap_predmety);
+
+87
+
+select nazov from predmet where cis_predm = ANY (select cis_predm from zap_predmety);
+
+38
+
+select nazov from predmet;
+
+125= 87 + 38
+
+************************************************************************************************************
+
+select meno, priezvisko, count (cis_predm) from os_udaje join student using (rod_cislo) join zap_predmety using (os_cislo) group by meno, priezvisko having count(cis_predm) <= ALL (select count (cis_predm) from zap_predmety) 
+*************************************************************************************************************
+select meno, priezvisko from os_udaje join student using (rod_cislo) join zap_predmety using (os_cislo) group by meno, priezvisko having count(cis_predm) =(select max (c) from (select priezvisko, count (cis_predm) c from os_udaje join student using (rod_cislo) join zap_predmety using (os_cislo) group by meno, priezvisko)) 
+
+**********************************************************************************************************
+
+
+(8.1)
+select meno, priezvisko from os_udaje join student using (rod_cislo) join zap_predmety using (os_cislo) group by meno, priezvisko having count (*)>4;
+
+select meno, priezvisko from os_udaje join student using (rod_cislo) where os_cislo not in (select os_cislo from zap_predmety);
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+select meno, priezvisko from os_udaje join student using (rod_cislo) where not exists (select os_cislo from zap_predmety where student.os_cislo= zap_predmety.os_cislo);
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+*****    22.6.    ********************************************************************************************
+
+os_udaje: 26 rows, student: 25 rows:
+ select count(*) from os_udaje, student where os_udaje.rod_cislo= student.rod_cislo;
+   --> 25 rows selected
+
+
+
+
+
+vypis studentov,ktory mali skusku posledny rok
+
+
+select distinct priezvisko, datum_sk from os_udaje join student using(rod_cislo) join zap_predmety using(os_cislo) where datum_sk is not null and sysdate-datum_sk<=365;
+
+ Janci           06/11/2008
+Ratroch         11/30/2008
+Ratroch         05/30/2009
+Janci           02/12/2009 
+
+
+select  priezvisko, datum_sk from os_udaje join student using(rod_cislo) join zap_predmety using(os_cislo) where datum_sk is not null and datum_sk between add_months(sysdate,-12) and sysdate;
+
+Ratroch         11/30/2008
+Janci           06/11/2008
+Janci           02/12/2009
+
+
+************************************************************************************************
+
+vypis studentov s okruhlimi narodeninami 20,25,30
+toto skus s MOD(a,b)
+
+vypis studentov,ktory mali skusku posledny rok
+
+vypis ku kazdemu studentovi, kolko mal skusok za posl. rok
+
+
+vypis najstarsieho studenta
+vypis studenta s najvacsim poctom predmetov
+
+
+vypis studentov,kt. maju zapisane aspon 3 predmety
+  
+vypis studentov,kt. maju zapisany nejaky predmet druhy krat
+vypis ku kazdemu studentovi kolko ma kreditov(sum)
+vypis osoby co nie su studentami,pomocou exists
+
+
+vypis narodenych medzi 86-90 rokmi
+
+
+Menny zoznam studentov s poctom rokov, ktore studuje
+
+*****************************************************************************************
+
+Student s najlepsim aritmetickym priemerom
+
+(najviac zap. predmetov:)
+select meno, priezvisko from os_udaje join student using (rod_cislo) join zap_predmety using (os_cislo) group by meno, priezvisko having count(cis_predm) =(select max (c) from (select priezvisko, count (cis_predm) c from os_udaje join student using (rod_cislo) join zap_predmety using (os_cislo) group by meno, priezvisko)) 
+------------------------------------------------------------------------------------------------------------------------------------------------
+pocet predm. >5 
+select meno, priezvisko from os_udaje join student using (rod_cislo) join zap_predmety using (os_cislo) group by meno, priezvisko having count(cis_predm)>5;
+------------------------------------------------------------------------------------------------------------------------------------------------
+AP:
+select meno, priezvisko, decode (vysledok,'A',1,'B',1.5,'C',2,'D',2.5,'E',3,4) znamka
+ from os_udaje join student using (rod_cislo) join zap_predmety using (os_cislo);
+------------------------------------------------------------------------------------------------------------------------------------------------
+PRIEMER VYBRANEHO STUDENTA:
+select meno, priezvisko, round (avg (decode (vysledok,'A',1,'B',1.5,'C',2,'D',2.5,'E',3,4)),2) priemer from os_udaje join student on (os_udaje.rod_cislo=student.rod_cislo) join zap_predmety on (student.os_cislo=zap_predmety.os_cislo) where zap_predmety.os_cislo='550123' OR zap_predmety.os_cislo='501448' group by meno, priezvisko, os_cislo;
+------------------------------------------------------------------------------------------------------------------------------------------------
+PRE KAZDEHO STUDENTA:
+select meno, priezvisko, round(avg(decode(vysledok, 'A', 1, 'B', 1.5, 'C', 2, 'D', 2.5, 'E', 3, 4)),2) priemer from os_udaje join student using(rod_cislo) join zap_predmety using(os_cislo) group by meno, priezvisko, os_cislo;
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+select min(round (avg (decode (vysledok,'A',1,'B',1.5,'C',2,'D',2.5,'E',3,4)),2)) najlepsi from zap_predmety group by os_cislo;
+------------------------------------------------------------------------------------------------------------------------------------------------
+NAJLEPSI PRIEMER
+select meno, priezvisko, round (avg (decode (vysledok,'A',1,'B',1.5,'C',2,'D',2.5,'E',3,4)),2) priemer from 
+os_udaje join student on (os_udaje.rod_cislo=student.rod_cislo) join zap_predmety on(student.os_cislo= zap_predmety.os_cislo) 
+group by meno, priezvisko having 
+round (avg (decode (vysledok,'A',1,'B',1.5,'C',2,'D',2.5,'E',3,4)),2)  in 
+(select min(round (avg (decode (vysledok,'A',1,'B',1.5,'C',2,'D',2.5,'E',3,4)),2)) najlepsi 
+from zap_predmety group by os_cislo) 
+
+miesto in moze byt aj =
+*****************************************************************************************
+
+Vypíšte meno najvernejšieho zákazníka pod¾a poètu návštev
+
+select id_zakaznika from (
+select id_zakaznika, count(*) from k-objednavka
+  where uskutocnene is not null
+    and uskutocnene = 'a'
+  group by id_zakaznika
+  order by count (*) DESC
+) where rownum < 2;
+
+*****************************************************************************************
+
+vypis studentov starsich ako 20 rokov
+
+
+
+
+
+
+
+
+
+

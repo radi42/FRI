@@ -1,0 +1,74 @@
+1.select * from student;
+select meno,priezvisko from os_udaje where rod_cislo in (select rod_cislo from student where  rocnik=2); 
+
+2.select meno,priezvisko from os_udaje, student where (os_udaje.rod_cislo=student.rod_cislo) and (student.rocnik=2); 
+
+select priezvisko from os_udaje ou join student s using(rod_cislo) where s.rocnik=2;
+select priezvisko from os_udaje ou join student s on (ou.rod_cislo=s.rod_cislo) where s.rocnik=2;
+
+3.select priezvisko from os_udaje,student where (os_udaje.rod_cislo=student.rod_cislo)and(to_number(substr(student.rod_cislo,1,2)) between 85 and 89);
+
+4.select priezvisko from os_udaje,student,zap_predmety where (os_udaje.rod_cislo=student.rod_cislo)and(student.os_cislo=zap_predmety.os_cislo)and(zap_predmety.cis_predm='BI06') order by os_udaje.priezvisko;
+
+5.select distinct prednasajuci,cis_predm from zap_predmety;
+
+6.select distinct meno,priezvisko,nazov from ucitel u, zap_predmety zp, predmet p where (u.os_cislo=zp.prednasajuci)and(p.cis_predm=zp.cis_predm);
+
+7.select distinct meno,priezvisko from ucitel u,zap_predmety zp,student s where (u.os_cislo=zp.prednasajuci)and(zp.os_cislo=s.os_cislo)and(s.st_odbor between 100 and 199)and(substr(s.st_skupina,5,1)='2');
+
+8.
+select meno, priezvisko, count(*) from zap_predmety zp, student st, os_udaje ou
+where (ou.rod_cislo=st.rod_cislo) and (st.os_cislo=zp.os_cislo) and (zp.skrok=2008)
+group by meno, priezvisko, st.os_cislo;
+
+9.
+select meno, priezvisko, count(*) from zap_predmety zp, student st, os_udaje ou
+where (ou.rod_cislo=st.rod_cislo) and (st.os_cislo=zp.os_cislo) group by meno, priezvisko, st.os_cislo;
+
+10.
+select nazov from predmet pr, zap_predmety zp where (pr.cis_predm=zp.cis_predm) and (zp.skrok=2006) group by zp.cis_predm, nazov having count(*) > 1;
+
+*********ALTERNATIVA**************
+
+SELECT a.os_cislo, a.cis_predm
+FROM zap_predmety a
+WHERE a.vysledok IS NOT NULL 
+  AND  a.skrok=2006 and 2 < 
+         (SELECT COUNT(*)
+          FROM zap_predmety  b
+          WHERE a.os_cislo <> b.os_cislo 
+                AND a.cis_predm=b.cis_predm);
+
+11.
+select meno, priezvisko, round(avg(decode(vysledok, 'A', 1, 'B', 1.5, 'C', 2, 'D', 2.5, 'E', 3, 4)),2) priemer
+from os_udaje ou, student st, zap_predmety zp
+where ou.rod_cislo=st.rod_cislo and st.os_cislo=zp.os_cislo
+group by meno, priezvisko, st.os_cislo;
+
+**********LULZALTERNATIVA************
+select meno, priezvisko, round(avg(nvl(decode(vysledok, 'A', 1, 'B', 1.5, 'C', 2, 'D', 2.5, 'E', 3),4)),2) priemer
+from os_udaje ou, student st, zap_predmety zp
+where ou.rod_cislo=st.rod_cislo and st.os_cislo=zp.os_cislo
+group by meno, priezvisko, st.os_cislo;
+
+12.
+select meno, priezvisko, round(avg(decode(vysledok, 'A', 1, 'B', 1.5, 'C', 2, 'D', 2.5, 'E', 3, 4)),2) priemer
+from os_udaje ou, student st, zap_predmety zp
+where ou.rod_cislo=st.rod_cislo and st.os_cislo=zp.os_cislo
+group by meno, priezvisko, st.os_cislo
+having round(avg(decode(vysledok, 'A', 1, 'B', 1.5, 'C', 2, 'D', 2.5, 'E', 3, 4)),2) < 3;
+
+
+
+BULLSHITY
+
+******priemer skoly*******
+select round(avg(decode(vysledok, 'A', 1, 'B', 1.5, 'C', 2, 'D', 2.5, 'E', 3, 4)),2) priemer
+from zap_predmety;
+
+
+
+
+
+
+
