@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.params=kapacita
+comment0.target=Zbierka(int)
+comment0.text=\r\n\ Parametricky\ konstruktor\r\n
+comment1.params=
+comment1.target=Zbierka()
+comment1.text=\r\n\ Bezparametricky\ konstruktor\r\n
+comment2.params=index
+comment2.target=Playlist\ get(int)
+comment2.text=\r\n\ Gettery\r\n
+comment3.params=
+comment3.target=int\ getPocetPlaylistov()
+comment4.params=
+comment4.target=java.lang.String\ getNazovZbierky()
+comment5.params=pllst
+comment5.target=void\ add(Playlist)
+comment6.params=index
+comment6.target=void\ delete(int)
+comment7.params=
+comment7.target=java.lang.String\ toString()
+comment7.text=\r\n\ toString\ metoda\r\n
+numComments=8

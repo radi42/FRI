@@ -1,0 +1,1 @@
+Pre instrukcie vid subor Playlist_dokumentacia v priecinku dokumentacia.

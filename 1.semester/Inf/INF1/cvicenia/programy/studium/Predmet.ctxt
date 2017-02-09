@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.params=nazovPredmetu\ skuska\ datumSkusky\ pocetKreditov
+comment0.target=Predmet(java.lang.String,\ double,\ Datum,\ int)
+comment1.params=
+comment1.target=java.lang.String\ getNazovPredmetu()
+comment1.text=\r\n\ Gettery\r\n
+comment2.params=
+comment2.target=double\ getSkuska()
+comment3.params=
+comment3.target=Datum\ getDatumSkusky()
+comment4.params=
+comment4.target=int\ getPocetKreditov()
+comment5.params=nazovPredmetu
+comment5.target=void\ setNazovPredmetu(java.lang.String)
+comment5.text=\r\n\ Settery\r\n
+comment6.params=skuska\ datumSkusky
+comment6.target=void\ setSkuskaPlusDatum(double,\ Datum)
+comment7.params=pocetKreditov
+comment7.target=void\ setPocetKreditov(int)
+comment8.params=
+comment8.target=java.lang.String\ toString()
+comment8.text=\r\n\ toString\r\n
+numComments=9

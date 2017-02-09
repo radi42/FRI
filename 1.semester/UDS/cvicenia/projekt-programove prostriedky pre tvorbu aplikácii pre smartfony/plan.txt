@@ -1,0 +1,12 @@
+porovnanie iOS a Android develpment programov
+pre kazdy os 1 dev app
+Android - Android Studio (Java, C#)
+iOS - XCode (Objective-C, Java)
+
+1. co je programovacie prostredie
+2. ake pozname smartfonove os
+3. zoznam vyvojovych soft. pre jednotlive smartfon os-VYNECHAT
+4. android + win phone dev
+5. ios dev
+(vybrat styri dev app - popisat graficke prostredie, programovacie jazyky, zakladne instrukcie na vyrobu appov, multiplatform, vlastne uvahy o konkretnych dev prostrediach)
+Preferovany operacny system

@@ -1,0 +1,7 @@
+refactoring - prerobenie projektu / vznik novych verzii
+
+vytvorime studijnu skupinu v projekte student:
+-Trieda s nazvom Osoba; trieda sa stava aj typom (datovym)
+-Osoba bude mat urcite atributy: meno, priezvisko - udajoveho typu String (string je objektovy udajovy tzv referencny)
+
+v triede student sa bude nachadzat:

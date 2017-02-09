@@ -1,0 +1,26 @@
+#BlueJ class context
+comment0.params=aStrana
+comment0.target=Stvorec(double)
+comment0.text=\r\n\ vytvori\ instanciu\ stvorca\r\n\ @param\ aStrana\ dlzka\ strany\r\n
+comment1.params=
+comment1.target=Stvorec()
+comment1.text=\r\n\ Bezparametricky\ konstruktor\r\n
+comment2.params=
+comment2.target=double\ getAStrana()
+comment2.text=\r\n\ vrati\ hodnotu\ strany\r\n\ @return\ hodnota\ dlzky\ strany\ stvorca\r\n
+comment3.params=aStrana
+comment3.target=void\ setAStrana(double)
+comment3.text=\r\n\ nastavi\ hodnotu\ dlzky\ strany\r\n
+comment4.params=
+comment4.target=double\ obvodStvorca()
+comment4.text=\r\n\ vypocita\ obvod\ stvorca\r\n\ @return\ vrati\ obvod\ stvorca\r\n
+comment5.params=
+comment5.target=double\ obsahStvorca()
+comment5.text=\r\n\ vypocita\ obsah\ stvorca\r\n\ @return\ vrati\ obsah\ stvorca\r\n
+comment6.params=
+comment6.target=double\ dlzkaUhlopriecky()
+comment6.text=\r\n\ vypocita\ uhlopriecku\ stvorca\r\n
+comment7.params=
+comment7.target=java.lang.String\ toString()
+comment7.text=\r\n\ vypise\ stranu\ obdlznika\r\n\ @return\ vypise\ dlzku\ strany\ stvorca\ ako\ text\r\n
+numComments=8

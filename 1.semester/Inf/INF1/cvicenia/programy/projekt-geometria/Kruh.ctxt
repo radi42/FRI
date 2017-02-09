@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.params=aR
+comment0.target=Kruh(double)
+comment0.text=\r\n\ Parametricky\ kostruktor\r\n\ vytvori\ instanciu\ kruhu\r\n\ @param\ aR\ polomer\r\n
+comment1.params=
+comment1.target=Kruh()
+comment1.text=\r\n\ Bezparametricky\ konstruktor\r\n
+comment2.params=
+comment2.target=double\ getAR()
+comment2.text=\r\n\ vrati\ hodnotu\ polomeru\r\n\ @return\ hodnota\ dlzky\ polomeru\r\n
+comment3.params=aR
+comment3.target=void\ setAR(double)
+comment3.text=\r\n\ nastavi\ hodnotu\ polomeru\r\n
+comment4.params=
+comment4.target=double\ obvodKruhu()
+comment4.text=\r\n\ vzorec\ na\ obvod\ kruhu\r\n\ @return\ obvod\ kruhu\r\n
+comment5.params=
+comment5.target=double\ obsahKruhu()
+comment5.text=\r\n\ vzorec\ na\ obsah\ kruhu\r\n\ @return\ obsah\ kruhu\r\n
+comment6.params=
+comment6.target=java.lang.String\ toString()
+comment6.text=\r\n\ vypise\ polomer\ kruhu\r\n
+numComments=7

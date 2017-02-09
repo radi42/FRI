@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.params=prompt
+comment0.target=int\ vyber(java.lang.String)
+comment1.params=s
+comment1.target=void\ outNadpis(java.lang.String)
+comment10.params=args
+comment10.target=void\ main(java.lang.String[])
+comment2.params=skupina
+comment2.target=boolean\ nedefSkupina(Skupina)
+comment3.params=skupina
+comment3.target=void\ vypisSkupinu(Skupina)
+comment4.params=
+comment4.target=Skupina\ vytvorSkupinu()
+comment5.params=skupina
+comment5.target=void\ generujStud(Skupina)
+comment6.params=
+comment6.target=java.lang.String\ menu()
+comment7.params=skupina
+comment7.target=boolean\ vlozStudenta(Skupina)
+comment8.params=skupina
+comment8.target=void\ vlozRocnikVsetkym(Skupina)
+comment9.params=skupina
+comment9.target=void\ studentiZMesta(Skupina)
+numComments=11

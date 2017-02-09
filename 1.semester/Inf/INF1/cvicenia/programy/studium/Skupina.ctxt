@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.params=kapacitaStudentov\ nazovKruzku
+comment0.target=Skupina(int,\ java.lang.String)
+comment1.params=
+comment1.target=int\ size()
+comment2.params=
+comment2.target=java.lang.String\ getNazovKruzku()
+comment3.params=
+comment3.target=int\ getPocetStud()
+comment4.params=index
+comment4.target=Student\ get(int)
+comment5.params=nazovKruzku
+comment5.target=void\ setNazovKruzku(java.lang.String)
+comment6.params=index\ st
+comment6.target=boolean\ set(int,\ Student)
+comment7.params=st
+comment7.target=boolean\ add(Student)
+comment8.params=index
+comment8.target=boolean\ delete(int)
+comment9.params=
+comment9.target=java.lang.String\ toString()
+numComments=10

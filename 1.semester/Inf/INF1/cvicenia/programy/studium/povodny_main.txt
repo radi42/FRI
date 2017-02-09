@@ -1,0 +1,24 @@
+//         Povodna main metoda
+//         Datum datumNar = new Datum(4, 5, 1994);
+//         System.out.println ("\fDatum je: " + datumNar);
+//         
+//         Osoba clovek = new Osoba("Jan", "Novak", datumNar, "");
+//         System.out.println ("Podrobnosti osoby: " + "Milan " + "Nagy " + datumNar);
+//         
+//         Student student= new Student(clovek, "Informatika");
+//         System.out.println ("Podrobnosti studenta: " + student);
+//         
+//         student.setRocnik(1); //upravime cislo rocniku
+//         System.out.println ("Pridany rocnik: " + student);
+//         
+//         Skupina skup = new Skupina(25, "5ZI01B");
+//         System.out.println ("Pridana skupina: " + skup);
+//         
+//         skup.add(student);
+//         System.out.println("Pridal som studenta " + skup);
+//         
+//         //ytvorime si novu osobu
+//         clovek = new Osoba("Peter", "Marcin", new Datum(31, 11, 1997), "Nalepkovo");
+//         student= new Student(clovek, "Management");
+//         skup.add(student);
+//         System.out.println("Pridal som studenta " + skup);

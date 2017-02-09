@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.params=nazov
+comment0.target=Diar(java.lang.String)
+comment0.text=\r\n\ vytvorime\ si\ instanciu\ diara\r\n
+comment1.params=z
+comment1.target=void\ add(Zaznam)
+comment1.text=\r\n\ pridaj\ zaznam\r\n\ @param\ pricom\ v\ parametri\ sa\ odovzdava\ objekt,\ ktory\ sa\ ma\ pridat\r\n
+comment2.params=i
+comment2.target=Zaznam\ get(int)
+comment2.text=\r\n\ zisti\ zaznam\ na\ urcitej\ pozicii\r\n\ @param\ poziciu\ odovzdava\ int\ parameter\ i\ \r\n
+comment3.params=
+comment3.target=int\ kolkoZaznamov()
+comment3.text=\r\n\ zisti\ pocet\ zaznamov\ v\ databaze\r\n
+comment4.params=
+comment4.target=java.lang.String\ akoSaVolaDiar()
+comment4.text=\r\n\ zisti\ nazov\ diara\r\n
+comment5.params=nazov
+comment5.target=void\ zmenNazovDiara(java.lang.String)
+comment5.text=\r\n\ zmen\ nazov\ diara\r\n
+comment6.params=
+comment6.target=java.lang.String\ toString()
+comment6.text=\r\n\ no\ a\ zase\ to\ nechame\ vsetko\ vypisat\ cez\ toString\r\n
+numComments=7

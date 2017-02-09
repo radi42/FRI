@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.params=datum\ poznamka
+comment0.target=Zaznam(java.lang.String,\ java.lang.String)
+comment0.text=\r\n\ vytvorme\ zaznam\r\n\ @param\ ktory\ obsahuje\ Stringovu\ poznamku\ a\r\n\ @param\ Stringovy\ datum\r\n
+comment1.params=
+comment1.target=java.lang.String\ getPoznamka()
+comment1.text=\r\n@return\ vrati\ hodnotu\ stringovej\ poznamky\r\n
+comment2.params=
+comment2.target=java.lang.String\ getDatum()
+comment2.text=\r\n@return\ vrati\ hodnotu\ stringoveho\ datumu\r\n
+comment3.params=poznamka
+comment3.target=void\ setPoznamka(java.lang.String)
+comment3.text=\r\n\ @param\ prepise\ povodnu\ poznamku\ inym\ Stringom\r\n
+comment4.params=datum
+comment4.target=void\ setDatum(java.lang.String)
+comment4.text=\r\n\ @param\ prepise\ povodny\ datum\ inym\ Stringom\r\n
+comment5.params=
+comment5.target=java.lang.String\ toString()
+comment5.text=\r\n\ nechame\ to\ zaznam\ vypisat\r\n
+numComments=6
