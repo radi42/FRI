@@ -1,0 +1,1 @@
+insert into transakcie(id_transakcie,rod_cislo,id_bankomatu,datum_a_CAS,SUMA_VYBER)values(55,'930622/3014',40,to_date('10/08/2013','dd,mm,yyyy'),-500);

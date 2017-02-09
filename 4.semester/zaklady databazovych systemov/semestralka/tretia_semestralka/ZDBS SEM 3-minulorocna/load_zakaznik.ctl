@@ -1,0 +1,9 @@
+LOAD DATA
+INFILE 'zakaznik.unl'
+INTO TABLE zakaznik
+FIELDS TERMINATED BY '|'
+(
+ OS_CISLO_ZAK
+ ,ROD_CISLO
+)
+

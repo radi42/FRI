@@ -1,0 +1,2 @@
+alter trigger kredity_predmetu
+disable;

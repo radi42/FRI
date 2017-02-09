@@ -1,0 +1,3 @@
+tie stlpce, ktore nie su agregacnej funkcii, musia byt v group by
+
+agregacna funkcia sa nedava do WHERE ale do HAVING

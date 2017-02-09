@@ -1,0 +1,9 @@
+LOAD DATA
+INFILE 'stat.unl'
+INTO TABLE stat
+FIELDS TERMINATED BY '|'
+(
+ KOD_STAT
+ ,NAZOV_STAT
+)
+

@@ -1,0 +1,1 @@
+insert into bankomat(id_bankomatu, typ_bankomatu, id_adresa,datum_uvedenia, datum_vyradenia, gps_sirka, gps_dlzka) values (18,'inside1',70,to_date('12/06/2016','dd/mm/yyyy'),to_date('12/06/2006','dd/mm/yyyy'),-70.13,-18.14);

@@ -1,0 +1,2 @@
+pocitac: sisila; getBrain
+sql orcl: sisila@orcl; DajmeTomu

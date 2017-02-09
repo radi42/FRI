@@ -1,0 +1,1 @@
+insert into adresa(id_adresa,kod_mesto,ulica,cislo_domu,psc)values(1,5000,'Stefa',13,03489);

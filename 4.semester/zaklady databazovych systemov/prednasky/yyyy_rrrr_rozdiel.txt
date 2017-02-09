@@ -1,0 +1,7 @@
+rozdiel medzi YYYY a RRRR
+YYYY vracia iba aktualny rok
+RRRR vracia rok v zavislosti na poslednych dvoch cifrach roku:
+-ak je posledne dvojcislie roku od 00 do 49, potom sa jedna o toto storocie
+-ak je posledne dvojcislie roku od 50 do 99, potom sa jedna o minule storocie
+
+http://stackoverflow.com/questions/6812916/what-is-the-difference-between-yyyy-and-rrrr-in-oracle-sql

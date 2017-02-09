@@ -1,0 +1,4 @@
+Toto je prvy subor vytvoreny
+na predmete databazove systemy.
+Sluzi na testovanie operacii
+so subormi.

@@ -1,0 +1,21 @@
+body { 
+padding: 16px;
+margin: 0;
+font-family: sans-serif, Arial;
+font-size: small;
+background-color: #ffffff;
+}
+hr {
+margin: 4px 6px 4px 0px;
+height: 0px;
+border: 0px;
+border-bottom: 1px solid #ddd;
+}
+img { border: 0; }
+a { color: #0000ff; }
+p { color: #000000; }
+h1, h2, h3, h4, h5, h6 { color: #000000; }
+ul { color: #000000; }
+ol { color: #000000; }
+code { font-size: medium; }
+blockquote { font-size: medium; }

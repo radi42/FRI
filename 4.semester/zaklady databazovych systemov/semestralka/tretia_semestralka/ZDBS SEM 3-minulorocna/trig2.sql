@@ -1,0 +1,1 @@
+insert into osoba(rod_cislo,id_adresa,meno,priezvisko)values('892519/6005',115,'Viera','Frankova');

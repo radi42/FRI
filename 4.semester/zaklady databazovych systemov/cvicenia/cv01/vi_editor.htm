@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0036)http://www.manualy.sk/unix/u-vi.html -->
+<html><head><script type="text/javascript" src="vi_editor_files/ufo.htm"></script>
+<title>Operacni system unix - Z�klady ovl�d�n� editoru vi</title>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-type">
+<meta content="MSHTML 5.00.3502.5390" name="GENERATOR"></head>
+<body>
+<center><a href="http://www.manualy.sk/unix/unix.html"><img alt="Opera�n� syst�m Unix, materi�ly ke cvi�en�" src="" border="0"></a> </center>
+<center>
+<h1>Z�klady ovl�d�n� editoru vi</h1></center>Vzhledem k obt��n�mu ovl�d�n� 
+nep�edpokl�d�me pou��v�n� editoru <b>vi</b> v kursu Unixu. Pokud se n�kdo chce v 
+budoucnu zab�vat spr�vou unixov�ch po��ta��, m�l by tento editor zvl�dnout 
+alespo� na z�kladn� �rovni. T� v n�kter�ch situtac�ch na po��ta�i m�nes se s 
+t�mto editorem m��ete setkat (editor <b>vi</b> je nastaven u mnoha program� jako 
+default editor - obvykle lze zm�nit nastaven�m environment prom�nn�ch EDITOR a 
+VISUAL). <br><br><img alt="!!! " src="" align="left">Pokud se dostanete do tohoto 
+editoru omylem, m��ete ho ukon�it n�sleduj�c� posloupnost� znak� (neulo�� se 
+zm�ny): <tt>&lt;Esc&gt;:q!</tt> 
+<p><img alt="Odkazy na manu�l:" src="" align="left"> <br>
+</p><blockquote>
+  <h3><a href="http://manes.vse.cz/cgi-bin/man.cgi?vi">vi</a></h3><br><br><br></blockquote>
+<p><b>Editor vi se spust� p��kazem</b>: 
+</p><blockquote>vi soubor </blockquote><br>Editor m� 3 re�imy - <a href="http://www.manualy.sk/unix/u-vi.html#radek">re�im ��dkov�</a>, <a href="http://www.manualy.sk/unix/u-vi.html#povel">re�im povelov� 
+(zobrazov�n�)</a> a <a href="http://www.manualy.sk/unix/u-vi.html#vkladani">re�im vkl�d�n�</a>. Po 
+spu�t�n� editoru je obvykle nastaven zobrazovac� re�im (v p��pad� nastaven� 
+neznam�ho typu termin�lu v environment prom�nn� <b>TERM</b> lze pracovat pouze v 
+��dkov�m re�imu). <br><br>Povelov� re�im umo��uje prov�d�t n�sleduj�c� z�kladn� 
+edita�n� operace: pohyb po souboru, v�maz znak� (textu), pr�ce s odkl�dac� 
+oblast� (varianta blok�). Pro ulo�en� souboru a ukon�en� editoru se mus� p�ej�t 
+do p��kazov�ho re�imu. Re�im vkl�d�n�, jak n�zev napov�d�, slou�� pro vkl�d�n� 
+nov�ch znak� do souboru. <br>
+<hr>
+
+<h2><a name="povel">Povelov� re�im editoru vi</a></h2>V povelov�m re�imu se k 
+zobrazov�n� textu pou��v� cel� obrazovka. 
+<h3>Z�kladn� p��kazy pro pohyb po textu:</h3><pre><i>�ipka_nahoru</i>     O ��dku nahoru, t� <b>k</b>.
+<i>�ipka_dol�</i>       O ��dku dol�, t� <b>j</b>.
+<i>�ipka_vpravo</i>     O znak doprava, t� <b>l</b>.
+<i>�ipka_vlevo</i>      O znak doleva, t� <b>h</b>.
+<b>$</b>                Na konec ��dku, t� &lt;END&gt;.
+<b>0</b>                Na za��tek ��dku.
+<b>w</b>                Na za��tek n�sleduj�c�ho slova.
+<b>b</b>                Na za��tek p�edchoz�ho slova.
+<b>G</b>                Na konec souboru.
+<b>1G</b>               Na 1. ��dek souboru.
+<b>^F</b>               O str�nku dol� - ke konci souboru, t� &lt;PgDn&gt;.
+<b>^B</b>               O str�nku nahoru - k za��tku souboru, t� &lt;PgUp&gt;.
+<b>^D</b>               O p�l str�nky dol� - ke konci souboru.
+<b>^U</b>               O p�l str�nku nahoru - k za��tku souboru.
+<b>/</b><i>�et�zec</i>         Vyhled�n� �et�zce znak� sm�rem ke konci souboru
+                 (po stisknut� kl�vesy <b>/</b> se zad�v� �et�zec na doln�m ��dku).
+                 Pokud se �et�zec do konce souboru nenajde, hled� se od
+                 za��tku souboru (cyklick� vyhled�v�n�).
+<b>?</b><i>�et�zec</i>         Vyhled�n� �et�zce znak� sm�rem k za��tku souboru, jinak
+                 stejn� jako <b>/</b>�et�zec.
+</pre>
+<h3>Z�kladn� p��kazy pro v�maz a opravu existuj�c�ho textu:</h3><pre><b>x</b>             Ma�e znak na pozici kursoru.
+<b>dd</b>            V�maz aktu�ln� ��dky.
+<b>d</b><i>pohyb</i>        Ma�e text od aktu�ln� pozice po pozici, kam sm��uje <i>pohyb</i>.
+    P��klady:
+        d$        v�maz od aktu�ln� pozice do konce ��dku,
+        dG        v�maz od aktu�ln� pozice do konce souboru,
+        d/text    v�maz od aktu�ln� pozice po prvn� v�skyt �et�zce text,
+<b>r</b>x            P�eps�n� znaku na pozici kurzoru znakem x.
+<b>J</b>             P�ipojen� n�sleduj�c�ho ��dku na konec aktu�ln�ho ��dku
+              (tj. vymazan� znaku konce ��dky).
+</pre>
+<h3>Pr�ce s odkl�dac� oblast�:</h3><pre><b>yy</b>          Ulo�en� aktu�ln�ho ��dku do odkl�dac� oblasti.
+<b>y</b>pohyb      Ulo�en� textu do odkl�dac� oblasti od aktu�ln� pozice po
+            pozici, kam sm��uje pohyb. P��klad:
+            y$      ulo�en� textu od aktu�ln� pozice do konce ��dku,
+<b>p</b>           Vlo�en� textu z odkl�dac� oblasti za pozici kurzoru.
+<b>P</b>           Vlo�en� textu z odkl�dac� oblasti p�ed pozici kurzoru.
+</pre>
+<hr>
+
+<h2><a name="vkladani">Re�im vkl�d�n� editoru vi</a></h2>Do re�imu 
+vkl�d�n�/p�episov�n� se editor p�epne jedn�m z n�sleduj�c�ch p��kaz� v povelov�m 
+re�imu: <pre><b>a</b>        Vkl�d�n� za pozici kurzoru.
+<b>A</b>        Vkl�d�n� na konec ��dku.
+<b>i</b>        Vkl�d�n� na pozici kurzoru.
+<b>I</b>        Vkl�d�n� na za��tek ��dky.
+<b>R</b>        Re�im p�episov�n� znak�.
+</pre><br>Ve vkl�dac�m re�imu maj� pouze dv� kl�vesy speci�ln� v�znam 
+(&lt;Esc&gt; a &lt;BackSpace&gt;) - v�e ostatn� se vkl�d� do souboru. 
+&lt;Esc&gt; ukon�uje vstupn� re�im - editor p�ech�z� zp�t do editovac�ho re�imu. 
+&lt;BackSpace&gt; po jednom ma�e vlo�en� znaky. <br><img alt="!!! " src="" align="middle"> V re�imu vkl�d�n� <b>nelze pou��vat �ipky</b>!!! 
+<hr>
+
+<h2><a name="radek">��dkov� re�im editoru vi, editory ex a ed</a></h2>V ��dkov�m 
+re�imu lze pou��vat p��kazy editoru <b>ex</b>. Jeden p��kaz ��dkov�ho re�imu 
+m��eme zadat po znaku <b>:</b> - editor zobraz� na doln� ��dce dvojte�ku a lze 
+zadat p��kaz. Trvale lze p�ej�t do p��kazov�ho re�imu pomoc� povelu <b>Q</b>. 
+Zp�t do obrazovkov�ho re�imu lze p�ej�t p��kazem <b>visual</b>. <br><br>V 
+editorech ed a ex lze u v�t�iny p��kaz� ur�it rozsah aktivity p��kazu, a to 
+bu�to ozna�en�m jednoho ��dku nebo dvojic� ��dk�. Pro ozna�n� ��dk� lze pou��t: <pre><b>.</b>         Sou�asn� ��dek.
+<b>$</b>         Posledn� ��dek textu v editovan� oblasti.
+<i>n</i>         ��slo des�tkov� soustavy ozna�uje po�ad� ��dku editovan� oblasti.
+<b>.+</b><i>n</i>       Relativn� odkaz na ��dek vzd�len� n ��dk� kup�edu.
+<b>.-</b><i>n</i>       Odkaz na ��dek vzd�len� n ��dk� zp�t.
+<b>/</b><i>�et�zec</i>  Prvn� ��dek od aktu�ln�ho sm�rem ke konci editovan� oblasti
+              obsahuj�c� �et�zec (��dek odpov�daj�c� zadan�mu regul�rn�mu
+              v�razu).
+</pre>Ve dvojici jsou adresy odd�leny znakem <b>,</b>. Nap�. <pre>      1,$     adresuje celou oblast editace.
+      .,+3    adresuje oblast od aktu�ln�ho ��dku do ��dku o 3 d�le v�etn�,
+</pre><br>
+<h3>Nej�ast�ji pou��van� p��kazy ��dkov�ho re�imu editoru vi:</h3><pre>[rozsah] <b>w</b> [soubor]
+      Z�pis editovan�ho textu do souboru. Pokud se jm�no souboru neuvede,
+      p�ep��e se soubor, kter� byl otev�en. Variantou <b>w!</b> lze textem
+      p�epsat soubor, ke kter�mu m� u�ivatel pouze p��stup na �ten�. P��kaz
+      <b>wq</b> je tot� jako <b>w</b> a pak <b>q</b>. Pokud nen� uveden rozsah,
+      zapisuje se text z cel� editovac� oblasti.
+
+<b>q</b>     Ukon�en� pr�ce editoru. Pokud zm�ny nejsou ulo�eny, nelze
+      takto ukon�it.
+
+<b>q!</b>    Ukon�en� editoru bez ulo�en� zm�ny.
+
+<b>r</b> soubor
+      Na�ten� textu ze souboru do oblasti editace za aktu�ln� ��dek.
+
+[rozsah] <b>s/</b>regul�rn�_v�raz<b>/</b>text<b>/</b>[volby]
+      V�m�na textu dann�ho regul�rn�m v�razem za text. Jako volbu lze zadat
+      <b>g</b>, kter� roz�i�uje platnost v�m�ny na v�echny v�skyty
+      regul�rn�ho v�razu na ��dce. P�i pou�it� volby <b>c</b> bude editor
+      po�adovat p�ed ka�dou v�m�nou potvrzen�. Pokud nen� uveden rozsah, t�k�
+      se v�m�na pouze aktu�ln�ho ��dku. P��klad:
+  1,$ s/novak/Novak/gc
+       V cel�m souboru se m�sto �et�zce novak zap��e �et�zec Novak. P�ed
+           ka�dou v�m�nnou se editor zept�, zda ji m� opravdu prov�st.
+
+[rozsah] <b>p</b> 
+      V�pis ��dku (��dk� dle zadan�ho rozsahu) na obrazovce.
+
+<b>a</b>    Vkl�d�n� textu za aktu�ln� ��dek. N�sleduj�c� text zapisovan�
+      na termin�l je vlo�en do oblasti editace a� po ��dek, kter�
+      obsahuje pouze v prvn�m sloupci znak <b>.</b>
+
+<b>i</b>    Vkl�d�n� textu p�ed aktu�ln� ��dek.
+
+[rozsah]<b>d</b>
+            Zru�en� aktu�ln�ho ��dku (��dk� dle zadan�ho rozsahu).
+
+[rozsah] <b>g/</b>regul�rn�_v�raz<b>/</b>p��kazy
+      Na ��dc�ch, kter� odpov�daj� regul�rn�mu v�razu se provedou zadan�
+      p��kazy. P��klad:
+  1,$ g/^#/d
+       v cel�m souboru se zru�� ��dky, kter� za��naj� znakem #.
+</pre>
+<hr>
+<a href="http://www.manualy.sk/unix/unix.html"><img alt="Obsah" src="" align="right" border="0"></a> <a href="http://www.manualy.sk/unix/u-copyr.html"><i>© R. 
+Kunstov�, L. Pavl��ek - Vysok� �kola ekonomick� v Praze, KIT</i></a> 
+
+</body></html>

@@ -1,0 +1,56 @@
+
+SQL*Loader: Release 11.2.0.1.0 - Production on Fri Mar 20 14:48:45 2015
+
+Copyright (c) 1982, 2009, Oracle and/or its affiliates.  All rights reserved.
+
+Control File:   l_zamestnanec.ctl
+Data File:      l_zamestnanec.unl
+  Bad File:     l_zamestnanec.bad
+  Discard File:  none specified
+ 
+ (Allow all discards)
+
+Number to load: ALL
+Number to skip: 0
+Errors allowed: 50
+Bind array:     64 rows, maximum of 256000 bytes
+Continuation:    none specified
+Path used:      Conventional
+
+Table L_ZAMESTNANEC, loaded from every logical record.
+Insert option in effect for this table: INSERT
+
+   Column Name                  Position   Len  Term Encl Datatype
+------------------------------ ---------- ----- ---- ---- ---------------------
+ID_ZAMESTNANCA                      FIRST     *   |       CHARACTER            
+ID_SPOLOCNOSTI                       NEXT     *   |       CHARACTER            
+PSC                                  NEXT     *   |       CHARACTER            
+CISLO_DOKLADU                        NEXT     *   |       CHARACTER            
+TYP_DOKLADU                          NEXT     *   |       CHARACTER            
+DATUM_PRIJATIA                       NEXT     *   |       DATE DD.MM.YYYY      
+DATUM_ZRUSENIA                       NEXT     *   |       DATE DD.MM.YYYY      
+POZICIA                              NEXT     *   |       CHARACTER            
+ROD_CISLO                            NEXT     *   |       CHARACTER            
+ID_KRAJINY                           NEXT     *   |       CHARACTER            
+
+
+Table L_ZAMESTNANEC:
+  107 Rows successfully loaded.
+  0 Rows not loaded due to data errors.
+  0 Rows not loaded because all WHEN clauses were failed.
+  0 Rows not loaded because all fields were null.
+
+
+Space allocated for bind array:                 165120 bytes(64 rows)
+Read   buffer bytes: 1048576
+
+Total logical records skipped:          0
+Total logical records read:           107
+Total logical records rejected:         0
+Total logical records discarded:        0
+
+Run began on Fri Mar 20 14:48:45 2015
+Run ended on Fri Mar 20 14:48:49 2015
+
+Elapsed time was:     00:00:03.18
+CPU time was:         00:00:00.01

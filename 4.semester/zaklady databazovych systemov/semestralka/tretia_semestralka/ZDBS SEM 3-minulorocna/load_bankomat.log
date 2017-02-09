@@ -1,0 +1,78 @@
+
+SQL*Loader: Release 11.2.0.1.0 - Production on Wed May 14 17:39:26 2014
+
+Copyright (c) 1982, 2009, Oracle and/or its affiliates.  All rights reserved.
+
+Control File:   load_bankomat.ctl
+Data File:      bankomat.unl
+  Bad File:     bankomat.bad
+  Discard File:  none specified
+ 
+ (Allow all discards)
+
+Number to load: ALL
+Number to skip: 0
+Errors allowed: 50
+Bind array:     64 rows, maximum of 256000 bytes
+Continuation:    none specified
+Path used:      Conventional
+
+Table BANKOMAT, loaded from every logical record.
+Insert option in effect for this table: INSERT
+
+   Column Name                  Position   Len  Term Encl Datatype
+------------------------------ ---------- ----- ---- ---- ---------------------
+ID_BANKOMATU                        FIRST     *   |       CHARACTER            
+TYP_BANKOMATU                        NEXT     *   |       CHARACTER            
+ID_ADRESA                            NEXT     *   |       CHARACTER            
+ROK_VYROBY                           NEXT     *   |       CHARACTER            
+DATUM_UVEDENIA                       NEXT     *   |       DATE MM/DD/YYYY      
+DATUM_VYRADENIA                      NEXT     *   |       DATE MM/DD/YYYY      
+GPS_SIRKA                            NEXT     *   |       CHARACTER            
+GPS_DLZKA                            NEXT     *   |       CHARACTER            
+
+Record 12: Rejected - Error on table BANKOMAT, column DATUM_UVEDENIA.
+ORA-01843: not a valid month
+
+Record 29: Rejected - Error on table BANKOMAT.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253591) violated - parent key not found
+
+Record 30: Rejected - Error on table BANKOMAT.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253591) violated - parent key not found
+
+Record 31: Rejected - Error on table BANKOMAT.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253591) violated - parent key not found
+
+Record 32: Rejected - Error on table BANKOMAT.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253591) violated - parent key not found
+
+Record 33: Rejected - Error on table BANKOMAT.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253591) violated - parent key not found
+
+Record 34: Rejected - Error on table BANKOMAT.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253591) violated - parent key not found
+
+Record 35: Rejected - Error on table BANKOMAT.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253591) violated - parent key not found
+
+
+Table BANKOMAT:
+  27 Rows successfully loaded.
+  8 Rows not loaded due to data errors.
+  0 Rows not loaded because all WHEN clauses were failed.
+  0 Rows not loaded because all fields were null.
+
+
+Space allocated for bind array:                 132096 bytes(64 rows)
+Read   buffer bytes: 1048576
+
+Total logical records skipped:          0
+Total logical records read:            35
+Total logical records rejected:         8
+Total logical records discarded:        0
+
+Run began on Wed May 14 17:39:26 2014
+Run ended on Wed May 14 17:39:32 2014
+
+Elapsed time was:     00:00:06.66
+CPU time was:         00:00:00.02

@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0037)http://www.manualy.sk/unix/u-joe.html -->
+<html><head><script type="text/javascript" src="joe_editor_files/ufo.htm"></script>
+<title>Operacni system Unix - Z�klady pou��v�n� editoru joe</title>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-type">
+<meta content="MSHTML 5.00.3502.5390" name="GENERATOR"></head>
+<body>
+<center><a href="http://www.manualy.sk/unix/unix.html"><img alt="Opera�n� syst�m Unix, materi�ly ke cvi�en�" src="" border="0"></a> </center>
+<center>
+<h1>Z�klady pou��v�n� editoru joe</h1></center><br><br>Editor JOE napsal Joseph 
+H. Allen &lt;jhallen@world.std.com&gt;. Editor je dostupn� v s�ti Internet 
+pomoc� anonymn�ho FTP ze serveru <b>world.std.com</b>, soubor: 
+<b>src/editor/joe1.0.8.tar.Z</b>. <br>
+<h3>Obsah:</h3>
+<ol>
+  <li><a href="http://www.manualy.sk/unix/u-joe.html#spusteni">Spu�t�n� editoru 
+  joe</a> 
+  </li><li><a href="http://www.manualy.sk/unix/u-joe.html#editace">Edita�n� p��kazy 
+  editoru joe</a> 
+  <ul>
+    <li><a href="http://www.manualy.sk/unix/u-joe.html#pohyb">Pohyb po 
+    souboru</a> 
+    </li><li><a href="http://www.manualy.sk/unix/u-joe.html#vymaz">V�maz textu</a> 
+    </li><li><a href="http://www.manualy.sk/unix/u-joe.html#blok">Pr�ce s blokem</a> 
+    </li><li><a href="http://www.manualy.sk/unix/u-joe.html#soubory">Ukon�en�, 
+    operace se soubory</a> 
+    </li><li><a href="http://www.manualy.sk/unix/u-joe.html#okna">Pr�ce s okny</a> 
+    </li><li><a href="http://www.manualy.sk/unix/u-joe.html#makra">Do�asn� kl�vesov� 
+    makra</a> 
+    </li><li><a href="http://www.manualy.sk/unix/u-joe.html#hledani">Vyhled�v�n� 
+    textu</a> 
+    </li><li><a href="http://www.manualy.sk/unix/u-joe.html#tabulatory">Odr�ky 
+    (tabul�tory)</a> 
+    </li><li><a href="http://www.manualy.sk/unix/u-joe.html#formatovani">Form�tov�n� 
+    textu</a> 
+    </li><li><a href="http://www.manualy.sk/unix/u-joe.html#ruzne">R�zn� p��kazy</a> 
+    </li></ul>
+  </li><li><a href="http://www.manualy.sk/unix/u-joe.html#konfigurace">Konfigura�n� 
+  soubor editoru joe</a> </li></ol>
+<hr>
+
+<h2><a name="spusteni">Spu�t�n� editoru joe</a></h2>Joe je obrazovkov� orientovan� 
+textov� editor. Jeho ovl�d�n� je podobn� editor�m obvykl�m v MS DOSu - editoru 
+WordStar �i editor�m p�eklada�� "Turbo" firmy Borland. M� nav�c n�kter� dal�� 
+roz���en�, nap�. pou��v�n� maker. <br><br>Editor joe lze pou��t k psan� 
+program�, editaci neform�tovan�ho textu (nap�. el. po�ty, konfigura�n�ch soubor� 
+v unixu ...). Editor joe podporuje pln� 8-bitov� text (tj. i �e�tinu), umo��uje 
+t� editovat bin�rn� soubory. <br><br>Pro spr�vnou funkci editoru joe mus� 
+environment prom�nn� <b>TERM</b> obsahovat jm�no typu va�eho termin�lu (p�i 
+p��stupu pomoc� telnetu se obvykle pou��v� typ termin�lu vt102). Popis tohoto 
+typu termin�lu hled� v prvn�m z nasleduj�c�ch soubor�: 
+<blockquote><tt>/etc/termcap.idx <br>/etc/termcap <br>/usr/lib/terminfo/... 
+  </tt></blockquote>Soubor /etc/termcap.idx se vytv��� ze souboru /etc/termcap 
+pomoc� programu termidx. <br><br>Pokud chcete, aby se editor joe pou��val pro 
+editaci v dal��ch programech (el. po�ta, �ten� diskusn�ch skupin ...), nastavte 
+syst�mov� (environment) prom�nn� <b>VISUAL</b> a <b>EDITOR</b> na hodnotu 
+<b>/usr/local/bin/joe</b>. <br><br><b><u>Spu�t�n� editoru:</u></b> 
+<br><br><tt>joe [[<b>+</b><i>nnn</i>]<i>filename</i>]...</tt> 
+<p>P�i spu�t�n� editoru lze zadat v�ce soubor� (otev�e se v�ce oken). P�ed ka�d� 
+jm�no souboru lze zadat ��slo ��dku, na kter� se m� um�stit kurzor. <br>
+</p><hr>
+
+<h2><a name="editace">Edita�n� p��kazy editoru joe</a></h2>
+<dl compact="compact">
+  <dt><b>^KH</b> 
+  </dt><dd>zobrazen� n�pov�dy (helpu), ukon�en� zobrazov�n� n�pov�dy. Podrobn� popis 
+  p��kaz� je k dispozici v manu�lov� str�nce (p��kaz <b>man joe</b>) </dd></dl>
+<hr>
+
+<h3><a name="pohyb">Pohyb po souboru</a></h3>
+<dl compact="compact">
+  <dt><b>^B</b>
+  </dt><dd>vlevo, t� �ipka vlevo 
+  </dd><dt><b>^F</b>
+  </dt><dd>vpravo, t� �ipka vpravo 
+  </dd><dt><b>^P</b>
+  </dt><dd>nahoru, t� �ipka nahoru 
+  </dd><dt><b>^N</b>
+  </dt><dd>dol�, t� �ipka dol� 
+  </dd><dt><b>^Z</b>
+  </dt><dd>p�edchoz� slovo 
+  </dd><dt><b>^X</b>
+  </dt><dd>n�sleduj�c� slovo 
+  </dd><dt><b>^U</b>
+  </dt><dd>p�edchoz� obrazovka, t� &lt;PgUp&gt; 
+  </dd><dt><b>^V</b>
+  </dt><dd>n�sleduj�c� obrazovka, t� &lt;PgDn&gt; 
+  </dd><dt><b>^A</b>
+  </dt><dd>za��tek ��dky, t� &lt;Home&gt; 
+  </dd><dt><b>^E</b>
+  </dt><dd>konec ��dky, t� &lt;End&gt; 
+  </dd><dt><b>^KU</b>
+  </dt><dd>za��tek souboru 
+  </dd><dt><b>^KV</b>
+  </dt><dd>konec souboru 
+  </dd><dt><b>^KL</b>
+  </dt><dd>na ��dku ��slo n 
+  </dd><dt><b>^G</b>
+  </dt><dd>na odpov�daj�c� ( [ { 
+  </dd><dt><b>^K-</b>
+  </dt><dd>na p�edchoz� pozici, kde se prov�d�la zm�na. Obr�cen� pomoc� <b>^K=</b> 
+  </dd></dl>
+<hr>
+
+<h3><a name="vymaz">V�maz textu</a></h3><pre><b>^D</b>     v�maz znaku, t� &lt;Del&gt;
+<b>^H</b>     p�edchoz� znak, t� &lt;BackSpace&gt;
+<b>^Y</b>     v�maz ��dky
+<b>^J</b>     do konce ��dky
+<b>^W</b>     do n�sleduj�c�ho slova
+<b>^O</b>     p�edchoz� slovo
+<b>^_</b>     undo
+<b>^^</b>     redo
+</pre>
+<hr>
+
+<h3><a name="blok">Pr�ce s blokem</a></h3><pre><b>^KB</b>     z���tek bloku
+<b>^KK</b>     konec bloku
+<b>^KM</b>     p�esun bloku
+<b>^KC</b>     zkop�rov�n� bloku
+<b>^KW</b>     zaps�n� bloku do souboru
+<b>^KY</b>     v�maz bloku
+<b>^K/</b>     "p�epracov�n�" bloku unixov�m p��kazem, nap�. set��d�n�
+          bloku - ^K/sort
+</pre>
+<hr>
+
+<h3><a name="soubory">Ukon�en�, operace se soubory</a></h3><pre><b>^KX</b>     ulo�en� souboru a konec
+<b>^C</b>      konec bez ulo�en� zm�n
+<b>^KE</b>     otev�en� nov�ho souboru
+<b>^KR</b>     vlo�en� souboru do textu
+<b>^KD</b>     ulo�en� souboru
+<b>^KZ</b>     spu�t�n� shellu, n�vrat - <b>exit</b>
+<b>^K'</b>     spu�t�n� shellu v okn�. Cokoli nap��ete na konci textu,
+        p�ed� se shellu, v�sledky se ukl�daj� do okna. Shell se ukon��
+        stisknut�m ^C mimo konec textu v okn�. Lze pou��t pro nahr�v�n�
+        v�sledk� program�.
+P�i <b>zad�v�n� jm�na souboru</b> lze pou��t n�sleduj�c� kombinace:
+  <b>&lt;TAB&gt;</b>     nab�dne se menu soubor�, ze kter�ho lze vyb�rat
+  <b>�ipka nahoru �i �ipka dol�</b>
+            nab�zej� se jm�na d��ve zad�van�ch soubor�
+  <b>!<i>p��kaz</i></b>   p�es rouru (pipe) se na�te v�sledek unixov�ho p��kazu
+             �i se editovan� text p�ed� unixov�mu p��kazu
+  <b>&gt;&gt;soubor</b>  editovan� text se p�ed� na konec existuj�c�ho souboru
+  <b>-</b>         �te se ze standardn�ho vstupu/zapisuje se na standardn�
+             v�stup
+  <b>soubor,za��tek,d�lka</b> 
+            �te se/zapisuje ��st souboru (od kter�ho ��dku, kolik ��dk�),
+</pre>
+<hr>
+
+<h3><a name="okna">Pr�ce s okny</a></h3><pre><b>^KO</b>   rozd�len� okna na dv�, do nov�ho okna lze na��st soubor pomoc� ^KE
+<b>^KG</b>   zv�t�en� aktu�ln�ho okna
+<b>^KT</b>   zmen�en� aktu�ln�ho okna
+<b>^KN</b>   p�echod do doln�ho okna
+<b>^KP</b>   p�echod do horn�ho okna
+<b>^C</b>    zru�en� aktu�ln�ho okna
+<b>^KI</b>   zobrazen� v�ech oken
+</pre>
+<hr>
+
+<h3><a name="makra">Do�asn� kl�vesov� makra</a></h3><pre><b>^K[<i>n</i></b>    za��n� se nahr�vat makro <i>n</i> (0 a� 9)
+<b>^K]</b>     konec nahr�v�n� makra
+<b>^K<i>n</i></b>     spu�t�n� makra <i>n</i>
+</pre>
+<hr>
+
+<h3><a name="hledani">Vyhled�v�n� textu</a></h3><b>^KF</b>&nbsp;&nbsp;nalezen� 
+�et�zce v textu, po zad�n� �et�zce (regul�rn�ho v�razu) lze zadat n�sleduj�c� 
+volby: 
+<blockquote><b>b</b>&nbsp;&nbsp;zp�tn� hled�n�, 
+  <br><b>i</b>&nbsp;&nbsp;nerozli�ovat mezi mal�mi a velk�mi p�smeny, 
+  <br><b><i>n</i></b>&nbsp;&nbsp;vyhled� se <i>n</i>-t� v�skyt �et�zce, 
+  <br><b>r</b>&nbsp;&nbsp;nalezen� �et�zec se bude p�episovat d�le zadan�m 
+  textem, </blockquote><b>^L</b>&nbsp;&nbsp;vyhled�n� dal��ho v�skytu 
+<br><br><b>speci�ln� znaky</b> p�i zad�v�n� �et�zce <b>pro vyhled�v�n�</b> 
+(regul�rn� v�razy): <pre>   <b>\^</b>      za��tek ��dku
+   <b>\$</b>      konec ��dku,
+   <b>\&lt;</b>      za��tek slova
+   <b>\&gt;</b>      konec slova
+   <b>\?</b>      jeden znak
+   <b>\*</b>      0 �i v�ce znak�
+   <b>\c</b>      vybalancovan� p��kaz jazyka C
+   <b>\\</b>      znak \
+   <b>\[..]</b>   jeden znak z mno�iny v [ ]
+   <b>\n</b>      znak konce ��dku
+   <b>\+</b>      0 �i v�ce opakov�n� znaku, kter� n�sleduje \+
+</pre><b>speci�ln� znaky</b> pro zad�v�n� textu, kter� p�ep��e <b>vyhled�v�ny 
+�et�zec</b>: <pre>   <b>\&amp;</b>      nalezen� �et�zec
+   <b>\n</b>      znak konce ��dku
+   <b>\\</b>      znak \
+   <b>\</b><i>n</i>      zap��e se text, kter� odpov�d� <i>n</i>-t�mu v�skytu \*,
+           \?, \c, \+ �i \[..]
+</pre><b>p��klady regul�rn�ch v�raz�</b>: <pre><b>A\*B</b>        vyhled� se text, kter� za��n� p�smenem <b>A</b> a po n�kolika
+            r�zn�ch znac�ch n�sleduje <b>B</b>
+<b>A\?B</b>        vyhled� se text, kter� za��n� <b>A</b>, n�sleduje
+            jedno jak�koliv p�smeno a potom p�smeno <b>B</b>
+<b>\&lt;\*is\*\&gt;</b>  vyhled� se slovo, kter� obsahuje �et�zec <b>is</b>
+<b>\^test\$</b>    vyhledaj� se �adky, kter� obsahuj� pouze �et�zec <b>test</b>
+<b>\[A-Z]</b>      vyhled� se jak�koliv velk� p�smeno
+<b>\&lt;\*\&gt;</b>      vyhled� se slovo, pokud se pro p�eps�n� p�vodn�ho
+            �et�zce zad� <b>"\&amp;"</b>, or�muje se ka�d� slovo uvozovkami
+</pre>
+<hr>
+
+<h3><a name="tabulatory">Odr�ky (tabul�tory)</a></h3><pre><b>^TK</b>    v�pl�ov� znak (obvykle mezera)
+<b>^K,</b>    posunut� bloku vlevo
+<b>^K.</b>    posunut� bloku vpravo
+<b>^TI</b>    po kolika znac�ch d�lat odr�ky (tabul�tory)
+<b>^TA</b>    automaticky odr�ky zap/vyp, pokud zapnuto - p�i p�echodu
+        na nov� ��dek se automaticky p�ejde na sloupec, kter� odpov�d�
+        prv�mu nemezerov�mu znaku v p�edchoz� ��dce,
+</pre>
+<hr>
+
+<h3><a name="formatovani">Form�tov�n� textu</a></h3><pre><b>^TW</b>     automatick� od��dkov�n� na prav�m okraji zap/vyp
+<b>^TL</b>     nastaven� lev�ho okraje
+<b>^TR</b>     nastaven� prav�ho okraje
+<b>^KJ</b>     p�eform�tov�n� odstavce
+<b>^KA</b>     vycentrov�n� ��dky
+</pre>
+<hr>
+
+<h3><a name="ruzne">R�zn� p��kazy</a></h3><pre><b>^K\<i>n</i></b>     n�sleduj�c� p��kaz se bude opakovat <i>n</i>-kr�t
+<b>^TX</b>      sloupcov� re�im zap/vyp, umo��uje jako blok ozna�ovat sloupce
+<b>`</b>        vkl�d�n� znak� 0-32
+<b>^\</b>       vkl�d�n� znak� nad 127
+<b>^R</b>       obnova obrazovky
+<b>^TT</b>      re�im p�episov�n�/vkl�d�n�
+<b>^@</b>       vkl�d�n� v re�imu p�episov�n�
+<b>^TN</b>      zobrazovat ��slo ��dku
+<b>^TC</b>      zobrazovat ��slo sloupce
+<b>^K&lt;mezera&gt;</b>  zobrazit pozici v textu
+<b>^TD</b>      nastavit "velikost" tabul�toru
+<b>^TP</b>      o kolik ��dek &lt;PgUp&gt;/&lt;PgDn&gt;
+<b>^TH</b>      norm�ln� zobrazen� znak� nad 127 zap/vyp
+<b>^K;</b>      vyhled�v�n� dle pomocn�ho souboru <b>ctags</b>
+<b>^TM</b>      vycentrov�n� kurzoru p�i p�echodu mimo okno (pro pomal� termin�ly)
+<b>^TF</b>      zap�n�n� podpory znaku konce ��dku na konci souboru
+</pre><br>
+<hr>
+
+<h2><a name="konfigurace">Konfigura�n� soubor editoru joe</a></h2>U�ivatel si m��e 
+s�m zm�nit konfiguraci editoru JOE. Pou�ije se prvn� nalezen� konfigura�n� 
+soubor z n�sleduj�c�ch: <tt>
+<blockquote>.joerc <br>$HOME/.joerc <br>/usr/local/lib/joerc 
+</blockquote></tt>Konfigura�n� soubor obsahuje n�sleduj�c� informace: 
+<ol>
+  <li><b>glob�ln� volby</b> - zobrazov�n� 8-bitov�ch znak�, zobrazov�n� ��dku a 
+  sloupce na stavov� ��dce, um�st�n� nov� ��dky na konci souboru, automatick� 
+  spou�t�n� helpu, o kolik ��dek se posune kurzor po souboru p�i stisku 
+  &lt;PgUp&gt; �i &lt;PgDn&gt;, uchov�v�n� backupu editovan�ho souboru, 
+  potvrzov�n� jm�na souboru p�i ^KX atd. 
+  </li><li><b>volby z�visl� na jm�nu (typu) souboru</b> - pro jednotliv� skupiny 
+  soubor� lze zapnout n�sleduj�c� volby: 
+  <ul>
+    <li>-wordwrap automatick� od��dkov�n� na prav�m okraji 
+    </li><li>-autoindent automatick� odr�ky 
+    </li><li>-overwrite re�im p�episov�n� 
+    </li><li>-lmargin nnn lev� okraj nastavit na nnn sloupec 
+    </li><li>-rmargin nnn prav� okraj nastavit na nnn sloupec 
+    </li><li>-tab nnn tabulator po nnn pozic�ch 
+    </li><li>-indentc nnn znak pro odr�ky (32 pro mezeru, 9 pro tabul�tor) 
+    </li><li>-istep nnn o kolik sloupc� odr�ky </li></ul>
+  </li><li><b>helpov� obrazovky</b> 
+  </li><li><b>p�i�azen� funkc� k jednotliv�m kl�ves�m</b>, lze si t� p�eddefinovat 
+  makra a p�i�adit je ke kl�ves�m. N�sleduj�c� p��klad p�i�ad� ke kombinaci 
+  kl�ves ^TA funkci, kter� na za��tek ��dk� dopln� znak &gt; (odsad� p�vodn� 
+  text p�i psan� dopisu el. po�ty): 
+  <blockquote><tt>bol,"&gt; ",dnarw ^TA</tt> </blockquote></li></ol><br>Ka�d� 
+u�ivatel si m��e zkop�rovat soubor <tt>/usr/local/lib/joerc</tt> do sv�ho 
+domovsk�ho adres��e a upravit si ho dle sv�ho. 
+<hr>
+<a href="http://www.manualy.sk/unix/unix.html"><img alt="Obsah" src="" align="right" border="0"></a> <a href="http://www.manualy.sk/unix/u-copyr.html"><i>© R. 
+Kunstov�, L. Pavl��ek - Vysok� �kola ekonomick� v Praze, KIT</i></a> 
+
+</body></html>

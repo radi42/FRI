@@ -1,0 +1,2075 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40"
+xmlns:ns0="http://schemas.microsoft.com/office/2004/12/omml">
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Quest Toad Data Modeler Release Notes</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>CHARONWARE,s.r.o.</o:Author>
+  <o:LastAuthor>CHARONWARE,s.r.o.</o:LastAuthor>
+  <o:Revision>3</o:Revision>
+  <o:TotalTime>261</o:TotalTime>
+  <o:Created>2006-09-20T10:52:00Z</o:Created>
+  <o:LastSaved>2006-09-20T10:57:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>1381</o:Words>
+  <o:Characters>8153</o:Characters>
+  <o:Company>CHARONWARE,s.r.o.</o:Company>
+  <o:Lines>67</o:Lines>
+  <o:Paragraphs>19</o:Paragraphs>
+  <o:CharactersWithSpaces>9515</o:CharactersWithSpaces>
+  <o:Version>11.5606</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:HyphenationZone>21</w:HyphenationZone>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:DontVertAlignCellWithSp/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+  <w:TrackMoves/>
+  <w:TrackFormatting/>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>CS</w:LidThemeOther>
+  <w:LidThemeAsian>X-NONE</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="--"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr>
+ </w:WordDocument>
+</xml><![endif]-->
+<!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" LatentStyleCount="156">
+  <w:LsdException Locked="true" Name="Normal"/>
+  <w:LsdException Locked="true" Name="heading 1"/>
+  <w:LsdException Locked="true" Name="heading 2"/>
+  <w:LsdException Locked="true" Name="heading 3"/>
+  <w:LsdException Locked="true" Name="heading 4"/>
+  <w:LsdException Locked="true" Name="heading 5"/>
+  <w:LsdException Locked="true" Name="heading 6"/>
+  <w:LsdException Locked="true" Name="heading 7"/>
+  <w:LsdException Locked="true" Name="heading 8"/>
+  <w:LsdException Locked="true" Name="heading 9"/>
+  <w:LsdException Locked="true" Name="toc 1"/>
+  <w:LsdException Locked="true" Name="toc 2"/>
+  <w:LsdException Locked="true" Name="toc 3"/>
+  <w:LsdException Locked="true" Name="toc 4"/>
+  <w:LsdException Locked="true" Name="toc 5"/>
+  <w:LsdException Locked="true" Name="toc 6"/>
+  <w:LsdException Locked="true" Name="toc 7"/>
+  <w:LsdException Locked="true" Name="toc 8"/>
+  <w:LsdException Locked="true" Name="toc 9"/>
+  <w:LsdException Locked="true" Name="caption"/>
+  <w:LsdException Locked="true" Name="Title"/>
+  <w:LsdException Locked="true" Name="Subtitle"/>
+  <w:LsdException Locked="true" Name="Strong"/>
+  <w:LsdException Locked="true" Name="Emphasis"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--p.MSONORMAL
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;}
+li.MSONORMAL
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;}
+div.MSONORMAL
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;}
+h1
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-fareast-theme-font:minor-fareast;}
+h2
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-fareast-theme-font:minor-fareast;}
+h3
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-fareast-theme-font:minor-fareast;}
+h4
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-fareast-theme-font:minor-fareast;}
+a:link
+	{mso-style-unhide:no;}
+span.MSOHYPERLINK
+	{mso-style-unhide:no;}
+a:visited
+	{mso-style-unhide:no;}
+span.MSOHYPERLINKFOLLOWED
+	{mso-style-unhide:no;}
+p
+	{mso-style-unhide:no;}
+p.MSOACETATE
+	{mso-style-unhide:no;}
+li.MSOACETATE
+	{mso-style-unhide:no;}
+div.MSOACETATE
+	{mso-style-unhide:no;}
+p.MSOLISTPARAGRAPH
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;}
+li.MSOLISTPARAGRAPH
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;}
+div.MSOLISTPARAGRAPH
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;}
+p.MSOLISTPARAGRAPHCXSPFIRST
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;}
+li.MSOLISTPARAGRAPHCXSPFIRST
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;}
+div.MSOLISTPARAGRAPHCXSPFIRST
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;}
+p.MSOLISTPARAGRAPHCXSPMIDDLE
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;}
+li.MSOLISTPARAGRAPHCXSPMIDDLE
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;}
+div.MSOLISTPARAGRAPHCXSPMIDDLE
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;}
+p.MSOLISTPARAGRAPHCXSPLAST
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;}
+li.MSOLISTPARAGRAPHCXSPLAST
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;}
+div.MSOLISTPARAGRAPHCXSPLAST
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;}
+span.HEADING1CHAR
+	{mso-style-unhide:no;
+	mso-ascii-theme-font:major-latin;
+	mso-fareast-theme-font:major-fareast;
+	mso-hansi-theme-font:major-latin;
+	mso-bidi-theme-font:major-bidi;
+	mso-themecolor:accent1;
+	mso-themeshade:181;}
+span.HEADING2CHAR
+	{mso-style-unhide:no;
+	mso-ascii-theme-font:major-latin;
+	mso-fareast-theme-font:major-fareast;
+	mso-hansi-theme-font:major-latin;
+	mso-bidi-theme-font:major-bidi;
+	mso-themecolor:accent1;}
+span.HEADING3CHAR
+	{mso-style-unhide:no;
+	mso-ascii-theme-font:major-latin;
+	mso-fareast-theme-font:major-fareast;
+	mso-hansi-theme-font:major-latin;
+	mso-bidi-theme-font:major-bidi;
+	mso-themecolor:accent1;}
+span.HEADING4CHAR
+	{mso-style-unhide:no;
+	mso-ascii-theme-font:major-latin;
+	mso-fareast-theme-font:major-fareast;
+	mso-hansi-theme-font:major-latin;
+	mso-bidi-theme-font:major-bidi;
+	mso-themecolor:accent1;}
+p.CONTENTSHEADER
+	{mso-style-unhide:no;}
+li.CONTENTSHEADER
+	{mso-style-unhide:no;}
+div.CONTENTSHEADER
+	{mso-style-unhide:no;}
+p.CONTENTITEM
+	{mso-style-unhide:no;}
+li.CONTENTITEM
+	{mso-style-unhide:no;}
+div.CONTENTITEM
+	{mso-style-unhide:no;}
+p.NOTE
+	{mso-style-unhide:no;}
+li.NOTE
+	{mso-style-unhide:no;}
+div.NOTE
+	{mso-style-unhide:no;}
+span.CONTENTSHEADER1
+	{mso-style-unhide:no;}
+span.BALLOONTEXTCHAR
+	{mso-style-unhide:no;}
+table.MSONORMALTABLE
+	{mso-style-priority:99;
+	mso-style-qformat:yes;}
+
+ /* Font Definitions */
+ @font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:238;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:1627421319 -2147483648 8 0 66047 0;}
+@font-face
+	{font-family:Cambria;
+	panose-1:0 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:auto;
+	mso-font-signature:0 0 0 0 0 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-style-link:"Heading 1 Char";
+	margin-top:24.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:18.0pt;
+	font-family:Arial;
+	font-weight:bold;}
+h2
+	{mso-style-link:"Heading 2 Char";
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h3
+	{mso-style-link:"Heading 3 Char";
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	mso-outline-level:3;
+	font-size:13.5pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h4
+	{mso-style-link:"Heading 4 Char";
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-link:"Balloon Text Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:8.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";}
+span.Heading1Char
+	{mso-style-name:"Heading 1 Char";
+	mso-style-locked:yes;
+	mso-style-link:"Heading 1";
+	mso-ansi-font-size:14.0pt;
+	mso-bidi-font-size:14.0pt;
+	font-family:Cambria;
+	mso-ascii-font-family:Cambria;
+	mso-fareast-font-family:"Times New Roman";
+	mso-hansi-font-family:Cambria;
+	mso-bidi-font-family:"Times New Roman";
+	color:#385B86;
+	font-weight:bold;}
+span.Heading2Char
+	{mso-style-name:"Heading 2 Char";
+	mso-style-locked:yes;
+	mso-style-link:"Heading 2";
+	mso-ansi-font-size:13.0pt;
+	mso-bidi-font-size:13.0pt;
+	font-family:Cambria;
+	mso-ascii-font-family:Cambria;
+	mso-fareast-font-family:"Times New Roman";
+	mso-hansi-font-family:Cambria;
+	mso-bidi-font-family:"Times New Roman";
+	color:#4F81BD;
+	font-weight:bold;}
+span.Heading3Char
+	{mso-style-name:"Heading 3 Char";
+	mso-style-locked:yes;
+	mso-style-link:"Heading 3";
+	mso-ansi-font-size:12.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:Cambria;
+	mso-ascii-font-family:Cambria;
+	mso-fareast-font-family:"Times New Roman";
+	mso-hansi-font-family:Cambria;
+	mso-bidi-font-family:"Times New Roman";
+	color:#4F81BD;
+	font-weight:bold;}
+span.Heading4Char
+	{mso-style-name:"Heading 4 Char";
+	mso-style-locked:yes;
+	mso-style-link:"Heading 4";
+	mso-ansi-font-size:12.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:Cambria;
+	mso-ascii-font-family:Cambria;
+	mso-fareast-font-family:"Times New Roman";
+	mso-hansi-font-family:Cambria;
+	mso-bidi-font-family:"Times New Roman";
+	color:#4F81BD;
+	font-weight:bold;
+	font-style:italic;}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-locked:yes;
+	mso-style-link:"Balloon Text";
+	mso-ansi-font-size:8.0pt;
+	mso-bidi-font-size:8.0pt;
+	font-family:Tahoma;
+	mso-ascii-font-family:Tahoma;
+	mso-hansi-font-family:Tahoma;
+	mso-bidi-font-family:Tahoma;}
+p.msolistparagraph, li.msolistparagraph, div.msolistparagraph
+	{mso-style-name:msolistparagraph;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.msolistparagraphCxSpFirst, li.msolistparagraphCxSpFirst, div.msolistparagraphCxSpFirst
+	{mso-style-name:msolistparagraphCxSpFirst;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.msolistparagraphCxSpMiddle, li.msolistparagraphCxSpMiddle, div.msolistparagraphCxSpMiddle
+	{mso-style-name:msolistparagraphCxSpMiddle;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.msolistparagraphCxSpLast, li.msolistparagraphCxSpLast, div.msolistparagraphCxSpLast
+	{mso-style-name:msolistparagraphCxSpLast;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.contentsheader, li.contentsheader, div.contentsheader
+	{mso-style-name:contentsheader;
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:14.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	color:#004080;}
+p.contentitem, li.contentitem, div.contentitem
+	{mso-style-name:contentitem;
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:9.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	color:#004080;}
+p.note, li.note, div.note
+	{mso-style-name:note;
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+span.contentsheader1
+	{mso-style-name:contentsheader1;
+	mso-ansi-font-size:14.0pt;
+	mso-bidi-font-size:14.0pt;
+	color:#004080;
+	font-weight:normal;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:70.85pt 70.85pt 70.85pt 70.85pt;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:874926072;
+	mso-list-template-ids:1455842180;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l0:level2
+	{mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level3
+	{mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level5
+	{mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level6
+	{mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level8
+	{mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level9
+	{mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1
+	{mso-list-id:1108621456;
+	mso-list-template-ids:1371042834;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l1:level2
+	{mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level3
+	{mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level5
+	{mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level6
+	{mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level8
+	{mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level9
+	{mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l2
+	{mso-list-id:1176923048;
+	mso-list-template-ids:-1717566708;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l2:level2
+	{mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l2:level3
+	{mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l2:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l2:level5
+	{mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l2:level6
+	{mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l2:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l2:level8
+	{mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l2:level9
+	{mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l3
+	{mso-list-id:1490364515;
+	mso-list-template-ids:512501242;}
+@list l3:level1
+	{mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l3:level2
+	{mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l3:level3
+	{mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l3:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l3:level5
+	{mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l3:level6
+	{mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l3:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l3:level8
+	{mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l3:level9
+	{mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l4
+	{mso-list-id:1549679708;
+	mso-list-template-ids:-1250632850;}
+@list l4:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l4:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l4:level3
+	{mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l4:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l4:level5
+	{mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l4:level6
+	{mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l4:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l4:level8
+	{mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l4:level9
+	{mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+</style>
+<![endif]-->
+<link rel=themeData
+href="../../vfrolik/Quest%20PRODUCT%20NAME%20Release%20Notes_2_files/themedata.thmx">
+<link rel=colorSchemeMapping
+href="../../vfrolik/Quest%20PRODUCT%20NAME%20Release%20Notes_2_files/colorschememapping.xml">
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="8194"/>
+</xml><![endif]-->
+<!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]--><style type="text/css">
+<!--
+.style1 {
+	font-family: Arial;
+	font-size: 9.0pt;
+	color: black;
+}
+.style4 {
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 9.0pt;
+	color: black;
+}
+.style5 {color: black}
+div.MsoNormal1 {mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+li.MsoNormal1 {mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoNormal1 {mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+.style6 {
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 9.0pt;
+}
+div.MsoNormal2 {mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+li.MsoNormal2 {mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoNormal2 {mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+div.MsoNormal3 {mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+li.MsoNormal3 {mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoNormal3 {mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoNormal21 {mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+div.MsoNormal4 {mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+li.MsoNormal4 {mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoNormal4 {mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoNormal31 {mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+.style7 {
+	font-family: Arial;
+	font-size: 9.0pt;
+}
+div.MsoNormal5 {mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+li.MsoNormal5 {mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoNormal5 {mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+-->
+</style></head>
+<body lang=CS link=blue vlink=blue style='tab-interval:35.4pt'>
+<div class=Section1>
+  <p><a name="ToadDataModeler"><b><span style='font-size:18.0pt;font-family:Arial;
+color:black'>Quest® Toad™ Data Modeler <br>
+    </span></b></a><span
+style='font-family:Arial;color:black'>version 2.25 f</span></p>
+
+  <p><b><span style='font-family:Arial;color:gray'>Release Notes</span></b></p>
+  <p><span style='font-size:10.0pt;font-family:Arial;color:black'>OCTOBER 2006</span></p>
+  <p><span style='font-size:7.5pt;font-family:Arial;color:black'>© 2006 Quest Software, Inc. <br>
+    All Rights Reserved</span></p>
+  <div>
+   
+    <div class=MsoNormal><span style='font-size:9.0pt;font-family:Arial;color:black'>
+                      <hr size=2 width="75%" align=left>
+    </span></div>
+                 
+  </div>
+  <div>
+    <p class=MsoNormal><span style='font-size:14.0pt;font-family:Arial;color:#004080'>Contents<o:p></o:p></span></p>
+  </div>
+  <p><span style='font-size:9.0pt;font-family:Arial;color:#004080'><span
+style='color:#004080'><a href="#Welcome_to_ToadDataModeler">Welcome to Toad™
+          Data Modeler</a><br>
+        <a href="#Whats_New">What's New</a></span><br>
+  </span><span style='font-size:9.0pt;font-family:Arial;color:black'><span
+style='color:#004080'><a href="#Resolved_Issues_and_Enhancements_">Resolved Issues
+  and Enhancements</a></span></span><span
+style='font-size:9.0pt;font-family:Arial;color:#004080'><br>
+  <span style='color:#004080'><a href="#Known_Issues">Known
+Issues</a></span><br>
+  </span><span style='font-size:9.0pt;font-family:Arial;color:black'><span
+style='color:#004080'><a href="#System_Requirements">System Requirements</a></span></span><span
+style='font-size:9.0pt;font-family:Arial;color:#004080'><br>
+  </span><span style='font-size:9.0pt;font-family:Arial;color:black'><span
+style='color:#004080'><a href="#Global_Operations">Global Operations</a></span></span><span
+style='font-size:9.0pt;font-family:Arial;color:#004080'><br>
+  <span
+style='color:#004080'><a href="#Getting_Started_">Getting Started</a></span><br>
+  </span><span style='font-size:9.0pt;font-family:Arial;color:black'><span
+style='color:#004080'><a href="#For_More_Information">For More Information</a></span><a href="#For_More_Information"><o:p></o:p></a><o:p></o:p></span><span style='font-size:9.0pt;font-family:Arial;color:black'><o:p></o:p></span></p>
+  <div>
+    <div>
+      <div>
+        <div>
+          <div>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div class=MsoNormal><span style='font-size:9.0pt;font-family:Arial;color:black'>
+                      <hr size=2 width="75%" align=left>
+                      </span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class=MsoNormal><a name="Welcome_to_ToadDataModeler" id="Welcome_to_ToadDataModeler"></a><span
+style='mso-bookmark:Welcome_to_PRODUCT_NAME_'><span style='font-size:14.0pt;
+font-family:Arial;color:#004080;text-decoration:none;text-underline:none'>Welcome
+        to Toad™ Data Modeler </span></span><span style='font-size:
+9.0pt;font-family:Arial;color:black'><o:p></o:p></span></p>
+  <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="75%"
+ style='width:75.0%;mso-cellspacing:0cm;mso-padding-alt:0cm 0cm 0cm 0cm'
+ height=50>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+      <td valign=top style='padding:0cm 0cm 0cm 0cm'>
+        <p><span style='font-size:9.0pt;font-family:Arial;color:black'>General
+            information about the Toad™ Data Modeler.<o:p></o:p></span></p>
+        <p><span style='font-size:9.0pt;font-family:Arial;color:black'>Quest
+            Software's Toad™ Data Modeler helps organizations create, maintain
+            and document their database systems with an easy-to-use graphical
+            interface into new or existing database structures. Toad™ Data Modeler
+            enables users to reverse engineer over 20 different databases, design
+            and generate SQL, create HTML or RTF reports, and generate data flow
+            diagrams, in addition to versioning of database designs and creation
+            of to-do lists.<br>
+          <br>
+            <strong>The freeware version doesn't include all features and allows you   to save a model with less than 25 entities
+          .
+            <o:p></o:p>
+            </strong></span><br>
+        </p>
+      </td>
+    </tr>
+  </table>
+  <p><span style='font-size:9.0pt;font-family:Arial;color:black'><a
+href="#ToadDataModeler">Back to Top</a></span><span
+class=MsoHyperlink><span style='font-size:9.0pt;font-family:Arial'><o:p></o:p></span></span></p>
+  <div>
+    <div>
+      <div>
+        <div>
+          <div>
+            <p class=MsoNormal><span style='color:black'><o:p>&nbsp;</o:p></span></p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div class=MsoNormal><span style='font-size:9.0pt;font-family:Arial;color:black'>
+                      <hr size=2 width="75%" align=left>
+                      </span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class=MsoNormal><a name="Whats_New"><span class=contentsheader1><span
+style='font-size:14.0pt;font-family:Arial'>What's New</span></span></a><span
+style='mso-bookmark:Whats_New'><span style='font-size:9.0pt;font-family:Arial;
+color:black'> </span></span><span style='font-size:9.0pt;font-family:Arial;
+color:black'><o:p></o:p></span></p>
+  <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="91%"
+ style='width:75.0%;mso-cellspacing:0cm;mso-padding-alt:0cm 0cm 0cm 0cm'
+ id=table1 height=50>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+      <td valign=top style='padding:0cm 0cm 0cm 0cm'>
+        <p><span style='font-size:9.0pt;font-family:Arial;color:black'>Updates
+            to Toad™ Data Modeler Version 2.25</span> <span style='font-size:9.0pt;font-family:
+  Arial;color:black'>
+        <o:p></o:p></span></p>
+        <ul style='margin-top:0cm' type=disc><li class=MsoNormal><span class="style6">SQL  preview available on tab DDL of the Entity and Relationship dialogs </span></li>
+          <li class=MsoNormal><span class="style6">New reverse engineering dialog</span></li>
+          <li class=MsoNormal><span class="MsoNormal" style="color:black;margin-top:4.5pt;margin-bottom:4.5pt;
+       mso-list:l1 level1 lfo1;tab-stops:list 36.0pt"><b><span
+       style='font-size:9.0pt;font-family:Arial'>Image maps available in generated HTML reports</span></b></span></li>
+          <li class=MsoNormal><span class="MsoNormal" style="color:black;margin-top:4.5pt;margin-bottom:4.5pt;
+       mso-list:l1 level1 lfo1;tab-stops:list 36.0pt"><b><span
+       style='font-size:9.0pt;font-family:Arial'>HTML Report preview</span></b></span></li>
+          <li class=MsoNormal><strong><span class="style7">GUI improvements </span></strong></li>
+          <li class=MsoNormal><span class="MsoNormal" style="color:black;margin-top:4.5pt;margin-bottom:4.5pt;
+       mso-list:l1 level1 lfo1;tab-stops:list 36.0pt"><b><span
+       style='font-size:9.0pt;font-family:Arial'>Bug Fixes and improvements in support for Oracle, PostgreSQL and Sybase ASE </span></b></span></li>
+        </ul>
+        <p class=MsoNormal style='margin-top:4.5pt;margin-right:0cm;margin-bottom:
+  4.5pt;margin-left:18.0pt'><span style='font-size:9.0pt;font-family:Arial;
+  color:black'><o:p>&nbsp;</o:p></span></p>
+      </td>
+    </tr>
+  </table>
+  <p><span style='font-size:9.0pt;font-family:Arial;color:black'><a
+href="#ToadDataModeler">Back to Top</a></span><span
+class=MsoHyperlink><span style='font-size:9.0pt;font-family:Arial'><o:p></o:p></span></span></p>
+  <div>
+    <div>
+      <div>
+        <div>
+          <div>
+            <p class=MsoNormal><span style='color:black'><o:p>&nbsp;</o:p></span></p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div class=MsoNormal><span style='font-size:9.0pt;font-family:Arial;color:black'>
+                      <hr size=2 width="75%" align=left>
+                      </span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="75%"
+ style='width:75.0%;mso-cellspacing:0cm;mso-padding-alt:0cm 0cm 0cm 0cm'>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+      <td valign=top style='padding:0cm 0cm 0cm 0cm'>
+        <p class=MsoNormal><a name="Resolved_Issues_and_Enhancements_"><span
+  style='font-size:13.5pt;font-family:Arial;color:#004080'>Resolved Issues and
+              Enhancements</span></a><span style='font-size:13.5pt;font-family:Arial;
+  color:#004080'><br>
+          </span><span style='font-size:9.0pt;font-family:Arial;color:black'>The
+          following is a list of issues addressed and enhancements implemented
+          in this release of Toad™ Data Modeler: <o:p></o:p></span></p>
+        <p><span class="style4">Improvements in Reverse engineering dialog </span></p>
+        <table class=MsoNormalTable border=0 cellpadding=0 width=932
+   style='width:699.2pt;mso-cellspacing:1.5pt;mso-padding-alt:0cm 0cm 0cm 0cm'
+   id=table13>
+          <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+            <td width=271 style='width:203.15pt;padding:0cm 0cm 0cm 0cm'>
+              <p class=MsoNormal><span style='font-size:9.0pt;font-family:Arial;
+    color:black'>CR# i0013
+                  <o:p></o:p></span></p>
+            </td>
+            <td width=655 style='width:491.55pt;padding:0cm 0cm 0cm 0cm'>
+              <p class=MsoNormal><span style='font-size:9.0pt;font-family:Arial;
+    color:black'><span class="style5">New dialog for Reverse engineering. </span></span></p>
+              <p class=MsoNormal><span style='font-size:9.0pt;font-family:Arial;
+    color:black'><span class="style5">Automatic saving of settings under new alias name</span></span></p>
+              <p class=MsoNormal><span style='font-size:9.0pt;font-family:Arial;
+    color:black'><span class="style5">Aliases displayed in grid</span></span></p>
+            </td>
+          </tr>
+        </table>
+        <p class=MsoNormal><span style='font-size:10.0pt'><o:p></o:p></span></p>
+      </td>
+    </tr>
+    <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+      <td valign=top style='padding:0cm 0cm 0cm 0cm'>
+        <p><b><span style='font-size:9.0pt;font-family:Arial;color:black'><o:p>&nbsp;</o:p></span></b></p>
+        <p><span class="style4">Cleared white spaces in generated SQL code </span></p>
+        <table class=MsoNormalTable border=0 cellpadding=0 width=932
+   style='width:699.2pt;mso-cellspacing:1.5pt;mso-padding-alt:0cm 0cm 0cm 0cm'
+   id=table13>
+          <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+            <td width=271 style='width:203.3pt;padding:0cm 0cm 0cm 0cm'>
+              <p class=MsoNormal><span style='font-size:9.0pt;font-family:Arial;
+    color:black'>CR# i0014
+                  <o:p></o:p></span></p>
+            </td>
+            <td width=655 style='width:491.4pt;padding:0cm 0cm 0cm 0cm'>
+              <p class=MsoNormal><span class="style1">White spaces removed from the generated SQL code.</span></p>
+            </td>
+          </tr>
+        </table>
+        <p class=MsoNormal><span style='font-size:9.0pt;font-family:Arial;color:black'><o:p></o:p></span></p>
+      </td>
+    </tr>
+  </table>
+  <p><span class="style4">HTML reports </span></p>
+  <table class=MsoNormalTable border=0 cellpadding=0 width="96%"
+ style='width:96.54%;mso-cellspacing:1.5pt;mso-padding-alt:0cm 0cm 0cm 0cm'
+ id=table13>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:36.5pt'>
+      <td width=273 style='width:204.75pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'>
+        <p class=MsoNormal><span style='font-size:9.0pt;font-family:Arial;color:black'>CR#
+        i0015
+        <o:p></o:p></span></p>      </td>
+      <td width=655 style='width:490.9pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'>
+        <p class=MsoNormal><span style='font-size:9.0pt;font-family:Arial;color:black'>Image maps available in the ER diagram. </span></p>      </td>
+    </tr>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:36.5pt'>
+      <td style='width:204.75pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span style="font-size:9.0pt;font-family:Arial;color:black">CR#
+      i0016</span></td>
+      <td style='width:490.9pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span style="font-size:9.0pt;font-family:Arial;color:black">Style preview available on the Generate HTML report dialog </span></td>
+    </tr>
+  </table>
+  
+  <p><strong><span class="style1">SQL/DDL preview </span></strong></p>
+  <table class=MsoNormalTable border=0 cellpadding=0 width="96%"
+ style='width:96.54%;mso-cellspacing:1.5pt;mso-padding-alt:0cm 0cm 0cm 0cm'
+ id=table13>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:36.5pt'>
+      <td width=273 style='width:204.75pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'>
+        <p class=MsoNormal><span style='font-size:9.0pt;font-family:Arial;color:black'>CR#
+        i0017
+        <o:p></o:p></span></p>
+      </td>
+      <td width=655 style='width:490.9pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'>
+        <p class=MsoNormal><span class="style1">New DDL tab added to Entity and Relationship dialogs. Note: During generation of DDL only the checkboxes and text boxes on tabs How to generate and Advanced are taken into consideration. The checkboxes on tab What to generate are always selected. If a user selects a checkbox on the How to generate tab or the Advanced tab, he has to click Default so as his selection of checkboxes was taken into consideration during generation of DDL.  </span></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  <p><strong><span class="style1">GUI changes </span></strong></p>
+  <table class=MsoNormalTable border=0 cellpadding=0 width="96%"
+ style='width:96.54%;mso-cellspacing:1.5pt;mso-padding-alt:0cm 0cm 0cm 0cm'
+ id=table13>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:36.5pt'>
+      <td width=273 style='width:204.75pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><p class=MsoNormal1><span style='font-size:9.0pt;font-family:Arial;color:black'>CR#
+        i0018
+            <o:p></o:p>
+      </span></p></td>
+      <td width=655 style='width:490.9pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><p class=MsoNormal1><span class="style1">Description tab renamed to Comments, HTML and RTF report templates modified. </span></p></td>
+    </tr>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:36.5pt'>
+      <td style='width:204.75pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span style="font-size:9.0pt;font-family:Arial;color:black">CR#
+        i0019
+          <o:p></o:p>
+      </span></td>
+      <td style='width:490.9pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><p class="style1">Environment Setup dialog modified and renamed to Options<br>
+Conversion between databases settings added to the Options dialog<br>
+Patterns for Text Objects  removed (accessible from Text Objects only) <br>
+Enabled databases added to the Options dialog<br>
+Possibility to select default target database.<br>
+<br>
+          <br>
+          </p>
+      </td>
+    </tr>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:36.5pt'>
+      <td style='width:204.75pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span style="font-size:9.0pt;font-family:Arial;color:black">CR#
+        i0020
+          <o:p></o:p>
+      </span></td>
+      <td style='width:490.9pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span class="style1">Model properties dialog modified<br>
+      Possibility to add a link to external documents like *.doc files.</span></td>
+    </tr>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:36.5pt'>
+      <td style='width:204.75pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span style="font-size:9.0pt;font-family:Arial;color:black">CR#
+        i0021
+          <o:p></o:p>
+      </span></td>
+      <td style='width:490.9pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span class="style1">Changes in toolbars: <br>
+        Model properties icon moved next to Options<br>
+        Self-relationship icon added<br>
+        .</span></td>
+    </tr>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:36.5pt'>
+      <td style='width:204.75pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span style="font-size:9.0pt;font-family:Arial;color:black">CR#
+        i0022
+          <o:p></o:p>
+      </span></td>
+      <td style='width:490.9pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span class="style1">Dictionary menu item renamed to User Defined Types</span></td>
+    </tr>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:36.5pt'>
+      <td style='width:204.75pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span style="font-size:9.0pt;font-family:Arial;color:black">CR#
+        i0023
+          <o:p></o:p>
+      </span></td>
+      <td style='width:490.9pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span class="style1">Link to Toad Data Modeler Yahoo! group added to the Help menu, under About. </span></td>
+    </tr>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:36.5pt'>
+      <td style='width:204.75pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span style="font-size:9.0pt;font-family:Arial;color:black">CR#
+        i0024
+          <o:p></o:p>
+      </span></td>
+      <td style='width:490.9pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span class="style1">Tooltips added to all toolbar buttons. </span></td>
+    </tr>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:36.5pt'>
+      <td style='width:204.75pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span style="font-size:9.0pt;font-family:Arial;color:black">CR#
+        i0025
+          <o:p></o:p>
+      </span></td>
+      <td style='width:490.9pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span class="style1">Improved or modified right click options in accordance with consistency requirements (dialogs Reverse Engineering, Script Generating, Visible relationships in Submodel and Submodel). </span></td>
+    </tr>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:36.5pt'>
+      <td style='width:204.75pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span style="font-size:9.0pt;font-family:Arial;color:black">CR#
+        i0026
+          <o:p></o:p>
+      </span></td>
+      <td style='width:490.9pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span class="style1">Mnemonics improved, icons from buttons removed.</span></td>
+    </tr>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:36.5pt'>
+      <td style='width:204.75pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span style="font-size:9.0pt;font-family:Arial;color:black">CR#
+        i0027
+          <o:p></o:p>
+      </span></td>
+      <td style='width:490.9pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span class="style1">Right click options added to left sided OverView tree. </span></td>
+    </tr>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:36.5pt'>
+      <td style='width:204.75pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span style="font-size:9.0pt;font-family:Arial;color:black">CR#
+        i0028
+          <o:p></o:p>
+      </span></td>
+      <td style='width:490.9pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span class="style1">Right click item Background color, which is available when a user selects multiple entities was renamed to Color. </span></td>
+    </tr>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:36.5pt'>
+      <td style='width:204.75pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span style="font-size:9.0pt;font-family:Arial;color:black">CR#
+        i0029
+          <o:p></o:p>
+      </span></td>
+      <td style='width:490.9pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span class="style1">Resizeable Submodel dialog.  </span></td>
+    </tr>
+  </table>
+  <p><span class="style4">Oracle 10g and Oracle 9i   improvements and bug fixes </span></p>
+  <table class=MsoNormalTable border=0 cellpadding=0 width="96%"
+ style='width:96.54%;mso-cellspacing:1.5pt;mso-padding-alt:0cm 0cm 0cm 0cm'
+ id=table13>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:36.5pt'>
+      <td width=273 style='width:204.75pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><p class=MsoNormal4><span style='font-size:9.0pt;font-family:Arial;color:black'>CR#
+        i0040
+            <o:p></o:p>
+      </span></p></td>
+      <td width=655 style='width:490.9pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><p class=MsoNormal4><span style='font-size:9.0pt;font-family:Arial;color:black'>Reverse engineering script modified. Tables from the selected schema will be loaded after the schema is selected. By default (and as the first) the schema, which the connected person owns, is selected (also Oracle 8)<br>
+      </span></p></td>
+    </tr>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:36.5pt'>
+      <td style='width:204.75pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span style='font-size:9.0pt;font-family:Arial;color:black'>CR#
+        i0041
+          <o:p></o:p>
+      </span></td>
+      <td style='width:490.9pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span style='font-size:9.0pt;font-family:Arial;color:black'>
+        <o:p>The Reverse engineering process for Oracle will be concluded by a message: &quot;Process completed&quot; in  the Log window. </o:p>
+ (also Oracle 8)      </span></td>
+    </tr>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:36.5pt'>
+      <td style='width:204.75pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span style='font-size:9.0pt;font-family:Arial;color:black'>CR#
+        i0042
+          <o:p></o:p>
+      </span></td>
+      <td style='width:490.9pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span style='font-size:9.0pt;font-family:Arial;color:black'>The Load all accessible objects &quot;ALL_&quot; checkbox removed from the RE dialog. (also Oracle 8) </span></td>
+    </tr>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:36.5pt'>
+      <td style='width:204.75pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span style='font-size:9.0pt;font-family:Arial;color:black'>CR#
+        i0043</span></td>
+      <td style='width:490.9pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span style="font-family: Arial; font-size: 9.0pt; color: black;">The Load procedures, functions, views and packages on selected schemas only checkbox renamed to Load procedures, functions, views and packages from the schemas with selected tables only.<br>
+      </span></td>
+    </tr>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:36.5pt'>
+      <td style='width:204.75pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span style='font-size:9.0pt;font-family:Arial;color:black'>CR#
+        i0044</span></td>
+      <td style='width:490.9pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span style="font-family: Arial; font-size: 9.0pt; color: black;">RE bug fix: The bug that appeared during RE where WRAPPED used data types were loaded (during loading of columns) has been fixed.<br>
+      </span></td>
+    </tr>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:36.5pt'>
+      <td style='width:204.75pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span style="font-size:9.0pt;font-family:Arial;color:black">CR#
+        i0045</span></td>
+      <td style='width:490.9pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span style="font-family: Arial; font-size: 9.0pt; color: black;">When Owner was not filled out, the constraints that should have been generated after indexes were not written out. (They were written out in their places before generating indexes.)<br>
+      </span></td>
+    </tr>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:36.5pt'>
+      <td style='width:204.75pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span style="font-size:9.0pt;font-family:Arial;color:black">CR#
+      i0046</span></td>
+      <td style='width:490.9pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span style="font-family: Arial; font-size: 9.0pt; color: black;">The list of tables for RE is loaded much faster after you click Connect (Some properties on tables are loaded after the Execute is clicked now.) </span></td>
+    </tr>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:36.5pt'>
+      <td style='width:204.75pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span style="font-size:9.0pt;font-family:Arial;color:black">CR#
+        i0047</span></td>
+      <td style='width:490.9pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span style="font-family: Arial; font-size: 9.0pt; color: black;">Default data type set to Varchar2(30). Previously, default data type was Varchar2(20) for Oracle 10g and Oracle 9i and Char for Oracle 8. </span></td>
+    </tr>
+  </table>
+  <p><span class="style4">PostgreSQL 8.1 and 8.0 improvements and bug fixes </span></p>
+  <table class=MsoNormalTable border=0 cellpadding=0 width="96%"
+ style='width:96.54%;mso-cellspacing:1.5pt;mso-padding-alt:0cm 0cm 0cm 0cm'
+ id=table13>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:36.5pt'>
+      <td width=273 style='width:204.75pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'>
+        <p class=MsoNormal><span style='font-size:9.0pt;font-family:Arial;color:black'>CR#
+        i0030
+            <o:p></o:p></span></p>      </td>
+      <td width=655 style='width:490.9pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'>
+        <p class=MsoNormal><span style='font-size:9.0pt;font-family:Arial;color:black'>Unique constraints generated via Alter table.</span></p>      </td>
+    </tr>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:36.5pt'>
+      <td style='width:204.75pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span style='font-size:9.0pt;font-family:Arial;color:black'>CR#
+      i0031
+          <o:p></o:p></span></td>
+      <td style='width:490.9pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span style='font-size:9.0pt;font-family:Arial;color:black'>Modified 
+          <o:p>handling of Serial and BigSerial datatypes and sequences. New checkbox &quot;Load primal serial data types&quot; checkbox added to Reverse engineering dialog. </o:p>
+      </span></td>
+    </tr>
+	<tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:36.5pt'>
+      <td style='width:204.75pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span style='font-size:9.0pt;font-family:Arial;color:black'>CR#
+      i0032
+          <o:p></o:p></span></td>
+      <td style='width:490.9pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span style='font-size:9.0pt;font-family:Arial;color:black'>New checkbox &quot;Generate Index to Foreign Key&quot; available on the Relationship dialog.
+          <o:p></o:p>
+      </span></td></tr>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:36.5pt'>
+      <td style='width:204.75pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span style='font-size:9.0pt;font-family:Arial;color:black'>CR#
+      i0033</span></td>
+      <td style='width:490.9pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span style="font-family: Arial; font-size: 9.0pt; color: black;">Improved
+          verification. New check box &quot;Verification of equal foreign key constraint names&quot; added to the Model verification dialog.</span></td>
+    </tr>
+<tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:36.5pt'>
+      <td style='width:204.75pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span style='font-size:9.0pt;font-family:Arial;color:black'>CR#
+      i0034</span></td>
+      <td style='width:490.9pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span style="font-family: Arial; font-size: 9.0pt; color: black;">Default name for indexes set to IX_fkconstraintname_childtablename.</span></td>
+    </tr>
+<tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:36.5pt'>
+  <td style='width:204.75pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span style="font-size:9.0pt;font-family:Arial;color:black">CR#
+      i0035</span></td>
+  <td style='width:490.9pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span style="font-family: Arial; font-size: 9.0pt; color: black;">Single quotation mark in comments replaced with double quotation mark, instead of back-slash and single quotation mark.</span></td>
+</tr>
+  </table>
+  <p><span class="style4">Improvements in QDesigner import templates (limited functionality)</span></p>
+  <table class=MsoNormalTable border=0 cellpadding=0 width="96%"
+ style='width:96.54%;mso-cellspacing:1.5pt;mso-padding-alt:0cm 0cm 0cm 0cm'
+ id=table13>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:36.5pt'>
+      <td width=273 style='width:204.75pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><p class=MsoNormal2><span style='font-size:9.0pt;font-family:Arial;color:black'>CR#
+        i0036
+            <o:p></o:p>
+      </span></p></td>
+      <td width=655 style='width:490.9pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><p class=MsoNormal2><span style='font-size:9.0pt;font-family:Arial;color:black'>Loading of logical names of Tables, Columns, Domains, Alternate keys, Relationships (FK), Users, Roles.</span></p></td>
+    </tr>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:36.5pt'>
+      <td style='width:204.75pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span style='font-size:9.0pt;font-family:Arial;color:black'>CR#
+        i0037
+          <o:p></o:p>
+      </span></td>
+      <td style='width:490.9pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span style='font-size:9.0pt;font-family:Arial;color:black'>Loading of comments to: Tables, Columns, Domains, Alternate keys, Relationships (FK), Users, Roles, Indexes </span></td>
+    </tr>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:36.5pt'>
+      <td style='width:204.75pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span style='font-size:9.0pt;font-family:Arial;color:black'>CR#
+        i0038
+          <o:p></o:p>
+      </span></td>
+      <td style='width:490.9pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><span style='font-size:9.0pt;font-family:Arial;color:black'>Loading of cardinality (limited) and mandatory parent settings </span></td>
+    </tr>
+  </table>
+  <p><span class="style4">Import ERWin 4.1 models (limited functionality) </span></p>
+  <table class=MsoNormalTable border=0 cellpadding=0 width="100%"
+   style='width:100.0%;mso-cellspacing:1.5pt;mso-padding-alt:0cm 0cm 0cm 0cm'
+   id=table12>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+      <td width=271 style='width:203.15pt;padding:0cm 0cm 0cm 0cm'><p class=MsoNormal5><span style='font-size:9.0pt;font-family:Arial;
+    color:black'>CR# i0012
+        <o:p></o:p>
+      </span></p></td>
+      <td width=655 style='width:491.55pt;padding:0cm 0cm 0cm 0cm'><p class=MsoNormal5><span style='font-size:9.0pt;font-family:Arial; color:black'>Import from ERWin. Supported databases: Oracle 9  and SQL Server 2000</span><span style='font-size:9.0pt;font-family:Arial;
+    color:black'><br>
+                <br>
+        <o:p></o:p>
+      </span></p></td>
+    </tr>
+  </table>
+  <p><span class="style4">Sybase ASE  improvements and bug fixes </span></p>
+  <table class=MsoNormalTable border=0 cellpadding=0 width="96%"
+ style='width:96.54%;mso-cellspacing:1.5pt;mso-padding-alt:0cm 0cm 0cm 0cm'
+ id=table13>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:36.5pt'>
+      <td width=273 style='width:204.75pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><p class=MsoNormal3><span style='font-size:9.0pt;font-family:Arial;color:black'>CR#
+        i0039
+            <o:p></o:p>
+      </span></p></td>
+      <td width=655 style='width:490.9pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><p class=MsoNormal3><span class="style1">Added support for newer Sybase ASE 15.0 ESD #2, Sybase ASE 12.5.3a and Sybase ASE 12.5.4. <br>
+        Encryption columns supported, however, Create encryption items are not loaded. </span></p></td>
+    </tr>
+  </table>
+  <p><span class="style4">Other bug fixes </span></p>
+  <table class=MsoNormalTable border=0 cellpadding=0 width="96%"
+ style='width:96.54%;mso-cellspacing:1.5pt;mso-padding-alt:0cm 0cm 0cm 0cm'
+ id=table13>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:36.5pt'>
+      <td width=273 style='width:204.75pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><p class=MsoNormal31><span style='font-size:9.0pt;font-family:Arial;color:black'>CR#
+        i0048
+            <o:p></o:p>
+      </span></p></td>
+      <td width=655 style='width:490.9pt;padding:0cm 0cm 0cm 0cm;height:36.5pt'><p class=MsoNormal31><span class="style1">Bug related to selection of Visible relationships in submodel fixed. TDM selects correct items now. </span></p></td>
+    </tr>
+  </table>
+  <p><span style='font-size:9.0pt;font-family:Arial;color:black'><a
+href="#ToadDataModeler">Back to Top</a></span><span
+class=MsoHyperlink><span style='font-size:9.0pt;font-family:Arial'><o:p></o:p></span></span></p>
+  <div>
+    <div>
+      <div>
+        <div>
+          <div>
+            <p class=MsoNormal><span style='color:black'><o:p>&nbsp;</o:p></span></p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div class=MsoNormal><span style='font-size:9.0pt;font-family:Arial;color:black'>
+                      <hr size=2 width="75%" align=left>
+                      </span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class=MsoNormal><a name="Known_Issues"><span class=contentsheader1><span
+style='font-size:14.0pt;font-family:Arial'>Known Issues</span></span></a><span
+style='mso-bookmark:Known_Issues'></span><a name="Issues_and_Limitations"></a><span
+style='mso-bookmark:Issues_and_Limitations'><span style='font-size:9.0pt;
+color:black'> </span></span><span style='mso-bookmark:Issues_and_Limitations'></span><span
+style='font-size:9.0pt;font-family:Arial;color:black'><o:p></o:p></span></p>
+  <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="75%"
+ style='width:75.0%;mso-cellspacing:0cm;mso-padding-alt:0cm 0cm 0cm 0cm'>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+      <td valign=top style='padding:0cm 0cm 0cm 0cm'>
+        <p><b><span style='font-size:9.0pt;font-family:Arial;color:black'>Reverse
+              engineering PostgreSQL database</span></b><span style='font-size:9.0pt;
+  font-family:Arial;color:black'><o:p></o:p></span></p>
+        <ul style='margin-top:0cm' type=disc>
+          <li class=MsoNormal style='color:black;margin-top:4.5pt;margin-bottom:4.5pt;
+       mso-list:l0 level1 lfo2;tab-stops:list 36.0pt'><span style='font-size:
+       9.0pt;font-family:Arial'>The Universal RE option should be selected (<b
+       style='mso-bidi-font-weight:normal'>File</b> menu -</span><span
+       lang=EN-US style='font-size:9.0pt;font-family:Arial;mso-ansi-language:
+       EN-US'>&gt; <b style='mso-bidi-font-weight:normal'>Reverse engineering</b> -&gt; <b style='mso-bidi-font-weight:normal'>Universal
+                reverse engineering</b></span><span style='font-size:9.0pt;font-family:Arial'>).<o:p></o:p></span></li>
+          <li class=MsoNormal style='color:black;margin-top:4.5pt;margin-bottom:4.5pt;
+       mso-list:l0 level1 lfo2;tab-stops:list 36.0pt'><span style='font-size:
+       9.0pt;font-family:Arial'>The PostgreSQL 8.1/8.0 item should be selected
+              from <b style='mso-bidi-font-weight:normal'>Execute script</b> combo
+              box.<o:p></o:p></span></li>
+          <li class=MsoNormal style='color:black;margin-top:4.5pt;margin-bottom:4.5pt;
+       mso-list:l0 level1 lfo2;tab-stops:list 36.0pt'><span style='font-size:
+       9.0pt;font-family:Arial'>PostgreSQL - ODBC connection: It is necessary
+              to use appropriate ODBC driver for RE PostgreSQL 8.0 or 8.1 database.
+              The driver that is installed during PostgreSQL 8.0 or 8.1 installation
+              should work properly. <o:p></o:p></span></li>
+          <li class=MsoNormal style='color:black;margin-top:4.5pt;margin-bottom:4.5pt;
+       mso-list:l0 level1 lfo2;tab-stops:list 36.0pt'><span style='font-size:
+       9.0pt;font-family:Arial'>PostgreSQL 8.0 – Native connection: &quot;Error
+              loading library 'libpq.dll'!&quot; - This message appears in case
+              you have not installed library &quot;libpq.dll&quot;, which is
+              distributed with the PostgreSQL package. Please find and download
+              this dll from http://www.postgresql.com. Then copy it into c:/windows/system32
+              folder or into Toad Data Modeler folder, subfolder Bin, Eg. C:/Program
+              Files/Quest Software/Toad Data Modeler/bin. <o:p></o:p></span></li>
+          <li class=MsoNormal style='color:black;margin-top:4.5pt;margin-bottom:4.5pt;
+       mso-list:l0 level1 lfo2;tab-stops:list 36.0pt'><span style='font-size:
+       9.0pt;font-family:Arial'>PostgreSQL 8.1 – Native connection: The following
+              .DLL files have to be installed on your computer:<span
+       style='mso-spacerun:yes'>  </span>libpq.dll, comerr32.dll and krb5_32.dll.
+              These files are distributed with the PostgreSQL package (standardly
+              at: &quot;C:\Program Files\PostgreSQL\8.1\bin&quot;). Copy the
+              files to the Windows system directory (c:/windows/system32 folder
+              ) OR to the BIN directory of Toad™ Data Modeler (possible path: &quot;C:/Program
+              Files/Quest Software/Toad Data ModelerBin&quot;).<o:p></o:p></span></li>
+        </ul>
+        <p class=MsoNormal style='margin-top:4.5pt;margin-right:0cm;margin-bottom:
+  4.5pt;margin-left:18.0pt'><span style='font-size:9.0pt;font-family:Arial;
+  color:black'><span style='mso-spacerun:yes'> </span><o:p></o:p></span></p>      </td>
+    </tr>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+      <td valign=top style='padding:0cm 0cm 0cm 0cm'><p><b><span style='font-size:9.0pt;font-family:Arial;color:black'>HTML
+              reports with Flash navigation items</span></b><span style='font-size:9.0pt;
+  font-family:Arial;color:black'><o:p></o:p></span></p>
+        <ul style='margin-top:0cm' type=disc>
+          <li class=MsoNormal style='color:black;margin-top:4.5pt;margin-bottom:4.5pt;
+       mso-list:l0 level1 lfo2;tab-stops:list 36.0pt'><span style='font-size:9.0pt;font-family:Arial'>
+          <o:p>HTML
+                reports with Flash navigation items don't open particular HTML
+                page in desired frame (page is opened in a new window instead).
+                The issue appears only when Flash
+                Player
+                9
+                is
+                installed
+                on user's
+                PC machine. For more information please see Adobe technote at <a href="http://www.adobe.com/go/50c1cf38" target="_blank">http://www.adobe.com/go/50c1cf38</a></o:p>
+          </span><br>
+          <br>
+          </li>
+      </ul></td>
+    </tr>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+      <td valign=top style='padding:0cm 0cm 0cm 0cm'><p><strong><span class="style1">SQL/DDL preview </span></strong></p>
+        <ul style='margin-top:0cm' type=disc>
+          <li class=MsoNormal style='color:black;margin-top:4.5pt;margin-bottom:4.5pt;
+       mso-list:l0 level1 lfo2;tab-stops:list 36.0pt'><span style='font-size:9.0pt;font-family:Arial'>
+            <o:p>Identity information in DB2 needn't be displayed properly (provided that you use the Identity columns text object)</o:p></span></li>
+          <li class=MsoNormal><span style='font-size:9.0pt;font-family:Arial'>
+            <o:p>DDL is not supported for MySQL 5/4.1/4.0. On the DDL tab of entities and relationships, &quot;Not supported&quot; is written out.</o:p>
+          </span><br>
+          <br>
+          </li>
+        </ul>      </td>
+    </tr>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+      <td valign=top style='padding:0cm 0cm 0cm 0cm'><p><strong><span class="style1">Import from ERWin and QDesigner </span></strong></p>
+        <ul style='margin-top:0cm' type=disc>
+          <li class=MsoNormal style='color:black;margin-top:4.5pt;margin-bottom:4.5pt;
+       mso-list:l0 level1 lfo2;tab-stops:list 36.0pt'><span style='font-size:9.0pt;font-family:Arial'>
+            <o:p>This feature has limited functionality. Details can be found in the on-line help, section Features | Import. </o:p>
+          </span></li>
+        </ul></td>
+    </tr>
+  </table>
+  <p><span style='font-size:9.0pt;font-family:Arial;color:black'><a
+href="#ToadDataModeler">Back to Top</a></span><span
+class=MsoHyperlink><span style='font-size:9.0pt;font-family:Arial'><o:p></o:p></span></span></p>
+  <div>
+    <div>
+      <div>
+        <div>
+          <div>
+            <p class=MsoNormal><span style='color:black'><o:p>&nbsp;</o:p></span></p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div class=MsoNormal><span style='font-size:9.0pt;font-family:Arial;color:black'>
+                      <hr size=2 width="75%" align=left>
+                      </span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class=MsoNormal><a name="System_Requirements"><span class=contentsheader1><span
+style='font-size:14.0pt;font-family:Arial'>System Requirements</span></span></a><span
+style='mso-bookmark:System_Requirements'></span><span style='font-size:9.0pt;
+font-family:Arial;color:black'> <o:p></o:p></span></p>
+  <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="75%"
+ style='width:75.0%;mso-cellspacing:0cm;mso-padding-alt:0cm 0cm 0cm 0cm'
+ height=50>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+      <td valign=top style='padding:0cm 0cm 0cm 0cm'>
+        <p><br>
+          <span style='font-size:9.0pt;font-family:Arial;color:black'>Before
+              installing Toad™ Data Modeler, ensure your system meets the following
+        minimum hardware and software requirements:<o:p></o:p></span></p>
+        <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
+   style='width:100.0%;mso-cellspacing:0cm;border:outset black 1.0pt;
+   mso-border-alt:outset black .75pt;mso-padding-alt:3.75pt 3.75pt 3.75pt 3.75pt'
+   height=169 bordercolordark="#ffffff">
+          <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;height:12.75pt'>
+            <td style='border:inset black 1.0pt;mso-border-alt:inset black .75pt;
+    padding:3.75pt 3.75pt 3.75pt 3.75pt;height:12.75pt'>
+              <p class=MsoNormal align=right style='text-align:right'><b><span
+    style='font-size:9.0pt;font-family:Arial;color:black'>Processor</span></b><span
+    style='font-size:9.0pt;font-family:Arial;color:black'> <o:p></o:p></span></p>
+            </td>
+            <td style='border:inset black 1.0pt;mso-border-alt:inset black .75pt;
+    padding:3.75pt 3.75pt 3.75pt 3.75pt;height:12.75pt'>
+              <p class=MsoNormal>&nbsp;</p>
+            </td>
+          </tr>
+          <tr style='mso-yfti-irow:1;height:13.5pt'>
+            <td style='border:inset black 1.0pt;mso-border-alt:inset black .75pt;
+    padding:3.75pt 3.75pt 3.75pt 3.75pt;height:13.5pt'>
+              <p class=MsoNormal align=right style='text-align:right'><b><span
+    style='font-size:9.0pt;font-family:Arial;color:black'>Memory</span></b><span
+    style='font-size:9.0pt;font-family:Arial;color:black'> <o:p></o:p></span></p>
+            </td>
+            <td style='border:inset black 1.0pt;mso-border-alt:inset black .75pt;
+    padding:3.75pt 3.75pt 3.75pt 3.75pt;height:13.5pt'>
+              <p class=MsoNormal><span style='font-size:9.0pt;font-family:Arial;
+    color:black'>min 256 MB<o:p></o:p></span></p>
+            </td>
+          </tr>
+          <tr style='mso-yfti-irow:2;height:13.5pt'>
+            <td style='border:inset black 1.0pt;mso-border-alt:inset black .75pt;
+    padding:3.75pt 3.75pt 3.75pt 3.75pt;height:13.5pt'>
+              <p class=MsoNormal align=right style='text-align:right'><b><span
+    style='font-size:9.0pt;font-family:Arial;color:black'>Hard Disk Space</span></b><span
+    style='font-size:9.0pt;font-family:Arial;color:black'> <o:p></o:p></span></p>
+            </td>
+            <td style='border:inset black 1.0pt;mso-border-alt:inset black .75pt;
+    padding:3.75pt 3.75pt 3.75pt 3.75pt;height:13.5pt'>
+              <p class=MsoNormal><span style='font-size:9.0pt;font-family:Arial;
+    color:black'>min 30 MB<o:p></o:p></span></p>
+            </td>
+          </tr>
+          <tr style='mso-yfti-irow:3;height:13.5pt'>
+            <td style='border:inset black 1.0pt;mso-border-alt:inset black .75pt;
+    padding:3.75pt 3.75pt 3.75pt 3.75pt;height:13.5pt'>
+              <p class=MsoNormal align=right style='text-align:right'><b><span
+    style='font-size:9.0pt;font-family:Arial;color:black'>Monitor</span></b><span
+    style='font-size:9.0pt;font-family:Arial;color:black'><o:p></o:p></span></p>
+            </td>
+            <td style='border:inset black 1.0pt;mso-border-alt:inset black .75pt;
+    padding:3.75pt 3.75pt 3.75pt 3.75pt;height:13.5pt'>
+              <p class=MsoNormal>&nbsp;</p>
+            </td>
+          </tr>
+          <tr style='mso-yfti-irow:4;height:13.5pt'>
+            <td style='border:inset black 1.0pt;mso-border-alt:inset black .75pt;
+    padding:3.75pt 3.75pt 3.75pt 3.75pt;height:13.5pt'>
+              <p class=MsoNormal align=right style='text-align:right'><b><span
+    style='font-size:9.0pt;font-family:Arial;color:black'>Operating&nbsp;System</span></b><span
+    style='font-size:9.0pt;font-family:Arial;color:black'> <o:p></o:p></span></p>
+            </td>
+            <td style='border:inset black 1.0pt;mso-border-alt:inset black .75pt;
+    padding:3.75pt 3.75pt 3.75pt 3.75pt;height:13.5pt'>
+              <p class=MsoNormal><span style='font-size:9.0pt;font-family:Arial;
+    color:black'>Microsoft Windows 98/Me/NT+IE4/2000/XP<o:p></o:p></span></p>
+            </td>
+          </tr>
+          <tr style='mso-yfti-irow:5;height:13.5pt'>
+            <td style='border:inset black 1.0pt;mso-border-alt:inset black .75pt;
+    padding:3.75pt 3.75pt 3.75pt 3.75pt;height:13.5pt'>
+              <p class=MsoNormal align=right style='text-align:right'><b><span
+    style='font-size:9.0pt;font-family:Arial;color:black'>Additional&nbsp;Software</span></b><span
+    style='font-size:9.0pt;font-family:Arial;color:black'> <o:p></o:p></span></p>
+            </td>
+            <td style='border:inset black 1.0pt;mso-border-alt:inset black .75pt;
+    padding:3.75pt 3.75pt 3.75pt 3.75pt;height:13.5pt'>
+              <p class=MsoNormal><span style='font-size:9.0pt;font-family:Arial;
+    color:black'><o:p>&nbsp;</o:p></span></p>
+            </td>
+          </tr>
+          <tr style='mso-yfti-irow:6;mso-yfti-lastrow:yes;height:13.5pt'>
+            <td style='border:inset black 1.0pt;mso-border-alt:inset black .75pt;
+    padding:3.75pt 3.75pt 3.75pt 3.75pt;height:13.5pt'>
+              <p class=MsoNormal align=right style='text-align:right'><b><span
+    style='font-size:9.0pt;font-family:Arial;color:black'>Browser</span></b><span
+    style='font-size:9.0pt;font-family:Arial;color:black'><o:p></o:p></span></p>
+            </td>
+            <td style='border:inset black 1.0pt;mso-border-alt:inset black .75pt;
+    padding:3.75pt 3.75pt 3.75pt 3.75pt;height:13.5pt'>
+              <p class=MsoNormal><span style='font-size:9.0pt;font-family:Arial;
+    color:black'>MSIE 4.0 or higher<o:p></o:p></span></p>
+            </td>
+          </tr>
+        </table>
+        <p><span style='font-size:9.0pt;font-family:Arial;color:black'><o:p></o:p></span></p>
+      </td>
+    </tr>
+  </table>
+  <p><span style='font-size:9.0pt;font-family:Arial;color:black'><a
+href="#ToadDataModeler">Back to Top</a></span><span
+class=MsoHyperlink><span style='font-size:9.0pt;font-family:Arial'><o:p></o:p></span></span></p>
+  <div>
+    <div>
+      <div>
+        <div>
+          <div>
+            <p class=MsoNormal><span style='color:black'><o:p>&nbsp;</o:p></span></p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div class=MsoNormal><span style='font-size:9.0pt;font-family:Arial;color:black'>
+                      <hr size=2 width="75%" align=left>
+                      </span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p><a name="Global_Operations"><span style='font-size:13.5pt;font-family:Arial;
+color:#004080'>Global Operation</span></a><span style='mso-bookmark:Global_Operations'><span
+class=contentsheader1><span style='font-size:14.0pt;font-family:Arial'>s</span></span></span><span
+style='mso-bookmark:Global_Operations'></span><span style='font-size:9.0pt;
+font-family:Arial;color:black'><o:p></o:p></span></p>
+  <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="92%"
+ style='width:75.0%;mso-cellspacing:0cm;mso-padding-alt:0cm 0cm 0cm 0cm'
+ id=table8 height=50>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+      <td valign=top style='padding:0cm 0cm 0cm 0cm'>
+        <p class=MsoNormal><strong><span style='font-size:9.0pt;font-family:Arial;
+  color:black'>Globalization statement<o:p></o:p></span></strong></p>
+        <p class=MsoNormal><strong><span style='font-size:9.0pt;font-family:Arial;
+  color:black'><o:p>&nbsp;</o:p></span></strong></p>
+        <ul style='margin-top:0cm' type=disc>
+          <li class=MsoNormal style='color:black;margin-top:4.5pt;margin-bottom:4.5pt;
+       mso-list:l4 level1 lfo3;tab-stops:list 36.0pt'><span style='font-size:
+       9.0pt;font-family:Arial'>Toad Data Modeler can only support one language
+              and character set at a time. (Single Language At a Time - SLAAT)<o:p></o:p></span></li>
+          <li class=MsoNormal style='color:black;margin-top:4.5pt;margin-bottom:4.5pt;
+       mso-list:l4 level1 lfo3;tab-stops:list 36.0pt'><span style='font-size:
+       9.0pt;font-family:Arial'>Toad Data Modeler doesn't support multibyte characters,
+              the product works with ANSI and outputs are also encoded in ANSI. <o:p></o:p></span></li>
+          <li class=MsoNormal style='color:black;margin-top:4.5pt;margin-bottom:4.5pt;
+       mso-list:l4 level1 lfo3;tab-stops:list 36.0pt'><span style='font-size:
+       9.0pt;font-family:Arial'>Font settings for the application, editors and
+              diagrams can be changed to any international font with a support
+              for national characters on the Fonts tab of the Environment Setup
+              dialog.<o:p></o:p></span></li>
+          <li class=MsoNormal style='color:black;margin-top:4.5pt;margin-bottom:4.5pt;
+       mso-list:l4 level1 lfo3;tab-stops:list 36.0pt'><span style='font-size:
+       9.0pt;font-family:Arial'>For HTML and RTF reports it's necessary to change
+              Code page and Character set settings in the internal Templates
+              Editor.<o:p></o:p></span></li>
+          <li class=MsoNormal style='color:black;margin-top:4.5pt;margin-bottom:4.5pt;
+       mso-list:l4 level1 lfo3;tab-stops:list 36.0pt'><span style='font-size:
+       9.0pt;font-family:Arial'>Strings encoded and stored in UTF in your existing
+              database system must be converted into ANSI during the reverse
+              engineering. See your database client (and ADO/ODBC) settings for
+              details or read your database client native documentation.<o:p></o:p></span></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+  <p><span style='font-size:9.0pt;font-family:Arial;color:black'><a
+href="#ToadDataModeler">Back to Top</a></span><span
+class=MsoHyperlink><span style='font-size:9.0pt;font-family:Arial'><o:p></o:p></span></span></p>
+  <div>
+    <div>
+      <div>
+        <div>
+          <div>
+            <p class=MsoNormal><span style='color:black'><o:p>&nbsp;</o:p></span></p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div class=MsoNormal><span style='font-size:9.0pt;font-family:Arial;color:black'>
+                      <hr size=2 width="75%" align=left>
+                      </span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p><a name="Getting_Started_"><span style='font-size:13.5pt;font-family:Arial;
+color:#004080'>Getting Started</span></a><span style='mso-bookmark:Getting_Started_'></span><span
+style='font-size:9.0pt;font-family:Arial;color:black'> <o:p></o:p></span></p>
+  <p><b><span style='font-size:10.0pt;font-family:Arial;color:black'>Contents
+  of the Release Package</span></b><span style='font-size:9.0pt;font-family:Arial;color:black'><o:p></o:p></span></p>
+  <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="75%"
+ style='width:75.0%;mso-cellspacing:0cm;mso-padding-alt:0cm 0cm 0cm 0cm'
+ id=table9 height=50>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+      <td valign=top style='padding:0cm 0cm 0cm 0cm'>
+        <p class=MsoNormal><span style='font-size:9.0pt;font-family:Arial;color:black'>The
+            Toad™ Data Modeler distribution CD -OR- package contains the following
+            products: <o:p></o:p></span></p>
+        <ul style='margin-top:0cm' type=disc>
+          <li class=MsoNormal style='color:black;margin-top:4.5pt;margin-bottom:4.5pt;
+       mso-list:l4 level1 lfo3;tab-stops:list 36.0pt'><span style='font-size:
+       9.0pt;font-family:Arial'>Quest Toad™ Data Modeler version 2.25 
+          <o:p></o:p></span></li>
+          <li class=MsoNormal style='color:black;margin-top:4.5pt;margin-bottom:4.5pt;
+       mso-list:l4 level1 lfo3;tab-stops:list 36.0pt'><span style='font-size:
+       9.0pt;font-family:Arial'>Product Documentation, including: 
+            <o:p></o:p>
+          </span></li>
+          <ul style='margin-top:0cm' type=circle><li class=MsoNormal style='color:black;margin-top:4.5pt;margin-bottom:4.5pt;
+        mso-list:l4 level2 lfo3;tab-stops:list 72.0pt'><span style='font-size:
+        9.0pt;font-family:Arial'>Online Help, which provides context-sensitive
+              help when working with the application. 
+              <o:p></o:p>
+            </span></li>
+          </ul>
+        </ul>
+        <p><span style='font-size:9.0pt;font-family:Arial;color:black'>Note:
+            You can display the online help by selecting the </span><span lang=EN-US
+  style='font-size:9.0pt;font-family:Arial;color:black;mso-ansi-language:EN-US'>Index
+            item in the <b style='mso-bidi-font-weight:normal'>Help</b> menu.<o:p></o:p></span></p>
+      </td>
+    </tr>
+  </table>
+  <p><b><span style='font-size:10.0pt;font-family:Arial;color:black'>Installation
+  Procedure</span></b><span style='font-size:9.0pt;font-family:Arial;color:black'><o:p></o:p></span></p>
+  <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="75%"
+ style='width:75.0%;mso-cellspacing:0cm;mso-padding-alt:0cm 0cm 0cm 0cm'
+ height=50>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+      <td valign=top style='padding:0cm 0cm 0cm 0cm'>
+        <p class=MsoNormal style='margin-top:4.5pt;margin-right:0cm;margin-bottom:
+  4.5pt;margin-left:36.0pt;text-indent:-18.0pt;mso-list:l3 level1 lfo4;
+  tab-stops:list 36.0pt'>          <span style='font-size:9.0pt;
+  font-family:Arial;mso-fareast-font-family:Arial;color:black'><span
+  style='mso-list:Ignore'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span>        <span style='font-size:9.0pt;font-family:Arial;
+  color:black'>Download Toad™ Data Modeler from the following site: http://www.quest.com/Toad_Data_Modeler/<o:p></o:p></span></p>
+        <p class=MsoNormal style='margin-top:4.5pt;margin-right:0cm;margin-bottom:
+  4.5pt;margin-left:36.0pt;text-indent:-18.0pt;mso-list:l3 level1 lfo4;
+  tab-stops:list 36.0pt'>          <span style='font-size:9.0pt;
+  font-family:Arial;mso-fareast-font-family:Arial;color:black'><span
+  style='mso-list:Ignore'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span>          <span style='font-size:9.0pt;font-family:Arial;
+  color:black'>Start the installation process and follow the instructions of
+          the Setup Wizard.<o:p></o:p></span></p>
+        <p class=MsoNormal style='margin-top:4.5pt;margin-right:0cm;margin-bottom:
+  4.5pt;margin-left:36.0pt;text-indent:-18.0pt;mso-list:l3 level1 lfo4;
+  tab-stops:list 36.0pt'>          <span style='font-size:9.0pt;
+  font-family:Arial;mso-fareast-font-family:Arial;color:black'><span
+  style='mso-list:Ignore'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span>        <span style='font-size:9.0pt;font-family:Arial;
+  color:black'>Use your Authorization key to unlock the software.
+        <o:p></o:p></span></p>
+        <p class="style1"><span style='font-size:9.0pt;color:black'>
+        <o:p></o:p>
+        </span>If you have previously installed Toad Data Modeler 2.25 you do not have to un-install it. Your TDM installation is going to be automatically updated by running Toad Data Modeler 2.25 setup.</p>      </td>
+    </tr>
+  </table>
+  <p><span style='font-size:9.0pt;font-family:Arial;color:black'><a
+href="#ToadDataModeler">Back to Top</a></span><span
+class=MsoHyperlink><span style='font-size:9.0pt;font-family:Arial'><o:p></o:p></span></span></p>
+  <div>
+    <div>
+      <div>
+        <div>
+          <div>
+            <p class=MsoNormal><span style='color:black'><o:p>&nbsp;</o:p></span></p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div class=MsoNormal><span style='font-size:9.0pt;font-family:Arial;color:black'>
+                      <hr size=2 width="75%" align=left>
+                      </span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <a name="For_More_Information"><span class=contentsheader1><span
+style='font-size:14.0pt;font-family:Arial'>For More Information</span></span></a> <span
+style='mso-bookmark:For_More_Information'><span style='font-size:9.0pt;
+font-family:Arial;color:black'> </span></span><span style='font-size:9.0pt;
+font-family:Arial;color:black'><o:p></o:p></span></div>
+  <p><b><span style='font-size:10.0pt;font-family:Arial;color:black'>Contacting
+        Quest Software:</span></b><span style='font-size:10.0pt;font-family:Arial;
+color:black'> </span><span style='font-size:9.0pt;font-family:Arial;color:black'><o:p></o:p></span></p>
+  <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="75%"
+ style='width:75.0%;mso-cellspacing:0cm;mso-padding-alt:0cm 0cm 0cm 0cm'
+ height=50>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+      <td valign=top style='padding:0cm 0cm 0cm 0cm'>
+        <table class=MsoNormalTable border=0 cellspacing=5 cellpadding=0 width="100%"
+   style='width:100.0%;mso-cellspacing:3.7pt;mso-padding-alt:3.75pt 3.75pt 3.75pt 3.75pt'>
+          <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+            <td width="13%" valign=top style='width:13.0%;padding:3.75pt 3.75pt 3.75pt 3.75pt'>
+              <p class=MsoNormal align=right style='text-align:right'><span
+    style='font-size:9.0pt;font-family:Arial;color:black'>Phone:<o:p></o:p></span></p>
+            </td>
+            <td width="87%" valign=top style='width:87.0%;padding:3.75pt 3.75pt 3.75pt 3.75pt'>
+              <p class=MsoNormal><b><span style='font-size:9.0pt;font-family:Arial;
+    color:black'>949.754.8000</span></b><span style='font-size:9.0pt;
+    font-family:Arial;color:black'> (United States and Canada)<o:p></o:p></span></p>
+            </td>
+          </tr>
+          <tr style='mso-yfti-irow:1'>
+            <td valign=top style='padding:3.75pt 3.75pt 3.75pt 3.75pt'>
+              <p class=MsoNormal align=right style='text-align:right'><span
+    style='font-size:9.0pt;font-family:Arial;color:black'>Email<o:p></o:p></span></p>
+            </td>
+            <td valign=top style='padding:3.75pt 3.75pt 3.75pt 3.75pt'>
+              <p class=MsoNormal><span style='font-size:9.0pt;font-family:Arial;
+    color:black'><a href="mailto:info@quest.com"><b>info@quest.com</b></a><o:p></o:p></span></p>
+            </td>
+          </tr>
+          <tr style='mso-yfti-irow:2'>
+            <td valign=top style='padding:3.75pt 3.75pt 3.75pt 3.75pt'>
+              <p class=MsoNormal align=right style='text-align:right'><span
+    style='font-size:9.0pt;font-family:Arial;color:black'>Mail:<o:p></o:p></span></p>
+            </td>
+            <td valign=top style='padding:3.75pt 3.75pt 3.75pt 3.75pt'>
+              <p class=MsoNormal><span style='font-size:9.0pt;font-family:Arial;
+    color:black'>Quest Software, Inc.<br>
+                World Headquarters <o:p></o:p></span></p>
+              <div>
+                <p class=MsoNormal><span style='font-size:9.0pt;font-family:Arial;
+    color:black'>5 Polaris Way<br>
+                  Aliso Viejo, CA 92656<br>
+                  USA<o:p></o:p></span></p>
+              </div>
+            </td>
+          </tr>
+          <tr style='mso-yfti-irow:3;mso-yfti-lastrow:yes'>
+            <td valign=top style='padding:3.75pt 3.75pt 3.75pt 3.75pt'>
+              <p class=MsoNormal align=right style='text-align:right'><span
+    style='font-size:9.0pt;font-family:Arial;color:black'>Web site:<o:p></o:p></span></p>
+            </td>
+            <td valign=top style='padding:3.75pt 3.75pt 3.75pt 3.75pt'>
+              <p class=MsoNormal><b><span style='font-size:9.0pt;font-family:Arial;
+    color:black'><a href="http://www.quest.com/" target="_blank">http://www.quest.com/</a></span></b><span
+    style='font-size:9.0pt;font-family:Arial;color:black'><o:p></o:p></span></p>
+            </td>
+          </tr>
+        </table>
+        <p class=MsoNormal><span style='font-size:10.0pt'><o:p></o:p></span></p>
+      </td>
+    </tr>
+  </table>
+  <p class=MsoNormal><span style='font-size:9.0pt;font-family:Arial;color:black;
+display:none;mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+  <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="75%"
+ style='width:75.0%;mso-cellspacing:0cm;mso-padding-alt:0cm 0cm 0cm 0cm'
+ height=50>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+      <td valign=top style='padding:0cm 0cm 0cm 0cm'>
+        <p><span style='font-size:9.0pt;font-family:Arial;color:black'>Please
+            refer to our Web site for regional and international office information.<o:p></o:p></span></p>
+        <h4><span style='font-size:9.0pt;font-family:Arial;color:black'>Contacting
+            Quest Support</span><span style='font-family:Arial;color:black'><o:p></o:p></span></h4>
+        <p class=MsoNormal style='mso-margin-top-alt:auto;margin-bottom:6.0pt'><span
+  lang=EN style='font-family:Arial;color:black;mso-ansi-language:EN;font-size:9.0pt'>Quest Support
+            is available to customers who have a trial version of a Quest product
+            or who have purchased a commercial version and have a valid maintenance
+            contract. Quest Support provides around the clock coverage with <span
+  class=SpellE>SupportLink</span>, our web self-service. Visit <span
+  class=SpellE>SupportLink</span> at <a href="http://support.quest.com/"
+  title="http://support.quest.com/"><b>http://support.quest.com/</b></a> </span><span
+  style='color:black'><o:p></o:p></span></p>
+        <p class=MsoNormal style='mso-margin-top-alt:auto;margin-bottom:6.0pt'><span
+  lang=EN style='font-family:Arial;color:black;mso-ansi-language:EN'>From <span
+  class=SpellE>SupportLink</span>, you can do the following:</span><span
+  style='color:black'><o:p></o:p></span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:black;mso-margin-top-alt:auto;margin-bottom:
+       6.0pt;mso-list:l2 level1 lfo5;tab-stops:list 36.0pt'><span lang=EN
+       style='font-family:Arial;mso-ansi-language:EN;font-size:9.0pt'>Quickly find thousands
+              of solutions (Knowledgebase articles/documents).</span><o:p></o:p></li>
+          <li class=MsoNormal style='color:black;mso-margin-top-alt:auto;margin-bottom:
+       6.0pt;mso-list:l2 level1 lfo5;tab-stops:list 36.0pt'><span lang=EN
+       style='font-family:Arial;mso-ansi-language:EN;font-size:9.0pt'>Download patches and upgrades.</span><o:p></o:p></li>
+          <li class=MsoNormal style='color:black;mso-margin-top-alt:auto;margin-bottom:
+       6.0pt;mso-list:l2 level1 lfo5;tab-stops:list 36.0pt'><span lang=EN
+       style='font-family:Arial;mso-ansi-language:EN;font-size:9.0pt'>Seek help from a Support
+              engineer.</span><o:p></o:p></li>
+          <li class=MsoNormal style='color:black;mso-margin-top-alt:auto;margin-bottom:
+       6.0pt;mso-list:l2 level1 lfo5;tab-stops:list 36.0pt'><span lang=EN
+       style='font-family:Arial;mso-ansi-language:EN;font-size:9.0pt'>Log and update your case,
+              and check its status.</span><o:p></o:p></li>
+        </ul>
+        <p class=MsoNormal style='mso-margin-top-alt:auto;margin-bottom:6.0pt'><span
+  lang=EN style='font-family:Arial;color:black;mso-ansi-language:EN;font-size:9.0pt'>View the <b><i>Global
+                Support Guide</i></b> for a detailed explanation of support programs,
+                online services, contact information, and policy and procedures.<b> </b>The
+                guide is available at: </span><b><u><span lang=EN style='font-family:Arial;color:blue;
+  mso-ansi-language:EN;font-size:9.0pt'><a
+  href="http://support.quest.com/pdfs/Global%20Support%20Guide.pdf"
+  title="http://support.quest.com/pdfs/Global%20Support%20Guide.pdf">http://support.quest.com/pdfs/Global%20Support%20Guide.pdf</a> </span></u></b><span style='color:black'><o:p></o:p></span></p>
+        <p><b><span style='font-size:9.0pt;font-family:Arial;color:black'>Disclaimer</span></b><span
+  style='font-size:9.0pt;font-family:Arial;color:black'> <o:p></o:p></span></p>
+        <div>
+          <p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span
+  style='color:black'>The information in this document is provided in connection
+              with Quest products. No license, express or implied, by estoppel
+              or otherwise, to any intellectual property right is granted by
+              this document or in connection with the sale of Quest products.<b> EXCEPT
+              AS SET FORTH IN QUEST'S TERMS AND CONDITIONS AS SPECIFIED IN THE
+              LICENSE AGREEMENT FOR THIS PRODUCT,&nbsp;QUEST ASSUMES NO LIABILITY
+              WHATSOEVER AND DISCLAIMS ANY EXPRESS, IMPLIED OR STATUTORY WARRANTY
+              RELATING TO ITS PRODUCTS INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+              WARRANTY OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+              OR NON-INFRINGEMENT. IN NO EVENT SHALL QUEST BE LIABLE FOR ANY
+              DIRECT, INDIRECT, CONSEQUENTIAL, PUNITIVE, SPECIAL OR INCIDENTAL
+              DAMAGES (INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF PROFITS,
+              BUSINESS INTERRUPTION OR LOSS OF INFORMATION) ARISING OUT OF THE
+              USE OR INABILITY TO USE THIS DOCUMENT, EVEN IF QUEST HAS BEEN ADVISED
+              OF THE POSSIBILITY OF SUCH DAMAGES.</b> Quest makes no representations
+              or warranties with respect to the accuracy or completeness of the
+              contents of this document and reserves the right to make changes
+              to specifications and product descriptions at any time without
+              notice. Quest does not make any commitment to update the information
+              contained in this document.<o:p></o:p></span></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <p><span style='font-size:9.0pt;font-family:Arial;color:black'><a
+href="#ToadDataModeler">Back to Top</a></span><span
+class=MsoHyperlink><span style='font-size:9.0pt;font-family:Arial'><o:p></o:p></span></span></p>
+  <p><span style='font-size:9.0pt;font-family:Arial;color:black'>&nbsp;</span><span
+style='color:black'><o:p></o:p></span></p>
+</div>
+</body>
+</html>

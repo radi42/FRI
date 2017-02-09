@@ -1,0 +1,205 @@
+
+SQL*Loader: Release 11.2.0.1.0 - Production on Wed May 14 17:43:32 2014
+
+Copyright (c) 1982, 2009, Oracle and/or its affiliates.  All rights reserved.
+
+Control File:   load_bankovky_v_bankomate.ctl
+Data File:      bankovky_v_bankomate.unl
+  Bad File:     bankovky_v_bankomate.bad
+  Discard File:  none specified
+ 
+ (Allow all discards)
+
+Number to load: ALL
+Number to skip: 0
+Errors allowed: 50
+Bind array:     64 rows, maximum of 256000 bytes
+Continuation:    none specified
+Path used:      Conventional
+
+Table BANKOVKY_V_BANKOMATE, loaded from every logical record.
+Insert option in effect for this table: INSERT
+
+   Column Name                  Position   Len  Term Encl Datatype
+------------------------------ ---------- ----- ---- ---- ---------------------
+ID_BANKOMATU                        FIRST     *   |       CHARACTER            
+HODNOTA                              NEXT     *   |       CHARACTER            
+MENA                                 NEXT     *   |       CHARACTER            
+POCET_BANK                           NEXT     *   |       CHARACTER            
+
+Record 133: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 134: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 135: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 136: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 137: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 138: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 139: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 140: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 141: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 142: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 143: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 144: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 337: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 338: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 339: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 340: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 341: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 342: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 343: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 344: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 345: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 346: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 347: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 348: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 349: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 350: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 351: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 352: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 353: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 354: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 355: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 356: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 357: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 358: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 359: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 360: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 361: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 362: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 363: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 364: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 365: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 366: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 367: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 368: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 369: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 370: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 371: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 372: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 373: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 374: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+Record 375: Rejected - Error on table BANKOVKY_V_BANKOMATE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253577) violated - parent key not found
+
+
+MAXIMUM ERROR COUNT EXCEEDED - Above statistics reflect partial run.
+
+Table BANKOVKY_V_BANKOMATE:
+  324 Rows successfully loaded.
+  51 Rows not loaded due to data errors.
+  0 Rows not loaded because all WHEN clauses were failed.
+  0 Rows not loaded because all fields were null.
+
+
+Space allocated for bind array:                  66048 bytes(64 rows)
+Read   buffer bytes: 1048576
+
+Total logical records skipped:          0
+Total logical records read:           384
+Total logical records rejected:        51
+Total logical records discarded:        0
+
+Run began on Wed May 14 17:43:32 2014
+Run ended on Wed May 14 17:43:35 2014
+
+Elapsed time was:     00:00:02.95
+CPU time was:         00:00:00.01

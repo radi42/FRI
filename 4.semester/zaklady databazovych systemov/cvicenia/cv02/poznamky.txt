@@ -1,0 +1,53 @@
+cvicenie2
+
+Vnutorne spojenie (spojenie vzdy existuje)
+SELECT *
+FROM zap_predmety
+JOIN ucitel u
+ON(zp.prednasajuci = u.os_cislo)
+
+vysledkom spojenia je relacia
+obsahuje vsetky stlpce z tabulky zapisane predmety aj ucitel
+
+
+
+agregacia
+SELECT meno, priezvisko, count(vysledok)
+FROM R
+GROUP BY meno, priezvisko
+
+prve dva riadky urobia duplicitu
+group by - zlucuje (zlepi) riadky (zabrani duplicitam v stlpci)
+
+
+agregacne fcie
+count - pocita riadky
+avg, min, max, sum
+
+
+SELECT meno
+FROM R
+GROUP BY meno;
+
+vsetkych 178 Petrov zluci do jednoho
+
+SELECT DISTINCT meno
+FROM R
+meno;
+
+distinct robi to iste ako group by
+
+neporovnavat hodnoty dvoch udajovych typov
+SELECT * FROM
+student
+WHERE to_number(rocnik) = 2 //alebo WHERE rocnik = '2'
+
+ked porovnavame v intervaloch, pouzit klauzulu BETWEEN (uzavrety interval)
+
+50 sa v rodnom cisle zbavime modulom
+
+
+
+subory sql otvarat v druhom okne, ale este predtym sa treba dostat do adresara, kde je skript vytvoreny
+
+

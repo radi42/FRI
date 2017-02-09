@@ -1,0 +1,2 @@
+ALTER TABLE t2
+ADD( poznamka VARCHAR(20) );

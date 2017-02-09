@@ -1,0 +1,375 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head><script type="text/javascript" src="sqlplus_basic_files/ufo.htm"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="ProgId" content="Word.Document">
+<meta name="Generator" content="Microsoft Word 9">
+<meta name="Originator" content="Microsoft Word 9">
+<link rel="File-List" href="https://vzdelavanie.uniza.sk/moodle2/pluginfile.php/7763/mod_resource/content/0/cvic01_uvod/sqlplus_basic.files/filelist.xml">
+<title>SQL*Plus</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Monca</o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>Monca</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>51</o:TotalTime>
+  <o:Created>2002-10-11T10:54:00Z</o:Created>
+  <o:LastSaved>2002-10-11T10:54:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>354</o:Words>
+  <o:Characters>2023</o:Characters>
+  <o:Company>ZU FRI</o:Company>
+  <o:Lines>16</o:Lines>
+  <o:Paragraphs>4</o:Paragraphs>
+  <o:CharactersWithSpaces>2484</o:CharactersWithSpaces>
+  <o:Version>9.3821</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:HyphenationZone>21</w:HyphenationZone>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+@page Section1
+	{size:595.45pt 841.7pt;
+	margin:17.85pt 36.0pt 36.0pt 36.0pt;
+	mso-header-margin:0cm;
+	mso-footer-margin:0cm;
+	mso-columns:2 even 35.45pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:-2;
+	mso-list-type:simple;
+	mso-list-template-ids:431414432;}
+@list l0:level1
+	{mso-level-start-at:0;
+	mso-level-text:*;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:0cm;
+	text-indent:0cm;}
+@list l0:level1 lfo1
+	{mso-level-start-at:1;
+	mso-level-number-format:bullet;
+	mso-level-numbering:continue;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	mso-level-legacy:yes;
+	mso-level-legacy-indent:7.2pt;
+	mso-level-legacy-space:0cm;
+	margin-left:25.2pt;
+	text-indent:-7.2pt;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+</head>
+
+<body style="tab-interval:35.4pt" lang="SK">
+
+<div class="Section1">
+
+<p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><i style="mso-bidi-font-style:
+normal"><span style="font-size:14.0pt;mso-bidi-font-size:12.0pt;
+mso-ansi-language:CS" lang="CS">Mini pr</span></i></b><b style="mso-bidi-font-weight:
+normal"><i style="mso-bidi-font-style:normal"><span style="font-size:14.0pt;
+mso-bidi-font-size:12.0pt">�ru�ka </span></i></b><b style="mso-bidi-font-weight:
+normal"><i style="mso-bidi-font-style:normal"><span style="font-size:
+14.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">SQL*Plus</span></i></b><b style="mso-bidi-font-weight:normal"><i style="mso-bidi-font-style:normal"><span style="font-size:14.0pt;mso-bidi-font-size:12.0pt"><o:p></o:p></span></i></b></p>
+
+<p class="MsoNormal"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt"><!--[if !supportEmptyParas]-->&nbsp;<!--[endif]--><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt"><!--[if !supportEmptyParas]-->&nbsp;<!--[endif]--><o:p></o:p></span></p>
+
+<p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">SQLPLUS</span></b><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+CS" lang="CS"> [[�S[ILENT]] [ <i style="mso-bidi-font-style:normal">logon</i>] [ <i style="mso-bidi-font-style:normal">start</i>]]|�?<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="text-indent:7.2pt"><span style="font-size:
+10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">Spust� SQL*Plus
+z&nbsp;pr�kazov�ho r iadku syst�mu.<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="text-indent:7.2pt"><i style="mso-bidi-font-style:
+normal"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;
+mso-ansi-language:CS" lang="CS">logon</span></i><span style="font-size:10.0pt;
+mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS"> <span style="mso-tab-count:
+1"> </span><span style="mso-tab-count:1">��������������� </span>username[/
+password][@ databaza]|/|/NOLOG<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="text-indent:7.2pt"><i style="mso-bidi-font-style:
+normal"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;
+mso-ansi-language:CS" lang="CS">start</span></i><span style="font-size:10.0pt;
+mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS"> <span style="mso-tab-count:
+1">�� </span><span style="mso-tab-count:1">��������������� </span>@
+n�zov_s�boru[. ext] [ arg ...]<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:CS" lang="CS"><!--[if !supportEmptyParas]-->&nbsp;<!--[endif]--><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:CS" lang="CS">{EXIT|QUIT} [SUCCESS|FAILURE|WARNING| n| variable]<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:CS" lang="CS">[COMMIT|ROLLBACK]<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:CS" lang="CS"><span style="mso-tab-count:1">��������������� </span>Ukon�enie<span style="mso-spacerun: yes">� </span>SQL*Plus<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:CS" lang="CS"><!--[if !supportEmptyParas]-->&nbsp;<!--[endif]--><o:p></o:p></span></p>
+
+<p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">/
+(slash)<o:p></o:p></span></b></p>
+
+<p class="MsoNormal" style="margin-left:7.2pt"><span style="font-size:
+10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">Vykon� posledn� SQL
+pr�kaz<span style="mso-spacerun: yes">� </span>alebo PL/SQL blok ulo�en� v<span style="mso-spacerun: yes">� </span>SQL bufferi. <o:p></o:p></span></p>
+
+<p class="MsoNormal" style="text-indent:7.2pt"><span style="font-size:
+10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS"><!--[if !supportEmptyParas]-->&nbsp;<!--[endif]--><o:p></o:p></span></p>
+
+<p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">DEFINE
+_editor =</span></b><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:CS;mso-bidi-font-weight:bold" lang="CS">{joe|vi|�}<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:CS;mso-bidi-font-weight:bold" lang="CS"><span style="mso-spacerun: yes">� </span>Definovanie editora pou�it�ho v&nbsp;op.
+syst�me Linux alebo Unix </span><b style="mso-bidi-font-weight:normal"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+CS" lang="CS"><o:p></o:p></span></b></p>
+
+<p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS"><!--[if !supportEmptyParas]-->&nbsp;<!--[endif]--><o:p></o:p></span></b></p>
+
+<p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">DESC[RIBE]</span></b><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+CS" lang="CS"> {[ user.] table[@ database_link_name]<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:CS" lang="CS">[ column]|[ user.] object[. subobject]}<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-left:7.2pt;text-align:justify"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">Sl��i
+na popis tabu�ky, st�pca, alebo in�ho objectu - info.<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:CS" lang="CS"><!--[if !supportEmptyParas]-->&nbsp;<!--[endif]--><o:p></o:p></span></p>
+
+<p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">DISC[ONNECT]<o:p></o:p></span></b></p>
+
+<p class="MsoNormal" style="margin-left:7.2pt;text-align:justify"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">Vykon�
+commit a odpoj� aktu�lneho u��vate�a. Neukon�� sa<span style="mso-spacerun:
+yes">� </span>SQL*Plus.<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:CS" lang="CS"><!--[if !supportEmptyParas]-->&nbsp;<!--[endif]--><o:p></o:p></span></p>
+
+<p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">ED[IT]</span></b><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+CS" lang="CS"> [ file_name[ .ext]]<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-left:7.2pt;text-align:justify"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">Otvor�
+editor so s�borom a v&nbsp;�om posledne vykon�van� SQL pr�kaz, ktor� je
+v&nbsp;buffri.<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:CS" lang="CS"><!--[if !supportEmptyParas]-->&nbsp;<!--[endif]--><o:p></o:p></span></p>
+
+<p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">EXEC[UTE]</span></b><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+CS" lang="CS"> statement<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="text-indent:7.2pt"><span style="font-size:
+10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">Vykon�<span style="mso-spacerun: yes">� </span>PL/SQL pr�kaz.<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:CS" lang="CS"><!--[if !supportEmptyParas]-->&nbsp;<!--[endif]--><o:p></o:p></span></p>
+
+<p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">HELP</span></b><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+CS" lang="CS"> [ topic]<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-left:7.2pt"><span style="font-size:
+10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">Spristup�uje help k<span style="mso-spacerun: yes">� </span>SQL*Plus pr�kazom, PL/SQL a SQL pr�kazom.<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-left:7.2pt"><span style="font-size:
+10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">(funguje len
+v&nbsp;LINUXE a Unixe)<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:CS" lang="CS"><!--[if !supportEmptyParas]-->&nbsp;<!--[endif]--><o:p></o:p></span></p>
+
+<p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">SET</span></b><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+CS" lang="CS"> system_variable value<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-left:7.2pt;text-align:justify"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">Nastav�
+syst�mov� premenn� prostredia<span style="mso-spacerun: yes">� </span>SQL*Plus
+pre aktu�lnu session, tu s� niektor� premenn�, ktor� m��ete nastavi�:<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-left:21.6pt"><span style="font-size:
+10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">EDITF[ILE] file_name[
+.ext]<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-left:21.6pt"><span style="font-size:
+10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">HEA[DING] {OFF|<u>ON</u>}<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-left:21.6pt"><span style="font-size:
+10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">HEADS[EP] {<u>|</u> |
+c|OFF|<u>ON</u>}<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-left:21.6pt"><span style="font-size:
+10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">LIN[ESIZE] [<u>80</u>|
+n]<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-left:21.6pt"><span style="font-size:
+10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">NULL text<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-left:21.6pt"><span style="font-size:
+10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">NUMF[ORMAT] format<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-left:21.6pt"><span style="font-size:
+10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">SERVEROUT[PUT] {<u>OFF</u>|ON}
+[SIZE n] [FOR[MAT]<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-left:28.8pt;text-indent:7.2pt"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">{WRA[PPED]|
+<u>WOR[D_WRAPPED]</u> |TRU[NCATED]}]<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-left:21.6pt"><span style="font-size:
+10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">WRA[P] {OFF|<u>ON</u>}<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:CS" lang="CS"><!--[if !supportEmptyParas]-->&nbsp;<!--[endif]--><o:p></o:p></span></p>
+
+<p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">SHO[W]</span></b><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+CS" lang="CS"> [ option]<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-left:7.2pt;text-align:justify"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">Zoznam
+hodn�t syst�mov�ch premenn�ch SQL*Plus. Niektor� z potrebn�ch:<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-left:21.6pt"><span style="font-size:
+10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">system_variable<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-left:21.6pt"><span style="font-size:
+10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">ERR[ORS]
+[{FUNCTION|PROCEDURE|PACKAGE<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-left:21.6pt"><span style="font-size:
+10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">|PACKAGE
+BODY|TRIGGER|VIEW}<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-left:21.6pt"><span style="font-size:
+10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">[ schema.] name]<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-left:21.6pt"><span style="font-size:
+10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">SPOO[L]<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-left:21.6pt"><span style="font-size:
+10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">SQLCODE<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-left:21.6pt"><span style="font-size:
+10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">USER<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:CS" lang="CS"><!--[if !supportEmptyParas]-->&nbsp;<!--[endif]--><o:p></o:p></span></p>
+
+<p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">SPO[OL]</span></b><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+CS" lang="CS"> [ filename[ .ext]|OFF</span><span style="font-size:10.0pt;
+mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US" lang="EN-US">]</span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt"><o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-left:7.2pt;text-align:justify"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">Uchov�va
+v�sledky dotazov jako aj zad�van� pr�kazy, tak jako ich vid�te na obrazovke do
+s�boru. Parameter OFF znamen� samozrejme ukon�enie monitorovacej �innosti. <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:CS" lang="CS"><!--[if !supportEmptyParas]-->&nbsp;<!--[endif]--><o:p></o:p></span></p>
+
+<p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">STA[RT]</span></b><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+CS" lang="CS"> file_name[ .ext] [ arg ...]<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-left:7.2pt;text-align:justify"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">Vykon�
+pr�kazy zo s�boru. �pecifikovan� argumenty bud� nahradzova� parametre
+programov.<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:CS" lang="CS"><!--[if !supportEmptyParas]-->&nbsp;<!--[endif]--><o:p></o:p></span></p>
+
+<p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">L[IST]</span></b><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+CS" lang="CS"> [ n| n m| n *| n LAST|*|* n|* LAST|LAST]<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-left:7.2pt;text-align:justify"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">V�pis
+konkr�tneho/konkr�tnych<span style="mso-spacerun: yes">� </span>riadkov
+buffra<span style="mso-spacerun: yes">� </span>(�*� predstavuje aktu�lny
+riadok). <o:p></o:p></span></p>
+
+<p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS"><!--[if !supportEmptyParas]-->&nbsp;<!--[endif]--><o:p></o:p></span></b></p>
+
+<p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">REM[ARK]<o:p></o:p></span></b></p>
+
+<p class="MsoNormal" style="margin-left:7.2pt;text-align:justify"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">Koment�r
+v&nbsp;s�bore s&nbsp;SQL pr�kazmi.<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:CS" lang="CS"><!--[if !supportEmptyParas]-->&nbsp;<!--[endif]--><o:p></o:p></span></p>
+
+<p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">R[UN]<o:p></o:p></span></b></p>
+
+<p class="MsoNormal" style="margin-left:7.2pt"><span style="font-size:
+10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">Spust� pr�kaz v&nbsp;SQL
+buffri (to ist� ako<span style="mso-spacerun: yes">� </span>/ ).<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:CS" lang="CS"><!--[if !supportEmptyParas]-->&nbsp;<!--[endif]--><o:p></o:p></span></p>
+
+<p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">SAV[E]</span></b><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+CS" lang="CS"> file_name[ .ext] [<u>CRE[ATE]</u>|REP[LACE]|APP[END]]<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-left:7.2pt;text-align:justify"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">Zap�e
+obsah buffra do s�boru.<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:CS" lang="CS"><!--[if !supportEmptyParas]-->&nbsp;<!--[endif]--><o:p></o:p></span></p>
+
+<p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS"><!--[if !supportEmptyParas]-->&nbsp;<!--[endif]--><o:p></o:p></span></b></p>
+
+<p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">CL[EAR]</span></b><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+CS" lang="CS"> option ...<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:CS" lang="CS"><!--[if !supportEmptyParas]-->&nbsp;<!--[endif]--><o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-left:7.2pt;text-align:justify"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">Reset
+alebo vymazanie aktu�lnych hodn�t alebo nastavenie �peci�lnych<span style="mso-spacerun: yes">� </span>vlastnost�.<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-left:7.2pt"><span style="font-size:
+10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">BRE[AKS], BUFF[ER],
+COL[UMNS], COMP[UTES], SCR[EEN],<span style="mso-spacerun: yes">� </span>SQL,
+TIMI[NG]<o:p></o:p></span></p>
+
+<p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS"><!--[if !supportEmptyParas]-->&nbsp;<!--[endif]--><o:p></o:p></span></b></p>
+
+<p class="MsoNormal"><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:CS" lang="CS"><!--[if !supportEmptyParas]-->&nbsp;<!--[endif]--><o:p></o:p></span></p>
+
+<p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">CONN[ECT]</span></b><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+CS" lang="CS"> [ username[/ password][@ database_spec]|/]<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-left:7.2pt;text-align:justify"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS">Rekonektnutie
+sa, bez nutnosti op���a� SQL*Plus<o:p></o:p></span></p>
+
+<p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:CS" lang="CS"><!--[if !supportEmptyParas]-->&nbsp;<!--[endif]--><o:p></o:p></span></b></p>
+
+</div>
+
+
+
+
+</body></html>

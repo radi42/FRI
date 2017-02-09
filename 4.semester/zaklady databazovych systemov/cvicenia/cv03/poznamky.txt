@@ -1,0 +1,68 @@
+precitat po cast 3.4
+
+
+insert values
+vieme konkretne hodnoty
+
+Insert into
+select -> relacia -> data z relacie vlozit do tabulky
+
+v tabulke su udaje ktore pojdu do troch roznych tabuliek
+pozerat vyysvetlivky
+studijny odbor a st zameranie su ciselne premenne 
+
+SELECT * FROM st_odbory	//vypise vsetky 
+
+zaujimaju nas prve dve cisla
+
+inf
+st odbor 100
+st zameranie 0
+
+kazdy zapisany predmet bude zapisany do tabulky
+
+SELECT * FROM predmet_bod
+garant os cislo ucitela
+
+SELECT garant, ects FROM predmet_bod
+WHERE cis_predm = 'BI11'
+AND skrok = 2008;
+
+toto nam vrati jeden riadok
+
+
+INSERT INTO zap_predmety (os_cislo, ...)
+SELECT 123, cis_predm, skrok, garant, ects
+FROM predmet_bod
+WHERE cis_pred = 'BI11'
+AND skrok = 2008;
+
+SELECT 123, cis_predm, skrok, garant, ects
+FROM predmet_bod
+WHERE cis_predm = 'BI11'
+AND skrok = 2008;
+
+Prve dva riadky treba nahodit rucne
+
+najprv spravit select, potom insert
+
+ak inserty nie su dobre, updaty nebudu fungovat spravne
+
+
+TRANSAKCIE
+commit; - chcem aby mi prijal vsetky prikazy bez chyby a ulozil ich, 
+ale ak sa vyskytne chyba, zahodi vsetko
+prvy raz spravi commit pri prihlaseni a posledny krat pri odhlaseni
+
+nacapat do jedneho suboru
+INSERT ...
+INSERT ...
+INSERT ...
+
+UPDATE ...
+
+nahodit do suboru
+a na konci hodit rollback
+
+ak to vsetko zbehne spravne rollback zmenime na commit
+

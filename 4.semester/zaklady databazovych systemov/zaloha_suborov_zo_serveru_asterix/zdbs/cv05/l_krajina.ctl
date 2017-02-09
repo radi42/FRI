@@ -1,0 +1,8 @@
+LOAD DATA
+ INFILE 'l_krajina.unl'
+ INTO TABLE l_krajina
+FIELDS TERMINATED BY '|'
+(
+ ID_KRAJINY  ,
+ NAZOV_KRAJINY 
+)

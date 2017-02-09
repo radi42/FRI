@@ -1,0 +1,8 @@
+vytvorenie  premennej pre funkciu
+	variable a number
+volanie funkcie s premennou a
+	execute :a := pocet_studentov('BI14', 2015)
+kompilacia funkcie / procedury
+	@nazov_suboru
+volanie procedury
+	execute nazov_procedury(parameter1, parameter2, ...)

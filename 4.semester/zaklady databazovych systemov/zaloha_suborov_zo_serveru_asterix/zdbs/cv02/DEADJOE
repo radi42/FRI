@@ -1,0 +1,10 @@
+
+*** These modified files were found in JOE when it aborted on Thu Mar  5 09:16:54 2015
+*** JOE was aborted because the terminal closed
+
+*** File '(Unnamed)'
+11-zap_predmety.sql
+
+*** File '11-zap_predmety.sql'
+SELECT count(*)
+FROM zap_predmety;

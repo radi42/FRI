@@ -1,0 +1,20 @@
+-osoba pride, ze chce mat takuto vahu za takyto cas
+-priemerny pocet prijatych kcal denne (spolocne pre muza aj zenu)
+-typ premeny(chudnutie, priberanie) zistime rozdielom cielovej vahy od aktualnej vahy 
+-trvanie premeny
+-statistika uspesnosti
+-pridat do tab. surovina stlpec vlaknina(?)
+-kazda surovina bude mat svoj kod, ktory bude tvoreny jednym retazcom zlozenym z jednotlivych nutricnych hodnot od seba oddelenych oddelovacom (NutricneHodnoty: Varchar(20): bielkoviny, sacharidy, vlaknina, tuky)
+
+-celkova nutricna hodnota suroviny = hmot. (alebo kusy) * (1 * tuky + 0.8 * sachar. + 0.5 * bielk.)
+-JEDLO = nutr. hodn 1. suroviny + nutr. hodn 12. suroviny + ... + nutr. hodn n-tej suroviny
+-KOD JEDLA = sucet vsetkych bielkovin v surovinach || sucet vsetkych sacharidov v surovinach ||  sucet vsetkych tukov v surovinach
+-HOMOTNOST jedla = sucet hmotnosti jednotlivych surovin
+
+KOD JEDLA = uplne jednoduche ID (auto increment) pre zaciatok
+
+CELKOVE SPALENE KALORIE = trvanie * kcalZaMinutu
+
+Intenzita je zadana pevne
+
+spytat sa na statistiku uspesnosti dodrziavania ciela

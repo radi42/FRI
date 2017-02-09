@@ -1,0 +1,361 @@
+jahodovy dzem|100|2.22|0.003|0.005|0.577|
+malinovy dzem|101|2.24|0.003|0.005|0.585|
+marhulovy dzem|102|2.47|0.001|0.004|0.658|
+slivkovy dzem|103|2.51|0.001|0.003|0.664|
+ananasovy kompot|104|0.81|0.001|0.004|0.212|
+broskynovy kompot|105|0.75|0.001|0.004|0.191|
+ceresnovy kompot|106|0.73|0.002|0.005|0.188|
+kompot z cervenych ribezli|107|0.85|0.002|0.008|0.214|
+jablkovy kompot|108|0.88|0.002|0.002|0.226|
+jahodovy kompot|109|0.78|0.002|0.005|0.198|
+mandarinkovy kompot|110|0.62|0.001|0.004|0.167|
+marhulovy kompot|111|0.79|0.001|0.004|0.202|
+slivkovy kompot|112|0.8|0.001|0.004|0.204|
+visnovy kompot|113|0.76|0.002|0.005|0.184|
+anticol|114|3.79|0.005|0|0.925|
+arasidova tycinka Mister Choc|115|5.0287|0.29|0.097|0.51|
+babovka|116|4.05|0.18|0.052|0.57|
+Belbake stracciatella torte|117|3.5|0.27|0.039|0.24|
+bomboniera|118|5.0865|0.373|0.067|0.366|
+cukor|119|4|0|0|0.99|
+Vceli med|120|3.01|0|0.002|0.779|
+Cukor vanilkovy|121|3.9035|0|0|0.975|
+cokolada biela-Milka|122|5.4|0.295|0.048|0.63|
+cokolada horka|123|5.31|0.319|0.049|0.605|
+cokolada mliecna|124|5.45|0.331|0.08|0.547|
+Gumi mackovia|125|3.28|0.001|0.069|0.75|
+nanuk|126|3|0.18|0.04|0.31|
+studentska pecat|127|4.83|0.265|0.064|0.545|
+bazant|128|1.14|0.025|0.226|0.01|
+holub|129|1.0392|0.01|0.221|0|
+hus pecena|130|4.65|0.412|0.172|0.0009|
+husacia pecen|131|2.2217|0.12|0.2123|0.005|
+husacie prsia pecene|132|2.7449|0.1908|0.2653|0.0009|
+hydinova pasteta|133|3.25|0.297|0.13|0.009|
+hydinova sunka|134|1.17|0.03|0.22|0.001|
+kacacie maso pecene|135|4.0766|0.3906|0.1533|0.0009|
+kurca pecene|136|1.4074|0.093|0.1313|0.0167|
+kuracie prsia|137|1.1|0.01|0.233|0.012|
+morcacia sunka|138|1.73|0.106|0.18|0.011|
+morka cela|139|1.4|0.047|0.219|0|
+morka prsia|140|1.05|0.01|0.241|0|
+morka stehno|141|1.14|0.036|0.205|0|
+bravcova krkovicka pecena|142|3.4536|0.3094|0.1794|0.0009|
+bravcove koleno|143|2.9867|0.2585|0.1742|0.001|
+hovadzie maso dusene|144|2.6811|0.2081|0.1497|0.0658|
+hovadzie maso chude|145|1.59|0.078|0.208|0|
+jahnacie maso|146|2.61|0.2|0.19|0|
+domaca jaternica|147|2.69|0.162|0.158|0.143|
+klobasa domaca|148|3.27|0.29|0.164|0.001|
+parky spisske|149|3.29|0.307|0.123|0.01|
+spekacky|150|3.2489|0.303|0.11|0.02|
+dietna salama|151|3.44|0.322|0.136|0.001|
+sekana|152|2.02|0.123|0.098|0.149|
+celozrnne cestoviny|153|4|0.036|0.18|0.76|
+cestoviny varene|154|1.25|0.005|0.04|0.26|
+BeBe susienky ceralie|155|4.2284|0.146|0.074|0.65|
+bageta prazdna|156|2.7473|0.007|0.079|0.554|
+Chlieb (1 krajec = 70 g)|157|177.8|1.12|5.81|35.56|
+chlieb biely|158|2.54|0.016|0.083|0.508|
+Chlieb fit slnecnicovy (1 ks = 63 g)|159|212.61|5.4|7.3|43|
+chlieb grahamovy|160|2.53|0.013|0.101|0.504|
+krupica|161|3.28|0.01|0.106|0.79|
+muka psenicna grahamova|162|3.2585|0.0134|0.126|0.721|
+muka psenicno razna|163|3.2083|0.0151|0.1189|0.711|
+muka razna celozrna hladka|164|3|0.0173|0.1127|0.7176|
+muka spaldova celozrna|165|3.9465|0.017|0.121|0.75|
+muka polohruba|166|3.5|0.01|0.1|0.75|
+muka hladka extra special|167|3.4687|0.013|0.097|0.728|
+Rozok biely (1 ks = 40 g)|168|112|0.92|4.36|23.04|
+rozok grahamovy|169|2.0306|0.01|0.084|0.397|
+ryza varena|170|1.68|0.003|0.038|0.4|
+spagety varene|171|1.2433|0.005|0.042|0.26|
+vianocka|172|3.68|0.101|0.072|0.608|
+zemla|173|3.07|0.008|0.084|0.652|
+arasidy|174|5.68|0.4924|0.258|0.1613|
+mak|175|5.01|0.408|0.195|0.243|
+vlasske orechy|176|6.74|0.603|0.184|0.19|
+kokos|177|7.2|0.688|0.078|0.175|
+tekvicove semena|178|4.2714|0.3404|0.1813|0.137|
+Ananas|179|0.8505|0.002|0.005|0.221|
+avokado|180|2.23|0.235|0.012|0.009|
+banany|181|1|0.002|0.012|0.23|
+Broskyne|182|0.5232|0.002|0.008|0.125|
+brusnice|183|0.45|0.005|0.003|0.099|
+citron|184|0.3|0.006|0.007|0.071|
+ceresne|185|0.65|0.004|0.009|0.15|
+cernice|186|0.5|0.01|0.012|0.086|
+datle|187|1.6879|0.003|0.0123|0.4521|
+datle susene|188|3.1576|0.0048|0.0199|0.7328|
+egrese|189|0.45|0.002|0.008|0.088|
+granatove jablko|190|0.5972|0.002|0.013|0.118|
+grapefruit|191|0.43|0.002|0.006|0.098|
+hrozno|192|0.7|0.003|0.007|0.17|
+Hrusky|193|0.6593|0.004|0.005|0.155|
+Jablko|194|0.6092|0.004|0.004|0.144|
+jahody|195|0.35|0.004|0.008|0.075|
+jarabina|196|0.7883|0.003|0.01|0.226|
+kaki|197|0.71|0.003|0.006|0.165|
+kiwi|198|0.5|0.006|0.009|0.103|
+maliny|199|0.4|0.003|0.008|0.081|
+mandarinka|200|0.5|0.003|0.007|0.11|
+mango|201|0.56|0.003|0.005|0.128|
+marhule|202|0.55|0.001|0.009|0.12|
+melon cukrovy|203|0.53|0|0.006|0.124|
+melon vodovy|204|0.25|0.002|0.006|0.05|
+moruse|205|0.3583|0|0.013|0.081|
+nektarinky|206|0.5|0|0.009|0.124|
+olivvy cierne nalozene Borges|207|1.47|0.158|0.005|0.001|
+olivy cierne nalozene|208|3.4639|0.358|0.022|0.049|
+olivy nalozene zelene|209|1.3617|0.14|0.014|0.018|
+papaja|210|0.13|0.001|0.006|0.024|
+pomaranc|211|0.55|0.002|0.001|0.12|
+rebarbora|212|0.2|0.001|0.006|0.033|
+ribezle|213|0.45|0.002|0.011|0.097|
+ribezle cierne|214|0.55|0.002|0.013|0.12|
+slivky|215|0.6|0.002|0.006|0.15|
+datle|216|2.81|0.005|0.02|0.745|
+figy sus|217|2.85|0.012|0.034|0.72|
+hrozienka|218|2.79|0.007|0.028|0.747|
+jablka|219|3.1|0.018|0.02|0.771|
+Kokos struhany|220|6.0583|0.688|0.089|0.16|
+kompot priemer|221|0.7645|0.001|0.004|0.2|
+marhule|222|2.74|0.006|0.048|0.662|
+slivkovy lekvar|223|2.2597|0.004|0.014|0.5913|
+slivky|224|2.99|0.007|0.028|0.697|
+susene paradajky v oleji|225|4.68|0.456|0.011|0.121|
+fazula|226|3.5|0.016|0.235|0.598|
+fazula varena|227|0.9374|0.005|0.078|0.214|
+fazulove struky zelene|228|0.3397|0.0026|0.0203|0.0632|
+hrach mrazeny|229|0.7697|0.0032|0.0587|0.1655|
+hrach suchy lupany|230|3.7|0.014|0.237|0.615|
+hrach vareny|231|0.7788|0.0034|0.067|0.106|
+mungo - klicky|232|0.301|0.0018|0.0304|0.0594|
+mungo - semena|233|3.4686|0.0116|0.2386|0.628|
+mungo - semena - varene|234|1.05|0.0038|0.0702|0.1915|
+soja|235|4.45|0.231|0.438|0.163|
+sojove boby varene|236|1.3716|0.057|0.11|0.108|
+sojove maso ALFA SORTI po priprave|237|0.7993|0.008|0.163|0.105|
+sojove maso pred pripravou|238|2.3978|0.025|0.489|0.315|
+sojove maso v hodnotach po zakladnej priprave|239|0.9556|0.005|0.13|0.075|
+sosovica|240|3.5|0.012|0.269|0.592|
+sosovica varena|241|0.8881|0.004|0.078|0.1717|
+artycoky|242|0.4046|0.002|0.027|0.123|
+baklazan|243|0.3|0.002|0.01|0.063|
+Brokolica|244|0.3297|0.009|0.044|0.029|
+Brokolica - Bonduelle - mrazena|245|0.2293|0.001|0.027|0.049|
+cesnak|246|1.49|0|0.06|0.33|
+cibula|247|0.45|0.003|0.013|0.096|
+cibula skora|248|0.3344|0.002|0.02|0.058|
+cicer - suchy|249|3.29|0.045|0.175|0.54|
+cicer - vareny |250|1.2136|0.01|0.07|0.22|
+cuketa|251|0.19|0.004|0.016|0.022|
+cakanka salatova|252|0.215|0.001|0.015|0.04|
+cervena repa|253|0.41|0.001|0.006|0.085|
+cierny koren|254|0.6211|0.004|0.014|0.133|
+cinska kapusta|255|0.15|0.003|0.003|0.022|
+fazula strakata Madarsko po uvareni|256|1.5708|0.0042|0.0917|0.2417|
+fazula strakata Madarsko|257|3.77|0.01|0.22|0.58|
+Fazula|258|3.311|0.016|0.214|0.616|
+Fazule biele v paradajkovej omacke|259|0.8839|0.008|0.053|0.144|
+Fazule s kuk. v chili om. - Bonduelle|260|1.204|0.031|0.046|0.183|
+Fazulove strucky|261|0.344|0.002|0.02|0.064|
+fenykel|262|0.2628|0.003|0.024|0.061|
+hliva ustricovita|263|0.4013|0.0083|0.0266|0.0463|
+hrach cerstvy|264|0.85|0.005|0.066|0.13|
+hrach suseny zlty lupany|265|3.4806|0.025|0.25|0.65|
+hriby|266|0.1911|0.003|0.051|0.052|
+huby cerstve|267|0.3655|0.0059|0.04|0.047|
+chren|268|0.62|0|0.03|0.012|
+Kalerab|269|0.3201|0.002|0.021|0.058|
+kapusta biela|270|0.45|0.009|0.043|0.051|
+Kapusta cervena hlavkova|271|0.3201|0.003|0.016|0.061|
+Kapusta cinska|272|0.1409|0.003|0.012|0.024|
+kapusta kucerava|273|0.688|0.009|0.032|0.14|
+Karfiol|274|0.2891|0.003|0.024|0.044|
+karotka|275|0.35|0.002|0.01|0.073|
+kel|276|0.4|0.002|0.014|0.062|
+kel ruzickovy|277|0.4976|0.0045|0.0432|0.0628|
+klicky lucerny|278|0.2389|0.007|0.04|0.004|
+klicky sojove|279|0.5017|0.01|0.055|0.047|
+kopor|280|0.3822|0.002|0.024|0.078|
+kukurica|281|0.86|0.014|0.03|0.16|
+kukurica cukrova|282|1.0344|0.0234|0.0373|0.1977|
+kukurica mrazena vitastar|283|0.93|0.013|0.03|0.174|
+Kukurica sterilizovana|284|2.4439|0.03|0.089|0.447|
+kysla kapusta|285|0.25|0.003|0.015|0.04|
+lilok|286|0.2747|0.0023|0.0114|0.0445|
+mangold listy|287|0.1433|0.003|0.021|0.028|
+melon cerveny|288|0.3|0.0015|0.0061|0.0755|
+melon zlty|289|0.2867|0.001|0.005|0.065|
+Mrkva|290|0.4491|0.003|0.014|0.097|
+mrkva s cukrom|291|0.4288|0.0019|0.0088|0.0973|
+Paprika cervena|292|0.2891|0.005|0.012|0.052|
+paprika zelena|293|0.2|0.003|0.012|0.029|
+Paradajka|294|0.2461|0.003|0.011|0.046|
+pastrnak|295|0.6988|0.0044|0.0156|0.1488|
+patizony|296|0.5017|0.003|0.023|0.102|
+pazitka|297|0.5017|0.007|0.033|0.081|
+petrzlen koren|298|0.86|0.004|0.033|0.183|
+petrzlen vnat|299|0.6|0.004|0.044|0.098|
+Por|300|0.4611|0.003|0.025|0.086|
+rajske jablko|301|0.2461|0.003|0.011|0.046|
+redkev biela|302|0.13|0.002|0.01|0.02|
+Redkovka|303|0.2031|0.001|0.011|0.038|
+Rukola|304|0.15|0.005|0.001|0.017|
+struhana mrkva s cukrom|305|0.4|0.0041|0.007|0.0833|
+salat hlavkovy|306|0.12|0.002|0.01|0.02|
+salat ladovy|307|0.1266|0.003|0.007|0.019|
+salat-kapusta-paprika-mrkva-paradajka-cukor-ocot-sol|308|0.4965|0.0081|0.0249|0.0827|
+salat-kapusta-cibula-jogurt|309|0.5173|0.0189|0.0374|0.0514|
+salat-uhorka-paprika-cibulka-jogurt 150g|310|0.2984|0.0112|0.013|0.0363|
+salat-uhorka-paprika-jogurt 250g|311|0.4236|0.022|0.0137|0.0371|
+salat sosovicovy|312|0.92|0.029|0.082|0.083|
+sampinony|313|0.25|0.002|0.028|0.029|
+spargla|314|0.22|0.002|0.022|0.035|
+spenat|315|0.25|0.003|0.025|0.034|
+Tekvica obycajna|316|0.301|0.002|0.012|0.062|
+uhorka|317|0.1194|0.002|0.01|0.018|
+Uhorka sterilizovana|318|0.2102|0|0.004|0.049|
+Uhorka salatova|319|0.1601|0.002|0.007|0.026|
+Zazvor cerstvy|320|0.8|0.01|0.02|0.18|
+zelena fazulka|321|0.29|0.002|0.012|0.057|
+Zeleninova zmes K Classic|322|0.33|0.002|0.021|0.039|
+Zelenina Wok + Chicken - Red Curry|323|0.86|0.015|0.05|0.13|
+Zelenina Wok + Noodles - Coconut & Lime|324|0.8361|0.004|0.03|0.16|
+Zelenina Wok + Noodles - Sweet Chilli|325|1.0272|0.006|0.03|0.21|
+Zelenina Wok + Prawn - Ginger & Garlic|326|0.8361|0.015|0.045|0.13|
+Zelenina Wok Thai|327|0.3583|0.003|0.015|0.07|
+Zelenina Wok Vietnamese|328|0.2867|0.003|0.02|0.045|
+Zeleninova zmas Vitastar|329|0.2604|0.002|0.021|0.039|
+zeler|330|0.4|0.003|0.016|0.074|
+zeler rapikaty|331|0.3344|0.002|0.013|0.037|
+zeler vnat|332|0.4204|0.004|0.0098|0.091|
+zemiaky|333|0.8982|0.0019|0.0201|0.2034|
+zemiaky skore|334|0.7167|0.002|0.017|0.166|
+zemiaky zimne |335|0.9863|0.003|0.0211|0.23|
+zmes zelenina-tofu-surimy|336|0.7795|0.029|0.0619|0.0829|
+zerucha|337|0.1433|0.006|0.016|0.004|
+varene zemiaky|338|0.7979|0.002|0.0204|0.2067|
+hranolky|339|2.64|0.145|0.042|0.292|
+chips|340|5.38|0.394|0.054|0.405|
+knedle|341|1.11|0|0.01|0.256|
+zemiakove pyre|342|1.097|0.042|0.0205|0.1881|
+varene zemiaky|343|0.7979|0.002|0.0204|0.2067|
+bryndza|344|3.07|0.245|0.198|0.016|
+jogurt biely |345|0.95|0.041|0.062|0.069|
+jogurt domaci|346|0.489|0.0173|0.0342|0.0494|
+jogurt ovocny|347|1.15|0.035|0.06|0.15|
+jogurt cokoladovy|348|1.4|0.087|0.026|0.129|
+mlieko kravske polotucne (tuk 1.5%)|349|0.47|0.015|0.034|0.049|
+mlieko kravske tuk plnotucne (tuk 3.5%)|350|0.64|0.035|0.033|0.048|
+smotana (tuk 30%)|351|1.9|0.285|0.024|0.03|
+syr Cottage cheese - biely - nizkotucny|352|0.9556|0.041|0.116|0.029|
+syr camembert|353|3.57|0.32|0.17|0.002|
+syr eidam tuk 30%|354|2.63|0.17|0.27|0.01|
+syr emental|355|3.6|0.27|0.268|0.022|
+syr hermelin|356|2.98|0.237|0.209|0.016|
+syr Mozarella|357|2.36|0.18|0.18|0.01|
+Tofu - udene|358|1.431|0.035|0.166|0.109|
+Tvaroh jemny hrudkovity|359|1.24|0.04|0.191|0.03|
+tvarohovy dezert stracciatella|360|1.61|0.072|0.061|0.179|
+ancovicky|361|2.1|0.095|0.2889|0|
+file z tresky|362|0.74|0.003|0.17|0|
+homar|363|0.81|0.019|0.159|0|
+chobotnice|364|0.68|0.008|0.153|0|
+jeseter|365|1.1873|0.0737|0.111|0.0006|
+jeseter v paradajkovej omacke|366|1.7296|0.117|0.1431|0.0312|
+kalamarove kruzky|367|1.55|0.068|0.088|0.147|
+kapor|368|1.15|0.048|0.18|0|
+kaviar|369|2.4128|0.155|0.261|0|
+krab - konzerva|370|0.92|0.026|0.174|0|
+krevety|371|0.7406|0.008|0.165|0.001|
+lien|372|0.7812|0.004|0.175|0|
+losos|373|2.02|0.136|0.199|0|
+losos MEXICANA Royal Greenland|374|1.43|0.061|0.206|0.013|
+makrela |375|1.7989|0.116|0.188|0.001|
+makrela udena|376|2.2|0.155|0.207|0|
+musle|377|0.51|0.013|0.098|0|
+okun|378|0.8839|0.008|0.19|0|
+pstruh|379|1.02|0.027|0.195|0|
+rybi peprenky - nautica|380|2.65|0.233|0.1307|0.0227|
+rybie prsty z alijasskej tresky|381|2.1022|0.085|0.135|0.185|
+rybie tycinky - surimi|382|1.3593|0.037|0.082|0.172|
+Ryby - File z aljasskej tresky|383|0.6498|0.001|0.16|0|
+Ryby - Sardinky v oleji|384|2.2193|0.139|0.241|0|
+Ryby - Slede mexicke|385|2.5705|0.08|0.19|0.287|
+sardelova pasta|386|2.41|0.239|0.065|0.001|
+sardinka|387|1.93|0.178|0.082|0|
+sardinky v oleji|388|3.35|0.27|0.211|0|
+sled filety|389|1.9661|0.146|0.138|0.023|
+sledove filety vo feferonovej omacke Varmuza|390|1.21|0.052|0.098|0.086|
+sled filety vitae d oro|391|3.97|0.37|0.32|0|
+sumcek pangasius filety|392|0.92|0.035|0.15|0|
+sumcek pangasius mrazeny|393|1.47|0.098|0.15|0|
+surimi|394|1.31|0.036|0.06|0.187|
+sproty v oleji|395|3.7004|0.3159|0.1507|0.005|
+sproty v paradajkovej omacke|396|1.852|0.158|0.0754|0.0025|
+stuka|397|0.82|0.009|0.184|0|
+trescia pecen|398|6.08|0.652|0.042|0.012|
+treska|399|0.76|0.006|0.177|0|
+treska v majoneze|400|2.32|0.2147|0.0644|0.0337|
+tuniak v oleji|401|2.82|0.21|0.238|0|
+tuniak vo vlastnej stave vitae d oro|402|1.11|0.01|0.255|0.001|0
+tuniak vo vlastnej stave sun sea|403|1.175|0.015|0.26|0|
+udene sproty|404|1.83|0.112|0.2|0.001|
+uhor|405|2.81|0.245|0.15|0|
+ustrice|406|0.47|0.012|0.09|0|
+zavinac|407|1.8|0.123|0.117|0.057|
+zubac|408|0.83|0.007|0.142|0|
+bravcova mast|409|9|0.997|0.001|0|
+margarin|410|7.29|0.805|0.023|0|
+maslo|411|7.5|0.83|0.007|0.001|
+Olej olivovy|412|8.839|1|0|0|
+slnecnicovy olej|413|8.97|0.996|0.001|0.001|
+slanina prerastena|414|6.6|0.65|0.091|0|
+vajce|415|1.7|0.11|0.13|0.007|
+bielok|416|0.55|0.002|0.11|0.007|
+zltok|417|3.8|0.32|0.16|0.003|
+majoneza|418|7.81|0.86|0.01|0.002|
+tatarska omacka|419|4.05|0.41|0.009|0.08|
+voda|420|0|0|0|0|
+becherovka|421|2.8667|0|0|0.32|
+brendy 38%|422|2.2|0|0|0.002|
+capuccino|423|4.4673|0.17|0.12|0.61|
+coca cola|424|0.42|0|0|0.106|
+dzus - priemer|425|0.4921|0.0019|0.0065|0.11|
+Dolce Gusto Mocha 1 porcia|426|1.17|0.051|0.051|0.128|
+Frappe Nescafe|427|1.18|0.002|0.078|0.031|
+Kava 3 v 1 (1 ks = 18 g)|428|75|2|0.7|13|
+Kava zrnkova|429|2.408|0.005|0|0|
+likery|430|1.66|0|0|0.3|
+pepsi cola|431|0.46|0|0|0.117|
+pivo 3%|432|0.3106|0|0|0.03|
+Pivo 4% alkoholu Ambrosius|433|0.3|0|0.0033|0.0173|
+pivo 10%|434|0.33|0.002|0.003|0.037|
+pivo 12%|435|0.44|0.003|0.005|0.042|
+Pivo nealkoholicke|436|0.2795|0|0.005|0.056|
+pivo tmave 13%|437|0.5141|0.0025|0.005|0.06|
+Crazy  wolf|438|0.037|0.001|0.001|0.001|
+red bull|439|0.4539|0|0|0.112|
+sekt|440|1.03|0.009|0.002|0.079|
+sampanske|441|0.7836|0|0.002|0.014|
+sumive vina|442|1.0163|0.0091|0.0019|0.079|
+tonik|443|0.27|0|0|0.07|
+vermut|444|1.51|0.006|0.002|0.137|
+Vermut sladky|445|1.5074|0|0|0.159|
+vino biele|446|0.77|0.006|0.002|0.025|
+vino cervene|447|0.7598|0.0076|0.0025|0.028|
+whisky|448|2.38|0|0|0|
+zeleninova stava|449|0.1672|0|0|0.03|
+broskynova stava|450|0.56|0.001|0.001|0.147|
+citronova stava|451|0.51|0.002|0.004|0.074|
+grapefruitova stava|452|0.46|0.001|0.004|0.107|
+hroznova stava|453|0.7|0.001|0.003|0.174|
+jablkova stava|454|0.51|0.002|0.002|0.121|
+paradajkova stava|455|0.2|0.002|0.002|0.14|
+pomarancova stava|456|0.48|0.002|0.007|0.106|
+stava z cervenych ribezli|457|0.58|0.001|0.004|0.12|
+energeticky napoj|458|0.47|0|0|0.11|
+cierne korenie|459|3.09|0.065|0.088|0.68|
+sol|460|0|0|0|0|

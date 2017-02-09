@@ -1,0 +1,134 @@
+
+SQL*Loader: Release 11.2.0.1.0 - Production on Wed May 14 17:47:04 2014
+
+Copyright (c) 1982, 2009, Oracle and/or its affiliates.  All rights reserved.
+
+Control File:   load_bankovka.ctl
+Data File:      bankovka.unl
+  Bad File:     bankovka.bad
+  Discard File:  none specified
+ 
+ (Allow all discards)
+
+Number to load: ALL
+Number to skip: 0
+Errors allowed: 50
+Bind array:     64 rows, maximum of 256000 bytes
+Continuation:    none specified
+Path used:      Conventional
+
+Table BANKOVKA, loaded from every logical record.
+Insert option in effect for this table: INSERT
+
+   Column Name                  Position   Len  Term Encl Datatype
+------------------------------ ---------- ----- ---- ---- ---------------------
+ID_TRANSAKCIE                       FIRST     *   |       CHARACTER            
+HODNOTA                              NEXT     *   |       CHARACTER            
+MENA                                 NEXT     *   |       CHARACTER            
+POCET                                NEXT     *   |       CHARACTER            
+
+Record 3: Rejected - Error on table BANKOVKA.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253592) violated - parent key not found
+
+Record 4: Rejected - Error on table BANKOVKA.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253592) violated - parent key not found
+
+Record 28: Rejected - Error on table BANKOVKA.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253592) violated - parent key not found
+
+Record 29: Rejected - Error on table BANKOVKA.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253592) violated - parent key not found
+
+Record 68: Rejected - Error on table BANKOVKA.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253592) violated - parent key not found
+
+Record 69: Rejected - Error on table BANKOVKA.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253592) violated - parent key not found
+
+Record 70: Rejected - Error on table BANKOVKA.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253592) violated - parent key not found
+
+Record 71: Rejected - Error on table BANKOVKA.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253592) violated - parent key not found
+
+Record 72: Rejected - Error on table BANKOVKA.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253592) violated - parent key not found
+
+Record 73: Rejected - Error on table BANKOVKA.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253592) violated - parent key not found
+
+Record 74: Rejected - Error on table BANKOVKA.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253592) violated - parent key not found
+
+Record 75: Rejected - Error on table BANKOVKA.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253592) violated - parent key not found
+
+Record 76: Rejected - Error on table BANKOVKA.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253592) violated - parent key not found
+
+Record 77: Rejected - Error on table BANKOVKA.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253592) violated - parent key not found
+
+Record 78: Rejected - Error on table BANKOVKA.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253592) violated - parent key not found
+
+Record 79: Rejected - Error on table BANKOVKA.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253592) violated - parent key not found
+
+Record 80: Rejected - Error on table BANKOVKA.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253592) violated - parent key not found
+
+Record 81: Rejected - Error on table BANKOVKA.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253592) violated - parent key not found
+
+Record 82: Rejected - Error on table BANKOVKA.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253592) violated - parent key not found
+
+Record 84: Rejected - Error on table BANKOVKA.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253592) violated - parent key not found
+
+Record 85: Rejected - Error on table BANKOVKA.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253592) violated - parent key not found
+
+Record 108: Rejected - Error on table BANKOVKA.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253592) violated - parent key not found
+
+Record 109: Rejected - Error on table BANKOVKA.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253592) violated - parent key not found
+
+Record 110: Rejected - Error on table BANKOVKA.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253592) violated - parent key not found
+
+Record 113: Rejected - Error on table BANKOVKA.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253592) violated - parent key not found
+
+Record 114: Rejected - Error on table BANKOVKA.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253592) violated - parent key not found
+
+Record 115: Rejected - Error on table BANKOVKA.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253592) violated - parent key not found
+
+Record 116: Rejected - Error on table BANKOVKA.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253592) violated - parent key not found
+
+
+Table BANKOVKA:
+  99 Rows successfully loaded.
+  28 Rows not loaded due to data errors.
+  0 Rows not loaded because all WHEN clauses were failed.
+  0 Rows not loaded because all fields were null.
+
+
+Space allocated for bind array:                  66048 bytes(64 rows)
+Read   buffer bytes: 1048576
+
+Total logical records skipped:          0
+Total logical records read:           127
+Total logical records rejected:        28
+Total logical records discarded:        0
+
+Run began on Wed May 14 17:47:04 2014
+Run ended on Wed May 14 17:47:07 2014
+
+Elapsed time was:     00:00:02.84
+CPU time was:         00:00:00.02

@@ -1,0 +1,87 @@
+
+SQL*Loader: Release 11.2.0.1.0 - Production on Wed May 14 17:41:19 2014
+
+Copyright (c) 1982, 2009, Oracle and/or its affiliates.  All rights reserved.
+
+Control File:   load_transakcie.ctl
+Data File:      transakcie.unl
+  Bad File:     transakcie.bad
+  Discard File:  none specified
+ 
+ (Allow all discards)
+
+Number to load: ALL
+Number to skip: 0
+Errors allowed: 50
+Bind array:     64 rows, maximum of 256000 bytes
+Continuation:    none specified
+Path used:      Conventional
+
+Table TRANSAKCIE, loaded from every logical record.
+Insert option in effect for this table: INSERT
+
+   Column Name                  Position   Len  Term Encl Datatype
+------------------------------ ---------- ----- ---- ---- ---------------------
+ID_TRANSAKCIE                       FIRST     *   |       CHARACTER            
+ROD_CISLO                            NEXT     *   |       CHARACTER            
+ID_BANKOMATU                         NEXT     *   |       CHARACTER            
+DATUM_A_CAS                          NEXT     *   |       DATE MM/DD/YYYY      
+SUMA_VYBER                           NEXT     *   |       CHARACTER            
+
+Record 2: Rejected - Error on table TRANSAKCIE, column DATUM_A_CAS.
+ORA-01843: not a valid month
+
+Record 12: Rejected - Error on table TRANSAKCIE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253578) violated - parent key not found
+
+Record 28: Rejected - Error on table TRANSAKCIE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253578) violated - parent key not found
+
+Record 29: Rejected - Error on table TRANSAKCIE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253578) violated - parent key not found
+
+Record 30: Rejected - Error on table TRANSAKCIE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253578) violated - parent key not found
+
+Record 31: Rejected - Error on table TRANSAKCIE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253578) violated - parent key not found
+
+Record 32: Rejected - Error on table TRANSAKCIE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253578) violated - parent key not found
+
+Record 33: Rejected - Error on table TRANSAKCIE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253578) violated - parent key not found
+
+Record 34: Rejected - Error on table TRANSAKCIE.
+ORA-02291: integrity constraint (KEREKES1.SYS_C00253578) violated - parent key not found
+
+Record 36: Rejected - Error on table TRANSAKCIE, column DATUM_A_CAS.
+ORA-01843: not a valid month
+
+Record 44: Rejected - Error on table TRANSAKCIE, column DATUM_A_CAS.
+ORA-01843: not a valid month
+
+Record 46: Rejected - Error on table TRANSAKCIE, column DATUM_A_CAS.
+ORA-01843: not a valid month
+
+
+Table TRANSAKCIE:
+  38 Rows successfully loaded.
+  12 Rows not loaded due to data errors.
+  0 Rows not loaded because all WHEN clauses were failed.
+  0 Rows not loaded because all fields were null.
+
+
+Space allocated for bind array:                  82560 bytes(64 rows)
+Read   buffer bytes: 1048576
+
+Total logical records skipped:          0
+Total logical records read:            50
+Total logical records rejected:        12
+Total logical records discarded:        0
+
+Run began on Wed May 14 17:41:19 2014
+Run ended on Wed May 14 17:41:23 2014
+
+Elapsed time was:     00:00:03.35
+CPU time was:         00:00:00.01

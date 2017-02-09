@@ -1,0 +1,1 @@
+CREATE UNIQUE INDEX blah_uidx on t1(kpk);

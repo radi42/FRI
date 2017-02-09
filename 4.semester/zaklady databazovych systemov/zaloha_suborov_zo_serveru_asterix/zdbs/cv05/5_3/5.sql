@@ -1,0 +1,1 @@
+CREATE INDEX index_na_datum ON t2(datum);
