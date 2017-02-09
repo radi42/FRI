@@ -1,0 +1,16 @@
+jednostranne zretazeny zoznam
+netreba tolko pamate,
+
+treba si pamatat adresu prveho prvku
+
+kazdy dalsi prvok si pamata data a smernik (node) na dalsi prvok
+
+smernik posledneho prvku ma hodnotu NULL
+
+add - namiesto null ukazat na dalsi prvok
+insert - urob novy chlievik, ale predi vsetky prvky a poposuvaj ich smerniky
+delete - 
+deleteFromIndex - 
+size = vytvorit atribut
+get / set - 
+clear - zrusim prvy a posledny prvok

@@ -1,0 +1,28 @@
+model "cv10_1"
+
+uses "mmxprs"
+
+declarations
+x: array(1..5) of mpvar
+c: array(1..5) of integer
+d: array(1..5) of integer
+o: array(1..5) of integer
+
+end-declarations
+
+c:= [6000, 1000,2000,5000, 3000]
+d:= [3000,500,700,2000,1500]
+o:= [5000,1200,2000,4000,4000]
+
+
+forall(i in 1..5) x(i) is_integer
+
+HUF:= sum(i in 1..5) x(i)*(d(i)+o(i))
+
+sum(i in 1..5) x(i)*c(i) <= 65000
+
+maximize(HUF)
+
+writeln(getobjval)
+
+end-model

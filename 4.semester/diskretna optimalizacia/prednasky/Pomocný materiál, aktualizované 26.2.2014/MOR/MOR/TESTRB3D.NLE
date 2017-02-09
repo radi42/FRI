@@ -1,0 +1,11 @@
+
+
+  "example test problem for 3d graphics: Rosenbrock function"
+
+  min   z = (1-x)^2 + 100(y-x*x)^2  
+
+    from (-2,-2)
+    region(-4,4,-6,6:20)
+    Theta = 70
+    Phi = 45
+                

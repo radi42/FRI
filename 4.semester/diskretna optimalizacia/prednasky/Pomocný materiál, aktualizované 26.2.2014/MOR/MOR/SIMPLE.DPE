@@ -1,0 +1,17 @@
+PROGRAM
+                 " An example knapsack problem"
+
+"                    max z = 2x1^2 + 5 x2^2
+                     st
+                             3x1 + 2x2  <= 12
+                   x1,x2 nonnegative integers                           "
+
+"-----------------------------------------------------------------------"
+DEFINITION
+  b=8;
+  x:ARRAY[ <1,2>] = ALL(0);
+LOGIC
+   f1(s1) = max{ 2*x1^2              : x1 in [0..s1/3] }, s1 in [0..12];
+    z(s2) = max{ 5*x2^2  + f1(s2-2*x2)  : x2 in [0..s2/2] }, s2 in [b..b];
+END.
+

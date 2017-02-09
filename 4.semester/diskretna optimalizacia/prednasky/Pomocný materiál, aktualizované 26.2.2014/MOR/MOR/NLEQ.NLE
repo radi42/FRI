@@ -1,0 +1,4 @@
+"Test the nonlinear equation solver"
+x1^2 + x1 - x2^2 + 1 = 0
+x2( 1 + 2x1)         = 0
+from (-0.6,1.1)

@@ -1,0 +1,255 @@
+     Line Searches  : Golden Section
+                    : Binary Search
+     NonGradient    : Powell Conjugate Directions
+                    : Nelder-Mead Simplex Type
+     Gradient Based : Gradient Search
+                    : Conjugate Gradient Method (Fletcher-Reeves)
+     Variable Metric : Davidon-Fletcher-Powell
+                     : Broyden Variation of D-F-P
+     Gradient Projection : Rosen's Gradient with Linear Constraints
+     Convex Programming : Hartley-Hocking Algorithm
+     Nonlinear Equations : Secant Method
+     3-Dimensional Function Graphics : 3dGraphics, REGION, Parameters
+     Controls : From  Over   Direction   SearchTolerance  NormOne
+                Convergence  ContourMap  LineGraph  MaxIterations
+                GradientDelta  Region
+     Problem Size Limitations : maximum number of variables is 40
+                              : maximum number of constraints is 40
+%CONTOURMAP  : sets up contour graphics for two variable problems
+              for all search methods except one-dimensional searchs
+              arguments are the x1 and x2 coordinate ranges and optional
+              mesh density (between 10 and 40).
+              ContourMap (x1Lower, x1Upper, x2Lower, x2Upper:NoPoints)
+              example  CONTOURMAP (-4,4,0,5:20)
+%LINEGRAPH  : triggers generation of graphics for Line searches
+              LineGraph
+%FROM : starting point of algorithm
+      from (x1, x2, etc.)
+      example  FROM (0.0, 5.3)
+%OVER : line search range
+       line search tolerance is SEARCHTOLERANCE
+       OVER [lower, upper]
+       example : OVER [0,2]
+%DIRECTION : governs the orientation of the line search
+            Example : DIRECTION (0, 1, 0)
+%CONVERGENCE : algorithm stopping convergence tolerance
+              Convergence <= limit
+              Example : Convergence <= 0.001
+%NORMONE     : Keyword used to control the norming of the
+            : one-dimensional search directions.  Default is ON.
+            : example : NormOne = OFF;
+%SEARCHTOLERANCE : line search stopping convergence tolerance
+                  SearchTolerance <= limit
+                  Example : SearchTolerance <= 0.001
+%GRADIENT : gradients can be given for functions
+         : if they are needed but not given, uses a numerical approximation
+         : GRADIENT(function-name) = (first variable component, second, etc.)
+         : example : GRADIENT(value) = (2x1, 3x1^2 - 4)
+%GRADIENTDELTA : Variable increment for numerical approximation
+              : to gradient vector.  Default is 0.001.  Actual
+              : gradients can be input if desired (see GRADIENT).
+              : example : GradientDelta = 0.0001
+%VARIABLE METRIC: BROYDEN-PGS
+         Opt ObjFn = expr,  where Opt = max or min
+         from      (x1, ... ,xn)
+         (note: variables appear in same order as in ObjFn)
+         gradient( ObjFn ) = (Expr(x1), ... ,Expr(xn) )   (optional)
+         Convergence     <= value     (optional)
+         SearchTolerance <= value     (optional)
+   Example:
+         min profit = 5 +3x1 +4x2 +x1^2 -x1 x2 + x2^2
+         from (0,0)
+         gradient(profit) = (3 + 2x1 - x2, 4 -x1 + 2x2)
+         Convergence <= 0.01
+         SearchTolerance <= 0.01
+%LINE SEARCH: GOLDEN SECTION
+         Opt ObjFn = expr,  where Opt = max or min
+         from      (x1, ... ,xn)
+         (note: variables appear in same order as in ObjFn)
+         direction (d1, ... ,dn)
+         over      [Lower, Upper]     (optional)
+         SearchTolerance <= value     (optional)
+   Example:
+         min profit = 5 +3x1 +4x2 +x1^2 -x1 x2 + x2^2
+         from (0,0)
+         over [0,1]
+         direction (-1, -2)
+         SearchTolerance <= 0.01
+%LINE SEARCH: BINARY SEARCH
+         Opt ObjFn = expr,  where Opt = max or min
+         from      (x1, ... ,xn)
+         (note: variables appear in same order as in ObjFn)
+         direction (d1, ... ,dn)
+         over      [Lower, Upper]     (optional)
+         SearchTolerance <= value     (optional)
+   Example:
+         min profit = 5 + 3x1 +4x2 +x1^2 -x1 x2 + x2^2
+         from (0,0)
+         over [0,1]
+         direction (-1, -2)
+         SearchTolerance <= 0.01
+%NONGRADIENT: POWELL
+         Opt ObjFn = expr,  where Opt = max or min
+         from      (x1, ... ,xn)
+         (note: variables appear in same order as in ObjFn)
+         Convergence     <= value     (optional)
+         SearchTolerance <= value     (optional)
+   Example:
+               min z = 2x1^2 - x1*x2 + x2^2
+               from (2,2)
+               convergence <= 0.01
+               SearchTolerance <= 0.01
+%NONGRADIENT: NELDER-MEAD SIMPLEX
+         Opt ObjFn = expr,  where Opt = max or min
+         from      (x1, ... ,xn)
+         (note: variables appear in same order as in ObjFn)
+         Convergence     <= value     (optional)
+   Example:
+         min profit = 5 + 3x1 + 4x2 + x1^2 - x1 x2 + x2^2
+         from (0,0)
+         Convergence <= 0.01
+%GRADIENT SEARCH
+         Opt ObjFn = expr,  where Opt = max or min
+         from      (x1, ... ,xn)
+         (note: variables appear in same order as in ObjFn)
+         gradient( ObjFn ) = (Expr(x1), ... ,Expr(xn) )   (optional)
+         Convergence     <= value     (optional)
+         SearchTolerance <= value     (optional)
+   Example:
+         min profit = 5 + 3x1 + 4x2 + x1^2 - x1 x2 + x2^2
+         from (0,0)
+         gradient(profit) = (3 + 2x1 - x2, 4 -x1 + 2x2)
+         Convergence <= 0.01
+         SearchTolerance <= 0.01
+%CONJUGATE GRADIENT : FLETCHER-REEVES
+         Opt ObjFn = expr,  where Opt = max or min
+         from      (x1, ... ,xn)
+         (note: variables appear in same order as in ObjFn)
+         gradient( ObjFn ) = (Expr(x1), ... ,Expr(xn) )   (optional)
+         Convergence     <= value     (optional)
+         SearchTolerance <= value     (optional)
+   Example:
+         min profit = 5 +3x1 +4x2 +x1^2 -x1 x2 + x2^2
+         from (0,0)
+         gradient(profit) = (3 + 2x1 - x2, 4 -x1 + 2x2)
+         Convergence <= 0.01
+         SearchTolerance <= 0.01
+%VARIABLE METRIC: Davidon-Fletcher-Powell (DFP)
+         Opt ObjFn = expr,  where Opt = max or min
+         from      (x1, ... ,xn)
+         (note: variables appear in same order as in ObjFn)
+         gradient( ObjFn ) = (Expr(x1), ... ,Expr(xn) )   (optional)
+         Convergence     <= value     (optional)
+         SearchTolerance <= value     (optional)
+   Example:
+         min profit = 5 +3x1 +4x2 +x1^2 -x1 x2 + x2^2
+         from (0,0)
+         gradient(profit) = (3 + 2x1 - x2, 4 -x1 + 2x2)
+         Convergence <= 0.01
+         SearchTolerance <= 0.01
+%GRADIENT PROJECTION : ROSEN
+         Opt ObjFn = expr,  where Opt = max or min
+         ST
+         {Constraint name }(optional)     LinearExpr <= Value
+            ( xj >= 0  must be included as explicit constraints)
+         from  (x1, ... ,xn)   Over [Lower, Upper]      (optional)
+         (note: variables appear in same order as they occur in ObjFn)
+         Convergence <= value  SearchTolerance <= value (optional)
+         gradient( ObjFn ) = (Expr(x1), ... ,Expr(xn) )   (optional)
+Example: min cost = 18 -6x1 -12x2 + x1^2 + 4x2^2
+         st  {labor}       x1       <= 2
+          {Material}         x2  <= 2
+          {budget}      x1 + x2  <= 3
+          {NonNeg x1}   x1 >= 0  {NonNeg x2}  x2  >= 0
+          From (0,0)
+%CONVEX PROGRAMMING : HARTLEY-HOCKING
+         Max  ObjFn = expr
+         ST   ObjFn <= value  (required)
+         {Constraint name }(optional)     ConvexExpr <= Value
+         gradient( fn ) = (Expr(x1), ... ,Expr(xn) )   (optional)
+         (note: variables appear in same order as they occur in ObjFn)
+         Convergence <= value  (optional)
+    Example:
+          maximize  z = 2x1 + x2 -x1^2
+          subject to    {ConOne}       2x1^2 + 3x2^2 <=  6
+                        {ConTwo}        x1^2 +  x2^2 <= 10
+                                    z                <=  1
+          gradient(z) = (2-2x1,1)
+          gradient(1) = (4x1,6x2)    (note:names not necessary)
+          gradient(ConTwo) = (2x1,2x2)
+%NONLINEAR EQUATIONS : SECANT METHOD
+          expr1(x1,...,xn) = 0
+          expr2(x1,...,xn) = 0
+          .
+          .
+          .
+          exprn(x1,...,xn) = 0
+          From (x1,...,xn)     (required initial point)
+          (note: variables appear in same order as they occur in equations)
+          convergence <= value (optional)
+     Example:
+          x1^2 + x1 - x2^2 + 1 = 0
+          x2( 1 + 2x1)         = 0
+          from (-0.6,1.1)   convergence <= 0.0001
+%OUTPUT
+          Output Destination: Selections
+          S - Screen
+          P - Printer
+          F - File (DOS file name: ModelName.OUT)
+%ITERATIONS
+          Detailed Iteration Print Instructions
+          Y - yes: print iterations results
+          N -  no: print only the final solution
+%MAXITERATIONS
+          Limit on the number of complete iterations before stopping.
+%3DGRAPHICS
+          3-dimensional function graphics and graphics print
+          requires the function and the two independent variables
+          ranges via the REGION construct (same as ContourMap construct)
+          The user can control all of the relevant parameters but need not
+          predefine any of them.  The most important parameters are the
+          object viewing angles: Theta - rotation with respect to the x
+          axis; and Phi - the viewing angle with respect to the z axis.
+          This can be dynamically controlled by the arrow keys: left and
+          right arrows control Theta in 5 degree steps; up and down arrows
+          are for Phi control in 5 degree changes per pressed arrow key.
+          The current graph angles can be obtained by pressing the F1 key.
+          The F2 key causes contours to be graphed on the current graph.
+          The F3 key is a toggle for both the x and y mesh or lines.
+
+    Example:
+        "example test problem for 3d graphics: Rosenbrock function"
+         z = ((1-x)^2 + 100(y-x*x)^2 ) /1600
+         Region(-4,4,-6,6:20)
+
+
+%REGION  : sets up 3d graphics domains for two variable problems
+              arguments are the x1 and x2 coordinate ranges and optional
+              mesh density (between 10 and 40).
+              Region (x1Lower, x1Upper, x2Lower, x2Upper:NoPoints)
+
+         Example:  Region (-4,4,0,5:20)
+
+%PARAMETERS
+     The following keywords allow the setting of all of the parameters
+     of the 3-dimensional graphics system.  Angles are given in degrees.
+
+  Theta  = number   "viewing angle w.r.t. x axis; default is 45 degrees"
+  Phi    = number   "viewing angle w.r.t. z axis; default is 65 degrees"
+  DeltaTheta = number  "arrow key increase/decrease;default is 5 degrees"
+  DeltaPhi   = number  "arrow key increase/decrease;default is 5 degrees"
+  Mesh = on/off  "graphing uses both x and y graph lines; default is off"
+  RemoveHidden = on/off  "remove hidden lines; default is on"
+  rho  = number   "distance of object from origin; default is 1500 units"
+  ScreenDistance = number "viewer distance from object; default is 30,000"
+  FunctionMax = number  "user control of max and min function values"
+  FunctionMin = number  "if one is given then both required"
+
+  For EGA and VGA color graphic systems, the various graphics colors
+  can be controlled by the user.
+  LineColor = number "light gray for graphic function lines (7)"
+  AxisColor = number "white is used for graph axis (15)"
+  ContourColor = number  "contour lines are in red (5)"
+  BackGroundColor = number  "light blue (9)"
+
+

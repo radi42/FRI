@@ -1,0 +1,84 @@
+Apr 26 16:10:46.867 HYPERVISOR: Release 0.2.14-x86/Windows (tag 2014092320)
+Apr 26 16:10:46.867 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 62294.
+Apr 26 16:10:47.350 HYPERVISOR: exec_cmd: hypervisor version 
+Apr 26 16:10:47.350 HYPERVISOR: exec_cmd: hypervisor uuid 
+Apr 26 16:10:47.350 HYPERVISOR: exec_cmd: hypervisor working_dir C:/Users/Filip/Documents/GNS3 projekty\project-files\dynamips 
+Apr 26 16:10:47.350 GENERAL: working_dir=C:/Users/Filip/Documents/GNS3 projekty\project-files\dynamips
+Apr 26 16:10:47.350 HYPERVISOR: exec_cmd: vm create R4 4 c2691 
+Apr 26 16:10:47.366 VM: VM R4 created.
+Apr 26 16:10:47.366 HYPERVISOR: exec_cmd: vm set_con_tcp_port R4 2004 
+Apr 26 16:10:47.366 HYPERVISOR: exec_cmd: c2691 get_mac_addr R4 
+Apr 26 16:10:47.366 HYPERVISOR: exec_cmd: vm set_ios R4 C:\Users\Filip\GNS3\images\IOS\c2691-entservicesk9-mz.124-13b.image 
+Apr 26 16:10:47.366 HYPERVISOR: exec_cmd: vm set_ram R4 192 
+Apr 26 16:10:47.366 HYPERVISOR: exec_cmd: vm set_nvram R4 256 
+Apr 26 16:10:47.366 HYPERVISOR: exec_cmd: vm slot_add_binding R4 0 48 WIC-2T 
+Apr 26 16:10:47.366 HYPERVISOR: exec_cmd: vm set_disk0 R4 0 
+Apr 26 16:10:47.366 HYPERVISOR: exec_cmd: vm slot_add_binding R4 0 32 WIC-1T 
+Apr 26 16:10:47.366 HYPERVISOR: exec_cmd: vm slot_add_binding R4 0 16 WIC-1T 
+Apr 26 16:10:47.366 HYPERVISOR: exec_cmd: vm get_status R4 
+Apr 26 16:10:47.382 HYPERVISOR: exec_cmd: vm set_idle_pc R4 0x6114a604 
+Apr 26 16:10:47.382 HYPERVISOR: exec_cmd: vm set_config R4 configs/i4_startup-config.cfg 
+Apr 26 16:10:47.382 HYPERVISOR: exec_cmd: vm set_config R4 configs/i4_startup-config.cfg configs/i4_private-config.cfg 
+Apr 26 16:10:47.397 HYPERVISOR: exec_cmd: vm set_ghost_status R4 2 
+Apr 26 16:10:47.397 HYPERVISOR: exec_cmd: vm set_ghost_file R4 c2691-entservicesk9-mz.124-13b.image-192.ghost 
+Apr 26 16:11:14.305 HYPERVISOR: exec_cmd: nio create_udp nio_udp1 10001 127.0.0.1 10000 
+Apr 26 16:11:14.305 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R4 0 16 nio_udp1 
+Apr 26 16:11:14.321 HYPERVISOR: exec_cmd: vm get_status R4 
+Apr 26 16:11:18.228 HYPERVISOR: exec_cmd: nio create_udp nio_udp3 10002 127.0.0.1 10003 
+Apr 26 16:11:18.228 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R4 0 32 nio_udp3 
+Apr 26 16:11:18.243 HYPERVISOR: exec_cmd: vm get_status R4 
+Apr 26 16:11:22.104 HYPERVISOR: exec_cmd: nio create_udp nio_udp5 10004 127.0.0.1 10005 
+Apr 26 16:11:22.104 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R4 0 48 nio_udp5 
+Apr 26 16:11:22.104 HYPERVISOR: exec_cmd: vm get_status R4 
+Apr 26 16:11:36.471 HYPERVISOR: exec_cmd: vm get_status R4 
+Apr 26 16:11:36.471 HYPERVISOR: exec_cmd: vm start R4 
+Apr 26 16:11:40.574 HYPERVISOR: exec_cmd: vm get_status R4 
+Apr 26 16:11:40.574 HYPERVISOR: exec_cmd: vm stop R4 
+Apr 26 16:11:40.839 VM: VM R4 shutdown.
+Apr 26 16:11:48.334 HYPERVISOR: exec_cmd: vm rename R4 FR 
+Apr 26 16:12:57.035 HYPERVISOR: exec_cmd: vm extract_config FR 
+Apr 26 16:13:08.127 HYPERVISOR: exec_cmd: vm get_status FR 
+Apr 26 16:13:08.142 HYPERVISOR: exec_cmd: vm start FR 
+Apr 26 16:14:40.138 HYPERVISOR: exec_cmd: vm get_status FR 
+Apr 26 16:14:40.138 HYPERVISOR: exec_cmd: vm set_idle_pc_online FR 0 0x0 
+Apr 26 16:14:40.138 HYPERVISOR: exec_cmd: vm get_status FR 
+Apr 26 16:14:40.138 HYPERVISOR: exec_cmd: vm get_idle_pc_prop FR 0 
+Apr 26 16:15:00.962 HYPERVISOR: exec_cmd: vm get_status FR 
+Apr 26 16:15:01.009 HYPERVISOR: exec_cmd: vm set_idle_pc_online FR 0 0x60246d1c 
+Apr 26 16:15:23.993 HYPERVISOR: exec_cmd: vm get_status FR 
+Apr 26 16:15:24.118 HYPERVISOR: exec_cmd: vm set_idle_pc_online FR 0 0x60a2d954 
+Apr 26 16:15:49.915 HYPERVISOR: exec_cmd: vm get_status FR 
+Apr 26 16:15:49.915 HYPERVISOR: exec_cmd: vm set_idle_pc_online FR 0 0x60246d1c 
+Apr 26 16:17:11.637 HYPERVISOR: exec_cmd: vm get_status FR 
+Apr 26 16:17:11.637 HYPERVISOR: exec_cmd: vm stop FR 
+Apr 26 16:17:12.012 VM: VM FR shutdown.
+Apr 26 16:17:23.055 HYPERVISOR: exec_cmd: vm get_status FR 
+Apr 26 16:17:23.071 HYPERVISOR: exec_cmd: vm start FR 
+Apr 26 16:17:53.111 HYPERVISOR: exec_cmd: vm get_status FR 
+Apr 26 16:17:53.158 HYPERVISOR: exec_cmd: vm set_idle_pc_online FR 0 0x60a2db04 
+Apr 26 16:30:05.202 HYPERVISOR: exec_cmd: vm extract_config FR 
+Apr 26 16:31:09.286 HYPERVISOR: exec_cmd: vm get_status FR 
+Apr 26 16:31:09.286 HYPERVISOR: exec_cmd: vm slot_disable_nio FR 0 48 
+Apr 26 16:31:09.317 HYPERVISOR: exec_cmd: vm slot_remove_nio_binding FR 0 48 
+Apr 26 16:31:37.623 HYPERVISOR: exec_cmd: vm get_status FR 
+Apr 26 16:31:37.623 HYPERVISOR: exec_cmd: vm stop FR 
+Apr 26 16:31:37.795 VM: VM FR shutdown.
+Apr 26 16:31:43.699 HYPERVISOR: exec_cmd: nio create_udp nio_udp6 10006 127.0.0.1 10005 
+Apr 26 16:31:43.715 HYPERVISOR: exec_cmd: vm slot_add_nio_binding FR 0 48 nio_udp6 
+Apr 26 16:31:43.715 HYPERVISOR: exec_cmd: vm get_status FR 
+Apr 26 16:31:50.341 HYPERVISOR: exec_cmd: vm get_status FR 
+Apr 26 16:31:50.357 HYPERVISOR: exec_cmd: vm start FR 
+Apr 26 16:33:02.311 HYPERVISOR: exec_cmd: vm get_status FR 
+Apr 26 16:33:02.451 HYPERVISOR: exec_cmd: vm set_idle_pc_online FR 0 0x60a2d954 
+Apr 26 17:14:56.387 HYPERVISOR: exec_cmd: vm extract_config FR 
+Apr 26 17:16:59.378 HYPERVISOR: exec_cmd: vm extract_config FR 
+Apr 26 17:17:08.444 HYPERVISOR: exec_cmd: vm get_status FR 
+Apr 26 17:17:08.444 HYPERVISOR: exec_cmd: vm stop FR 
+Apr 26 17:17:08.678 VM: VM FR shutdown.
+Apr 26 17:17:11.502 HYPERVISOR: exec_cmd: vm get_status FR 
+Apr 26 17:17:11.517 HYPERVISOR: exec_cmd: vm extract_config FR 
+Apr 26 17:17:11.533 HYPERVISOR: exec_cmd: vm delete FR 
+Apr 26 17:17:11.533 VM: VM FR destroyed.
+Apr 26 17:17:11.564 HYPERVISOR: exec_cmd: hypervisor stop 
+Apr 26 17:17:11.798 HYPERVISOR: Stopped.
+Apr 26 17:17:11.798 GENERAL: reset done.

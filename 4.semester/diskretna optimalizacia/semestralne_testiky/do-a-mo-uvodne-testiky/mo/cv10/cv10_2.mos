@@ -1,0 +1,36 @@
+model "cv10_1"
+
+uses "mmxprs"
+
+declarations
+x: array(1..2,1..4 ) of mpvar
+c:array(1..2,1..4 ) of integer
+d: array(1..4) of integer
+y: mpvar
+ pod1: array(1..4) of linctr
+ pod2: array(1..4) of linctr
+end-declarations
+
+c:= [5,3,4,6,	4,3,3,5]
+d:= [50,60,20,10] ! poziadavky zakaznikov
+
+y is_binary
+
+!Obmena pr.2: Urète, ako by mala by v nastavená cena za postavenie prekladiska
+!tak, aby bolo prekladisko vybudované.
+
+
+forall(k in 0..300) do
+
+HUF:= sum(i in 1..2,j in 1..4 ) x(i, j)*(c(i, j)) + k*y
+forall(j in 1..4 ) pod1(j):= sum(i in 1..2) x(i,j) >= d(j)
+forall(j in 1..4) pod2(j):=  x(2,j) = y*d(j)
+minimize(HUF)
+writeln("HUF: ", getobjval)
+writeln("  k:= " ,k )
+forall(i in 1..2, j in 1..4 ) writeln("   x", i ,j,": " ,getsol(x(i,j)))
+
+end-do 
+
+
+end-model

@@ -1,0 +1,34 @@
+PROGRAM
+  " Taha  Example 14.2-1, page 561, 3rd Edition"
+  "to get output from this problem: 
+             use options:table = yes"
+DEFINITION
+  DS:SEQUENCE = <1,2>;
+  SS:SEQUENCE = <1,2,3>;
+
+  P.1: ARRAY[SS,SS] = ( (0.2 ,0.5, 0.3 ),
+                        (0.0 ,0.5, 0.5 ),
+                        (0.0 ,0.0, 1.0 ) );
+
+  P.2: ARRAY[SS,SS] = ( (0.3 ,0.6, 0.1 ),
+                        (0.1 ,0.6, 0.3 ),
+                        (0.05,0.4, 0.55) );
+
+    R: ARRAY[DS,SS] = ( (5.3,3.0,-1.0),
+                        (4.7,3.1, 0.4) );
+
+CONTROL
+  Backtrack = off;
+  StateFormat = 2:0; DecisionFormat = 2:0;
+  ValueFormat = 5:2;
+
+LOGIC
+  f1(s) = Max{ R[d,s] :
+               d in DS },s in SS;
+  f2(s) = Max{ R[d,s] + Sum{ P.d[s,j]*f1(j): j in SS}:
+               d in DS }, s in SS;
+  f3(s) = Max{ R[d,s] + Sum{ P.d[s,j]*f2(j): j in SS}:
+               d in DS }, s in SS;
+End.
+
+

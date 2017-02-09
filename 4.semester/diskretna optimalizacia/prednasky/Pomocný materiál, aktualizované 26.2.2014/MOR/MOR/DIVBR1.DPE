@@ -1,0 +1,33 @@
+PROGRAM
+                   "Diverging branch problem"
+
+"        maximize z = 3x1 + 6x2 + (4x3 + 2x4)(x5 + 3x6)
+         subject to
+           2x1 + 4x2 + 4x3 + 2x4 + x5 + 5x6 <= 20
+            xj, j = 1 to 6, nonnegative integers               "
+
+"                  Diverging branch structure                  "
+
+"                               /--> 3 --> 4 -->
+               --> 1 --> 2 --> ?
+                                \--> 5 --> 6 -->               "
+
+DEFINITION
+   Vals:Interval = [0..20];
+LOGIC
+
+"--------------------------Upper branch-----------------------"
+   U4(s) = max { 2*d : d in [0..s/2]}, s in Vals;
+   U3(s) = max { 4*d + U4(s-4*d) : d in [0..s/4]}, s in Vals;
+
+"--------------------------Lower branch-----------------------"
+   L6(s) = max { 3*d : d in [0..s/5]}, s in Vals;
+   L5(s) = max { d + L6(s-d) : d in [0..s]}, s in Vals;
+
+"---------------Combine upper and lower branches---------------"
+   Comb(s) = max { U3(su)*L5(s-su) : su in [0..s]}, s in Vals;
+
+"--------------------------Front branch------------------------"
+   f2(s) = max { 6*d + Comb(s-4*d) : d in [0..s/4]}, s in Vals;
+   f1(s) = max {3*d + f2(s-2*d): d in [0..s/2]}, s in <20>;
+End.

@@ -1,0 +1,222 @@
+              Capitalized words have help lists
+General categories for the help system:
+  PROGRAM    : general program structure
+  DEFINITION : definition segment of program
+  CONTROL    : printout format control
+  LOGIC      : language constructs for model building
+  RECURSIONS : language constructs for recursion equation definitions
+  SYSTEM     : system functions and constants
+  OPERATORS  : system operators
+  VARIATES   : system random number generators
+%DEFINITION  segment
+  Naming Conventions for all types:
+    Simple  : Name
+    Indexed : Name.Number
+  User variable types (all must be initialized):
+ REAL  ARRAY  INTERVAL  SEQUENCE  STRING  TEXTFILE  LABELS
+%LOGIC segment has the following programming statements:
+PRINTLN    PRINT    GOTO     IF        FOR           CLEARSCREEN
+WHILE      REPEAT   HALT     DOCASES   GETBACKTRACK  EJECTPAGE
+RECURSIONS
+%RECURSIONS : all normal functions must be defined in the
+           : DEFINITION segment.  Therefore, all LOGIC segment
+           : definitions are of the recursion type.  Function argument
+           : variables are tempory variables and may not be defined variables
+  Explicit state form:
+    RecF(s) = opt { expr(d,s,PrevRecF(t(s,d))): d in dDom
+                    <with boolexpr(d,s)> }, s in sDom;
+
+example : f.2(s) = max { d^2 + f.1(s-2d) : d in [0..s/2]},s in <9,10>;
+
+  Implicit state form:
+    RecF.s  = opt { expr(d,s) : d in dDom <with boolexpr(d,s)>},
+                s in StageSeq;
+            StageSeq must be a SEQUENCE and explicitly determines the
+              order of evaluation of recursion functions
+
+example : f.k = min{ c.k[j] + f.j: j in NEXT.k}, k in <2,3,4>;
+
+%SYSTEM
+Functions: sin(x), cos(x), tan(x), arctan(x)          (angles in radians)
+           exp(x), log10(x), ln(x), sqrt(x), sqr(x)
+           floor(x) (largest integer <= argument)
+           ceiling(x) (smallest integer >= argument)
+           abs(x),  sign(x) (=1.0 if positive, 0.0 if negative)
+Constants: PI (=3.14159265), PosInf (= 10 to power 30),
+           NegInf (= - PosInf), IntPosInf (= 32000)
+Variates:  RANDOM  DUNIFORM  CUNIFORM  EXPD  NORMAL
+%OPERATORS
+Arithmetic : +, -, *, /, ^ (exponentiation), max, min (e.g. x max y)
+Relational operators:    =, <> (not =), <, <=, >, >=
+Logical operators   :    or, not, and, xor
+Interval/Sequence operators :    in, notin
+Conditional Expressions : USE
+Iterative constructs:  SUM  PRODUCT  MAX  MIN  ARGMIN  ARGMAX
+%USE        : Conditional expression
+           : USE Val1 IF Cond ELSE USE Val2
+  example  : f(x) =  Use 1 if x in [-5,0] else
+           :         Use 2 if x in [1,3] else
+           :         Use 3;
+%SUM
+           : SUM{ expr(var.) : var. IN Domain WITH expr. }
+           : var. must be a user-defined variable or attribute
+  example  : SUM{ Qused[name.i] : i in <1, 2, 3> with i >= 2 }
+%PRODUCT
+           : PRODUCT { expr(var.) : var. IN Domain WITH expr. }
+           : var. must be a user-defined variable
+  example  : PRODUCT { Qused[name.i] : i in <1, 2, 3> with i >= 2 }
+%MAX        : either binary operator x max y or the iterative operator
+           : Operator { expr(var.) : var. IN Domain WITH expr. }
+           : var. must be a user-defined variable
+  example  : max { Qused[name.i] : i in <1, 2, 3> with i >= 2 }
+%MIN        : either binary operator x min y or the iterative operator
+           : Operator { expr(var.) : var. IN Domain WITH expr. }
+           : var. must be a user-defined variable
+  example  : min { Qused[name.i] : i in <1, 2, 3> with i >= 2 }
+%ARGMIN     : returns the first variable value satisfying min
+           : Operator { expr(var.) : var. IN Domain WITH expr. }
+           : var. must be a user-defined variable
+  example  : argmin { Qused[name.i] : i in <1, 2, 3> with i >= 2 }
+%ARGMAX     : returns the first variable value satisfying max
+           : Operator { expr(var.) : var. IN Domain WITH expr. }
+           : var. must be a user-defined variable
+  example  : argmax { Qused[name.i] : i in <1, 2, 3> with i >= 2 }
+%WITH       : condition boolean expression; normally relating the
+           : decision and state variables in a recursion function
+  example  : argmax { Qused[name.i] : i in <1, 2, 3> with i >= 2 }
+%VARIATES   : system random variate generators
+           :RANDOM  DUNIFORM  CUNIFORM  EXPD  NORMAL
+%PROGRAM       : three segments statements in order (if included)
+ DEFINITION   : contains variables and functions, and initialization
+  Begin       : optional syntax statement
+   statements : definition segment statements - from Table 1
+  End;        : optional syntax statement
+ CONTROL      : system printing tableau format controls
+   statements : control segment statements - from Table 1
+ LOGIC        : all program statements and recursions for model
+  Begin       : optional syntax statement
+   statements : logic segment statements - from Table 2
+END.          : model always terminates with END.
+%CONTROL    : provides the following optional directives
+           : BACKTRACK = ON or OFF  - default = ON
+              ON - enables automatic backtracking of solution
+           : CONTINUOUS = ON or OFF  (OFF)
+              ON - enables interpolation for recursion function lookup
+           : DISCRETE = ON or OFF  (ON)
+              ON - uses strict table lookup for recursion function
+                   not found returns +infinity for min problem and
+                   -infinity for max problem
+           : SEED = Integer value
+           :   sets random number seed to specified value
+           : RANDOMIZE randomly sets seed
+           : Format control directives
+           :  fld = field width, dec = decimal points
+           :  Syntax is xxxFORMAT = f:d or f (d=0 is default)
+           :   STATEFORMAT  format for state variable values (6:0)
+           :   DECISIONFORMAT decision variable format (6:0)
+           :   VALUEFORMAT function value format (8:3)
+%LABELS     : all statement labels used in model must be
+           : predefined in LABELS statement within the DEFINITIONS segment
+example    : LABELS = { MyLabel, YourLabel, NameOne };
+%INTERVAL   Two types of interval exits in MOR/DP : discrete and continuous
+
+            DISCRETE INTERVAL
+           : [ Left Expression .. Right Expression: Mesh Expression]
+           : default interval mesh is 1.  Interval end points and mesh
+           : can be expressions for use in dynamic domain development
+           : if left end > right end then mesh must be negative
+           : such as:   x IN [0..S/3]
+example    : range: Interval = [1 .. 2*i-1 :delta];
+           : [12 .. 2:-2]
+
+            CONTINUOUS INTERVAL - only used in boolean expressions
+           : [ Left Expression , Right Expression]
+example    : x IN [1, b]
+%SEQUENCE   : denotes an specified order for set of discrete values
+           : general syntax is list or implicit sequence where the
+           : mesh may be negative.  Default mesh is 1.
+           : < left expr. .. right expr. : mesh , repeats >
+example    : range: SEQUENCE = < 1, 5, 3, 6, 8 .. 12:2 >;
+example    :  < 11 .. 23, 5, 8, 10 .. 5:-1 >
+%REAL       : simple variables can take any (nonreserved) name,
+           : are automatically of type real and must be initialized
+example    : X = 1.0;   Yvalue.2 = 0;
+%ARRAY      : declaration for dimensioned variables of upto 3 dimensions
+           : ARRAY[ Dom1, Dom2, ... , Dom3] =
+           : must give dimensions, index domains, and initial values.
+           : Use ALL(v) to assign the constant v to all array elements
+example    : A : ARRAY [ <1,2,3> ] = (0,0,0);
+example    : B.1 : ARRAY [ <1,2>, <1,2,3> ] = ALL(0);
+%TEXTFILE : specifies a user-defined disk file for print and println
+
+Name     : MSDOS file name (in single quotes),
+Status   : WRITE
+example  : f:TEXTFILE = { Name = 'Myfile.dta', Status=write };
+usage    : println{f, ' x = ', x:8:2};
+%FUNCTION : user defined inline functions
+         : name( argument list ) = Expression;
+         : argument names are temporary variables and must not be
+         : names already in use
+example  : f(a,b) = b*sin(a);
+%ALIAS      : synonym equate statement for system words
+           : and previously defined user names
+example    : ALIAS = { ARRAY = Table };
+%IF         : conditional branch statement
+condition  : boolean expression (0 or 1 result); Required
+Then       : true statement, e.g., Then GOTO label; Required
+Else       : false statement, can use Else GOTO label; Optional
+example    : IF y.1 <= 0.5 THEN  x = x + 1
+           :                  ELSE GOTO myLabel;
+%PRINT      : prints the argument list without a linefeed;
+example    : PRINT {<f>,' x = ',x:8:3,' Time = ',x:5:0};
+           : where f is an optional user file name (TEXTFILE)
+%PRINTLN    : prints argument list terminated by linefeed and CR.
+example    : PRINTLN {<f>,Fguy(x):3:1};
+           : where f is an optional user file name (TEXTFILE)
+%GOTO       : unconditional branch to designated label
+%WHILE DO   : WHILE (boolean expr.) DO BEGIN statement1; ...
+           : statementn; END; - causes the intervening statements
+           : 1 - n to be executed repeatedly until expr. is false
+example    : WHILE cost < 10 DO cost = cost + 1;
+%REPEAT      : REPEAT statement1; ... statementn; UNTIL (boolean);
+            : causes these statements to be executed repeatedly
+            : until the boolean expression of UNTIL is true;
+example     : x = 0; REPEAT  x = x + 1; UNTIL x = 10;
+%FOR    : program loop based on argument list of FOR statement
+       : FOR (initial value; BoolExpr; updating expression) DO Stmt;
+       : index variable can be global or attribute variable
+       : the loop continues while BoolExpr is true
+       : updating expression can be any expression
+example: FOR (i = 0; i <= 5; i = i+1) DO Println {i:5};
+%DOCASES OF : initial statement of a set of case statements
+           : syntax is DOCASES Expr OF
+           : Case X1: statement; ... Case Xn: statement;
+           : <Else statement;> End;
+           : where X1 ... Xn are numbers, sequences or intervals
+%HALT       : method for program termination
+%CLEARSCREEN : Clears the monitor screen
+%EJECTPAGE : causes a page eject if FILE or PRINTER output option
+           : causes a clear screen for SCREEN output
+%GETBACKTRACK: User-controlled retrival of solution
+       GETBACKTRACK(xArray, StartRec, State)
+         xArray - User-defined array to contain decision values
+         StartRec - Starting recursion function
+         State - State value for StartRec
+example  :  GetBackTrack(x, f.4, s);
+%RANDOM     : zero-one uniform random variate/deviate
+example    : myTime = RANDOM;
+%DUNIFORM   : discrete uniform random variate over (a,b), where b > a
+example    : myTime = DUNIFORM(1,6);
+%CUNIFORM   : continuous uniform random variate over (a,b)
+example    : myTime = 3*CUNIFORM(1,6);
+%EXPD       : exponentially distributed r.v. with (mean time)
+example    : myTime = 6.0*EXPD(2.34) + 3.14;
+%NORMAL     : normal r.v. with (mean time, standard deviation)
+example    : myTime = NORMAL(2.68,1.2) + 4;
+
+
+
+
+
+
+

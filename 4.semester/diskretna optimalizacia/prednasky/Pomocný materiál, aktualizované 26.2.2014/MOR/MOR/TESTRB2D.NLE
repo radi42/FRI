@@ -1,0 +1,12 @@
+
+  "example test problem for 2d graphics: Rosenbrock function"
+
+  min   z = (1-x)^2 + 100(y-x*x)^2  
+
+    from (-2,-2)
+    ContourMap(-4,4,-6,6:40)
+    Theta = 70
+    Phi = 45
+    searchtolerance <= 0.0001
+
+                

@@ -1,0 +1,40 @@
+model "cv8"
+uses "mmxprs"
+uses "mmive"
+
+
+declarations
+
+
+ZAK = 1..3
+
+x: array (ZAK) of mpvar
+
+
+
+c: array (ZAK) of real 
+end-declarations
+
+c:: [4500,4000,6000]
+
+forall(i in ZAK) x(i) is_integer
+
+HUF:= sum(i in ZAK) x(i)*c(i)
+
+x(1)/100 + x(2)/125 + x(3)/75 <= 1
+x(1)/150 + x(2)/125 + x(3)/100 <= 1
+x(1)/125 + x(2)/100 + x(3)/100 <= 1
+
+x(1) <= 75
+x(2) <= 80
+x(3) <= 80
+
+
+maximize(HUF)
+
+writeln("HUF: ", getobjval)
+forall(i in 1..3 ) writeln("x", i ,": " ,getsol(x(i)))
+
+
+
+end-model 

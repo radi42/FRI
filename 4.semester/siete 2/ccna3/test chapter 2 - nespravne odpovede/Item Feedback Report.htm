@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html dir="ltr"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <title>Item Feedback Report</title>
+    <link rel="stylesheet" type="text/css" href="Item%20Feedback%20Report_files/style_assessment.css">
+    <link rel="stylesheet" type="text/css" href="Item%20Feedback%20Report_files/jquery-ui-custom.css">
+    <link rel="stylesheet" type="text/css" href="Item%20Feedback%20Report_files/common.css">
+    <link rel="stylesheet" type="text/css" href="Item%20Feedback%20Report_files/assessment.css">
+    <link rel="stylesheet" type="text/css" href="Item%20Feedback%20Report_files/takeexam.css">
+    <style>
+
+      label {
+        display: block;
+        position: relative;
+        padding: 4px 16px;
+      }
+
+      label input[type="radio"], label input[type="checkbox"] {
+        display: block;
+        position: absolute;
+        margin: 0;
+        top: 4px;
+        left: 0;
+      }
+
+      [dir="rtl"] label input[type="radio"], [dir="rtl"] label input[type="checkbox"] {
+        right : 0;
+      }
+
+      img.tick {
+        margin: 0;
+      }
+
+      .review {
+        margin-top: 1em;
+      }
+
+      
+
+      #subscores {
+        margin: 1em 0;
+      }
+
+      .subscore-label {
+        font-weight: bold;
+      }
+
+      .hidden {
+        overflow: hidden;
+        visibility: hidden;
+        height: 0;
+        width: 0;
+      }
+
+    </style>
+    <script src="Item%20Feedback%20Report_files/ga.js" async="" type="text/javascript"></script><script type="text/javascript" src="Item%20Feedback%20Report_files/examResponse.js"></script>
+    <script type="text/javascript" src="Item%20Feedback%20Report_files/swfobject.js"></script>
+    <script type="text/javascript" src="Item%20Feedback%20Report_files/examInit.js"></script>
+    <script type="text/javascript" src="Item%20Feedback%20Report_files/examReposition.js"></script>
+    <script type="text/javascript" src="Item%20Feedback%20Report_files/jquery-1.js"></script>
+    <script type="text/javascript" src="Item%20Feedback%20Report_files/jquery-ui-custom.js"></script>
+    <script type="text/javascript" src="Item%20Feedback%20Report_files/Core.js"></script>
+    <script type="text/javascript" src="Item%20Feedback%20Report_files/VerticalText.js"></script>
+  	<script type="text/javascript" src="Item%20Feedback%20Report_files/PTAPI.js"></script>   
+    <script>
+
+      var vdscore;
+      
+
+     var smvs = {
+       
+         '8390': [
+            
+              'knet-it_216367',
+            
+              'knet-it_216367',
+            
+              'knet-it_216361',
+            
+              'knet-it_216361',
+            
+              'knet-it_216413',
+            
+              'knet-it_216413',
+            
+              'knet-it_216414',
+            
+              'knet-it_216414',
+            
+              'knet-it_216406',
+            
+              'knet-it_216406',
+            
+              'knet-it_216368',
+            
+              'knet-it_216368',
+            
+              'knet-it_216370',
+            
+              'knet-it_216370'
+            
+          ],
+        
+         '8391': [
+            
+              'knet-it_216367',
+            
+              'knet-it_216367',
+            
+              'knet-it_216361',
+            
+              'knet-it_216361',
+            
+              'knet-it_216413',
+            
+              'knet-it_216413',
+            
+              'knet-it_216414',
+            
+              'knet-it_216414',
+            
+              'knet-it_216406',
+            
+              'knet-it_216406',
+            
+              'knet-it_216368',
+            
+              'knet-it_216368',
+            
+              'knet-it_216370',
+            
+              'knet-it_216370'
+            
+          ]
+        
+      };
+      
+      var smvDescriptions = {
+      	 
+      	 	'8390':'',
+      		
+      	
+      	 	'8391':''
+      		
+      	
+      }
+      
+      $(document).ready(function() {
+
+        $('.response-header.vertical').each(function(index) {
+          VerticalText.apply(this);
+        });
+
+        vdscore = new Core(this);
+        vdscore.init();
+        jQuery.event.add(window, "resize", function() {
+          vdscore.updateRender();
+        });
+
+        
+
+        var items = $('.item');
+
+        function filter(id) {
+        
+          var smv = smvs[id];
+         
+          if (smv) {
+            items.addClass('hidden');
+            for (var i = 0; i < smv.length; i++) {
+              $('#' + smv[i]).removeClass('hidden');
+            }
+          } else {
+            items.removeClass('hidden');
+          }
+          
+          filterDescription(id);
+          
+        }
+        
+        function filterDescription(id)
+        {
+       	   var smvDesc = smvDescriptions[id];
+       	   document.getElementById('subscoresDesc').innerHTML = '<p>'+smvDesc+'</p>';
+        }
+
+        $('#select-subscore').bind('change', function(event) {
+          filter($(this).val());
+        });
+
+        filter($('#select-subscore').val());
+
+      });
+
+      function debug(string) {
+        try {
+          console.log("DEBUG: "+string);
+        } catch (err) {
+          // do nothing with error
+        }
+      }
+
+      /// SSAI/T configuration parameters.
+        
+		
+			var SLIX = "NUqOzg3CzqJq2qwuGbsBnsU6A";
+		
+		
+		
+      var flashInteractive = false;
+      var flashInterface = "learner";
+      var flashPrefix = "ssflash/";
+	  var flashLanguage = "en";
+      var showCorrectResponses = true;
+
+      function init() {
+        setup(true);
+      }
+
+      
+        prev_name[0] = "RESPONSE_MCMA_it_216367"; 
+        prev_value[0] = "216367=1192488";
+      
+        prev_name[1] = "RESPONSE_MCMA_it_216367"; 
+        prev_value[1] = "216367=1192489";
+      
+        prev_name[2] = "RESPONSE_MCSA_it_216361"; 
+        prev_value[2] = "216361=1190348";
+      
+        prev_name[3] = "RESPONSE_MCSA_it_216413"; 
+        prev_value[3] = "216413=1201914";
+      
+        prev_name[4] = "RESPONSE_MCMA_it_216414"; 
+        prev_value[4] = "216414=1201920";
+      
+        prev_name[5] = "RESPONSE_MCMA_it_216414"; 
+        prev_value[5] = "216414=1201921";
+      
+        prev_name[6] = "RESPONSE_MCSA_it_216406"; 
+        prev_value[6] = "216406=1187450";
+      
+        prev_name[7] = "RESPONSE_FIB_it_216368"; 
+        prev_value[7] = "rt_216368=rapid";
+      
+        prev_name[8] = "RESPONSE_MCMA_it_216367"; 
+        prev_value[8] = "216367=1192489";
+      
+        prev_name[9] = "RESPONSE_MCMA_it_216367"; 
+        prev_value[9] = "216367=1192488";
+      
+        prev_name[10] = "RESPONSE_MCSA_it_216361"; 
+        prev_value[10] = "216361=1190348";
+      
+        prev_name[11] = "RESPONSE_MCSA_it_216413"; 
+        prev_value[11] = "216413=1201914";
+      
+        prev_name[12] = "RESPONSE_MCMA_it_216414"; 
+        prev_value[12] = "216414=1201921";
+      
+        prev_name[13] = "RESPONSE_MCMA_it_216414"; 
+        prev_value[13] = "216414=1201920";
+      
+        prev_name[14] = "RESPONSE_MCSA_it_216406"; 
+        prev_value[14] = "216406=1187450";
+      
+        prev_name[15] = "RESPONSE_FIB_it_216368"; 
+        prev_value[15] = "rt_216368=rapid";
+      
+
+      
+
+    </script>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push([ '_setAccount', 'UA-31020351-1' ]);
+		_gaq.push([ '_trackPageview' ]);
+
+		(function() {
+			var ga = document.createElement('script');
+			ga.type = 'text/javascript';
+			ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+
+  <style media="screen" type="text/css">#UAAIit_216370Flash_container {visibility:hidden}#AIit_216370Flash_container {visibility:hidden}</style></head>
+  <body onload="init()">
+    <div id="core" class="core">
+      <nav id="breadcrumbs" class="ui-widget-header ui-corner-all">
+        <ul>
+          <li><a href="https://assessment.netacad.net/virtuoso/delivery/pub-doc/2.0/assessment/lti.1.0/exam_results.html?THEME=rapport&amp;STYLE=base&amp;LANGUAGE=en&amp;ER_ID=140711361&amp;SLIX=NUqOzg3CzqJq2qwuGbsBnsU6A">Assessment Results</a></li>
+          <li>Item Feedback Report</li>
+        </ul>
+      </nav>
+      <h1>Scaling Networks (Version 5.0) - ScaN Chapter 2 Exam</h1>
+      <hr>
+      <div id="instructions" class="ui-widget">
+        <p>Below is the feedback on items for which you did not receive full credit. Some interactive items may not display your response.</p>
+      </div>
+      
+      
+       
+      <div id="subscores">
+        <span class="subscore-label">Subscore:</span>
+        <select id="select-subscore" class="select-subscore">
+          
+            <option selected="selected" value="8390">Domain Knowledge - Weighted Score</option>
+          
+            <option value="8391">Domain Knowledge - Binary Score</option>
+          
+        </select>
+      </div>
+       <div id="subscoresDesc"><p></p></div>
+      
+      <div id="items">
+        
+          <div class="item" id="knet-it_216367">
+            <!-- START MCSA, MCMA, FIB --><div id="AIit_216367TextDiv" class="
+            		Text
+            	">
+<table cellpadding="0" cellspacing="0" width="800">
+<tbody><tr>
+<td class="questionNum" width="25">5</td><td valign="top" width="743">
+<form onsubmit="return false;" name="AIit_216367">
+<table cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">
+<div class="ai-stem">Which three components are combined to form a bridge ID?</div>
+</td>
+</tr>
+<tr>
+<td style="padding-right:1em;white-space:nowrap"><b>Correct</b>
+<br>
+<b>Response</b>
+<br>
+</td><td style="width:2048px"><b>Your</b>
+<br>
+<b>Response</b>
+<br>
+</td>
+</tr>
+<tr>
+<td style="padding-right:1em;text-align:center;"></td><td class="option"><label for="RESPONSE_MCMA_it_216367_1192485"><input id="RESPONSE_MCMA_it_216367_1192485" name="RESPONSE_MCMA_it_216367" value="1192485" disabled="disabled" type="CHECKBOX">port ID</label></td>
+</tr>
+<tr>
+<td style="padding-right:1em;text-align:center;"></td><td class="option"><label for="RESPONSE_MCMA_it_216367_1192486"><input id="RESPONSE_MCMA_it_216367_1192486" name="RESPONSE_MCMA_it_216367" value="1192486" disabled="disabled" type="CHECKBOX">IP address</label></td>
+</tr>
+<tr>
+<td style="padding-right:1em;text-align:center;"><img class="tick" src="Item%20Feedback%20Report_files/tick.gif" border="0" height="15" width="15"></td><td class="option"><label for="RESPONSE_MCMA_it_216367_1192487"><input id="RESPONSE_MCMA_it_216367_1192487" name="RESPONSE_MCMA_it_216367" value="1192487" disabled="disabled" type="CHECKBOX">extended system ID</label></td>
+</tr>
+<tr>
+<td style="padding-right:1em;text-align:center;"><img class="tick" src="Item%20Feedback%20Report_files/tick.gif" border="0" height="15" width="15"></td><td class="option"><label for="RESPONSE_MCMA_it_216367_1192488"><input checked="checked" id="RESPONSE_MCMA_it_216367_1192488" name="RESPONSE_MCMA_it_216367" value="1192488" disabled="disabled" type="CHECKBOX">MAC address</label></td>
+</tr>
+<tr>
+<td style="padding-right:1em;text-align:center;"><img class="tick" src="Item%20Feedback%20Report_files/tick.gif" border="0" height="15" width="15"></td><td class="option"><label for="RESPONSE_MCMA_it_216367_1192489"><input checked="checked" id="RESPONSE_MCMA_it_216367_1192489" name="RESPONSE_MCMA_it_216367" value="1192489" disabled="disabled" type="CHECKBOX">bridge priority</label></td>
+</tr>
+<tr>
+<td style="padding-right:1em;text-align:center;"></td><td class="option"><label for="RESPONSE_MCMA_it_216367_1192490"><input id="RESPONSE_MCMA_it_216367_1192490" name="RESPONSE_MCMA_it_216367" value="1192490" disabled="disabled" type="CHECKBOX">cost</label></td>
+</tr>
+<tr>
+<td colspan="2">
+<div class="itemfeedback">The three components that are combined to form a bridge ID are bridge priority, extended system ID, and MAC address.</div>
+</td>
+</tr>
+</tbody></table>
+</form>
+</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody></table>
+</div><script type="text/javascript">
+      Question.index++;
+      Question[Question.index] = new QuestionObj("MCMA","AIit_216367","RESPONSE_MCMA_it_216367",6);
+      
+        Question[Question.index].response_labels[1] = "216367";
+      </script><!-- END MCSA, MCMA, FIB -->
+
+<div class="review" id="review">
+<table>
+<tbody><tr>
+<td><img src="Item%20Feedback%20Report_files/spacer.gif" border="0" height="1" width="10"></td><td class="content"><script language="JavaScript">
+	  prev_name[prev_name.length]="RESPONSE_MCMA_it_216367";
+	  prev_value[prev_value.length]="216367=1192489";
+	  
+	  prev_name[prev_name.length]="RESPONSE_MCMA_it_216367";
+	  prev_value[prev_value.length]="216367=1192488";
+	  </script>
+<table>
+<tbody><tr>
+<td nowrap="1">This item references content from the following areas:<blockquote>Scaling Networks<blockquote>
+<ul>
+<li>
+2.1.2
+ 
+STP Operation
+</li>
+</ul>
+</blockquote>
+</blockquote>
+</td>
+</tr>
+</tbody></table>
+<br><!-- START MCSA, MCMA, FIB --><script language="JavaScript">
+  <!--
+    
+                                                                                                        
+    Question.index++;
+    Question[Question.index] = new QuestionObj("MCMA","AIit_216367","RESPONSE_MCMA_it_216367",6);
+                                                                                                        
+    
+    Question[Question.index].response_labels[1] = "216367";
+    
+                                                                                                        
+  //-->
+  </script><!-- END MCSA, MCMA, FIB --></td>
+</tr>
+</tbody></table>
+</div>
+
+          </div>
+        
+          <div class="item" id="knet-it_216361">
+            <!-- START MCSA, MCMA, FIB --><div id="AIit_216361TextDiv" class="
+            		Text
+            	">
+<table cellpadding="0" cellspacing="0" width="800">
+<tbody><tr>
+<td class="questionNum" width="25">7</td><td valign="top" width="743">
+<form onsubmit="return false;" name="AIit_216361">
+<table cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">
+<div class="ai-stem">Which protocol provides up to 16 instances of RSTP,
+ combines many VLANs with the same physical and logical topology into a 
+common RSTP instance, and provides support for PortFast, BPDU guard, 
+BPDU filter, root guard, and loop guard?</div>
+</td>
+</tr>
+<tr>
+<td style="padding-right:1em;white-space:nowrap"><b>Correct</b>
+<br>
+<b>Response</b>
+<br>
+</td><td style="width:2048px"><b>Your</b>
+<br>
+<b>Response</b>
+<br>
+</td>
+</tr>
+<tr>
+<td style="padding-right:1em;text-align:center;"></td><td class="option"><label for="RESPONSE_MCSA_it_216361_1190347"><input id="RESPONSE_MCSA_it_216361_1190347" name="RESPONSE_MCSA_it_216361" value="1190347" disabled="disabled" type="RADIO">STP</label></td>
+</tr>
+<tr>
+<td style="padding-right:1em;text-align:center;"></td><td class="option"><label for="RESPONSE_MCSA_it_216361_1190348"><input checked="checked" id="RESPONSE_MCSA_it_216361_1190348" name="RESPONSE_MCSA_it_216361" value="1190348" disabled="disabled" type="RADIO">Rapid PVST+</label></td>
+</tr>
+<tr>
+<td style="padding-right:1em;text-align:center;"></td><td class="option"><label for="RESPONSE_MCSA_it_216361_1190349"><input id="RESPONSE_MCSA_it_216361_1190349" name="RESPONSE_MCSA_it_216361" value="1190349" disabled="disabled" type="RADIO">PVST+</label></td>
+</tr>
+<tr>
+<td style="padding-right:1em;text-align:center;"><img class="tick" src="Item%20Feedback%20Report_files/tick.gif" border="0" height="15" width="15"></td><td class="option"><label for="RESPONSE_MCSA_it_216361_1190350"><input id="RESPONSE_MCSA_it_216361_1190350" name="RESPONSE_MCSA_it_216361" value="1190350" disabled="disabled" type="RADIO">MST</label></td>
+</tr>
+<tr>
+<td colspan="2">
+<div class="itemfeedback">MST is the Cisco implementation of MSTP, an 
+IEEE standard protocol that provides up to 16 instances of RSTP and 
+combines many VLANs with the same physical and logical topology into a 
+common RSTP instance. Each instance supports PortFast, BPDU guard, BPDU 
+filter, root guard, and loop guard. STP and RSTP assume only one 
+spanning-tree instance for the entire bridged network, regardless of the
+ number of VLANs. PVST+ provides a separate 802.1D spanning-tree 
+instance for each VLAN that is configured in the network.</div>
+</td>
+</tr>
+</tbody></table>
+</form>
+</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody></table>
+</div><script type="text/javascript">
+      Question.index++;
+      Question[Question.index] = new QuestionObj("MCSA","AIit_216361","RESPONSE_MCSA_it_216361",1);
+      
+        Question[Question.index].response_labels[1] = "216361";
+      </script><!-- END MCSA, MCMA, FIB -->
+
+<div class="review" id="review">
+<table>
+<tbody><tr>
+<td><img src="Item%20Feedback%20Report_files/spacer.gif" border="0" height="1" width="10"></td><td class="content"><script language="JavaScript">
+	  prev_name[prev_name.length]="RESPONSE_MCSA_it_216361";
+	  prev_value[prev_value.length]="216361=1190348";
+	  </script>
+<table>
+<tbody><tr>
+<td nowrap="1">This item references content from the following areas:<blockquote>Scaling Networks<blockquote>
+<ul>
+<li>
+2.2.1
+ 
+Overview
+</li>
+</ul>
+</blockquote>
+</blockquote>
+</td>
+</tr>
+</tbody></table>
+<br><!-- START MCSA, MCMA, FIB --><script language="JavaScript">
+  <!--
+    
+                                                                                                        
+    Question.index++;
+    Question[Question.index] = new QuestionObj("MCSA","AIit_216361","RESPONSE_MCSA_it_216361",1);
+                                                                                                        
+    
+    Question[Question.index].response_labels[1] = "216361";
+    
+                                                                                                        
+  //-->
+  </script><!-- END MCSA, MCMA, FIB --></td>
+</tr>
+</tbody></table>
+</div>
+
+          </div>
+        
+          <div class="item" id="knet-it_216413">
+            <!-- START MCSA, MCMA, FIB --><div id="AIit_216413TextDiv" class="
+            		Text
+            	">
+<table cellpadding="0" cellspacing="0" width="800">
+<tbody><tr>
+<td class="questionNum" width="25">9</td><td valign="top" width="743">
+<form onsubmit="return false;" name="AIit_216413">
+<table cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">
+<div class="ai-stem">What is an advantage of PVST+?</div>
+</td>
+</tr>
+<tr>
+<td style="padding-right:1em;white-space:nowrap"><b>Correct</b>
+<br>
+<b>Response</b>
+<br>
+</td><td style="width:2048px"><b>Your</b>
+<br>
+<b>Response</b>
+<br>
+</td>
+</tr>
+<tr>
+<td style="padding-right:1em;text-align:center;"></td><td class="option"><label for="RESPONSE_MCSA_it_216413_1201913"><input id="RESPONSE_MCSA_it_216413_1201913" name="RESPONSE_MCSA_it_216413" value="1201913" disabled="disabled" type="RADIO">PVST+ requires fewer CPU cycles for all the switches in the network.</label></td>
+</tr>
+<tr>
+<td style="padding-right:1em;text-align:center;"></td><td class="option"><label for="RESPONSE_MCSA_it_216413_1201914"><input checked="checked" id="RESPONSE_MCSA_it_216413_1201914" name="RESPONSE_MCSA_it_216413" value="1201914" disabled="disabled" type="RADIO">PVST+ reduces bandwidth consumption compared to traditional implementations of STP that use CST.</label></td>
+</tr>
+<tr>
+<td style="padding-right:1em;text-align:center;"></td><td class="option"><label for="RESPONSE_MCSA_it_216413_1201915"><input id="RESPONSE_MCSA_it_216413_1201915" name="RESPONSE_MCSA_it_216413" value="1201915" disabled="disabled" type="RADIO">PVST+ optimizes performance on the network through autoselection of the root bridge.</label></td>
+</tr>
+<tr>
+<td style="padding-right:1em;text-align:center;"><img class="tick" src="Item%20Feedback%20Report_files/tick.gif" border="0" height="15" width="15"></td><td class="option"><label for="RESPONSE_MCSA_it_216413_1201916"><input id="RESPONSE_MCSA_it_216413_1201916" name="RESPONSE_MCSA_it_216413" value="1201916" disabled="disabled" type="RADIO">PVST+ optimizes performance on the network through load sharing.</label></td>
+</tr>
+<tr>
+<td colspan="2">
+<div class="itemfeedback">PVST+ results in optimum load balancing.  
+However, this is accomplished by manually configuring switches to be 
+elected as root bridges for different VLANs on the network. The root 
+bridges are not automatically selected. Furthermore, having 
+spanning-tree instances for each VLAN actually consumes more bandwidth 
+and it increases the CPU cycles for all the switches in the network.</div>
+</td>
+</tr>
+</tbody></table>
+</form>
+</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody></table>
+</div><script type="text/javascript">
+      Question.index++;
+      Question[Question.index] = new QuestionObj("MCSA","AIit_216413","RESPONSE_MCSA_it_216413",1);
+      
+        Question[Question.index].response_labels[1] = "216413";
+      </script><!-- END MCSA, MCMA, FIB -->
+
+<div class="review" id="review">
+<table>
+<tbody><tr>
+<td><img src="Item%20Feedback%20Report_files/spacer.gif" border="0" height="1" width="10"></td><td class="content"><script language="JavaScript">
+	  prev_name[prev_name.length]="RESPONSE_MCSA_it_216413";
+	  prev_value[prev_value.length]="216413=1201914";
+	  </script>
+<table>
+<tbody><tr>
+<td nowrap="1">This item references content from the following areas:<blockquote>Scaling Networks<blockquote>
+<ul>
+<li>
+2.2.2
+ 
+PVST+
+</li>
+</ul>
+</blockquote>
+</blockquote>
+</td>
+</tr>
+</tbody></table>
+<br><!-- START MCSA, MCMA, FIB --><script language="JavaScript">
+  <!--
+    
+                                                                                                        
+    Question.index++;
+    Question[Question.index] = new QuestionObj("MCSA","AIit_216413","RESPONSE_MCSA_it_216413",1);
+                                                                                                        
+    
+    Question[Question.index].response_labels[1] = "216413";
+    
+                                                                                                        
+  //-->
+  </script><!-- END MCSA, MCMA, FIB --></td>
+</tr>
+</tbody></table>
+</div>
+
+          </div>
+        
+          <div class="item" id="knet-it_216414">
+            <!-- START MCSA, MCMA, FIB --><div id="AIit_216414TextDiv" class="
+            		Text
+            	">
+<table cellpadding="0" cellspacing="0" width="800">
+<tbody><tr>
+<td class="questionNum" width="25">10</td><td valign="top" width="743">
+<form onsubmit="return false;" name="AIit_216414">
+<table cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">
+<div class="ai-stem">In which two port states does a switch learn MAC addresses and process BPDUs in a PVST network? (Choose two.)</div>
+</td>
+</tr>
+<tr>
+<td style="padding-right:1em;white-space:nowrap"><b>Correct</b>
+<br>
+<b>Response</b>
+<br>
+</td><td style="width:2048px"><b>Your</b>
+<br>
+<b>Response</b>
+<br>
+</td>
+</tr>
+<tr>
+<td style="padding-right:1em;text-align:center;"></td><td class="option"><label for="RESPONSE_MCMA_it_216414_1201917"><input id="RESPONSE_MCMA_it_216414_1201917" name="RESPONSE_MCMA_it_216414" value="1201917" disabled="disabled" type="CHECKBOX">blocking</label></td>
+</tr>
+<tr>
+<td style="padding-right:1em;text-align:center;"></td><td class="option"><label for="RESPONSE_MCMA_it_216414_1201918"><input id="RESPONSE_MCMA_it_216414_1201918" name="RESPONSE_MCMA_it_216414" value="1201918" disabled="disabled" type="CHECKBOX">disabled</label></td>
+</tr>
+<tr>
+<td style="padding-right:1em;text-align:center;"><img class="tick" src="Item%20Feedback%20Report_files/tick.gif" border="0" height="15" width="15"></td><td class="option"><label for="RESPONSE_MCMA_it_216414_1201919"><input id="RESPONSE_MCMA_it_216414_1201919" name="RESPONSE_MCMA_it_216414" value="1201919" disabled="disabled" type="CHECKBOX">forwarding</label></td>
+</tr>
+<tr>
+<td style="padding-right:1em;text-align:center;"><img class="tick" src="Item%20Feedback%20Report_files/tick.gif" border="0" height="15" width="15"></td><td class="option"><label for="RESPONSE_MCMA_it_216414_1201920"><input checked="checked" id="RESPONSE_MCMA_it_216414_1201920" name="RESPONSE_MCMA_it_216414" value="1201920" disabled="disabled" type="CHECKBOX">learning</label></td>
+</tr>
+<tr>
+<td style="padding-right:1em;text-align:center;"></td><td class="option"><label for="RESPONSE_MCMA_it_216414_1201921"><input checked="checked" id="RESPONSE_MCMA_it_216414_1201921" name="RESPONSE_MCMA_it_216414" value="1201921" disabled="disabled" type="CHECKBOX">listening</label></td>
+</tr>
+<tr>
+<td colspan="2">
+<div class="itemfeedback">Switches learn MAC addresses at the learning 
+and forwarding port states. They receive and process BPDUs at the 
+blocking, listening, learning, and forwarding port states.</div>
+</td>
+</tr>
+</tbody></table>
+</form>
+</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody></table>
+</div><script type="text/javascript">
+      Question.index++;
+      Question[Question.index] = new QuestionObj("MCMA","AIit_216414","RESPONSE_MCMA_it_216414",5);
+      
+        Question[Question.index].response_labels[1] = "216414";
+      </script><!-- END MCSA, MCMA, FIB -->
+
+<div class="review" id="review">
+<table>
+<tbody><tr>
+<td><img src="Item%20Feedback%20Report_files/spacer.gif" border="0" height="1" width="10"></td><td class="content"><script language="JavaScript">
+	  prev_name[prev_name.length]="RESPONSE_MCMA_it_216414";
+	  prev_value[prev_value.length]="216414=1201920";
+	  
+	  prev_name[prev_name.length]="RESPONSE_MCMA_it_216414";
+	  prev_value[prev_value.length]="216414=1201921";
+	  </script>
+<table>
+<tbody><tr>
+<td nowrap="1">This item references content from the following areas:<blockquote>Scaling Networks<blockquote>
+<ul>
+<li>
+2.2.2
+ 
+PVST+
+</li>
+</ul>
+</blockquote>
+</blockquote>
+</td>
+</tr>
+</tbody></table>
+<br><!-- START MCSA, MCMA, FIB --><script language="JavaScript">
+  <!--
+    
+                                                                                                        
+    Question.index++;
+    Question[Question.index] = new QuestionObj("MCMA","AIit_216414","RESPONSE_MCMA_it_216414",5);
+                                                                                                        
+    
+    Question[Question.index].response_labels[1] = "216414";
+    
+                                                                                                        
+  //-->
+  </script><!-- END MCSA, MCMA, FIB --></td>
+</tr>
+</tbody></table>
+</div>
+
+          </div>
+        
+          <div class="item" id="knet-it_216406">
+            <!-- START MCSA, MCMA, FIB --><div id="AIit_216406TextDiv" class="
+            		Text
+            	">
+<table cellpadding="0" cellspacing="0" width="800">
+<tbody><tr>
+<td class="questionNum" width="25">13</td><td valign="top" width="743">
+<form onsubmit="return false;" name="AIit_216406">
+<table cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">
+<div class="ai-stem">A network administrator is preparing the 
+implementation of Rapid PVST+ on a production network. How are the Rapid
+ PVST+ link types determined on the switch interfaces?</div>
+</td>
+</tr>
+<tr>
+<td style="padding-right:1em;white-space:nowrap"><b>Correct</b>
+<br>
+<b>Response</b>
+<br>
+</td><td style="width:2048px"><b>Your</b>
+<br>
+<b>Response</b>
+<br>
+</td>
+</tr>
+<tr>
+<td style="padding-right:1em;text-align:center;"><img class="tick" src="Item%20Feedback%20Report_files/tick.gif" border="0" height="15" width="15"></td><td class="option"><label for="RESPONSE_MCSA_it_216406_1187448"><input id="RESPONSE_MCSA_it_216406_1187448" name="RESPONSE_MCSA_it_216406" value="1187448" disabled="disabled" type="RADIO">Link types are determined automatically.</label></td>
+</tr>
+<tr>
+<td style="padding-right:1em;text-align:center;"></td><td class="option"><label for="RESPONSE_MCSA_it_216406_1187449"><input id="RESPONSE_MCSA_it_216406_1187449" name="RESPONSE_MCSA_it_216406" value="1187449" disabled="disabled" type="RADIO">Link types must be configured with specific port configuration commands.</label></td>
+</tr>
+<tr>
+<td style="padding-right:1em;text-align:center;"></td><td class="option"><label for="RESPONSE_MCSA_it_216406_1187450"><input checked="checked" id="RESPONSE_MCSA_it_216406_1187450" name="RESPONSE_MCSA_it_216406" value="1187450" disabled="disabled" type="RADIO">Link types can only be determined if PortFast has been configured.</label></td>
+</tr>
+<tr>
+<td style="padding-right:1em;text-align:center;"></td><td class="option"><label for="RESPONSE_MCSA_it_216406_1187451"><input id="RESPONSE_MCSA_it_216406_1187451" name="RESPONSE_MCSA_it_216406" value="1187451" disabled="disabled" type="RADIO">Link types can only be configured on access ports configured with a single VLAN.</label></td>
+</tr>
+<tr>
+<td colspan="2">
+<div class="itemfeedback">When Rapid PVST+ is being implemented, link 
+types are automatically determined but can be specified manually. Link 
+types can be either point-to-point, shared, or edge.</div>
+</td>
+</tr>
+</tbody></table>
+</form>
+</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody></table>
+</div><script type="text/javascript">
+      Question.index++;
+      Question[Question.index] = new QuestionObj("MCSA","AIit_216406","RESPONSE_MCSA_it_216406",1);
+      
+        Question[Question.index].response_labels[1] = "216406";
+      </script><!-- END MCSA, MCMA, FIB -->
+
+<div class="review" id="review">
+<table>
+<tbody><tr>
+<td><img src="Item%20Feedback%20Report_files/spacer.gif" border="0" height="1" width="10"></td><td class="content"><script language="JavaScript">
+	  prev_name[prev_name.length]="RESPONSE_MCSA_it_216406";
+	  prev_value[prev_value.length]="216406=1187450";
+	  </script>
+<table>
+<tbody><tr>
+<td nowrap="1">This item references content from the following areas:<blockquote>Scaling Networks<blockquote>
+<ul>
+<li>
+2.2.3
+ 
+Rapid PVST+
+</li>
+</ul>
+</blockquote>
+</blockquote>
+</td>
+</tr>
+</tbody></table>
+<br><!-- START MCSA, MCMA, FIB --><script language="JavaScript">
+  <!--
+    
+                                                                                                        
+    Question.index++;
+    Question[Question.index] = new QuestionObj("MCSA","AIit_216406","RESPONSE_MCSA_it_216406",1);
+                                                                                                        
+    
+    Question[Question.index].response_labels[1] = "216406";
+    
+                                                                                                        
+  //-->
+  </script><!-- END MCSA, MCMA, FIB --></td>
+</tr>
+</tbody></table>
+</div>
+
+          </div>
+        
+          <div class="item" id="knet-it_216368">
+            <!-- START MCSA, MCMA, FIB --><div id="AIit_216368TextDiv" class="
+            		Text
+            	">
+<table cellpadding="0" cellspacing="0" width="800">
+<tbody><tr>
+<td class="questionNum" width="25">20</td><td valign="top" width="743">
+<form onsubmit="return false;" name="AIit_216368">
+<table cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="1">
+<div class="ai-stem"></div>
+</td>
+</tr>
+<tr>
+<td colspan="2">Fill in the blank. Do not use abbreviations.<br>The <b>spanning-tree</b> <input value="rapid" maxlength="250" size="50" name="ANSWERrt_216368" disabled="disabled" type="TEXT"> global configuration command is used to enable Rapid PVST+.<p>
+<b>Correct Answer: mode rapid-pvst</b>
+</p>
+</td>
+</tr>
+</tbody></table>
+</form>
+</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody></table>
+</div><script type="text/javascript">
+      Question.index++;
+      Question[Question.index] = new QuestionObj("FIB","AIit_216368","RESPONSE_FIB_it_216368",1);
+      
+        Question[Question.index].response_labels[1] = "rt_216368";
+      </script><!-- END MCSA, MCMA, FIB -->
+
+<div class="review" id="review">
+<table>
+<tbody><tr>
+<td><img src="Item%20Feedback%20Report_files/spacer.gif" border="0" height="1" width="10"></td><td class="content"><script language="JavaScript">
+	  prev_name[prev_name.length]="RESPONSE_FIB_it_216368";
+	  prev_value[prev_value.length]="rt_216368=rapid";
+	  </script>
+<table>
+<tbody><tr>
+<td nowrap="1">This item references content from the following areas:<blockquote>Scaling Networks<blockquote>
+<ul>
+<li>
+2.3.2
+ 
+Rapid PVST+ Configuration
+</li>
+</ul>
+</blockquote>
+</blockquote>
+</td>
+</tr>
+</tbody></table>
+<br><!-- START MCSA, MCMA, FIB --><script language="JavaScript">
+  <!--
+    
+                                                                                                        
+    Question.index++;
+    Question[Question.index] = new QuestionObj("FIB","AIit_216368","RESPONSE_FIB_it_216368",1);
+                                                                                                        
+    
+    Question[Question.index].response_labels[1] = "rt_216368";
+    
+                                                                                                        
+  //-->
+  </script><!-- END MCSA, MCMA, FIB --></td>
+</tr>
+</tbody></table>
+</div>
+
+          </div>
+        
+          <div class="item" id="knet-it_216370">
+            <!-- START SSAI --><script type="text/javascript">
+      Question.index++;
+      
+      Question[Question.index] = new QuestionObj("SSI","UAAIit_216370","UARESPONSE_SSAI_it_216370",3,"flash");
+      
+        Question[Question.index].response_labels[1] = "obs0";
+      
+        Question[Question.index].response_labels[2] = "status";
+      
+        Question[Question.index].response_labels[3] = "522079";
+      </script><div class="Text" id="UAAIit_216370TextDiv">
+<table cellpadding="0" cellspacing="0" width="768">
+<tbody><tr>
+<td class="questionNum" width="25">22</td><td valign="top" width="743">
+<form onsubmit="return false;" name="UAAIit_216370">
+<table cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td colspan="1">
+<div class="ai-stem">
+<br>
+<div>
+<strong>Question as presented:</strong>
+</div>
+<object data="Item%20Feedback%20Report_files/player-20130604.swf" id="UAAIit_216370Flash" type="application/x-shockwave-flash" height="633" width="988"><param value="/virtuoso/servlet/org.cli.delivery.assessment.servlet.ExamServlet/" name="base"><param value="high" name="quality"><param value="opaque" name="wmode"><param value="formXml=DandD_item_216370.xml" name="flashvars"></object>
+<script type="text/javascript">
+      swfobject.embedSWF(
+        '/virtuoso/servlet/org.cli.delivery.assessment.servlet.ExamServlet/ssflash/en/player-20130604.swf?SLIX=NUqOzg3CzqJq2qwuGbsBnsU6A',
+        'UAAIit_216370Flash_container',
+        '988',
+        '633',
+        '6.0.0', false,
+        {formXml: 'DandD_item_216370.xml'},
+        {base: '/virtuoso/servlet/org.cli.delivery.assessment.servlet.ExamServlet/', quality: 'high', wmode: 'opaque'},
+        {id: 'UAAIit_216370Flash'}
+      );
+    </script>
+<br>
+</div>
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<div class="itemfeedback">Hot Standby Router Protocol (HSRP) is a 
+Cisco-proprietary protocol that is designed to allow for transparent 
+failover of a first-hop IPv4 device.</div>
+</td>
+</tr>
+</tbody></table>
+</form>
+</td>
+</tr>
+</tbody></table>
+</div><!-- END SSAI -->
+
+<div class="review" id="review">
+<table>
+<tbody><tr>
+<td><img src="Item%20Feedback%20Report_files/spacer.gif" border="0" height="1" width="10"></td><td class="content"><script language="JavaScript">
+	  prev_name[prev_name.length]="RESPONSE_SSAI_it_216370";
+	  prev_value[prev_value.length]="status=4,5,1,3";
+	  
+	  prev_name[prev_name.length]="RESPONSE_SSAI_it_216370";
+	  prev_value[prev_value.length]="obs0=0";
+	  </script>
+<table>
+<tbody><tr>
+<td nowrap="1">This item references content from the following areas:<blockquote>Scaling Networks<blockquote>
+<ul>
+<li>
+2.4.1
+ 
+Concept of First Hop Redundancy Protocols
+</li>
+</ul>
+</blockquote>
+</blockquote>
+</td>
+</tr>
+</tbody></table>
+<br><!-- START SSAI--><script language="JavaScript">
+  <!-- 
+    Question.index++;
+    
+    Question[Question.index] = new QuestionObj("SSI","AIit_216370","RESPONSE_SSAI_it_216370",3,"flash");
+
+    
+    
+    Question[Question.index].response_labels[1] = "obs0";
+    
+    Question[Question.index].response_labels[2] = "status";
+    
+    Question[Question.index].response_labels[3] = "522079";
+    
+  //-->
+  </script>
+<div class="Text" id="AIit_216370TextDiv">
+<table cellpadding="0" cellspacing="0" width="768">
+<tbody><tr>
+<td class="questionNum" width="25"></td><td valign="top" width="743">
+<table cellpadding="0" cellspacing="0">
+		
+<tbody><tr>
+<td colspan="1">
+						
+			
+<br>
+<div>
+<strong>Your response:</strong>
+</div>
+<object data="Item%20Feedback%20Report_files/player-20130604.swf" id="AIit_216370Flash" type="application/x-shockwave-flash" height="633" width="988"><param value="/virtuoso/servlet/org.cli.delivery.assessment.servlet.ExamServlet/" name="base"><param value="high" name="quality"><param value="opaque" name="wmode"><param value="formXml=DandD_item_216370.xml" name="flashvars"></object>
+<script type="text/javascript">
+      swfobject.embedSWF(
+        '/virtuoso/servlet/org.cli.delivery.assessment.servlet.ExamServlet/ssflash/en/player-20130604.swf?SLIX=NUqOzg3CzqJq2qwuGbsBnsU6A',
+        'AIit_216370Flash_container',
+        '988',
+        '633',
+        '6.0.0', false,
+        {formXml: 'DandD_item_216370.xml'},
+        {base: '/virtuoso/servlet/org.cli.delivery.assessment.servlet.ExamServlet/', quality: 'high', wmode: 'opaque'},
+        {id: 'AIit_216370Flash'}
+      );
+    </script>
+<br>
+		
+<br>
+</td>
+</tr>
+
+	
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</div><!-- SSAI END --></td>
+</tr>
+</tbody></table>
+</div>
+
+          </div>
+        
+      </div>
+    </div>
+    
+  
+
+</body></html>

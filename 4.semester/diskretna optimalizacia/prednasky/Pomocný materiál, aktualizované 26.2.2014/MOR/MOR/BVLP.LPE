@@ -1,0 +1,8 @@
+"bounded variable example one"
+max z = 3x1 + 2x2
+st    x1 + 2x2 <= 6
+     2x1 +  x2 <= 8
+    -x1  +  x2 <= 1
+     x1        <= 3
+            x2 <= 2
+     

@@ -1,0 +1,39 @@
+model "cv8"
+
+uses "mmxprs"
+
+
+declarations
+I=1..10
+y:array(I)of mpvar
+x:array(I,1..5)of mpvar
+c:array(1..2,1..5)of integer
+end-declarations
+
+
+c:=[200,180,100,40,60,
+	220,190,110,50,70]
+
+
+forall(i in I) y(i) is_binary
+forall(i in I,j in 1..5) x(i,j) is_binary
+
+
+f:=sum(i in 1..5,j in 1..5) c(1,j)*x(i,j)+
+	sum(i in 6..10,j in 1..5) c(2,j)*x(i,j)-
+	150*sum(i in 1..5)y(i)-210*sum(i in 6..10)y(i)
+	
+	
+forall(j in 1..5) sum(i in I)x(i,j)=1
+forall(i in 1..10) 9*x(i,1)+6*x(i,2)+2*x(i,3)+4*x(i,4)+3*x(i,5)<=12
+forall(i in 1..10) sum(j in 1..5) x(i,j)<=5*y(i)
+maximize(f)	
+
+
+writeln(getobjval)
+writeln("pozicanie vozidiel")
+forall(i in 1..10 |getsol(y(i))>0) writeln("y(",i,")= ",getsol(y(i)))
+writeln("\npriradenie na zakazky")
+forall(i in 1..10,j in 1..5 | getsol(x(i,j))>0) writeln("x(",i,",",j,")= ",getsol(x(i,j)))
+
+end-model 

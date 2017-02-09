@@ -1,0 +1,47 @@
+Apr 26 16:31:15.682 HYPERVISOR: Release 0.2.14-x86/Windows (tag 2014092320)
+Apr 26 16:31:15.682 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 62356.
+Apr 26 16:31:16.181 HYPERVISOR: exec_cmd: hypervisor version 
+Apr 26 16:31:16.181 HYPERVISOR: exec_cmd: hypervisor uuid 
+Apr 26 16:31:16.181 HYPERVISOR: exec_cmd: hypervisor working_dir C:/Users/Filip/Documents/GNS3 projekty\project-files\dynamips 
+Apr 26 16:31:16.181 GENERAL: working_dir=C:/Users/Filip/Documents/GNS3 projekty\project-files\dynamips
+Apr 26 16:31:16.181 HYPERVISOR: exec_cmd: vm create R1 3 c2691 
+Apr 26 16:31:16.197 VM: VM R1 created.
+Apr 26 16:31:16.197 HYPERVISOR: exec_cmd: vm set_con_tcp_port R1 2003 
+Apr 26 16:31:16.197 HYPERVISOR: exec_cmd: c2691 get_mac_addr R1 
+Apr 26 16:31:16.197 HYPERVISOR: exec_cmd: vm set_ios R1 C:\Users\Filip\GNS3\images\IOS\c2691-entservicesk9-mz.124-13b.image 
+Apr 26 16:31:16.197 HYPERVISOR: exec_cmd: vm set_ram R1 192 
+Apr 26 16:31:16.197 HYPERVISOR: exec_cmd: vm set_nvram R1 256 
+Apr 26 16:31:16.197 HYPERVISOR: exec_cmd: vm slot_add_binding R1 0 48 WIC-2T 
+Apr 26 16:31:16.197 HYPERVISOR: exec_cmd: vm set_disk0 R1 0 
+Apr 26 16:31:16.212 HYPERVISOR: exec_cmd: vm slot_add_binding R1 0 32 WIC-1T 
+Apr 26 16:31:16.212 HYPERVISOR: exec_cmd: vm slot_add_binding R1 0 16 WIC-1T 
+Apr 26 16:31:16.212 HYPERVISOR: exec_cmd: vm get_status R1 
+Apr 26 16:31:16.212 HYPERVISOR: exec_cmd: vm set_idle_pc R1 0x6114a604 
+Apr 26 16:31:16.228 HYPERVISOR: exec_cmd: vm set_config R1 configs/i3_startup-config.cfg 
+Apr 26 16:31:16.228 HYPERVISOR: exec_cmd: vm set_config R1 configs/i3_startup-config.cfg configs/i3_private-config.cfg 
+Apr 26 16:31:16.228 HYPERVISOR: exec_cmd: vm set_ghost_status R1 2 
+Apr 26 16:31:16.228 HYPERVISOR: exec_cmd: vm set_ghost_file R1 c2691-entservicesk9-mz.124-13b.image-192.ghost 
+Apr 26 16:31:29.261 HYPERVISOR: exec_cmd: vm rename R1 R3-SPOKE 
+Apr 26 16:31:43.715 HYPERVISOR: exec_cmd: nio create_udp nio_udp7 10005 127.0.0.1 10006 
+Apr 26 16:31:43.715 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R3-SPOKE 0 16 nio_udp7 
+Apr 26 16:31:43.715 HYPERVISOR: exec_cmd: vm get_status R3-SPOKE 
+Apr 26 16:31:50.341 HYPERVISOR: exec_cmd: vm get_status R3-SPOKE 
+Apr 26 16:31:50.357 HYPERVISOR: exec_cmd: vm start R3-SPOKE 
+Apr 26 16:32:44.402 HYPERVISOR: exec_cmd: vm get_status R3-SPOKE 
+Apr 26 16:32:44.402 HYPERVISOR: exec_cmd: vm set_idle_pc_online R3-SPOKE 0 0x0 
+Apr 26 16:32:44.402 HYPERVISOR: exec_cmd: vm get_status R3-SPOKE 
+Apr 26 16:32:44.402 HYPERVISOR: exec_cmd: vm get_idle_pc_prop R3-SPOKE 0 
+Apr 26 16:33:02.436 HYPERVISOR: exec_cmd: vm get_status R3-SPOKE 
+Apr 26 16:33:02.436 HYPERVISOR: exec_cmd: vm set_idle_pc_online R3-SPOKE 0 0x60a2d954 
+Apr 26 17:14:56.403 HYPERVISOR: exec_cmd: vm extract_config R3-SPOKE 
+Apr 26 17:16:59.393 HYPERVISOR: exec_cmd: vm extract_config R3-SPOKE 
+Apr 26 17:17:08.444 HYPERVISOR: exec_cmd: vm get_status R3-SPOKE 
+Apr 26 17:17:08.444 HYPERVISOR: exec_cmd: vm stop R3-SPOKE 
+Apr 26 17:17:08.569 VM: VM R3-SPOKE shutdown.
+Apr 26 17:17:11.502 HYPERVISOR: exec_cmd: vm get_status R3-SPOKE 
+Apr 26 17:17:11.517 HYPERVISOR: exec_cmd: vm extract_config R3-SPOKE 
+Apr 26 17:17:11.533 HYPERVISOR: exec_cmd: vm delete R3-SPOKE 
+Apr 26 17:17:11.533 VM: VM R3-SPOKE destroyed.
+Apr 26 17:17:11.549 HYPERVISOR: exec_cmd: hypervisor stop 
+Apr 26 17:17:12.048 HYPERVISOR: Stopped.
+Apr 26 17:17:12.048 GENERAL: reset done.

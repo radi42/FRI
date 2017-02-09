@@ -1,0 +1,22 @@
+mvi a,0x10		//na zaciatku je register a rovny 16 (0x10 hexadecimalne), pretoze kazdy riadok ma mat najviac 16 znakov
+
+Navestie:
+	dec a		//hned dekrementujeme register a, aby sme mali iba 16 hodnot (od 15 do 0)
+
+	scall key	//nacitaj klavesu
+	cmi d,0x0d	//stlacil si klavesu enter?
+	jzr NovyRiadok	//ak si stlacil klavesu enter, odriadkuj
+Pokracuj:
+	scall dsp	//v opacnom pripade vypis klavesu (alebo odriadkovanie)
+	cmi a,0x00	//uz si dosiahol hranicu 16 znakov v jednom riadku
+	jzr novyRiadok	//ak si uz dosiahol hranicu 16 znakov v jednom riadku, odriadkuj
+	jmp Navestie	//inak skoc
+
+NovyRiadok:
+	mvi d,0x0d	//line feed odriadkovanie
+	scall dsp	//vypis line feed odriadkovanie
+	mvi d,0x0a	//carriage return odriadkovanie
+	mvi a,0x10	//nastav novy riadok na novych 16 znakov
+jmp Pokracuj		//a chod na navestie Pokracuj
+	
+

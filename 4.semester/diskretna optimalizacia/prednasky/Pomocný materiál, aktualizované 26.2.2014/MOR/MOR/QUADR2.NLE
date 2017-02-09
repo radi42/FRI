@@ -1,0 +1,11 @@
+        "Himmelblau: quadr. page 173"
+        min f = 4(x1-5)^2 + (x2-6)^2
+        from (8,9)
+        contourmap(1,10,-10,20:40)
+        convergence <= 0.0001
+
+
+
+
+
+

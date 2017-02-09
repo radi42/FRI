@@ -1,0 +1,4 @@
+implicitna implementacia mnoziny - vypocitame index prvku na zaklade indexu (linkedlist)
+explicitna implementacia mnoziny - drzime si referencie iba na par prvkov (arraylist)
+
+unarny strom - kazdy prvok ma odkaz iba na otca

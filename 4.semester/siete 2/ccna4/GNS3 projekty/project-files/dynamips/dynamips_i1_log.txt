@@ -1,0 +1,94 @@
+Apr 26 16:10:36.446 HYPERVISOR: Release 0.2.14-x86/Windows (tag 2014092320)
+Apr 26 16:10:36.446 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 62288.
+Apr 26 16:10:36.508 HYPERVISOR: exec_cmd: hypervisor version 
+Apr 26 16:10:36.508 HYPERVISOR: exec_cmd: hypervisor uuid 
+Apr 26 16:10:36.508 HYPERVISOR: exec_cmd: hypervisor working_dir C:/Users/Filip/Documents/GNS3 projekty\project-files\dynamips 
+Apr 26 16:10:36.524 GENERAL: working_dir=C:/Users/Filip/Documents/GNS3 projekty\project-files\dynamips
+Apr 26 16:10:36.524 HYPERVISOR: exec_cmd: vm create R1 1 c2691 
+Apr 26 16:10:36.524 VM: VM R1 created.
+Apr 26 16:10:36.524 HYPERVISOR: exec_cmd: vm set_con_tcp_port R1 2001 
+Apr 26 16:10:36.524 HYPERVISOR: exec_cmd: c2691 get_mac_addr R1 
+Apr 26 16:10:36.524 HYPERVISOR: exec_cmd: vm set_ios R1 C:\Users\Filip\GNS3\images\IOS\c2691-entservicesk9-mz.124-13b.image 
+Apr 26 16:10:36.524 HYPERVISOR: exec_cmd: vm set_ram R1 192 
+Apr 26 16:10:36.524 HYPERVISOR: exec_cmd: vm set_nvram R1 256 
+Apr 26 16:10:36.539 HYPERVISOR: exec_cmd: vm slot_add_binding R1 0 48 WIC-2T 
+Apr 26 16:10:36.539 HYPERVISOR: exec_cmd: vm set_disk0 R1 0 
+Apr 26 16:10:36.539 HYPERVISOR: exec_cmd: vm slot_add_binding R1 0 32 WIC-1T 
+Apr 26 16:10:36.539 HYPERVISOR: exec_cmd: vm slot_add_binding R1 0 16 WIC-1T 
+Apr 26 16:10:36.539 HYPERVISOR: exec_cmd: vm get_status R1 
+Apr 26 16:10:36.539 HYPERVISOR: exec_cmd: vm set_idle_pc R1 0x6114a604 
+Apr 26 16:10:36.539 HYPERVISOR: exec_cmd: vm set_config R1 configs/i1_startup-config.cfg 
+Apr 26 16:10:36.555 HYPERVISOR: exec_cmd: vm set_config R1 configs/i1_startup-config.cfg configs/i1_private-config.cfg 
+Apr 26 16:10:36.555 HYPERVISOR: exec_cmd: vm create Ghost 0 c2691 
+Apr 26 16:10:36.555 VM: VM Ghost created.
+Apr 26 16:10:36.555 HYPERVISOR: exec_cmd: vm set_ios Ghost C:\Users\Filip\GNS3\images\IOS\c2691-entservicesk9-mz.124-13b.image 
+Apr 26 16:10:36.555 HYPERVISOR: exec_cmd: vm set_ghost_status Ghost 1 
+Apr 26 16:10:36.555 HYPERVISOR: exec_cmd: vm set_ghost_file Ghost c2691-entservicesk9-mz.124-13b.image-192.ghost 
+Apr 26 16:10:36.555 HYPERVISOR: exec_cmd: vm set_ram Ghost 192 
+Apr 26 16:10:36.555 HYPERVISOR: exec_cmd: vm get_status Ghost 
+Apr 26 16:10:36.555 HYPERVISOR: exec_cmd: vm start Ghost 
+Apr 26 16:10:37.039 HYPERVISOR: exec_cmd: vm get_status Ghost 
+Apr 26 16:10:37.039 HYPERVISOR: exec_cmd: vm stop Ghost 
+Apr 26 16:10:37.241 VM: VM Ghost shutdown.
+Apr 26 16:10:37.241 HYPERVISOR: exec_cmd: vm clean_delete Ghost 
+Apr 26 16:10:37.241 VM: VM Ghost destroyed.
+Apr 26 16:10:37.257 HYPERVISOR: exec_cmd: vm set_ghost_status R1 2 
+Apr 26 16:10:37.257 HYPERVISOR: exec_cmd: vm set_ghost_file R1 c2691-entservicesk9-mz.124-13b.image-192.ghost 
+Apr 26 16:11:14.290 HYPERVISOR: exec_cmd: nio create_udp nio_udp0 10000 127.0.0.1 10001 
+Apr 26 16:11:14.305 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R1 0 16 nio_udp0 
+Apr 26 16:11:14.305 HYPERVISOR: exec_cmd: vm get_status R1 
+Apr 26 16:11:36.471 HYPERVISOR: exec_cmd: vm get_status R1 
+Apr 26 16:11:36.487 HYPERVISOR: exec_cmd: vm start R1 
+Apr 26 16:11:40.543 HYPERVISOR: exec_cmd: vm get_status R1 
+Apr 26 16:11:40.543 HYPERVISOR: exec_cmd: vm stop R1 
+Apr 26 16:11:40.637 VM: VM R1 shutdown.
+Apr 26 16:11:58.115 HYPERVISOR: exec_cmd: vm rename R1 R1-HUB 
+Apr 26 16:12:57.051 HYPERVISOR: exec_cmd: vm extract_config R1-HUB 
+Apr 26 16:13:08.127 HYPERVISOR: exec_cmd: vm get_status R1-HUB 
+Apr 26 16:13:08.127 HYPERVISOR: exec_cmd: vm start R1-HUB 
+Apr 26 16:14:09.848 HYPERVISOR: exec_cmd: vm get_status R1-HUB 
+Apr 26 16:14:09.848 HYPERVISOR: exec_cmd: vm set_idle_pc_online R1-HUB 0 0x0 
+Apr 26 16:14:09.848 HYPERVISOR: exec_cmd: vm get_status R1-HUB 
+Apr 26 16:14:09.864 HYPERVISOR: exec_cmd: vm get_idle_pc_prop R1-HUB 0 
+Apr 26 16:14:35.258 HYPERVISOR: exec_cmd: vm get_status R1-HUB 
+Apr 26 16:14:35.414 HYPERVISOR: exec_cmd: vm set_idle_pc_online R1-HUB 0 0x6114a604 
+Apr 26 16:15:00.587 HYPERVISOR: exec_cmd: vm get_status R1-HUB 
+Apr 26 16:15:00.821 HYPERVISOR: exec_cmd: vm set_idle_pc_online R1-HUB 0 0x60246d1c 
+Apr 26 16:15:23.884 HYPERVISOR: exec_cmd: vm get_status R1-HUB 
+Apr 26 16:15:23.993 HYPERVISOR: exec_cmd: vm set_idle_pc_online R1-HUB 0 0x60a2d954 
+Apr 26 16:15:49.416 HYPERVISOR: exec_cmd: vm get_status R1-HUB 
+Apr 26 16:15:49.494 HYPERVISOR: exec_cmd: vm set_idle_pc_online R1-HUB 0 0x60246d1c 
+Apr 26 16:17:11.669 HYPERVISOR: exec_cmd: vm get_status R1-HUB 
+Apr 26 16:17:11.669 HYPERVISOR: exec_cmd: vm stop R1-HUB 
+Apr 26 16:17:11.840 VM: VM R1-HUB shutdown.
+Apr 26 16:17:17.004 HYPERVISOR: exec_cmd: vm get_status R1-HUB 
+Apr 26 16:17:17.020 HYPERVISOR: exec_cmd: vm set_idle_pc R1-HUB 0x0 
+Apr 26 16:17:17.020 HYPERVISOR: exec_cmd: vm get_status R1-HUB 
+Apr 26 16:17:23.055 HYPERVISOR: exec_cmd: vm get_status R1-HUB 
+Apr 26 16:17:23.071 HYPERVISOR: exec_cmd: vm start R1-HUB 
+Apr 26 16:17:28.369 HYPERVISOR: exec_cmd: vm get_status R1-HUB 
+Apr 26 16:17:28.385 HYPERVISOR: exec_cmd: vm set_idle_pc_online R1-HUB 0 0x0 
+Apr 26 16:17:28.385 HYPERVISOR: exec_cmd: vm get_status R1-HUB 
+Apr 26 16:17:28.385 HYPERVISOR: exec_cmd: vm get_idle_pc_prop R1-HUB 0 
+Apr 26 16:17:52.581 HYPERVISOR: exec_cmd: vm get_status R1-HUB 
+Apr 26 16:17:52.596 HYPERVISOR: exec_cmd: vm set_idle_pc_online R1-HUB 0 0x60a2db04 
+Apr 26 16:30:05.233 HYPERVISOR: exec_cmd: vm extract_config R1-HUB 
+Apr 26 16:31:37.623 HYPERVISOR: exec_cmd: vm get_status R1-HUB 
+Apr 26 16:31:37.623 HYPERVISOR: exec_cmd: vm stop R1-HUB 
+Apr 26 16:31:37.748 VM: VM R1-HUB shutdown.
+Apr 26 16:31:50.341 HYPERVISOR: exec_cmd: vm get_status R1-HUB 
+Apr 26 16:31:50.357 HYPERVISOR: exec_cmd: vm start R1-HUB 
+Apr 26 16:33:02.202 HYPERVISOR: exec_cmd: vm get_status R1-HUB 
+Apr 26 16:33:02.217 HYPERVISOR: exec_cmd: vm set_idle_pc_online R1-HUB 0 0x60a2d954 
+Apr 26 17:14:56.403 HYPERVISOR: exec_cmd: vm extract_config R1-HUB 
+Apr 26 17:16:59.378 HYPERVISOR: exec_cmd: vm extract_config R1-HUB 
+Apr 26 17:17:08.444 HYPERVISOR: exec_cmd: vm get_status R1-HUB 
+Apr 26 17:17:08.444 HYPERVISOR: exec_cmd: vm stop R1-HUB 
+Apr 26 17:17:08.569 VM: VM R1-HUB shutdown.
+Apr 26 17:17:11.502 HYPERVISOR: exec_cmd: vm get_status R1-HUB 
+Apr 26 17:17:11.517 HYPERVISOR: exec_cmd: vm extract_config R1-HUB 
+Apr 26 17:17:11.549 HYPERVISOR: exec_cmd: vm delete R1-HUB 
+Apr 26 17:17:11.549 VM: VM R1-HUB destroyed.
+Apr 26 17:17:11.564 HYPERVISOR: exec_cmd: hypervisor stop 
+Apr 26 17:17:11.751 HYPERVISOR: Stopped.
+Apr 26 17:17:11.751 GENERAL: reset done.

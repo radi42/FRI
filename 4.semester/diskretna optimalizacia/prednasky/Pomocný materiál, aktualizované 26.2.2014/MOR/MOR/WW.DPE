@@ -1,0 +1,42 @@
+PROGRAM
+                     "Wagner/Whitin Problem"
+DEFINITION
+  R : ARRAY[ <1..4> ] = ( 15,  25, 30,  45);  " Requirements"
+  h : ARRAY[ <1..4> ] = (  1,   1,  3,   2);  " Holding costs"
+  K : ARRAY[ <1..4> ] = (100, 120, 90, 100);  " Fixed costs"
+  c = 10;                                    " Unit cost"
+  CD(i,j) = Sum{ R[kk]: kk in [i..j] };"Calculate cum. demand
+                                      over periods i to j"
+
+"-------------------------FEASIBLE SEQUENCES--------------------"
+
+  B.1 : SEQUENCE = <0,CD(1,1),CD(1,2),CD(1,3),CD(1,4)>;
+  B.2 : SEQUENCE = <0,CD(2,2),CD(2,3),CD(2,4)>;
+  B.3 : SEQUENCE = <0,CD(3,3),CD(3,4)>;
+  B.4 : SEQUENCE = <0,CD(4,4)>;
+
+" Formulation:  n = period
+                i = starting inventory
+                z = amount produced
+                g(n,i,z) = cost in period n
+                t(n,i,z) = ending inventory in period n
+"
+          g(n,i,x) = K[n](x>0) + c(x) + h[n](i+x-r[n]);
+
+          t(n,i,x) = i+x - r[n];
+
+LOGIC
+
+  f.4 (i) = min{ g(4,i,z) :
+                 z IN B.4 WITH t(4,i,z) IN <0>}, i IN B.4;
+
+  f.m (i) = min{ g(m,i,z) + f.(m+1)( t(m,i,z) ):
+                 z IN B.m WITH t(m,i,z) IN B.(m+1)}, i IN B.m,
+                 m IN <3,2>;
+
+  f.1 (i) = min{ g(1,i,z) + f.2 ( t(1,i,z) ):
+                 z IN B.1 WITH t(1,i,z) IN B.2 }, i IN <0>;
+
+END.
+
+

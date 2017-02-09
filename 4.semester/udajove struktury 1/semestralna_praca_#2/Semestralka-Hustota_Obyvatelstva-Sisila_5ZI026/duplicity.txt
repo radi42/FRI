@@ -1,0 +1,27 @@
+27994
+Okres Velky Krtis
+Sklabina
+
+34231
+Okres Poltar
+Nove Hony
+
+34252
+Okres Poltar
+Pincina
+
+44458
+Okres Humenne
+Cernina
+
+44815
+Okres Humenne
+Lukacovce
+
+48448
+Okres Presov
+Brezany
+
+49099
+Okres Presov
+Lazany

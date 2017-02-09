@@ -1,0 +1,13 @@
+PROGRAM
+DEFINITION
+  d:ARRAY[ <1..4> ] = (2,3,4,2);
+LOGIC
+  f.4(s) = min{ 15(x>0) + 100x + 2s: x in [0..5]
+                with (x+s-d[4]) in [0..4]},s in [0..4];
+  f.3(s) = min{ 15(x>0) + 100x + 2s + f.4(s+x-d[3]): x in [0..5]
+                with (x+s-d[3]) in [0..4]},s in [0..4];
+  f.2(s) = min{ 15(x>0) + 100x + 2s + f.3(s+x-d[2]): x in [0..5]
+                with (x+s-d[2]) in [0..4]},s in [0..4];
+  f.1(s) = min{ 15(x>0) + 100x + 2s + f.2(s+x-d[1]): x in [0..5]
+                with (x+s-d[1]) in [0..4]},s in <0>;
+END.

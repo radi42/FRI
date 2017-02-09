@@ -1,0 +1,28 @@
+@ECHO OFF
+CLS
+ECHO.
+ECHO                System  MOR
+ECHO.
+ECHO.
+ECHO       Nasledujici programovy system MOR pro reseni uloh linearniho,
+ECHO       celociselneho, nelinearniho, separovaneho, kvadratickeho a
+ECHO       dynamickeho programovani byl sestaven profesory
+ECHO.
+ECHO                       Guy L. Curry
+ECHO                     Bryan L. Deuermeyer
+ECHO                   Richard M. Feldman
+ECHO.
+ECHO                z Texas A&M University U.S.A.
+ECHO.
+ECHO       diky laskavosti prvniho z jmenovanych byl tento produkt bezplatne
+ECHO       poskytnut pro potreby vyuky na VSDS.
+ECHO.
+ECHO.
+ECHO           Blizsi informace o praci a pouziti systemu poskytne
+ECHO.
+ECHO       Doc.RNDr. Jaroslav Janacek CSc. Fakulta rizeni, VSDS Zilina
+ECHO.
+ECHO.
+PAUSE
+MOR
+ECHO ON

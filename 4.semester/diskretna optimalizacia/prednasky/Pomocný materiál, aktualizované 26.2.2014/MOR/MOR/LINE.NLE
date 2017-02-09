@@ -1,0 +1,8 @@
+   min f = 5 + 3x1 + 4x2 + x1^2 - x1*x2 + x2^2
+     from (0,0)
+     over [0,4]
+     direction (-1,-2)
+     searchtolerance <= 0.001
+     LineGraph
+
+

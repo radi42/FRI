@@ -1,0 +1,5 @@
+"this file is to create axis plot for documentation purposes"
+z = 0x + 0y
+region(-5,5,-5,5:20)
+docaxis = on
+

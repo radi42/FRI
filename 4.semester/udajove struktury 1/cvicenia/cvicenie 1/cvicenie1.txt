@@ -1,0 +1,14 @@
+Pole ArrayList
+pole je suvisle (za sebou iduce bez medzier), homogenne (jeden druh prvkov)
+
+kazde pole ma velkost (pocet prvkov pridanzych prvkov) a kapacitu (maximalny pocet prvkov)
+
+Trieda Auto
+[Class<Auto>] = Auto
+
+
+zvacsovanie pola sa moze diat linearne alebo exponencialne
+
+
+
+iterator je prst ktory sa pohybuje cez pole a prechadza nim

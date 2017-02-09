@@ -1,0 +1,56 @@
+PROGRAM
+                      "Stage Coach Problem"
+DEFINITION
+
+"
+  Problem: find the shortest path from 1 to 10 through
+           the network depicted below, where travel is
+           allowed to points in the column to the right
+           of a given column.  Columns are called stages.  "
+
+"                       |   2   |   5   |       |
+                        |       |       |   8   |
+                    1   |   3   |   6   |       |   10
+                        |       |       |   9   |
+                        |   4   |   7   |       |
+                --------+-------+-------+-------+------
+     Stage:         1   |   2   |   3   |   4   |    5
+"
+  A.1 : SEQUENCE = <1> ;
+  A.2 : SEQUENCE =      <2,3,4>;
+  A.3 : SEQUENCE =              <5,6,7>;
+  A.4 : SEQUENCE =                       <8,9>;
+  A.5 : SEQUENCE =                                <10>;
+
+  Order    : SEQUENCE       = <9,8,7,6,5,4,3,2,1>;
+  Stage    : ARRAY[ Order ] = (4,4,3,3,3,2,2,2,1);
+  Next(i) = Stage[i] + 1;
+"Comment:
+    Order   : The evaluation sequence for the recursions;
+    Stage[i]: The stage/column of point i
+    Next(i) : The possible destinations of i
+"
+"----------------Routing Costs-----------------------------"
+"    Stage         From  To        Cost                    "
+  COST.1    : ARRAY[A.1,A.2] = ( (2,4,3) );
+  COST.2    : ARRAY[A.2,A.3] = ( (7,4,6),
+                                 (3,2,4),
+                                 (4,1,5) );
+  COST.3    : ARRAY[A.3,A.4] = ( (1,4  ),
+                                 (6,3  ),
+                                 (3,3  ) );
+  COST.4    : ARRAY[A.4,A.5] = ( (3    ),
+                                 (4    ) );
+"Notation for recursions:
+    f.k is the min cost from k to 10;
+      k is a point;
+      d is the next point to visit from k"
+LOGIC
+
+   f.10 = min{  0 : d in A.5};
+
+   f.k  = min{  COST.Stage[k] [k,d] + f.d: d in A.Next(k) },
+                 k in Order;
+
+END.
+

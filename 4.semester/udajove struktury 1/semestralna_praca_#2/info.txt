@@ -1,0 +1,10 @@
+triedenie musi mat zlozitost mensiu ako n^2
+triedit sa daju iba sekvencne tabulky
+
+ale na vyhladavanie potrebujeme bvs
+
+najprv si excelovsky subor hodit do rozumneho formatu (txt)
+
+odovzdanie v 13. tyzdni
+
+jedna tabulka, jedna sekvencna tabulka, jeden sort

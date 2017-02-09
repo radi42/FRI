@@ -1,0 +1,34 @@
+model priklad4
+uses "mmxprs"
+declarations
+I=1..2
+J=1..3
+
+x:array(I,J)of mpvar
+c:array(I,J)of integer
+t:array(I,J)of integer
+a:array(I)of integer
+b:array(J)of integer
+
+
+end-declarations
+
+
+c:=[5,6,7,
+	4,5,6]
+t:=[19,22,24,
+	15,21,22]
+a:=[180,120]
+b:=[4,3,5]
+
+
+forall(i in I,j in J) x(i,j) is_integer
+
+f:=sum(i in I,j in J) x(i,j)*c(i,j)
+forall(j in J)sum(i in I)x(i,j)=b(j)
+forall(i in I)sum(j in J)t(i,j)*x(i,j)<=a(i)
+minimize(f)	
+
+writeln(getobjval)
+forall(i in I,j in J | getsol(x(i,j))>0) writeln("x(",i,",",j,")= ",getsol(x(i,j)))
+end-model

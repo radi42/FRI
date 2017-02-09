@@ -1,0 +1,813 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="sk" dir="ltr" xmlns="http://www.w3.org/1999/xhtml" lang="sk"><head>
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="test1_subory/styles_002.css">
+<link rel="stylesheet" type="text/css" href="test1_subory/styles.css">
+
+<!--[if IE 7]>
+    <link rel="stylesheet" type="text/css" href="https://vzdelavanie.uniza.sk/moodle/theme/standard/styles_ie7.css" />
+<![endif]-->
+<!--[if IE 6]>
+    <link rel="stylesheet" type="text/css" href="https://vzdelavanie.uniza.sk/moodle/theme/standard/styles_ie6.css" />
+<![endif]-->
+
+
+
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="0">    <meta name="keywords" content="moodle, DO: SZ_Test1_streda_7:00 ">
+    <title>DO: SZ_Test1_streda_7:00</title>
+    <link rel="shortcut icon" href="https://vzdelavanie.uniza.sk/moodle/theme/standardwhite/favicon.ico">
+    <script type="text/javascript" src="test1_subory/tiny_mce.js"></script>
+<script type="text/javascript" src="test1_subory/tinymcejs.js"></script>
+<!--<style type="text/css">/*<![CDATA[*/ body{behavior:url(https://vzdelavanie.uniza.sk/moodle/lib/csshover.htc);} /*]]>*/</style>-->
+
+<script type="text/javascript" src="test1_subory/javascript-static.js"></script>
+<script type="text/javascript" src="test1_subory/javascript-mod.php"></script>
+<script type="text/javascript" src="test1_subory/overlib.js"></script>
+<script type="text/javascript" src="test1_subory/overlib_cssstyle.js"></script>
+<script type="text/javascript" src="test1_subory/cookies.js"></script>
+<script type="text/javascript" src="test1_subory/ufo.js"></script>
+<script type="text/javascript" src="test1_subory/dropdown.js"></script>  
+
+<script type="text/javascript" defer="defer">
+//<![CDATA[
+setTimeout('fix_column_widths()', 20);
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+function openpopup(url, name, options, fullscreen) {
+    var fullurl = "https://vzdelavanie.uniza.sk/moodle" + url;
+    var windowobj = window.open(fullurl, name, options);
+    if (!windowobj) {
+        return true;
+    }
+    if (fullscreen) {
+        windowobj.moveTo(0, 0);
+        windowobj.resizeTo(screen.availWidth, screen.availHeight);
+    }
+    windowobj.focus();
+    return false;
+}
+
+function uncheckall() {
+    var inputs = document.getElementsByTagName('input');
+    for(var i = 0; i < inputs.length; i++) {
+        inputs[i].checked = false;
+    }
+}
+
+function checkall() {
+    var inputs = document.getElementsByTagName('input');
+    for(var i = 0; i < inputs.length; i++) {
+        inputs[i].checked = true;
+    }
+}
+
+function inserttext(text) {
+  text = ' ' + text + ' ';
+  if ( opener.document.forms['theform'].message.createTextRange && opener.document.forms['theform'].message.caretPos) {
+    var caretPos = opener.document.forms['theform'].message.caretPos;
+    caretPos.text = caretPos.text.charAt(caretPos.text.length - 1) == ' ' ? text + ' ' : text;
+  } else {
+    opener.document.forms['theform'].message.value  += text;
+  }
+  opener.document.forms['theform'].message.focus();
+}
+
+function getElementsByClassName(oElm, strTagName, oClassNames){
+	var arrElements = (strTagName == "*" && oElm.all)? oElm.all : oElm.getElementsByTagName(strTagName);
+	var arrReturnElements = new Array();
+	var arrRegExpClassNames = new Array();
+	if(typeof oClassNames == "object"){
+		for(var i=0; i<oClassNames.length; i++){
+			arrRegExpClassNames.push(new RegExp("(^|\\s)" + oClassNames[i].replace(/\-/g, "\\-") + "(\\s|$)"));
+		}
+	}
+	else{
+		arrRegExpClassNames.push(new RegExp("(^|\\s)" + oClassNames.replace(/\-/g, "\\-") + "(\\s|$)"));
+	}
+	var oElement;
+	var bMatchesAll;
+	for(var j=0; j<arrElements.length; j++){
+		oElement = arrElements[j];
+		bMatchesAll = true;
+		for(var k=0; k<arrRegExpClassNames.length; k++){
+			if(!arrRegExpClassNames[k].test(oElement.className)){
+				bMatchesAll = false;
+				break;
+			}
+		}
+		if(bMatchesAll){
+			arrReturnElements.push(oElement);
+		}
+	}
+	return (arrReturnElements)
+}
+//]]>
+</script>
+</head><body class="mod-quiz course-1664 dir-ltr lang-sk_utf8" id="mod-quiz-review">
+
+<div id="page">
+
+    <!-- END OF HEADER -->
+    <div id="content" class=" clearfix">
+<style media="print">body {display:none}</style>
+
+<script type="text/javascript">
+//<![CDATA[
+
+var message = "Táto funkcia je momentálne neaktívna";
+
+function click(e) {
+    if (document.all) {
+        if (event.button==1) {
+           return false;
+        }
+        if (event.button==2) {
+           alert(message);
+           return false;
+        }
+    }
+    if (document.layers) {
+        if (e.which > 1) {
+           alert(message);
+           return false;
+        }
+    }
+}
+if (document.layers) {
+    document.captureEvents(Event.MOUSEDOWN);
+}
+document.onmousedown=click;
+document.oncontextmenu=new Function("alert(message);return false")
+
+document.write(unescape("%3C%53%43%52%49%50%54%20%4C%41%4E%47%55%41%47%45%3D%22%4A%61%76%61%53%63%72%69%70%74%22%3E%3C%21%2D%2D%0D%0A%68%70%5F%6F%6B%3D%74%72%75%65%3B%66%75%6E%63%74%69%6F%6E%20%68%70%5F%64%30%30%28%73%29%7B%69%66%28%21%68%70%5F%6F%6B%29%72%65%74%75%72%6E%3B%64%6F%63%75%6D%65%6E%74%2E%77%72%69%74%65%28%73%29%7D%2F%2F%2D%2D%3E%3C%2F%53%43%52%49%50%54%3E"));
+
+hp_d00(unescape("%3C%53%43%52%49%50%54%20%4C%41%4E%47%55%41%47%45%3D%22%4A%61%76%61%53%63%72%69%70%74%22%3E%3C%21%2D%2D%0D%0A%66%75%6E%63%74%69%6F%6E%20%68%70%5F%6E%65%28%29%7B%72%65%74%75%72%6E%20%74%72%75%65%7D%6F%6E%65%72%72%6F%72%3D%68%70%5F%6E%65%3B%66%75%6E%63%74%69%6F%6E%20%68%70%5F%64%6E%28%61%29%7B%72%65%74%75%72%6E%20%66%61%6C%73%65%7D%3B%66%75%6E%63%74%69%6F%6E%20%68%70%5F%64%65%28%65%29%7B%72%65%74%75%72%6E%28%65%2E%74%61%72%67%65%74%2E%74%61%67%4E%61%6D%65%21%3D%6E%75%6C%6C%26%26%65%2E%74%61%72%67%65%74%2E%74%61%67%4E%61%6D%65%2E%73%65%61%72%63%68%28%27%5E%28%49%4E%50%55%54%7C%54%45%58%54%41%52%45%41%7C%42%55%54%54%4F%4E%7C%53%45%4C%45%43%54%29%24%27%29%21%3D%2D%31%29%7D%3B%66%75%6E%63%74%69%6F%6E%20%68%70%5F%6D%64%28%65%29%7B%69%66%28%65%2E%77%68%69%63%68%3D%3D%31%29%7B%77%69%6E%64%6F%77%2E%63%61%70%74%75%72%65%45%76%65%6E%74%73%28%45%76%65%6E%74%2E%4D%4F%55%53%45%4D%4F%56%45%29%3B%77%69%6E%64%6F%77%2E%6F%6E%6D%6F%75%73%65%6D%6F%76%65%3D%68%70%5F%64%6E%7D%7D%66%75%6E%63%74%69%6F%6E%20%68%70%5F%6D%75%28%65%29%7B%69%66%28%65%2E%77%68%69%63%68%3D%3D%31%29%7B%77%69%6E%64%6F%77%2E%72%65%6C%65%61%73%65%45%76%65%6E%74%73%28%45%76%65%6E%74%2E%4D%4F%55%53%45%4D%4F%56%45%29%3B%77%69%6E%64%6F%77%2E%6F%6E%6D%6F%75%73%65%6D%6F%76%65%3D%6E%75%6C%6C%7D%7D%69%66%28%6E%61%76%69%67%61%74%6F%72%2E%61%70%70%4E%61%6D%65%2E%69%6E%64%65%78%4F%66%28%27%49%6E%74%65%72%6E%65%74%20%45%78%70%6C%6F%72%65%72%27%29%3D%3D%2D%31%7C%7C%28%6E%61%76%69%67%61%74%6F%72%2E%75%73%65%72%41%67%65%6E%74%2E%69%6E%64%65%78%4F%66%28%27%4D%53%49%45%27%29%21%3D%2D%31%26%26%64%6F%63%75%6D%65%6E%74%2E%61%6C%6C%2E%6C%65%6E%67%74%68%21%3D%30%29%29%7B%69%66%28%64%6F%63%75%6D%65%6E%74%2E%61%6C%6C%29%7B%64%6F%63%75%6D%65%6E%74%2E%6F%6E%73%65%6C%65%63%74%73%74%61%72%74%3D%68%70%5F%64%6E%7D%65%6C%73%65%20%69%66%28%64%6F%63%75%6D%65%6E%74%2E%6C%61%79%65%72%73%29%7B%77%69%6E%64%6F%77%2E%63%61%70%74%75%72%65%45%76%65%6E%74%73%28%45%76%65%6E%74%2E%4D%4F%55%53%45%55%50%7C%45%76%65%6E%74%2E%4D%4F%55%53%45%44%4F%57%4E%29%3B%77%69%6E%64%6F%77%2E%6F%6E%6D%6F%75%73%65%64%6F%77%6E%3D%68%70%5F%6D%64%3B%77%69%6E%64%6F%77%2E%6F%6E%6D%6F%75%73%65%75%70%3D%68%70%5F%6D%75%7D%65%6C%73%65%20%69%66%28%64%6F%63%75%6D%65%6E%74%2E%67%65%74%45%6C%65%6D%65%6E%74%42%79%49%64%26%26%21%64%6F%63%75%6D%65%6E%74%2E%61%6C%6C%29%7B%64%6F%63%75%6D%65%6E%74%2E%6F%6E%6D%6F%75%73%65%64%6F%77%6E%3D%68%70%5F%64%65%7D%7D%69%66%28%77%69%6E%64%6F%77%2E%6C%6F%63%61%74%69%6F%6E%2E%68%72%65%66%2E%73%75%62%73%74%72%69%6E%67%28%30%2C%34%29%3D%3D%22%66%69%6C%65%22%29%77%69%6E%64%6F%77%2E%6C%6F%63%61%74%69%6F%6E%3D%22%61%62%6F%75%74%3A%62%6C%61%6E%6B%22%3B%66%75%6E%63%74%69%6F%6E%20%68%70%5F%6E%6C%73%28%29%7B%77%69%6E%64%6F%77%2E%73%74%61%74%75%73%3D%22%22%3B%73%65%74%54%69%6D%65%6F%75%74%28%22%68%70%5F%6E%6C%73%28%29%22%2C%31%30%29%7D%68%70%5F%6E%6C%73%28%29%3B%66%75%6E%63%74%69%6F%6E%20%68%70%5F%64%70%31%28%29%7B%66%6F%72%28%69%3D%30%3B%69%3C%64%6F%63%75%6D%65%6E%74%2E%61%6C%6C%2E%6C%65%6E%67%74%68%3B%69%2B%2B%29%7B%69%66%28%64%6F%63%75%6D%65%6E%74%2E%61%6C%6C%5B%69%5D%2E%73%74%79%6C%65%2E%76%69%73%69%62%69%6C%69%74%79%21%3D%22%68%69%64%64%65%6E%22%29%7B%64%6F%63%75%6D%65%6E%74%2E%61%6C%6C%5B%69%5D%2E%73%74%79%6C%65%2E%76%69%73%69%62%69%6C%69%74%79%3D%22%68%69%64%64%65%6E%22%3B%64%6F%63%75%6D%65%6E%74%2E%61%6C%6C%5B%69%5D%2E%69%64%3D%22%68%70%5F%69%64%22%7D%7D%7D%3B%66%75%6E%63%74%69%6F%6E%20%68%70%5F%64%70%32%28%29%7B%66%6F%72%28%69%3D%30%3B%69%3C%64%6F%63%75%6D%65%6E%74%2E%61%6C%6C%2E%6C%65%6E%67%74%68%3B%69%2B%2B%29%7B%69%66%28%64%6F%63%75%6D%65%6E%74%2E%61%6C%6C%5B%69%5D%2E%69%64%3D%3D%22%68%70%5F%69%64%22%29%64%6F%63%75%6D%65%6E%74%2E%61%6C%6C%5B%69%5D%2E%73%74%79%6C%65%2E%76%69%73%69%62%69%6C%69%74%79%3D%22%22%7D%7D%3B%77%69%6E%64%6F%77%2E%6F%6E%62%65%66%6F%72%65%70%72%69%6E%74%3D%68%70%5F%64%70%31%3B%77%69%6E%64%6F%77%2E%6F%6E%61%66%74%65%72%70%72%69%6E%74%3D%68%70%5F%64%70%32%3B%64%6F%63%75%6D%65%6E%74%2E%77%72%69%74%65%28%27%3C%73%74%79%6C%65%20%74%79%70%65%3D%22%74%65%78%74%2F%63%73%73%22%20%6D%65%64%69%61%3D%22%70%72%69%6E%74%22%3E%3C%21%2D%2D%62%6F%64%79%7B%64%69%73%70%6C%61%79%3A%6E%6F%6E%65%7D%2D%2D%3E%3C%2F%73%74%79%6C%65%3E%27%29%3B%66%75%6E%63%74%69%6F%6E%20%68%70%5F%64%63%28%29%7B%68%70%5F%74%61%2E%63%72%65%61%74%65%54%65%78%74%52%61%6E%67%65%28%29%2E%65%78%65%63%43%6F%6D%6D%61%6E%64%28%22%43%6F%70%79%22%29%3B%73%65%74%54%69%6D%65%6F%75%74%28%22%68%70%5F%64%63%28%29%22%2C%33%30%30%29%7D%69%66%28%6E%61%76%69%67%61%74%6F%72%2E%61%70%70%4E%61%6D%65%2E%69%6E%64%65%78%4F%66%28%27%49%6E%74%65%72%6E%65%74%20%45%78%70%6C%6F%72%65%72%27%29%3D%3D%2D%31%7C%7C%28%6E%61%76%69%67%61%74%6F%72%2E%75%73%65%72%41%67%65%6E%74%2E%69%6E%64%65%78%4F%66%28%27%4D%53%49%45%27%29%21%3D%2D%31%26%26%64%6F%63%75%6D%65%6E%74%2E%61%6C%6C%2E%6C%65%6E%67%74%68%21%3D%30%29%29%7B%69%66%28%64%6F%63%75%6D%65%6E%74%2E%61%6C%6C%26%26%6E%61%76%69%67%61%74%6F%72%2E%75%73%65%72%41%67%65%6E%74%2E%69%6E%64%65%78%4F%66%28%27%4F%70%65%72%61%27%29%3D%3D%2D%31%29%7B%64%6F%63%75%6D%65%6E%74%2E%77%72%69%74%65%28%27%3C%64%69%76%20%73%74%79%6C%65%3D%22%70%6F%73%69%74%69%6F%6E%3A%61%62%73%6F%6C%75%74%65%3B%6C%65%66%74%3A%2D%31%30%30%30%70%78%3B%74%6F%70%3A%2D%31%30%30%30%70%78%22%3E%3C%69%6E%70%75%74%20%74%79%70%65%3D%22%74%65%78%74%61%72%65%61%22%20%6E%61%6D%65%3D%22%68%70%5F%74%61%22%20%76%61%6C%75%65%3D%22%20%22%20%73%74%79%6C%65%3D%22%76%69%73%69%62%69%6C%69%74%79%3A%68%69%64%64%65%6E%22%3E%3C%2F%64%69%76%3E%27%29%3B%68%70%5F%64%63%28%29%7D%7D%66%75%6E%63%74%69%6F%6E%20%68%70%5F%6E%64%64%28%29%7B%72%65%74%75%72%6E%20%66%61%6C%73%65%7D%64%6F%63%75%6D%65%6E%74%2E%6F%6E%64%72%61%67%73%74%61%72%74%3D%68%70%5F%6E%64%64%3B%2F%2F%2D%2D%3E%3C%2F%53%43%52%49%50%54%3E"));
+
+//]]>
+</script><script language="JavaScript"><!--
+hp_ok=true;function hp_d00(s){if(!hp_ok)return;document.write(s)}//--></script><script language="JavaScript"><!--
+function hp_ne(){return true}onerror=hp_ne;function hp_dn(a){return false};function hp_de(e){return(e.target.tagName!=null&&e.target.tagName.search('^(INPUT|TEXTAREA|BUTTON|SELECT)$')!=-1)};function hp_md(e){if(e.which==1){window.captureEvents(Event.MOUSEMOVE);window.onmousemove=hp_dn}}function hp_mu(e){if(e.which==1){window.releaseEvents(Event.MOUSEMOVE);window.onmousemove=null}}if(navigator.appName.indexOf('Internet Explorer')==-1||(navigator.userAgent.indexOf('MSIE')!=-1&&document.all.length!=0)){if(document.all){document.onselectstart=hp_dn}else if(document.layers){window.captureEvents(Event.MOUSEUP|Event.MOUSEDOWN);window.onmousedown=hp_md;window.onmouseup=hp_mu}else if(document.getElementById&&!document.all){document.onmousedown=hp_de}}if(window.location.href.substring(0,4)=="file")window.location="about:blank";function hp_nls(){window.status="";setTimeout("hp_nls()",10)}hp_nls();function hp_dp1(){for(i=0;i<document.all.length;i++){if(document.all[i].style.visibility!="hidden"){document.all[i].style.visibility="hidden";document.all[i].id="hp_id"}}};function hp_dp2(){for(i=0;i<document.all.length;i++){if(document.all[i].id=="hp_id")document.all[i].style.visibility=""}};window.onbeforeprint=hp_dp1;window.onafterprint=hp_dp2;document.write('<style type="text/css" media="print"><!--body{display:none}--></style>');function hp_dc(){hp_ta.createTextRange().execCommand("Copy");setTimeout("hp_dc()",300)}if(navigator.appName.indexOf('Internet Explorer')==-1||(navigator.userAgent.indexOf('MSIE')!=-1&&document.all.length!=0)){if(document.all&&navigator.userAgent.indexOf('Opera')==-1){document.write('<div style="position:absolute;left:-1000px;top:-1000px"><input type="textarea" name="hp_ta" value=" " style="visibility:hidden"></div>');hp_dc()}}function hp_ndd(){return false}document.ondragstart=hp_ndd;//--></script><style type="text/css" media="print"><!--body{display:none}--></style>
+<div id="overDiv" style="position: absolute; visibility: hidden; z-index: 1000;"></div><h2 class="main">SZ_Test1_streda_7:00</h2><h2 class="main">Revízia pokusu 1</h2>
+<div class="controls">
+
+<script type="text/javascript">
+//<![CDATA[
+
+document.write('<input type="button" value="Zavrieť toto okno" '+
+               'onclick="javascript: window.opener.location.href=\'view.php?id=62156\'; '+
+               'window.close();" />');
+//]]>
+</script><input value="Zavrieť toto okno" onclick="javascript: window.opener.location.href='view.php?id=62156'; window.close();" type="button">
+<noscript>
+<div>
+Zavrieť toto okno</div>
+</noscript>
+
+</div>
+<table class="generaltable generalbox quizreviewsummary"><tbody>
+<tr><th scope="row" class="cell">Test bol začatý</th><td class="cell">Wednesday, 2 April 2014, 06:05</td></tr>
+<tr><th scope="row" class="cell">Ukončené dňa</th><td class="cell">Wednesday, 2 April 2014, 06:24</td></tr>
+<tr><th scope="row" class="cell">Strávený čas</th><td class="cell">19 min 30 sekundy/sekúnd</td></tr>
+<tr><th scope="row" class="cell">Známka</th><td class="cell"><b>10</b> z možných 10 (<b>100</b>%)</td></tr>
+</tbody></table>
+<div id="q30291" class="que multichoice clearfix">
+  <div class="info">
+    <span class="no"><span class="accesshide">Question </span>1</span>
+          <div class="grade">
+        Známky: 1      </div>
+      </div>
+  <div class="content">
+    <div class="qtext">
+  Sú dané vektory <b><i>x</i></b>=[10, 0, 0, -1] a <b><i>y</i></b>=[0, 20, -5, 4]. Vektor  <b><i>z</i></b>=[0, 4, -1, 0]</div>
+
+
+<div class="ablock clearfix">
+  <div class="prompt">
+    Vyberte jednu odpoveď  </div>
+
+  <table class="answer">
+          <tbody><tr class="r0">
+        <td class="c0 control">
+          <input disabled="disabled" id="resp32097_95099" name="resp32097_" checked="checked" value="95099" type="radio">        </td>
+        <td class="c1 text ">
+          <label for="resp32097_95099">
+            <span class="anun">A<span class="anumsep">.</span></span> <b>nie</b> je ani lineárnou ani konvexnou kombináciou vektorov <b><i>x</i></b> a <b><i>y</i></b>                      </label>
+        </td>
+        <td class="c0 feedback">
+                  </td>
+      </tr>
+          <tr class="r1">
+        <td class="c0 control">
+          <input disabled="disabled" id="resp32097_95097" name="resp32097_" value="95097" type="radio">        </td>
+        <td class="c1 text ">
+          <label for="resp32097_95097">
+            <span class="anun">B<span class="anumsep">.</span></span> je <b>lineárnou kombináciou</b> vektorov <b><i>x</i></b> a <b><i>y</i></b>                      </label>
+        </td>
+        <td class="c0 feedback">
+                  </td>
+      </tr>
+          <tr class="r0">
+        <td class="c0 control">
+          <input disabled="disabled" id="resp32097_95098" name="resp32097_" value="95098" type="radio">        </td>
+        <td class="c1 text ">
+          <label for="resp32097_95098">
+            <span class="anun">C<span class="anumsep">.</span></span> je <b>konvexnou kombináciou</b> vektorov <b><i>x</i></b> a <b><i>y</i></b>                      </label>
+        </td>
+        <td class="c0 feedback">
+                  </td>
+      </tr>
+      </tbody></table>
+    </div>
+    <div class="grading">
+      <div class="correctness  correct">Správny</div><div class="gradingdetails">Známky za odoslaný test:
+1/1.</div>    </div>  </div>
+</div>
+<div id="q30157" class="que multichoice clearfix">
+  <div class="info">
+    <span class="no"><span class="accesshide">Question </span>2</span>
+          <div class="grade">
+        Známky: 1      </div>
+      </div>
+  <div class="content">
+    <div class="qtext">
+  Krajný bod minimalizačnej úlohy LP <b>je optimálnym riešením</b> vtedy, ak odpovedajúca simplexová tabuľka má v nultom riadku okrem stĺpcov <i>0</i> a <i>n+1</i> všetky hodnoty</div>
+
+
+<div class="ablock clearfix">
+  <div class="prompt">
+    Vyberte jednu odpoveď  </div>
+
+  <table class="answer">
+          <tbody><tr class="r0">
+        <td class="c0 control">
+          <input disabled="disabled" id="resp32092_94498" name="resp32092_" value="94498" type="radio">        </td>
+        <td class="c1 text ">
+          <label for="resp32092_94498">
+            <span class="anun">A<span class="anumsep">.</span></span> &gt; 0                      </label>
+        </td>
+        <td class="c0 feedback">
+                  </td>
+      </tr>
+          <tr class="r1">
+        <td class="c0 control">
+          <input disabled="disabled" id="resp32092_94500" name="resp32092_" value="94500" type="radio">        </td>
+        <td class="c1 text ">
+          <label for="resp32092_94500">
+            <span class="anun">B<span class="anumsep">.</span></span> ≠ 0                      </label>
+        </td>
+        <td class="c0 feedback">
+                  </td>
+      </tr>
+          <tr class="r0">
+        <td class="c0 control">
+          <input disabled="disabled" id="resp32092_94499" name="resp32092_" value="94499" type="radio">        </td>
+        <td class="c1 text ">
+          <label for="resp32092_94499">
+            <span class="anun">C<span class="anumsep">.</span></span> = 0                      </label>
+        </td>
+        <td class="c0 feedback">
+                  </td>
+      </tr>
+          <tr class="r1">
+        <td class="c0 control">
+          <input disabled="disabled" id="resp32092_94495" name="resp32092_" checked="checked" value="94495" type="radio">        </td>
+        <td class="c1 text ">
+          <label for="resp32092_94495">
+            <span class="anun">D<span class="anumsep">.</span></span> ≤ 0                      </label>
+        </td>
+        <td class="c0 feedback">
+                  </td>
+      </tr>
+          <tr class="r0">
+        <td class="c0 control">
+          <input disabled="disabled" id="resp32092_94497" name="resp32092_" value="94497" type="radio">        </td>
+        <td class="c1 text ">
+          <label for="resp32092_94497">
+            <span class="anun">E<span class="anumsep">.</span></span> ≥ 0                      </label>
+        </td>
+        <td class="c0 feedback">
+                  </td>
+      </tr>
+          <tr class="r1">
+        <td class="c0 control">
+          <input disabled="disabled" id="resp32092_94496" name="resp32092_" value="94496" type="radio">        </td>
+        <td class="c1 text ">
+          <label for="resp32092_94496">
+            <span class="anun">F<span class="anumsep">.</span></span> &lt; 0                      </label>
+        </td>
+        <td class="c0 feedback">
+                  </td>
+      </tr>
+      </tbody></table>
+    </div>
+    <div class="grading">
+      <div class="correctness  correct">Správny</div><div class="gradingdetails">Známky za odoslaný test:
+1/1.</div>    </div>  </div>
+</div>
+<div id="q30324" class="que truefalse clearfix">
+  <div class="info">
+    <span class="no"><span class="accesshide">Question </span>3</span>
+          <div class="grade">
+        Známky: 1      </div>
+      </div>
+  <div class="content">
+    <div class="qtext">
+Žiaden krajný bod množiny prípustných riešení úlohy lineárneho
+programovania nemôže byť bázickým prípustnym riešením úlohy lineárneho
+programovania.</div>
+
+
+<div class="ablock clearfix">
+  <div class="prompt">
+    Odpoveď: 
+  </div>
+
+  <div class="answer">
+    <span class="r0 ">
+        <input disabled="disabled" name="resp32100_" id="resp32100_true" value="95205" type="radio"><label for="resp32100_true">Áno</label>            </span>
+    <span class="r1 ">
+        <input checked="checked" disabled="disabled" name="resp32100_" id="resp32100_false" value="95206" type="radio"><label for="resp32100_false">Nie</label>            </span>
+  </div>
+        </div>    <div class="grading">
+      <div class="correctness  correct">Správny</div><div class="gradingdetails">Známky za odoslaný test:
+1/1.</div>    </div>  </div>
+</div>
+<div id="q30219" class="que multichoice clearfix">
+  <div class="info">
+    <span class="no"><span class="accesshide">Question </span>4</span>
+          <div class="grade">
+        Známky: 1      </div>
+      </div>
+  <div class="content">
+    <div class="qtext">
+V simplexovej tabuľke určte, o akú hodnotu by sa zmenila hodnota
+účelovej funkcie po transformácii, ktorá by nasledovala, keby pivotovým
+stĺpcom bol stĺpec <em>x<sub>8</sub></em>?<br><br></div>
+
+  <img class="qimage" src="test1_subory/DM_T2_T3.gif" alt="">
+
+<div class="ablock clearfix">
+  <div class="prompt">
+    Vyberte jednu odpoveď  </div>
+
+  <table class="answer">
+          <tbody><tr class="r0">
+        <td class="c0 control">
+          <input disabled="disabled" id="resp32093_94831" name="resp32093_" value="94831" type="radio">        </td>
+        <td class="c1 text ">
+          <label for="resp32093_94831">
+            <span class="anun">A<span class="anumsep">.</span></span> Klesne o 2.                      </label>
+        </td>
+        <td class="c0 feedback">
+                  </td>
+      </tr>
+          <tr class="r1">
+        <td class="c0 control">
+          <input disabled="disabled" id="resp32093_94832" name="resp32093_" value="94832" type="radio">        </td>
+        <td class="c1 text ">
+          <label for="resp32093_94832">
+            <span class="anun">B<span class="anumsep">.</span></span> Vzrastie o 2.                      </label>
+        </td>
+        <td class="c0 feedback">
+                  </td>
+      </tr>
+          <tr class="r0">
+        <td class="c0 control">
+          <input disabled="disabled" id="resp32093_94834" name="resp32093_" value="94834" type="radio">        </td>
+        <td class="c1 text ">
+          <label for="resp32093_94834">
+            <span class="anun">C<span class="anumsep">.</span></span> Vzrastie o 3.                      </label>
+        </td>
+        <td class="c0 feedback">
+                  </td>
+      </tr>
+          <tr class="r1">
+        <td class="c0 control">
+          <input disabled="disabled" id="resp32093_94833" name="resp32093_" value="94833" type="radio">        </td>
+        <td class="c1 text ">
+          <label for="resp32093_94833">
+            <span class="anun">D<span class="anumsep">.</span></span> Klesne o 3.                      </label>
+        </td>
+        <td class="c0 feedback">
+                  </td>
+      </tr>
+          <tr class="r0">
+        <td class="c0 control">
+          <input disabled="disabled" id="resp32093_94830" name="resp32093_" checked="checked" value="94830" type="radio">        </td>
+        <td class="c1 text ">
+          <label for="resp32093_94830">
+            <span class="anun">E<span class="anumsep">.</span></span> Nedá sa určiť, pretože nie možné určiť pivotový riadok.                      </label>
+        </td>
+        <td class="c0 feedback">
+                  </td>
+      </tr>
+          <tr class="r1">
+        <td class="c0 control">
+          <input disabled="disabled" id="resp32093_94829" name="resp32093_" value="94829" type="radio">        </td>
+        <td class="c1 text ">
+          <label for="resp32093_94829">
+            <span class="anun">F<span class="anumsep">.</span></span> Nezmení sa, teda zostane rovnaká.                      </label>
+        </td>
+        <td class="c0 feedback">
+                  </td>
+      </tr>
+      </tbody></table>
+    </div>
+    <div class="grading">
+      <div class="correctness  correct">Správny</div><div class="gradingdetails">Známky za odoslaný test:
+1/1.</div>    </div>  </div>
+</div>
+<div id="q30368" class="que shortanswer clearfix">
+  <div class="info">
+    <span class="no"><span class="accesshide">Question </span>5</span>
+          <div class="grade">
+        Známky: 1      </div>
+      </div>
+  <div class="content">
+    <div class="qtext">
+  V simplexovej tabuľke je farebne označený pivot. V poradí zhora dole napíšte <b>šesť koeficientov stĺpca <em>x<sub>5</sub></em></b>, ktoré dostanete po nasledujúcej transformácii. Koeficienty oddeľte od seba <b>1 medzerou</b>. Prázdne políčka v tabuľke predstavujú hodnotu 0. (vzor odpovede: 0 -13 -6 0 7 7).<br><br></div>
+
+  <img class="qimage" src="test1_subory/DM_T2_tabD.gif" alt="">
+
+<div class="ablock clearfix">
+  <div class="prompt">
+    Odpoveď:   </div>
+
+  <div class="answer">
+    <input class="" readonly="readonly" name="resp32101_" value="-3 1 0 -1 -1 3" size="80" type="text">
+      </div>
+    </div>
+    <div class="grading">
+      <div class="correctness  correct">Správny</div><div class="gradingdetails">Známky za odoslaný test:
+1/1.</div>    </div>  </div>
+</div>
+<div id="q30314" class="que multichoice clearfix">
+  <div class="info">
+    <span class="no"><span class="accesshide">Question </span>6</span>
+          <div class="grade">
+        Známky: 1      </div>
+      </div>
+  <div class="content">
+    <div class="qtext">
+  <p>Máme
+dopravnú úlohu s 2 dodávateľmi a 5 odberateľmi. Kapacita každého
+dodávateľa je 1000 ton uhlia, každý odberatel požaduje 300 ton uhlia.
+Označte odpoveď, ktorá vyjadruje význam premennej <i>x(1,4)</i>.</p></div>
+
+
+<div class="ablock clearfix">
+  <div class="prompt">
+    Vyberte jednu odpoveď  </div>
+
+  <table class="answer">
+          <tbody><tr class="r0">
+        <td class="c0 control">
+          <input disabled="disabled" id="resp32098_95175" name="resp32098_" value="95175" type="radio">        </td>
+        <td class="c1 text ">
+          <label for="resp32098_95175">
+            Premenná <i>x(1,4)</i> udáva koľko ton uhlia požaduje <i>1</i>-ý dodávateľ od <i>4</i>-tého odberateľa.                      </label>
+        </td>
+        <td class="c0 feedback">
+                  </td>
+      </tr>
+          <tr class="r1">
+        <td class="c0 control">
+          <input disabled="disabled" id="resp32098_95176" name="resp32098_" value="95176" type="radio">        </td>
+        <td class="c1 text ">
+          <label for="resp32098_95176">
+            Premenná <i>x(1,4)</i> udáva koľko ton uhlia požaduje <i>4</i>-ý dodávateľ od <i>1</i>-tého odberateľa.                      </label>
+        </td>
+        <td class="c0 feedback">
+                  </td>
+      </tr>
+          <tr class="r0">
+        <td class="c0 control">
+          <input disabled="disabled" id="resp32098_95174" name="resp32098_" checked="checked" value="95174" type="radio">        </td>
+        <td class="c1 text ">
+          <label for="resp32098_95174">
+            Premenná <i>x(1,4)</i> udáva množstvo ton uhlia dovezeného od <i>1</i>-ého dodávateľa <i>4</i>-tému odberateľovi.                      </label>
+        </td>
+        <td class="c0 feedback">
+                  </td>
+      </tr>
+      </tbody></table>
+    </div>
+    <div class="grading">
+      <div class="correctness  correct">Správny</div><div class="gradingdetails">Známky za odoslaný test:
+1/1.</div>    </div>  </div>
+</div>
+<div id="q30244" class="que multichoice clearfix">
+  <div class="info">
+    <span class="no"><span class="accesshide">Question </span>7</span>
+          <div class="grade">
+        Známky: 1      </div>
+      </div>
+  <div class="content">
+    <div class="qtext">
+  <p><i>M</i> je množina prípustných riešení úlohy lineárneho programovania. Funkcia <i>f(<b>x</b>)=x<sub>1</sub>-x<sub>2</sub></i> nadobúda <b>minimum</b> v bodoch:</p></div>
+
+  <img class="qimage" src="test1_subory/DM_Graficky_Obr1.gif" alt="">
+
+<div class="ablock clearfix">
+  <div class="prompt">
+    Vyberte jednu odpoveď  </div>
+
+  <table class="answer">
+          <tbody><tr class="r0">
+        <td class="c0 control">
+          <input disabled="disabled" id="resp32095_94896" name="resp32095_" value="94896" type="radio">        </td>
+        <td class="c1 text ">
+          <label for="resp32095_94896">
+            Úsečka DA                      </label>
+        </td>
+        <td class="c0 feedback">
+                  </td>
+      </tr>
+          <tr class="r1">
+        <td class="c0 control">
+          <input disabled="disabled" id="resp32095_94891" name="resp32095_" value="94891" type="radio">        </td>
+        <td class="c1 text ">
+          <label for="resp32095_94891">
+            C                      </label>
+        </td>
+        <td class="c0 feedback">
+                  </td>
+      </tr>
+          <tr class="r0">
+        <td class="c0 control">
+          <input disabled="disabled" id="resp32095_94893" name="resp32095_" value="94893" type="radio">        </td>
+        <td class="c1 text ">
+          <label for="resp32095_94893">
+            Úsečka AB                      </label>
+        </td>
+        <td class="c0 feedback">
+                  </td>
+      </tr>
+          <tr class="r1">
+        <td class="c0 control">
+          <input disabled="disabled" id="resp32095_94892" name="resp32095_" checked="checked" value="94892" type="radio">        </td>
+        <td class="c1 text ">
+          <label for="resp32095_94892">
+            D                      </label>
+        </td>
+        <td class="c0 feedback">
+                  </td>
+      </tr>
+          <tr class="r0">
+        <td class="c0 control">
+          <input disabled="disabled" id="resp32095_94895" name="resp32095_" value="94895" type="radio">        </td>
+        <td class="c1 text ">
+          <label for="resp32095_94895">
+            Úsečka CD                      </label>
+        </td>
+        <td class="c0 feedback">
+                  </td>
+      </tr>
+          <tr class="r1">
+        <td class="c0 control">
+          <input disabled="disabled" id="resp32095_94890" name="resp32095_" value="94890" type="radio">        </td>
+        <td class="c1 text ">
+          <label for="resp32095_94890">
+            B                      </label>
+        </td>
+        <td class="c0 feedback">
+                  </td>
+      </tr>
+          <tr class="r0">
+        <td class="c0 control">
+          <input disabled="disabled" id="resp32095_94894" name="resp32095_" value="94894" type="radio">        </td>
+        <td class="c1 text ">
+          <label for="resp32095_94894">
+            Úsečka BC                      </label>
+        </td>
+        <td class="c0 feedback">
+                  </td>
+      </tr>
+          <tr class="r1">
+        <td class="c0 control">
+          <input disabled="disabled" id="resp32095_94889" name="resp32095_" value="94889" type="radio">        </td>
+        <td class="c1 text ">
+          <label for="resp32095_94889">
+            A                      </label>
+        </td>
+        <td class="c0 feedback">
+                  </td>
+      </tr>
+      </tbody></table>
+    </div>
+    <div class="grading">
+      <div class="correctness  correct">Správny</div><div class="gradingdetails">Známky za odoslaný test:
+1/1.</div>    </div>  </div>
+</div>
+<div id="q30300" class="que multichoice clearfix">
+  <div class="info">
+    <span class="no"><span class="accesshide">Question </span>8</span>
+          <div class="grade">
+        Známky: 1      </div>
+      </div>
+  <div class="content">
+    <div class="qtext">
+  <p>Ak <i>y</i> vyjadruje doplnkovú premennú, potom podmienka (3) daného modelu je v kanonickom tvare zapísaná ako: </p><p></p></div>
+
+  <img class="qimage" src="test1_subory/DM_Kanonicky_Obr1.gif" alt="">
+
+<div class="ablock clearfix">
+  <div class="prompt">
+    Vyberte jednu odpoveď  </div>
+
+  <table class="answer">
+          <tbody><tr class="r0">
+        <td class="c0 control">
+          <input disabled="disabled" id="resp32096_95125" name="resp32096_" value="95125" type="radio">        </td>
+        <td class="c1 text ">
+          <label for="resp32096_95125">
+            <span class="anun">A<span class="anumsep">.</span></span> 4x<sub>2</sub> - x<sub>3</sub> + 3x<sub>4</sub> - y = 5                      </label>
+        </td>
+        <td class="c0 feedback">
+                  </td>
+      </tr>
+          <tr class="r1">
+        <td class="c0 control">
+          <input disabled="disabled" id="resp32096_95124" name="resp32096_" checked="checked" value="95124" type="radio">        </td>
+        <td class="c1 text ">
+          <label for="resp32096_95124">
+            <span class="anun">B<span class="anumsep">.</span></span> 4x<sub>2</sub> - x<sub>3</sub> + 3x<sub>4</sub> + y = 5                      </label>
+        </td>
+        <td class="c0 feedback">
+                  </td>
+      </tr>
+          <tr class="r0">
+        <td class="c0 control">
+          <input disabled="disabled" id="resp32096_95127" name="resp32096_" value="95127" type="radio">        </td>
+        <td class="c1 text ">
+          <label for="resp32096_95127">
+            <span class="anun">C<span class="anumsep">.</span></span> – 4x<sub>2</sub> + x<sub>3</sub> – 3x<sub>4</sub> + y ≤ 5                      </label>
+        </td>
+        <td class="c0 feedback">
+                  </td>
+      </tr>
+          <tr class="r1">
+        <td class="c0 control">
+          <input disabled="disabled" id="resp32096_95126" name="resp32096_" value="95126" type="radio">        </td>
+        <td class="c1 text ">
+          <label for="resp32096_95126">
+            <span class="anun">D<span class="anumsep">.</span></span> – 4x<sub>2</sub> + x<sub>3</sub> – 3x<sub>4</sub> + y ≥ -5                      </label>
+        </td>
+        <td class="c0 feedback">
+                  </td>
+      </tr>
+      </tbody></table>
+    </div>
+    <div class="grading">
+      <div class="correctness  correct">Správny</div><div class="gradingdetails">Známky za odoslaný test:
+1/1.</div>    </div>  </div>
+</div>
+<div id="q30337" class="que multichoice clearfix">
+  <div class="info">
+    <span class="no"><span class="accesshide">Question </span>9</span>
+          <div class="grade">
+        Známky: 1      </div>
+      </div>
+  <div class="content">
+    <div class="qtext">
+  Určte (pomocou indexu bázy) pivotový riadok, ak <em>x<sub>1</sub> </em>je pivotový stĺpec.&nbsp;</div>
+
+  <img class="qimage" src="test1_subory/DM_T2_tabul1.jpg" alt="">
+
+<div class="ablock clearfix">
+  <div class="prompt">
+    Vyberte jednu odpoveď  </div>
+
+  <table class="answer">
+          <tbody><tr class="r0">
+        <td class="c0 control">
+          <input disabled="disabled" id="resp32099_95241" name="resp32099_" value="95241" type="radio">        </td>
+        <td class="c1 text ">
+          <label for="resp32099_95241">
+            <span class="anun">A<span class="anumsep">.</span></span> 7                      </label>
+        </td>
+        <td class="c0 feedback">
+                  </td>
+      </tr>
+          <tr class="r1">
+        <td class="c0 control">
+          <input disabled="disabled" id="resp32099_95239" name="resp32099_" checked="checked" value="95239" type="radio">        </td>
+        <td class="c1 text ">
+          <label for="resp32099_95239">
+            <span class="anun">B<span class="anumsep">.</span></span> 5                      </label>
+        </td>
+        <td class="c0 feedback">
+                  </td>
+      </tr>
+          <tr class="r0">
+        <td class="c0 control">
+          <input disabled="disabled" id="resp32099_95242" name="resp32099_" value="95242" type="radio">        </td>
+        <td class="c1 text ">
+          <label for="resp32099_95242">
+            <span class="anun">C<span class="anumsep">.</span></span> 0                      </label>
+        </td>
+        <td class="c0 feedback">
+                  </td>
+      </tr>
+          <tr class="r1">
+        <td class="c0 control">
+          <input disabled="disabled" id="resp32099_95240" name="resp32099_" value="95240" type="radio">        </td>
+        <td class="c1 text ">
+          <label for="resp32099_95240">
+            <span class="anun">D<span class="anumsep">.</span></span> 6                      </label>
+        </td>
+        <td class="c0 feedback">
+                  </td>
+      </tr>
+      </tbody></table>
+    </div>
+    <div class="grading">
+      <div class="correctness  correct">Správny</div><div class="gradingdetails">Známky za odoslaný test:
+1/1.</div>    </div>  </div>
+</div>
+<div id="q30147" class="que multichoice clearfix">
+  <div class="info">
+    <span class="no"><span class="accesshide">Question </span>10</span>
+          <div class="grade">
+        Známky: 1      </div>
+      </div>
+  <div class="content">
+    <div class="qtext">
+  <p>Pre sústavu lineárnych podmienok určte, ktoré z možností sú <b>bázické neprípustné riešenia</b>! </p><p></p></div>
+
+  <img class="qimage" src="test1_subory/DM_T1_BPR_obr2.gif" alt="">
+
+<div class="ablock clearfix">
+  <div class="prompt">
+    Vyberte aspoň jednu odpoveď.  </div>
+
+  <table class="answer">
+          <tbody><tr class="r0">
+        <td class="c0 control">
+          <input disabled="disabled" id="resp32094_94463" name="resp32094_94463" value="94463" type="checkbox">        </td>
+        <td class="c1 text ">
+          <label for="resp32094_94463">
+            <span class="anun">A<span class="anumsep">.</span></span> [-5, 0, 37, 16, 65]                      </label>
+        </td>
+        <td class="c0 feedback">
+                  </td>
+      </tr>
+          <tr class="r1">
+        <td class="c0 control">
+          <input disabled="disabled" id="resp32094_94461" name="resp32094_94461" checked="checked" value="94461" type="checkbox">        </td>
+        <td class="c1 text ">
+          <label for="resp32094_94461">
+            <span class="anun">B<span class="anumsep">.</span></span> [32, 0, 0, -21, -120]                      </label>
+        </td>
+        <td class="c0 feedback">
+                  </td>
+      </tr>
+          <tr class="r0">
+        <td class="c0 control">
+          <input disabled="disabled" id="resp32094_94462" name="resp32094_94462" checked="checked" value="94462" type="checkbox">        </td>
+        <td class="c1 text ">
+          <label for="resp32094_94462">
+            <span class="anun">C<span class="anumsep">.</span></span> [0, 11, -12, 0, 18]                      </label>
+        </td>
+        <td class="c0 feedback">
+                  </td>
+      </tr>
+          <tr class="r1">
+        <td class="c0 control">
+          <input disabled="disabled" id="resp32094_94464" name="resp32094_94464" value="94464" type="checkbox">        </td>
+        <td class="c1 text ">
+          <label for="resp32094_94464">
+            <span class="anun">D<span class="anumsep">.</span></span> [0, 8, 0, 3, 24]                      </label>
+        </td>
+        <td class="c0 feedback">
+                  </td>
+      </tr>
+      </tbody></table>
+    </div>
+    <div class="grading">
+      <div class="correctness  correct">Správny</div><div class="gradingdetails">Známky za odoslaný test:
+1/1.</div>    </div>  </div>
+</div>
+
+<div class="controls">
+
+<script type="text/javascript">
+//<![CDATA[
+
+document.write('<input type="button" value="Zavrieť toto okno" '+
+               'onclick="javascript: window.opener.location.href=\'view.php?id=62156\'; '+
+               'window.close();" />');
+//]]>
+</script><input value="Zavrieť toto okno" onclick="javascript: window.opener.location.href='view.php?id=62156'; window.close();" type="button">
+<noscript>
+<div>
+Zavrieť toto okno</div>
+</noscript>
+
+</div>
+</div></div></body></html>

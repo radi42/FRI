@@ -1,0 +1,13 @@
+PROGRAM
+ "Shortest path problem: First example in Hillier and Lieberman"
+DEFINITION
+  c.1:ARRAY[ <1>,<2..4>] = ( (2,4,3) );
+  c.2:ARRAY[ <2..4>,<5..7>] = ( (7,4,6), (3,2,4), (4,1,5) );
+  c.3:ARRAY[ <5..7>,<8..9>] = ( (1,4), (6,3), (3,3) );
+  c.4:ARRAY[ <8,9>,<10>]= ( (3), (4) );
+LOGIC
+  f.4(s) = min{ c.4[s,d]: d in <10>}, s in <8,9>;
+  f.3(s) = min{ c.3[s,d] + f.4(d): d in <8,9>}, s in [5..7];
+  f.2(s) = min{ c.2[s,d] + f.3(d): d in <5,7>}, s in [2..4];
+  f.1(s) = min{ c.1[s,d] + f.2(d): d in <2,4>}, s in <1>;
+END.

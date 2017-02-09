@@ -1,0 +1,16 @@
+﻿prioritny front
+vyhadzovat prvky podla priority. cim mensie cislom tym vacsia priorita vyhodenia
+prvky
+procesy v pocitaci - kazdy proces ma svoju prioritu, a podla nej sa mu prideluje vypoctovy cas
+zapamatat si najvyssiu prioritu - vacsi rovny ide na koniec
+
+dvojzoznam/dvojurovnova implementacia - odporuca sa aby dlzka mensieho pola bola odmocnina z n, kde n je dlzka vacsieho pola
+
+
+implicitna implementacia - pole
+indexy
+lavy syn = index*2
+pravy syn = index*2+1
+otec = index/2
+
+zlozitost = logaritmus n pri zaklade 2 (lebo dvaja synovia)

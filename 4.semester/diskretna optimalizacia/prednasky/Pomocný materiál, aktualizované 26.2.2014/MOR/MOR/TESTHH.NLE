@@ -1,0 +1,15 @@
+"Hartley Hocking test"
+
+maximize  z= -2(x1-1)^2  -(x2-2)^2
+subject to
+
+    {one}       2x1^2 + 3x2^2 <=  6
+    {two}        x1^2 +  x2^2 <= 10
+                            z <=  3  "provide upper bound on z"
+
+gradient(z)   = ( -4(x1-1), -2(x2-2) )
+gradient(1)   = (4x1    , 6x2 )
+gradient(two) = (2x1    , 2x2 )
+
+
+

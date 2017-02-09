@@ -1,0 +1,7 @@
+min z = 8a + 16b
+st 2a + 3b >= 200
+   14a + 50b >= 2900
+   25a + 20b >= 2000
+   allinteger
+   boundonsum = 150
+

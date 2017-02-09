@@ -1,0 +1,60 @@
+PROGRAM
+  "Example of a simple Lagrange multiplier problem"
+
+       "Max Z= 13x1 -x1^2 - 5x2^2 +30.2x2  + 10x3 -2.5x3^2
+        subject to
+                   2x1 + 4x2 + 5x3 <=10
+                   x1 + x2 + x3 <=5
+                   x1,x2,x3 nonnegative integers "
+DEFINITION
+  a : ARRAY[ <1..3>] = (2,4,5);    "Constraint coeficients"
+  x : ARRAY[ <1..3>] = (0,0,0);    "Solution vector       "
+
+  r1(u,v) = u*( 13   - 2*v -     u);  "Lagrange functions"
+  r2(u,v) = u*( 30.2 - 4*v -   5*u);
+  r3(u,v) = u*( 10   - 5*v - 2.5*u);
+
+  Lambda = 0;
+  ii = 0; z = 0; Error = 0;
+
+LOGIC
+
+"-------------------Create Specialized Output----------------"
+  Println{
+   ' Lambda   x1       x2       x3     Objective     Error'};
+  Println{
+   '======================================================='};
+
+"--Iteration varies Lambda from 3.5 to 4.5 in steps of 0.1---"
+
+  Lambda = 3.5;
+  REPEAT
+"-------------------------Recursions-------------------------"
+    f1(s) = max{ r1(x1,Lambda)           : x1 in [0..s]},
+                 s in [0..5];
+    f2(s) = max{ r2(x2,Lambda) + f1(s-x2): x2 in [0..s]},
+                 s in [0..5];
+    f3(s) = max{ r3(x3,Lambda) + f2(s-x3) + 10*Lambda:
+                 x3 in [0..s] }, s in <5>;
+
+"-----------------------Copy solution into x-----------------"
+    GetBacktrack(x,f3,5);
+
+"-----------------Compute actual objective function value----"
+    z = f3(5) + Lambda*(Sum{ a[i]*x[i]: i in [1..3] } -10);
+
+"---------------Compute error in constraint------------------"
+    Error = Sum{ a[i]*x[i]: i in [1..3] } - 10;
+
+"----------------Print iteration results---------------------"
+    Print{'  ',Lambda:4:1,'  '};
+    ii=1;
+    For (ii =1; ii <= 3; ii=ii+1) Do begin
+        Print{ x[ii]:4:1,'     '};
+    end;
+    Println{ z:8:3,'   ',Error:8:3};
+
+    Lambda = Lambda + 0.1;
+  UNTIL Lambda > 4.5;
+End.
+

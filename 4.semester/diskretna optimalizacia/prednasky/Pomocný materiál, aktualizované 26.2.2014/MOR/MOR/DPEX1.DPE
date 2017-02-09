@@ -1,0 +1,21 @@
+"Dynamic Programming Notes: Example 1"
+
+PROGRAM  "production planning problem"
+DEFINITION
+  Demand : ARRAY[<1..4>] = (2,3,4,2);
+  Cost(Inv,Dec) = USE 2*Inv + 15 + 100*Dec if Dec > 0 ELSE
+                  USE 2*Inv; 
+CONTROL
+LOGIC
+  SolTable4(Inv) = min { Cost(Inv,Dec) : Dec in <0..5> with 
+                         Dec + Inv >= Demand[4] }, Inv in <0..4>;
+  SolTable3(Inv) = min { Cost(Inv,Dec) + SolTable4(Inv + Dec 
+      - Demand[3]) : Dec in <0..5> with Inv + Dec >= Demand[3]},
+                                                    Inv in <0..4>; 
+  SolTable2(Inv) = min { Cost(Inv,Dec) + SolTable3(Inv + Dec 
+      - Demand[2]) : Dec in <0..5> with Inv + Dec >= Demand[2]},
+                                                    Inv in <0..4>; 
+  SolTable1(Inv) = min { Cost(Inv,Dec) + SolTable2(Inv + Dec 
+      - Demand[1]) : Dec in <0..5> with Inv + Dec >= Demand[1]},
+                                                Inv in <0>;
+END.

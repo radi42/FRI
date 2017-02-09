@@ -1,0 +1,20 @@
+
+"lp graphics test model: similar to problem Taha page 28-30"
+
+maximize z = 2Xe + 3Xi  
+subject to
+              Xe + 2Xi <= 6
+             2Xe +  Xi <= 8
+             -Xe +  Xi <= 1
+                    Xi <= 2
+             Xe >= 0, Xi >= 0
+           Graphics(-1,6,-1,4)
+
+
+
+
+
+
+
+
+

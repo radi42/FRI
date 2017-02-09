@@ -1,0 +1,185 @@
+      Linear Based Optimization System Key Help
+
+      ALGORITHMS
+      LIMITS
+      KEYWORDS
+      FORMATS
+      comments: "can be anywhere, enclosed in double quotes"
+%ALGORITHMS
+        SIMPLEX         BOUNDED      REVISED  SYMMETRIC
+        SEPARABLE       QUADRATIC
+        ALLINTEGER      INTEGER      BINARY   ALLBINARY
+        TRANSPORTATION  MINCOSTFLOW
+%FORMATS
+      STANDARD        input format
+      TRANSPORTATION  input format
+      TABLEINPUT      format
+%KEYWORDS
+      GRID         ALLINTEGER   INTEGER   GRAPHICS
+      VARIABLES    BOUNDonSUM   BINARY    GRAPHGRID
+%LIMITS   Maximum number of variables is 150, including
+               any slacks, surplus and artificials added by the system
+          Maximum number of constraints is 60
+          Maximum grid segments per variable in separable
+               programming problems is 10. Maximum variables which can
+               be expanded is 9.  Total including slacks, etc. is 150.
+          Quadratic Programming is limited to 30 decision variables
+               and 30 constraints: This yields a matrix that will fit in
+               the 150-60 restriction.
+%GRAPHICS    The solution space and simplex algorithm steps can be
+             graphically displayed for two-dimensional problems.
+             To utilize these graphics capabilities, the keyword
+             GRAPHICS and the domains for the x-axis and y-axis
+             must be given.  The syntax is:
+
+                GRAPHICS (x-lower, x-upper, y-lower, y-upper)
+
+  example:   GRAPHICS( -1, 4, -1, 10)
+
+             REGION is an alternative keyword for GRAPHICS for
+             consistancy with MOR/NL syntax.
+%STANDARD input format:
+
+        maximize z = 3x1 + 2x2       "can be minimize, max or min"
+        subject to                   "can be st"
+                     4x1 + 3x2 <= 5
+                     2x1 - x2  >= 2
+                     x1 +  x2  =  3
+                     x1 >= 0, x2 >= 0  "nonnegativity assumed; not required"
+
+        NOTE: The right hand sides must be a single constant number!
+%TABLEINPUT is a shorthand problem formulation and input method.
+
+           TABLEINPUT {            "data starts with left brace"
+              variables(z, x1, x2) "required variables name list;
+                                    objective variable name is 1st"
+              3   2  max  0        "initial z value is 0"
+              4   3  <=   5
+              2  -1  >=   2
+              1   1  =    3
+           }                       "data ends with right brace"
+%TRANSPORTATION   special input form is: all data is Integer valued
+           TRANSPORTATION {     "data starts with left brace"
+             DEMANDS = (1, 14, 23, 10)  "list of integer demands"
+             SUPPLIES = (12, 13, 13) "list of integer supplies"
+               "note: supplies and demands need not balance"
+             COSTS = ( (5,2,10,1),  "costs from supply 1 to all demands"
+                       (3,2,8,11),  "costs from supply 2 to all demands"
+                       (5,11,2,8) ) "costs from last supply to all demands"
+                 }             "data ends with right brace"
+             PROFIT (or PROFITS) can be used instead of COST (or COSTS)
+             COST (or COSTS) problems are to be minimized
+             PROFIT (or PROFITS) problems are to be maximized
+             order of DEMANDS, SUPPLIES and COSTS/PROFITS is immaterial
+             DEMAND and DEMANDS, SUPPLY and SUPPLIES are equivalent terms
+%VARIABLES    Required list of variable names for TABLEINPUT form.
+             First name MUST be the objective function name.
+   example   VARIABLES (z, x1, x2)
+%GRID         In separable programming a set of grid points for each
+             expanded variable must be given.  These are indicated by
+             GRID(varName) = {0, pt2, pt3, ... , ptN}
+             where 0, pt2, ... , ptN are increasing points for the
+             grid of variable varName.  
+             Note that the first point must be zero.
+
+   example   GRID(x1) = {0, 1.4, 3, 5}
+             This will result in the additional variables:
+                x1.1 over 0 to 1.4
+                x1.2 over 1.4 to 3
+                x1.3 over 3 to 5
+%SIMPLEX  BOUNDED  REVISED  SYMMETRIC
+             All of these algorithms have the standard linear
+             programming formulations.  Note that slacks, surplus
+             and artificial variables are added by the algorithms
+             if needed and, therefore, not by the user.
+
+   example   max z =  3x1 +  2x2
+              st      2x1 +  4x2  <= 8
+                             2x2  <= 4
+
+             The bounded variable technique uses an extended pivot
+             rule to omit constraints such as 2x2 <= 4.
+%SEPARABLE    A separable programming problem is one where all
+             functions can be written as the sum of terms of
+             functions of individual variables.  The "convex"
+             separable method is used.  Thus, problems must be
+             of the convex programming class.  The algorithm will
+             check to see that the approximated problem on the
+             given grid points is a convex program.
+             To check if the grid spacing yields an acceptable
+             approximation, a graph of all functions of the specified
+             single variable over the variable grid is accomplished via
+             the GRAPHGRID command.  Thus, variables can be
+             checked one at a time with this graphics support facility.
+
+   example   min  z  =  3x1^2 +  3x2*x2
+              st         x1^4 +  3x2    <= 15
+              grid(x1) = {0, 0.5, 1, 1.5, 2}
+              grid(x2) = {0, 1, 2, 3, 5}
+              GraphGrid
+%QUADRATIC    A quadratic programming problem has a quadratic objective
+             function subject to linear constraints.  The algorithm
+             assumes a strictly convex form for minimization or a
+             strictly concave function for maximization.  The algorithm
+             checks for adherence to this form.
+
+   example   max z = 3 + 2x1 - 3x1^2 + x1*x2 -3x2 -5x2^2
+             st      3x1 + 5x2  <= 15
+                      x1 +  x2  <=  6
+%MINCOSTFLOW  Algorithm for minimizing the cost for a capacitated
+             flow network with an objective flow value to be met.
+             All numbers are integer valued; infinity is INF.
+             The order of the data categories is immaterial.
+             Cost is the unit flow cost and Capacity is the upper
+             limit on the flow.
+
+             Input format:
+
+                 MINCOSTFLOW {                     "starting brace"
+                    cost = ( (v1,v2,v3, ... , vn),
+                                  ...
+                             (v1,v2,v3, ... , vn) )
+                capacity = ( (v1,v2,v3, ... , vn),
+                                  ...
+                             (v1,v2,v3, ... , vn) )
+                source = starting node number
+                sink = ending node number
+                flowObjective = target flow value  } "ending brace"
+
+%INTEGER      Variables list for restricting variables to be integer.
+             INTEGER(x1, x3) restricts x1 and x3 to be integer for
+             integer programming problem.  For all integer variables
+             problems, all the problem's coefficients should also be
+             integer and a bound on the sum of the variables is required.  
+             ALLINTEGER allows the declaration of all variables as integer
+             without listing all the variables in the INTEGER list.
+
+             If the ALLINTEGER algorithm is to be used then the construct
+             BOUNDonSUM = value is required.
+
+%BINARY       Used to indicate that all problem variables are to be
+             0/1 variables.  This keyword causes the Balas zero/one
+             algorithm to be selected.
+             To use merely include BINARY or AllBinary at the end
+             of the model.
+%ALLBINARY    Used to indicate that all problem variables are to be
+             0/1 variables.  This keyword causes the Balas zero/one
+             algorithm to be selected.
+             To use merely include BINARY or AllBinary at the end
+             of the model.
+%ALLINTEGER   Replaces variables list in declaring all variables
+             to be integer.  Can be used in Gomory-Cut and AllInteger
+             algorithms; ignored if other algorithms are chosen.
+%BOUNDONSUM   AllInteger algorithm requires that a bound estimate be
+             given for the maximum value of the sum of the variables.
+             BoundonSum = value is the syntax for this construct.
+%ALLINTEGER   All integer algorithm is an efficient procedure for
+             solving integer programming problems where all the
+             variables are restricted to be integer.  The all integer
+             restriction can be connoted to the system via the
+             ALLINTEGER keyword, but also included must be a bound
+             on the sum of the variables: BOUNDonSUM = value.
+
+
+
+

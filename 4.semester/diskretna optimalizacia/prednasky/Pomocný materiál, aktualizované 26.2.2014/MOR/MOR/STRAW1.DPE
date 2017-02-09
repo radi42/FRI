@@ -1,0 +1,13 @@
+PROGRAM
+                "Strawberry problem - Version 1"
+DEFINITION
+  r:ARRAY[ <1..4>, <0..6> ] = ( (0,4,6,7,7,7,7 ),
+                                (0,2,4,6,8,9,10),
+                                (0,6,8,8,8,8,8 ),
+                                (0,2,3,4,4,4,4 ) );
+LOGIC
+  f.1(s) = max{ r[1,x]: x in [0..s]}, s in [0..6];
+  f.2(s) = max{ r[2,x] + f.1(s-x): x in [0..s]}, s in [0..6];
+  f.3(s) = max{ r[3,x] + f.2(s-x): x in [0..s]}, s in [0..6];
+  f.4(s) = max{ r[4,x] + f.3(s-x): x in [0..s]}, s in <6>;
+END.

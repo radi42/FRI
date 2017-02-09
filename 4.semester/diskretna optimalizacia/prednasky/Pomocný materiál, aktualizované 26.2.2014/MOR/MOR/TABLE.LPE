@@ -1,0 +1,9 @@
+tableinput{
+Variables( z  x1  x2  ) "z is the objective value"
+
+      "  x1  x2     RHS"
+         3   5  max  0
+         1   0  <=   4
+         0   2  <=  12
+         3   2  <=  18
+}

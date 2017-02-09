@@ -1,0 +1,7 @@
+max z = 7x1 + 9x2
+st  -x1 +3x2 <= 6
+7x1 + x2 <= 35
+x1 + x2 >= 4
+integer(x1,x2)
+graphics(0,8,0,5.3)
+"must have selected Gomory algorithm"
