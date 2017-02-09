@@ -1,0 +1,6 @@
+http://www.mathworks.com/help/matlab/ref/length.html
+http://www.mathworks.com/help/symbolic/solve-a-system-of-linear-equations.html
+http://www.mathworks.com/help/matlab/ref/ones.html
+http://www.mathworks.com/matlabcentral/answers/86901-how-to-insert-noise-in-a-sine-function
+http://www.mathworks.com/help/matlab/creating_plots/change-tick-marks-and-tick-labels-of-graph-1.html
+http://www.mathworks.com/help/matlab/ref/sum.html
