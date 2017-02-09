@@ -1,0 +1,7 @@
+1. select meno, priezvisko, count (*) from os_udaje join student using (rod_cislo) join zap_predmety using (os_cislo) group by meno, priezvisko having count(*) >4;
+
+2. select meno, priezvisko from os_udaje join student on (student.rod_cislo=os_udaje.rod_cislo) join zap_predmety on (zap_predmety.os_cislo= student.os_cislo) where student.os_cislo NOT IN (select distinct os_cislo from zap_predmety);
+
+   select meno, priezvisko from os_udaje join student on (student.rod_cislo=os_udaje.rod_cislo) join zap_predmety on (zap_predmety.os_cislo= student.os_cislo) where not exists (select 'A' from zap_predmety where zap_predmety.os_cislo = student.os_cislo);
+
+3. select meno, priezvisko from os_udaje join student on (os_udaje.rod_cislo= student.rod_cislo) join zap_predmety on (zap_predmety.os_cislo= student.os_cislo)

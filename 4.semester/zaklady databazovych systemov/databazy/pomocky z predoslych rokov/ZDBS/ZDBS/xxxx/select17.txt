@@ -1,0 +1,4 @@
+select distinct meno, priezvisko, to_char(sysdate,'YYYY')-to_char(dat_prv_zap,'YYYY') as pocet
+from os_udaje join student using(rod_cislo)
+join zap_predmety using(os_cislo)
+where stav='S';

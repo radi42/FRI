@@ -1,0 +1,77 @@
+Nazdar kolegovci,
+
+pozeram ze nikto neposlal zadanie z tohoto terminu, tak post scriptum
+pre doplnenie posielam...
+
+1, Transakcie: Majme rozvrh: 
+	
+		T1		T2
+				lock(A)
+				read(A)
+				write(A)
+				unlock(A)
+		lock(A)
+		read(A)
+		write(A)
+		unlock(A)
+				lock(B)
+				read(B)
+				write(B)
+		lock(B)
+		read(B)
+		write(B)
+		unlock(B)
+
+
+/* Medzi read(X) a write(X) mozeme predpokladat nejaku action(X) aby
+ * operacie mali zmysel */
+
+Otazky:
+	A, Su tieto transakcie dvojfazove?
+	   Je rozvrh legalny?
+	   Je rozvrh konfliktovo usporiadatelny?
+	
+	B, Protokol casovych razitok... Ako upravime tento rozvrh na
+	vstupny rozvrh pre casove razitka? Uvedte vysledny rozvrh. Ake
+	su vyhody a nevyhody protkolov s casovymi razitkami?
+Celkovy pocet bodov: 6
+
+
+
+2, SQL databaza:
+	Kino(IdK,...)
+        Film(IdF, Reziser)
+        Pgm(IdK, IdF)
+
+       dotazy: 1, Ktore kina premietaju vsetky filmy rezisera Vlacila?
+       	       2, Dvojica kin s tymi istymi mnozinami filmov
+	          Pozn: Pouzil som A = B <=> A\B = prazdna && B\A ==
+		  prazdna. ( rozdiel mnozin cez "except", neprazdnost
+		  testovat cez "not exists")
+
+Celkovy pocet bodov: 4
+
+3, ER->RDM: vid attachment er.gif
+Celkovy pocet bodov: 2
+
+4, Pojmy ohladne uplnosti dotazovacich jazykov RA, DRK, NRK, SQL
+   Porovnavajte ich navzajom, aka je ich sila?
+Celkovy pocet bodov: 2
+
+5, RA->NRK (RA ~ relacna algebra)
+	r element R(A,B,C)
+	s element S(D,E,F)
+
+	Dotazy v relacnej algebre boli zapisane pomocou zobrazeni, nie
+	vo forme ako v skriptach (Mozno to bolo na prednaske...) V
+	kazdom pripade pri zapise hovoril co to znamena, takze v
+	pohode...(V zatvorkach je pokus o popis zapisu :))), ind = index )
+
+	a, projekcia r na A ( pi ind_A (r) )
+	b, selekcia pre B=17 (sigma ind_B=17 (r) )
+	c, karteziansky sucin r a s ( r x s )
+	d, projekcia na A,F zo slelekcie pre C=D z kartezianskeho sucinu
+	   r x s (pi ind_A,F (sigma ind_C=D (r x s) ) ) )
+
+Celkovy pocet bodov: 2
+

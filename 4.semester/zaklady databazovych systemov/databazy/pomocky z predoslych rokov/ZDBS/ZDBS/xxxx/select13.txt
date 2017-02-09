@@ -1,0 +1,4 @@
+select meno, priezvisko, rod_cislo
+from student join os_udaje using(rod_cislo)
+where substr(rod_cislo,3,2)=to_char(sysdate,'MM')
+and substr(rod_cislo,5,2)=to_char(sysdate,'DD');

@@ -1,0 +1,83 @@
+1. Vypste menny zoznam studentov, ktor maju zapsane viac ako 4(1) predmety.
+
+select meno, priezvisko, count(*) poc_predm from os_udaje ou,zap_predmety zp,student st where (ou.rod_cislo=st.rod_cislo) and (st.os_cislo=zp.os_cislo) group by meno, priezvisko, zp.cis_predm having count(*)>1;
+
+2. Vypste zoznam studentov, ktor nemaju zapsany ani jeden predmet. (oboma moznymi sp^osobmi
+- IN, EXISTS)
+
+select meno, priezvisko from os_udaje ou,student st where (ou.rod_cislo=st.rod_cislo) and st.os_cislo not in (select os_cislo from zap_predmety);
+
+
+select meno, priezvisko from os_udaje ou,student st where (ou.rod_cislo=st.rod_cislo) and not exists (select 'a' from zap_predmety zp where zp.os_cislo=st.os_cislo);
+
+3. Vypste zoznam studentov, ktor opakuju nejaky predmet. (oboma sp^osobmi - count, dva krat jedna
+tabulka) 
+
+select priezvisko from os_udaje join student using(rod_cislo) join zap_predmety using(os_cislo) group by priezvisko, os_cislo, cis_predm having count(*)>1;
+
+select priezvisko, cis_predm, count(*) pocet from os_udaje join student using(rod_cislo) join zap_predmety using(os_cislo) group by priezvisko, os_cislo, cis_predm having count(*)>1;
+
+4. Vypste menny zoznam studentov a ich datum narodenia vyskladany z rodneho csla. (Pozor na
+Damy
+
+//pomocny { select meno, priezvisko, ('19'||substr(rod_cislo,1,2)||' '||substr(rod_cislo,3,2)||'. '||substr(rod_cislo,5,2)) datum from os_udaje join student using(rod_cislo); }
+
+
+select meno, priezvisko, (substr(rod_cislo,5,2)||'. '||decode(substr(rod_cislo,3,1), '6', '1', '5', '0', '1', '1', '0', '0' )||substr(rod_cislo,4,1)||'. '||'19'||substr(rod_cislo,1,2)) datum from os_udaje join student using(rod_cislo);
+
+5. Vypste kolko dn ubehlo medzi zapoctom a skuskou u tych predmetov studentov, ktor maju zadany
+aj zapocet aj skusku.
+
+select meno, priezvisko,datum_sk,zapocet, (datum_sk-zapocet)rozdiel
+from os_udaje join student using(rod_cislo) join zap_predmety using(os_cislo)
+where datum_sk is not null and zapocet is not null;
+
+select priezvisko,( 
+(to_number(substr(datum_sk,4,2))-to_number(substr(zapocet,4,2))) +
+((to_number(substr(datum_sk,1,2))-to_number(substr(zapocet,1,2)))*30) +
+((to_number(substr(datum_sk,7,4))-to_number(substr(zapocet,7,4)))*365)
+)
+poc_dni from zap_predmety zp, os_udaje ou, student st where (ou.rod_cislo=st.rod_cislo) and (st.os_cislo=zp.os_cislo) and (zp.datum_sk is not null) and (zp.zapocet is not null); 
+
+select priezvisko,( 
+to_number(substr(datum_sk,7,4))-to_number(substr(zapocet,7,4))
+)
+poc_dni from zap_predmety zp, os_udaje ou, student st where (ou.rod_cislo=st.rod_cislo) and (st.os_cislo=zp.os_cislo) and (zp.datum_sk is not null) and (zp.zapocet is not null);
+
+
+select priezvisko,zapocet, datum_sk from zap_predmety zp, os_udaje ou, student st where (ou.rod_cislo=st.rod_cislo) and (st.os_cislo=zp.os_cislo) and (zp.datum_sk is not null) and (zp.zapocet is not null) and ou.priezvisko='Papun';
+
+
+6. Vypste zoznam studentov a ich predmety, u ktorych presiel aspon jeden mesiac medzi zapoctom a
+skuskou.
+
+
+select priezvisko,nazov,datum_sk, zapocet from zap_predmety zp, os_udaje ou, student st, predmet p where (ou.rod_cislo=st.rod_cislo) and (st.os_cislo=zp.os_cislo) and (zp.datum_sk is not null) and (zp.zapocet is not null) and (p.cis_predm=zp.cis_predm) and ( 
+(to_number(substr(datum_sk,4,2))-to_number(substr(zapocet,4,2))) +
+((to_number(substr(datum_sk,1,2))-to_number(substr(zapocet,1,2)))*30) +
+((to_number(substr(datum_sk,7,4))-to_number(substr(zapocet,7,4)))*365)
+)>30; 
+
+7. Vypste zoznam studentov a cisla predmetov, kde nie je spravny datum skusky.
+
+select priezvisko,cis_predm from os_udaje join student using(rod_cislo) join zap_predmety using(os_cislo) where ((to_number(substr(datum_sk,1,2)) is between 9 and 12) and skrok<>to_number(substr(datum_sk,7,4))) or ((to_number(substr(datum_sk,1,2)) is between 1 and 8)and(skrok<(to_number(substr(datum,7,4)));
+
+7.
+ 
+select meno, priezvisko,datum_sk,zapocet, (datum_sk-zapocet)rozdiel
+from os_udaje join student using(rod_cislo) join zap_predmety using(os_cislo)
+where datum_sk is not null and zapocet is not null and (datum_sk-zapocet)<0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+

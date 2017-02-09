@@ -1,0 +1,284 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<meta name="ProgId" content="Word.Document">
+<meta name="Generator" content="Microsoft Word 9">
+<meta name="Originator" content="Microsoft Word 9">
+<link rel="File-List" href="https://vzdelavanie.uniza.sk/moodle/file.php/485/dbsp7b1_1.files/filelist.xml">
+<title>INSERT INTO {meno_tabuľky | meno_pohľadu}[@dblink] [(zoznam_stĺpcov)]</title>
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:HyphenationZone>21</w:HyphenationZone>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{margin-right:0cm;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:70.85pt 70.85pt 70.85pt 70.85pt;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<meta name="Template" content="C:\PROGRAM FILES\MICROSOFT OFFICE97\OFFICE\html.dot">
+</head><body style="" vlink="purple" lang="SK" link="blue">
+
+<div class="Section1">
+
+<p style="margin: 6pt 0cm;"><b><span style="font-size: 10pt;">INS<a name="s1"></a>ERT</span></b><span style="font-size: 10pt;"> INTO {meno_tabuľky | meno_pohľadu</span><span style="font-size: 10pt;" lang="EN-US">}[@dblink]</span><span style="font-size: 10pt;"> [(zoznam_stĺpcov)]<o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm;"><span style="font-size: 10pt;">{<span style="">&nbsp;
+</span>VALUES (zoznam_hodnôt)<o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm 6pt 9pt;"><span style="font-size: 10pt;">|<o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm 6pt 9pt;"><span style="font-size: 10pt;">SELECT-príkaz}<o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm;"><b><i><span style="font-size: 10pt;"><!--[if !supportEmptyParas]-->&nbsp;<!--[endif]--><o:p></o:p></span></i></b></p>
+
+<p style="margin: 6pt 0cm;"><b><i><span style="font-size: 10pt;">Príklady:<o:p></o:p></span></i></b></p>
+
+<p style="margin: 6pt 0cm;"><span style="font-size: 10pt;">INSERT INTO os_udaje(rod_cislo, meno,
+priezvisko, psc, obec)<o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm;"><span style="font-size: 10pt;">VALUES (‘121212/1212‘,‘Peter‘,‘Novak‘,null,
+‘Zilina‘)<o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm;"><span style="font-size: 10pt;"><!--[if !supportEmptyParas]-->&nbsp;<!--[endif]--><o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm;"><span style="font-size: 10pt;">INSERT INTO zap_predmety (os_cislo,
+cis_predm, skrok, prednasajuci)<o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm;"><span style="font-size: 10pt;">SELECT os_cislo, cis_predm, 2003 ,
+prednasajuci<o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm;"><span style="font-size: 10pt;">FROM zap_predmety<o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm;"><span style="font-size: 10pt;">WHERE skrok = 2002<o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm;"><span style="font-size: 10pt;">AND vysledok is null;<o:p></o:p></span></p>
+
+<p><span style="font-size: 10pt;">&nbsp;<o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm;"><b><span style="font-size: 10pt;">DEL<a name="s2"></a>ETE</span></b><span style="font-size: 10pt;"> FROM {meno_tabuľky | meno_pohľadu} [@dblink] [WHERE
+podmienka]<o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm;"><span style="font-size: 10pt;"><!--[if !supportEmptyParas]-->&nbsp;<!--[endif]--><o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm;"><b><i><span style="font-size: 10pt;">Príklady:<o:p></o:p></span></i></b></p>
+
+<p style="margin: 6pt 0cm;"><i><span style="font-size: 10pt;">Vymaž všetko z&nbsp;tabuľky zap_predmety<o:p></o:p></span></i></p>
+
+<p style="margin: 6pt 0cm;"><span style="font-size: 10pt;">DELETE FROM zap_predmety<o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm;"><span style="font-size: 10pt;"><!--[if !supportEmptyParas]-->&nbsp;<!--[endif]--><o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm;"><i><span style="font-size: 10pt;">Vymaž všetky údaje z&nbsp;tabuľky
+zap_predmety o&nbsp;študentovi s&nbsp;osobným číslom 1111<o:p></o:p></span></i></p>
+
+<p style="margin: 6pt 0cm;"><span style="font-size: 10pt;">DELETE FROM zap_predmety<o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm;"><span style="font-size: 10pt;">WHERE os_cislo = 1111<o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm;"><i><span style="font-size: 10pt;"><!--[if !supportEmptyParas]-->&nbsp;<!--[endif]--><o:p></o:p></span></i></p>
+
+<p style="margin: 6pt 0cm;"><i><span style="font-size: 10pt;">Vymaž všetkých študentov, ktorý nemajú
+nič zapísané</span></i><span style="font-size: 10pt;"><o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm;"><span style="font-size: 10pt;">DELETE FROM student<o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm;"><span style="font-size: 10pt;">WHERE os_cislo NOT IN<o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm 6pt 18pt;"><span style="font-size: 10pt;">(SELECT os_cislo FROM zap_predmety)<o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm;"><span style="font-size: 10pt;"><!--[if !supportEmptyParas]-->&nbsp;<!--[endif]--><o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm;"><i><span style="font-size: 10pt;">Vymaž všetkých študentov, ktorý nemajú
+nič zapísané </span></i><span style="font-size: 10pt;"><o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm;"><span style="font-size: 10pt;">DELETE FROM student<o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm;"><span style="font-size: 10pt;">WHERE NOT EXISTS <o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm 6pt 18pt;"><span style="font-size: 10pt;">(SELECT os_cislo FROM zap_predmety<o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm 6pt 18pt;"><span style="font-size: 10pt;">WHERE zap_predmety.os_cislo =
+student.os_cislo)<o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm;"><span style="font-size: 10pt;"><!--[if !supportEmptyParas]-->&nbsp;<!--[endif]--><o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm;"><b><span style="font-size: 10pt;">UPD<a name="s3"></a>ATE</span></b><span style="font-size: 10pt;"> {meno_tabuľky | meno_pohľadu | meno_snímky}<o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm;"><span style="font-size: 10pt;">SET <o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm;"><span style="font-size: 10pt;">{<span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>(stĺpec<span style="">&nbsp; </span>[,...] ) = (Select-príkaz)<o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm 6pt 36pt;"><span style="font-size: 10pt;">| <o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm 6pt 36pt;"><span style="font-size: 10pt;">stĺpec = { výraz </span><span style="font-size: 10pt;" lang="EN-US">| </span><span style="font-size: 10pt;">(Select – príkaz)} <o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm;"><span style="font-size: 10pt;">} [, ...]<o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm;"><span style="font-size: 10pt;">[WHERE podmienka]<o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm;"><span style="font-size: 10pt;"><!--[if !supportEmptyParas]-->&nbsp;<!--[endif]--><o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm;"><b><i><span style="font-size: 10pt;">Príklady:<o:p></o:p></span></i></b></p>
+
+<p style="margin: 6pt 0cm;"><i><span style="font-size: 10pt;">Posuň všetkým študentom ročník</span></i><span style="font-size: 10pt;"><o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm;"><span style="font-size: 10pt;">UPDATE student<o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm;"><span style="font-size: 10pt;">SET rocnik = rocnik + 1<o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm;"><span style="font-size: 10pt;"><!--[if !supportEmptyParas]-->&nbsp;<!--[endif]--><o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm;"><i><span style="font-size: 10pt;">Posuň študentovi s&nbsp;osobným číslom
+1111 ročník a&nbsp;nastav mu študijnú skupinu na 5ZA31</span></i><span style="font-size: 10pt;"><o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm;"><span style="font-size: 10pt;">UPDATE student<o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm;"><span style="font-size: 10pt;">SET rocnik = rocnik + 1,<o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm 6pt 18pt;"><span style="font-size: 10pt;">st_skupina = </span><span style="font-size: 10pt;" lang="EN-US">‘5ZA31’<o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm;"><span style="font-size: 10pt;">WHERE os_cislo = 1111<o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm;"><span style="font-size: 10pt;"><!--[if !supportEmptyParas]-->&nbsp;<!--[endif]--><o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm;"><i><span style="font-size: 10pt;">Zmeň študentom, ktorí úspešne zvládli
+predmet P416 ročník na 3 a študijnú skupinu na 5ZA31</span></i><span style="font-size: 10pt;"><o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm;"><span style="font-size: 10pt;">UPDATE student<o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm;"><span style="font-size: 10pt;">SET (rocnik, st_skupina) = (SELECT 3, </span><span style="font-size: 10pt;" lang="EN-US">‘5ZA31’ from dual)<o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm;"><span style="font-size: 10pt;" lang="EN-US">WHERE
+os_cislo IN<o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm 6pt 18pt;"><span style="font-size: 10pt;" lang="EN-US">(SELECT
+os_cislo FROM zap_predmety<o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm 6pt 18pt;"><span style="font-size: 10pt;" lang="EN-US"><span style="">&nbsp; </span>WHERE vysledok IN (1,2,3)<o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm 6pt 18pt;"><span style="font-size: 10pt;" lang="EN-US"><span style="">&nbsp; </span>AND cis_predm = ‘P416’)</span><span style="font-size: 10pt;"><o:p></o:p></span></p>
+
+<p style="margin: 6pt 0cm;"><span style="font-size: 10pt;"><!--[if !supportEmptyParas]-->&nbsp;<!--[endif]--><o:p></o:p></span></p>
+
+<p><span style="font-size: 10pt;">&nbsp;<o:p></o:p></span></p>
+
+<p><b><span style="font-size: 10pt;">SEL<a name="s4"></a>ECT</span></b><span style="font-size: 10pt;"> [ALL | DISTINCT] {*| [column_expression [new_name]]
+[,...]}<o:p></o:p></span></p>
+
+<p style="margin-left: 36pt;"><span style="font-size: 10pt;">FROM meno_tabulky
+[alias_tabulka] [,...]<o:p></o:p></span></p>
+
+<p style="margin-left: 36pt;"><span style="font-size: 10pt;">[WHERE podmienka]<o:p></o:p></span></p>
+
+<p style="margin-left: 36pt;"><span style="font-size: 10pt;">[GROUP BY
+zoznam_stĺpcov] [HAVING podmienka]<o:p></o:p></span></p>
+
+<p style="margin-left: 36pt;"><span style="font-size: 10pt;">[ORDER BY
+meno_stĺpca [ASC | DESC] [,...]<o:p></o:p></span></p>
+
+<p><span style="font-size: 10pt;">&nbsp;<o:p></o:p></span></p>
+
+<p><span style="font-size: 10pt;">SELECT-príkaz <o:p></o:p></span></p>
+
+<p><b><span style="font-size: 10pt;">UNION</span></b><span style="font-size: 10pt;"> [ALL]<o:p></o:p></span></p>
+
+<p><span style="font-size: 10pt;">SELECT-príkaz<o:p></o:p></span></p>
+
+<p><span style="font-size: 10pt;">[UNION [ALL] SELECT-príkaz] ...<o:p></o:p></span></p>
+
+<p><span style="font-size: 10pt;">&nbsp;<o:p></o:p></span></p>
+
+<p><span style="font-size: 10pt;">SELECT-príkaz<o:p></o:p></span></p>
+
+<p><b><span style="font-size: 10pt;">MINUS<o:p></o:p></span></b></p>
+
+<p><span style="font-size: 10pt;">SELECT - príkaz<o:p></o:p></span></p>
+
+<p><span style="font-size: 10pt;"><!--[if !supportEmptyParas]-->&nbsp;<!--[endif]--><o:p></o:p></span></p>
+
+<p><span style="font-size: 10pt;">&nbsp;<o:p></o:p></span></p>
+
+<p><b><span style="font-size: 10pt;">WHERE podmienka</span></b><span style="font-size: 10pt;">:<o:p></o:p></span></p>
+
+<p style="margin-left: 36pt;"><span style="font-size: 10pt;">výraz
+relačný-operátor výraz<o:p></o:p></span></p>
+
+<p style="margin-left: 36pt;"><span style="font-size: 10pt;">&nbsp;výraz [NOT]
+BETWEEN výraz AND výraz<o:p></o:p></span></p>
+
+<p style="margin-left: 36pt;"><span style="font-size: 10pt;">&nbsp;výraz [NOT]
+IN (položky)<o:p></o:p></span></p>
+
+<p style="margin-left: 36pt;"><span style="font-size: 10pt;">&nbsp;meno_stĺpca
+[NOT] LIKE "string" [ESCAPE escape-znak] <o:p></o:p></span></p>
+
+<p style="margin-left: 36pt;"><span style="font-size: 10pt;">&nbsp;výraz
+relačný-operátor {ALL | [ANY | SOME]} (SELECT-príkaz)<o:p></o:p></span></p>
+
+<p style="margin-left: 36pt;"><span style="font-size: 10pt;">&nbsp;výraz [NOT]
+IN (SELECT-príkaz)<o:p></o:p></span></p>
+
+<p style="margin-left: 36pt;"><span style="font-size: 10pt;">&nbsp;[NOT] EXISTS
+(SELECT-príkaz)<o:p></o:p></span></p>
+
+<p style="margin-left: 36pt;"><span style="font-size: 10pt;">&nbsp;meno_stĺpca
+IS [NOT] NULL<o:p></o:p></span></p>
+
+<p><span style="font-size: 10pt;">&nbsp;<o:p></o:p></span></p>
+
+<p><b><i><span style="font-size: 10pt;">Poznámka</span></i></b><span style="font-size: 10pt;">:<o:p></o:p></span></p>
+
+<p><span style="font-size: 10pt;">Vytvorenie dočasnej tabuľky nie je možné ako
+to bolo v&nbsp;Informixe pomocou klazuly <o:p></o:p></span></p>
+
+<p><span style="font-size: 10pt;"><span style="">&nbsp;&nbsp;&nbsp;
+</span>INTO TEMP meno_docasnej_tabulky.<o:p></o:p></span></p>
+
+<p><span style="font-size: 10pt;">Jediné možné riešenie je :<o:p></o:p></span></p>
+
+<p><span style="font-size: 10pt;"><span style="">&nbsp;
+</span>CREATE TABLE meno_tabulky<o:p></o:p></span></p>
+
+<p><span style="font-size: 10pt;">AS SELECT-prikaz<o:p></o:p></span></p>
+
+<p><span style="font-size: 10pt;">Pozor!!! Nezabudnite, že túto tabuľku musíte
+aj korektne zrušiť (Drop table).<o:p></o:p></span></p>
+
+</div>
+
+</body></html>

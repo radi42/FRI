@@ -1,0 +1,30 @@
+drop table vyk_ukony
+/
+drop table objed_pacienta
+/
+drop table zoz_objed_mat
+/
+drop table zoz_prijat_mat
+/
+drop table spot_mat_a_liekov
+/
+drop table zoz_liek_a_mat
+/
+drop table zoz_ukonov
+/
+drop table zoz_zubov
+/
+drop table os_udaje_pac
+/
+drop table zoz_poist
+/
+drop table prijemka_materialu
+/
+drop table objednavka_materialu
+/
+drop table adresar_dodavatelov
+/
+
+
+
+

@@ -1,0 +1,7 @@
+
+vytvaranie vlakov (skutocnych; ktory idu o konkretnom case):
+-execute add_vlak(typ_vlaku, cas_startu);
+	execute add_vlak(1,sysdate);
+	execute add_vlak(1,to_date('02-06-2003 15:30', 'DD-MM-YYYY HH24:MI'));
+
+

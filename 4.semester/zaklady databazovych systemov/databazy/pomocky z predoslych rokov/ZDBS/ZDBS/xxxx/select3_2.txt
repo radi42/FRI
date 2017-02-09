@@ -1,0 +1,7 @@
+select distinct meno, priezvisko
+from os_udaje, student,zap_predmety p1, zap_predmety p2
+where p1.os_cislo=p2.os_cislo
+AND p1.cis_predm = p2.cis_predm
+AND p1.skrok!=p2.skrok
+AND os_udaje.rod_cislo=student.rod_cislo
+AND student.os_cislo=p1.os_cislo;

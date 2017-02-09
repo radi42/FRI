@@ -1,0 +1,1609 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1250">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List href="3.files/filelist.xml">
+<title>Pri operácii UPDATE vysvetlite pojem REŠTRIKCIA (RESTRICTED) pre zmenu
+hodnôt primárneho kľúča </title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Michal</o:Author>
+  <o:LastAuthor>Michal</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>12</o:TotalTime>
+  <o:Created>2004-06-06T22:55:00Z</o:Created>
+  <o:LastSaved>2004-06-06T22:55:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>2040</o:Words>
+  <o:Characters>11632</o:Characters>
+  <o:Company>Microsoft Slovakia a.s.</o:Company>
+  <o:Lines>96</o:Lines>
+  <o:Paragraphs>27</o:Paragraphs>
+  <o:CharactersWithSpaces>13645</o:CharactersWithSpaces>
+  <o:Version>10.2625</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:HyphenationZone>21</w:HyphenationZone>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:70.85pt 70.85pt 70.85pt 70.85pt;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Normálna tabuľka";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+</style>
+<![endif]-->
+</head>
+
+<body lang=SK style='tab-interval:35.4pt'>
+
+<div class=Section1>
+
+<p class=MsoNormal><span style='font-family:Arial'>Pri operácii UPDATE
+vysvetlite pojem REŠTRIKCIA (RESTRICTED) pre zmenu hodnôt primárneho kľúča <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 2 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>  </span><span style='mso-tab-count:15'>                                                                                                                                                                              </span><span
+style='mso-tab-count:3'>                                   </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>ak sa <span class=SpellE>uzivatel</span>
+<span class=SpellE>pokusi</span> <span class=SpellE>zmenit</span> hodnotu PK <span
+class=SpellE>ktora</span> sa v inej <span class=SpellE>relacii</span> <span
+class=SpellE>nachadza</span> ako FK tak to <span class=SpellE>nedovoli</span> <span
+style='mso-tab-count:2'>            </span><span style='mso-tab-count:7'>                                                                                  </span><span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - ERA 1<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>2.<span
+style='mso-spacerun:yes'>  </span>Typ entity<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 1 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>Objekt reálneho sveta schopný samostatnej
+existencie, ktorý je jednoznačne identifikovateľný <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>   </span><b style='mso-bidi-font-weight:normal'><span
+style='mso-spacerun:yes'> </span>popis objektov s rovnakými charakteristikami <o:p></o:p></b></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>Objekt reálneho sveta schopný samostatnej
+existencie, ktorý nemusí byť jednoznačne identifikovateľný <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - Úvod 2<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>3.<span
+style='mso-spacerun:yes'>  </span>Logická nezávislosť dát je<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 1 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>Nezávislosť dát od prístupových metód <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>Nezávislosť dátového modelu na programe <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>Nezávislosť programu od organizácie dát <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - Úvod 3<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>4.<span
+style='mso-spacerun:yes'>  </span>V ktorých prípadoch je prípustný viacnásobný
+výskyt rovnakých dát<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 1 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>vždy <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>  </span><b style='mso-bidi-font-weight:normal'><span
+style='mso-spacerun:yes'>  </span>pri riadenej redundancii <o:p></o:p></b></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>nikdy <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - Úvod 5<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>5.<span
+style='mso-spacerun:yes'>  </span>Ktoré úrovne architektúry DBS sú <span
+class=SpellE>implementačne</span> závislé: <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 1 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><b style='mso-bidi-font-weight:normal'><span
+style='mso-spacerun:yes'>   </span>len interná <o:p></o:p></b></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>externá aj interná <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>aplikačná a externá <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>   </span><span style='mso-spacerun:yes'> </span>len
+externá <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - Úvod 4<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>6.<span
+style='mso-spacerun:yes'>  </span><span class=SpellE>Perzistentné</span> dáta
+sú<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 1 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>dáta, ktoré zanikajú po ukončení
+programu<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Arial'><span style='mso-spacerun:yes'>    </span>dáta
+existujúce aj po ukončení programu<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>odvodené dáta<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - RDB 3<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>7.<span
+style='mso-spacerun:yes'>  </span>Vymenujte a popíšte VLASTNOSTI relácie <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 2 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>CRUDE = stĺpcová, referenčná, užívateľská, <span
+class=SpellE>domenová</span>, <span class=SpellE>entitná</span><span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>ACID = <span class=SpellE>atomickosť</span>,
+konzistencia, nezávislosť, trvácnosť <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><b style='mso-bidi-font-weight:normal'><span
+style='mso-spacerun:yes'>   </span>ANNU = <span class=SpellE>atomickosť</span>,
+<span class=SpellE>neusporiadanosť</span> zľava doprava, <span class=SpellE>neusporiadanosť</span>
+zhora dole, jednoznačnosť<span style='mso-spacerun:yes'>  </span><o:p></o:p></b></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - RDB 4<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>8.<span
+style='mso-spacerun:yes'>  </span>Definujte Cudzí kľúč<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 2 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>Množina atribútov, ktorá spĺňa podmienku
+jednoznačnosti a <span class=SpellE>minimálnosti</span> a je definovaná v inej
+relácii <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>Množina atribútov, ktorá spĺňa podmienku
+jednoznačnosti a <span class=SpellE>minimálnosti</span> <o:p></o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Arial'><span style='mso-spacerun:yes'>    </span>Množina
+atribútov, ktorá je definovaná v inej relácii ako kandidát primárneho kľúča <o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - RI 3<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>9.<span
+style='mso-spacerun:yes'>  </span>Integrita entít hovorí<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 2 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>atribút primárneho kľúča môže nadobúdať
+NULL hodnoty <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>atribút primárneho kľúča nesmie nadobúdať
+NULL hodnoty <o:p></o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Arial'><span style='mso-spacerun:yes'>    </span>atribút
+primárneho kľúča musí nadobúdať NULL hodnotu<span style='mso-spacerun:yes'> 
+</span><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - RI 5<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>10.<span
+style='mso-spacerun:yes'>  </span>Uveďte príklad užívateľskej integrity <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 2 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>  </span><span style='mso-tab-count:15'>                                                                                                                                                                              </span><span
+style='mso-tab-count:15'>                                                                                                                                                                                </span><span
+style='mso-tab-count:15'>                                                                                                                                                                                </span><span
+class=SpellE>datum</span> <span class=SpellE>skusky</span> <span class=SpellE>vacsi</span>
+ako <span class=SpellE>datum</span> <span class=SpellE>zapoctu</span><span
+style='mso-tab-count:9'>                                                                                                 </span><span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - RI 2<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>11.<span
+style='mso-spacerun:yes'>  </span>Popíšte <span class=SpellE>doménovú</span>
+integritu <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 2 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>  </span><span style='mso-tab-count:15'>                                                                                                                                                                              </span><span
+style='mso-tab-count:15'>                                                                                                                                                                                </span><span
+style='mso-tab-count:4'>                                               </span><span
+style='mso-tab-count:11'>                                                                                                                                 </span>typ
+<span class=SpellE>dat</span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span class=SpellE><span style='font-family:Arial'>mnozina</span></span><span
+style='font-family:Arial'> <span class=SpellE>pripustnych</span> <span
+class=SpellE>hodnot</span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span class=SpellE><span style='font-family:Arial'>usporiadatelnost</span></span><span
+style='font-family:Arial'> - <span class=SpellE>moznost</span> <span
+class=SpellE>porovnavania</span><span style='mso-tab-count:9'>                                                                                                          </span><span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - RI 4<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>12.<span
+style='mso-spacerun:yes'>  </span>Referenčná integrita hovorí<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 2 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>hodnota FK v relácii R2 sa nemusí rovnať
+hodnote PK z relácie R1 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>FK je množina atribútov definovaná v
+relácii R2, ktorá môže byť v inej relácii R1 definovaná ako primárny kľúč PK
+alebo kandidát PK<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Arial'><span style='mso-spacerun:yes'>    </span>hodnota FK
+v relácii R2 sa môže rovnať hodnote PK z relácie R1 <o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>hodnota FK v relácii R2 sa musí rovnať
+hodnote PK z relácie R1, alebo NULL <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - Úvod 6<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>13.<span
+style='mso-spacerun:yes'>  </span>Do ktorej úrovne patrí stanovenie aká metóda <span
+class=SpellE>indexácie</span> bude použitá?<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 1 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>aplikačnej<span style='mso-spacerun:yes'> 
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>konceptuálnej <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>externej <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>internej <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - NORM 3<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>14.<span
+style='mso-spacerun:yes'>  </span>Ak máme reláciu <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>A (<span class=SpellE>rodne_cislo</span>,
+meno, priezvisko, <span class=SpellE>telefon</span>, #<span class=SpellE>osobne_cislo</span>,
+<span class=SpellE>rocnik</span>, <span class=SpellE>st_skupina</span>, #<span
+class=SpellE>cislo_predmetu</span>, <span class=SpellE>nazov</span>, <span
+class=SpellE>pocet_kreditov</span>); <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Určite závislosť <span
+class=SpellE>osobne_cislo</span> - <span class=SpellE>nazov</span> v relácii A
+je : <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 2 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>neexistuje <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>tranzitívna <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>vzájomná <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - NORM 5<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>15.<span
+style='mso-spacerun:yes'>  </span>Majme reláciu R (#A, B, C, D, E), pre ktorú
+sú dané nasledovné funkčné závislosti:<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>A-&gt;B, BC-&gt;E a ED-&gt;A
+<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Je relácia v BCNF?<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 2 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>nie <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>áno <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - SQL III. - 1<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>16.<span
+style='mso-spacerun:yes'>  </span>Vypíšte menný zoznam všetkých zamestnancov.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 2 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>  </span><span style='mso-tab-count:15'>                                                                                                                                                                              </span><span
+style='mso-tab-count:15'>                                                                                                                                                                                </span><span
+style='mso-tab-count:6'>                                                                       </span><span
+class=SpellE>select</span> <span class=SpellE>meno,priezvisko</span> <span
+class=SpellE>from</span> <span class=SpellE>osoba,zamestnanec</span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span class=SpellE><span style='font-family:Arial'>where</span></span><span
+style='font-family:Arial'> <span class=SpellE>osoba.id=zamestnanec.id</span>;<span
+style='mso-tab-count:11'>                                                                                                                       </span><span
+style='mso-tab-count:7'>                                                                                  </span><span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - SQL III. - 3<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>17.<span
+style='mso-spacerun:yes'>  </span>Vypíšte názvy tovarov, ktoré boli niekedy
+predané (potlačte duplicity).<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 2 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>  </span><span style='mso-tab-count:15'>                                                                                                                                                                              </span><span
+style='mso-tab-count:15'>                                                                                                                                                                                </span><span
+style='mso-tab-count:6'>                                                                       </span><span
+class=SpellE>select</span> <span class=SpellE>distinct</span> <span
+class=SpellE>nazov</span> <span class=SpellE>from</span> <span class=SpellE>tovar,polozka</span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span class=SpellE><span style='font-family:Arial'>where</span></span><span
+style='font-family:Arial'> <span class=SpellE>polozka.id_tovaru=tovar.id_tovaru</span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span style='mso-tab-count:
+15'>                                                                                                                                                                                </span><span
+style='mso-tab-count:3'>                                   </span><span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - SQL III. - 4<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>18.<span
+style='mso-spacerun:yes'>  </span>Vypíšte zoznam druhov tovarov, z ktorých
+nemáme ani jeden tovar.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 2 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>  </span><span style='mso-tab-count:15'>                                                                                                                                                                              </span><span
+style='mso-tab-count:15'>                                                                                                                                                                                </span><span
+style='mso-tab-count:6'>                                                                       </span><span
+class=SpellE>select</span> <span class=SpellE>nazov</span> <span class=SpellE>from</span>
+<span class=SpellE>druh_tovaru</span> <span class=SpellE>where</span> <span
+class=SpellE>id_druhu</span> <span class=SpellE>not</span> in (<span
+class=SpellE>select</span> <o:p></o:p></span></p>
+
+<p class=MsoNormal><span class=SpellE><span style='font-family:Arial'>id_druhu</span></span><span
+style='font-family:Arial'> <span class=SpellE>from</span> tovar);<span
+style='mso-tab-count:12'>                                                                                                                                             </span><span
+style='mso-tab-count:6'>                                                                       </span><span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - SQL III. - 2<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>19.<span
+style='mso-spacerun:yes'>  </span>Vypíšte počet nákupov účtovaných zamestnancom
+s <span class=SpellE>os_cislom</span> = 5204 v dnešný deň.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 2 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>  </span><span style='mso-tab-count:15'>                                                                                                                                                                              </span><span
+style='mso-tab-count:15'>                                                                                                                                                                                </span><span
+style='mso-tab-count:6'>                                                                       </span><span
+class=SpellE>select</span> <span class=SpellE>count</span>(*) <span
+class=SpellE>from</span> <span class=SpellE>nakup</span> <o:p></o:p></span></p>
+
+<p class=MsoNormal><span class=SpellE><span style='font-family:Arial'>where</span></span><span
+style='font-family:Arial'> kedy='31.05.2004' <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>and os_cislo=5204;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span style='mso-tab-count:
+15'>                                                                                                                                                                                </span><span
+style='mso-tab-count:3'>                                   </span><span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - SQL I - 4<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>20.<span
+style='mso-spacerun:yes'>  </span>Ktorý z príkazov nepatrí do DDL<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 1 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>CREATE INDEX <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>ALTER TABLE <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>CREATE UNIQUE INDEX <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>   </span><b style='mso-bidi-font-weight:normal'><span
+style='mso-spacerun:yes'> </span>INSERT<span style='mso-spacerun:yes'>  </span><o:p></o:p></b></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - SQL I - 1<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>21.<span
+style='mso-spacerun:yes'>  </span>Ktoré z príkazov slúžia na vytvorenie
+nasledovného vzťahu medzi ET1 a ET2?<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 2 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>ALTER TABLE ET1 ADD (FOREIGN KEY (atr1,
+atr2) REFERENCES ET2); <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>ALTER TABLE ET2 ADD (FOREIGN KEY (atr1,
+atr2) REFERENCES ET1); <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>ALTER TABLE ET2 ADD ( FOREIGN KEY (atr1)
+REFERENCES ET1); ALTER TABLE ET2 ADD ( FOREIGN KEY (atr2) REFERENCES ET1);<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>ALTER TABLE ET2 ADD ( PRIMARY KEY (atr1,
+atr2)); <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - SQL I - 5<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>22.<span
+style='mso-spacerun:yes'>  </span>Ktorý z príkazov zodpovedá definícii danej
+entity?<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 2 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span><span class=SpellE>Create</span> table ET1
+( atr1 <span class=SpellE>int</span> <span class=SpellE>not</span> <span
+class=SpellE>null</span> <span class=SpellE>unique</span>, atr2 <span
+class=SpellE>int</span> <span class=SpellE>not</span> <span class=SpellE>null</span>
+<span class=SpellE>unique</span>, atr3 varchar2(10), atr4 <span class=SpellE>date</span>
+<span class=SpellE>not</span> <span class=SpellE>null</span>); <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span><span class=SpellE>Create</span> table ET1
+( atr1 <span class=SpellE>int</span> <span class=SpellE>not</span> <span
+class=SpellE>null</span>, atr2 <span class=SpellE>int</span> <span
+class=SpellE>not</span> <span class=SpellE>null</span>, atr3 varchar2(10), atr4
+<span class=SpellE>date</span> <span class=SpellE>not</span> <span
+class=SpellE>null</span>); <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span><span class=SpellE>Create</span> table ET1
+( atr1 <span class=SpellE>int</span> <span class=SpellE>not</span> <span
+class=SpellE>null</span>, atr2 <span class=SpellE>int</span> <span
+class=SpellE>not</span> <span class=SpellE>null</span>, atr3 varchar2(10), atr4
+<span class=SpellE>date</span> <span class=SpellE>not</span> <span
+class=SpellE>null</span>, <span class=SpellE>primary</span> <span class=SpellE>key</span>
+(atr1, atr2)); <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span><span class=SpellE>Create</span> table ET1
+( atr1 <span class=SpellE>int</span> <span class=SpellE>not</span> <span
+class=SpellE>null</span> <span class=SpellE>primary</span> <span class=SpellE>key</span>,
+atr2 <span class=SpellE>int</span> <span class=SpellE>not</span> <span
+class=SpellE>null</span> <span class=SpellE>primary</span> <span class=SpellE>key</span>,
+atr3 varchar2(10), atr4 <span class=SpellE>date</span> <span class=SpellE>not</span>
+<span class=SpellE>null</span>); <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - ERA 3<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>23.<span
+style='mso-spacerun:yes'>  </span><span class=SpellE>Kardinalita</span> vzťahu
+je<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 2 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span><span class=SpellE>integritné</span>
+obmedzenie, ktoré vyjadruje prípustný počet riadkov relácie <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span><span class=SpellE>integritné</span>
+obmedzenie, ktoré vyjadruje možnosť <span class=SpellE>neexistencie</span>
+entity jedného typu vo vzťahu k existencii entity iného typu<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><b style='mso-bidi-font-weight:normal'><span
+style='mso-spacerun:yes'>   </span><span class=SpellE>integritné</span> obmedzenie,
+ktoré vyjadruje prípustný počet entít vo vzťahu<span style='mso-spacerun:yes'> 
+</span><o:p></o:p></b></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span><span class=SpellE>ntegritné</span>
+obmedzenie, ktoré vyjadruje prípustný počet domén vo vzťahu <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - ERA 5<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>24.<span
+style='mso-spacerun:yes'>  </span>ISA vzťahy v ERA diagrame<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 2 <o:p></o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Arial'><span style='mso-spacerun:yes'>    </span>netvoria
+orientovaný cyklus <o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>tvoria orientovaný cyklus <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>tvoria úplný graf <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>tvoria neorientovaný cyklus <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - RDB 1<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>25.<span
+style='mso-spacerun:yes'>  </span>Definujte pojem Doména <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 2 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>Množina prípustných atribútov <o:p></o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Arial'><span style='mso-spacerun:yes'>    </span>Množina
+prípustných hodnôt atribútov <o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>Množina prípustných hodnôt cudzieho kľúča <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - RDB 2<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>26.<span
+style='mso-spacerun:yes'>  </span>Aký je vzťah medzi reláciou, atribútmi a
+primárnym kľúčom?<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 2 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>PK je <span class=SpellE>podmnožina</span>
+množiny atribútov v relácii <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>PK a atribúty sú vo vzájomnej relácii <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>Všetky atribúty relácie musia spolu tvoriť
+PK <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>PK je práve jeden z atribútov v relácii <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - SQL I - 2<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>27.<span
+style='mso-spacerun:yes'>  </span>Príkaz GRANT slúži na:<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 2 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span><b style='mso-bidi-font-weight:normal'>pridelenie
+prístupových právna databázový objekt užívateľovi <o:p></o:p></b></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>pridelenie práv na prístup k zdrojovým
+kódom aplikácie. <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>obratie práv užívateľovi <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>odobratie práv čítania zdrojových kódov
+aplikácie. <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - SQL I - 3<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>28.<span
+style='mso-spacerun:yes'>  </span>Príkaz ROLLBACK slúži na:<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 2 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span><b style='mso-bidi-font-weight:normal'>Vrátenie
+DB do pôvodného stavu ako bola pred začatím transakcie. <o:p></o:p></b></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>Potvrdenie transakcie <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>Vrátenie DB do pôvodného stavu ako bola
+pred posledným vykonávaným príkazom. <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - SQL II. - 2<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>29.<span
+style='mso-spacerun:yes'>  </span>Vymažte všetky nákupy, ktoré nemajú ani jednu
+položku.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 2 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>  </span><span style='mso-tab-count:9'>                                                                                                        </span><span
+class=SpellE>delete</span> <span class=SpellE>from</span> <span class=SpellE>nakup</span>
+<span class=SpellE>where</span> <span class=SpellE>id_nakupu</span> <span
+class=SpellE>not</span> in (<span class=SpellE>select</span> <span
+class=SpellE>id_nakupu</span> <span class=SpellE>from</span> <span
+class=SpellE>polozka</span>);<span style='mso-tab-count:11'>                                                                                                                        </span><span
+style='mso-tab-count:15'>                                                                                                                                                                                </span><span
+style='mso-tab-count:10'>                                                                                                                      </span><span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - SQL II. - 3<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>30.<span
+style='mso-spacerun:yes'>  </span><span class=SpellE>Kaskádovite</span> zmeňte <span
+class=SpellE>id</span> zamestnanca z '800505/7583' na '820505/7583'<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 3 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>  </span><span style='mso-tab-count:15'>                                                                                                                                                                              </span><span
+style='mso-tab-count:3'>                                   </span><span
+class=SpellE>update</span> zamestnanec set id='820505/7583'where
+id='800505/7583';<o:p></o:p></span></p>
+
+<p class=MsoNormal><span class=SpellE><span style='font-family:Arial'>update</span></span><span
+style='font-family:Arial'> <span class=SpellE>nakup</span> set
+nakupujuci='820505/7583'where nakupujuci='800505/7583';<o:p></o:p></span></p>
+
+<p class=MsoNormal><span class=SpellE><span style='font-family:Arial'>update</span></span><span
+style='font-family:Arial'> osoba set id='820505/7583'where id='800505/7583';<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span style='mso-tab-count:
+15'>                                                                                                                                                                                </span><span
+style='mso-tab-count:15'>                                                                                                                                                                                </span><span
+style='mso-tab-count:6'>                                                                       </span><span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - SQL II. - 1<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>31.<span
+style='mso-spacerun:yes'>  </span>Vymažte všetky položky z nákupu, kde
+id_nakupu=26. <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 1 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>  </span><span style='mso-tab-count:15'>                                                                                                                                                                              </span><span
+style='mso-tab-count:3'>                                   </span><span
+class=SpellE>delete</span> <span class=SpellE>from</span> <span class=SpellE>nakup</span>
+<span class=SpellE>where</span> id_nakupu=26;<span style='mso-tab-count:7'>                                                                        </span><span
+style='mso-tab-count:15'>                                                                                                                                                                                </span><span
+style='mso-tab-count:10'>                                                                                                                      </span><span
+style='mso-tab-count:4'>                                               </span><span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - NORM 6<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>32.<span
+style='mso-spacerun:yes'>  </span>Kedy je relácia v BCNF<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 2 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>keď každý determinant je kandidátom
+primárneho kľúča <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>keď je v 2NF a žiaden nekľúčový atribút nie
+je tranzitívne funkčne závislý na primárnom kľúči. <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>keď každý kandidát primárneho kľúča je
+determinantom <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>keď je v 3NF a každý nekľúčový atribút je
+determinantom<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - RDB 5<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>33.<span
+style='mso-spacerun:yes'>  </span>Ako treba opraviť daný <span class=SpellE>entitný</span>
+diagram?<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 2 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>do ET2 pribudnú: 4 atribúty FK, ktoré budú
+súčasťou PK v ET2 a 1 atribút FK, ktorý nebude súčasťou PK v ET2 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>do ET2 pribudnú: 1 atribút FK, ktorý bude
+súčasťou PK v ET2 a 2 atribúty FK, ktoré nebudú súčasťou PK v ET2 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>do ET2 pribudne 5 atribútov FK, ktoré
+nebudú súčasťou PK v ET2 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>do ET2 pribudnú: 2 atribúty FK, ktoré budú
+súčasťou PK v ET2 a 1 atribút FK, ktorý nebude súčasťou PK v ET2 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - SQL IV. - 3<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>34.<span
+style='mso-spacerun:yes'>  </span>Ak máme nasledovný pohľad:<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>CREATE OR REPLACE VIEW <span
+class=SpellE>zamest</span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>AS<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SELECT <span class=SpellE>os_cislo</span>,
+meno, <span class=SpellE>priezvisko,pozicia</span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>FROM osoba, zamestnanec
+WHERE <span class=SpellE>osoba.id=zamestnanec.id</span>; Aký <span
+class=SpellE>trigger</span> budete potrebné definovať, aby operácia INSERT INTO
+<span class=SpellE>zamest</span> fungovala správne? <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 3 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>BEFORE alebo AFTER INSERT <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>INSTEAD OF INSERT <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>AFTER INSERT <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>BEFORE INSERT <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - RA 5<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>35.<span
+style='mso-spacerun:yes'>  </span>Uveďte príklad, kde by ste využili <span
+class=SpellE>kartézsky</span> súčin.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 2 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>  </span><span style='mso-tab-count:5'>                                                         </span><span
+style='mso-tab-count:10'>                                                                                                                      </span><span
+style='mso-tab-count:12'>                                                                                                                                             </span>pri
+<span class=SpellE>zapise</span> do <span class=SpellE>rocnika</span> - <span
+class=SpellE>ziak</span> x povinne predmety <o:p></o:p></span></p>
+
+<p class=MsoNormal><span class=SpellE><span style='font-family:Arial'>kazdy</span></span><span
+style='font-family:Arial'> ma povinne predmety<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span style='mso-tab-count:
+15'>                                                                                                                                                                                </span><span
+style='mso-tab-count:12'>                                                                                                                                             </span><span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - Úvod 1<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>36.<span
+style='mso-spacerun:yes'>  </span>Ktoré sú hlavné časti SRBD (v každom SRBD
+musia existovať)<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 1 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>DIS, DAS <o:p></o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Arial'><span style='mso-spacerun:yes'>    </span>DDL, DML <o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>DDL, DIS <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>DDL, DAS <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - SQL III. - 5<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>37.<span
+style='mso-spacerun:yes'>  </span>Vypíšte menný zoznam pracovníkov spolu s
+počtom rokov, ktoré pracujú vo firme.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 2 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>  </span><span style='mso-tab-count:15'>                                                                                                                                                                              </span><span
+style='mso-tab-count:12'>                                                                                                                                             </span><span
+class=SpellE>select</span> <span class=SpellE>meno,priezvisko,to_char</span>(<span
+class=SpellE>sysdate,'yyyy</span>')-<o:p></o:p></span></p>
+
+<p class=MsoNormal><span class=SpellE><span style='font-family:Arial'>to_char</span></span><span
+style='font-family:Arial'>(<span class=SpellE>datum_nastupu,'yyyy</span>') <span
+class=SpellE>pocet_rokov</span> <span class=SpellE>from</span> <span
+class=SpellE>zamestnanec,osoba</span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span class=SpellE><span style='font-family:Arial'>where</span></span><span
+style='font-family:Arial'> <span class=SpellE>osoba.id=zamestnanec.id</span>;<span
+style='mso-tab-count:11'>                                                                                                                       </span><span
+style='mso-tab-count:15'>                                                                                                                                                                                </span><span
+style='mso-tab-count:1'>            </span><span style='mso-spacerun:yes'> 
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - RA 1<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>38.<span
+style='mso-spacerun:yes'>  </span>Ktoré z nasledujúcich výrazov sú korektné
+výrazy relačnej algebry?<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 3 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>výrazy <span class=SpellE>a,c,e</span> <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>výrazy <span class=SpellE>b,d,e</span> <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>ani jeden výraz <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>všetky výrazy <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - RA 3<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>39.<span
+style='mso-spacerun:yes'>  </span>Určite výraz relačnej algebry zodpovedajúci
+nasledovnému príkazu:<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>  </span>SELECT <span class=SpellE>id</span>, meno
+FROM OSOBA;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 2 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>      </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>   </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>      </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>   </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>      </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>   </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - RA 4<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>40.<span
+style='mso-spacerun:yes'>  </span>Určite, ktorý z výrazov relačnej algebry
+zodpovedá <span class=SpellE>naledovnému</span> príkazu: <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>  </span>SELECT <span class=SpellE>z.os_cislo</span>, <span
+class=SpellE>n.kedy</span>, <span class=SpellE>n.id_nakupu</span> FROM
+zamestnanec z, <span class=SpellE>nakup</span> n; <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 2 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>      </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>   </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>      </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>   </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>      </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>   </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - RA 2<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>41.<span
+style='mso-spacerun:yes'>  </span>Určite výraz relačnej algebry zodpovedajúci
+nasledovnému príkazu:<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>   </span>SELECT <span class=SpellE>id</span> FROM
+OSOBA<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>   </span>WHERE <span class=SpellE>id</span> <span
+class=SpellE>not</span> in <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>      </span>(SELECT <span class=SpellE>id</span> FROM
+ZAMESTNANEC); <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 2 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>      </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>   </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>      </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>   </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>      </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>   </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>      </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>   </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - ERA 4<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>42.<span
+style='mso-spacerun:yes'>  </span>Ktorý z obrázkov je správna dekompozícia
+vzťahu M:N medzi ET1 a ET2<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 2 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>      </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>   </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>      </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>   </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>      </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>   </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>      </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>   </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - SQL IV. - 2<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>43.<span
+style='mso-spacerun:yes'>  </span>Je možné v procedúre použiť nasledovný <span
+class=SpellE>select-príkaz</span>?<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>   </span><span class=SpellE>select</span> * <span
+class=SpellE>from</span> zamestnanec;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Vysvetlite prečo a kedy áno
+alebo nie.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 3 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>  </span>nie lebo <span class=SpellE>mozme</span> <span
+class=SpellE>pouzit</span> len <span class=SpellE>select</span> <span
+class=SpellE>into</span> premena<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>ani v <span class=SpellE>trigroch</span>
+ani v <span class=SpellE>procedurach</span> <span class=SpellE>nemozeme</span> <span
+class=SpellE>pozivat</span> <span class=SpellE>select</span> <span
+class=SpellE>mozeme</span> z DML <span class=SpellE>pouzivat</span> <span
+class=SpellE>insert</span> <span class=SpellE>update</span> a <span
+class=SpellE>delete</span> <o:p></o:p></span></p>
+
+<p class=MsoNormal><span class=SpellE><span style='font-family:Arial'>taktiez</span></span><span
+style='font-family:Arial'> <span class=SpellE>nemozme</span> <span
+class=SpellE>commit</span> <span class=SpellE>roollback</span>...<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>                           </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span style='mso-tab-count:
+15'>                                                                                                                                                                                </span><span
+style='mso-tab-count:12'>                                                                                                                                             </span><span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - NORM 2<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>44.<span
+style='mso-spacerun:yes'>  </span>Vypíšte všetky funkčné závislosti z grafu. <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 2 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>  </span><span style='mso-tab-count:15'>                                                                                                                                                                              </span><span
+style='mso-tab-count:12'>                                                                                                                                             </span>a-&gt;c<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>a-&gt;b<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>b-&gt;e<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>e&lt;-&gt;d<o:p></o:p></span></p>
+
+<p class=MsoNormal><span class=SpellE><span style='font-family:Arial'>a,c</span></span><span
+style='font-family:Arial'>-&gt;d<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span style='mso-tab-count:
+15'>                                                                                                                                                                                </span><span
+style='mso-tab-count:5'>                                                           </span><span
+style='mso-tab-count:7'>                                                                                  </span><span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - ERA 2<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>45.<span
+style='mso-spacerun:yes'>  </span>Pomocou lineárneho zápisu entít a vzťahov
+navrhnite ERA diagram pre vzťah LEKÁR - PACIENT, definujte atribúty patriace
+vzťahu a uveďte možnú <span class=SpellE>kardinalitu</span> a povinnosť
+členstva s uvedením slovného popisu <span class=SpellE>integritného</span>
+obmedzenia vyplývajúceho zo vzťahu <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 2 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>  </span><span class=SpellE>Lekar</span> pacient 1:N -
+jeden <span class=SpellE>lekar</span> <span class=SpellE>moze</span> mat viac
+pacientov<o:p></o:p></span></p>
+
+<p class=MsoNormal><span class=SpellE><span style='font-family:Arial'>clenstvo</span></span><span
+style='font-family:Arial'> vo <span class=SpellE>vztahu</span> je <span
+class=SpellE>povine</span> pre pacienta a <span class=SpellE>nepovine</span>
+pre <span class=SpellE>lekara</span> - <span class=SpellE>lekar</span> <span
+class=SpellE>nemusi</span> mat <span class=SpellE>pacietov</span> ale ak chce
+byt niekto pacientom <span class=SpellE>musi</span> mat <span class=SpellE>lekara</span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><span style='mso-tab-count:15'>                                                                                                                                                                               </span><span
+style='mso-tab-count:6'>                                                                       </span><span
+style='mso-tab-count:9'>                                                                                                          </span><span
+style='mso-tab-count:15'>                                                                                                                                                                                </span><span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - NORM 4<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>46.<span
+style='mso-spacerun:yes'>  </span>Napíšte determinanty v zadanej relácii:<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 2 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>  </span><span style='mso-tab-count:15'>                                                                                                                                                                              </span><span
+style='mso-tab-count:3'>                                   </span>a<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>b<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>e<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>d<o:p></o:p></span></p>
+
+<p class=MsoNormal><span class=SpellE><span style='font-family:Arial'>a,c</span></span><span
+style='font-family:Arial'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span style='mso-tab-count:
+15'>                                                                                                                                                                                </span><span
+style='mso-tab-count:15'>                                                                                                                                                                                </span><span
+style='mso-tab-count:6'>                                                                       </span><span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - SQL III. - 8<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>47.<span
+style='mso-spacerun:yes'>  </span>Vypíšte ku každej pozícii počet zamestnancov.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 2 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>  </span><span style='mso-tab-count:1'>          </span><span
+style='mso-tab-count:14'>                                                                                                                                                                     </span><span
+style='mso-tab-count:3'>                                   </span><span
+class=SpellE>select</span> <span class=SpellE>pozicia,count</span>(*) <span
+class=SpellE>pocet</span> <span class=SpellE>from</span> zamestnanec<o:p></o:p></span></p>
+
+<p class=MsoNormal><span class=SpellE><span style='font-family:Arial'>group</span></span><span
+style='font-family:Arial'> by <span class=SpellE>pozicia</span>;<span
+style='mso-tab-count:13'>                                                                                                                                                   </span><span
+style='mso-tab-count:15'>                                                                                                                                                                                </span><span
+style='mso-tab-count:8'>                                                                                              </span><span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - SQL III. - 9<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>48.<span
+style='mso-spacerun:yes'>  </span>Zistite názov najpredávanejšieho tovaru.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 3 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>  </span><span style='mso-tab-count:9'>                                                                                                        </span><span
+class=SpellE>select</span> <span class=SpellE>nazov</span> <span class=SpellE>from</span>
+<span class=SpellE>tovar,polozka</span> <span class=SpellE>where</span> <span
+class=SpellE>polozka.id_tovaru=tovar.id_tovaru</span> <o:p></o:p></span></p>
+
+<p class=MsoNormal><span class=SpellE><span style='font-family:Arial'>group</span></span><span
+style='font-family:Arial'> by <span class=SpellE>nazov</span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span class=SpellE><span style='font-family:Arial'>having</span></span><span
+style='font-family:Arial'> max(<span class=SpellE>count</span>(*));<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span style='mso-tab-count:
+15'>                                                                                                                                                                                </span><span
+style='mso-tab-count:15'>                                                                                                                                                                                </span><span
+style='mso-tab-count:6'>                                                                       </span><span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - BONUS - DW 2<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>49.<span
+style='mso-spacerun:yes'>  </span>Hviezdicová schéma sa používa na modelovanie:<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 2 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>dimenzie <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>Tabuľky faktov <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>dátovej kocky <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - BONUS - IDX 1<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>50.<span
+style='mso-spacerun:yes'>  </span>V indexovom súbore s hustým (úplným) indexom
+– <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 2 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>pre každý záznam v dátovom súbore existuje
+práve jeden záznam v indexov súbore <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>pre skupinu záznamov v dátovom súbore
+existuje jeden záznam v indexov súbore <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>pre skupinu záznamov v dátovom súbore
+existuje aspoň jeden záznam v indexov súbore <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - NORM 1<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>51.<span
+style='mso-spacerun:yes'>  </span>Majme reláciu R (#A, #B, C, D). Aké sú v
+relácii funkčné závislosti, ak relácia je v 1.NF a nie je v 2.NF<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 3 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>      </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>   </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>      </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>   </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>      </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>   </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - BONUS - DW 1<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>52.<span
+style='mso-spacerun:yes'>  </span>Dátová kocka ________________obsahovať
+merateľnú dimenziu. Doplňte<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 1 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>musí <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>nemusí <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>nesmie <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - BONUS - IDX 2<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>53.<span
+style='mso-spacerun:yes'>  </span>B strom rozpoznáva:<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 2 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>tri druhy vrcholov Koreň, List, <span
+class=SpellE>Medziľahlý</span> vrchol <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>jeden druh vrcholov ( <span class=SpellE>Medziľahlý</span>
+vrchol) <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>dva druhy vrcholov (Koreň, List) <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>dva druhy vrcholov (Zdroj, Ústie) <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - SQL IV. - 1<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>54.<span
+style='mso-spacerun:yes'>  </span>Majme nasledovný <span class=SpellE>trigger</span>:<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>CREATE OR REPLACE TRIGGER <span
+class=SpellE>t_log_zp</span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>........ UPDATE ON <span
+class=SpellE>zap_predmety</span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>FOR EACH ROW<o:p></o:p></span></p>
+
+<p class=MsoNormal><span class=SpellE><span style='font-family:Arial'>begin</span></span><span
+style='font-family:Arial'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>INSERT INTO <span
+class=SpellE>log_table_zp</span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>VALUES (USER, SYSDATE);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>END;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Doplňte do <span
+class=SpellE>Triggra</span>:<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Body: 3 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>BEFORE, alebo AFTER <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>len INSTEAD OF <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>len AFTER <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'>    </span>len BEFORE <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>SKB - SQL III. - 7<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>55.<span
+style='mso-spacerun:yes'>  </span>Ku každému názvu druhu tovaru vypíšte
+priemernú cenu všetkých tovarov daného druhu.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+select meno,priezvisko,cis_predm
+from os_udaje join student using(rod_cislo)
+join zap_predmety using(os_cislo)
+where ((to_char(datum_sk,'MM') between 9 and 12)
+and not (skrok=to_char(datum_sk,'YYYY')))
+or ((to_char(datum_sk,'MM') between 1 and 8)
+and (skrok=1+to_char(datum_sk,'YYYY')));

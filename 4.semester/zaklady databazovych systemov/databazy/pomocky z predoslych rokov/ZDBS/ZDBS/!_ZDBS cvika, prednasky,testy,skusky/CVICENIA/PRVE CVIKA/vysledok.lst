@@ -1,0 +1,31 @@
+SQL> select ou_priezvisko from os_udaje;
+
+OU_PRIEZVISKO                                                                   
+---------------                                                                 
+Balaz                                                                           
+Biely                                                                           
+Durica                                                                          
+Janci                                                                           
+Kapustny                                                                        
+Kluciar                                                                         
+Kontros                                                                         
+Kovac                                                                           
+Krnac                                                                           
+Lehotsky                                                                        
+Lipovska                                                                        
+
+OU_PRIEZVISKO                                                                   
+---------------                                                                 
+Murgas                                                                          
+Novak                                                                           
+Papun                                                                           
+Ratroch                                                                         
+Satrapa                                                                         
+Slamova                                                                         
+Steinmuller                                                                     
+Svetkovsky                                                                      
+Toth                                                                            
+
+20 rows selected.
+
+SQL> spool off

@@ -1,0 +1,54 @@
+1) vyber jedál z menu na dnešný den
+
+select nazov from jedlo,menu
+where menu.id_jedla=jedlo.id_jedla
+and to_char(menu.kedy,'DD.MM.RRRR') = to_char(sysdate,'DD.MM.RRRR');
+
+2) prehlad jedal za posledny mesiac
+
+select id_jedla,nazov from jedlo,menu
+where jedlo.id_jedla=menu.id_jedla
+and to_char(menu.kedy,'MM')=to_char(((sysdate-to_char(sysdate,'DD'))-1),'MM')
+   and to_char(menu.kedy,'RRRR')=to_char(((sysdate-to_char(sysdate,'DD'))-1),'RRRR');
+
+--od dnesneho mesiaca odratas v ktorom si dni...a este 1.... 
+--napr ak je 14.1.2006 tak odratas 14 to bude 1.1.2006 a potom este 1 a to bude 31.12.2005 a s tym pracujes
+
+3) ake si objednali Doktorandi za posledné 2 týždne
+
+select id_jedlo from objednavky, stravnik, typ_stravnika
+where typ_stravnika.id_typu = stravnik.id_typu
+  AND stravnik.id_stravnik = objednavky.id_stravnika
+     AND typ_stravnika.nazov = 'doktorant'
+        AND sysdate- objednavky.kedy < 15
+
+4)  vypíš jedlo ktoré sa v objednávkach neobjavilo posledných 14 dní
+
+  vypíš jedlo ktoré sa v objednávkach neobjavilo posledných 14 dní
+
+select nazov from jedlo 
+where jedlo.id_jedla not in (select id_jedla from objednavky where sysdate-kedy<=14);
+
+
+
+5) zmaza objednávku stravníka meno blablabla...ktoré 
+je na zajtra
+
+
+delete from objednavky 
+  WHERE objednavky.id_stravnika IN
+   (select id_stravnika from stravnik
+    WHERE meno ='BLA'
+      AND kedy = sysdate + 1);
+
+vypísa menný zoznam stravníkov ktorý si už nieèo 
+objednali
+
+select meno,priezvisko from stravnik, objednavky where stravnik.id_stravnika=objednavky.id_stravnika;
+
+bol tam dáky pohlad a do pohladu si vložil nieèo cez 
+select a otázka bola že aká bude výsledná záznamová 
+položka new
+
+insert menu do zajtrajsieho dna
+

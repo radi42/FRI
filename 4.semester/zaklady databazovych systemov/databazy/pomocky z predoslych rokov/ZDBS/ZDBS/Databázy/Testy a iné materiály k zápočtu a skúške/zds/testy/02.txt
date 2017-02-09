@@ -1,0 +1,28 @@
+Ahoj, nemohl by me nekdo prosim ukazat jak by resil tenhle priklad v Sql 
+
+Kino (IdK,Kapacita), Film (IdF,Reziser), Prog(IdK,IdF,Termin)  - klice Idk v 
+Kino , IdF ve Film a vsechno v Prog 
+
+
+Filmy s nejvetsi potencionalni navstevnosi (nejvetsi suma kapacit) 
+
+
+
+Predem diky 
+
+===
+
+select IdF from Prog natural join Kino group by IdF
+having sum(Kapacita)>=all(select sum(Kapacita) from Prog natural join Kino group by IdF)
+
+misto "Prog natural join Kino" muze byt "Prog,Kino where Prog.IdF=Kino.IdF"
+
+Venca
+
+===
+
+Mozna neco jako: 
+
+select sum(Kino.Kapacita) from Kino, Prog where Kino.Idk = Prog.Idk group by Prog.Idf 
+
+Pavel 

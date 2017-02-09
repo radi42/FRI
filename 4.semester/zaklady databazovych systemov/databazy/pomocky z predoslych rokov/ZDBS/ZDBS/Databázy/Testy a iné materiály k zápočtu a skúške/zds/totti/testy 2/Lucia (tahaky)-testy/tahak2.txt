@@ -1,0 +1,440 @@
+Pri operácii UPDATE vysvetlite pojem REŠTRIKCIA (RESTRICTED) pre zmenu hodnôt primárneho k¾úèa 
+ 
+Body: 2 
+  																																													ak sa uzivatel pokusi zmenit hodnotu PK ktora sa v inej relacii nachadza ako FK tak to nedovoli 									  
+SKB - ERA 1  
+2.  Typ entity
+ 
+Body: 1 
+    Objekt reálneho sveta schopnı samostatnej existencie, ktorı je jednoznaène identifikovate¾nı 
+    popis objektov s rovnakımi charakteristikami 
+    Objekt reálneho sveta schopnı samostatnej existencie, ktorı nemusí by jednoznaène identifikovate¾nı 
+SKB - Úvod 2  
+3.  Logická nezávislos dát je
+ 
+Body: 1 
+    Nezávislos dát od prístupovıch metód 
+    Nezávislos dátového modelu na programe 
+    Nezávislos programu od organizácie dát 
+SKB - Úvod 3  
+4.  V ktorıch prípadoch je prípustnı viacnásobnı vıskyt rovnakıch dát
+ 
+Body: 1 
+    vdy 
+    pri riadenej redundancii 
+    nikdy 
+SKB - Úvod 5  
+5.  Ktoré úrovne architektúry DBS sú implementaène závislé: 
+ 
+Body: 1 
+    len interná 
+    externá aj interná 
+    aplikaèná a externá 
+    len externá 
+SKB - Úvod 4  
+6.  Perzistentné dáta sú
+ 
+Body: 1 
+    dáta, ktoré zanikajú po ukonèení programu  
+    dáta existujúce aj po ukonèení programu  
+    odvodené dáta  
+SKB - RDB 3  
+7.  Vymenujte a popíšte VLASTNOSTI relácie 
+ 
+Body: 2 
+    CRUDE = ståpcová, referenèná, uívate¾ská, domenová, entitná  
+    ACID = atomickos, konzistencia, nezávislos, trvácnos 
+    ANNU = atomickos, neusporiadanos z¾ava doprava, neusporiadanos zhora dole, jednoznaènos  
+SKB - RDB 4  
+8.  Definujte Cudzí k¾úè
+ 
+Body: 2 
+    Mnoina atribútov, ktorá spåòa podmienku jednoznaènosti a minimálnosti a je definovaná v inej relácii 
+    Mnoina atribútov, ktorá spåòa podmienku jednoznaènosti a minimálnosti 
+    Mnoina atribútov, ktorá je definovaná v inej relácii ako kandidát primárneho k¾úèa 
+SKB - RI 3  
+9.  Integrita entít hovorí
+ 
+Body: 2 
+    atribút primárneho k¾úèa môe nadobúda NULL hodnoty 
+    atribút primárneho k¾úèa nesmie nadobúda NULL hodnoty 
+    atribút primárneho k¾úèa musí nadobúda NULL hodnotu  
+SKB - RI 5  
+10.  Uveïte príklad uívate¾skej integrity 
+ 
+Body: 2 
+  																																													datum skusky vacsi ako datum zapoctu									  
+SKB - RI 2  
+11.  Popíšte doménovú integritu 
+ 
+Body: 2 
+  																																													typ dat
+mnozina pripustnych hodnot
+usporiadatelnost - moznost porovnavania									  
+SKB - RI 4  
+12.  Referenèná integrita hovorí
+ 
+Body: 2 
+    hodnota FK v relácii R2 sa nemusí rovna hodnote PK z relácie R1 
+    FK je mnoina atribútov definovaná v relácii R2, ktorá môe by v inej relácii R1 definovaná ako primárny k¾úè PK alebo kandidát PK  
+    hodnota FK v relácii R2 sa môe rovna hodnote PK z relácie R1 
+    hodnota FK v relácii R2 sa musí rovna hodnote PK z relácie R1, alebo NULL 
+SKB - Úvod 6  
+13.  Do ktorej úrovne patrí stanovenie aká metóda indexácie bude pouitá?
+ 
+Body: 1 
+    aplikaènej  
+    konceptuálnej 
+    externej 
+    internej 
+SKB - NORM 3  
+14.  Ak máme reláciu 
+A (rodne_cislo, meno, priezvisko, telefon, #osobne_cislo, rocnik, st_skupina, #cislo_predmetu, nazov, pocet_kreditov); 
+Urèite závislos osobne_cislo - nazov v relácii A je : 
+ 
+Body: 2 
+    neexistuje 
+    tranzitívna 
+    vzájomná 
+SKB - NORM 5  
+15.  Majme reláciu R (#A, B, C, D, E), pre ktorú sú dané nasledovné funkèné závislosti:
+A->B, BC->E a ED->A 
+Je relácia v BCNF?
+ 
+Body: 2 
+    nie 
+    áno 
+SKB - SQL III. - 1  
+16.  Vypíšte mennı zoznam všetkıch zamestnancov.
+ 
+Body: 2 
+  																																				select meno,priezvisko from osoba,zamestnanec
+where osoba.id=zamestnanec.id;																		  
+SKB - SQL III. - 3  
+17.  Vypíšte názvy tovarov, ktoré boli niekedy predané (potlaète duplicity).
+ 
+Body: 2 
+  																																				select distinct nazov from tovar,polozka
+where polozka.id_tovaru=tovar.id_tovaru
+																		  
+SKB - SQL III. - 4  
+18.  Vypíšte zoznam druhov tovarov, z ktorıch nemáme ani jeden tovar.
+ 
+Body: 2 
+  																																				select nazov from druh_tovaru where id_druhu not in (select 
+id_druhu from tovar);																		  
+SKB - SQL III. - 2  
+19.  Vypíšte poèet nákupov úètovanıch zamestnancom s os_cislom = 5204 v dnešnı deò.
+ 
+Body: 2 
+  																																				select count(*) from nakup 
+where kedy='31.05.2004' 
+and os_cislo=5204;
+																		  
+SKB - SQL I - 4  
+20.  Ktorı z príkazov nepatrí do DDL
+ 
+Body: 1 
+    CREATE INDEX 
+    ALTER TABLE 
+    CREATE UNIQUE INDEX 
+    INSERT  
+SKB - SQL I - 1  
+21.  Ktoré z príkazov slúia na vytvorenie nasledovného vzahu medzi ET1 a ET2?
+  
+Body: 2 
+    ALTER TABLE ET1 ADD (FOREIGN KEY (atr1, atr2) REFERENCES ET2); 
+    ALTER TABLE ET2 ADD (FOREIGN KEY (atr1, atr2) REFERENCES ET1); 
+    ALTER TABLE ET2 ADD ( FOREIGN KEY (atr1) REFERENCES ET1); ALTER TABLE ET2 ADD ( FOREIGN KEY (atr2) REFERENCES ET1);  
+    ALTER TABLE ET2 ADD ( PRIMARY KEY (atr1, atr2)); 
+SKB - SQL I - 5  
+22.  Ktorı z príkazov zodpovedá definícii danej entity?
+  
+Body: 2 
+    Create table ET1 ( atr1 int not null unique, atr2 int not null unique, atr3 varchar2(10), atr4 date not null); 
+    Create table ET1 ( atr1 int not null, atr2 int not null, atr3 varchar2(10), atr4 date not null); 
+    Create table ET1 ( atr1 int not null, atr2 int not null, atr3 varchar2(10), atr4 date not null, primary key (atr1, atr2)); 
+    Create table ET1 ( atr1 int not null primary key, atr2 int not null primary key, atr3 varchar2(10), atr4 date not null); 
+SKB - ERA 3  
+23.  Kardinalita vzahu je
+ 
+Body: 2 
+    integritné obmedzenie, ktoré vyjadruje prípustnı poèet riadkov relácie 
+    integritné obmedzenie, ktoré vyjadruje monos neexistencie entity jedného typu vo vzahu k existencii entity iného typu  
+    integritné obmedzenie, ktoré vyjadruje prípustnı poèet entít vo vzahu  
+    ntegritné obmedzenie, ktoré vyjadruje prípustnı poèet domén vo vzahu 
+SKB - ERA 5  
+24.  ISA vzahy v ERA diagrame
+ 
+Body: 2 
+    netvoria orientovanı cyklus 
+    tvoria orientovanı cyklus 
+    tvoria úplnı graf 
+    tvoria neorientovanı cyklus 
+SKB - RDB 1  
+25.  Definujte pojem Doména 
+ 
+Body: 2 
+    Mnoina prípustnıch atribútov 
+    Mnoina prípustnıch hodnôt atribútov 
+    Mnoina prípustnıch hodnôt cudzieho k¾úèa 
+SKB - RDB 2  
+26.  Akı je vzah medzi reláciou, atribútmi a primárnym k¾úèom?
+ 
+Body: 2 
+    PK je podmnoina mnoiny atribútov v relácii 
+    PK a atribúty sú vo vzájomnej relácii 
+    Všetky atribúty relácie musia spolu tvori PK 
+    PK je práve jeden z atribútov v relácii 
+SKB - SQL I - 2  
+27.  Príkaz GRANT slúi na:
+ 
+Body: 2 
+    pridelenie prístupovıch právna databázovı objekt uívate¾ovi 
+    pridelenie práv na prístup k zdrojovım kódom aplikácie. 
+    obratie práv uívate¾ovi 
+    odobratie práv èítania zdrojovıch kódov aplikácie. 
+SKB - SQL I - 3  
+28.  Príkaz ROLLBACK slúi na:
+ 
+Body: 2 
+    Vrátenie DB do pôvodného stavu ako bola pred zaèatím transakcie. 
+    Potvrdenie transakcie 
+    Vrátenie DB do pôvodného stavu ako bola pred poslednım vykonávanım príkazom. 
+SKB - SQL II. - 2  
+29.  Vymate všetky nákupy, ktoré nemajú ani jednu poloku.
+ 
+Body: 2 
+  									delete from nakup where id_nakupu not in (select id_nakupu from polozka);																																				  
+SKB - SQL II. - 3  
+30.  Kaskádovite zmeòte id zamestnanca z '800505/7583' na '820505/7583'
+ 
+Body: 3 
+  																		update zamestnanec set id='820505/7583'where id='800505/7583';
+update nakup set nakupujuci='820505/7583'where nakupujuci='800505/7583';
+update osoba set id='820505/7583'where id='800505/7583';
+																																				  
+SKB - SQL II. - 1  
+31.  Vymate všetky poloky z nákupu, kde id_nakupu=26. 
+ 
+Body: 1 
+  																		delete from nakup where id_nakupu=26;																																				  
+SKB - NORM 6  
+32.  Kedy je relácia v BCNF
+ 
+Body: 2 
+    keï kadı determinant je kandidátom primárneho k¾úèa 
+    keï je v 2NF a iaden nek¾úèovı atribút nie je tranzitívne funkène závislı na primárnom k¾úèi. 
+    keï kadı kandidát primárneho k¾úèa je determinantom 
+    keï je v 3NF a kadı nek¾úèovı atribút je determinantom  
+SKB - RDB 5  
+33.  Ako treba opravi danı entitnı diagram?
+  
+Body: 2 
+    do ET2 pribudnú: 4 atribúty FK, ktoré budú súèasou PK v ET2 a 1 atribút FK, ktorı nebude súèasou PK v ET2 
+    do ET2 pribudnú: 1 atribút FK, ktorı bude súèasou PK v ET2 a 2 atribúty FK, ktoré nebudú súèasou PK v ET2 
+    do ET2 pribudne 5 atribútov FK, ktoré nebudú súèasou PK v ET2 
+    do ET2 pribudnú: 2 atribúty FK, ktoré budú súèasou PK v ET2 a 1 atribút FK, ktorı nebude súèasou PK v ET2 
+SKB - SQL IV. - 3  
+34.  Ak máme nasledovnı poh¾ad:
+CREATE OR REPLACE VIEW zamest
+AS
+SELECT os_cislo, meno, priezvisko,pozicia
+FROM osoba, zamestnanec WHERE osoba.id=zamestnanec.id; Akı trigger budete potrebné definova, aby operácia INSERT INTO zamest fungovala správne? 
+ 
+Body: 3 
+    BEFORE alebo AFTER INSERT 
+    INSTEAD OF INSERT 
+    AFTER INSERT 
+    BEFORE INSERT 
+SKB - RA 5  
+35.  Uveïte príklad, kde by ste vyuili kartézsky súèin.
+ 
+Body: 2 
+  																											pri zapise do rocnika - ziak x povinne predmety 
+kazdy ma povinne predmety
+																											  
+SKB - Úvod 1  
+36.  Ktoré sú hlavné èasti SRBD (v kadom SRBD musia existova)
+ 
+Body: 1 
+    DIS, DAS 
+    DDL, DML 
+    DDL, DIS 
+    DDL, DAS 
+SKB - SQL III. - 5  
+37.  Vypíšte mennı zoznam pracovníkov spolu s poètom rokov, ktoré pracujú vo firme.
+ 
+Body: 2 
+  																											select meno,priezvisko,to_char(sysdate,'yyyy')-
+to_char(datum_nastupu,'yyyy') pocet_rokov from zamestnanec,osoba
+where osoba.id=zamestnanec.id;																											  
+SKB - RA 1  
+38.  Ktoré z nasledujúcich vırazov sú korektné vırazy relaènej algebry?
+  
+Body: 3 
+    vırazy a,c,e 
+    vırazy b,d,e 
+    ani jeden vıraz 
+    všetky vırazy 
+SKB - RA 3  
+39.  Urèite vıraz relaènej algebry zodpovedajúci nasledovnému príkazu:
+  SELECT id, meno FROM OSOBA;
+ 
+Body: 2 
+      
+   
+      
+   
+      
+   
+SKB - RA 4  
+40.  Urèite, ktorı z vırazov relaènej algebry zodpovedá naledovnému príkazu: 
+  SELECT z.os_cislo, n.kedy, n.id_nakupu FROM zamestnanec z, nakup n; 
+ 
+Body: 2 
+      
+   
+      
+   
+      
+   
+SKB - RA 2  
+41.  Urèite vıraz relaènej algebry zodpovedajúci nasledovnému príkazu:
+   SELECT id FROM OSOBA
+   WHERE id not in 
+      (SELECT id FROM ZAMESTNANEC); 
+ 
+Body: 2 
+      
+   
+      
+   
+      
+   
+      
+   
+SKB - ERA 4  
+42.  Ktorı z obrázkov je správna dekompozícia vzahu M:N medzi ET1 a ET2
+ 
+Body: 2 
+      
+   
+      
+   
+      
+   
+      
+   
+SKB - SQL IV. - 2  
+43.  Je moné v procedúre poui nasledovnı select-príkaz?
+   select * from zamestnanec;
+Vysvetlite preèo a kedy áno alebo nie.
+ 
+Body: 3 
+  nie lebo mozme pouzit len select into premena
+ani v trigroch ani v procedurach nemozeme pozivat select mozeme z DML pouzivat insert update a delete 
+taktiez nemozme commit roollback...
+                           
+
+																											  
+SKB - NORM 2  
+44.  Vypíšte všetky funkèné závislosti z grafu. 
+  
+Body: 2 
+  																											a->c
+a->b
+b->e
+e<->d
+a,c->d
+																											  
+SKB - ERA 2  
+45.  Pomocou lineárneho zápisu entít a vzahov navrhnite ERA diagram pre vzah LEKÁR - PACIENT, definujte atribúty patriace vzahu a uveïte monú kardinalitu a povinnos èlenstva s uvedením slovného popisu integritného obmedzenia vyplıvajúceho zo vzahu 
+ 
+Body: 2 
+  Lekar pacient 1:N - jeden lekar moze mat viac pacientov
+clenstvo vo vztahu je povine pre pacienta a nepovine pre lekara - lekar nemusi mat pacietov ale ak chce byt niekto pacientom musi mat lekara
+
+ 																																													  
+SKB - NORM 4  
+46.  Napíšte determinanty v zadanej relácii:
+  
+Body: 2 
+  																		a
+b
+e
+d
+a,c
+																																				  
+SKB - SQL III. - 8  
+47.  Vypíšte ku kadej pozícii poèet zamestnancov.
+ 
+Body: 2 
+  																		select pozicia,count(*) pocet from zamestnanec
+group by pozicia;																																				  
+SKB - SQL III. - 9  
+48.  Zistite názov najpredávanejšieho tovaru.
+ 
+Body: 3 
+  									select nazov from tovar,polozka where polozka.id_tovaru=tovar.id_tovaru 
+group by nazov
+having max(count(*));
+																																				  
+SKB - BONUS - DW 2  
+49.  Hviezdicová schéma sa pouíva na modelovanie:
+ 
+Body: 2 
+    dimenzie 
+    Tabu¾ky faktov 
+    dátovej kocky 
+SKB - BONUS - IDX 1  
+50.  V indexovom súbore s hustım (úplnım) indexom – 
+ 
+Body: 2 
+    pre kadı záznam v dátovom súbore existuje práve jeden záznam v indexov súbore 
+    pre skupinu záznamov v dátovom súbore existuje jeden záznam v indexov súbore 
+    pre skupinu záznamov v dátovom súbore existuje aspoò jeden záznam v indexov súbore 
+SKB - NORM 1  
+51.  Majme reláciu R (#A, #B, C, D). Aké sú v relácii funkèné závislosti, ak relácia je v 1.NF a nie je v 2.NF
+ 
+Body: 3 
+      
+   
+      
+   
+      
+   
+SKB - BONUS - DW 1  
+52.  Dátová kocka ________________obsahova merate¾nú dimenziu. Doplòte
+ 
+Body: 1 
+    musí 
+    nemusí 
+    nesmie 
+SKB - BONUS - IDX 2  
+53.  B strom rozpoznáva:
+ 
+Body: 2 
+    tri druhy vrcholov Koreò, List, Medzi¾ahlı vrchol 
+    jeden druh vrcholov ( Medzi¾ahlı vrchol) 
+    dva druhy vrcholov (Koreò, List) 
+    dva druhy vrcholov (Zdroj, Ústie) 
+SKB - SQL IV. - 1  
+54.  Majme nasledovnı trigger:
+CREATE OR REPLACE TRIGGER t_log_zp
+........ UPDATE ON zap_predmety
+FOR EACH ROW
+begin
+INSERT INTO log_table_zp
+VALUES (USER, SYSDATE);
+END;
+Doplòte do Triggra:
+ 
+Body: 3 
+    BEFORE, alebo AFTER 
+    len INSTEAD OF 
+    len AFTER 
+    len BEFORE 
+SKB - SQL III. - 7  
+55.  Ku kadému názvu druhu tovaru vypíšte priemernú cenu všetkıch tovarov daného druhu.
+ 

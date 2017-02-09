@@ -1,0 +1,1645 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+
+	
+  	<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" .charset="">
+			<title>SKUSKA 2010</title>
+	<h1>ZDBS SKUSKA 2010</h1>
+  <table class="form" width="100%" align="center">
+        <tbody><tr>
+          <th colspan="3">
+            SKI - RDB 4	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        1.      </td><td colspan="2" align="left">
+Definujte Kandidáta primárneho kľúča<br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 2</td></tr>
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3503]" value="8878" type="radio">          </td><td align="left">Množina atribútov, ktorá spĺňa podmienku jednoznačnosti a minimálnosti a je definovaná v inej relácii</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3503]" value="8877" checked="checked" type="radio">          </td><td align="left">Množina atribútov, ktorá spĺňa podmienku jednoznačnosti a minimálnosti</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3503]" value="8876" type="radio">          </td><td align="left">Atribút, ktorý určuje jednoznačnosť</td>
+	</tr>
+	
+
+        <tr>
+          <th colspan="3">
+            SKI - SQL III. - 7	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        2.      </td><td colspan="2" align="left">
+Aký bude výsledok nasledovného selectu.<br>
+select count(*)<br>
+from os_udaje o, zamestnanec z<br>
+where o.id_osoby = z.id_osoby<br>
+group by o.id_osoby; <br>
+<br>       <img src="student.php_subory/picture_010.gif" align="textbottom">
+           </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 2</td></tr>
+      <tr>
+        <td>&nbsp;</td><td colspan="2">
+          <textarea name="textodpoved[3973]" cols="70" rows="7">                                                            1
+2
+2
+1  </textarea>
+        </td>
+      </tr>
+        <tr>
+          <th colspan="3">
+            SKI - RI 3	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        3.      </td><td colspan="2" align="left">
+Integrita entít hovorí<br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 2</td></tr>
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3504]" value="8800" checked="checked" type="radio">          </td><td align="left">atribút primárneho kľúča nesmie nadobúdať NULL hodnoty</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3504]" value="8801" type="radio">          </td><td align="left">atribút primárneho kľúča musí nadobúdať NULL hodnotu </td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3504]" value="8799" type="radio">          </td><td align="left">atribút primárneho kľúča môže nadobúdať NULL hodnoty</td>
+	</tr>
+	
+
+        <tr>
+          <th colspan="3">
+            SKI - SQL III. - 5	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        4.      </td><td colspan="2" align="left">
+Vypíšte menný zoznam žien stravníkov.<br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 2</td></tr>
+      <tr>
+        <td>&nbsp;</td><td colspan="2">
+          <textarea name="textodpoved[4601]" cols="70" rows="7">            select meno, priezvisko from stravnik 
+where substr(rod_cislo,3,1) in ('5','6');</textarea>
+        </td>
+      </tr>
+        <tr>
+          <th colspan="3">
+            SKI - Kurzory 3	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        5.      </td><td colspan="2" align="left">
+) Zoraďte tieto príkazy do správneho poradia, ak cur1 je správne
+deklarovaný kurzor pre Select priezvisko from os_udaje; a priezv je
+premenná typu os_udaje.priezvisko%TYPE. <br> 
+<br>
+(1) FETCH cur1 INTO priezv; <br>
+(2) LOOP<br>
+ (3) IF cur1%FOUND THEN<br>
+(4) OPEN cur1; <br>
+(5) CLOSE cur1; <br>
+(6) ELSE<br>
+(7) END IF; <br>
+(8) EXIT; <br>
+(9) dbms_output.put_line(priezv); <br>
+(10) END LOOP; 
+<br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 2</td></tr>
+      <tr>
+        <td>&nbsp;</td><td colspan="2">
+          <textarea name="textodpoved[4054]" cols="70" rows="7">            4
+1
+2
+3
+9
+6
+7
+10
+8
+5                   </textarea>
+        </td>
+      </tr>
+        <tr>
+          <th colspan="3">
+            SKI - Kurzory 4	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        6.      </td><td colspan="2" align="left">
+Kde má zmysel použiť kurzor?<br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 2</td></tr>
+      <tr>
+        <td>&nbsp;</td><td colspan="2">
+          <textarea name="textodpoved[4056]" cols="70" rows="7">                                                            kurzor sa pouziva na spristupnenie riadkov tabulky</textarea>
+        </td>
+      </tr>
+        <tr>
+          <th colspan="3">
+            SKI - SQL I. -  1	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        7.      </td><td colspan="2" align="left">
+Ktoré z príkazov slúžia na vytvorenie nasledovného vzťahu medzi ET1 a ET2?<br>       <img src="student.php_subory/picture_008.jpg" align="textbottom">
+           </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 2</td></tr>
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3540]" value="8960" type="radio">          </td><td align="left">ALTER TABLE ET1 ADD (FOREIGN KEY (atr1, atr2) REFERENCES ET2);</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3540]" value="8959" type="radio">          </td><td align="left">ALTER TABLE ET2 ADD (FOREIGN KEY (atr1, atr2) REFERENCES ET1);</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3540]" value="8961" checked="checked" type="radio">          </td><td align="left">ALTER TABLE ET2 ADD ( FOREIGN KEY (atr1) REFERENCES ET1); ALTER TABLE ET2 ADD ( FOREIGN KEY (atr2) REFERENCES ET1);  </td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3540]" value="8962" type="radio">          </td><td align="left">ALTER TABLE ET2 ADD ( PRIMARY KEY (atr1, atr2));</td>
+	</tr>
+	
+
+        <tr>
+          <th colspan="3">
+            SKI - RA 4	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        8.      </td><td colspan="2" align="left">
+Určite ktorý z výrazov relačnej algebry zodpovedá nasledovnému príkazu:<br>
+Select id_jedla, kedy<br>
+&nbsp;&nbsp;   from platnost_menu p, vydajne v<br>
+&nbsp;&nbsp;   where nazov = 'FRI';<br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 1</td></tr>
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4561]" value="10612" checked="checked" type="radio">          </td><td align="left">_</td>
+	</tr>
+	<tr><td></td><td colspan="2">       <img src="student.php_subory/picture_007.jpg" align="textbottom">
+     </td></tr>
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4561]" value="10613" type="radio">          </td><td align="left">_</td>
+	</tr>
+	<tr><td></td><td colspan="2">       <img src="student.php_subory/picture_012.jpg" align="textbottom">
+     </td></tr>
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4561]" value="10614" type="radio">          </td><td align="left">_</td>
+	</tr>
+	<tr><td></td><td colspan="2">       <img src="student.php_subory/picture_017.jpg" align="textbottom">
+     </td></tr>
+
+        <tr>
+          <th colspan="3">
+            SKI - RDB 2	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        9.      </td><td colspan="2" align="left">
+Aký je vzťah medzi reláciou, atribútmi a primárnym kľúčom?<br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 1</td></tr>
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3548]" value="9014" type="radio">          </td><td align="left">Všetky atribúty relácie musia spolu tvoriť PK</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3548]" value="9013" type="radio">          </td><td align="left">PK a atribúty sú vo vzájomnej relácii</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3548]" value="9012" checked="checked" type="radio">          </td><td align="left">PK je podmnožina množiny atribútov v relácii</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3548]" value="9015" type="radio">          </td><td align="left">Relácia je tvorená viacerými PK a množinou atribútov</td>
+	</tr>
+	
+
+        <tr>
+          <th colspan="3">
+            SKI - Úvod 2	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        10.      </td><td colspan="2" align="left">
+Fyzická nezávislosť <br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 1</td></tr>
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3491]" value="8870" checked="checked" type="radio">          </td><td align="left">nezávislosť programov na organizácii dát a prístupových metódach</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3491]" value="8871" type="radio">          </td><td align="left">nezávislosť programov na konceptuálnom modeli</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3491]" value="8872" type="radio">          </td><td align="left">nezávislosť definície dát na konceptuálnom modeli</td>
+	</tr>
+	
+
+        <tr>
+          <th colspan="3">
+            SKI - RDB 3	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        11.      </td><td colspan="2" align="left">
+Vymenujte a popíšte VLASTNOSTI relácie <br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 1</td></tr>
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3501]" value="8798" checked="checked" type="radio">          </td><td align="left">ANNU = atomickosť, neusporiadanosť zľava doprava, neusporiadanosť zhora dole, jednoznačnosť </td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3501]" value="8797" type="radio">          </td><td align="left">CRUDE = stĺpcová, referenčná, užívateľská, domenová, entitná </td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3501]" value="8796" type="radio">          </td><td align="left">ACID = atomickosť, konzistencia, nezávislosť, trvácnosť</td>
+	</tr>
+	
+
+        <tr>
+          <th colspan="3">
+            SKI - SQL III. - 4	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        12.      </td><td colspan="2" align="left">
+Vypíšte názvy výdajní, v ktorých sa nikdy neponúkalo jedlo s názvom Eintopf.<br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 2</td></tr>
+      <tr>
+        <td>&nbsp;</td><td colspan="2">
+          <textarea name="textodpoved[4596]" cols="70" rows="7">
+select v.nazov from menu m, vydajne v, platnost_menu pm where
+v.id_vydajne=pm.id_vydajne and pm.id_jedla=m.id_jedla and m.id_jedla
+not in(select id_jedla from jedlo where nazov='Eintopf');</textarea>
+        </td>
+      </tr>
+        <tr>
+          <th colspan="3">
+            SKI - DW 1	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        13.      </td><td colspan="2" align="left">
+Dátová kocka môže obsahovať _________ časovú dimenziu. Doplňte:<br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 1</td></tr>
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3161]" value="8026" type="radio">          </td><td align="left">viac ako jednu</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3161]" value="8025" type="radio">          </td><td align="left">ani jednu</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3161]" value="8024" checked="checked" type="radio">          </td><td align="left">maximálne jednu </td>
+	</tr>
+	
+
+        <tr>
+          <th colspan="3">
+            SKI - SQL IV. - 4	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        14.      </td><td colspan="2" align="left">
+Ak chceme definovať trigger na kaskádu pre operáciu DELETE z nasledovného pohľadu<br> 
+create view v_jedlo  AS<br>
+&nbsp;&nbsp;  select por, nazov, kedy <br>
+&nbsp;&nbsp;&nbsp;&nbsp;    from menu, jedlo<br>
+&nbsp;&nbsp;&nbsp;&nbsp;    where menu.id_jedla = jedlo.id_jedla;
+<br><br>
+Potom v tele trigga budú operácie DELETE from nasledovných tabuliek (pozor aj na poradie)
+<br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 2</td></tr>
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4614]" value="10634" type="radio">          </td><td align="left">objednavky, platnost_menu</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4614]" value="10635" checked="checked" type="radio">          </td><td align="left">objednavky, platnost_menu, vydajne, menu, jedlo</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4614]" value="10633" type="radio">          </td><td align="left">menu, jedlo, platnost_menu</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4614]" value="10632" type="radio">          </td><td align="left">objednavky, platnost_menu, menu, jedlo</td>
+	</tr>
+	
+
+        <tr>
+          <th colspan="3">
+            SKI - RA 7	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        15.      </td><td colspan="2" align="left">
+Čo platí pre kardinality -  card(R1) = K1, card(R2) = K2 a card( R1 JOIN R2) = K3, ak máme nasledovný dátový diagram ?<br>       <img src="student.php_subory/picture_002.gif" align="textbottom">
+           </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 2</td></tr>
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4179]" value="10016" type="radio">          </td><td align="left">K3 = K1</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4179]" value="10019" checked="checked" type="radio">          </td><td align="left">K3 = max ( K1, K2)</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4179]" value="10014" type="radio">          </td><td align="left">K3 = K2</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4179]" value="10017" type="radio">          </td><td align="left">K3 &gt;= K2</td>
+	</tr>
+	
+
+        <tr>
+          <th colspan="3">
+            SKI - RA 3	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        16.      </td><td colspan="2" align="left">
+Určite ktorý z výrazov relačnej algebry zodpovedá nasledovnému príkazu:
+<br>
+select id_jedla<br>
+&nbsp;&nbsp;  from jedlo<br>
+&nbsp;&nbsp;  where id_jedla  not in <br>
+&nbsp;&nbsp;&nbsp;&nbsp;  (select id_jedla from platnost_menu<br>
+&nbsp;&nbsp;&nbsp;&nbsp;   where id_vydajne = 3);<br>
+<br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 1</td></tr>
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4562]" value="10617" type="radio">          </td><td align="left">_</td>
+	</tr>
+	<tr><td></td><td colspan="2">       <img src="student.php_subory/picture_002.jpg" align="textbottom">
+     </td></tr>
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4562]" value="10615" checked="checked" type="radio">          </td><td align="left">_</td>
+	</tr>
+	<tr><td></td><td colspan="2">       <img src="student.php_subory/picture_003.jpg" align="textbottom">
+     </td></tr>
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4562]" value="10616" type="radio">          </td><td align="left">_</td>
+	</tr>
+	<tr><td></td><td colspan="2">       <img src="student.php_subory/picture_009.jpg" align="textbottom">
+     </td></tr>
+
+        <tr>
+          <th colspan="3">
+            SKI - RI 4	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        17.      </td><td colspan="2" align="left">
+Referenčná integrita hovorí<br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 2</td></tr>
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3507]" value="8802" type="radio">          </td><td align="left">hodnota FK v relácii R2 sa nemusí rovnať hodnote PK z relácie R1</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3507]" value="8803" checked="checked" type="radio">          </td><td align="left">hodnota FK v relácii R2 sa musí rovnať hodnote PK z relácie R1, alebo NULL</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3507]" value="8804" type="radio">          </td><td align="left">hodnota FK v relácii R2 sa môže rovnať hodnote PK z relácie R1</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3507]" value="8805" type="radio">          </td><td align="left">FK
+je množina atribútov definovaná v relácii R2, ktorá môže byť v inej
+relácii R1 definovaná ako primárny kľúč PK alebo kandidát PK </td>
+	</tr>
+	
+
+        <tr>
+          <th colspan="3">
+            SKI - RA 1	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        18.      </td><td colspan="2" align="left">
+Ktoré z nasledujúcich výrazov sú korektné výrazy relačnej algebry?<br>       <img src="student.php_subory/picture_013.jpg" align="textbottom">
+           </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 2</td></tr>
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4804]" value="11263" type="radio">          </td><td align="left">všetky výrazy</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4804]" value="11262" type="radio">          </td><td align="left">výrazy 2,4</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4804]" value="11261" checked="checked" type="radio">          </td><td align="left">výrazy 2,3,5</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4804]" value="11264" type="radio">          </td><td align="left">výrazy 1,2,4</td>
+	</tr>
+	
+
+        <tr>
+          <th colspan="3">
+            SKI - Kurzory 1	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        19.      </td><td colspan="2" align="left">
+Čo je to kurzor?<br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 2</td></tr>
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4195]" value="10042" type="radio">          </td><td align="left">kurzor je objekt, ktorý vkladá dáta do databázy</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4195]" value="10043" checked="checked" type="radio">          </td><td align="left">kurzor je objekt, ktorý sprístupňuje záznamy v množine získanej príkazom SELECT.</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4195]" value="10041" type="radio">          </td><td align="left">kurzor je dočasná tabuľka, ktorá je používaná pri operácii spojenia.</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4195]" value="10040" type="radio">          </td><td align="left">kurzor je pomocná štruktúra, v ktorej je uložený definovaný SQL príkaz</td>
+	</tr>
+	
+
+        <tr>
+          <th colspan="3">
+            SKI - SQL I. - 2	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        20.      </td><td colspan="2" align="left">
+Ktorý z príkazov slúži na odobratie práva select z tabuľky tab1 užívatelovi vajsová? <br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 2</td></tr>
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3679]" value="9255" type="radio">          </td><td align="left">GRANT select ON tab1 TO vajsova;</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3679]" value="9257" type="radio">          </td><td align="left">DROP RIGHT select ON tab1 TO vajsova;</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3679]" value="9258" type="radio">          </td><td align="left">USER CAN select ON tab1 TO vajsova;</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3679]" value="9256" checked="checked" type="radio">          </td><td align="left">REVOKE select ON tab1 FROM vajsova;</td>
+	</tr>
+	
+
+        <tr>
+          <th colspan="3">
+            SKI - NORM 10	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        21.      </td><td colspan="2" align="left">
+Ktorý model funkčných závislostí zodpovedá nasledovnému popisu?<br>
+<br>
+V sklade máme súčiastky, ktoré majú svoje výrobné číslo, šaržu, typové
+označenie a názov typu. Súčiastky jednej šarže sú vyrábané v jeden deň.
+Tieto súčiastky sú postupne vydávané zo skladu do predajne, pričom
+potrebujeme vedieť ktorý zamestnanec vydal jednotlivé súčiastky, kedy a
+pre ktorého zákazníka (na jednu výdajku sa môže vydať viac súčiastok,
+ale len pre jedného zákazníka). <br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 3</td></tr>
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4285]" value="10134" type="radio">          </td><td align="left">_</td>
+	</tr>
+	<tr><td></td><td colspan="2">       <img src="student.php_subory/picture_011.gif" align="textbottom">
+     </td></tr>
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4285]" value="10136" checked="checked" type="radio">          </td><td align="left">_</td>
+	</tr>
+	<tr><td></td><td colspan="2">       <img src="student.php_subory/picture_005.gif" align="textbottom">
+     </td></tr>
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4285]" value="10135" type="radio">          </td><td align="left">_</td>
+	</tr>
+	<tr><td></td><td colspan="2">       <img src="student.php_subory/picture.gif" align="textbottom">
+     </td></tr>
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4285]" value="10133" type="radio">          </td><td align="left">_</td>
+	</tr>
+	<tr><td></td><td colspan="2">       <img src="student.php_subory/picture_007.gif" align="textbottom">
+     </td></tr>
+
+        <tr>
+          <th colspan="3">
+            SKI - DW 3	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        22.      </td><td colspan="2" align="left">
+V dátových skladoch sa vypočítateľné dáta:<br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 2</td></tr>
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4168]" value="10004" type="radio">          </td><td align="left">môžu ukladať, len ak sa neukladajú dáta, z ktorých boli vypočítané</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4168]" value="10003" checked="checked" type="radio">          </td><td align="left">nesmú ukladať</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4168]" value="10002" type="radio">          </td><td align="left">môžu ukladať</td>
+	</tr>
+	
+
+        <tr>
+          <th colspan="3">
+            SKI - RA 5	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        23.      </td><td colspan="2" align="left">
+Uveďte príklad, kde by ste využili kartézsky súčin.<br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 2</td></tr>
+      <tr>
+        <td>&nbsp;</td><td colspan="2">
+          <textarea name="textodpoved[3577]" cols="70" rows="7">
+pri vypise vsetkych kombinacii mien studentov a predmetov ktore si mozu
+studenti zapisat</textarea>
+        </td>
+      </tr>
+        <tr>
+          <th colspan="3">
+            SKI - ERA 1	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        24.      </td><td colspan="2" align="left">
+Entita je<br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 1</td></tr>
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3484]" value="8873" type="radio">          </td><td align="left">Popis dát a atribútov objektu</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3484]" value="8875" checked="checked" type="radio">          </td><td align="left">Objekt reálneho sveta schopný nezávislej existencie</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3484]" value="8874" type="radio">          </td><td align="left">Množina objektov rovnakého typu</td>
+	</tr>
+	
+
+        <tr>
+          <th colspan="3">
+            SKI - NORM 5	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        25.      </td><td colspan="2" align="left">
+Je relácia s nasledovnými funkčnými závislosťami v BCNF?<br>       <img src="student.php_subory/picture_004.gif" align="textbottom">
+           </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 2</td></tr>
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4167]" value="10001" type="radio">          </td><td align="left">nie</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4167]" value="10000" checked="checked" type="radio">          </td><td align="left">áno</td>
+	</tr>
+	
+
+        <tr>
+          <th colspan="3">
+            SKI - SQL IV. - 3	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        26.      </td><td colspan="2" align="left">
+Ak máme nasledovný pohľad:<br>
+CREATE OR REPLACE VIEW v_strav <br>
+AS<br>
+SELECT id_stravnika, meno, priezvisko, nazov<br>
+FROM stravnik s, typ_stravnika t <br>
+WHERE s.id_typu= t.id_typu; <br>
+Aký trigger budete potrebné definovať, aby operácia INSERT INTO v_strav fungovala správne? <br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 2</td></tr>
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4613]" value="10629" type="radio">          </td><td align="left">BEFORE INSERT</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4613]" value="10628" checked="checked" type="radio">          </td><td align="left">INSTEAD OF INSERT</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4613]" value="10631" type="radio">          </td><td align="left">BEFORE alebo AFTER INSERT</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4613]" value="10630" type="radio">          </td><td align="left">AFTER INSERT</td>
+	</tr>
+	
+
+        <tr>
+          <th colspan="3">
+            SKI - RA 6	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        27.      </td><td colspan="2" align="left">
+Opravte nasledovný SQL príkaz, tak aby ho bolo možné vykonať.<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;select id_stravnika, meno, priezvisko<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from stravnik<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where substr(rod_cislo,3,1) in ('5','6') <br>
+UNION<br>
+&nbsp;&nbsp;&nbsp;&nbsp;select id_stravnika<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from objednavky;<br><br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 1</td></tr>
+      <tr>
+        <td>&nbsp;</td><td colspan="2">
+          <textarea name="textodpoved[4563]" cols="70" rows="7">                                                  </textarea>
+        </td>
+      </tr>
+        <tr>
+          <th colspan="3">
+            SKI - NORM 3	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        28.      </td><td colspan="2" align="left">
+Je daná relácia v BCNF?<br>       <img src="student.php_subory/picture_003.gif" align="textbottom">
+           </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 2</td></tr>
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4342]" value="10356" checked="checked" type="radio">          </td><td align="left">nie</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4342]" value="10357" type="radio">          </td><td align="left">áno</td>
+	</tr>
+	
+
+        <tr>
+          <th colspan="3">
+            SKI - DW 2	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        29.      </td><td colspan="2" align="left">
+Hviezdicová schéma sa používa na modelovanie:<br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 2</td></tr>
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3162]" value="8055" checked="checked" type="radio">          </td><td align="left">dimenzie</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3162]" value="8053" type="radio">          </td><td align="left">Tabuľky faktov</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3162]" value="8054" type="radio">          </td><td align="left">dátovej kocky</td>
+	</tr>
+	
+
+        <tr>
+          <th colspan="3">
+            SKI - SQL IV. - 1	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        30.      </td><td colspan="2" align="left">
+Ak máme trigger ON objednavka, potom v tele triggra  príkaz INSERT INTO objednavka<br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 2</td></tr>
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4611]" value="10627" type="radio">          </td><td align="left">môžeme použiť len v prípade riadkového triggra</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4611]" value="10625" checked="checked" type="radio">          </td><td align="left">môžeme vždy použiť</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4611]" value="10626" type="radio">          </td><td align="left">nikdy nemôžeme použiť</td>
+	</tr>
+	
+
+        <tr>
+          <th colspan="3">
+            SKI - ERA 2	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        31.      </td><td colspan="2" align="left">
+Pomocou lineárneho zápisu entít a vzťahov navrhnite ERA diagram pre
+vzťah OSOBA - ŠKOLA (Myslite na všetky druhy škôl, vrátane jazykových).
+Definujte atribúty patriace vzťahu a navrhnite kardinalitu vzťahu s
+uvedením stručného popisu integritného obmedzenia vyplývajúceho zo
+vzťahu.
+<br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 2</td></tr>
+      <tr>
+        <td>&nbsp;</td><td colspan="2">
+          <textarea name="textodpoved[4800]" cols="70" rows="7">            OSOBA(#id_osoby, meno, priezvisko)
+SKOLA(#id_skoly, id_osoby, druh)
+skola musi byt priradena osobe - povinne clenstvo
+osoba nemusi byt priradena skole - nepovinne clenstvo</textarea>
+        </td>
+      </tr>
+        <tr>
+          <th colspan="3">
+            SKI - RI 2	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        32.      </td><td colspan="2" align="left">
+Popíšte doménovú integritu       <br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 2</td></tr>
+      <tr>
+        <td>&nbsp;</td><td colspan="2">
+          <textarea name="textodpoved[3506]" cols="70" rows="7">
+je taka integrita kedy nemozeme atributu priradit hodnotu mimo mnoziny
+pripustnych atributov domeny </textarea>
+        </td>
+      </tr>
+        <tr>
+          <th colspan="3">
+            SKI - ERA 5	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        33.      </td><td colspan="2" align="left">
+Určite, ktorý z ERA diagramov modeluje ISA hierarchiu.<br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 2</td></tr>
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3590]" value="8781" type="radio">          </td><td align="left">&nbsp;</td>
+	</tr>
+	<tr><td></td><td colspan="2">       <img src="student.php_subory/picture_010.jpg" align="textbottom">
+     </td></tr>
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3590]" value="8780" checked="checked" type="radio">          </td><td align="left">&nbsp;</td>
+	</tr>
+	<tr><td></td><td colspan="2">       <img src="student.php_subory/picture_014.jpg" align="textbottom">
+     </td></tr>
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3590]" value="8783" type="radio">          </td><td align="left">&nbsp;</td>
+	</tr>
+	<tr><td></td><td colspan="2">       <img src="student.php_subory/picture_018.jpg" align="textbottom">
+     </td></tr>
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3590]" value="8782" type="radio">          </td><td align="left">&nbsp;</td>
+	</tr>
+	<tr><td></td><td colspan="2">       <img src="student.php_subory/picture_004.jpg" align="textbottom">
+     </td></tr>
+
+        <tr>
+          <th colspan="3">
+            SKI - SQL III. - 6	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        34.      </td><td colspan="2" align="left">
+Vypíšte menný zoznam stravníkov, ktorí si objednali viac ako jedno jedlo na jeden deň.<br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 2</td></tr>
+      <tr>
+        <td>&nbsp;</td><td colspan="2">
+          <textarea name="textodpoved[4606]" cols="70" rows="7">            select meno, priezvisko from stravnik s, objednavky o
+where s.id_stravnika=o.id_stravnika 
+group by meno, priezvisko
+having count(*)&gt;1;</textarea>
+        </td>
+      </tr>
+        <tr>
+          <th colspan="3">
+            SKI - RA 2	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        35.      </td><td colspan="2" align="left">
+Určite ktorý z výrazov relačnej algebry zodpovedá nasledovnému príkazu:<br>
+select s.meno, s.priezvisko, o.kedy<br>
+    from jedlo j, objednavky o, stravnik s<br>
+    where j.id_jedla = o.id_jedla<br>
+        and o.id_stravnika = s.id_stravnika<br>
+        and j.nazov like 'Kur%';<br><br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 2</td></tr>
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4801]" value="11252" checked="checked" type="radio">          </td><td align="left">_</td>
+	</tr>
+	<tr><td></td><td colspan="2">       <img src="student.php_subory/picture_020.jpg" align="textbottom">
+     </td></tr>
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4801]" value="11254" type="radio">          </td><td align="left">_</td>
+	</tr>
+	<tr><td></td><td colspan="2">       <img src="student.php_subory/picture_011.jpg" align="textbottom">
+     </td></tr>
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4801]" value="11253" type="radio">          </td><td align="left">_</td>
+	</tr>
+	<tr><td></td><td colspan="2">       <img src="student.php_subory/picture_006.jpg" align="textbottom">
+     </td></tr>
+
+        <tr>
+          <th colspan="3">
+            SKI - NORM 4	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        36.      </td><td colspan="2" align="left">
+Dekomponujte pomocou lineárneho zápisu nasledovnú reláciu podľa atribútu E:<br>       <img src="student.php_subory/picture_005.jpg" align="textbottom">
+           </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 2</td></tr>
+      <tr>
+        <td>&nbsp;</td><td colspan="2">
+          <textarea name="textodpoved[4252]" cols="70" rows="7">                                        </textarea>
+        </td>
+      </tr>
+        <tr>
+          <th colspan="3">
+            SKI - SQL I. - 3	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        37.      </td><td colspan="2" align="left">
+Majme tabuľku R s nasledovnou schémou:<br>
+create table R (id integer);<br>
+<br>
+Aký výsledok bude po spustení nasledovných príkazov, ak tabuľka R je na začiatku prázdna?<br>
+&nbsp;&nbsp;   insert into R values(10);<br>
+&nbsp;&nbsp;   <b>commit;</b><br>
+&nbsp;&nbsp;   delete from R;<br>
+<br>
+&nbsp;&nbsp;   <b>rollback;</b><br>
+&nbsp;&nbsp;   select count(*) from R;<br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 2</td></tr>
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4802]" value="11257" type="radio">          </td><td align="left">10</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4802]" value="11256" type="radio">          </td><td align="left"> 0 </td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4802]" value="11255" checked="checked" type="radio">          </td><td align="left">1</td>
+	</tr>
+	
+
+        <tr>
+          <th colspan="3">
+            SKI - ERA 4	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        38.      </td><td colspan="2" align="left">
+Ktorý z obrázkov je správna dekompozícia vzťahu M:N medzi ET1 a ET2<br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 2</td></tr>
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3589]" value="9038" type="radio">          </td><td align="left">&nbsp;</td>
+	</tr>
+	<tr><td></td><td colspan="2">       <img src="student.php_subory/picture_019.jpg" align="textbottom">
+     </td></tr>
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3589]" value="9035" checked="checked" type="radio">          </td><td align="left">&nbsp;</td>
+	</tr>
+	<tr><td></td><td colspan="2">       <img src="student.php_subory/picture_015.jpg" align="textbottom">
+     </td></tr>
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3589]" value="9040" type="radio">          </td><td align="left">&nbsp;</td>
+	</tr>
+	<tr><td></td><td colspan="2">       <img src="student.php_subory/picture_016.jpg" align="textbottom">
+     </td></tr>
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3589]" value="9036" type="radio">          </td><td align="left">&nbsp;</td>
+	</tr>
+	<tr><td></td><td colspan="2">       <img src="student.php_subory/picture.jpg" align="textbottom">
+     </td></tr>
+
+        <tr>
+          <th colspan="3">
+            SKI - SQL IV. - 2	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        39.      </td><td colspan="2" align="left">
+ (abc) Nasledovný príkaz SELECT <br>
+Select meno, priezvisko INTO p_meno, p_priezv<br>
+FROM os_udaje <br>
+WHERE podmienka; 
+<br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 2</td></tr>
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4057]" value="9920" type="radio">          </td><td align="left">môžeme použiť len v tele triggra</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4057]" value="9922" type="radio">          </td><td align="left">nikdy nemôžeme použiť v tele procedúry</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4057]" value="9919" checked="checked" type="radio">          </td><td align="left">môžeme použiť len ak daný select vracia práve jeden riadok </td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4057]" value="9921" type="radio">          </td><td align="left">môžeme vždy použiť v tele procedúry </td>
+	</tr>
+	
+
+        <tr>
+          <th colspan="3">
+            SKI - DW 4	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        40.      </td><td colspan="2" align="left">
+Na čo sa budujú dátové sklady a pre koho v hierarchii firmy sú určené dátové sklady?<br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 2</td></tr>
+      <tr>
+        <td>&nbsp;</td><td colspan="2">
+          <textarea name="textodpoved[4170]" cols="70" rows="7">                                                                        </textarea>
+        </td>
+      </tr>
+        <tr>
+          <th colspan="3">
+            SKI - NORM 11	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        41.      </td><td colspan="2" align="left">
+Dekomponujte pomocou lineárneho zápisu nasledovnú reláciu:<br>       <img src="student.php_subory/picture_008.gif" align="textbottom">
+           </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 2</td></tr>
+      <tr>
+        <td>&nbsp;</td><td colspan="2">
+          <textarea name="textodpoved[4186]" cols="70" rows="7">                                    A,B-&gt;D
+A,B-&gt;C
+C-&gt;F
+C-&gt;D
+E-&gt;D
+E-&gt;B
+E-&gt;A</textarea>
+        </td>
+      </tr>
+        <tr>
+          <th colspan="3">
+            SKI - Úvod 4	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        42.      </td><td colspan="2" align="left">
+Perzistentné dáta sú<br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 1</td></tr>
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3498]" value="8752" checked="checked" type="radio">          </td><td align="left">dáta existujúce aj po ukončení programu </td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3498]" value="8742" type="radio">          </td><td align="left">odvodené dáta </td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3498]" value="8753" type="radio">          </td><td align="left">dáta, ktoré zanikajú po ukončení programu </td>
+	</tr>
+	
+
+        <tr>
+          <th colspan="3">
+            SKI - Kurzory 2	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        43.      </td><td colspan="2" align="left">
+SCROLL kurzor je <br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 2</td></tr>
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3150]" value="8022" type="radio">          </td><td align="left">kurzor, ktorý zobrazí naraz viacej riadkov výslednej množiny</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3150]" value="8021" checked="checked" type="radio">          </td><td align="left">kurzor, ktorý umožní priamy prístup k vybranému záznamu</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3150]" value="8020" type="radio">          </td><td align="left">kurzor, ktorý umožní spracovávanie záznamov len v jednom smere od začiatku do konca.</td>
+	</tr>
+	
+
+        <tr>
+          <th colspan="3">
+            SKI - Úvod 3	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        44.      </td><td colspan="2" align="left">
+V ktorých prípadoch je prípustný viacnásobný výskyt rovnakých dát<br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 1</td></tr>
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3495]" value="8758" type="radio">          </td><td align="left">pri riadenej redundancii</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3495]" value="8759" checked="checked" type="radio">          </td><td align="left">nikdy</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3495]" value="8757" type="radio">          </td><td align="left">vždy</td>
+	</tr>
+	
+
+        <tr>
+          <th colspan="3">
+            SKI - NORM 9	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        45.      </td><td colspan="2" align="left">
+Ak máme nasledovné funkčné závislosti, potom:<br>       <img src="student.php_subory/picture_006.gif" align="textbottom">
+           </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 2</td></tr>
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4286]" value="10139" type="radio">          </td><td align="left">v jeden deň sa môže vyrobiť len jeden výrobok z viacerých šarží</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4286]" value="10140" type="radio">          </td><td align="left">v jeden deň sa môžu vyrobiť viaceré výrobky z viacerých šarží</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4286]" value="10138" type="radio">          </td><td align="left">v jeden deň sa môžu vyrobiť viaceré výrobky rovnakej šarže</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4286]" value="10137" checked="checked" type="radio">          </td><td align="left">v jeden deň sa môže vyrobiť len jeden jediný výrobok</td>
+	</tr>
+	
+
+        <tr>
+          <th colspan="3">
+            SKI - ERA 3	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        46.      </td><td colspan="2" align="left">
+Definujte povinné členstvo entity vo vzťahu  <br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 1</td></tr>
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3500]" value="8767" checked="checked" type="radio">          </td><td align="left">povinnosť existencie entity vo vzťahu k inej entite</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3500]" value="8769" type="radio">          </td><td align="left">možnosť existencie entity vo vzťahu k inej entite</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3500]" value="8768" type="radio">          </td><td align="left">hodnoty atribútov relácie musia byť zadefinované</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3500]" value="8770" type="radio">          </td><td align="left">povinnosť zadefinovať hodnoty atribútov relácie</td>
+	</tr>
+	
+
+        <tr>
+          <th colspan="3">
+            SKI - RI 5	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        47.      </td><td colspan="2" align="left">
+Ak máme dátový model "menza" a všetky vzťahy nastavené na "ON DELETE RESTRICTED", potom nasledovný príkaz<br>
+&nbsp;&nbsp;delete from jedlo<br>
+&nbsp;&nbsp;where id_jedla = 321;
+<br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 2</td></tr>
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4803]" value="11258" checked="checked" type="radio">          </td><td align="left">môže vyvolať výnimku</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4803]" value="11259" type="radio">          </td><td align="left">musí vyvolať výnimku</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4803]" value="11260" type="radio">          </td><td align="left">nikdy nevyvolá výnimku</td>
+	</tr>
+	
+
+        <tr>
+          <th colspan="3">
+            SKI - SQL II. - 3	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        48.      </td><td colspan="2" align="left">
+Vložte do tabuľky platnost_menu položky s por= 1,2,3 zajtrajšieho menu pre všetky výdajne.<br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 2</td></tr>
+      <tr>
+        <td>&nbsp;</td><td colspan="2">
+          <textarea name="textodpoved[4615]" cols="70" rows="7">                                                    </textarea>
+        </td>
+      </tr>
+        <tr>
+          <th colspan="3">
+            SKI - NORM 8	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        49.      </td><td colspan="2" align="left">
+Ak relácia R má nasledovný zoznam kandidátov primárneho kľúča, potom určite primárny kľúč.<br>
+KPK1: OS_CISLO<br>
+KPK2: ROD_CISLO, DATUM_ZAPISU<br>
+KPK3: LOGIN<br><br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 2</td></tr>
+      <tr>
+        <td>&nbsp;</td><td colspan="2">
+          <textarea name="textodpoved[3682]" cols="70" rows="7">            PK: OS_CISLO                                                       </textarea>
+        </td>
+      </tr>
+        <tr>
+          <th colspan="3">
+            SKI - Úvod 5	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        50.      </td><td colspan="2" align="left">
+Ktoré úrovne architektúry DBS sú implementačne závislé: <br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 1</td></tr>
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3496]" value="8865" checked="checked" type="radio">          </td><td align="left">len interná</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3496]" value="8864" type="radio">          </td><td align="left">len externá</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3496]" value="8868" type="radio">          </td><td align="left">len aplikačná</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3496]" value="8869" type="radio">          </td><td align="left">aplikačná a externá</td>
+	</tr>
+	
+
+        <tr>
+          <th colspan="3">
+            SKI - NORM 2	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        51.      </td><td colspan="2" align="left">
+Funkčná závislosť ktorého atribútu na (A,C)  je úplná<br>       <img src="student.php_subory/picture_009.gif" align="textbottom">
+           </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 2</td></tr>
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4340]" value="10352" type="radio">          </td><td align="left">len atribútu B</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4340]" value="10353" type="radio">          </td><td align="left">atribútov B a D</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[4340]" value="10351" checked="checked" type="radio">          </td><td align="left">len atribútu D</td>
+	</tr>
+	
+
+        <tr>
+          <th colspan="3">
+            SKI - Úvod 6	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        52.      </td><td colspan="2" align="left">
+Schéma  je<br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 1</td></tr>
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3493]" value="8761" type="radio">          </td><td align="left">Špecifická množina dát popisujúca manipuláciu s dátami </td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3493]" value="8763" checked="checked" type="radio">          </td><td align="left">Špecifická množina dát popisujúca dátový model aplikácie</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3493]" value="8762" type="radio">          </td><td align="left">Množina perzistentných dát</td>
+	</tr>
+	
+
+        <tr>
+          <th colspan="3">
+            SKI - RI 1	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        53.      </td><td colspan="2" align="left">
+Ak máme dátový model "Menza" a pre všetky vzťahy máme nastavenú
+reštrikciu, z ktorých tabuliek budú vymazané riadky ak spustíme
+nasledovný delete?<br>
+&nbsp;&nbsp;delete from menu<br>
+&nbsp;&nbsp;where to_char(kedy,'YYYY') &lt; to_char(sysdate,'YYYY');<br>
+<br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 1</td></tr>
+      <tr>
+        <td>&nbsp;</td><td colspan="2">
+          <textarea name="textodpoved[4799]" cols="70" rows="7">                        </textarea>
+        </td>
+      </tr>
+        <tr>
+          <th colspan="3">
+            SKI - SQL III. - 3	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        54.      </td><td colspan="2" align="left">
+Vypíšte názvy jedál, ktoré si dnes niekto objednal.(potlačte duplicity)<br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 1</td></tr>
+      <tr>
+        <td>&nbsp;</td><td colspan="2">
+          <textarea name="textodpoved[4592]" cols="70" rows="7">                        select distinct nazov from jedlo j, menu m
+where j.id_jedla=m.id_jedla and m.kedy=SYSDATE;                   </textarea>
+        </td>
+      </tr>
+        <tr>
+          <th colspan="3">
+            SKI - RDB 1	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        55.      </td><td colspan="2" align="left">
+Definujte pojem Doména <br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 2</td></tr>
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3547]" value="8794" checked="checked" type="radio">          </td><td align="left">Množina prípustných hodnôt atribútov</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3547]" value="8793" type="radio">          </td><td align="left">Množina prípustných atribútov</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3547]" value="8795" type="radio">          </td><td align="left">Množina prípustných hodnôt cudzieho kľúča</td>
+	</tr>
+	
+
+        <tr>
+          <th colspan="3">
+            SKI - SQL III. - 1 	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        56.      </td><td colspan="2" align="left">
+Pomocou selectu zistite kardinalitu relácie stravník.<br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 1</td></tr>
+      <tr>
+        <td>&nbsp;</td><td colspan="2">
+          <textarea name="textodpoved[4585]" cols="70" rows="7">                        select count(*) from stravnik;           </textarea>
+        </td>
+      </tr>
+        <tr>
+          <th colspan="3">
+            SKI - SQL II. - 2	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        57.      </td><td colspan="2" align="left">
+Zmeňte počet objednaných kusov na 1 u všetkých stravníkov typu STUDENT.<br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 2</td></tr>
+      <tr>
+        <td>&nbsp;</td><td colspan="2">
+          <textarea name="textodpoved[4578]" cols="70" rows="7">                        update objednavky set pocet=1 where stravnik.id_stravnika=objednavky.id_stravnika and
+stravnik.id_typu=typ_stravnika.id_typu and typ.stravnika.nazov='student';</textarea>
+        </td>
+      </tr>
+        <tr>
+          <th colspan="3">
+            SKI - Úvod 1	  </th>
+	</tr>
+    <tr align="left">
+      <td valign="top">
+        58.      </td><td colspan="2" align="left">
+Ktoré sú hlavné časti SRBD (v každom SRBD musia existovať)<br>      </td>
+    </tr>
+    <tr><td colspan="3" align="right">Body: 1</td></tr>
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3578]" value="8907" type="radio">          </td><td align="left">DIS, DAS</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3578]" value="8909" type="radio">          </td><td align="left">DDL, DAS</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3578]" value="8908" type="radio">          </td><td align="left">DML, DIS</td>
+	</tr>
+	
+
+	<tr>
+     	  <td>&nbsp;</td><td align="left">
+	    	      <input name="od_ids[3578]" value="8905" checked="checked" type="radio">          </td><td align="left">DDL, DML</td>
+	</tr>
+	
+
+  </tbody></table>
+            </td></tr><tr><td align="center">
+	    
+          </tbody></table>
+     
+
+</form>                <br>
+		
+		<br>
+  </td>
+  </tr>
+  </tbody></table>
+	</body></html>

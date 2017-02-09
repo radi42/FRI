@@ -1,0 +1,307 @@
+1.  Ktoré sú hlavné èasti SRBD (v kadom SRBD musia existova)
+ 
+    DDL, DML  
+    DDL, DIS  
+    DML, DIS  
+    DDL, DAS  
+
+2.  Fyzická nezávislos 
+ 
+    nezávislos definície dát na konceptuálnom modeli  
+    nezávislos programov na organizácii dát a prístupovıch metódach  
+    nezávislos programov na konceptuálnom modeli  
+ 
+3.  Zdie¾ate¾nos dát je
+ 
+    Dáta môu by uloené vo viacerıch tabu¾kách  
+    Dáta môu pouíva viaceré aplikácie súèasne alebo sekvenène  
+    Dáta môu by pouité práve raz v aplikácii  
+
+4.  Databáza je 
+ 
+    Systém riadenia bázy dát a databáza  
+    programové vybavenie pre definíciu dát, manipuláciu s dátami  
+    Mnoina perzistentnıch dát  
+
+5.  Ktoré úrovne architektúry DBS sú implementaène závislé: 
+ 
+    len interná  
+    externá aj interná  
+    len externá  
+    externá a konceptuálna  
+
+6.  Do ktorej úrovne patrí stanovenie aká metóda indexácie bude pouitá?
+ 
+    konceptuálnej  
+    aplikaènej  
+    externej  
+    internej  
+
+7.  Entita je
+ 
+    Mnoina objektov rovnakého typu  
+    Popis dát a atribútov objektu  
+    Objekt reálneho sveta schopnı nezávislej existencie  
+
+8.  Ktorı z nasledovnıch obrázkov je vıskytovı diagram vzahu 1:N medzi ET1 a ET2?
+ 
+    len obrázok d  
+    len obrázok c  
+    len obrázky b,c,d  
+    len obrázok b  
+
+9.  Urèite aké je èlenstvo ET1 a ET2 vo vzahu.
+ 
+    ET1 môe existova bez ET2, ET2 môe existova bez ET1  
+    1:1  
+    ET1 nemôe existova bez ET2, ET2 môe existova bez ET1  
+    ET1 môe existova bez ET2, ET2 nemôe existova bez ET1  
+
+10.  Ktorı z obrázkov je správna dekompozícia vzahu M:N medzi ET1 a ET2
+ 
+      
+ 
+11.  Urèite, ktorı z ERA diagramov modeluje ISA hierarchiu.
+ 
+       
+12.  Relácia je
+ 
+    je podmnoinou kartézskeho súèinu mnoiny domén Di na mnoine atribútov Ai  
+    je zjednotením mnoiny prípustnıch hodnôt atribútov  
+    je mnoina dvojíc Ai:Di (A-atribút, D-doména)  
+    podmnoina kartézskeho súèinu mnoiny atribútov  
+
+13.  Ko¾ko kandidátov primárneho k¾úèa môe ma relácia 
+ 
+    Môe ma viac KPK  
+    Môe ma vdy len jeden jednoduchı alebo kompozitnı KPK (z jedného alebo mnoiny atribútov)  
+    Môe ma vdy len jeden jednoduchı KPK (z jedného atribútu)  
+
+14.  Vymenujte a popíšte VLASTNOSTI relácie 
+ 
+    ANNU = atomickos, neusporiadanos z¾ava doprava, neusporiadanos zhora dole, jednoznaènos  
+    ACID = atomickos, konzistencia, nezávislos, trvácnos  
+    CRUDE = ståpcová, referenèná, uívate¾ská, domenová, entitná  
+
+15.  Definujte Primárny k¾úè
+ 
+    Všetky mnoiny atribútov, ktoré spåòajú podmienku jednoznaènosti a minimálnosti  
+    Jedna mnoina atribútov, ktorá spåòa podmienku jednoznaènosti a minimálnosti  
+    Mnoina atribútov, ktorá spåòa podmienku jednoznaènosti a minimálnosti a je definovaná v inej relácii ako Kandidát primárneho k¾úèa  
+
+16.  Ako treba opravi danı entitnı diagram?
+ 
+    do ET2 pribudnú: 1 atribút FK, ktorı bude súèasou PK v ET2 a 2 atribúty FK, ktoré nebudú súèasou PK v ET2  
+    do ET2 pribudne 5 atribútov FK, ktoré nebudú súèasou PK v ET2  
+    do ET2 pribudnú 3 atribúty FK, ktoré nebudú súèasou PK v ET2  
+    do ET2 pribudnú: 1 atribút FK, ktorı bude súèasou PK v ET2 a 4 atribúty FK, ktoré nebudú súèasou PK v ET2  
+
+17.  Urèite príkaz, ktorı vytvorí PK tabu¾ky ET2.
+  
+    ALTER TABLE ET2 ADD( PRIMARY KEY(ID, POR));  
+    ALTER TABLE ET2 ADD (PRIMARY KEY(POR));  
+    ALTER TABLE ET2 ADD ( PRIMARY KEY(ID));
+    ALTER TABLE ET2 ADD ( PRIMARY KEY(POR));  
+    ALTER TABLE ET2 ADD (PRIMARY KEY(ID));  
+
+18.  Príkaz GRANT slúi na:
+ 
+    pridelenie práv na prístup k zdrojovım kódom aplikácie.  
+    obratie práv uívate¾ovi  
+    pridelenie prístupovıch právna databázovı objekt uívate¾ovi  
+    odobratie práv èítania zdrojovıch kódov aplikácie.  
+
+19.  Príkaz ROLLBACK slúi na:
+ 
+    Potvrdenie transakcie  
+    Vrátenie DB do pôvodného stavu ako bola pred poslednım vykonávanım príkazom.  
+    Vrátenie DB do pôvodného stavu ako bola pred zaèatím transakcie.  
+ 
+20.  Ktorı z príkazov nepatrí do DAS?
+ 
+    REVOKE  
+    COMMIT  
+    GRANT  
+    ROLLBACK  
+
+21.  Ktorı z príkazov zodpovedá definícii danej entity?
+ 
+    Create table ET1 ( atr1 int, atr2 int, atr3 varchar2(10), atr4 date not null, unique ( atr1,atr2));  
+    Create table ET1 ( atr1 int not null, atr2 int not null, atr3 varchar2(10), atr4 date not null, primary key (atr1, atr2));  
+    Create table ET1 ( atr1 int not null primary key, atr2 int not null primary key, atr3 varchar2(10), atr4 date not null);  
+    Create table ET1 ( atr1 int not null unique, atr2 int not null unique, atr3 varchar2(10), atr4 date not null);  
+
+22.  Vymate všetky poloky z nákupu, kde id_nakupu=26. 
+ 
+                            
+23.  Zvıšte cenu všetkıch tovarov, ktorıch druh má názov='cukor' o 5,- SK
+ 
+                            
+24.  Kaskádovite zmate všetky údaje o zamestnancoch, ktorí u vo firme nepracujú.
+ 
+
+25.  Vypíšte názvy všetkıch tovarov spolu s názvom druhu.
+ 
+
+26.  Vypíšte mennı zoznam pracovníkov, ktorıch pozicia je 'skater'
+ 
+ 
+27.  Vypíšte názvy tovarov, ktoré boli niekedy predané (potlaète duplicity).
+ 
+
+28.  Vypíšte názvy tovarov, ktoré neboli ešte nikdy predané.
+ 
+
+29.  Vypíšte mennı zoznam pracovníkov spolu s poètom rokov, ktoré pracujú vo firme.
+ 
+
+30.  Vypíšte ko¾ko má zaplati zákazník za nákup s id_nakupu = 123.
+ 
+
+31.  Vypíšte ku kadému druhu poèet tovarov.
+
+ 
+32.  Zistite názov tovaru, z ktorého sme mali najväèšiu trbu.
+ 
+                            
+33.  Majme nasledovnı trigger, ktorı má automaticky nastavi atribúty uziv a datum hodnotami kto a kedy naposledy menil danı riadok.
+CREATE OR REPLACE TRIGGER zap_predmety_log 
+......... INSERT OR UPDATE ON zap_predmety
+REFERENCING new as novy
+FOR EACH ROW
+BEGIN
+   select user, sysdate into :novy.uziv, :novy.datum_zm from dual;
+END;
+
+Doplòte do tela triggra ? 
+ 
+    BEFORE, AFTER, alebo INSTEAD OF  
+    BEFORE  
+    BEFORE alebo AFTER  
+    AFTER  
+
+34.  Je moné v procedúre poui nasledovnı select-príkaz?
+   select * from zamestnanec;
+Vysvetlite preèo a kedy áno alebo nie.
+ 
+  nie v procedure je mozne pouzit iba prikaz select into alebo ked ho pouzijeme spolu s vkladanum mazanim alebo updateom                          
+ 
+35.  Ak máme nasledovnı poh¾ad:
+CREATE OR REPLACE VIEW zamest
+AS
+SELECT os_cislo, meno, priezvisko,pozicia
+FROM osoba, zamestnanec WHERE osoba.id=zamestnanec.id; Akı trigger budete potrebné definova, aby operácia INSERT INTO zamest fungovala správne? 
+ 
+    BEFORE INSERT  
+    BEFORE alebo AFTER INSERT  
+    AFTER INSERT  
+    INSTEAD OF INSERT  
+
+36.  Pri operácii DELETE vysvetlite pojem NULOVANIA (NULLIFIED) 
+ 
+
+37.  Popíšte ståpcovú integritu
+ 
+
+38.  Integrita entít sa tıka
+ 
+    len atribútov primárneho k¾úèa  
+    len atribútov cudzieho k¾úèa  
+    len atribútov primárneho, alebo cudzieho k¾úèa  
+    všetkıch NOT NULL atribútov  
+
+39.  Referenèná integrita hovorí
+ 
+    FK je mnoina atribútov definovaná v relácii R2, ktorá môe by v inej relácii R1 definovaná ako primárny k¾úè PK alebo kandidát PK  
+    hodnota FK v relácii R2 sa musí rovna hodnote PK z relácie R1, alebo NULL  
+    hodnota FK v relácii R2 sa môe rovna hodnote PK z relácie R1  
+    hodnota FK v relácii R2 sa nemusí rovna hodnote PK z relácie R1  
+
+40.  Uveïte príklad uívate¾skej integrity 
+ 
+
+41.  Ktoré z nasledujúcich vırazov sú korektné vırazy relaènej algebry?
+ 
+ 
+    vırazy b,d,e  
+    všetky vırazy  
+    ani jeden vıraz  
+    vırazy a,c,e  
+
+42.  Urèite vıraz relaènej algebry zodpovedajúci nasledovnému príkazu:
+   SELECT id FROM OSOBA
+   WHERE id not in 
+      (SELECT id FROM ZAMESTNANEC); 
+ 
+       
+43.  Urèite vıraz relaènej algebry zodpovedajúci nasledovnému príkazu:
+  SELECT id, meno FROM OSOBA;
+ 
+       
+44.  Urèite, ktorı z vırazov relaènej algebry zodpovedá naledovnému príkazu: 
+  SELECT z.os_cislo, n.kedy, n.id_nakupu FROM zamestnanec z, nakup n; 
+ 
+       
+45.  Uveïte príklad, kde by ste vyuili kartézsky súèin.
+ 
+
+46.  Majme reláciu R (#A, #B, C, D). Aké sú v relácii funkèné závislosti, ak relácia je v 1.NF a nie je v 2.NF
+ 
+       
+47.  Vypíšte všetky funkèné závislosti z grafu. 
+ 
+
+48.  Ak máme reláciu 
+A (rodne_cislo, meno, priezvisko, telefon, #osobne_cislo, rocnik, st_skupina, #cislo_predmetu, nazov, pocet_kreditov); 
+Urèite závislos osobne_cislo - nazov v relácii A je : 
+ 
+    neexistuje  
+    tranzitívna  
+    vzájomná  
+
+49.  Majme reláciu R (#A, B, C, D, E), pre ktorú sú dané nasledovné funkèné závislosti:
+A->B, BC->E a ED->A 
+Urèite zoznam všetkıch determinantov relácie R 
+ 
+
+50.  Majme reláciu R (#A, B, C, D, E), pre ktorú sú dané nasledovné funkèné závislosti:
+A->B, BC->E a ED->A 
+Je relácia v BCNF?
+ 
+    áno  
+    nie  
+
+51.  Kedy je relácia v BCNF
+ 
+    keï je v 2NF a iaden nek¾úèovı atribút nie je tranzitívne funkène závislı na primárnom k¾úèi.  
+    keï kadı determinant je kandidátom primárneho k¾úèa  
+    keï kadı kandidát primárneho k¾úèa je determinantom  
+    keï je v 3NF a kadı nek¾úèovı atribút je determinantom  
+
+BONUS
+
+52.  Hyperkocka (Multidimenzionálna databáza) je __________________ priestor bázovıch dimenzií, z ktorıch jedna musí by merate¾ná dimenzia, a nad ktorım môe existova m-rozmernı priestor agregovanıch dimenzií (m>>n).
+Doplòte: 
+ 
+    3-rozmernı  
+    4-rozmernı  
+    n-rozmernı  
+
+53.  Vloèková schéma sa pouíva na modelovanie:
+ 
+    dimenzie  
+    dátovej kocky  
+    Tabu¾ky faktov  
+ 
+54.  V indexovom súbore s hustım (úplnım) indexom – 
+ 
+    pre skupinu záznamov v dátovom súbore existuje aspoò jeden záznam v indexov súbore  
+    pre kadı záznam v dátovom súbore existuje práve jeden záznam v indexov súbore  
+    pre skupinu záznamov v dátovom súbore existuje jeden záznam v indexov súbore  
+
+55.  Akı je rozdiel medzi B-stromom a B+stromom?
+ 
+    iadny  
+    v poète smerníkov medzi¾ahlého vrcholu  
+    v poète úrovní  
+    v zreazení listovıch vrcholov

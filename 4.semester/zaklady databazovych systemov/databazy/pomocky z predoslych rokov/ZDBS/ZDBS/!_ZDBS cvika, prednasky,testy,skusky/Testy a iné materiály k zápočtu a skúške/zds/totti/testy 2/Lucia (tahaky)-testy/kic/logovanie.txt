@@ -1,0 +1,35 @@
+CREATE TABLE logovanie_osoba AS SELECT rod_cislo, stav, statna_prislusnost, narodnost, obec, priezvisko, meno, rodne_priezvisko, cislo_OP,cislo_PAS, ulica_cislo FROM osoba WHERE rod_cislo is null;
+
+ALTER TABLE logovanie_osoba ADD (
+	id_zmeny INTEGER NOT NULL,
+	cas DATE NULL,
+	uzivatel VARCHAR(20) NULL,
+	PRIMARY KEY (id_zmeny )
+);
+
+ALTER TABLE logovanie_osoba
+ADD (
+	typ char(1) NULL
+);
+
+
+
+CREATE OR REPLACE TRIGGER osoba_logovanie
+BEFORE INSERT OR DELETE OR UPDATE ON osoba
+REFERENCING new as novy old as stary
+FOR EACH ROW
+
+BEGIN
+IF :stary.rod_cislo IS NULL THEN -- insert
+INSERT INTO logovanie(rod_cislo, stav, statna_prislusnost, narodnost, obec, priezvisko, meno, rodne_priezvisko, cislo_OP,cislo_PAS, ulica_cislo, typ, uzivatel, cas) values(:novy.rod_cislo, :novy. stav, :novy. statna_prislusnost, :novy. narodnost, :novy. obec, :novy. priezvisko, :novy. meno, :novy. rodne_priezvisko, :novy. cislo_OP, :novy.cislo_PAS, :novy. ulica_cislo, 'I', user, sysdate);
+
+ELSIF :novy.os_cislo IS NULL THEN -- delete
+INSERT INTO logovanie(rod_cislo, stav, statna_prislusnost, narodnost, obec, priezvisko, meno, rodne_priezvisko, cislo_OP,cislo_PAS, ulica_cislo, typ, uzivatel, cas) values(:stary.rod_cislo, :stary. stav, :stary. statna_prislusnost, :stary. narodnost, :stary. obec, :stary. priezvisko, :stary. meno, :stary. rodne_priezvisko, :stary. cislo_OP, :stary.cislo_PAS, :stary. ulica_cislo, 'D', user, sysdate);
+
+ELSE	-- update
+INSERT INTO logovanie(rod_cislo, stav, statna_prislusnost, narodnost, obec, priezvisko, meno, rodne_priezvisko, cislo_OP,cislo_PAS, ulica_cislo, typ, uzivatel, cas) values(:novy.rod_cislo, :novy. stav, :novy. statna_prislusnost, :novy. narodnost, :novy. obec, :novy. priezvisko, :novy. meno, :novy. rodne_priezvisko, :novy. cislo_OP, :novy.cislo_PAS, :novy. ulica_cislo, 'U', user, sysdate);
+
+END IF;
+
+END;
+/

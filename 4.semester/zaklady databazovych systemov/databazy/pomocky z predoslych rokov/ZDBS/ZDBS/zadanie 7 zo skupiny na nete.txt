@@ -1,0 +1,26 @@
+
+1.select * from os_udaje, student, zap_predmety where os_udaje.rod_cislo = student.rod_cislo and zap_predmety.os_cislo = student.os_cislo;
+
+2. select meno, priezvisko from os_udaje, student where os_udaje.rod_cislo = student.rod_cislo and student.rocnik = 2;
+
+3. select meno, priezvisko from os_udaje, student where os_udaje.rod_cislo = student.rod_cislo and substr(student.rod_cislo, 1,2) between '85' and '89';
+
+4. select meno, priezvisko from os_udaje, student, zap_predmety where os_udaje.rod_cislo = student.rod_cislo and student.os_cislo = zap_predmety.os_cislo and zap_predmety.cis_predm = 'BI06' order by priezvisko;
+
+5. select distinct cis_predm, prednasajuci from zap_predmety;
+
+6.select distinct meno,priezvisko,nazov from zap_predmety, ucitel, predmet where zap_predmety.prednasajuci=ucitel.os_cislo and zap_predmety.cis_predm = predmet.cis_predm order by priezvisko
+
+7.select distinct u.meno,u.priezvisko from zap_predmety z inner join student s on z.os_cislo=s.os_cislo inner join ucitel u on z.prednasajuci=u.os_cislo where s.rocnik=2;
+
+8.select meno,priezvisko,count(z.os_cislo) from student s join zap_predmety z on s.os_cislo=z.os_cislo // stlacit ENTER dalsi kod do noveho riadku
+inner join os_udaje o on s.rod_cislo=o.rod_cislo where z.skrok=2008 group by z.os_cislo,meno,priezvisko;
+
+9.select meno,priezvisko,count(z.os_cislo) from student s join zap_predmety z on s.os_cislo=z.os_cislo // stlacit ENTER dalsi kod do noveho riadku
+inner join os_udaje o on s.rod_cislo=o.rod_cislo group by z.os_cislo,meno,priezvisko;
+
+10 - select count(*),nazov from zap_predmety z join predmet p on z.cis_predm=p.cis_predm where skrok=2006 group by nazov having count(*)>1 order by nazov;
+
+11 - select o.meno, o.priezvisko, avg(case when vysledok='A' then '1' when vysledok='B' then '1.5' when vysledok='C' then '2' when vysledok='D' then '2.5' when vysledok='E' then '3' else '4' end) from zap_predmety z join student s on z.os_cislo=s.os_cislo join os_udaje o on s.rod_cislo=o.rod_cislo group by z.os_cislo,o.meno,o.priezvisko;
+
+select o.meno, o.priezvisko, avg(case when vysledok='A' then '1' when vysledok='B' then '1.5' when vysledok='C' then '2' when vysledok='D' then '2.5' when vysledok='E' then '3' else '4' end) from zap_predmety z join student s on z.os_cislo=s.os_cislo join os_udaje o on s.rod_cislo=o.rod_cislo group by z.os_cislo,o.meno,o.priezvisko having avg(case when vysledok='A' then '1' when vysledok='B' then '1.5' when vysledok='C' then '2' when vysledok='D' then '2.5' when vysledok='E' then '3' else '4' end)< 3;

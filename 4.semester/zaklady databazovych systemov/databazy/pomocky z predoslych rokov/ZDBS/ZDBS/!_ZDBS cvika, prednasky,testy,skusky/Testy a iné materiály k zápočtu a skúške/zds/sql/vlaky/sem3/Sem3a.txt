@@ -1,0 +1,835 @@
+CREATE SEQUENCE typ_miesta_seq
+  INCREMENT BY 1
+  START WITH 1;
+
+CREATE OR REPLACE PROCEDURE add_typ_miesta 
+    (v_nazov IN typ_miesta.nazov%TYPE)
+  IS
+  BEGIN
+    INSERT INTO typ_miesta
+    VALUES (typ_miesta_seq.NEXTVAL, v_nazov);
+  END add_typ_miesta;
+
+CREATE OR REPLACE PROCEDURE change_typ_miesta
+    (v_nazov IN typ_miesta.nazov%TYPE, v_id IN typ_miesta.id%TYPE)
+  IS
+  BEGIN
+    UPDATE typ_miesta
+    SET nazov=v_nazov
+    WHERE id=v_id;
+  END change_typ_miesta;
+
+CREATE OR REPLACE PROCEDURE del_typ_miesta
+    (v_id IN typ_miesta.id%TYPE)
+  IS
+  BEGIN
+    DELETE FROM typ_miesta
+    WHERE id=v_id;
+  END del_typ_miesta;
+
+TTITLE CENTER 'Zoznam typov miest'
+  BTITLE CENTER SQL.PNO
+  COLUMN nazov2 HEADING "Názov typu miesta" FORMAT A20
+  SELECT nazov nazov2 FROM typ_miesta;
+
+CREATE TABLE log_table 
+  (user_name VARCHAR2(20), datum DATE, operacia CHAR(1), table_name VARCHAR2(20), id NUMBER);
+
+CREATE OR REPLACE TRIGGER osoba_del
+  BEFORE DELETE ON osoba
+  REFENCING old AS stary
+  FOR EACH ROW
+  BEGIN
+    INSERT INTO log_table (user_name, datum, operacia, table_name, id)
+    SELECT user, sysdate, 'D', 'osoba', :stary.id
+    FROM dual;
+  END;
+
+
+
+CREATE SEQUENCE vozen_typ_seq
+  INCREMENT BY 1	
+  START WITH 1;
+
+CREATE OR REPLACE PROCEDURE add_vozen_typ 
+    (v_typ IN vozen_typ.typ%TYPE, 
+     v_prevadzka_cena IN vozen_typ.prevadzka_cena%TYPE,
+     v_pocet_miest IN vozen_typ.pocet_miest%TYPE)
+  IS
+  BEGIN
+    INSERT INTO vozen_typ
+    VALUES (vozen_typ_seq.NEXTVAL, v_typ, v_prevadzka_cena, v_pocet_miest);
+  END add_vozen_typ;
+
+CREATE OR REPLACE PROCEDURE change_vozen_typ
+    (v_typ IN vozen_typ.typ%TYPE, 
+     v_prevadzka_cena IN vozen_typ.prevadzka_cena%TYPE,
+     v_pocet_miest IN vozen_typ.pocet_miest%TYPE,
+     v_id IN vozen_typ.id%TYPE)
+  IS
+  BEGIN
+    UPDATE vozen_typ
+    SET typ=v_typ, prevadzka_cena=v_prevadzka_cena, pocet_miest=v_pocet_miest
+    WHERE id=v_id;
+  END change_vozen_typ;
+
+CREATE OR REPLACE PROCEDURE del_vozen_typ
+    (v_id IN vozen_typ.id%TYPE)
+  IS
+  BEGIN
+    DELETE FROM vozen_typ
+    WHERE id=v_id;
+  END del_vozen_typ;
+
+TTITLE CENTER 'Zoznam typov vozòov'
+  BTITLE CENTER SQL.PNO
+  COLUMN typ2 HEADING "Typ vozòa" FORMAT A20
+  SELECT typ typ2 FROM vozen_typ;
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE SEQUENCE vozen_radenie_seq
+  INCREMENT BY 1	
+  START WITH 1;
+
+CREATE OR REPLACE PROCEDURE add_vozen_radenie 
+    (v_radenie IN vozen_radenie.radenie%TYPE)
+  IS
+  BEGIN
+    INSERT INTO vozen_radenie
+    VALUES (vozen_radenie_seq.NEXTVAL, v_radenie);
+  END add_vozen_radenie;
+
+CREATE OR REPLACE PROCEDURE change_vozen_radenie
+    (v_radenie IN vozen_radenie.radenie%TYPE, 
+      v_id IN vozen_radenie.id%TYPE)
+  IS
+  BEGIN
+    UPDATE vozen_radenie
+    SET radenie=v_radenie
+    WHERE id=v_id;
+  END change_vozen_radenie;
+
+CREATE OR REPLACE PROCEDURE del_vozen_radenie
+    (v_id IN vozen_radenie.id%TYPE)
+  IS
+  BEGIN
+    DELETE FROM vozen_radenie
+    WHERE id=v_id;
+  END del_vozen_radenie;
+
+TTITLE CENTER 'Preh¾ad radenia vozòov'
+  BTITLE CENTER SQL.PNO
+  COLUMN radenie2 HEADING "Radenie vozòov" FORMAT A20
+  SELECT radenie radenie2 FROM vozen_ radenie;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE OR REPLACE PROCEDURE add_stanica_zamest 
+    (v_ profesia IN stanica_zamest.profesia%TYPE)
+  IS
+  BEGIN
+    INSERT INTO stanica_zamest
+    VALUES (v_profesia);
+  END add_ stanica_zamest;
+
+CREATE OR REPLACE PROCEDURE change_ stanica_zamest
+    (v_profesia IN stanica_zamest.profesia%TYPE, 
+      v_id IN stanica_zamest.zamest_id %TYPE
+  IS
+  BEGIN
+    UPDATE stanica_zamest
+    SET profesia=v_profesia
+    WHERE zamest_id=v_id;
+  END change_stanica_zamest;
+
+CREATE OR REPLACE PROCEDURE del_stanica_zamest
+    (v_id IN stanica_zamest.zamest_id %TYPE)
+  IS
+  BEGIN
+    DELETE FROM 
+    WHERE zamest_id=v_id;
+  END del_stanica_zamest;
+
+TTITLE CENTER 'Zoznam zamestnancov stanice'
+  BTITLE CENTER SQL.PNO
+  COLUMN profesia2 HEADING "Profesia zamestnanca" FORMAT A20
+  SELECT profesia profesia2 FROM stanica_zamest;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE SEQUENCE vozen_typ_miesto_seq
+  INCREMENT BY 1	
+  START WITH 1;
+
+CREATE OR REPLACE PROCEDURE add_vozen_typ_miesto 
+    (v_cislo_miesta IN vozen_typ_miesto.cislo_miesta%TYPE)
+  IS
+  BEGIN
+    INSERT INTO vozen_typ_miesto
+    VALUES (vozen_ typ_miesto_seq.NEXTVAL, v_cislo_miesta);
+  END add_vozen_typ_miesto;
+
+CREATE OR REPLACE PROCEDURE change_vozen_typ_miesto
+    (v_cislo_miesta IN vozen_typ_miesto.cislo_miesta%TYPE, 
+      v_id IN vozen_typ_miesto.id%TYPE)
+  IS
+  BEGIN
+    UPDATE vozen_typ_miesto
+    SET cislo_miesta=v_cislo_miesta
+    WHERE id=v_id;
+  END change_vozen_typ_miesto;
+
+CREATE OR REPLACE PROCEDURE del_vozen_typ_miesto
+    (v_id IN vozen_typ_miesto.id%TYPE)
+  IS
+  BEGIN
+    DELETE FROM vozen_typ_miesto
+    WHERE id=v_id;
+  END del_vozen_typ_miesto;
+
+TTITLE CENTER 'Miesta vo vozni'
+  BTITLE CENTER SQL.PNO
+  COLUMN cislo_miesta2 HEADING "Èíslo miesta" FORMAT A20
+  SELECT cislo_miesta cislo_miesta2 FROM vozen_typ_miesto;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE SEQUENCE zamest_seq
+  INCREMENT BY 1	
+  START WITH 1;
+
+CREATE OR REPLACE PROCEDURE add_zamest 
+    (v_plat IN zamest.plat%TYPE)
+  IS
+  BEGIN
+    INSERT INTO zamest
+    VALUES (zamest_seq.NEXTVAL, v_plat);
+  END add_vozen_typ_miesto;
+
+CREATE OR REPLACE PROCEDURE change_zamest
+    (v_plat IN zamest.plat%TYPE, 
+      v_id IN zamest.id%TYPE)
+  IS
+  BEGIN
+    UPDATE zamest
+    SET plat=v_plat
+    WHERE id=v_id;
+  END change_zamest;
+
+CREATE OR REPLACE PROCEDURE del_zamest
+    (v_id IN zamest.id%TYPE)
+  IS
+  BEGIN
+    DELETE FROM zamest
+    WHERE id=v_id;
+  END del_zamest;
+
+TTITLE CENTER 'Preh¾ad platov zamestnancov'
+  BTITLE CENTER SQL.PNO
+  COLUMN plat2 HEADING "Plat" FORMAT A20
+  SELECT plat plat2 FROM zamest;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE OR REPLACE PROCEDURE add_vlak_typ_zamest 
+    (v_ profesia IN vlak_typ_zamest.profesia%TYPE)
+  IS
+  BEGIN
+    INSERT INTO vlak_typ_zamest
+    VALUES (v_profesia);
+  END add_ vlak_typ_zamest;
+
+CREATE OR REPLACE PROCEDURE change_vlak_typ_zamest
+    (v_profesia IN vlak_typ_zamest.profesia%TYPE, 
+      v_id IN vlak_typ_zamest.zamest_id %TYPE
+  IS
+  BEGIN
+    UPDATE vlak_typ_zamest
+    SET profesia=v_profesia
+    WHERE zamest_id=v_id;
+  END change_vlak_typ_zamest;
+
+CREATE OR REPLACE PROCEDURE del_vlak_typ_zamest
+   (v_id IN vlak_typ_zamest.zamest_id %TYPE)
+  IS
+  BEGIN
+    DELETE FROM 
+    WHERE zamest_id=v_id;
+  END del_vlak_typ_zamest;
+
+TTITLE CENTER 'Zoznam zamestnancov vlakov'
+  BTITLE CENTER SQL.PNO
+  COLUMN profesia2 HEADING "Profesia zamestnanca" FORMAT A20
+  SELECT profesia profesia2 FROM vlak_typ_zamest;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE SEQUENCE typ_stanica_cena_seq
+  INCREMENT BY 1	
+  START WITH 1;
+
+CREATE OR REPLACE PROCEDURE add_typ_stanica_cena 
+    (v_cena IN typ_stanica_cena.cena%TYPE)
+  IS
+  BEGIN
+    INSERT INTO typ_stanica_cena
+    VALUES (typ_stanica_cena_seq.NEXTVAL, v_cena);
+  END add_typ_stanica_cena;
+
+CREATE OR REPLACE PROCEDURE change_typ_stanica_cena
+    (v_cena IN typ_stanica_cena.cena%TYPE, 
+      v_id IN typ_stanica_cena.id%TYPE)
+  IS
+  BEGIN
+    UPDATE typ_stanica_cena
+    SET cena=v_cena
+    WHERE id=v_id;
+  END change_typ_stanica_cena;
+
+CREATE OR REPLACE PROCEDURE del_typ_stanica_cena
+    (v_id IN typ_stanica_cena.id%TYPE)
+  IS
+  BEGIN
+    DELETE FROM typ_stanica_cena
+    WHERE id=v_id;
+  END del_typ_stanica_cena;
+
+TTITLE CENTER 'Preh¾ad cien miest'
+  BTITLE CENTER SQL.PNO
+  COLUMN cena2 HEADING "Cena miesta" FORMAT A20
+  SELECT cena cena2 FROM typ_stanica_cena;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE SEQUENCE vlak_typ_seq
+  INCREMENT BY 1	
+  START WITH 1;
+
+CREATE OR REPLACE PROCEDURE add_vlak_typ
+    (v_typ IN vlak_typ.typ%TYPE, v_nazov IN vlak_typ.nazov%TYPE)
+  IS
+  BEGIN
+    INSERT INTO vlak_typ
+    VALUES (vlak_typ_seq.NEXTVAL, v_typ, v_nazov);
+  END add_vlak_typ;
+
+CREATE OR REPLACE PROCEDURE change_vlak_typ
+    (v_typ IN vlak_typ.typ%TYPE, 
+     v_nazov IN vlak_typ.nazov%TYPE,
+     v_id IN vlak_typ.id%TYPE)
+  IS
+  BEGIN
+    UPDATE vlak_typ
+    SET typ=v_typ, nazov=v_nazov
+    WHERE id=v_id;
+  END change_vlak_typ;
+
+CREATE OR REPLACE PROCEDURE del_vlak_typ
+    (v_id IN vlak_typ.id%TYPE)
+  IS
+  BEGIN
+    DELETE FROM vlak_typ
+    WHERE id=v_id;
+  END del_ vlak_typ;
+
+TTITLE CENTER 'Preh¾ad typov vlakov'
+  BTITLE CENTER SQL.PNO
+  COLUMN typ2 HEADING "Typ vlaku" FORMAT A20
+  SELECT typ typ2 FROM vlak_typ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE SEQUENCE vlak_typ_stanica_seq
+  INCREMENT BY 1	
+  START WITH 1;
+
+CREATE OR REPLACE PROCEDURE add_vlak_typ_stanica 
+    (v_cas IN vlak_typ_stanica.cas%TYPE)
+  IS
+  BEGIN
+    INSERT INTO vlak_typ_stanica
+    VALUES (vlak_typ_stanica _seq.NEXTVAL, v_cas);
+  END add_vlak_typ_stanica;
+
+CREATE OR REPLACE PROCEDURE change_vlak_typ_stanica
+    (v_cas IN vlak_typ_stanica.cas%TYPE, 
+      v_id IN vlak_typ_stanica.id%TYPE)
+  IS
+  BEGIN
+    UPDATE vlak_typ_stanica
+    SET cas=v_cas
+    WHERE id=v_id;
+  END change_vlak_typ_stanica;
+
+CREATE OR REPLACE PROCEDURE del_vlak_typ_stanica
+    (v_id IN vlak_typ_stanica.id%TYPE)
+  IS
+  BEGIN
+    DELETE FROM vlak_typ_stanica
+    WHERE id=v_id;
+  END del_vlak_typ_stanica;
+
+TTITLE CENTER 'Odchody vlakov zo staníc'
+  BTITLE CENTER SQL.PNO
+  COLUMN cas2 HEADING "Cas odchodu" FORMAT A20
+  SELECT cas cas2 FROM vlak_typ_stanica;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE SEQUENCE stanice_seq
+  INCREMENT BY 1	
+  START WITH 1;
+
+CREATE OR REPLACE PROCEDURE add_stanice 
+    (v_nazov IN stanice.nazov%TYPE)
+  IS
+  BEGIN
+    INSERT INTO stanice
+    VALUES (stanice_seq.NEXTVAL, v_nazov);
+  END add_stanice;
+
+CREATE OR REPLACE PROCEDURE change_stanice
+    (v_nazov IN stanice.nazov%TYPE, 
+      v_id IN stanice.id%TYPE)
+  IS
+  BEGIN
+    UPDATE stanice
+    SET nazov=v_nazov
+    WHERE id=v_id;
+  END change_stanice;
+
+CREATE OR REPLACE PROCEDURE del_stanice
+    (v_id IN stanice.id%TYPE)
+  IS
+  BEGIN
+    DELETE FROM stanice
+    WHERE id=v_id;
+  END del_stanice;
+
+TTITLE CENTER 'Zoznam staníc'
+  BTITLE CENTER SQL.PNO
+  COLUMN nazov2 HEADING "Názov stanice" FORMAT A20
+  SELECT nazov nazov2 FROM stanice;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE SEQUENCE listok_seq
+  INCREMENT BY 1	
+  START WITH 1;
+
+CREATE OR REPLACE PROCEDURE add_listok
+    (v_cena IN listok.cena%TYPE, v_cas IN listok.cas%TYPE, v_datum IN listok.datum%TYPE, v_odkial IN listok.odkial%TYPE, v_kam IN listok.kam%TYPE)
+  IS
+  BEGIN
+    INSERT INTO listok
+    VALUES (listok_seq.NEXTVAL, v_cena, v_cas, v_datum, v_odkial, v_kam);
+  END add_listok;
+
+CREATE OR REPLACE PROCEDURE change_listok
+    (v_cena IN listok.cena%TYPE, v_cas IN listok.cas%TYPE, v_datum IN listok.datum%TYPE, v_odkial IN listok.odkial%TYPE, v_kam IN listok.kam%TYPE, 
+      v_id IN listok.id%TYPE)
+  IS
+  BEGIN
+    UPDATE listok
+    SET cena=v_cena, cas=v_cas, datum=v_datum, odkial=v_odkial, kam=v_kam
+    WHERE id=v_id;
+  END change_listok;
+
+CREATE OR REPLACE PROCEDURE del_listok
+    (v_id IN listok.id%TYPE)
+  IS
+  BEGIN
+    DELETE FROM listok
+    WHERE id=v_id;
+  END del_listok;
+
+TTITLE CENTER 'Zoznam lístkov'
+  BTITLE CENTER SQL.PNO
+  COLUMN cena2 HEADING "cena lístka" FORMAT A20
+  SELECT cena cena2 FROM listok;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE OR REPLACE PROCEDURE add_batozina 
+    (v_ hmotnost IN batozina.hmotnost%TYPE, v_cena IN batozina.cena%TYPE)
+  IS
+  BEGIN
+    INSERT INTO batozina
+    VALUES (v_hmotnost, v_cena);
+  END add_batozina;
+
+CREATE OR REPLACE PROCEDURE change_batozina
+    (v_hmotnost IN batozina.hmotnost%TYPE, 
+      v_cena IN batozina.cena%TYPE,
+      v_id IN batozina.listok_listok%TYPE)
+  IS
+  BEGIN
+    UPDATE batozina
+    SET hmotnost=v_hmotnost, cena=v_cena
+    WHERE listok_id=v_id;
+  END change_batozina;
+
+CREATE OR REPLACE PROCEDURE del_batozina
+    (v_id IN batozina.listok_id %TYPE)
+  IS
+  BEGIN
+    DELETE FROM 
+    WHERE listok_id=v_id;
+  END del_batozina;
+
+TTITLE CENTER 'Cenník batožiny'
+  BTITLE CENTER SQL.PNO
+  COLUMN cena2 HEADING "Cena batoziny" FORMAT A20
+  SELECT cena cena2 FROM stanica_zamest;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE OR REPLACE PROCEDURE add_ciern_pasazier 
+    (v_ pokuta IN ciern_pasazier.pokuta%TYPE)
+  IS
+  BEGIN
+    INSERT INTO ciern_pasazier
+    VALUES (v_pokuta);
+  END add_ciern_pasazier;
+
+CREATE OR REPLACE PROCEDURE change_ciern_pasazier
+    (v_pokuta IN ciern_pasazier.pokuta%TYPE, 
+      v_id IN ciern_pasazier.osoba_c_op %TYPE
+  IS
+  BEGIN
+    UPDATE ciern_pasazier
+    SET pokuta=v_pokuta
+    WHERE osoba_c_op=v_id;
+  END change_ciern_pasazier;
+
+CREATE OR REPLACE PROCEDURE del_ciern_pasazier
+    (v_id IN ciern_pasazier.osoba_c_op %TYPE)
+  IS
+  BEGIN
+    DELETE FROM ciern_pasazier 
+    WHERE osoba_c_op=v_id;
+  END del_ciern_pasazier;
+
+TTITLE CENTER 'Zoznam pokút èiernych posažierov'
+  BTITLE CENTER SQL.PNO
+  COLUMN pokuta2 HEADING "Pokuta" FORMAT A20
+  SELECT pokuta pokuta2 FROM ciern_pasazier;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE SEQUENCE osoba_seq
+  INCREMENT BY 1	
+  START WITH 1;
+
+CREATE OR REPLACE PROCEDURE add_osoba
+    (v_meno IN osoba.meno%TYPE, 
+     v_priezvisko IN osoba.priezvisko%TYPE, 
+     v_adresa IN osoba.adresa%TYPE)
+  IS
+  BEGIN
+    INSERT INTO osoba
+    VALUES (osoba_seq.NEXTVAL, v_meno, v_priezvisko, v_adresa);
+  END add_osoba;
+
+CREATE OR REPLACE PROCEDURE change_osoba
+    (v_meno IN osoba.meno%TYPE, 
+     v_priezvisko IN osoba.priezvisko%TYPE, 
+     v_adresa IN osoba.adresa%TYPE 
+      v_id IN osoba.c_op%TYPE)
+  IS
+  BEGIN
+    UPDATE osoba
+    SET meno=v_meno, priezvisko=v_priezvisko, adresa=v_adresa
+    WHERE c_op=v_id;
+  END change_osoba;
+
+CREATE OR REPLACE PROCEDURE del_osoba
+    (v_id IN osoba.c_op%TYPE)
+  IS
+  BEGIN
+    DELETE FROM osoba
+    WHERE c_op=v_id;
+  END del_osoba;
+
+TTITLE CENTER 'Zoznam èiernych posažierov'
+  BTITLE CENTER SQL.PNO
+  COLUMN c_op2 HEADING "Èíslo obèianskeho preukazu" FORMAT A20
+  SELECT c_op c_op2 FROM osoba;
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE SEQUENCE vlaky_seq
+  INCREMENT BY 1	
+  START WITH 1;
+
+CREATE OR REPLACE PROCEDURE add_vlaky
+    (v_cas IN vlaky.cas%TYPE, 
+     v_datum IN vlaky.datum%TYPE, 
+     v_prevadzka_cena IN vlaky.prevadzka_cena%TYPE)
+  IS
+  BEGIN
+    INSERT INTO vlaky
+    VALUES (vlaky_seq.NEXTVAL, v_cas, v_datum, v_prevadzka_cena);
+  END add_vlaky;
+
+CREATE OR REPLACE PROCEDURE change_vlaky
+    (v_cas IN vlaky.cas%TYPE, 
+     v_datum IN vlaky.datum%TYPE, 
+     v_prevadzka_cena IN vlaky.prevadzka_cena%TYPE) 
+      v_id IN vlaky.id%TYPE)
+  IS
+  BEGIN
+    UPDATE vlaky
+    SET cas=v_cas, datum=v_datum, prevadzka_cena=v_ prevadzka_cena
+    WHERE id=v_id;
+  END change_vlaky;
+
+CREATE OR REPLACE PROCEDURE del_vlaky
+    (v_id IN vlaky.id%TYPE)
+  IS
+  BEGIN
+    DELETE FROM vlaky
+    WHERE id=v_id;
+  END del_vlaky;
+
+TTITLE CENTER 'bla bla bla'
+  BTITLE CENTER SQL.PNO
+  COLUMN cas2 HEADING "bla bla bla" FORMAT A20
+  SELECT cas cas2 FROM vlaky;
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE OR REPLACE PROCEDURE add_meskanie 
+    (v_cas IN meskanie.cas%TYPE, 
+      v_dovod IN meskanie.dovod%TYPE)
+  IS
+  BEGIN
+    INSERT INTO meskanie
+    VALUES (v_cas, v_dovod);
+  END add_meskanie;
+
+CREATE OR REPLACE PROCEDURE change_meskanie
+    (v_cas IN meskanie.cas%TYPE, 
+      v_dovod IN meskanie.dovod%TYPE
+6c      v_id IN meskanie.vlaky_id %TYPE
+  IS
+  BEGIN
+    UPDATE meskanie
+    SET cas=v_cas, dovod=v_dovod
+    WHERE vlaky_id=v_id;
+  END change_meskanie;
+
+CREATE OR REPLACE PROCEDURE del_meskanie
+  6c  (v_id IN meskanie.vlaky_id %TYPE)
+  IS
+  BEGIN
+    DELETE FROM meskanie
+    WHERE vlaky_id=v_id;
+  END del_meskanie;
+
+TTITLE CENTER 'Preh¾ad meškania vlakov'
+  BTITLE CENTER SQL.PNO
+  COLUMN cas2 HEADING "Èas meškania" FORMAT A20
+  SELECT cas cas2 FROM meskanie;
+
+
+
+
+
+

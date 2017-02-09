@@ -1,0 +1,23 @@
+SQL> start zoznam
+
+OU_MENO         OU_PRIEZVISKO                                                   
+--------------- ---------------                                                 
+Karolina        Velka                                                           
+Marek           Sartoris                                                        
+Tomas           Chrenka                                                         
+Jana            Ulicna                                                          
+Emil            Bobok                                                           
+Zuzana          Bebjakova                                                       
+Stanislav       Vnuk                                                            
+Celine          Dion                                                            
+Karol           Najnovsi                                                        
+Karol           Estenovsi                                                       
+Karol           Estenovsi                                                       
+
+OU_MENO         OU_PRIEZVISKO                                                   
+--------------- ---------------                                                 
+Karol           Estenajnovsi                                                    
+
+12 rows selected.
+
+SQL> spool off

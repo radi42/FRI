@@ -1,0 +1,1451 @@
+SQL> select * from os_udaje
+  2  ;
+
+ROD_CISLO   MENO            PRIEZVISKO      ULICA                               
+----------- --------------- --------------- --------------------                
+OBEC                 PSC   ST OKRE                                              
+-------------------- ----- -- ----                                              
+841106/3456 Peter           Novak           Kamenna 27                          
+Banska Bystrica      97401 SR Bans                                              
+                                                                                
+840312/7845 Stanislav       Steinmuller     Zelena 9                            
+Nove Mesto nad Vahom 91501 SR Tren                                              
+                                                                                
+860907/1259 Janos           Toth            Slnecne namestie                    
+Komarno              94501 MR Koma                                              
+                                                                                
+
+ROD_CISLO   MENO            PRIEZVISKO      ULICA                               
+----------- --------------- --------------- --------------------                
+OBEC                 PSC   ST OKRE                                              
+-------------------- ----- -- ----                                              
+850130/3695 Marek           Ratroch         Stred 49/7                          
+Povazska Bystrica    01701 SR Pova                                              
+                                                                                
+841201/1248 Bohuslav        Biely           Juh 2100/456                        
+Trencin              91101 SR Tren                                              
+                                                                                
+830514/5341 Branislav       Balaz           Tahanovce 38/12                     
+Kosice               04000 SR Kosi                                              
+                                                                                
+
+ROD_CISLO   MENO            PRIEZVISKO      ULICA                               
+----------- --------------- --------------- --------------------                
+OBEC                 PSC   ST OKRE                                              
+-------------------- ----- -- ----                                              
+781015/4431 Peter           Kapustny        Javorova 2                          
+Zilina               01001 SR Zili                                              
+                                                                                
+800407/3522 Marek           Durica          Precin 124                          
+Precin               01701 SR Pova                                              
+                                                                                
+791229/5431 Martin          Kluciar         A. Bernolaka 14/20                  
+Zilina               01001 SR Zili                                              
+                                                                                
+
+ROD_CISLO   MENO            PRIEZVISKO      ULICA                               
+----------- --------------- --------------- --------------------                
+OBEC                 PSC   ST OKRE                                              
+-------------------- ----- -- ----                                              
+871124/3578 Lukas           Satrapa         Dolna 12                            
+Cadca                02201 CR Cadc                                              
+                                                                                
+871203/5472 Jan             Krnac           Prievoznicka                        
+Ruzomberok           03401 SR Ruzo                                              
+                                                                                
+890310/2145 Juraj           Papun           Kosicka cesta                       
+Michalovce           07101 SR Mich                                              
+                                                                                
+
+ROD_CISLO   MENO            PRIEZVISKO      ULICA                               
+----------- --------------- --------------- --------------------                
+OBEC                 PSC   ST OKRE                                              
+-------------------- ----- -- ----                                              
+911001/3623 Andrej          Janci           Tatranska 22                        
+Poprad               05801 SR Popr                                              
+                                                                                
+901130/4454 Zdeno           Svetkovsky      Janka Borodaca 12                   
+Prievidza            97101 SR Prie                                              
+                                                                                
+921225/7452 Rastislav       Kontros         Kolarovce 12                        
+Kolarovce            01401 SR Bytc                                              
+                                                                                
+
+ROD_CISLO   MENO            PRIEZVISKO      ULICA                               
+----------- --------------- --------------- --------------------                
+OBEC                 PSC   ST OKRE                                              
+-------------------- ----- -- ----                                              
+900913/3326 Frantisek       Murgas          Namestie SNP 15                     
+Banska Bystrica      97401 SR Bans                                              
+                                                                                
+870913/3326 Frantisek       Murgas          Fatranska 13                        
+Zilina               01008 SR Zili                                              
+                                                                                
+890608/4543 Lubos           Lehotsky        Orlove 16                           
+Orlove               01701 SR Pova                                              
+                                                                                
+
+ROD_CISLO   MENO            PRIEZVISKO      ULICA                               
+----------- --------------- --------------- --------------------                
+OBEC                 PSC   ST OKRE                                              
+-------------------- ----- -- ----                                              
+860103/2238 Rudolf          Kovac           Bratislavska cesta 2                
+Zilina               01001 SR Zili                                              
+                                                                                
+896123/5471 Zuzana          Slamova         Pivovarska 14/536                   
+Plzen                30100 CR Plze                                              
+                                                                                
+855122/8569 Erika           Lipovska        Priecna ulica 35                    
+Bytca                01401 SR Bytc                                              
+                                                                                
+
+ROD_CISLO   MENO            PRIEZVISKO      ULICA                               
+----------- --------------- --------------- --------------------                
+OBEC                 PSC   ST OKRE                                              
+-------------------- ----- -- ----                                              
+121212/1212 Karol           Stary                                               
+                                                                                
+                                                                                
+232323/2323 Karol           Novsi                                               
+                                                                                
+                                                                                
+454545/4545 Carlos          Estenovsi                                           
+                                                                                
+                                                                                
+
+ROD_CISLO   MENO            PRIEZVISKO      ULICA                               
+----------- --------------- --------------- --------------------                
+OBEC                 PSC   ST OKRE                                              
+-------------------- ----- -- ----                                              
+565656/5656 Karol           Estenovsi                                           
+                                                                                
+25 rows selected.
+
+
+
+
+********************************************************************************
+SQL> select * from student;
+
+  OS_CISLO   ST_ODBOR ST_ZAMERANIE ROD_CISLO       ROCNIK ST_SKU O P F          
+---------- ---------- ------------ ----------- ---------- ------ - - -          
+UKONCENIE  S DAT_PRV_ZA                                                         
+---------- - ----------                                                         
+    501512        100            0 841106/3456          3 5ZI031 n n 1          
+           S 07/19/2005                                                         
+                                                                                
+    501469        101            0 840312/7845          3 5ZP031 n n 1          
+           S 09/01/2007                                                         
+                                                                                
+    501414        100            0 860907/1259          3 5ZI031 2 n 1          
+           S 07/15/2003                                                         
+                                                                                
+
+  OS_CISLO   ST_ODBOR ST_ZAMERANIE ROD_CISLO       ROCNIK ST_SKU O P F          
+---------- ---------- ------------ ----------- ---------- ------ - - -          
+UKONCENIE  S DAT_PRV_ZA                                                         
+---------- - ----------                                                         
+    550545        100            0 850130/3695          1 5ZI012 n a 1          
+           P 07/19/2008                                                         
+                                                                                
+    550020        102            0 781015/4431          3 5ZM031 n n 1          
+           S 08/05/1999                                                         
+                                                                                
+    501567        100            0 830514/5341          0 5ZI000 n n 1          
+08/31/2006 E 07/19/2005                                                         
+                                                                                
+
+  OS_CISLO   ST_ODBOR ST_ZAMERANIE ROD_CISLO       ROCNIK ST_SKU O P F          
+---------- ---------- ------------ ----------- ---------- ------ - - -          
+UKONCENIE  S DAT_PRV_ZA                                                         
+---------- - ----------                                                         
+    501319        100            0 830514/5341          3 5ZIA31 n n 1          
+           S 09/05/2006                                                         
+                                                                                
+    501555        101            0 800407/3522          2 5ZP022 n a 1          
+           S 10/10/2000                                                         
+                                                                                
+    501402        102            0 800407/3522          3 5ZM033 n n 1          
+           S 07/15/2000                                                         
+                                                                                
+
+  OS_CISLO   ST_ODBOR ST_ZAMERANIE ROD_CISLO       ROCNIK ST_SKU O P F          
+---------- ---------- ------------ ----------- ---------- ------ - - -          
+UKONCENIE  S DAT_PRV_ZA                                                         
+---------- - ----------                                                         
+    501096        100            0 791229/5431          0 5ZI000 a n 1          
+12/20/2001 V 06/13/2000                                                         
+                                                                                
+    501103        100            0 791229/5431          0 5ZI000 n n 1          
+06/23/2006 K 07/13/2002                                                         
+                                                                                
+    501333        200            1 791229/5431          2 5ZSD21 n n 1          
+           S 09/05/2006                                                         
+                                                                                
+
+  OS_CISLO   ST_ODBOR ST_ZAMERANIE ROD_CISLO       ROCNIK ST_SKU O P F          
+---------- ---------- ------------ ----------- ---------- ------ - - -          
+UKONCENIE  S DAT_PRV_ZA                                                         
+---------- - ----------                                                         
+    501201        201            0 871203/5472          3 5ZR032 n n 1          
+           P 09/05/1997                                                         
+                                                                                
+    501345        200            2 890310/2145          2 5ZSA21 n n 1          
+           S 07/13/2002                                                         
+                                                                                
+    501448        100            0 911001/3623          2 5PI021 a n 1          
+           S 07/19/2008                                                         
+                                                                                
+
+  OS_CISLO   ST_ODBOR ST_ZAMERANIE ROD_CISLO       ROCNIK ST_SKU O P F          
+---------- ---------- ------------ ----------- ---------- ------ - - -          
+UKONCENIE  S DAT_PRV_ZA                                                         
+---------- - ----------                                                         
+    501003        100            0 901130/4454          3 5PI031 n n 1          
+           S 07/13/2006                                                         
+                                                                                
+    501559        101            0 921225/7452          3 5ZM031 n n 1          
+           S 07/19/2006                                                         
+                                                                                
+    550945        100            0 900913/3326          1 5ZI010 n n 1          
+           S 07/23/2002                                                         
+                                                                                
+
+  OS_CISLO   ST_ODBOR ST_ZAMERANIE ROD_CISLO       ROCNIK ST_SKU O P F          
+---------- ---------- ------------ ----------- ---------- ------ - - -          
+UKONCENIE  S DAT_PRV_ZA                                                         
+---------- - ----------                                                         
+    501381        100            0 870913/3326          3 5PI031 n a 1          
+           S 11/07/2001                                                         
+                                                                                
+    550807        102            0 890608/4543          3 5ZM031 a n 1          
+           S 07/19/2002                                                         
+                                                                                
+    550127        201            0 860103/2238          2 5ZR023 a n 1          
+           S 07/19/2001                                                         
+                                                                                
+
+  OS_CISLO   ST_ODBOR ST_ZAMERANIE ROD_CISLO       ROCNIK ST_SKU O P F          
+---------- ---------- ------------ ----------- ---------- ------ - - -          
+UKONCENIE  S DAT_PRV_ZA                                                         
+---------- - ----------                                                         
+    550123        200            2 896123/5471          2 5ZSA21 a n 1          
+           S 07/19/2001                                                         
+                                                                                
+    550698        200            2 855122/8569          2 5ZSA21 a n 1          
+           S 07/19/2003                                                         
+                                                                                
+        90        200            2 232323/2323          2 5ZSA21                
+           S                                                                    
+                                                                                
+
+  OS_CISLO   ST_ODBOR ST_ZAMERANIE ROD_CISLO       ROCNIK ST_SKU O P F          
+---------- ---------- ------------ ----------- ---------- ------ - - -          
+UKONCENIE  S DAT_PRV_ZA                                                         
+---------- - ----------                                                         
+         8        100            0 454545/4545          3 5ZI032                
+           S                                                                    
+                                                                                
+
+25 rows selected.
+
+
+
+***********************************************************************************************************
+
+SQL> select * from zap_predmety;
+
+  OS_CISLO      SKROK CIS_ PREDN V DATUM_SK       TERMIN ZAPOCET       KREDITY  
+---------- ---------- ---- ----- - ---------- ---------- ---------- ----------  
+    501381       2002 BI06 KI001 A 06/12/2003          2 05/30/2003          6  
+    501381       2001 BI01 KI001 D 12/21/2001          2 12/21/2001          6  
+    550945       2003 BI06 KI001 C 06/13/2004          1 05/31/2004          6  
+    550945       2002 BI10 KI003                         01/30/2003          6  
+    550945       2004 BN10 KTK01 D 07/09/2005            01/30/2003          4  
+    550020       1999 BF01 KMM02                                             6  
+    550020       2000 BF01 KMM02 E 07/09/2000          1 01/30/2001          6  
+    550020       2001 BI30 KI003 E 08/07/2002          3 06/20/2002          5  
+    550020       1999 BF09 EX001 E 01/23/2001          3 12/20/2000          1  
+
+    501333       2006 II03 KI003                                             5  
+
+  OS_CISLO      SKROK CIS_ PREDN V DATUM_SK       TERMIN ZAPOCET       KREDITY  
+---------- ---------- ---- ----- - ---------- ---------- ---------- ----------  
+    501333       2006 BF07 KTK01 E 05/15/2007          3 12/23/2006          6  
+    501103       2002 BE08 KMM03 A 05/24/2003          2 05/20/2003          6  
+    501103       2002 BL22 EX002 C 06/12/2003          3 06/23/2003          1  
+    501103       2003 BF07 KTK01                         12/23/2003          6  
+    501103       2004 BF07 KTK01 E 05/15/2005          3 12/23/2003          6  
+    501096       2000 BE08 KMM03                                             6  
+    501402       2001 BI01 KI001 B 02/27/2002          2 01/21/2002          6  
+    501402       2002 BI10 KI003 C 01/31/2003          3 02/02/2003          6  
+    501402       2002 BI11 EX002 C 01/31/2003          2 02/04/2003          1  
+    501402       2003 BL13 EX001                         12/12/2003          1  
+    501555       2000 BL13 EX001                                             1  
+
+  OS_CISLO      SKROK CIS_ PREDN V DATUM_SK       TERMIN ZAPOCET       KREDITY  
+---------- ---------- ---- ----- - ---------- ---------- ---------- ----------  
+    501555       2001 BI06 KI002                                             6  
+    501567       2005 BI01 KI002 C 12/22/2005          1 12/22/2005          6  
+    501567       2005 BI02 KI002 C 04/22/2006          1 04/12/2006          6  
+    501567       2006 BI11 EX002 C 01/13/2007          1 01/21/2007          1  
+    501567       2006 BF07 KTK02 A 12/22/2006          1 12/12/2006          6  
+    501319       2005 BL14 EX001 C 12/23/2006          2 12/13/2005          1  
+    501319       2005 BE13 KMT01 D 12/23/2006          2 12/13/2005          5  
+    501319       2004 BH22 KTK01 E 12/23/2004          2 12/13/2004          1  
+    501319       2005 BL11 EX001                         12/13/2005          1  
+    501319       2006 BI28 EX001 C 03/23/2007          2 05/01/2007          1  
+    550545       2008 BI01 KI001 A 11/30/2008          1 11/30/2008          6  
+
+  OS_CISLO      SKROK CIS_ PREDN V DATUM_SK       TERMIN ZAPOCET       KREDITY  
+---------- ---------- ---- ----- - ---------- ---------- ---------- ----------  
+    550545       2008 BI02 KI001 A 05/30/2009          1 06/12/2009          6  
+    550698       2002 IN07 KTK01                         05/12/2003          5  
+    550127       2002 II14 KDS02                                             6  
+    550127       2003 IN09 KDS02 C 12/20/2003          1 12/12/2003          6  
+    501201       2000 II08 KDS01                         06/26/2001          5  
+    501201       2002 IM16 KMM01 C 02/12/2003          2 06/10/2003          3  
+    501201       2003 II08 KDS01                                             5  
+    501201       2004 IS07 KIS02 E 11/11/2004          2 11/11/2004          5  
+    501345       2002 BA12 KI003 C 05/12/2003          3 05/02/2003          7  
+    501345       2003 IS04 KI001 D 06/21/2004          3 05/20/2006          4  
+    550807       2002 BS01 KI003 A 12/22/2002          2 12/20/2002          6  
+
+  OS_CISLO      SKROK CIS_ PREDN V DATUM_SK       TERMIN ZAPOCET       KREDITY  
+---------- ---------- ---- ----- - ---------- ---------- ---------- ----------  
+    550807       2002 BE01 KME01 B 12/22/2002          1 12/03/2002          6  
+    550807       2003 BL02 EX001                         04/11/2004          1  
+    550807       2003 BI06 KI002                         05/29/2004          6  
+    550123       2001 II07 KI001                                             5  
+    550123       2001 IA07 KMM02 C 03/01/2002          2 01/12/2002          5  
+    550123       2002 II17 KI002 D 03/12/2003          2 01/12/2003          5  
+    501003       2006 BS03 KI002 A 12/25/2006          3 12/10/2006          6  
+    501003       2006 BI06 KI002                                             6  
+    501003       2007 BI06 KI002 E 05/03/2008          1 04/30/2008          6  
+    501448       2008 BA10 KMM01 D 06/11/2008          2 05/11/2008          6  
+    501448       2008 BI03 KMM01                         01/11/2009          6  
+
+  OS_CISLO      SKROK CIS_ PREDN V DATUM_SK       TERMIN ZAPOCET       KREDITY  
+---------- ---------- ---- ----- - ---------- ---------- ---------- ----------  
+    501448       2008 BI23 KI002 C 02/12/2009          2 01/11/2009          6  
+    501559       2006 BI06 KI003                                             5  
+        90       2006 II08 KDS01                                             5  
+        90       2007 II07 KI001                                             5  
+         8       2006 BI11 EX002                                             1  
+         8       2008 BF11 KMM03                                             8  
+         8       2007 BH18 KTK01                                             6  
+
+62 rows selected.
+
+
+
+
+*******************************************************************************************************
+SQL> select * from st_odbory;
+
+  ST_ODBOR ST_ZAMERANIE POPIS_ODBORU                                            
+---------- ------------ ----------------------------------------                
+POPIS_ZAMERANIA                                                                 
+----------------------------------------                                        
+       100            0 Informatika                                             
+                                                                                
+                                                                                
+       101            0 Pocitacove inzinierstvo                                 
+                                                                                
+                                                                                
+       102            0 Manazment                                               
+                                                                                
+                                                                                
+
+  ST_ODBOR ST_ZAMERANIE POPIS_ODBORU                                            
+---------- ------------ ----------------------------------------                
+POPIS_ZAMERANIA                                                                 
+----------------------------------------                                        
+       200            0 Informacne systemy                                      
+                                                                                
+                                                                                
+       200            1 Informacne systemy                                      
+Systemy pre podporu rozhodovania                                                
+                                                                                
+       200            2 Informacne systemy                                      
+Aplikovana informatika                                                          
+                                                                                
+
+  ST_ODBOR ST_ZAMERANIE POPIS_ODBORU                                            
+---------- ------------ ----------------------------------------                
+POPIS_ZAMERANIA                                                                 
+----------------------------------------                                        
+       200            3 Informacne systemy                                      
+Informaco-komunikacne systemy                                                   
+                                                                                
+       201            0 Informacny manazment                                    
+                                                                                
+                                                                                
+       202            0 Pocitacove inzinierstvo                                 
+                                                                                
+                                                                                
+
+9 rows selected.
+
+
+
+
+*******************************************************************************************************
+SQL> select * from predmet;
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+BH09 KTK03                                                                      
+Teoria automatickeho riadenia 2                                                 
+         6                                                                      
+                                                                                
+IH11 KTK03                                                                      
+Uvod do teorie diskretnych systemov                                             
+         5                                                                      
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+                                                                                
+IH09 KTK03                                                                      
+Cislicove spracovanie signalov 1.                                               
+         5                                                                      
+                                                                                
+IH06 KTK01                                                                      
+Cislicovy prenos dat                                                            
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+         5                                                                      
+                                                                                
+II23 KDS05                                                                      
+Umela inteligencia                                                              
+         5                                                                      
+                                                                                
+IS09 KDS05                                                                      
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+Expertne systemy                                                                
+         6                                                                      
+                                                                                
+IE10 KMM04                                                                      
+Uctovnictvo a rozbory                                                           
+         5                                                                      
+                                                                                
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+IPH1 KTK02                                                                      
+Projekt 1                                                                       
+         6                                                                      
+                                                                                
+IPH2 KTK02                                                                      
+Projekt 2                                                                       
+         6                                                                      
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+                                                                                
+IPH3 KTK02                                                                      
+Projekt 3                                                                       
+         6                                                                      
+                                                                                
+IE13 KMM03                                                                      
+Controlling                                                                     
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+         4                                                                      
+                                                                                
+BA07 KDS01                                                                      
+Operacna analyza 2.                                                             
+         5                                                                      
+                                                                                
+BE07 KMT01                                                                      
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+Financie                                                                        
+         5                                                                      
+                                                                                
+BE08 KMT01                                                                      
+Makroekonomia                                                                   
+         5                                                                      
+                                                                                
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+IE01 KMM02                                                                      
+Teoria podniku                                                                  
+         5                                                                      
+                                                                                
+II01 KMM02                                                                      
+Fuzzy mnoziny a neuronove siete                                                 
+         5                                                                      
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+                                                                                
+BL12 EX001                                                                      
+Telesna vychova 4.                                                              
+         1                                                                      
+                                                                                
+BL18 EX002                                                                      
+Jazyk anglicky 4.                                                               
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+         1                                                                      
+                                                                                
+BE10 KMT01                                                                      
+Podnikova logistika                                                             
+         5                                                                      
+                                                                                
+BL22 EX002                                                                      
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+Jazyk nemecky 4.                                                                
+         1                                                                      
+                                                                                
+II08 KDS01                                                                      
+Diskretna simulacia                                                             
+         5                                                                      
+                                                                                
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+BF08 KDS01                                                                      
+Diskretna matematika                                                            
+         5                                                                      
+                                                                                
+BM02 KMM04                                                                      
+Marketing sluzieb                                                               
+         4                                                                      
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+                                                                                
+BM07 KMM04                                                                      
+Manazerska komunikacia                                                          
+         5                                                                      
+                                                                                
+BL14 EX001                                                                      
+Telesna vychova 6                                                               
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+         1                                                                      
+                                                                                
+BA06 KDS02                                                                      
+Modelovanie a optimalizacia                                                     
+         5                                                                      
+                                                                                
+BM12 KMT01                                                                      
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+Manazment ludskych zdrojov                                                      
+         5                                                                      
+                                                                                
+BF04 KTK02                                                                      
+Elektrotechnika                                                                 
+         5                                                                      
+                                                                                
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+BF07 KTK02                                                                      
+Elektronika                                                                     
+         6                                                                      
+                                                                                
+BH05 KTK02                                                                      
+Elektronicke systemy                                                            
+         6                                                                      
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+                                                                                
+BN10 KTK01                                                                      
+Komunikacne technologie                                                         
+         4                                                                      
+                                                                                
+BH13 KTK01                                                                      
+Mikropocitace a ich aplikacie                                                   
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+         6                                                                      
+                                                                                
+BH17 KTK02                                                                      
+Prvky automatickych systemov                                                    
+         6                                                                      
+                                                                                
+IE07 KMT01                                                                      
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+Medzinarodny obchod                                                             
+         4                                                                      
+                                                                                
+BS05 KTK01                                                                      
+Identifikacia systemov                                                          
+         6                                                                      
+                                                                                
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+IM12 KMT01                                                                      
+Kvantitativne metody pre logistiku                                              
+         6                                                                      
+                                                                                
+BL10 EX001                                                                      
+Telesna vychova 2.                                                              
+         1                                                                      
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+                                                                                
+BL11 EX001                                                                      
+Telesna vychova 3.                                                              
+         1                                                                      
+                                                                                
+BL17 EX001                                                                      
+Jazyk anglicky 3.                                                               
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+         1                                                                      
+                                                                                
+BL13 EX002                                                                      
+Telesna vychova 5                                                               
+         1                                                                      
+                                                                                
+IM17 KDS02                                                                      
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+Organizacne spravanie                                                           
+         3                                                                      
+                                                                                
+IN08 KTK02                                                                      
+Komunikacne systemy                                                             
+         5                                                                      
+                                                                                
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+BH08 KTK02                                                                      
+Teoria automatickeho riadenia 1                                                 
+         6                                                                      
+                                                                                
+BI01 KI001                                                                      
+Zaklady informatiky 1                                                           
+         6                                                                      
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+                                                                                
+BI02 KI001                                                                      
+Zaklady informatiky 2                                                           
+         6                                                                      
+                                                                                
+BA14 KI001                                                                      
+Pravdepodobnost a statistika 2                                                  
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+         5                                                                      
+                                                                                
+IN07 KTK01                                                                      
+Prenos signalu                                                                  
+         5                                                                      
+                                                                                
+BI10 KI003                                                                      
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+Java - jazyk a vyvoj aplikacii                                                  
+         6                                                                      
+                                                                                
+BI11 EX002                                                                      
+Praktikum z programovania 1.                                                    
+         1                                                                      
+                                                                                
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+BL03 EX002                                                                      
+Pravo 1.                                                                        
+         4                                                                      
+                                                                                
+IN09 KDS02                                                                      
+Optimalizacia sieti                                                             
+         5                                                                      
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+                                                                                
+II15 KI002                                                                      
+Udajove struktury 2                                                             
+         5                                                                      
+                                                                                
+IA06 KDS01                                                                      
+Matematicke programovanie                                                       
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+         5                                                                      
+                                                                                
+BA11 KDS02                                                                      
+Pravdepodobnost a statistika 1                                                  
+         6                                                                      
+                                                                                
+BA13 KDS01                                                                      
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+Modelovanie a simulacia                                                         
+         6                                                                      
+                                                                                
+BE13 KMT01                                                                      
+Marketing 1                                                                     
+         5                                                                      
+                                                                                
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+BL21 EX002                                                                      
+Jazyk nemecky 3.                                                                
+         1                                                                      
+                                                                                
+BH22 KTK01                                                                      
+Teoria automatickeho riadenia 2                                                 
+         6                                                                      
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+                                                                                
+BI24 KI001                                                                      
+Udajove struktury 1                                                             
+         6                                                                      
+                                                                                
+II12 KI003                                                                      
+Databazy a ziskanie znalosti                                                    
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+         5                                                                      
+                                                                                
+IPD1 KDS03                                                                      
+Projekt 1                                                                       
+         6                                                                      
+                                                                                
+IPA1 KI003                                                                      
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+Projekt 1                                                                       
+         6                                                                      
+                                                                                
+IPN1 KIS01                                                                      
+Projekt 1                                                                       
+         6                                                                      
+                                                                                
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+IPD2 KDS03                                                                      
+Projekt 2                                                                       
+         6                                                                      
+                                                                                
+IPA2 KI003                                                                      
+Projekt 2                                                                       
+         6                                                                      
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+                                                                                
+IPN2 KIS01                                                                      
+Projekt 2                                                                       
+         6                                                                      
+                                                                                
+IPD3 KDS03                                                                      
+Projekt 3                                                                       
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+         6                                                                      
+                                                                                
+IPA3 KI003                                                                      
+Projekt 3                                                                       
+         6                                                                      
+                                                                                
+IPN3 KIS01                                                                      
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+Projekt 3                                                                       
+         6                                                                      
+                                                                                
+II14 KDS02                                                                      
+Pocitacova grafika                                                              
+         6                                                                      
+                                                                                
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+BF11 KMM03                                                                      
+Matematicka analyza 1.                                                          
+         8                                                                      
+                                                                                
+BI30 KI003                                                                      
+Jazyk C++                                                                       
+         5                                                                      
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+                                                                                
+BL06 EX002                                                                      
+Psychologia                                                                     
+         3                                                                      
+                                                                                
+BL35 EX002                                                                      
+Sociologia                                                                      
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+         2                                                                      
+                                                                                
+BL19 EX002                                                                      
+Jazyk nemecky 1.                                                                
+         1                                                                      
+                                                                                
+BL16 EX001                                                                      
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+Jazyk anglicky 2.                                                               
+         1                                                                      
+                                                                                
+IA07 KMM02                                                                      
+Prognostika                                                                     
+         6                                                                      
+                                                                                
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+II03 KI003                                                                      
+Databazove jazyky                                                               
+         5                                                                      
+                                                                                
+IN05 KIS01                                                                      
+Sietove architektury                                                            
+         5                                                                      
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+                                                                                
+IE08 KMT01                                                                      
+Ekonometria                                                                     
+         6                                                                      
+                                                                                
+II07 KI001                                                                      
+Databazove systemy 2                                                            
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+         5                                                                      
+                                                                                
+II13 KI001                                                                      
+Pokrocile objektove technologie                                                 
+         5                                                                      
+                                                                                
+IS04 KTK01                                                                      
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+Analyza procesov                                                                
+         5                                                                      
+                                                                                
+BS02 KMT01                                                                      
+Manazerske informacme systemy                                                   
+         5                                                                      
+                                                                                
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+BE05 KMT01                                                                      
+Financne uctovnictvo                                                            
+         5                                                                      
+                                                                                
+BF01 KMM02                                                                      
+Algebra                                                                         
+         6                                                                      
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+                                                                                
+II17 KI002                                                                      
+Kryptografia a bezpecnost                                                       
+         5                                                                      
+                                                                                
+BF05 EX001                                                                      
+Zaklady fyziky                                                                  
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+         6                                                                      
+                                                                                
+BF09 EX001                                                                      
+Praktikum z matematiky                                                          
+         1                                                                      
+                                                                                
+BH01 KTK03                                                                      
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+Logicke systemy                                                                 
+         6                                                                      
+                                                                                
+BH04 KTK02                                                                      
+Cislicove systemy                                                               
+         6                                                                      
+                                                                                
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+BH11 KIS01                                                                      
+Uvod do teorie diskretnych systemov                                             
+         4                                                                      
+                                                                                
+BH14 KTK01                                                                      
+Riadenie pocitacom                                                              
+         7                                                                      
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+                                                                                
+BI03 KI001                                                                      
+C-jazyk                                                                         
+         6                                                                      
+                                                                                
+BI06 KI001                                                                      
+Zaklady databazovych systemov                                                   
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+         6                                                                      
+                                                                                
+BM10 KMME1                                                                      
+Manazment                                                                       
+         5                                                                      
+                                                                                
+BA12 KMM04                                                                      
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+Grafy a kombinatorika                                                           
+         7                                                                      
+                                                                                
+BL02 EX002                                                                      
+Cudzi jazyk                                                                     
+         1                                                                      
+                                                                                
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+BA16 KDS02                                                                      
+Operacna analyza 1.                                                             
+         6                                                                      
+                                                                                
+BL09 EX001                                                                      
+Telesna vychova 1.                                                              
+         1                                                                      
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+                                                                                
+BH18 KTK01                                                                      
+Cislicove pocitace                                                              
+         6                                                                      
+                                                                                
+BH23 KTK01                                                                      
+Mikroprocesory                                                                  
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+         6                                                                      
+                                                                                
+BI23 EX001                                                                      
+Objektove programovanie                                                         
+         5                                                                      
+                                                                                
+BI36 EX001                                                                      
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+Praktikum z programovania 2.                                                    
+         1                                                                      
+                                                                                
+BN07 KI004                                                                      
+Technologie elektronickeho obchodu                                              
+         6                                                                      
+                                                                                
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+BS01 KI004                                                                      
+Operacne systemy                                                                
+         6                                                                      
+                                                                                
+BL04 EX002                                                                      
+Pravo 2.                                                                        
+         4                                                                      
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+                                                                                
+BL15 EX002                                                                      
+Jazyk anglicky 1.                                                               
+         1                                                                      
+                                                                                
+BL20 EX002                                                                      
+Jazyk nemecky 2.                                                                
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+         1                                                                      
+                                                                                
+IM15 KMT02                                                                      
+Medzinarodny marketing                                                          
+         4                                                                      
+                                                                                
+IM14 KMT02                                                                      
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+Manazment kvality - pristupy a metody TQM                                       
+         4                                                                      
+                                                                                
+IM16 KMT02                                                                      
+Marketingovy vyskum                                                             
+         3                                                                      
+                                                                                
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+IM19 KMT02                                                                      
+Operacny manazment                                                              
+         4                                                                      
+                                                                                
+BE01 KME01                                                                      
+Zaklady ekonomickej teorie                                                      
+         6                                                                      
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+                                                                                
+BE02 KME02                                                                      
+Mikroekonomia                                                                   
+         6                                                                      
+                                                                                
+BI28 KST01                                                                      
+Jazyk UML                                                                       
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+         4                                                                      
+                                                                                
+BS03 KST01                                                                      
+Softverove inzinierstvo                                                         
+         6                                                                      
+                                                                                
+IS07 KIS02                                                                      
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+Distribuovane systemy                                                           
+         5                                                                      
+                                                                                
+BE04 KIS03                                                                      
+Zaklady elektronickeho obchodu                                                  
+         6                                                                      
+                                                                                
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+BA08 KMM01                                                                      
+Numericke metody                                                                
+         3                                                                      
+                                                                                
+BA10 KMM01                                                                      
+Teoria rozvrhov                                                                 
+         6                                                                      
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+                                                                                
+BF10 KMM01                                                                      
+Komplexna premenna a integralne transformacie                                   
+         4                                                                      
+                                                                                
+BF12 KMM01                                                                      
+Matematicka analyza 2.                                                          
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+         8                                                                      
+                                                                                
+BF13 KMM01                                                                      
+Matematicka analyza 3.                                                          
+         7                                                                      
+                                                                                
+BM06 KMM01                                                                      
+
+CIS_ GARAN                                                                      
+---- -----                                                                      
+NAZOV                                                                           
+--------------------------------------------------------------------------------
+    KREDIT                                                                      
+----------                                                                      
+Marketingova komunikacia                                                        
+         3                                                                      
+                                                                                
+
+125 rows selected.
+
+
+
+
+
+*******************************************************************************************************
+SQL> select * from ucitel;
+
+OS_CI MENO            KATE PRIEZVISKO                                           
+----- --------------- ---- ---------------                                      
+KI001 Stefan          KI   Kovalik                                              
+KMM02 Rudolf          KMM  Kodnar                                               
+KMM03 Stanislav       KMM  Paluch                                               
+KI002 Peter           KI   Varsa                                                
+KDS01 Jiri            KDS  Slavik                                               
+KDS02 Petr            KDS  Cenek                                                
+KTK01 Jozef           KTK  Juricek                                              
+KMM04 Helena          KMM  Froncova                                             
+KI003 Karol           KI   Matiasko                                             
+KI005 Miroslav        KI   Benedikovic                                          
+KTK02 Peter           KTK  Gubis                                                
+
+OS_CI MENO            KATE PRIEZVISKO                                           
+----- --------------- ---- ---------------                                      
+KDS04 Valent          KDS  Klima                                                
+KTK03 Vladimir        KTK  Jamrich                                              
+KTK04 Anton           KTK  Kremen                                               
+KMT01 Stefan          KMT  Hitmar                                               
+KDS03 Jaroslav        KDS  Janacek                                              
+KMME1 Margita         KMME Behanova                                             
+EX001 Elena           EX   Farkasova                                            
+KIS01 Martin          KIS  Klimo                                                
+KI004 Penka           KI   Martincova                                           
+KMT05 Jozef           KMT  Striss                                               
+KST02 Viliam          KST  Tavac                                                
+
+OS_CI MENO            KATE PRIEZVISKO                                           
+----- --------------- ---- ---------------                                      
+KDS05 Peter           KDS  Fabian                                               
+EX002                 EX   externistka                                          
+KIS03 Petr            KIS  Ivaniga                                              
+KMT02 Katarina        KMT  Zabovska                                             
+KME01 Juraj           KME  Dubovec                                              
+KME02 Emese           KME  Tokarcikova                                          
+KST01 Emil            KST  Krsak                                                
+KIS02 Katarina        KIS  Bachrata                                             
+KMM01 Michal          KMM  Kaukic                                               
+
+31 rows selected.
+
+SQL> spool off;

@@ -1,0 +1,17 @@
+1. - data, ktore vstupuju do databazoveho systemu (cez SRDB asi)
+2. nad cudzími k¾úèmi a primárnym k¾úèom (asi - treba skontrolova)
+3. 1:M
+4. poèet atribútov 'n' udáva stupeò relácie
+5. 
+	Neobsahuje duplicitné n-tice 
+	n-tice sú neusporiadané 
+	m-tice atribútov sú neusporiadané
+	hodnoty atribútov sú atomické 
+6. ALTER TABLE 
+7. skupinovy atribut
+
+13.nie je moná operácia INSERT - pretoze tam chyba primarny kluc osoby
+15. id_hovoru, 
+    (kedy, cislo_kto)
+16. 
+

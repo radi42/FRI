@@ -1,0 +1,139 @@
+1. Vypste vsetky udaje o vsetkych studentoch.
+select * from os_udaje, student
+where os_udaje.rod_cislo=student.rod_cislo;
+
+select * from os_udaje ou join student s using(rod_cislo);
+
+select * from os_udaje ou join student s on(ou.rod_cislo=s.rod_cislo);
+
+
+2. Vypste menny zoznam vsetkych studentoch 2.rocnka.
+select meno, priezvisko from os_udaje where rod_cislo in
+(select rod_cislo from student where rocnik=2);
+
+select meno, priezvisko from os_udaje, student where
+os_udaje.rod_cislo=student.rod_cislo and rocnik=2;
+
+select meno, priezvisko from os_udaje
+join student using(rod_cislo)
+where rocnik=2;
+
+select meno, priezvisko from os_udaje ou
+join student s on(ou.rod_cislo=s.rod_cislo)
+where s.rocnik=2;
+
+3. Vypste menny zoznam studentov narodenych v rokoch 1985-1989
+select priezvisko from os_udaje, student where
+os_udaje.rod_cislo=student.rod_cislo
+and to_number(substr(student.rod_cislo, 1, 2)) between 85 and 89;
+
+select priezvisko from os_udaje ou join student st using(rod_cislo) where to_number(substr(rod_cislo, 1, 2)) between 85 and 89;
+
+select priezvisko from os_udaje ou join student st on(ou.rod_cislo=st.rod_cislo) where to_number(substr(ou.rod_cislo, 1, 2)) between 85 and 89;
+ 
+
+4. Vypste menny zoznam studentov, ktor studuju predmet BI06 a usporiadajte ich.
+
+select priezvisko from os_udaje, student, zap_predmety where
+os_udaje.rod_cislo=student.rod_cislo and student.os_cislo=zap_predmety.os_cislo
+and zap_predmety.cis_predm='BI06'
+order by os_udaje.priezvisko desc;
+
+select priezvisko from os_udaje ou join student st using(rod_cislo)  join zap_predmety zp using(os_cislo) where cis_predm='BI06' order by priezvisko desc;
+
+select priezvisko from os_udaje ou join student st on(ou.rod_cislo=st.rod_cislo) join zap_predmety zp on(st.os_cislo=zp.os_cislo) where zp.cis_predm='BI06' order by ou.priezvisko desc;
+
+5. Vypste vsetky kombinacie prednasajuci / cis predm, ktore sa nachadzaju v relacii zap predmety
+tak, aby sa eliminovali duplikaty.
+
+select distinct prednasajuci, cis_predm from zap_predmety;
+
+6. Vypste prehlad mien ucitelov a nazvov predmetov, ktor tto ucitelia ucia (nie garantov predmetu).
+
+select distinct meno, priezvisko, nazov from ucitel u, zap_predmety zp, predmet p
+where u.os_cislo=zp.prednasajuci and p.cis_predm=zp.cis_predm;
+
+select distinct meno, priezvisko, nazov from ucitel u join zap_predmety zp on(u.os_cislo=zp.prednasajuci) join predmet using(cis_predm);
+
+select distinct meno, priezvisko, nazov from ucitel u join zap_predmety zp on(u.os_cislo=zp.prednasajuci) join predmet p on(p.cis_predm=zp.cis_predm);
+
+7. Vypste mena ucitelov, ktor ucia studentov druheho rocnka bakalarskeho studia.
+
+select distinct meno, priezvisko from ucitel u, zap_predmety zp, student s
+where u.os_cislo=zp.prednasajuci and zp.os_cislo=s.os_cislo
+and s.st_odbor between 100 and 190 and substr(s.st_skupina, 5, 1)='2';
+
+select distinct meno, priezvisko from ucitel u join zap_predmety zp on(u.os_cislo=zp.prednasajuci) join student s on(zp.os_cislo=s.os_cislo) where st_odbor between 100 and 190 and substr(s.st_skupina, 5, 1)='2'; 
+
+8. Vypste menny zoznam studentov spolu s poctom predmetov, ktore studuju v skolskom roku 2008
+
+select meno, priezvisko, count(*) from zap_predmety zp, student st, os_udaje ou
+where ou.rod_cislo=st.rod_cislo and st.os_cislo=zp.os_cislo and zp.skrok=2008
+group by meno, priezvisko, st.os_cislo;
+
+select meno, priezvisko, count(*) from os_udaje join student using(rod_cislo) join zap_predmety using(os_cislo) where skrok=2008 group by meno, priezvisko, os_cislo;
+
+9. Vypste menny zoznam studentov spolu s poctom predmetov, ktore studuju / studovali od zaciatku
+studia.
+
+select meno, priezvisko, count(*) from zap_predmety zp, student st, os_udaje ou
+where ou.rod_cislo=st.rod_cislo and st.os_cislo=zp.os_cislo
+group by meno, priezvisko, st.os_cislo;
+
+select meno, priezvisko, count(*) pocet from os_udaje join student using(rod_cislo) join zap_predmety using(os_cislo) group by meno, priezvisko, os_cislo;
+
+10. Vypste nazvy predmetov, ktore maju zapsane aspon dvaja studenti v skolskom roku 2006.
+
+select nazov from predmet pr, zap_predmety zp
+where pr.cis_predm=zp.cis_predm and zp.skrok=2006
+group by zp.cis_predm, nazov
+having count(*) > 1;
+
+select nazov from predmet join zap_predmety using (cis_predm) where skrok=2006 group by cis_predm, nazov having count(*)>1;
+
+*********ALTERNATIVA**************
+
+SELECT a.os_cislo, a.cis_predm
+FROM zap_predmety a
+WHERE a.vysledok IS NOT NULL 
+  AND  a.skrok=2006 and 2 < 
+         (SELECT COUNT(*)
+          FROM zap_predmety  b
+          WHERE a.os_cislo <> b.os_cislo 
+                AND a.cis_predm=b.cis_predm);
+
+11. Vypste menny zoznam studentov a ich aritmetickych priemerov. (Znamku prevedte najprv na
+koecient (A-1,B-1.5,. . . ) , nevyplnenu znamku poctajte za 4.)
+
+select meno, priezvisko, round(avg(decode(vysledok, 'A', 1, 'B', 1.5, 'C', 2, 'D', 2.5, 'E', 3, 4)),2) priemer
+from os_udaje ou, student st, zap_predmety zp
+where ou.rod_cislo=st.rod_cislo and st.os_cislo=zp.os_cislo
+group by meno, priezvisko, st.os_cislo;
+
+select meno, priezvisko, round(avg(decode(vysledok, 'A', 1, 'B', 1.5, 'C', 2, 'D', 2.5, 'E', 3, 4)),2) priemer from os_udaje join student using(rod_cislo) join zap_predmety using(os_cislo) group by meno, priezvisko, os_cislo;
+
+**********LULZALTERNATIVA************
+select meno, priezvisko, round(avg(nvl(decode(vysledok, 'A', 1, 'B', 1.5, 'C', 2, 'D', 2.5, 'E', 3),4)),2) priemer
+from os_udaje ou, student st, zap_predmety zp
+where ou.rod_cislo=st.rod_cislo and st.os_cislo=zp.os_cislo
+group by meno, priezvisko, st.os_cislo;
+
+12. Vypste menny zoznam studentov, ktor maju priemer mens ako 3.(Znamku prevedte najprv na
+koecient, nevyplnenu znamku poctajte za 4.)
+
+select meno, priezvisko, round(avg(decode(vysledok, 'A', 1, 'B', 1.5, 'C', 2, 'D', 2.5, 'E', 3, 4)),2) priemer
+from os_udaje ou, student st, zap_predmety zp
+where ou.rod_cislo=st.rod_cislo and st.os_cislo=zp.os_cislo
+group by meno, priezvisko, st.os_cislo
+having round(avg(decode(vysledok, 'A', 1, 'B', 1.5, 'C', 2, 'D', 2.5, 'E', 3, 4)),2) < 3;
+
+select meno, priezvisko, round(avg(decode(vysledok, 'A', 1, 'B', 1.5, 'C', 2, 'D', 2.5, 'E', 3, 4)),2) priemer from os_udaje join student using(rod_cislo) join zap_predmety using (os_cislo) group by meno, priezvisko, os_cislo
+having round(avg(decode(vysledok, 'A', 1, 'B', 1.5, 'C', 2, 'D', 2.5, 'E', 3, 4)),2) < 3;
+
+
+
+BULLSHITY
+
+******priemer skoly*******
+select round(avg(decode(vysledok, 'A', 1, 'B', 1.5, 'C', 2, 'D', 2.5, 'E', 3, 4)),2) priemer
+from zap_predmety;

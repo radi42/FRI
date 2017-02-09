@@ -1,0 +1,87 @@
+--cvicenie 7 Select--
+
+select * from student;
+
+select meno, priezvisko 
+from os_udaje, student 
+ where os_udaje.rod_cislo = student.rod_cislo
+       and student.rocnik='2';
+
+select meno, priezvisko
+from os_udaje
+where substr(rod_cislo,1,2) between 85 and 89;
+
+select meno, priezvisko
+from os_udaje, zap_predmety, student
+where (os_udaje.rod_cislo= student.rod_cislo ) AND (student.os_cislo = zap_predmety.os_cislo)
+	and cis_predm='BI06'
+order by os_udaje.priezvisko asc;
+
+select distinct prednasajuci, cis_predm
+from zap_predmety;
+
+select meno, priezvisko, nazov
+from predmet, zap_predmety, ucitel
+where (predmet.cis_predm=zap_predmety.cis_predm) and (zap_predmety.prednasajuci=ucitel.os_cislo);
+
+
+select meno, priezvisko
+from student, zap_predmety, ucitel
+where (zap_predmety.prednasajuci=ucitel.os_cislo) and (student.os_cislo=zap_predmety.os_cislo)
+ and student.rocnik='2'
+ and student.st_odbor between 100 and 199;
+
+select meno, priezvisko, count(*) 
+from os_udaje, student, zap_predmety
+where (os_udaje.rod_cislo=student.rod_cislo) and (student.os_cislo=zap_predmety.os_cislo)
+ and zap_predmety.skrok=2008
+group by os_udaje.meno,os_udaje.priezvisko;
+
+
+select meno, priezvisko, count(*) 
+from os_udaje, student, zap_predmety
+where (os_udaje.rod_cislo=student.rod_cislo) and (student.os_cislo=zap_predmety.os_cislo)
+group by os_udaje.meno,os_udaje.priezvisko;
+
+select nazov
+from student, zap_predmety, predmet
+where (predmet.cis_predm=zap_predmety.cis_predm) and (student.os_cislo=zap_predmety.os_cislo)
+group by predmet.nazov
+having count( student.os_cislo) > 1;
+
+select meno, priezvisko, avg(decode(zap_predmety.vysledok,'A',1,'B',1.5,'C',2,'D',2.5,'E',3,4)) as PRIMER
+from os_udaje, student, zap_predmety
+where (os_udaje.rod_cislo=student.rod_cislo) and (student.os_cislo=zap_predmety.os_cislo)
+group by os_udaje.meno, os_udaje. priezvisko;
+
+select meno, priezvisko
+from os_udaje, student, zap_predmety
+where (os_udaje.rod_cislo=student.rod_cislo) and (student.os_cislo=zap_predmety.os_cislo)
+group by os_udaje.meno, os_udaje. priezvisko
+having avg(decode(zap_predmety.vysledok,'A',1,'B',1.5,'C',2,'D',2.5,'E',3,4)) < 3;
+
+ 
+
+ 
+
+
+
+
+
+
+__________ Informacia od ESET NOD32 Antivirus, verzia databazy 3985 (20090403) __________
+
+Tuto spravu preveril ESET NOD32 Antivirus.
+
+http://www.eset.sk
+
+
+
+
+
+__________ Informacia od ESET NOD32 Antivirus, verzia databazy 3988 (20090404) __________
+
+Tuto spravu preveril ESET NOD32 Antivirus.
+
+http://www.eset.sk
+

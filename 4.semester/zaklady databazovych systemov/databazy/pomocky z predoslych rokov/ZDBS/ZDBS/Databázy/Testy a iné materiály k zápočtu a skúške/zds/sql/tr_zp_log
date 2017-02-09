@@ -1,0 +1,14 @@
+create or replace trigger zp_log
+before update or insert or delete
+ on zap_predmety
+referencing new as novy old as stary
+for each row
+begin
+    if inserting then
+      insert into log_zp values (SYSDATE, USER, 'zap_predmety','I', :novy.os_cislo);
+   elsif deleting then
+      insert into log_zp values (SYSDATE, USER, 'zap_predmety','D', :stary.os_cislo);
+   elsif updating then
+      insert into log_zp values (SYSDATE, USER, 'zap_predmety','U', :stary.os_cislo);
+   end if;
+end;

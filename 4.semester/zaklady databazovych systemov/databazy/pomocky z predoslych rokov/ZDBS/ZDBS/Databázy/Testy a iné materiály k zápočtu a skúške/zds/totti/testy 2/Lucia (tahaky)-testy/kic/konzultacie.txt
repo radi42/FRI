@@ -1,0 +1,9 @@
+pridat dalsi vystup :
+1. zoznam vsetkych ucitelov, lebo je tam iba zoznam vsetkych studentov
+
+2. zoznam vsetkych inych zamestnancov
+
+3. 
+
+
+

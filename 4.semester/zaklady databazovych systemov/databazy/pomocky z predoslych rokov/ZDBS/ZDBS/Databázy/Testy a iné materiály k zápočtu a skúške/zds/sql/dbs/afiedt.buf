@@ -1,0 +1,2 @@
+select * from useky where vl_cislo_vlaku=54321
+/

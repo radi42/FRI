@@ -1,0 +1,5 @@
+select cis_predm
+from predmet left outer join zap_predmety using(cis_predm)
+group by cis_predm, os_cislo
+having count(*)<2
+order by cis_predm asc;

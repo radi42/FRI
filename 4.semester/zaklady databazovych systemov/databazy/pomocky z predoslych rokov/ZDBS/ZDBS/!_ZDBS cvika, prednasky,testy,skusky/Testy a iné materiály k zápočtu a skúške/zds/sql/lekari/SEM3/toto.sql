@@ -1,0 +1,12 @@
+EXECUTE Vloz_do_zoz_zubov('Neporuseny','DHP9',4);
+EXECUTE Vloz_do_zoz_zubov('Vytrhnuty','DHP2',4);
+EXECUTE Vloz_do_zoz_zubov('Vypln','DHP3',4);
+EXECUTE Vloz_do_zoz_zubov('Neporuseny','DHP4',4);
+EXECUTE Vloz_do_zoz_zubov('Vypln','DHP5',4);
+EXECUTE Vloz_do_zoz_zubov('Neporuseny','DHP6',4);
+EXECUTE Vloz_do_zoz_zubov('Neporuseny','DHP7',4);
+EXECUTE Vloz_do_zoz_zubov('Vytrhnuty','DHP8',4);
+EXECUTE Vloz_do_zoz_zubov('Vypln','DHL1',4);
+EXECUTE Vloz_do_zoz_zubov('Neporuseny','DHL4',4);
+EXECUTE Vloz_do_zoz_zubov('Vypln','DHL5',4);
+EXECUTE Vloz_do_zoz_zubov('Neporuseny','DHL8',4);
