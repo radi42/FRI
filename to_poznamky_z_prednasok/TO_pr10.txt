@@ -1,0 +1,119 @@
+skreslenie - moze sposobit, ze rychle zmeny signalu sa neprejavia na opacnom konci
+
+korektor kanala upravuje frekvencny rozsah signalu na prijimacom konci
+
+blokovy kod - kazde kodove slovo ma rovnaku dlzku
+neblokovy kod - napr. huffmanov kod
+systematicky kod - datovu cast nemenime, ale ku datovej casti pridame zabezpecovaciu cast
+linearny kod - kazdy vektor sa da napisat ako linearna kombinacia bazickych vektorov (bazickych kodovych slov)
+
+pri vytvarani dalsich bazickych kodovych slov maju byt linearne nezavisle
+
+10000 : 111 = 110
+100
+111
+-----
+ 110	
+ 111
+-----
+   10
+
+
+
+01000 : 111 = 11
+ 100 	//preskakujeme pociatocne nuly
+ 111
+-----
+  110
+  111
+  ----
+    1
+
+
+
+00100 : 111 = 1
+  100
+  111
+  ----
+   11
+
+
+
+11000 : 111 = 101
+110		// 110 sa v delitelovi 111 nachadza 1 krat
+111		// scitame
+----
+  100	// najprv bolo 10, potom sme pridali dalsiu cifru (0)
+  111	// 
+  ---
+   11	// => zabezpecovacia cast bude 11
+
+
+
+ak vezmeme cyklicky kod a vydelili by sme  ho generujucim polynomom x+1, dostali by sme parny paritny kod
+
+ked chceme spocitat zabezpecovaciu cast kodoveho slova, staci nam urobit iba linearnu kombimaciu kodoveho slova a bazickych kodovych slov tak, ze vynasobime kodove slovo s maticou bazickych kodovych slov
+
+bazicke kodove slova tvoria jednotkove vektory datovej casti (E) a zakodujeme ich kodovacou maticou (Z)
+
+maticu bazickych kodovych slov musia vediet aj vysielac, aj prijimac
+
+inverzna matica ku matici bazickych kodovych slov je zhodna so samotnou maticou bazickych kodovych slov
+
+aby sme zistili, ci po prijati kodoveho slova nastala chyba, staci cele kodove slovo aj so zabezpecovacou castou vynasobit zabezpecovacou maticou. Ak nam vyjdu nuly, kodove slovo bolo prihate bez chyby. Tento vysledok po vynasobeni nazyvame syndrom. Ak je syndrom nulovy
+
+PRIKLAD:
+
+zabezpecovacia matica Z
+10
+11
+01
+
+informacna cast (prenasane kodove slovo): 110
+
+matica bazickych kodovych slov B
+
+			100 | 10
+			010 | 11
+E | Z		001 | 01
+------	tj.	---------
+0 | E		000 | 10
+			000 | 01
+
+pridame k informacnej casti (dvojbitovu) zabezpecovaciu cast
+
+ak chceme preniest kodove slovo 110, musime ho vyjadrit ako sucet bazickych kodovych slov
+
+100 | 10
+010 | 11
+---------
+110 | 01 => Suctom bazickych kodovych slov 100 a 010 sme dostali kodove slovo, ktore potrebujeme preniest (110).
+			Zabezpecovaciu cast informacnej casti vypocitame tiez ako sucet zabezpecovacich vektorov danych bazickych kodovych slov t.j. 10 + 11 = 01
+
+odosleme teda vysledne zabezpecene kodove slovo 110 01
+
+prijimac prjime kodove slovo a vynasobi ho zabezpecovacou maticou
+
+110 01 * Z = (2,2) mod 2 = (0 0) => syndrom sa rovna nulovemu vektoru => kodove slovo neobsahuje chybu
+
+
+
+
+Li-ova vzdialenost (pri nie binarnych vektoroch)
+sucet rozdielov prvkov na rovnakych poziciach dvoch vektorov
+
+100 : 111 = 1
+111
+------
+  11
+
+
+jednobitove chyby
+dvojbitove chyby
+
+syndrom vie odhalit, na ktorom mieste (odzadu) nastala chyba
+taketo kody nazyvame hemmingove kody
+
+v priklade mala informacna cast 1 rozmer, zabezpecovacia cast bola 2-rozmerna
+
+susedia sa lisia jedym bitom
