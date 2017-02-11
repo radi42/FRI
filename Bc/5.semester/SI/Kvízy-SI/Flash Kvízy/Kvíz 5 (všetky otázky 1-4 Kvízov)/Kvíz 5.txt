@@ -1,0 +1,205 @@
+Opakovanie Kvízov 1-4
+
+NeW
+Èo môe spôsobi problémy pri tvorbe väèších softvérovıch systémov?
+Vyberte aspoò jednu odpoveï.
+	 a. Zmena poiadaviek poèas tvorby systému  Správny	
+	 b. Kumulácia profesií  Správny	
+	 c. Chıbajúci plán  Správny	
+	 d. Chıbajúci spoloènı jazyk  Nesprávny	
+
+
+
+Old
+Štúdia realizovate¾nosti zisuje, èi informaènı systém má pre organizáciu zmysel z ekonomického a pouívate¾ského poh¾adu. Je to pravda?
+Odpoveï: Áno  Správny Nie  Nesprávny
+
+
+SI sa zaoberá exaktnım popisom algoritmov, zatia¾ èo informatika rieši ad hoc problémy tvorby softvéru. Je to pravda?
+Odpoveï: Áno  Nesprávny Nie  Správny
+
+
+Biznis_modelovanie vyjadruje ako pochopi víziu organizácie, pre ktorú je systém vyvíjanı a ako následne túto víziu poui pri analıze procesov, rolí a zodpovedností.
+Odpoveï: Áno  Správny Nie  Nesprávny
+
+
+
+
+
+
+Èo platí o špecifikácií poiadaviek?
+Vyberte aspoò jednu odpoveï.
+1. Vysokoúrovòoví popis poiadaviek zachytávajúci pouívate¾ské poiadavky je urèenı pre zákazníka Správny	
+2. Vysokoúrovòoví popis poiadaviek zachytávajúci systémové poiadavky je urèenı pre zákazníka  Nesprávny	
+3. Podrobná špecifikácia systému zachytávajúca systémové poiadavky je urèená pre zákazníka  Nesprávny	
+4. Podrobná špecifikácia systému zachytávajúca pouívate¾ské poiadavky je urèená pre zákazníka  Nesprávny	
+
+
+Závislos „include“ medzi základnım a vkladanım prípadom pouitia:
+Vyberte aspoò jednu odpoveï.
+1. Vyjadruje, e vkladanı prípad pouitia sa pouije vdy, keï sa pouije základnı  Správny	
+2. Vyjadruje, e vkladanı prípad pouitia sa pouije len na základe vyhodnotenia podmienky  Nesprávny	
+3. Je vyjadrená èiarkovanou èiarou s orientáciou smerom ku vkladanému prípadu pouitia  Správny	
+4. Je vyjadrená èiarkovanou èiarou s orientáciou smerom ku základnému prípadu pouitia  Nesprávny	
+
+
+Alternatívny scenár
+Vyberte aspoò jednu odpoveï.
+	 1. má rôzne a priori podmienky ako hlavnı scenár  Nesprávny	
+	 2. jeho kroky sa musia vykona v presne stanovenom èase  Nesprávny	
+	 3. má vlastné a posteriori podmienky  Správny	
+	 4. môe by iba jeden pre urèitı hlavnı scenár  Nesprávny	
+
+
+Èo patrí medzi nevıhody vodopádového ivotného cyklu?
+Vyberte aspoò jednu odpoveï.
+	 a. Vısledok závisí od analızy  Správny	
+	 b. Nezavádza systém do vıvoja softvéru  Nesprávny	
+	 c. Vynucuje si zavedenie pravidiel  Nesprávny	
+	 d. Od zadania po hotovı produkt ubehne dlhı èas  Správny	
+
+
+Ktorá z nasledujúcich moností sa pouíva na zachytenie priebehu scenára?
+Vyberte aspoò jednu odpoveï.
+	 1. Diagram aktivít  Správny	
+	 2. Diagram tried  Nesprávny	
+	 3. Štrukturovanı text  Správny	
+	 4. Diagram prípadov pouitia  Nesprávny	
+
+
+Diagram prípadov pouitia slúi:
+Vyberte aspoò jednu odpoveï.
+	 1. Na vnútornú komunikáciu v tíme vıvojárov  Správny	
+	 2. Na vzájomnú komunikáciu vıvojárov s klientom  Správny	
+	 3. Na stanovenie funkcií èlenov tímu vıvojárov  Nesprávny	
+	 4. Znázornenie èasovej následnosti nasadenia komponentov  Nesprávny	
+
+
+Ktoré z nasledujúcich tvrdení platí o SI?
+Vyberte aspoò jednu odpoveï.
+A. Sa zoberá algoritmami, spôsobom práce poèítaèov a softvérovıch systémov (exaktnı popis)  Nesprávny	
+B. Aplikácia systematického, disciplinovaného, merate¾ného prístupu na vıvoj a údrbu softvéru  Správny	
+C. Aplikácia ininierskych metód na softvér, zaoberá sa všetkımi aspektmi tvorby softvéru  Správny	
+D. Disciplína, ktorá sa zaoberá tvorbou rozsiahlych softvérovıch systémov  Správny	
+
+
+Diagram prípadov pouitia sa vytvára v toku(och) èinnosti:
+Vyberte aspoò jednu odpoveï.
+	 1. Analıza a návrh  Nesprávny	
+	 2. Implementácia  Nesprávny	
+	 3. Špecifikácia poiadaviek  Správny	
+	 4. Testovanie  Nesprávny	
+
+
+Akı je vzah medzi prípadom pouitia a scenárom?
+Vyberte aspoò jednu odpoveï.
+	 1. Scenár poskytuje detailnı popis prípadu pouitia v jednotlivıch krokoch  Správny	
+	 2. Scenár poskytuje neštruktúrovanı popis prípadu pouitia  Správny	
+	 3. Nie je iaden vzah  Nesprávny	
+	 4. Scenár je len synonymum k pojmu prípad pouitia  Nesprávny	
+
+
+
+
+
+
+
+
+
+
+
+
+
+Vzah include sa pouíva v:
+Vyberte jednu odpoveï
+	 a. diagrame aktivít  Nesprávny	
+	 b. stavovom diagrame  Nesprávny	
+	 c. diagrame tried  Nesprávny	
+	 d. diagrame pripadov pouitia  Správny	
+
+
+Doménovı model vytvárame v èinnosti:
+Vyberte jednu odpoveï
+	 1. Odovzdanie  Nesprávny	
+	 2. Zber poiadaviek  Nesprávny	
+	 3. Návrh  Nesprávny	
+	 4. Biznis modelovanie  Správny	
+	 5. Analıza  Nesprávny	
+
+
+Ktorá èinnos  RUPu je prioritná v rámci fázy zahájenie ?
+Vyberte jednu odpoveï
+	 1. Biznis modelovanie  Správny	
+	 2. Analıza a návrh  Nesprávny	
+	 3. Špecifikácia poiadaviek  Nesprávny	
+	 4. Nasadenie  Nesprávny	
+
+
+Kompozicia je
+Vyberte jednu odpoveï
+	 a. vzah medzi aktivitami  Nesprávny	
+	 b. vzah medzi triedmi  Správny	
+	 c. vzah medzi stavmi  Nesprávny	
+	 d. vzah medzi prípadmi pouitia  Nesprávny	
+
+
+Základné funkcie systému modelujeme pomocou:
+Vyberte jednu odpoveï
+	 a. stavového diagramu  Nesprávny	
+	 b. diagramu prípadov pouitia  Správny	
+	 c. diagramu nasadenia  Nesprávny	
+	 d. diagramu tried  Nesprávny	
+
+
+Diagram aktivít (èinností) patrí medzi :
+Vyberte jednu odpoveï
+	 a. diagramy správania  Správny	
+	 b. diagramy interakcií  Nesprávny	
+	 c. štrukturálne diagramy  Nesprávny	
+
+
+Vyberte najvhodnejšie. Pouité zdroje na porozumenie aplikaènej domény zahàòajú
+Vyberte jednu odpoveï
+	 1. Všetky moné zdroje  Správny	
+	 2. Firemné pravidlá  Nesprávny	
+	 3. Existujúce systémy  Nesprávny	
+	 4. Reporty, formuláre, procedúry  Nesprávny	
+
+
+Chyby v ktorej fáze softvérového procesu spôsobujú zvyèajne najväèšie náklady na ich odstránenie?
+Vyberte jednu odpoveï
+	 1. Analıza  Správny	
+	 2. Návrh  Nesprávny	
+	 3. Testovanie systému  Nesprávny	
+	 4. Implementácia  Nesprávny	
+
+
+Ktorá z klasickıch metód biznis analızy je najvıhodnejšia?
+Vyberte jednu odpoveï
+	 1. Analıza dokumentov  Nesprávny	
+	 2. Dotazník  Nesprávny	
+	 3. Interview  Nesprávny	
+	 4. Ani jedna, závisí to od cie¾a, ktorı majú splni  Správny
+
+Pomenovanie objektu:
+Vyberte jednu odpoveï
+	 a. musí by podèiarknuté  Správny	
+	 b. musí ma za dvojbodkou meno triedy  Nesprávny	
+	 c. musí ma pred dvojbodkou meno objektu  Nesprávny	
+	 d. môe by podèiarknuté  Nesprávny	
+
+
+Vzah generalizácia sa okrem diagramu tried dá poui aj v:
+Vyberte jednu odpoveï
+	 a. sekvenènom diagrame  Nesprávny	
+	 b. diagrame aktivít  Nesprávny	
+	 c. diagrame prípadov pouitia  Správny	
+	 d. stavovom diagrame  Nesprávny	
+
+
+Èo znamená skratka DŠP?
+Vyberte jednu odpoveï
+	 1. Dokument špecifikácie poiadaviek  Správny	
+	 2. Dokument špeciálnych procesov  Nesprávny	
+	 3. Diagram špeciálnych procesov  Nesprávny	
+	 4. Diagram špecifikácie poiadaviek  Nesprávny	

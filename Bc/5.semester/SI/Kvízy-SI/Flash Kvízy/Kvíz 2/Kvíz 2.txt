@@ -1,0 +1,106 @@
+Softvérové ininierstvo sa zaoberá len tvorbou rozsiahlych softvérovıch systémov a nie je moné ho aplikova aj na malé a stredné projekty. Je to pravda?
+Odpoveï: Áno  Nesprávny Nie  Správny
+
+
+SI sa zaoberá exaktnım popisom algoritmov, zatia¾ èo informatika rieši ad hoc problémy tvorby softvéru. Je to pravda?
+Odpoveï: Áno  Nesprávny Nie  Správny
+
+
+Ktoré z nasledujúcich tvrdení platí o SI?
+Vyberte aspoò jednu odpoveï.
+A. Aplikácia systematického, disciplinovaného, merate¾ného prístupu na vıvoj a údrbu softvéru  Správny	
+B. Aplikácia ininierskych metód na softvér, zaoberá sa všetkımi aspektmi tvorby softvéru  Správny	
+D. Disciplína, ktorá sa zaoberá tvorbou rozsiahlych softvérovıch systémov  Správny	
+
+
+
+Aká(é) je(sú) vıhoda/y vodopádového ivotného cyklu?
+Vyberte aspoò jednu odpoveï.
+	 3. Proces sa dá plánova a kontrolova  Správny	
+	 4. Vynucuje si zavedenie pravidiel a dodriavanie termínov  Správny	
+
+	
+Èo patrí medzi ciele predmetu SI?
+Vyberte aspoò jednu odpoveï.
+	 a. Ukáza rôzne aspekty tvorby systémov  Správny	
+	 b. Ukáza ininiersky prístup k tvorbe softvérovıch systémov  Správny	
+
+
+Aké sú hlavné princípy metodiky RUP?
+Vyberte aspoò jednu odpoveï.
+	 a. Sledovanie kvality pomocou stanovenıch kritérií poèas celého procesu vıvoja Správny	
+	 b. Vytváranie grafickıch modelov vo všetkıch fázach projektu  Správny		
+	 d. Systematická správa poiadaviek  Správny	
+
+
+V èom sa líšia štrukturovaná a objektovo orientovaná analıza?
+Vyberte aspoò jednu odpoveï.
+	 A. Pri objektovej je riziko nišie  Správny	
+	 D. Pri objektovej je znovupouite¾npos vyššia  Správny
+
+
+Ktorá metodológia tvorby softvéru vychádza z analıza a návrhu zaloenıch na notácií objektov?
+Vyberte jednu odpoveï
+	 d. Objektovo orientovaná analıza a návrh  Správny
+
+
+Akú èas práce na projekte zvyèajne zaberie testovanie?
+Vyberte jednu odpoveï
+
+	 3. 50%  Správny	
+
+
+Èo patrí medzi nevıhody vodopádového ivotného cyklu?
+Vyberte aspoò jednu odpoveï.
+	 a. Od zadania po hotovı produkt ubehne dlhı èas  Správny	
+	 c. Vısledok závisí od analızy  Správny	
+	
+
+
+Ktorá èinnos  RUPu je prioritná v rámci fázy zahájenie ?
+Vyberte jednu odpoveï
+	 4. Biznis modelovanie  Správny	
+
+
+Ko¾ko bodov musíte minimálne získa poèas semestra, aby ste sa mohli prihlási na skúšku?
+Vyberte jednu odpoveï	
+	 B. 30b  Správny	
+	
+
+
+Ktorá z fáz vodopádového ivotného cyklu projektu je najdlhšia?
+Vyberte jednu odpoveï
+	 3. Údrba  Správny	
+	
+
+
+Ktorá metodológia tvorby softvéru je zaloená na dekompozícií procesov a diagramov toku dát?
+Vyberte jednu odpoveï
+	 3. Štruktúrovaná analıza a návrh  Správny	
+		
+
+
+Aké sú fázy RUPu?
+Vyberte jednu odpoveï	
+	 3. zahájenie, odovzdanie, rozpracovanie, tvorba  Správny	
+
+
+Aké sú èinnosti RUPu?
+Vyberte jednu odpoveï
+	 1. testovanie, nasadenie, implementácia, návrh  Správny
+
+
+Brooksov zákon tvrdí: Ak pridáme ¾udí k omeškanému projektu, projekt ešte viac omešká. Preèo èas a poèet ¾udí nie sú zamenite¾né?
+Vyberte aspoò jednu odpoveï.
+	1. Aby sme vyuili ve¾kı poèet programátorov, musíme rozdeli projekt na ve¾a malıch èastí Správny 	
+	3. Práca nie je paralelizovate¾ná Správny 	
+	4. Ladenie a testovanie systému sa dá ako paralelizova Správny 	
+
+Aké sú základné prvky vıvoja softvéru?	
+	4. ¼udia, proces, projekt, produkt Správny 	
+
+Èo môe spôsobi problémy pri tvorbe väèších softvérovıch systémov?
+Vyberte aspoò jednu odpoveï.
+	a. Chıbajúci plán Správny 	
+	b. Kumulácia profesií Správny 	
+	c. Zmena poiadaviek poèas tvorby systému Správny 	

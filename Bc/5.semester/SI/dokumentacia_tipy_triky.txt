@@ -1,0 +1,7 @@
+Sablona na dokumentaciu z SI
+-hlavicky a paty je potrebne upravit manualne vo worde - NETREBA, enterprise architect to dokaze: prave tlacitko -> edit -> edit page header/footer
+-scenare a constrainty treba nahradit vo worde z anglickeho na slovensky manualne (aj s bodkou: 'Basic Path.')
+-obrazky ocislovat po slovensky manualne - cez Referencie -> vlozit popis - NETREBA, enterprise architect to dokaze ocislovat automaticky: prave tlacitko -> Insert field -> figure
+-doplnit nazov, skupinu, autorov - DOPLNENE
+-vymazat podnadpisy, vycentrovat nadpisy - NETREBA, podnadpisy su uz upravene, nadpisy vycentrovane
+-dokumentaciu pre use casey s biznis aktivitami treba generovat pre kazdy takyto use case osobitne sablonou 'Model Report' a potom zmergeovat s povodnou dokumentaciou - EXPERIMENT, pre kazdu aktivitu vytvorit vlastny use-case a nechat vygenerovat dokumentaciu - AAANO, vyslo to, teraz staci len orezat obrazky o use casey a nechat tam iba stavovy diagram, ALE POZOR - ked sa nieco zmeni v biznis aktivitach, treba to okamzte zmenit aj v prislusnom use case

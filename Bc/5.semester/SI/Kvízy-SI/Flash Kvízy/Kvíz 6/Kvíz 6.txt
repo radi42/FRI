@@ -1,0 +1,90 @@
+Analytická_trieda je trieda, ktorá zachytáva softvérové a hardvérové podrobnosti systému. Je to pravda?
+Odpoveï: Nie  Správny
+
+Ktorı(é) z diagramov sa vytvára(jú) pri analıze?
+Vyberte aspoò jednu odpoveï.	
+	 2. Diagram tried  Správny	
+	 3. Diagram balíèkov  Správny	
+	 4. Stavovı diagram  Správny	
+
+
+Vyberte vhodnú(é) vlastnosti analytickej triedy
+Vyberte aspoò jednu odpoveï.
+	 1. Malá mnoina zodpovedností  Správny	
+	 4. Súdrnos  Správny	
+
+
+Interakcia medzi ktorımi typmi tried je NEiadúca v sekvenènom diagrame? (Vyberte dve)
+Vyberte aspoò jednu odpoveï	
+	 2. entity – actor  Správny	
+	 3. actor - control  Správny	
+	
+
+
+Ktorı(é) typy vzahov vyjadrujú vzah èas-celok medzi dvomi triedami?
+Vyberte aspoò jednu odpoveï.
+	 1. Kompozitná agregácia  Správny		
+	 4. Agregácia  Správny	
+
+Pri optimalizácií asociácií ruším:
+Vyberte aspoò jednu odpoveï.
+	 1. Nepodstatné asociácie  Správny	
+	 2. N-árne asociácie  Správny	
+	 4. Asociácie predstavujúce implementáciu  Správny	
+
+
+Pri eliminácii tried pri prevode doménového modelu na analytickı ruším:
+Vyberte aspoò jednu odpoveï.
+	 3. Triedy reprezentujúce atribúty alebo operácie  Správny	
+	 4. Nerelevantné triedy  Správny	
+
+Na poslednıch konzultáciách sme sa v symetrii zaoberali s:
+Vyberte aspoò jednu odpoveï.
+	 3. Metódou stereotypov  Správny	
+
+Akı je rozdiel medzi typmi vzahov agregácia a kompozitná agregácia?
+Vyberte aspoò jednu odpoveï.
+	 2. Kompozícia vyjadruje silnejší vzah medzi triedami ako agregácia  Správny		
+
+Ktoré metódy slúia na identifikáciu analytickıch tried? (Vyberte dve)
+Vyberte aspoò jednu odpoveï.
+	 1. Analıza podstatnıch mien a slovies  Správny		
+	 3. Metóda CRC  Správny	
+
+Analytická trieda obsahuje:
+Vyberte aspoò jednu odpoveï.
+	 1. Len primárne atribúty a operácie  Správny	
+	 2. Nemusí ma definované iadne atribúty a operácie  Správny	
+
+Èomu je potrebné venova zvıšenú pozornos pri analıze podstatnıch mien a slovies?
+Vyberte aspoò jednu odpoveï.
+	1. Skryté triedy Správny 	
+	4. Nepresné pochopenie domény Správny 	
+
+Aké zdroje môeme vyui na identifikáciu analytickıch tried?
+Vyberte aspoò jednu odpoveï.
+	1. Realizácie prípadov pouitia Správny 		
+	3. Špecifikácia poiadaviek Správny 	
+	4. Doménovı model Správny 	
+
+
+V rámci èinnosti analıza je potrebné dba na:
+Vyberte aspoò jednu odpoveï.	
+	3. Pouíva pojmy doménového jazyka Správny 	
+	4. Pouíva len „prirodzenú dediènos“ Správny 	
+
+Analytickı model tried pouívam na modelovanie:
+Vyberte jednu odpoveï
+	 1. Domény systému  Správny	
+
+Konceptuálny model tried sa vytvára v toku èinnosti
+Vyberte jednu odpoveï
+	 4. Analıza a návrh  Správny	
+
+Èo sú vstupy do èinností analızy?
+Vyberte jednu odpoveï
+	 1. Doménovı model, model prípadov pouitia, model poiadaviek  Správny	
+
+Sekvenènı diagram znázoròuje model
+Vyberte jednu odpoveï
+	 2. Dynamickı  Správny	

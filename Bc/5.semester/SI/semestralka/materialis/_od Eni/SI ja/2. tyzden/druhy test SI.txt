@@ -1,0 +1,134 @@
+
+Prejs k hlavnému obsahu
+Softvérové ininierstvo
+Ste prihlásenı ako Elena Muráòová
+Test bol zaèatı	Wednesday, 8 October 2014, 21:29
+Stav	Ukonèené
+Ukonèené dòa	Wednesday, 8 October 2014, 21:38
+Strávenı èas	8 min 5 sekundy/sekúnd
+Známky	10,00/10,00
+Známka	1,00 z monıch 1,00 (100%)
+Spätná väzba	
+Získavate 1 bod
+Otázka 1
+Ukonèené
+Známka 1,00 z 1,00
+Neoznaèená
+Text otázky
+
+Ko¾ko druhov diagramov je v UML2 ?
+Vyberte jednu:
+a. 13 *
+b. 12
+c. 11
+d. 14
+Otázka 2
+Ukonèené
+Známka 1,00 z 1,00
+Neoznaèená
+Text otázky
+
+Pomenovanie objektu:
+Vyberte jednu:
+a. musí ma za dvojbodkou meno triedy
+b. musí by podèiarknuté *
+c. musí ma pred dvojbodkou meno objektu
+d. môe by podèiarknuté
+Otázka 3
+Ukonèené
+Známka 1,00 z 1,00
+Neoznaèená
+Text otázky
+
+Vzah generalizácia sa okrem diagramu tried dá poui aj v:
+Vyberte jednu:
+a. diagrame prípadov pouitia *
+b. sekvenènom diagrame
+c. diagrame aktivít
+d. stavovom diagrame
+Otázka 4
+Ukonèené
+Známka 1,00 z 1,00
+Neoznaèená
+Text otázky
+
+Ak je medzi triedami vzah generalizácie, znamená to, e
+Vyberte jednu alebo viac:
+a. jedna z tried dedí všetko z druhej triedy *
+b. jedna trieda obsahuje druhu triedu
+c. jedna trieda je agregáciou druhej triedy
+d. jedna z tried je predkom druhej triedy *
+Otázka 5
+Ukonèené
+Známka 1,00 z 1,00
+Neoznaèená
+Text otázky
+
+Štruktúru systemu môeme modelova pomocou
+Vyberte jednu:
+a. diagramu aktivit
+b. diagramu tried *
+c. diagramu prípadov pouitia
+d. sekvenèného diagramu
+Otázka 6
+Ukonèené
+Známka 1,00 z 1,00
+Neoznaèená
+Text otázky
+
+Diagram prípadov pouitia patrí medzi :
+Vyberte jednu:
+a. štrukturálne diagramy
+b. diagramy interakcií
+c. diagramy správania *
+Otázka 7
+Ukonèené
+Známka 1,00 z 1,00
+Neoznaèená
+Text otázky
+
+Vzah include sa pouíva v:
+Vyberte jednu:
+a. diagrame aktivít
+b. diagrame tried
+c. diagrame pripadov pouitia *
+d. stavovom diagrame
+Otázka 8
+Ukonèené
+Známka 1,00 z 1,00
+Neoznaèená
+Text otázky
+
+ivotnı cyklus prvku-objektu modelujeme pomocou:
+Vyberte jednu:
+a. diagramu aktivít
+b. diagramu prípadov pouitia
+c. stavového diagramu *
+d. diagramu objektov
+Otázka 9
+Ukonèené
+Známka 1,00 z 1,00
+Neoznaèená
+Text otázky
+
+Základné funkcie systému modelujeme pomocou:
+Vyberte jednu:
+a. diagramu tried
+b. diagramu prípadov pouitia *
+c. stavového diagramu
+d. diagramu nasadenia
+Otázka 10
+Ukonèené
+Známka 1,00 z 1,00
+Neoznaèená
+Text otázky
+
+Diagram aktivít (èinností) patrí medzi :
+Vyberte jednu:
+a. štrukturálne diagramy
+b. diagramy interakcií
+c. diagramy správania *
+Preskoèi Navigácia v teste
+Navigácia v teste
+Úloha 1 Táto stránka Úloha 2 Táto stránka Úloha 3 Táto stránka Úloha 4 Táto stránka Úloha 5 Táto stránka Úloha 6 Táto stránka Úloha 7 Táto stránka Úloha 8 Táto stránka Úloha 9 Táto stránka Úloha 10 Táto stránka
+Ukáza vdy iba jednu stránku

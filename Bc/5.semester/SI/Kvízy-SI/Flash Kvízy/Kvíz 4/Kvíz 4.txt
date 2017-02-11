@@ -1,0 +1,108 @@
+Cie¾om špecifikácie je urèi, ako má navrhovanı systém pracova.
+Odpoveï:  Nie  Správny
+
+
+A posteriori podmienky sú vstupné podmienky, ktoré musia by splnené pred zaèiatkom vykonávania UC. Pravda?
+Odpoveï:  Nie  Správny
+
+
+Scenáre sú postupnosti èinností v komunikácii aktora so systémom. Pravda?
+Odpoveï: Áno  Správny 
+
+Môe by aktorom aj èasovaè?
+Odpoveï: Áno  Správny
+
+Scenár popisuje
+Vyberte aspoò jednu odpoveï.
+	 1. detaily prípadu pouitia  Správny	
+	 3. komunikáciu aktora a systému  Správny	
+
+Zavislost extend medzi zakladnym a rozsirovacim use casom
+Vyberte aspoò jednu odpoveï.
+	 1. vyjadruje, ze rozsirovaci use case sa pouzije na zaklade vyhodnotenia podmienky  Správny	
+	 2. je vyjadrena ciarkovanou ciarou s orientaciou smerom ku zakladnemu use casu  Správny	
+
+Do správy poiadaviek spadajú èinnosti: 
+Vyberte aspoò jednu odpoveï.
+	 3. Spôsob identifikácie poiadaviek  Správny	
+	 4. Zmeny poiadaviek  Správny	
+
+
+Závislos „include“ medzi základnım a vkladanım prípadom pouitia:
+Vyberte aspoò jednu odpoveï.
+1. Je vyjadrená èiarkovanou èiarou s orientáciou smerom ku vkladanému prípadu pouitia  Správny	
+2. Vyjadruje, e vkladanı prípad pouitia sa pouije vdy, keï sa pouije základnı  Správny
+
+Diagram prípadov pouitia slúi:
+Vyberte aspoò jednu odpoveï.
+	 2. Na vnútornú komunikáciu v tíme vıvojárov  Správny
+	 4. Na vzájomnú komunikáciu vıvojárov s klientom  Správny	
+
+Ktorá z nasledujúcich moností sa pouíva na zachytenie priebehu scenára?
+Vyberte aspoò jednu odpoveï.
+	 1. Štrukturovanı text  Správny	
+	 2. Diagram aktivít  Správny	
+
+Systémové poiadavky je moné špecifikova:
+Vyberte aspoò jednu odpoveï.
+	 1. Diagramami UML  Správny	
+	 2. Prirodzenım jazykom  Správny		
+	 4. Pseudokódom  Správny	
+
+A K T O R je:
+Vyberte aspoò jednu odpoveï.
+	 1. Prvok okolia preberajúci vısledky od systému  Správny	
+	 3. Prvok okolia komunikujúci so systémom  Správn	
+
+Alternatívny scenár
+Vyberte aspoò jednu odpoveï.	
+	 2. má vlastné a posteriori podmienky  Správny	
+	
+Cie¾om špecifikácie poiadaviek je urèi
+Vyberte aspoò jednu odpoveï.	
+	 2. Èo má softvérovı systém robi  Správny	
+	 4. Terminológiu na komunikáciu vıvojárov s klientom  Správny	
+
+Pri popisovaní prípadu pouitia môeme poui:
+Vyberte aspoò jednu odpoveï.	
+	 3. Diagram aktivít  Správny	
+	 4. Sekvenènı diagram  Správny	
+	 5. Scenár  Správny	
+
+
+Ktoré typy vzahov je moné poui medzi prípadmi pouitia?
+Vyberte aspoò jednu odpoveï.
+	 1. generalizácia  Správny		
+	 4. include  Správny	
+
+Diagram prípadov pouitia sa vytvára v toku(och) èinnosti:
+Vyberte aspoò jednu odpoveï.
+	 1. Špecifikácia poiadaviek  Správny
+
+Akı je vzah medzi prípadom pouitia a scenárom?
+Vyberte aspoò jednu odpoveï.	
+	 3. Scenár poskytuje neštruktúrovanı popis prípadu pouitia  Správny	
+	 4. Scenár poskytuje detailnı popis prípadu pouitia v jednotlivıch krokoch  Správny	
+
+
+Textovı scenár by mal obsahova:
+Vyberte aspoò jednu odpoveï.
+	 1. Kroky scenára  Správny	
+	 2. Názov scenára  Správny	
+	 4. Hlavnı cie¾ scenára  Správny
+
+Vyberte najvhodnejšie. Pouité zdroje na porozumenie aplikaènej domény zahàòajú
+Vyberte jednu odpoveï
+	 3. Všetky moné zdroje  Správny	
+	
+Ktorá èinnos NIE je vykonávaná vrámci validácie poiadaviek?
+Vyberte jednu odpoveï
+	 4. Návrh systému  Správny	
+
+
+Do akıch skupín sa delia poiadavky pod¾a úrovne popisu?
+	 4. Uívate¾ské, systémové  Správny
+
+S C E N A R je
+Vyberte jednu odpoveï
+	 1. Postupnos krokov popisujúca prípad pouitia  Správny	

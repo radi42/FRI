@@ -1,0 +1,87 @@
+Štúdia realizovate¾nosti zisuje, èi informaènı systém má pre organizáciu zmysel z ekonomického a pouívate¾ského poh¾adu. Je to pravda?
+Odpoveï: Áno  Správny 
+Medzi úèastníkov JAD metódy patria aj programátori, databázoví analytici. Je to pravda?
+Odpoveï: Áno  Správny 
+
+Biznis_modelovanie vyjadruje ako pochopi víziu organizácie, pre ktorú je systém vyvíjanı a ako následne túto víziu poui pri analıze procesov, rolí a zodpovedností.
+Odpoveï: Áno  Správny
+
+V rámci porozumenia aplikaènej domény, volíme prístup prototypovania najmä keï:
+Vyberte aspoò jednu odpoveï.
+	 1. Poiadavky nie sú jasné  Správny	
+	 3. Historickı komunikaènı problém medzi analytikmi a pouívate¾mi  Správny	
+	 4. Návrh je rozsiahly a vyaduje konkrétnu formu  Správny	
+
+
+Èo zahàòa štúdia realizovate¾nosti?
+Vyberte aspoò jednu odpoveï.
+1. Vısledné odporúèanie èi pristúpime k analıze (feasibility report)  Správny	
+4. Odhad èi poiadavky zákazníka môu by splnené pomocou existujúceho HW a SW v medziach rozpoètu.Správny	
+
+
+Biznis model problému vyjadruje:
+Vyberte aspoò jednu odpoveï.
+	 1. Poh¾ad pouívate¾a na danı problém  Správny
+
+Doménovı model znázoròujeme:
+Vyberte aspoò jednu odpoveï
+	 2. Diagramami tried  Správny	
+
+Vıstupom toku èinnosti biznis modelovanie je (sú):
+Vyberte aspoò jednu odpoveï.
+	 1. doménovı model  Správny	
+	 4. model biznis procesov  Správny	
+
+Èo Vám môe najviac pomôc pri analıze domény organizácie? (vyberte dve)
+Vyberte aspoò jednu odpoveï.
+	 3. K¾úèové udalosti v organizácií  Správny	
+	 4. Pochopenie postupnosti a závislosti spracovania dát  Správny	
+
+
+Synchronizaèná èiara je grafickı prvok (ikona) jazyka UML, ktorı sa pouíva v diagrame(och)
+Vyberte aspoò jednu odpoveï.	
+	 4. Aktivít  Správny
+
+
+Doménovy model je znázornenı diagramom(mi)
+Vyberte aspoò jednu odpoveï.	
+	 4. Tried  Správny	
+
+Èo platí o špecifikácií poiadaviek?
+Vyberte aspoò jednu odpoveï.
+3. Vysokoúrovòoví popis poiadaviek zachytávajúci pouívate¾ské poiadavky je urèenı pre zákazníka Správny	
+
+Pre zaèiatoènı stav v diagrame aktivít platí:
+Vyberte jednu odpoveï
+	 3. Je vdy len jeden  Správny	
+
+Ktorá metóda nepatrí medzi tradièné metódy zberu poiadaviek?
+Vyberte jednu odpoveï
+	 1. Prototypovanie  Správny	
+
+Èo znamená skratka DŠP?
+Vyberte jednu odpoveï
+	 4. Dokument špecifikácie poiadaviek  Správny	
+
+
+Ktorá z èinností nepatrí do analızy domény a špecifikácie poiadaviek?
+Vyberte jednu odpoveï	
+	 5. Návrh riešenia  Správny	
+
+
+Doménovı model vytvárame v èinnosti:
+Vyberte jednu odpoveï
+	 5. Biznis modelovanie  Správny	
+
+
+Èo nepatrí medzi zvyèajné problémy, s ktorımi sa môete stretnú pri analıze domény?
+Vyberte jednu odpove
+	 2. HW a SW poiadavky  Správny	
+
+Ktorá z klasickıch metód biznis analızy je najvıhodnejšia?
+Vyberte jednu odpoveï
+	 3. Ani jedna, závisí to od cie¾a, ktorı majú splni  Správny	
+
+Chyby v ktorej fáze softvérového procesu spôsobujú zvyèajne najväèšie náklady na ich odstránenie?
+Vyberte jednu odpoveï
+	 1. Analıza  Správny	

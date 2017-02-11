@@ -1,0 +1,107 @@
+﻿ZoznamJedalnickov
+private Jedalnicek[] aZonamJedalnickov - Uklada vsetky jedalnicky vsetkych zakaznikov.
+
+public ZoznamJedalnickov() - Konstruktor triedy ZoznamJedalnickov. Vytvori prazdne pole aZoznamJedalnickov.
+public void pridajJedalnicek(Jedalnicek paJedalnicek) - Prida do pola aZoznamJedalnickov Jedalnicek, zadany ako parameter.
+public Jedalnicek getJedalnicek(int paID_Zakaznika, Date paDate) - Vrati jedalnicek zakaznika v zadany den podla identifikatora zakaznika a datumu.
+######################################################
+Jedalnicek
+private Jedlo[] aJedalnicek - Jedalnicek konkretneho zakaznika v dany den.
+private Date aDatum - Den, pre ktory bol jedalnicek vygenerovany.
+private Zakaznik aZakaznik - Zakaznik, pre ktoreho bol jedalnicek vygenerovany. Kazdy vygenerovany jedalnicek patri prave jednemu zakaznikovi na jeden den.
+
+public Jedalnicek(Zakaznik paZakaznik, Date paDate) - Konstruktor triedy Jedalnlicek. Vytvori prazdne pole aJedalnicek, nastavi aDatum na dnesny datum a priradi mu zakaznika.
+public int vypocitajKalorickuHodnotu() - Vypocita sucet kalorickych hodnot jedal a vrati hodnotu v kcal (kilokaloriach).
+public void pridajJedloDoJedalnicka(Jedlo paJedlo) - Pridavane jedlo do jedalnicka zakaznika podla jeho identifikatora zadaneho ako parameter. Jedlo sa musi nachadzat v v poli aZoznamJedal v triede VsetkyJedla. Pridat sa moze iba jedno jedlo z kazdeho druhu.
+public Jedlo getJedloZJedalnicka(int paID_Jedla) - Vracia jedlo z pola aJedalnicek podla jeho indentifikatora uvedeneho ako parameter.
+######################################################
+ZoznamJedal
+private  Jedlo[] aZoznamJedal - Zoznam vsetkych dostupnych jedal pre zakaznikov.
+
+public ZoznamJedal() - Konstruktor triedy ZoznamJedal. Inicializuje atribut aZoznamJedal na prazdne pole.
+public Jedlo[] getZoznamJedal - Vrati atribut aZoznamJedal.
+public Jedlo getJedloPodlaID(int paID_Jedla) - Vrati instanciu jedla v poli aZoznamJedal podla ID.
+private int getIndexJedlaPodlaID(int paID_Jedla) - Vrati index Jedla v poli aZoznamJedal podla ID.
+public String getJedlaPodlaNazvu(String paNazov) - Vrati skupinu jedal podla zadaneho nazvu ako retazec, pretoze sa moze stat, ze zadany retazec obsahuje viacero jedal.
+public String getVsetkyJedla() - Vrati zoznam vsetkych jedal z pola aZoznamJedal ako naformatovany retazec.
+public void pridajJedlo(Jedlo paJedlo) - Prida novu instanciu jedla do pola aZoznamJedal.
+public void setJedlo(int paID_Jedla) - Upravi jedlo podla jeho ID v poli aZoznamJedal.
+public void odstranJedlo(int paID_Jedla) - Odstrani Jedlo zo zoznamu aZoznamJedal podla jeho identifikatora zadaneho ako parameter a vrati odstranene Jedlo.
+######################################################
+Jedlo
+private int ID_Jedla - Identifikator Jedla.
+private double aCenaJedla - Cena Jedla v Eurach.
+private TypJedla aTypJedla
+private ReceptSurovina[] aRecept - Zoznam surovin, z ktoreho sa jedlo sklada.
+private String aPopis - Kratky popis jedla.
+
+public Jedlo(int paID_Jedla, double paCenaJedla, TypJedla paTypJedla, String paPopis) - Konstrukto triedy Jedlo. V konstruktore sa inicializuje pole aRecept na prazdne pole a nastavia sa hodnoty vsetkym ostatnym atributom.
+public int getKalorickaHodnota() - Vypocitava sucet kalorickych hodnot jedla z jednotlivych surovin.
+public TypJedla getTypJedla() - 
+public void setTypJedla(TypJedla paTypJedla) - Upravi typ daneho jedla.
+public int getHmotnost() - Zisti hmotnost jedla na zaklade zadanych hmotnosti v recepte.
+private int getIndexSurovinyReceptuPodlaID() - Vrati index, na ktorom sa nachadza surovina v poli aRecept s nazvom zadanym v parametri paNazovSuroviny.
+public void pridajSurovinuDoReceptu(ReceptSurovina paReceptSurovina) - Prida novu ReceptSurovinu do pola aRecept.
+public void upravSurovinuVRecepte(int paID_Suroviny) - Upravi surovinu v poli aRecept podla jej identifikatora zadaneho ako parameter. Index v poli aRecept sa zisti pomocou metody "getSurovinaNaPozicii".
+public void odstranSuroinuZReceptu(int paID_Suroviny) - Odstrani surovinu z pola aRecept podla jej identifikatora zadaneho ako parameter. Index v poli aRecept sa zisti pomocou metody "getSurovinaNaPozicii". Odstranenu surovinu vrati.
+public double getCenaJedla() - Vrati cenu jedla v Eurach.
+public void setCenaJedla(double paCenaJedla) - Nastavi cenu jedla na novu hodnotu, najmenej vsak taku, aky je sucet cien surovin pre dane jedlo.
+######################################################
+ReceptSurovina
+private Surovina aSurovina - Surovina ziskana podla ID suroviny z instancie triedy ZoznamSurovin.
+private int aHmotnost - Urcuje, kolko gramov suroviny ide do receptu. Objemove jednotky je potrebne konvertovat na gramy.
+
+public ReceptSurovina(int ID_Suroviny, int paHmotnost) - Konstruktor triedy ReceptSurovina. Pre vytvorenie novej instancie treba zadat ID suroviny a jej hmotnost v danom jedle. ID suroviny pouzijeme na vyhladanie konkretnej instancie suroviny z pola aZoznamSurovin v triede ZoznamSurovin pomocou metody getSurovinaPodlaID.
+pubic int vypocitajKalorickuHodnotu() - Vypocita sa ako sucin hmotnosti suroviny a kalorickej hodnoty suroviny na 100g vydeleny 100.
+pubic int getHmotnost
+public void setHmotnost(int paHmotnost)
+public Surovina getSurovina()
+######################################################
+ZoznamSurovin
+private Surovina[] aZoznamSurovin - Zoznam vsetkych surovin.
+
+public ZoznamSurovin() - Konstruktor triedy ZoznamSurovin. Vytvori prazdne pole aZoznamSurovin.
+public Surovina getSurovinaPodlaID(int paID_Suroviny) - Vrati instanciu suroviny podla zodpovedajuceho identifikatora zadaneho ako parameter z pola aZoznamSurovin.
+private void getIndexSurovinyPodlaID(int paID_Suroviny) - Vrati index suroviny podla ID v poli aZoznamSurovin.
+public String getSurovinyPodlaNazvu(String paNazov) - Metoda vracia formatovany retazec vsetkych surovin obsahujuci retazec zadany v parametri.
+public void pridajSurovinu(Surovina paSurovina) - Do pola aZoznamSurovin sa prida nova instancia Suroviny.
+public void upravSurovinu(int paID_Suroviny) - Upravi surovinu v poli aZoznamSurovin podla prisluchajuceho identifikatora.
+public void odstranSurovinu(int paID_Suroviny) - Odstrani surovinu v poli aZoznamSurovin podla prisluchajuceho identifikatora a vrati ju.
+######################################################
+Surovina
+private int ID_Suroviny - Identifikacne cislo suroviny.
+private double aCenaSuroviny - Cena suroviny za 100g
+private int aKalorickaHodnota - Kaloricka hodnota suroviny v kcal (kilokaloriach) na 100 gramov.
+private String aNazov - Nazov suroviny.
+private int aSkupinaAlergen - Predvolena hodnota 0, co znamena, ze surovina nepatri do ziadnej skupiny alergenov tj. nie je alergenom.
+Skupiny alergenov:
+1 - Obilniny obsahujúce lepok ( t.j. pšenica, raž, jačmeň, ovos, špalda, kamut alebo ich hybridné odrody ).
+2 - Kôrovce a výrobky z nich.
+3 - Vajcia a výrobky z nich.
+4 - Ryby a výrobky z nich.
+5 - Arašidy a výrobky z nich.
+6 - Sójové zrná a výrobky z nich.
+7 - Mlieko a výrobky z neho (vrátane laktózy).
+8 - Orechy - mandle, lieskové, vlašské, kešu, para, pekanové, pistácie, makadamové, queenslandské a výrobky z nich
+9 - Zeler a výrobky z neho
+10 - Horčica a výrobky z nej
+11 - Sezamové semená a výrobky z nich
+12 - Oxid siričitý a siričitany v koncentráciách vyšších ako 10 mg/kg
+alebo 10 mg/l - sušené ovocie, ovocné konzervy, výrobky zo zemiakov.
+13 - Vlčí bôb a výrobky z neho
+14 - Mäkkýše a výrobky z nich.
+
+private String aPopisAlergenu - Atribut popisuje, ktore druhy surovin patria do danej skupiny alergenov. Ak je atribut aSkupinaAlergen rovna 0, potom hodnota tohto atributu je prazdny retazec.
+private int[] aTitoJuNechcu - Pole aTitoJuNechcu obsahuje identifikacne cisla tych Zakaznikov, ktori tuto Surovinu bud nechcu alebonemozu resp. su na nu alergicki.
+
+public Surovina(int paID_Suroviny, double paCenaSuroviny, int paKalorickaHodnota, String paNazov, int paCisloAlergenu, String paPopisAlergenu)
+public double getCenaSuroviny()
+public int getCisloAlergenu() - vrati 0, ak nie je alergen alebo kladne cislo od 1 - 14 ak patri do nejakej skupiny alergenov.
+public int getKalorickaHodnota() - vrati kaloricku hodnotu v kcal na 100g.
+public String getNazov()
+public String getPopisAlergenu()
+public double setCenaSuroviny(double paCenaSuroviny)
+public int setCisloAlergenu()
+public int setKalorickaHodnota()
+public String setNazov()
+public String setPopisAlergenu()

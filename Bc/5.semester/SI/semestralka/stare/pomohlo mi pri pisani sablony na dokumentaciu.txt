@@ -1,0 +1,3 @@
+dvojklik na {Template - Requirement Details} v casti element>
+
+vytvorena sablona aj so vsetkym, co som zaklikol je v priecinku templejt

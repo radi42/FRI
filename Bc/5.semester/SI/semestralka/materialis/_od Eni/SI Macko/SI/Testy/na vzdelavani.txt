@@ -1,0 +1,58 @@
+Názov otázky:  	Softvér
+Znenie otázky: 	Z èoho sa skladá softvér?
+Odpovede: 	
+a. programy + pamäové médium + konfiguraèné dáta
+b. programy + diagramy tried + konfiguraèné dáta
+*** c. programy + dokumentácia + konfiguraèné dáta ***
+d. programy + diagramy tried + databáza
+Zaradenie otázky: 	Úvod do SI
+
+
+Názov otázky:  	Základné prvky vıvoja SW
+Znenie otázky: 	Aké sú vstupy do projektu?
+Odpovede:
+a. finacie a produkt
+*** b. ¾udia a proces ***
+c. proces a produkt
+d. financie a ¾udia
+Zaradenie otázky: 	Úvod do SI 
+
+
+Názov otázky:  	ivotnı cyklus
+Znenie otázky: 	Akı názov má tento ivotnı cyklus systému: analıza > návrh > kódovanie > testovanie > údrba?
+Odpovede: 
+*** a. vodopádovı ***
+b. stromovı
+c. systémovı
+d. lavínovı
+Zaradenie otázky: 	Úvod do SI 
+
+
+Názov otázky:  	Vodopádovı ivotnı cyklus
+Znenie otázky: 	Ktorı cyklus nie je modifikáciou vodopádového ivotného cyklu?
+Odpovede:
+a. inkrementálny model
+*** b. dekrementálny model ***
+*** c. acyklickı model ***
+d. špirálovı model
+Zaradenie otázky: 	Úvod do SI
+
+
+Názov otázky:  	Modely
+Znenie otázky: 	Hlavnım úèelom modelov je?
+Odpovede: 	
+a. navrhnú celı systém.
+*** b. presné urèenie poradia krokov pri vıvoji softvéru. ***
+c. vytıèenie cie¾ov.
+*** d. urèenie kritérií pre prechod do ïalšej fázy. ***
+Zaradenie otázky: 	Biznis modelovanie
+
+
+Názov otázky:  	6
+Znenie otázky: 	Èo vyjadruje ako popísa víziu organizácie, pre ktorú je tento systém vyvíjanı a ako následne túto víziu poui pri popise procesov, rolí a zodpovedností?
+Odpovede:
+a. návrh
+b. implementácia
+c. zber poiadaviek
+*** d. biznis modelovanie ***
+Zaradenie otázky: 	Iné 

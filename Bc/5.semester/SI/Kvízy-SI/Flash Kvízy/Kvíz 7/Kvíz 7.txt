@@ -1,0 +1,85 @@
+Návrh èo najpresnejšie špecifikuje ako implementova vyvíjanı systém. Je to pravda?
+Odpoveï: Áno  Správny
+
+Architektúra systému popisuje organizáciu systému do podsystémov a alokáciu podsystémov na HW a SW komponent. Je to pravda?
+Odpoveï: Áno  Správny 
+
+Analıza balíèkov umoòuje:
+Vyberte aspoò jednu odpoveï.
+	 3. Súbenú prácu  Správny	
+	 4. Zoskupovanie sémanticky súvisiacich prvkov  Správny	
+
+Èo platí? (vyberte 2)
+Vyberte aspoò jednu odpoveï.
+2. Návrh je zaloenı na analytickom modelu  Správny	
+4. Návrh presne špecifikuje spôsob implementácie a analıza sa zaoberá logickım modelom  Správny	
+
+Èo zahàòa alokácia podsystémov?
+Vyberte aspoò jednu odpoveï.	
+	 3. Odhad poiadaviek na HW zdroje  Správny	
+	 4. Vıber topológie  Správny	
+
+V proces identifikácie balíèkov je snaha o
+Vyberte aspoò jednu odpoveï.
+	 1. zabránenie cyklickım závislostiam  Správny	
+	 2. vytvorenie jednoduchého modelu  Správny	
+	 4. nájdenie súdrnıch skupín tried  Správny	
+
+Medzi aktivity návrhu patrí(ia):
+Vyberte aspoò jednu odpoveï.
+	 1. Návrh rozhraní podsystémov  Správny	
+	 3. Podrobnı návrh systému  Správny	
+	 4. Návrh architektúry systému  Správny	
+
+Aké pravidlo platí(ia) pri rozde¾ovaní systému do podsystémov?
+Vyberte aspoò jednu odpoveï.
+1. Podsystém identifikujeme pod¾a sluieb, ktoré poskytuje  Správny	
+2. Hranice podsystému sa zvolia tak aby väèšina komunikácie prebiehala vo vnútri podsystému  Správny
+
+Pri architektonickej analıze je cie¾ minimalizácia vzahov. V rámci tejto èinnosti sa vykonáva:
+Vyberte aspoò jednu odpoveï.
+	 1. Maximalizácia súkromnıch èlenov  Správny	
+	 4. Minimalizácia závislostí medzi balíèkami  Správny	
+
+Pri tvorbe návrhovıch tried zvyèajne hranièné triedy (boundary) reprezentujú:
+Vyberte aspoò jednu odpoveï.	
+	 2. Okno alebo formulár  Správny	
+	 3. API alebo protokol  Správny	
+	
+Stavovı diagram znázoròuje:
+Vyberte aspoò jednu odpoveï.	
+	 2. ivotnı cyklus jedného objektu  Správny	
+
+Èo je vıstupom návrhu?	
+	 3. Návrh podsystémov, tried, rozhraní  Správny	
+
+Poèas návrhu sa kladie ve¾kı dôraz
+Vyberte jednu odpoveï
+	 3. na rozhrania  Správny	
+	
+Na základe mnoiny funkcií, ktoré majú rovnakı základnı úèel (sluby) pri návrhu systému identifikujeme:
+Vyberte jednu odpoveï
+	 3. Podsystém  Správny	
+
+Diagram balíèkov NEmôe obsahova:
+Vyberte jednu odpoveï	
+	 3. Cyklické väzby  Správny	
+
+Èo NIE je súèasou návrhu tried?
+Vyberte jednu odpoveï
+	 4. Rozdelenie systému na podsystémy  Správny	
+
+Ktorá stratégia tvorby návrhové modelu má za následok dva nesynchronizované modely?
+Vyberte jednu odpoveï
+2. Ustálime analytickı model a jeho kópiu spresníme na návrhovı  Správny	
+
+Vıstupom analızy balíèkov je:
+	 2. Diagram balíèkov  Správny	
+
+V procese vıvoja softvérového systému sa vytvárajú modely tried na troch úrovniach. Aké je poradie modelov v poradí od prvej po tretiu úroveò?
+Vyberte jednu odpoveï	
+	 4. doménovı model - konceptuálny model - implementaènı model  Správny		
+
+Vlastnosti programovacieho jazyka sa do procesu tvorby softvéru zahàòajú v toku èinnosti:
+Vyberte jednu odpoveï
+	 1. Návrh  Správny	

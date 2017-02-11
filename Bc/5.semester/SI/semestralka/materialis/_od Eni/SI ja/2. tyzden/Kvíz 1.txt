@@ -1,0 +1,151 @@
+
+Kompozicia je
+	
+a. vzah medzi aktivitami  	
+b. vzah medzi prípadmi pouitia  	
+*c. vzah medzi triedmi  	
+d. vzah medzi stavmi  	
+
+
+Sekvenènı diagram patrí medzi :
+
+a. štrukturálne diagramy  	
+*b. diagramy správania  	
+*c. diagramy interakcií  	
+
+
+Pojem agregácia vyjadruje :
+
+*a. vo¾nejší vzah celku a jeho èasti  	
+b. pevnı vzah celku a jeho èasti  	
+c. vo¾nı vzah medzi èasami jedného celku  	
+d. pevnı vzah medzi èasami jedného celku  	
+
+
+Pojem asociácia oznaèuje :
+
+a. konkrétny vzah medzi triedami  	
+*b. všeobecnı vzah medzi triedami  	
+c. všeobecnı vzah medzi objektami  	
+d. konkrétny vzah medzi objektami  	
+
+
+Ak je medzi triedami vzah generalizácie, znamená to, e
+Vyberte aspoò jednu odpoved
+*a. jedna z tried dedí všetko z druhej triedy  	
+*b. jedna z tried je predkom druhej triedy  	
+c. jedna trieda obsahuje druhu triedu  	
+d. jedna trieda je agregáciou druhej triedy  	
+
+
+Jednotlivé kroky (postupnos) operácie modelujeme pomocou :
+
+*a. diagramu aktivít (èinností)  	
+b. diagramu tried  	
+c. stavového diagramu  	
+d. diagramu prípadov pouitia  	
+
+
+Vzah include sa pouíva v:
+*a. diagrame pripadov pouitia  	
+b. diagrame tried  	
+c. stavovom diagrame  	
+d. diagrame aktivít  	
+
+
+Diagram prípadov pouitia patrí medzi :
+a. diagramy interakcií  	
+b. štrukturálne diagramy  	
+*c. diagramy správania  	
+
+
+ivotnı cyklus prvku-objektu modelujeme pomocou:
+a. diagramu objektov  	
+*b. stavového diagramu  	
+c. diagramu aktivít  	
+d. diagramu prípadov pouitia  	
+
+
+ Vzah generalizácia sa okrem diagramu tried dá poui aj v:
+a. sekvenènom diagrame  	
+*b. diagrame prípadov pouitia  	
+c. diagrame aktivít  	
+d. stavovom diagrame  	
+
+
+Pomenovanie objektu:
+a. môe by podèiarknuté  	
+b. musí ma za dvojbodkou meno triedy  	
+*c. musí by podèiarknuté  	
+d. musí ma pred dvojbodkou meno objektu  	
+
+
+Základné funkcie systému modelujeme pomocou:
+a. diagramu tried  	
+b. diagramu nasadenia  	
+*c. diagramu prípadov pouitia  	
+d. stavového diagramu  	
+
+
+Ko¾ko druhov diagramov je v UML 2 ?
+a. 11  	
+*b. 13  	
+c. 12  	
+d. 14  	
+
+
+Aktorom múe by
+Vyberte aspoò jednu odpoveï.
+a. aktivita v danom systéme  	
+b. prípad pouitia daného systému  	
+*c. externı system  	
+
+
+ Diagram tried patrí medzi :
+*a. štrukturálne diagramy  	
+b. diagramy interakcií  	
+c. diagramy správania  	
+
+
+ Vzah extend
+a. je vzahom dvoch tried  	
+b. je vzah medzi aktivitami  	
+*c. je vzah medzi dvoma prípadmi pouitia  	
+d. je vzah medzi aktorom a prípadom pouitia  	
+
+
+ UML slúi na
+*a. dokumentovanie modelu  	
+b. implementovanie modelu  	
+c. programovanie modelu  	
+
+
+
+ Vzah include sa pouíva v:
+a. diagrame tried  	
+*b. diagrame pripadov pouitia  	
+c. diagrame aktivít  	
+d. stavovom diagrame  	
+
+
+Prechod medzi stavmi v stavovom diagrame môe by popísanı:
+Vyberte jednu odpoveï
+	 a. udalos / udalos  Nesprávny	
+	 b. udalos / akcia  Správny	
+	 c. akcia / akcia  Nesprávny	
+	 d. akcia / udalos  Nesprávny	
+	
+
+Diagram aktivít (èinností) patrí medzi :
+Vyberte jednu odpoveï
+	 a. diagramy interakcií  Nesprávny	
+	 b. diagramy správania  Správny	
+	 c. štrukturálne diagramy  Nesprávny			
+
+
+
+Štrukturu systemu môeme modelova pomocou
+a. sekvenèného diagramu  	
+b. diagramu prípadov pouitia  	
+c. diagramu aktivít  	
+*d. diagramu tried 
