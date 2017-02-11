@@ -1,0 +1,270 @@
+router ospf 1
+	router-id 10.255.255.cisloRoutra
+	network SIET WILDCARD_MASKA area CISLO_AREY
+				 0.0.0.255
+	
+
+#R1	
+enable
+conf t
+no ip domain-lookup
+line con 0
+logg syn
+int l0
+no sh
+ip addr 10.255.255.1 255.255.255.255
+int fa0/0
+no sh
+ip addr 10.0.12.1 255.255.255.0
+int fa0/1
+no sh
+ip addr 10.0.15.1 255.255.255.0
+
+#R2
+enable
+conf t
+no ip domain-lookup
+line con 0
+logg syn
+int l0
+no sh
+ip addr 10.255.255.2 255.255.255.255
+int fa0/0
+no sh
+ip addr 10.0.12.2 255.255.255.0
+int fa0/1
+no sh
+ip addr 10.0.234.1 255.255.255.0
+
+#R3
+enable
+conf t
+no ip domain-lookup
+line con 0
+logg syn
+int l0
+no sh
+ip addr 10.255.255.3 255.255.255.255
+int fa0/0
+no sh
+ip addr 10.1.38.1 255.255.255.0
+int fa0/1
+no sh
+ip addr 10.0.234.2 255.255.255.0
+int s1/0
+no sh
+ip addr 10.2.39.1 255.255.255.0
+
+#R4
+enable
+conf t
+no ip domain-lookup
+line con 0
+logg syn
+int l0
+no sh
+ip addr 10.255.255.4 255.255.255.255
+int fa0/0
+no sh
+ip addr 10.2.49.1 255.255.255.0
+int fa0/1
+no sh
+ip addr 10.0.234.3 255.255.255.0
+int s1/0
+no sh
+ip addr 10.3.40.1 255.255.255.0
+
+#R5
+enable
+conf t
+no ip domain-lookup
+line con 0
+logg syn
+int l0
+no sh
+ip addr 10.255.255.5 255.255.255.255
+int fa0/1
+no sh
+ip addr 10.0.15.2 255.255.255.0
+
+#R6
+enable
+conf t
+no ip domain-lookup
+line con 0
+logg syn
+int l0
+no sh
+ip addr 10.255.255.6 255.255.255.255
+int fa0/1
+no sh
+ip addr 10.4.67.1 255.255.255.0
+
+#R7
+enable
+conf t
+no ip domain-lookup
+line con 0
+logg syn
+int l0
+no sh
+ip addr 10.255.255.7 255.255.255.255
+int fa0/1
+no sh
+ip addr 10.4.67.2 255.255.255.0
+int s1/1
+no sh
+ip addr 10.4.70.1 255.255.255.0
+
+#R8
+enable
+conf t
+no ip domain-lookup
+line con 0
+logg syn
+int l0
+no sh
+ip addr 10.255.255.8 255.255.255.255
+int fa0/0
+no sh
+ip addr 10.1.38.2 255.255.255.0
+
+#R9
+enable
+conf t
+no ip domain-lookup
+line con 0
+logg syn
+int l0
+no sh
+ip addr 10.255.255.9 255.255.255.255
+int fa0/0
+no sh
+ip addr 10.2.49.2 255.255.255.0
+int s1/0
+no sh
+ip addr 10.2.39.2 255.255.255.0
+
+#R10
+enable
+conf t
+no ip domain-lookup
+line con 0
+logg syn
+int l0
+no sh
+ip addr 10.255.255.10 255.255.255.255
+int s1/0
+no sh
+ip addr 10.3.40.2 255.255.255.0
+int s1/1
+no sh
+ip addr 10.4.70.2 255.255.255.0
+
+
+
+#R1
+router ospf 1
+network 10.0.12.0 0.0.0.255 area 0
+
+#R2
+router ospf 1
+network 10.0.12.0 0.0.0.255 area 0
+network 10.0.234.0 0.0.0.255 area 0
+
+#R3
+router ospf 1
+network 10.0.234.0 0.0.0.255 area 0
+network 10.1.38.0 0.0.0.255 area 1
+network 10.2.39.0 0.0.0.255 area 2
+
+#R4
+router ospf 1
+network 10.0.234.0 0.0.0.255 area 0
+network 10.2.49.0 0.0.0.255 area 2
+network 10.3.40.0 0.0.0.255 area 3
+
+
+#R6
+router ospf 1
+network 10.4.67.0 0.0.0.255 area 4
+
+#R7
+router ospf 1
+network 10.4.67.0 0.0.0.255 area 4
+network 10.4.70.0 0.0.0.255 area 4
+
+#R8
+router ospf 1
+network 10.1.38.0 0.0.0.255 area 1
+
+#R9
+router ospf 1
+network 10.2.39.0 0.0.0.255 area 2
+network 10.2.49.0 0.0.0.255 area 2
+
+#R10
+router ospf 1
+network 10.3.40.0 0.0.0.255 area 3
+network 10.4.70.0 0.0.0.255 area 4
+
+
+virtualna linka medzi R4 a R7:
+#R4
+area 4 virtual-link 10.255.255.10 (to je RID 10ky)
+#R10
+area 4 virtual-link 10.255.255.4 (to je RID 4ky)
+
+na vsetkych fa interfejsoch (okrem prepojov R1-R5 a R2-3-4!):
+ip ospf netw point-to-point
+medzi R2-R3-R4 point-to-multipoint!!!
+
+
+staticke smerovanie na R5 - musime ho opingat odvsadial
+#R5
+		    SIET	 MASKA	   OUT_INT NEXT_HOP
+// ip route 10.0.0.0 255.0.0.0 fa0/1 10.0.15.1
+ip route 0.0.0.0 0.0.0.0 fa0/1 10.0.15.1
+#R1
+ip route 10.255.255.5 255.255.255.255 fa0/1 10.0.15.2
+potom do OSPF-ka treba zapnut redistribuciu statiky
+
+
+na interfejsoch znizit hello a dead intervaly
+
+
+area 1 nastavit ako tottaly stubby
+#R8
+area 1 stub
+#R3
+area 1 stub no-summary
+
+area 3 ako stub
+#R4 a #R10
+area 3 stub
+
+
+kontrola:
+
+sh ip protocols
+sh ip ospf ?
+sh ip ospf int brief
+sh ip ospf int INTERFEJS
+sh ip ospf database (router self-originate)
+sh ip ospf database (router adv-router RID)
+sh ip ospf database network adv-router RID
+sh ip ospf neig		//musi obsahovat vsetky susedne routre - IPcky susedov: rovnaka siet, maska, area
+sh ip route (ospf)
+sh ip neigh
+
+
+
+nastavenie passive interface
+
+router ospf 1
+passive-interface l0
+
+en
+copy run start
+
+

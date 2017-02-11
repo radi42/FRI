@@ -1,0 +1,243 @@
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname 3R1
+!
+boot-start-marker
+boot-end-marker
+!
+aqm-register-fnf
+!
+!
+no aaa new-model
+!
+!
+!
+ip vrf z1_DOWN
+ rd 110:2
+ route-target import 110:1001
+!
+ip vrf z1_UP
+ rd 110:1
+ route-target export 110:1000
+!
+!
+!
+!
+no ip domain lookup
+ip cef
+no ipv6 cef
+!
+multilink bundle-name authenticated
+mpls label protocol ldp
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+redundancy
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 10.255.255.1 255.255.255.255
+ ip router isis
+!
+interface Loopback100
+ no ip address
+!
+interface FastEthernet0/0
+ no ip address
+ shutdown
+ duplex half
+!
+interface Serial1/0
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/1
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/2
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/3
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/4
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/5
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/6
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/7
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Ethernet2/0
+ ip address 10.0.12.1 255.255.255.0
+ ip router isis
+ duplex half
+ mpls ip
+ isis network point-to-point
+!
+interface Ethernet2/1
+ no ip address
+ duplex half
+!
+interface Ethernet2/1.15
+ encapsulation dot1Q 15
+ ip vrf forwarding z1_DOWN
+ ip address 192.168.15.1 255.255.255.0
+!
+interface Ethernet2/1.51
+ encapsulation dot1Q 51
+ ip vrf forwarding z1_UP
+ ip address 192.168.51.1 255.255.255.0
+!
+interface Ethernet2/2
+ no ip address
+ shutdown
+ duplex half
+!
+interface Ethernet2/3
+ no ip address
+ shutdown
+ duplex half
+!
+interface Ethernet2/4
+ no ip address
+ shutdown
+ duplex half
+!
+interface Ethernet2/5
+ no ip address
+ shutdown
+ duplex half
+!
+interface Ethernet2/6
+ no ip address
+ shutdown
+ duplex half
+!
+interface Ethernet2/7
+ no ip address
+ shutdown
+ duplex half
+!
+router isis
+ net 49.0001.0102.5525.5001.00
+!
+router bgp 110
+ bgp log-neighbor-changes
+ no bgp default ipv4-unicast
+ neighbor 10.255.255.3 remote-as 110
+ neighbor 10.255.255.3 update-source Loopback0
+ neighbor 10.255.255.4 remote-as 110
+ neighbor 10.255.255.4 update-source Loopback0
+ neighbor 10.255.255.9 remote-as 110
+ neighbor 10.255.255.9 update-source Loopback0
+ !
+ address-family ipv4
+ exit-address-family
+ !
+ address-family vpnv4
+  neighbor 10.255.255.3 activate
+  neighbor 10.255.255.3 send-community extended
+  neighbor 10.255.255.3 route-reflector-client
+  neighbor 10.255.255.4 activate
+  neighbor 10.255.255.4 send-community extended
+  neighbor 10.255.255.4 route-reflector-client
+  neighbor 10.255.255.9 activate
+  neighbor 10.255.255.9 send-community extended
+  neighbor 10.255.255.9 route-reflector-client
+ exit-address-family
+ !
+ address-family ipv4 vrf z1_DOWN
+  neighbor 192.168.15.5 remote-as 65001
+  neighbor 192.168.15.5 activate
+  neighbor 192.168.15.5 as-override
+ exit-address-family
+ !
+ address-family ipv4 vrf z1_UP
+  redistribute static
+  neighbor 192.168.51.5 remote-as 65001
+  neighbor 192.168.51.5 activate
+  default-information originate
+ exit-address-family
+!
+ip forward-protocol nd
+no ip http server
+no ip http secure-server
+!
+!
+ip route vrf z1_UP 0.0.0.0 0.0.0.0 192.168.51.5
+!
+!
+!
+mpls ldp router-id Loopback0 force
+!
+control-plane
+!
+!
+mgcp behavior rsip-range tgcp-only
+mgcp behavior comedia-role none
+mgcp behavior comedia-check-media-src disable
+mgcp behavior comedia-sdp-force disable
+!
+mgcp profile default
+!
+!
+!
+gatekeeper
+ shutdown
+!
+!
+line con 0
+ logging synchronous
+ stopbits 1
+line aux 0
+ stopbits 1
+line vty 0 4
+ privilege level 15
+ no login
+ transport input all
+line vty 5 15
+ privilege level 15
+ no login
+ transport input all
+!
+!
+end
