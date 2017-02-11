@@ -1,0 +1,49 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 13.04.2 ] */
+
+/* [wxMaxima: title   start ]
+Laplaecova transformácia
+   [wxMaxima: title   end   ] */
+
+/* [wxMaxima: comment start ]
+1. pravá strana rovnice (zavedenie argumentu pre funkciu laplace())
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+arg:(-2*(%e^(-2*t)));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+2. laplaecova transformácia z originálu na obraz (pravá strana rovnice)
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+laplace(arg,t,p);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+3. výpoèet parciálneho zlomku, uloženie do premennej ktorá je argumentom funkcie partfrac()
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+parcialny:((2*p^3+9*p^2+13*p+8)/((p+2)*(p^3+2*p^2+p)));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+4. rozklad na parciálne zlomky
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+obr:partfrac(parcialny,p);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+5. spätná Laplaecova transformácia (z obrazu na originál)
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+vysl:ilt(obr,p,t);
+/* [wxMaxima: input   end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$
