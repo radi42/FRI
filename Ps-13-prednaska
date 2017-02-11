@@ -1,0 +1,30 @@
+kolko miliwattov je 0 dbm?
+0 dbm = 1 mW
+rozdelene na 2 vetvy (deliaci pomer 1:2) to vychadza na 0,5 mW, co je -3dbm, co oznacuje utlm preneseneho signalu
+
+pri rozdeleni na 8 ciest (deliaci pomer 1:8) to vychadza na -9 dbm na delene vlakno
+
+10 dbm je desatnasobok vykonu, 20 dbm je stonasobok vykonu, ...
+
+onu nemoze vysielat hocikedy. olt moze vysielat hocikedy
+od olt ku onu je tdm.
+od onuciek ku olt (za splitterom) je tdma. onu vysiela gem ramce v tzv burstoch.
+medzi olt a onu je wdd - vlnovo deleny multiplex
+
+olt riadi cas vysielania jednotlivych onuciek.
+
+olt vie dynamicky pridelovat cas vysielania na upstream (DBA) od onu. ked onu nema co vysielat v smere upstream, olt zmensi cas vysielania na upstream cim sa zvysi kapacita pre upstream pre ostatne onucka
+
+gem ramec je univerzalna metoda enkapsulacie pre gpon. vsetko sa cezen vie prenasat.
+
+onu upstream - tcont ulahcuje alokaciu multicastov pre onu
+
+alloc id sluzi pre alokaciu.
+
+jeden ramec trva 125 mikrosekund, co je vhodne aj na prenos reci (8kHz - Shannonov teorem)
+
+gem ramec sa najcastejsie pouziva na prenos tdm recovych ramcov a ethetnet ramcov
+
+EPON
+pouzivaju sa zmenene gem ramce, ktore beru iba ethernetove ramce
+llid identifikuje onu
