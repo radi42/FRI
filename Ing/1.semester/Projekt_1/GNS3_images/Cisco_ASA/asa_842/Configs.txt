@@ -1,0 +1,11 @@
+#####   Configuration on GNS3    #######
+
+RAM: 1024 MiB
+Number of NICs: 6
+Qemu options: -m 1024 -icount auto -hdachs 980,16,32
+
+Initrd:          C:\ASA\asa842-initrd.gz
+Kernel:          C:\ASA\asa842-vmlinuz
+Kernel cmd line: -append ide_generic.probe_mask=0x01 ide_core.chs=0.0:980,16,32 auto nousb console=ttyS0,9600 bigphysarea=65536
+
+

@@ -1,0 +1,239 @@
+R1>
+
+en
+conf t
+
+ip vrf z1
+ rd 110:1
+ route-target 110:1
+ exit
+
+int e2/1
+ ip vrf forwarding z1
+ ip addr 192.168.15.1 255.255.255.0
+ exit
+
+ip vrf z2
+ rd 110:2
+ route-target 110:2
+ exit
+
+int l100
+ ip vrf forwarding z2
+ ip addr 192.168.15.1 255.255.255.0
+ exit
+
+do sh ip route connected
+
+do ping vrf z1 192.168.15.5
+
+router bgp 110
+ no bgp default ipv4-unicast
+ neighbor 10.255.255.3 remote-as 110
+ neighbor 10.255.255.4 remote-as 110
+ neighbor 10.255.255.9 remote-as 110
+ neighbor 10.255.255.3 update-source l0
+ neighbor 10.255.255.4 update-source l0
+ neighbor 10.255.255.9 update-source l0
+ address-family vpnv4
+  neighbor 10.255.255.3 activate
+  neighbor 10.255.255.3 route-reflector-client
+  neighbor 10.255.255.4 activate
+  neighbor 10.255.255.4 route-reflector-client
+  neighbor 10.255.255.9 activate
+  neighbor 10.255.255.9 route-reflector-client
+  exit
+ address-family ipv4 unicast vrf z1
+  neighbor 192.168.15.5 remote-as 65001
+  neighbor 192.168.15.5 activate
+  neighbor 192.168.15.5 as-override
+  redistribute connected
+  exit
+ exit
+
+router bgp 110
+ address-family ipv4 unicast vrf z2
+  redistribute connected
+  exit
+ exit
+ 
+do sh ip bgp vpnv4 all sum
+
+*************************************************
+  
+R3>
+
+en
+conf t
+
+ip vrf z1
+ rd 110:1
+ route-target 110:1
+ exit
+
+int e2/0
+ ip vrf forwarding z1
+ ip addr 192.168.38.3 255.255.255.0
+ exit
+
+do sh ip route connected
+
+do ping vrf z1 192.168.38.3
+
+router bgp 110
+ no bgp default ipv4-unicast
+ neighbor 10.255.255.1 remote-as 110
+ neighbor 10.255.255.1 update-source l0
+ address-family vpnv4
+  neighbor 10.255.255.1 activate
+  exit
+ address-family ipv4 unicast vrf z1
+  neighbor 192.168.38.8 remote-as 65001
+  neighbor 192.168.38.8 activate
+  neighbor 192.168.38.8 as-override
+  redistribute connected
+  exit
+ exit
+
+do ping vrf z1 192.168.15.1 source 192.168.38.3
+ 
+*************************************************
+
+R4>
+
+en
+conf t
+
+ip vrf z1
+ rd 110:1
+ route-target 110:1
+ exit
+
+int s1/0
+ ip vrf forwarding z1
+ ip addr 192.168.104.4 255.255.255.0
+ exit
+
+do sh ip route connected
+
+do ping vrf z1 192.168.104.4
+
+router bgp 110
+ no bgp default ipv4-unicast
+ neighbor 10.255.255.1 remote-as 110
+ neighbor 10.255.255.1 update-source l0
+ address-family vpnv4
+  neighbor 10.255.255.1 activate
+  exit
+ address-family ipv4 unicast vrf z1
+  neighbor 192.168.104.10 remote-as 65001
+  neighbor 192.168.104.10 activate
+  neighbor 192.168.104.10 as-override
+  redistribute connected
+  exit
+ exit
+
+do ping vrf z1 192.168.15.1 source 192.168.104.4
+
+*************************************************
+
+R5>
+
+en
+conf t
+int l1
+ ip addr 172.23.0.1 255.255.0.0
+ exit
+router bgp 65001
+ neighbor 192.168.15.1 remote-as 110
+ address-family ipv4 unicast
+  neighbor 192.168.15.1 activate
+  network 10.255.255.5 mask 255.255.255.255
+  network 172.23.0.0 mask 255.255.0.0
+  exit
+ exit
+
+ 
+
+
+
+
+
+
+R4#ping vrf z1 192.168.15.1 source 192.168.104.4
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 192.168.15.1, timeout is 2 seconds:
+Packet sent with a source address of 192.168.104.4
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 24/46/68 ms
+
+R4#traceroute vrf z1 192.168.15.1 source 192.168.104.4
+Type escape sequence to abort.
+Tracing the route to 192.168.15.1
+VRF info: (vrf in name/id, vrf out name/id)
+  1 10.0.24.2 [MPLS: Labels 20/25 Exp 0] 40 msec 12 msec 44 msec
+  2 192.168.15.1 32 msec 32 msec *
+
+R4#sh ip route vrf z1
+
+Routing Table: z1
+
+B     192.168.15.0/24 [200/0] via 10.255.255.1, 00:05:42
+B     192.168.38.0/24 [200/0] via 10.255.255.3, 00:05:42
+B     192.168.89.0/24 [200/0] via 10.255.255.9, 00:05:38
+      192.168.104.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.168.104.0/24 is directly connected, Serial1/0
+L        192.168.104.4/32 is directly connected, Serial1/0
+
+R4#sh ip bgp vpnv4 all label
+   Network          Next Hop      In label/Out label
+Route Distinguisher: 110:1 (z1)
+   192.168.15.0     10.255.255.1    nolabel/25
+   192.168.38.0     10.255.255.3    nolabel/23
+   192.168.89.0     10.255.255.9    nolabel/24
+   192.168.104.0    0.0.0.0         23/nolabel(z1)
+
+R4#sh mpls forw
+Local      Outgoing   Prefix           Bytes Label   Outgoing   Next Hop
+Label      Label      or Tunnel Id     Switched      interface
+16         Pop Label  10.0.12.0/24     0             Et2/1.24   10.0.24.2
+17         Pop Label  10.0.23.0/24     0             Et2/1.24   10.0.24.2
+           Pop Label  10.0.23.0/24     0             Et2/1.34   10.0.34.3
+18         Pop Label  10.0.39.0/24     0             Et2/1.34   10.0.34.3
+           Pop Label  10.0.39.0/24     0             Et2/0      10.0.49.9
+19         Pop Label  10.255.255.9/32  8587          Et2/0      10.0.49.9
+20         20         10.255.255.1/32  9162          Et2/1.24   10.0.24.2
+21         Pop Label  10.255.255.2/32  0             Et2/1.24   10.0.24.2
+22         Pop Label  10.255.255.3/32  0             Et2/1.34   10.0.34.3
+23         No Label   192.168.104.0/24[V]   \
+                                       1168          aggregate/z1
+
+
+									   
+R5#sh ip bgp ipv4 uni
+BGP table version is 7, local router ID is 10.255.255.5
+Status codes: s suppressed, d damped, h history, * valid, > best, i - internal,
+              r RIB-failure, S Stale, m multipath, b backup-path, f RT-Filter,
+              x best-external, a additional-path, c RIB-compressed,
+Origin codes: i - IGP, e - EGP, ? - incomplete
+RPKI validation codes: V valid, I invalid, N Not found
+
+     Network          Next Hop            Metric LocPrf Weight Path
+ *>  10.255.255.5/32  0.0.0.0                  0         32768 i
+ *>  172.23.0.0       0.0.0.0                  0         32768 i
+ r>  192.168.15.0     192.168.15.1             0             0 110 ?
+ *>  192.168.38.0     192.168.15.1                           0 110 ?
+ *>  192.168.89.0     192.168.15.1                           0 110 ?
+ *>  192.168.104.0    192.168.15.1                           0 110 ?
+ 
+ !!!! Na R5, R8 a R10 nevidime siete za zakaznikmi, lebo su z vsetky z AS 65001 
+ !!!! - updaty obsahujuce vlastne AS neprijima
+
+ riesenie:
+ na R1, R3 a R4
+ 
+ router bgp 110
+  address-family ipv4 unicast vrf z1
+   neighbor 192.168.xxx.xx as-override
+ 
+ 

@@ -1,0 +1,6 @@
+metoda, ktora dokaze zistit lubovolny biely znak?
+isspace()
+
+ktora metoda nacita retazec z klavesnice aj s medzerami?
+fgets()
+

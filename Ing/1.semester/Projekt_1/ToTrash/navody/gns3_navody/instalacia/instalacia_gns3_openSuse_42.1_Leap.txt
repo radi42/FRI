@@ -1,0 +1,27 @@
+instalacia gns3 1.5.2 na openSUSE Leap 42.1
+
+A) YaST 1-Click Install
+1) https://software.opensuse.org/package/gns3
+2) Kliknut na "Show other versions" -> "openSUSE Leap 42.1" -> Show unstable packages -> Zvol verziu 1.5.2 -> Ulozit subor
+3) Otvorit stiahnuty subor
+4) Next -> Next -> Yes  -> Trust (certifikat)
+5) Zvol moznost 1 a potom "Ok - Try again" -> Accept -> Continue
+6) teraz ked spustime gns3, server sa nerozbehne, lebo nema nainstalovany multidict. Tento balicek suvisi s balickom aiohttp z python3 kniznic. Pre vyriesenie problemu vykoname prikaz:
+
+sudo pip install aiohttp
+
+7) nainstaluj iouyap: chod na stranku
+
+https://github.com/GNS3/iouyap
+
+potom vykoname prikaz:
+
+sudo zypper install git bison flex
+
+a potom sa treba riadit instrukciami v README.rst subore
+
+Poznamka: ak uz sme naklonovali iouyap repozitar z githubu, vykoname prikaz
+
+sudo zypper install libcap-progs
+
+8) spust GNS3 z terminalu

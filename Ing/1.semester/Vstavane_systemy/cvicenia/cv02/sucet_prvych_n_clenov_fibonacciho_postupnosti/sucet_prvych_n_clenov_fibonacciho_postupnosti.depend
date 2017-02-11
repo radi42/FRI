@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1476648852 source:/run/media/andrej/7760B2AC30B64684/Skola/FRI/Ing/1.semester/Vstavane_systemy/cvicenia/cv02/sucet_prvych_n_clenov_fibonacciho_postupnosti/main.c
+	<stdio.h>
+	<stdlib.h>
+

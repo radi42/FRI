@@ -1,0 +1,35 @@
+z teoretickeho testu ziskat aspon 61% bodov
+
+vypis: sprintf(cielovy_retazec, "%d:%d %s", hodina, minuta, nazov);
+
+triedenie pri vkladani:
+	_Bool pridaj(struct zoznam *zoz, const struct udalost *ud)
+	{
+		// zotriedime udalosti od najvacsieho casu po najmensi
+		int i = 0;
+		while(i < zoz->pocet && porovnajUdalosti(ud, zoz->udalosti[i]) < 0)
+		{
+			i++;
+		}
+
+		for(int j = zoz->pocetl j < i; j--)
+		{
+			zoz->udalosti[i] = zoz->udalosti[j-1];
+		}
+		zoz->udalosti[i] = *ud;
+	}
+nemozme si teraz dovolit memcpy(), lebo bloky pamati sa prekryvaju
+
+
+segmenty operacnej pamate
+kodovy
+datovy
+zasobnik
+heap
+
+ked sa realloc nepodari (nemame dost operacnej pamate), realloc vrati null, ale ked ho priradime priamo do (adresy) pola, ktore realokujeme, a realloc sa nepodari, stratime referenciu na povodne pole. preto sa pred reallocom radsej ulozi adresa realokovaneho pola do lokalnej premennej.
+
+
+add - prida prvok na koniec zoznamu
+
+identifikator "static" pri metode znamena, ze metoda je viditelna iba v danom zdrojovom subore.

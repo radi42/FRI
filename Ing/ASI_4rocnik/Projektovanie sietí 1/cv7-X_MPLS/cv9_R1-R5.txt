@@ -1,0 +1,391 @@
+line con 0
+logg syn
+session-timeout 30
+exit
+
+
+
+R1
+int e2/1
+ip addr 192.168.15.1 255.255.255.0
+no sh
+int e2/0
+ip addr 10.0.12.1 255.255.255.0
+no sh
+int l0
+ip addr 10.255.255.1 255.255.255.255
+exit
+!
+!
+!konfiguracia ISIS
+!
+router isis
+net 49.0001.0102.5525.5001.00
+exit
+int e2/0
+ip router isis
+isis network point-to-point
+exit
+int l0
+ip router isis
+exit
+!
+!
+!konfiguracia MPLS
+!
+ip cef
+mpls ip
+mpls label protocol ldp
+int e2/0
+mpls ip
+exit
+mpls ldp router-id lo0 force
+!
+!
+!konfiguracia BGP
+!
+router bgp 110
+neig 10.255.255.2 remote-as 110
+neig 192.168.15.5 remote-as 65003
+neig 10.255.255.2 update-source lo0
+neig 10.255.255.2 next-hop-self
+address-family ipv4 unicast
+neigh 10.255.255.2 activate
+neigh 192.168.15.5 activate
+network 10.255.255.1 mask 255.255.255.255
+exit
+exit
+
+
+R2
+int e2/0
+ip addr 10.0.12.2 255.255.255.0
+no sh
+int e2/1
+no sh
+int e2/1.23
+encap dot1Q 23
+ip addr 10.0.23.2 255.255.255.0
+no sh
+int e2/1.24
+encap dot1Q 24
+ip addr 10.0.24.2 255.255.255.0
+no sh
+int l0
+ip addr 10.255.255.2 255.255.255.255
+exit
+!
+!
+!konfiguracia ISIS
+!
+router isis
+net 49.0001.0102.5525.5002.00
+exit
+int e2/0
+ip router isis
+isis network point-to-point
+int l0
+ip router isis
+int e2/1.23
+ip router isis
+int e2/1.24
+ip router isis
+exit
+!
+!
+!konfiguracia MPLS
+!
+ip cef
+mpls ip
+mpls label protocol ldp
+int e2/0
+mpls ip
+exit
+int e2/1.23
+mpls ip
+exit
+int e2/1.24
+mpls ip
+exit
+mpls ldp router-id lo0 force
+!
+!
+!konfiguracia BGP
+!
+router bgp 110
+neig 10.255.255.1 remote-as 110
+neig 10.255.255.3 remote-as 110
+neig 10.255.255.4 remote-as 110
+neig 10.255.255.9 remote-as 110
+neig PEERS peer-group
+neig PEERS remote-as 110
+neig PEERS update-source l0
+neig 10.255.255.1 peer-group PEERS
+neig 10.255.255.3 peer-group PEERS
+neig 10.255.255.4 peer-group PEERS
+neig 10.255.255.9 peer-group PEERS
+address-family ipv4 unicast
+neig PEERS route-reflector-client
+network 10.255.255.2 mask 255.255.255.255
+exit
+exit
+
+
+
+R3
+int e2/0
+ip addr 192.168.38.3 255.255.255.0
+no sh
+int e2/1
+no sh
+int e2/1.23
+encap dot1Q 23
+ip addr 10.0.23.3 255.255.255.0
+no sh
+int e2/1.34
+encap dot1Q 34
+ip addr 10.0.34.3 255.255.255.0
+no sh
+int s1/0
+ip addr 10.0.39.3 255.255.255.0
+no sh
+int l0
+ip addr 10.255.255.3 255.255.255.255
+exit
+!
+!
+!konfiguracia ISIS
+!
+router isis
+net 49.0001.0102.5525.5003.00
+exit
+int l0
+ip router isis
+int e2/1.23
+ip router isis
+int e2/1.34
+ip router isis
+int s1/0
+ip router isis
+exit
+!
+!
+!konfiguracia MPLS
+!
+ip cef
+mpls ip
+mpls label protocol ldp
+int s1/0
+mpls ip
+exit
+int e2/1.23
+mpls ip
+exit
+int e2/1.34
+mpls ip
+exit
+mpls ldp router-id lo0 force
+!
+!
+!konfiguracia BGP
+!
+router bgp 110
+neig 10.255.255.2 remote-as 110
+neig 192.168.38.8 remote-as 65001
+address-family ipv4
+network 10.255.255.3 mask 255.255.255.255
+neig 192.168.38.8 activate
+neighbor 10.255.255.2 next-hop-self
+exit
+exit
+
+
+
+R4
+int e2/0
+ip addr 10.0.49.4 255.255.255.0
+no sh
+int e2/1
+no sh
+int e2/1.24
+encap dot1Q 24
+ip addr 10.0.24.4 255.255.255.0
+no sh
+int e2/1.34
+encap dot1Q 34
+ip addr 10.0.34.4 255.255.255.0
+no sh
+int s1/0
+ip addr 192.168.104.4 255.255.255.0
+no sh
+int l0
+ip addr 10.255.255.4 255.255.255.255
+exit
+!
+!
+!konfiguracia ISIS
+!
+router isis
+net 49.0001.0102.5525.5004.00
+exit
+int l0
+ip router isis
+int e2/1.24
+ip router isis
+int e2/1.34
+ip router isis
+int e2/0
+ip router isis
+isis network point-to-point
+exit
+!
+!
+!konfiguracia MPLS
+!
+ip cef
+mpls ip
+mpls label protocol ldp
+int e2/0
+mpls ip
+exit
+int e2/1.24
+mpls ip
+exit
+int e2/1.34
+mpls ip
+exit
+mpls ldp router-id lo0 force
+!
+!
+!konfiguracia BGP
+!
+router bgp 110
+neig 10.255.255.2 remote-as 110
+neig 192.168.104.10 remote-as 65002
+address-family ipv4
+network 10.255.255.4 mask 255.255.255.255
+neig 192.168.104.10 activate
+neig 10.255.255.2 next-hop-self
+exit
+exit
+
+
+
+R5
+int e2/1
+ip addr 192.168.15.5 255.255.255.0
+no sh
+int e2/0
+ip addr 192.168.56.5 255.255.255.0
+no sh
+int l0
+ip addr 10.255.255.5 255.255.255.255
+exit
+!
+!
+!konfiguracia BGP
+!
+router bgp 65003
+neigh 192.168.15.1 remote-as 110
+address-family ipv4 unicast
+neigh 192.168.15.1 activate
+network 10.255.255.5 mask 255.255.255.255
+exit
+exit
+
+
+
+*******************************************
+
+
+foreach address {
+10.255.255.1
+10.255.255.2
+10.255.255.3
+10.255.255.4
+10.255.255.5
+10.255.255.8
+10.255.255.9
+10.255.255.10
+} {
+ping $address source 10.255.255.1}
+
+Sending 5, 100-byte ICMP Echos to 10.255.255.1, timeout is 2 seconds:
+Packet sent with a source address of 10.255.255.1
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 8/8/8 ms
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.255.255.2, timeout is 2 seconds:
+Packet sent with a source address of 10.255.255.1
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 16/22/28 ms
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.255.255.3, timeout is 2 seconds:
+Packet sent with a source address of 10.255.255.1
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 24/39/68 ms
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.255.255.4, timeout is 2 seconds:
+Packet sent with a source address of 10.255.255.1
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 16/33/52 ms
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.255.255.5, timeout is 2 seconds:
+Packet sent with a source address of 10.255.255.1
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 16/26/40 ms
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.255.255.8, timeout is 2 seconds:
+Packet sent with a source address of 10.255.255.1
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 72/88/100 ms
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.255.255.9, timeout is 2 seconds:
+Packet sent with a source address of 10.255.255.1
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 48/63/80 ms
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.255.255.10, timeout is 2 seconds:
+Packet sent with a source address of 10.255.255.1
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 72/79/100 ms
+
+
+*******************************************
+
+
+***** overenie MPLS *****
+
+http://nil.uniza.sk/practical-cisco/mpls/configuring-simple-mpls-network
+
+	sh mpls interface (detail)
+
+Neighbor Discovery
+
+    show mpls ldp discovery
+    show mpls ldp discovery detail
+
+Establishing session with LDP neighbor
+
+    show mpls ldp neighbor
+    show mpls ldp neighbor detail
+
+Label Information Base
+	
+	sh mpls ip binding (detail)
+	sh mpls ip binding <prefix> <mask> (detail)
+
+Checking the MPLS forwarding plane (FIB, LFIB)
+
+	(LFIB)
+	sho mpls forwarding-table (*siet*)
+
+	(LIB)
+	sh ip cef (*siet*)
+	sh mpls forwarding <prefix>
+	sh mpls forwarding label <label>
+	show mpls forwarding-table <prefix> detail
+
+***** overenie BGP *****
+
+sh ip bgp ipv4 unicast (summary)

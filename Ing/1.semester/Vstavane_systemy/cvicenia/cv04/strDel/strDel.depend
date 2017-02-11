@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1477850383 source:/home/andrej/Desktop/cv04/strDel/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

@@ -1,0 +1,111 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <netdb.h> 
+#include <string.h>
+
+/*Globalne premenne*/
+char buffer[1024]; 
+char escsq[8] = "exit\n";
+int pid;//ak posle serv exit, ukoncenie klienta
+
+
+/*Vypisovanie errorov s podporou sys. hlasky*/
+void error(char *msg)
+{
+    perror(msg);
+    exit(0);
+}
+
+/*Pomocka po spusteni klienta*/
+void help ()
+{
+    printf("*****You're connected to CHAT***** \nFor HELP type:\"!help\"\n");
+}
+
+/*Metoda vo vlakne, stara sa o asynchronnost*/
+void incoming_message(int sockfd)
+{
+    int quit, n ;
+    
+    while((n = read(sockfd, buffer, sizeof(buffer)-1)) > 0){
+        quit=0;
+       
+        if (n < 0){
+           error("\nERROR reading from socket");   
+         }else{
+            /*Ak bol klient ukonceny*/
+            if(strncmp(buffer,escsq,4)==0)
+                {
+                    printf("\nExiting...");
+                    quit=1;
+                    exit(EXIT_SUCCESS);
+               
+                
+                }else{
+                     printf("\n%s",buffer);
+                     bzero(buffer,1024);
+                     printf("Enter the message:");
+                     
+                    }
+          }
+    }
+}
+
+/*Hlavna funkcia main*/
+int main(int argc, char *argv[])
+{
+    /*Lokalne premenne*/
+    int sockfd, portno, n ,quit;     
+    struct sockaddr_in serv_addr;
+    struct hostent *server;
+    
+    /*Nedostatok argumentov*/
+    if (argc < 3) {
+       fprintf(stderr,"usage %s hostname port\n", argv[0]);
+       exit(0);
+    }
+    
+    /*Ziskanie cisla portu*/
+    portno = atoi(argv[2]); 
+    sockfd = socket(AF_INET, SOCK_STREAM, 0);
+    if (sockfd < 0) 
+        error("ERROR opening socket");
+    
+    /*Zmena mena na IP*/
+    server = gethostbyname(argv[1]); 
+    if (server == NULL) {
+        fprintf(stderr,"ERROR, no such host\n");
+        exit(0);
+    }
+    
+    /*Nastavenie soketov*/
+    bzero((char *) &serv_addr, sizeof(serv_addr));
+    serv_addr.sin_family = AF_INET;
+    bcopy((char *)server->h_addr, 
+         (char *)&serv_addr.sin_addr.s_addr,
+         server->h_length);
+    serv_addr.sin_port = htons(portno);
+    if (connect(sockfd,(struct sockaddr *)&serv_addr,sizeof(serv_addr)) < 0) 
+        error("ERROR connecting");
+    
+    /*Vypis pomocky na zaciatku*/
+    help();   
+    
+    /*Vytvorenie vlakna podporujuceho asynchronny prenos sprav*/
+    pthread_create(&pid, NULL, &incoming_message, (void*)sockfd);
+    
+    while (quit!=1){
+        quit=0;
+        printf("Enter the messages:");
+        fgets(buffer,1023,stdin);   
+        n = write(sockfd,buffer,strlen(buffer)); 
+        if (n < 0) 
+          error("ERROR writing to socket");        
+        bzero(buffer,1024);
+    }    
+    return 0;
+}
+

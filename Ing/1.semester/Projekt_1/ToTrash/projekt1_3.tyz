@@ -1,0 +1,17 @@
+V GNS3 rozbehat (Andrej):
+CISCO router - HOTOVO
+CISCO router ako switch - HOTOVO
+JUNIPER (QEMU/KVM) - HOTOVO
+FW/ASA (QEMU/KVM) - PROBLEMATICKE
+VIRT_HOST (QEMU/KVM) - HOTOVO
+CISCO IOU - PROBLEMATICKE
+MIKROTIK (VB/QEMU/KVM) - PROBLEMATICKE
+
+GNS3 (Andrej) - HOTOVO
+Zistit, ake boxy GNS3 podporuje (Andrej) - HOTOVO
+Zaujimave vlastnosti GNS3 (Slavka) - HOTOVO
+Ako sa GNS3 sprava na vzdialeny pristup (Slavka)
+Optimalizacia - IdlePC, RamShare/Ghost Imageing (Andrej) - HOTOVO
+VirtualBox: MicroKernel Linux; XFCE/Linux; GNS3 (Andrej) - HOTOVO (Debian 8.6 x64 XFCE) - HOTOVO (Debian 8.6.0 x64 XFCE)
+Prepajanie GNS3 medzi sebou a pripajanie GNS3 na zivu siet na Windowse (Slavka) - HOTOVO
+Prepajanie GNS3 medzi sebou a pripajanie GNS3 na zivu siet na Linuxe (Andrej) - PROBLEMATICKE

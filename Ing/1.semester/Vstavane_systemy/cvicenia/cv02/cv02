@@ -1,0 +1,51 @@
+break - ukonci cyklus a vyskoci z cyklu
+continue - vyskoci zo cyklu, ale urobi este jednu otocku cyklom
+
+aritmeticke operacie maju prednost pred logickymi operaciami
+akonahle pouzijem logicky operator &&, vysledok bude typu int
+ak je prvy logicky operand pri operacii || pravdivy, zvysok vyrazu sa nevyhodnocuje
+ak je prvy logicky operand pri operacii && nepravdivy, zvysok vyrazu sa nevyhodnocuje
+znak delenia je zavisly od operandov, nie od premennej, do ktorej ju priradzujem
+
+a++ < c-- ? x+2 : c-a
+najprv sa porovna a s c, potom sa vykonaju operacie ++ a -- a potom sa preskoci n sekciu pred alebo za dvojbodkou
+
+%u -> unsigned int pre printf
+
+%lu - adresa v dekadickom tvare
+
+konstanta vs literal
+konstanta - cislo pevne v kode
+literal - forma konstanty; nieco ako string; ak su literaly rovnake, pouzije sa rovnake pamatove miesto, literal nie je mozne v pamati menit
+
+delitele cisla - osetrit zaporne cisla
+najvacsi spolocny delitel - zoberiem mensie z tych cisel a delim obe cisla rovnakym delitelom a porovnavam zvysky po deleni
+
+prvociselny rozklad - for cyklus od dvojky
+ak je dvojka prvocislo, vydelim dance cislo dvojkou a porovnam zvysok po deleni
+
+12 mod 2 = 0	12 / 2 = 6
+6 mod 2 = 0	6 / 2 = 3
+3 mod 2 = 1
+2++ (inkrementuj delitela)
+3 mod 3 = 0	3 / 3 = 1 => koncim :)
+
+
+fibonacciho nty clen
+dve pomocne premenne
+a1=1
+a2=1
+-------
+a1=a1+a2 //a1=2
+a2=a1+a2 //a2=3 => postupne striedat premenne
+
+
+sucet a priemer cisel - dve pom premenne: jednu pre sucet, druhu pre pocet premennych
+
+
+zistit ci je rok priestupny
+((delitelny 4 a sucasne nie 100) alebo 400)
+
+vratit pocet dni pre dany mesiac daneho roku - switch case
+
+zvysok datumovych uloh nemusim robit, stacia prve dve

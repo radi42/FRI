@@ -1,0 +1,153 @@
+//http://kifri.fri.uniza.sk/~chochlik/frios/frios/sk/cvicenia/vlakna2/pthread_cond.html
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <netdb.h> 
+#include <string.h>
+
+/*Globalne premenne*/
+char buffer[1024]; 
+static int inbuf; // how many bytes are currently in the buffer?
+static int room; // how much room left in buffer?
+static char *after; // pointer to position after the received characters
+//set up variables for select()
+fd_set all_set, r_set;
+
+
+void error(char *msg)//vypisovanie errorov s podporou sys. hlasky
+{
+    perror(msg);
+    exit(0);
+}
+
+int buffer_message(char * message, int STDIN_FILENO){
+
+    int bytes_read = read(STDIN_FILENO, after, 256 - inbuf);
+    short flag = -1; // indicates if returned_data has been set 
+    inbuf += bytes_read;
+    int where; // location of network newline
+
+    // Step 1: call findeol, store result in where
+    where = find_network_newline(message, inbuf);
+    if (where >= 0) { // OK. we have a full line
+
+        // Step 2: place a null terminator at the end of the string
+        char * null_c = {'\0'};
+        memcpy(message + where, &null_c, 1); 
+
+        // Step 3: update inbuf and remove the full line from the clients's buffer
+        memmove(message, message + where + 1, inbuf - (where + 1)); 
+        inbuf -= (where+1);
+        flag = 0;
+    }
+
+    // Step 4: update room and after, in preparation for the next read
+    room = sizeof(message) - inbuf;
+    after = message + inbuf;
+
+    return flag;
+}
+
+int find_network_newline(char * message, int bytes_inbuf){
+    int i;
+    for(i = 0; i<inbuf; i++){
+        if( *(message + i) == '\n')
+        return i;
+    }
+    return -1;
+}
+void help(); //protoyp funkcie help
+
+void incoming_message(int sockfd)
+{
+    int quit, n;
+    
+    while (quit!=1)
+    {
+        quit=0;
+        n = read(sockfd,buffer,1024);        
+        printf("\r%s                  \n",buffer);
+        printf("Enter the message: ");
+    }
+}
+
+int main(int argc, char *argv[])
+{
+    int sockfd, portno, n ,quit, pid; 
+    char escsq[256] = "exit\n";//ak posle serv exit, ukoncenie klienta
+    struct sockaddr_in serv_addr;
+    struct hostent *server;
+    
+    if (argc < 3) {
+       fprintf(stderr,"usage %s hostname port\n", argv[0]);
+       exit(0);
+    }
+    portno = atoi(argv[2]); //z argumentov pri spustani ziskanie cisla portu
+    sockfd = socket(AF_INET, SOCK_STREAM, 0);
+    if (sockfd < 0) 
+        error("ERROR opening socket");
+    server = gethostbyname(argv[1]); //pri zadani localhost namiesto ip premenenie mena na IP
+    if (server == NULL) {
+        fprintf(stderr,"ERROR, no such host\n");
+        exit(0);
+    }
+    bzero((char *) &serv_addr, sizeof(serv_addr));
+    serv_addr.sin_family = AF_INET;
+    bcopy((char *)server->h_addr, 
+         (char *)&serv_addr.sin_addr.s_addr,
+         server->h_length);
+    serv_addr.sin_port = htons(portno);
+    if (connect(sockfd,(struct sockaddr *)&serv_addr,sizeof(serv_addr)) < 0) 
+        error("ERROR connecting");
+    help(); //welcome e
+    /*n = read(sockfd,buffer,1024); //citanie zo soketu od server
+    if (n < 0) 
+         error("ERROR reading from socket");
+        printf("%s",buffer);*/
+    
+    pthread_create(&pid, NULL, &incoming_message, (void*)sockfd);
+    while (quit!=1){
+        quit=0;
+        /*
+        n = read(sockfd,buffer,1024);
+        printf("%s",buffer);
+        if(n<0){     
+         */     
+        /*if(!strlen(buffer)){
+			break;
+		}  /*      
+    if (n < 0) 
+         error("ERROR reading from socket");
+    if(strncmp(buffer,escsq,4)==0)
+    {
+        printf("Ukoncenie komunikacie\n");
+        quit=1;
+        break;
+    }else*/
+        
+        
+        //printf("%s",buffer);
+        //vypis prijatej spravy
+        
+    //}else{
+        printf("Enter the message: ");
+        fgets(buffer,1023,stdin);//nacitanie do buffera   
+        n = write(sockfd,buffer,strlen(buffer)); //zapis do soketu, ktory bude poslany serveru
+        if (n < 0) 
+          error("ERROR writing to socket");    
+        
+        //}
+        bzero(buffer,1024);
+    }
+    
+    return 0;
+}
+
+/*Pomocka po spusteni klienta*/
+void help ()
+{
+    printf("*****Welcome to Chat***** \nFor HELP type:\"!help\"\n");
+}

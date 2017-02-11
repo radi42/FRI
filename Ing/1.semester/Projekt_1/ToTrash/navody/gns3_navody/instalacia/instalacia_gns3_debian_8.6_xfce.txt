@@ -1,0 +1,169 @@
+instalacia GNS3 1.5.2 na debian 8.6 (xfce) - IBA 64-bit!
+
+A) cez repozitar
+sudo apt-get update
+sudo apt-get upgrade
+
+Pridaj tieto riadky na koniec suboru "/etc/apt/sources.list":
+deb http://ppa.launchpad.net/gns3/ppa/ubuntu trusty main
+deb-src http://ppa.launchpad.net/gns3/ppa/ubuntu trusty main
+
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A2E3EF7B
+sudo apt-get update
+sudo apt-get install gns3-gui
+
+Pre IOU podporu:
+sudo dpkg --add-architecture i386
+sudo apt-get update
+sudo apt-get install gns3-iou
+
+
+Pocas instalacie sa zobrazi oznam, ci chceme aktivovat Dumpcap na odchytavanie paketov aj pre non-root pouzivatelov. Defaultne je Dumpcap pre non-root pouzivatelov vypnuty. Navod na aktivaciu Dumpcapu je na stranke https://wiki.wireshark.org/CaptureSetup/CapturePrivileges
+
+GNS3 potom spustime napriklad aj z terminalu prikazom "gns3".
+
+B) zo zdrojovych kodov (neoverene)
+Instalacia zo zdrojovych kodov nam umznuje nainstalovat si konkretnu verziu gns3
+1) stiahnut zdrojove kody zelanej verzie 
+cd ~/Downloads
+wget "https://github.com/GNS3/gns3-gui/releases/download/v1.5.2/GNS3-1.5.2.source.zip"
+2) extrahuj archiv
+
+
+Step 1: Update Your Linux Source Files and Install GNS3 Dependencies
+
+
+sudo apt-get update
+
+Now install the development version of python3, install pyqt5, and other dependencies required to install and run GNS3. This video shows you how: https://youtu.be/N3y5F-nROPc
+
+sudo apt-get install python3-dev apt-get install python3-setuptools python3-pyqt5 python3-pyqt5.qtsvg python3-pyqt5.qtwebkit python3‐ws4py python3‐netifaces python3-pip
+
+Step 2: Install the software required by dynamips. 
+
+Install Dependencies Required to Compile Dynamips
+
+The dynamips hypervisor is a program that emulates Cisco MIPS based router hardware, allowing you to run select IOS image files in GNS3. Using dynamips you can run IOS images for Cisco c1700, c2600, c3600, 3700, and 7200 series routers. You must provide your own IOS image files, as GNS3 is unable to provide them. Start by installing the libraries and tools required to compile dynamips. This video shows you how: https://youtu.be/Po8ncDr5egA
+
+sudo apt-get install cmake uuid‐dev libelf‐dev libpcap‐dev
+
+After installing the libraries, and other software, you're ready to compile and install the dynamips program.
+
+Step 5:Enter the following commands to compile, and install dynamips.
+
+unzip dynamips-0.2.14.zip
+cd dynamips-0.2.14
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+sudo setcap cap_net_admin,cap_net_raw=ep /usr/local/bin/dynamips
+cd ../..
+
+
+Now that dynamips is installed you're ready to move on to the GNS3 server and GUI applications. This video shows you how: https://youtu.be/TfutI5NNFps
+
+
+Step 6: Install the GNS3 Server and GUI Applications
+
+The GNS3 software is made up of two main components; a server application, and a GUI application. This provides a great amount of flexibility by allowing you to run multiple servers on different PCs. Leveraging this feature, you can create large GNS3 networks. Start by unzipping and installing the GNS3 server application.
+
+unzip GNS3-server-1.4.0rc1.zip (remember to substitute with the actual file you downloaded)
+
+cd GNS3-server-1.4.0rc1
+sudo python3 setup.py install
+cd ..
+
+
+Next, install the GNS3 GUI application.
+
+
+cd GNS3-gui-1.4.0rc1
+sudo python3 setup.py install
+cd ..
+
+Note: The GNS3 installer downloads other files required to build the GNS3 server and GUI. If you see errors during the install process, they're usually caused because the installer was unable to download a required file. Re-running the sudo python3 setup.py install command often resolves this issue. This video shows you how: https://youtu.be/q8_mCLxZpDk
+
+Step 7: After installing the GNS3 server and GUI, install IOS on UNIX (IOU) related files.
+Install IOU Dependencies
+
+Installing the IOU dependencies allows you to run Cisco IOS on UNIX binary images in GNS3. IOU images are Linux binary files that emulate the features of Cisco IOS L2 and L3 devices, and are a handy way to create switches, and use advanced IOS 15.x features that are not available in most of the IOS images that run under dynamips. You must provide your own IOU image files, as GNS3 is unable to provide them. Enter the following commands to install the IOU dependencies. This video shows you how: https://youtu.be/wqlJgAOFYPc
+
+sudo apt-get install libssl1.0.0:i386
+sudo ln -s /lib/i386-linux-gnu/libcrypto.so.1.0.0 /lib/libcrypto.so.4
+sudo apt-get install bison
+sudo apt-get install flex
+sudo apt-get install git
+git clone http://github.com/ndevilla/iniparser.git
+cd iniparser
+make
+sudo cp libiniparser.* /usr/lib/
+sudo cp src/iniparser.h /usr/local/include
+sudo cp src/dictionary.h /usr/local/include
+cd .. 
+
+After installing the IOU dependencies you can compile the iouyap application. 
+
+
+Step 8: Compile and Install IOUYAP
+
+IOU devices can be networked to other device in GNS3. The iouyap program provides the ability to add IOU devices to your GNS3 workspace and link their Ethernet interfaces to other devices, like dynamips routers. The following commands will compile and install iouyap. 
+
+unzip iouyap-0.95.zip
+cd iouyap-0.95
+sudo make install
+sudo cp iouyap /usr/local/bin
+cd ..
+
+After installing iouyap, install the ubridge application. This video shows you how: https://youtu.be/rHIgRK0Sb0M
+
+Step 9: Install other supporting software; Cpulimit, Virtualbox, QEMU and Wireshark.
+
+The cpulimit application allows GNS3 to reduce CPU usage when running Cisco ASA devices in GNS3. With VirtualBox installed you can link emulated VirtualBox devices with other GNS3 devices. QEMU (Quick Emulator) is another PC hypervisor, and it is used to create and run Cisco ASA and other devices in GNS3. Wireshark is a powerful packet analyzer; using Wireshark you can sniff packets from your virtual GNS3 networks and analyze them, just as you can in the real world. Enter the following commands to complete your installation. This video shows you how:https://youtu.be/p-IgXoSw_CU
+
+sudo apt-get install cpulimit
+sudo apt-get install virtualbox
+sudo apt-get install qemu
+sudo apt-get install wireshark
+
+Step 10: Compile and Install VPCS
+VPCS is a simple but powerful little PC emulator that allows you to test your GNS3 networks using commands like ping and trace. Enter the following commands to compile and install VPCS.
+
+unzip vpcs-0.6.1.zip
+cd vpcs-0.6.1/src
+./mk.sh
+sudo cp vpcs /usr/local/bin/
+cd ../..
+
+Complete the installation process by installing cpulimit, VirtualBox, QEMU, and Wireshark.
+
+Note: No videos for this step.
+
+
+
+Step 11: Install the Ubridge and other gns3 software.
+
+Ubridge is a program used to bridge GNS3 devices to virtual machines running in VMware. Enter these commands to compile and install the ubridge application.
+
+unzip ubridge-0.9.0.zip
+cd ubridge-0.9.0
+make
+sudo make install
+cd ..
+
+Step 12: run gns3 in a terminal window.
+
+gns3
+
+You will now be presented with the GNS3 GUI, and a setup wizard to help get you started.
+
+Note: No videos for this step.
+
+Optional Step 13: Upgrading GNS3
+
+You may have an occasion to upgrade GNS3. Use the following commands to upgrade the GNS3 server and GUI applications. In the following example, I'm upgrading to GNS3 version 1.4.5. When entering the commands, replace “1.4.5” with the version you wish to upgrade to. It's important to note that your server and GUI applications must both be on the same version number.
+
+sudo pip3 install gns3-gui==1.4.5
+sudo pip3 install gns3-server==1.4.5
+

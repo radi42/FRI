@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1476688211 source:/run/media/andrej/7760B2AC30B64684/Skola/FRI/Ing/1.semester/Vstavane_systemy/cvicenia/cv02/prvociselny_rozklad_faktorizacia/main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+

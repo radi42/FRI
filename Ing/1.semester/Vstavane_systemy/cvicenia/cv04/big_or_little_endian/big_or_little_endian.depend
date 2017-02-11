@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1477322236 source:/run/media/andrej/7760B2AC30B64684/Skola/FRI/Ing/1.semester/Vstavane_systemy/cvicenia/cv04/big_or_little_endian/main.c
+	<stdio.h>
+	<stdlib.h>
+

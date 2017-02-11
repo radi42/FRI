@@ -1,0 +1,88 @@
+1. dynamická matica 
+2. práca z reazcom, napr. naèíta reazec a najskôr vypísa samohlásky potom spoluhlásky a potom všetky ostatné znaky 
+3. boli èísla v textovom súbore a bolo treba vypísa všetky moné kombinácie, ktoré sú pravouhlım trojuholníkom
+
+
+
+
+1. Dynamická matica: štvorcová matica, skontrolova, èi je to magickı štvorec, majú tam èísla od 1 do n na 2...a súèet kadého riadku, ståpca a oboch diagonál má by rovnakı...bol tam aj vısledok, resp. vzorec akı tam má by, ale ten si nepamätám 
+
++ 1 bod: matica typu smerník na smerník 
+
+2. Kontrolova, èi zadanı reazec súhlasí so vzorom napr. ABBAB je Ja som (èie spoluhláska B, samohláska A a medzery sa vynechávajú) 
+
++1 bod: reazce pomocou smerníkov 
+
+3. Spoèíta vıskyt všetkıch znakov ASCII tabu¾ky v textovom súbore. Textovı súbor je zdrojovı kód programu. 
+
++1 bod: naèíta súbor z príkazového riadka 
+
+mal som len druhı príklad a dostal som E a zobral som ho, lebo lepšie E v indexe ako dobrá známka na streche... 
+
+ale ten tretí nie je akı len som nevedel ako sa naèítava zdrojovı kód programu do textového súboru...
+
+
+
+
+
+int r,s,**mat, i; // riadky stlpce matica 
+mat = (int **)malloc(r*sizeof(int *)); 
+for (i=0; i<r; i++) 
+b=(int *)malloc((i+1)*sizeof(int)); 
+
+
+int r,s,**mat, i; // riadky stlpce matica 
+mat = (int **)malloc(r*sizeof(int *)); 
+for (i=0; i<r; i++) 
+b=(int *)malloc((s-i)*sizeof(int)); 
+
+
+
+
+1.subory s prvocislami to uz tu bolo 
+2.stvorcova matica, vypisat a cosi uz si nepamatam co, urobit v severnom sektore(nad uhloprieckami) 
+3.zadas string,zistit pocet slov zacinajucich na spoluhlasku 
+
+
+
+1) 
+boli 2 txt subory a v nich 1 int cislo na 1 riadok-mali ste napisat funkciu, ktora vrati pocet prvocisiel. potom z mainu ste mali zavolat tu funkciu najprv pre prvy subor a potom pre druhy subor. 
+bonusova uloha-otetovat, ci sa subor naozaj otvoril 
+2) 
+stvorcova staticka matica-zada sa z klavesnice rozmer a potom nahodne generatorom naplnit. potom najst max a min v severnej casti(ci ako to tam bolo napisane)-severnou castou myslel cisla nad uhloprieckami(uhlopriecky ste uz nemali zahrnut). 
+bonus: smernikovy a neviem kay pristup ku prvkom matice. 
+3) 
+z klavesnice sa zada string a mate napisat funkciu, ktora vrati pocet slov zacinajucich na spoluhlasku. 
+bonus: dynamicky pristup ku stringu. 
+
+
+
+
+
+1: dva textove subory s cislami 
+
+void funkciu na zistenie 2 maxim v kazdom subore s parametrami tie maxima a nazov subor 
+navyse: osetrenie neotvorenia suborov 
+
+2: staticka matica s 3 riadkami, stlpce sa pytas 
+do prveho riadku nageneruj 3ciferne cisla 
+dalsie riadky obsahuju nablizsie vyssie/nizsie parne cislo 
+
+napr 322 366 344 
+344 xxx 366 
+xxx 344 322 
+
+to pomocou void funkcie s parametrami matica a este daco asi... uz neviem 
+navyse: smernikovy pristup 
+
+3:velmi nepametam bo som neriesil ale nieco ako void funkcia s parametrom string co zisti kolko je vedla seba samohlasok a spoluhlasok (nieco s tım), ostatne znaky ignoruje 
+navyse: neviem co bolo 
+
+
+
+
+http://see-programming.blogspot.sk/2013/07/c-program-to-find-number-of-words.html
+
+http://www.c4learn.com/c-programs/c-program-to-count-number-of-wordsdigitsvowels-using-pointers-in-c-programming.html
+
+http://www.programmingsimplified.com/c/source-code/c-program-check-vowel

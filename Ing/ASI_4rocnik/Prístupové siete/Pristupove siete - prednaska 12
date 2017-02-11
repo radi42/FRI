@@ -1,0 +1,28 @@
+MS - mobilne stanice
+
+bss je tvorena bts stanicami, ktore sa ovladaju cez bsc, ktore pripojene na ustrednu (msc)
+K ustredni su pripojene registre (databazy o ucastnikoch a ich predplatenych sluzbach)
+
+EDGE
+4/12 - 4 zakladnove stanice a 12 buniek
+kombinacia digitalnej modulacie a kanaloveho kodu
+kanalovy kod sluzi na zabezpecenie prenasaneho bitoveho slova
+kodovy pomer 1/2 znamena, ze ked do kodera vlozim 1 bit, na vystupe ziskam 2 bity
+
+UMTS
+mgw zabezpecuje vytvorenie tunelu medzi telefonom a mss
+
+IMS - IP Multimedia Subsystem - zabezpecuje prenos dat v realnom case (videohovor)
+
+UMTS pouziva statisticky multiplex, takze ucastnik, ktory ma vacsie naroky dostane vacsiu rychlost (podporuje standard ATM)
+
+HSPA
+ARQ metoda - opakovanie neprenesenych paketov
+
+HSPA+
+podporuje MIMO
+
+ck = B * log2(1+SNR)
+prenosova rychlost sa urcuje podla minimalneho poctu anten na vysielacoch
+
+

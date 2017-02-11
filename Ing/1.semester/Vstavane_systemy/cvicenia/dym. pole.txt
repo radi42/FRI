@@ -1,0 +1,171 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdbool.h>
+#define INIT_SIZE 2
+typedef struct dynZoz
+{
+    double *pole;
+    int kapacita; 
+    int pocet;
+}DynZoz;
+void init(DynZoz *zoz)
+{
+    zoz->pocet = 0;
+    zoz->kapacita = INIT_SIZE;
+    zoz->pole = calloc(zoz->kapacita, sizeof(double));
+}
+void dispose(DynZoz *zoz)
+{
+    free(zoz->pole);
+    zoz->pole = NULL;
+    zoz->pocet = 0;
+    zoz->kapacita = 0;
+}
+void print(const DynZoz *zoz)
+{
+    for(double *i = zoz->pole; i < zoz->pole + zoz->pocet; i++ )
+    {
+      printf("%f ", *i);  
+    }
+    /*
+    for(int i = 0; i < zoz->pocet; i++)
+    {
+        printf("%f ", zoz->pole[i]);
+    }
+    printf("\n");
+    */
+}
+void ensureCapacity(DynZoz *zoz)
+{
+    if(zoz->pocet >= zoz->kapacita)
+    {
+        zoz->kapacita = zoz->kapacita == 0 ? INIT_SIZE : zoz->kapacita * 2;
+        zoz->pole = realloc(zoz->pole, zoz->kapacita * sizeof(double));
+        memset(zoz->pole + zoz->pocet,0 , zoz->kapacita - zoz->pocet);
+    }
+}
+void add(DynZoz *zoz, double data)
+{
+    ensureCapacity(zoz);
+    zoz->pole[zoz->pocet++] = data;
+}
+_Bool tryInsert(DynZoz *zoz, double data, int pos)
+{
+    if(pos < 0 || pos > zoz->pocet)
+    {
+        return false;
+    }
+    ensureCapacity(zoz);
+    memmove(zoz->pole + pos + 1, zoz->pole + pos , (zoz->pocet - pos)* sizeof(*zoz));
+    zoz->pole[pos] = data;
+    zoz->pocet++;
+    return true;
+}
+_Bool trySet(DynZoz *zoz, double data, int pos)
+{
+    if(pos < 0 || pos >= zoz->pocet)
+    {
+        return false;
+    }
+    zoz->pole[pos] = data;
+    //memcpy(zoz.pole + pos, &data, 1);
+    return true;
+}
+_Bool tryGet(DynZoz *zoz, double *data, int pos)
+{
+  if(pos < 0 || pos >= zoz->pocet)
+  {
+        return false;
+  }
+  *data = zoz->pole[pos];
+  return true;
+}
+_Bool tryRemove(DynZoz *zoz, int pos)
+{
+    if(pos < 0 || pos > zoz->pocet)
+    {
+        return false;
+    }
+    ensureCapacity(zoz);
+    memmove(zoz->pole + pos ,zoz->pole + pos + 1, (zoz->pocet - pos)* sizeof(*zoz));
+    zoz->pocet--;
+    return true;
+}
+_Bool tryCopy(const DynZoz *src, DynZoz *dest)
+{
+    if(src->pocet == 0)
+    {
+        return false;
+    }
+    if(src == dest)
+    {
+        return true;
+    }
+    dest->kapacita = src->kapacita;
+    dest->pocet = src->pocet;
+    dest->pole = realloc(dest->pole, dest->kapacita * sizeof(double));
+    memcpy(dest->pole, src->pole, src->pocet);
+    return true;
+}
+void readFromTxt(DynZoz *zoz, FILE *txtFile)
+{
+    char buf[300];
+    buf[299] = '\0';
+    int i = 0;
+    
+    
+    fscanf(txtFile, "%d\n", &zoz->kapacita); 
+    while(!feof(txtFile))
+    {
+        if(zoz->kapacita == i)
+            break;
+        fgets(buf, 299,txtFile);
+        add(zoz, atof(buf));
+        i++;
+    }
+}
+void writeToTxt(DynZoz *zoz, FILE *txtFile)
+{
+    fprintf(txtFile, "%d\n", zoz->kapacita);
+    for(int i = 0; i < zoz->pocet; i++)
+    {
+        fprintf(txtFile, "%.2f\n", zoz->pole[i]);
+    }
+}
+int main(int argc, char** argv) {
+    DynZoz zoz;
+    
+    init(&zoz);
+    
+    //pridavanie prvkov
+    add(&zoz, 1.1);
+    add(&zoz, 2.1);
+    add(&zoz, 3.1);
+    add(&zoz, 4.1);
+    print(&zoz);
+    printf("\n");
+    
+    
+    //uloz do txt
+    FILE* fw = fopen("test.txt", "w");
+    writeToTxt(&zoz, fw);
+    fclose(fw);
+    
+    //vymaz zoznam
+    dispose(&zoz);
+    print(&zoz);
+    printf("\n");
+    
+    
+    //citanie zo suboru
+    FILE* fr = fopen("test.txt", "r");
+    init(&zoz);
+    readFromTxt(&zoz,fr);
+    fclose(fr);
+    print(&zoz);
+    printf("\n");
+    
+    
+    return 0;
+}

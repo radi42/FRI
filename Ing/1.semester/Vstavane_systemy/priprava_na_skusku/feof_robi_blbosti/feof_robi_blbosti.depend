@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1483830170 source:/home/andrej/Documents/Priprava_na_skusku_zo_vstavanych_systemov/feof_robi_blbosti/main.c
+	<stdio.h>
+	<stdlib.h>
+

@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1477257234 source:/home/andrej/Desktop/sucet_dvoch_polynomov_s_komplexnymi_koeficientami/main.c
+	<stdio.h>
+	<stdlib.h>
+	<complex.h>
+

@@ -1,0 +1,12 @@
+Pridanie CISCO Router IOS image do GNS3 1.5.2
+
+1) Edit -> Preferences -> IOS routers -> New (naspodu okna)
+2.1) Ak nevidime ziadne IOS obrazy, klikneme na "New image" -> "Browse", najdeme IOS image a potvrdime ho. Ked s na s spyta, ci chceme image skopirovat do predvoleneho priecinka, potvrdime volbu. Klikneme na "Next".
+2.2) Ak uz sme predtym pridavali nejaky IOS image, klikneme "Existing image" a zvolime z robalovacieho menu zelany obraz. "Next".
+3) Zadame nazov platformu a typ (model) routra. Predvolene hodnoty by mali byt spravne. Volbu "This is an EtherSwitch router" zaklikneme, ak mame v plane pridat ethernetovy modul NM-16ESW, aby sme zmenili router na switch. "Chassis" urcuje model routra. "Next".
+4) Zadame mnozstvo operacnej pamate. Predvolene mnozstvo by malo stacit. "Next".
+5) Zvolime pocet a typ rozsirujucich kariet. "Next".
+5.1) Ak to router podporuje, zobrazi sa obrazovka, kde zvolime pocet a typ WIC kariet. "Next".
+6) Teraz treba zvolit Idle-PC value kliknutim na tlacidlo "Idle-PC finder". Po chvili sa "Idle-PC" hodnota najde a staci ju len potvrdit. "Finish". Teraz je Cisco router pripraveny na pouzitie a dalsiu konfiguraciu.
+
+Zdroj: https://www.gns3.com/support/docs/adding-ios-or-iou-qemu-virtual-2

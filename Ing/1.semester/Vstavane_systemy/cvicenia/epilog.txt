@@ -1,0 +1,7 @@
+-pri citani smerniku na funkcie sa od ukoncovacej zatvorky v parametroch smerniku na funkciu NEODRAZAME, ale pokracujeme dalej a odrazame sa az od nasledujucej zatvorky
+
+Epilog z cecka
+-prihlasit sa na termin obhajoby semestralok z cecka. nezabudnut si doniest notebook
+-skuska bude programatorska
+-bonusove body zo skusky = (pocet bodov - 22) / 3
+-priklad na rozne sposoby deklaracie a implementacie 2d pola

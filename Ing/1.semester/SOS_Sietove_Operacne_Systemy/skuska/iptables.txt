@@ -1,0 +1,179 @@
+#!/bin/bash
+
+I=/sbin/iptables
+
+#vycisti povodne pravidla
+$I -F -t filter
+$I -F -t nat
+
+#zakaz vsetko, co nie je vyslovene povolene
+#$I -P INPUT DROP
+#$I -P FORWARD DROP
+$I -P INPUT ACCEPT
+$I -P FORWARD ACCEPT
+
+#povol loopback
+$I -A INPUT -i lo -j ACCEPT
+
+########## STAVOVY FIREWALL ##########
+#FW CONNTRACK - nastav sledovanie aktivnych pripojeni inicializovanych z FW
+#Co odide z firewallu, sa vrati na firewall
+$I -A INPUT -i eth0 -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
+
+#VLAN CONNTRACK - aby sa nam vsetko z netu vratilo na VLANy
+#Co odide z VLANiek, sa vrati do VLANiek
+$I -A FORWARD -i eth0 -o eth1.10 -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
+$I -A FORWARD -i eth0 -o eth1.20 -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
+
+########## SNAT ##########
+$I -t nat -A POSTROUTING -o eth0 -j SNAT --to-source 158.193.139.74
+#a co s druhou ipckou? treba na nu tiez prekladat? mozme pridat aj nat na druhu ip
+
+########## VLAN ROUTING ############
+#Povol routing medzi vlanami
+$I -A FORWARD -i eth1.10 -o eth1.20 -j ACCEPT
+$I -A FORWARD -i eth1.20 -o eth1.10 -j ACCEPT
+
+########## ICMP ############
+#Povol pingy na fw
+$I -A INPUT -p icmp -j ACCEPT
+
+#Povol pingy z VLANiek von
+$I -A FORWARD -i eth1.10 -o eth0 -p icmp -j ACCEPT
+$I -A FORWARD -i eth1.20 -o eth0 -p icmp -j ACCEPT
+
+
+########## SSH ##########
+#Povol SSH na firewall zvonku aj zvnutra
+$I -A INPUT -p tcp --dport 22 -j ACCEPT
+
+
+########## SSH ##########
+#Povol SSH na firewall zvonku aj zvnutra
+$I -A INPUT -p tcp --dport 22 -j ACCEPT
+
+#Navrat SSH na FW
+$I -A INPUT -i eth1.10 -p tcp --sport 22 -j ACCEPT
+$I -A INPUT -i eth1.20 -p tcp --sport 22 -j ACCEPT
+
+#Povol spatne SSH z vnutornej siete na FW
+$I -A INPUT -i eth1.10 -p tcp --sport 22 -j ACCEPT
+$I -A INPUT -i eth1.20 -p tcp --sport 22 -j ACCEPT
+
+#S1 SSH zvonku dnu
+$I -t nat -A PREROUTING -d 158.193.139.74 -p tcp --dport 3002 -j DNAT --to-destination 192.168.0.2:22
+$I -A FORWARD -p tcp -d 192.168.0.2 --dport 22 -j ACCEPT
+$I -A FORWARD -p tcp -s 192.168.0.2 --sport 22 -j ACCEPT
+
+#S2 SSH zvonku dnu
+$I -t nat -A PREROUTING -d 158.193.139.74 -p tcp --dport 3003 -j DNAT --to-destination 192.168.0.3:22
+$I -A FORWARD -p tcp -d 192.168.0.3 --dport 22 -j ACCEPT
+$I -A FORWARD -p tcp -s 192.168.0.3 --sport 22 -j ACCEPT
+
+#S1 zvnutra von
+$I -A FORWARD -d 192.168.0.2 -p tcp --dport 22 -j ACCEPT
+$I -A FORWARD -s 192.168.0.2 -p tcp --sport 22 -j ACCEPT
+
+#S2 zvnutra von
+$I -A FORWARD -d 192.168.0.3 -p tcp --dport 22 -j ACCEPT
+$I -A FORWARD -s 192.168.0.3 -p tcp --sport 22 -j ACCEPT
+
+########## DNS ############
+#Povol DNS na FW
+$I -A INPUT -p udp --sport 53 -j ACCEPT
+$I -A INPUT -p udp --dport 53 -j ACCEPT
+
+#Povol DNS zvnutra von
+$I -A FORWARD -i eth1.10 -o eth0 -p tcp --dport 53 -j ACCEPT
+$I -A FORWARD -i eth1.10 -o eth0 -p udp --dport 53 -j ACCEPT
+$I -A FORWARD -i eth1.20 -o eth0 -p tcp --dport 53 -j ACCEPT
+$I -A FORWARD -i eth1.20 -o eth0 -p udp --dport 53 -j ACCEPT
+
+#MASTER DNS (S1) lokalne
+$I -A FORWARD -d 192.168.0.2 -p tcp --dport 53 -j ACCEPT
+$I -A FORWARD -s 192.168.0.2 -p tcp --sport 53 -j ACCEPT
+$I -A FORWARD -d 192.168.0.2 -p udp --dport 53 -j ACCEPT
+$I -A FORWARD -s 192.168.0.2 -p udp --sport 53 -j ACCEPT
+#SLAVE DNS (S2) lokalne
+$I -A FORWARD -d 192.168.0.3 -p tcp --dport 53 -j ACCEPT
+$I -A FORWARD -s 192.168.0.3 -p tcp --sport 53 -j ACCEPT
+$I -A FORWARD -d 192.168.0.3 -p udp --dport 53 -j ACCEPT
+
+#S1 DNS zvonku dnu
+$I -t nat -A PREROUTING -d 158.193.139.74 -p tcp --dport 53 -j DNAT --to-destination 192.168.0.2
+$I -t nat -A PREROUTING -d 158.193.139.74 -p udp --dport 53 -j DNAT --to-destination 192.168.0.2
+
+#S2 DNS zvonku dnu
+$I -t nat -A PREROUTING -d 158.193.139.75 -p tcp --dport 53 -j DNAT --to-destination 192.168.0.3
+$I -t nat -A PREROUTING -d 158.193.139.75 -p udp --dport 53 -j DNAT --to-destination 192.168.0.3
+
+#Povovl DNS zvoknu dnu
+$I -A FORWARD -i eth0 -o eth1.10 -d 192.168.0.2 -p udp --dport 53 -j ACCEPT
+$I -A FORWARD -i eth0 -o eth1.10 -d 192.168.0.3 -p udp --dport 53 -j ACCEPT
+
+########## NTP ##########
+#Povol NTP na FW
+$I -A INPUT -p udp --sport 123 -j ACCEPT
+
+#Povol pripojenia na NTP server
+$I -A FORWARD -d 192.168.0.3 -i eth1.10 -p udp --sport 123 -j ACCEPT
+
+#Povol NTP vnutri
+$I -A FORWARD -d 192.168.0.3 -p udp --dport 123 -j ACCEPT
+$I -A FORWARD -s 192.168.0.3 -p udp --sport 123 -j ACCEPT
+
+#NTP DNAT - Povol NTP zvonku dnu
+$I -t nat -A PREROUTING -d 158.193.139.74 -p udp --dport 123 -j DNAT --to-destination 192.168.0.3:123
+$I -t nat -A PREROUTING -d 158.193.139.75 -p udp --dport 123 -j DNAT --to-destination 192.168.0.3:123
+
+########## HTTP ##########
+#Povol HTTP von
+$I -A FORWARD -i eth1.10 -o eth0 -p tcp --dport 80 -j ACCEPT
+$I -A FORWARD -i eth1.20 -o eth0 -p tcp --dport 80 -j ACCEPT
+
+#HTTP lokalne
+$I -A FORWARD -d 192.168.0.2 -p tcp --dport 80 -j ACCEPT
+$I -A FORWARD -s 192.168.0.2 -p tcp --sport 80 -j ACCEPT
+
+#HTTP zvonku dnu
+$I -t nat -A PREROUTING -d 158.193.139.74 -p tcp --dport 80 -j DNAT --to-destination 192.168.0.2
+
+########## HTTPS ##########
+#Povol HTTPS von
+$I -A FORWARD -i eth1.10 -o eth0 -p tcp --dport 443 -j ACCEPT
+$I -A FORWARD -i eth1.20 -o eth0 -p tcp --dport 443 -j ACCEPT
+
+#HTTPS lokalne
+$I -A FORWARD -d 192.168.0.2 -p tcp --dport 443 -j ACCEPT
+$I -A FORWARD -s 192.168.0.2 -p tcp --sport 443 -j ACCEPT
+
+#HTTP zvonku dnu
+$I -t nat -A PREROUTING -d 158.193.139.74 -p tcp --dport 443 -j DNAT --to-destination 192.168.0.2
+
+########## FTP ##########
+#Povol FTP von
+$I -A FORWARD -i eth1.10 -o eth0 -p tcp --dport 20 -j ACCEPT
+$I -A FORWARD -i eth1.10 -o eth0 -p tcp --dport 21 -j ACCEPT
+$I -A FORWARD -i eth1.20 -o eth0 -p tcp --dport 20 -j ACCEPT
+$I -A FORWARD -i eth1.20 -o eth0 -p tcp --dport 21 -j ACCEPT
+
+########## DHCP ##########
+#Povol DHCP
+#$I -I FORWARD -i eth1.10 -p udp --dport 67:68 --sport 67:68 -j ACCEPT
+#$I -I FORWARD -i eth1.20 -p udp --dport 67:68 --sport 67:68 -j ACCEPT
+
+########## SMTP ##########
+$I -t nat -A PREROUTING -p tcp --dport 25 -j DNAT --to-destination 192.168.0.3:25
+$I -A FORWARD -p tcp -d 192.168.0.3 --dport 25 -j ACCEPT
+$I -A FORWARD -p tcp -s 192.168.0.3 --sport 25 -j ACCEPT
+
+########## IMAP ##########
+$I -A FORWARD -p tcp -d 192.168.0.3 --dport 143 -j ACCEPT
+$I -A FORWARD -p tcp -s 192.168.0.3 --sport 143 -j ACCEPT
+
+# Pridaj logovanie do /var/messages/kern.log kvoli debuggingu
+$I -A INPUT -j LOG
+$I -A FORWARD -j LOG
+
+# Zapni Forwarding pre iptables (aby fungovali "FORWARD" prikazy)
+echo 1 > /proc/sys/net/ipv4/ip_forward

@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1477258854 source:/home/andrej/Desktop/frekvencna_analyza_textu/main.c
+	<stdio.h>
+	<stdlib.h>
+

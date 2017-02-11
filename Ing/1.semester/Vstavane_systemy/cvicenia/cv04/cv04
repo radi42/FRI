@@ -1,0 +1,32 @@
+defaultne sa pouziva gcc kompilator c99
+
+smernik je premenna, ktora uchovava adresu
+
+mozem scitavat a odcitavat 2 smerniky resp. smernik a konstantu, ale nemozem nasobit a delit smernik; vysledkom rozdielu dvoch smernikov je "pocet bajtov/velkost udajoveho typu"
+
+pole + 1 je ekvivalentne s &pole[1] (adresa prvku na pozicii 1)
+to '+ 1' sa posunie v pamati o velkost prvku pola
+
+nemozem priradit jedno pole do ineho pola, aj ked maju rovnaku velkost
+
+char ret1[] = "Ahoj"; // vytvoria sa dve polia v pamati
+*ret3 = ret1;   // odovzdavam adresu ret1 do smernikovej premennej ret3 => mozem pole ret1 modifikovat
+
+ak dam 'int* p,r', aplikuje sa iba na premennu
+
+
+
+printf("*ps = %d, *(ps + 1) = %d\n", *ps, *(ps + 1));
+*ps je -1
+*(ps + 1) = 32767
+
+
+1111 1111 | 1111 1111 | 1111 1111 | 1111 1110
+
+lebo bajty su v operacnej pamati ulozene v opacnom poradi
+
+
+platnost rodneho cisla
+9 znakove cislo je delitelne 
+
+jednoduche ulohy + minimalne polovicu uloh z prace s retazcami

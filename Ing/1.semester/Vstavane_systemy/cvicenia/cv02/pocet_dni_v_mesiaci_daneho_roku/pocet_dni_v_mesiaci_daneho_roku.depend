@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1476658576 source:/run/media/andrej/7760B2AC30B64684/Skola/FRI/Ing/1.semester/Vstavane_systemy/cvicenia/cv02/pocet_dni_v_mesiaci_daneho_roku/main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+

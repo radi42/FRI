@@ -1,0 +1,18 @@
+kazda funkcia by sa bud mala volat rozne, alebo ked sa uz rovnako volaju, musia byt  "static", inak bule linker kricat.
+
+hlavickove subory su deklaracie funkcii a definicie datovych typov
+
+hlavickove subory pouzivam preto, aby som mohol rozumne pouzivat funkcie z inych suborov napr. ku hlavickovemu suboru stdio.h patri nejaky stdiolib
+
+ulohou linkera je namapovat funkcie z includnutych hlavickovych suborov na funkcie zo standardnej kniznice jazyka C.
+
+v C nemozeme pouzivat funkciu, pokial nepozname jeho hlavicku
+ak C nevidi ziadny hlavickovy subor
+
+ak si implementujem nejaku strukturu v jednom ceckovom subore, neviem ju pouzit v inom ceckovom subore ako len ten cely zdrojak so strukturov
+
+prikazy zacinajuce mriezkov su prikazy preprocesora
+
+kontrola v hlavickovom subore - ak este nebola definovana tato symbolicka konstanta, tak ju zadefinuje, ale ak uz zadefinovana, nic sa neurobi -> PREVENCIA PROTI VIACNASOBNEMU INCLUDOVANIU HLAVICKOVEHO SUBORU
+
+-ked budeme maticovu algebru naprogramovat pekne (aby hlavicky funkcii neboli take dlhe),

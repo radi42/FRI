@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1477247999 source:/home/andrej/Desktop/vypis_pola_komplexnych_cisel_v_goniometrickom_alebo_algebraickom_tvare/main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<complex.h>
+	<string.h>
+	<math.h>
+

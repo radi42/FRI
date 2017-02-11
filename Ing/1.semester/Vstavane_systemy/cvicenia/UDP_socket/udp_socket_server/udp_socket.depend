@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1478633525 source:/home/andrej/Desktop/udp_socket/main.c
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<arpa/inet.h>
+	<sys/socket.h>
+	<unistd.h>
+
+1478691001 source:/home/andrej/Desktop/udp_socket_server/main.c
+	<sys/types.h>
+	<sys/socket.h>
+	<netinet/in.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<unistd.h>
+	<arpa/inet.h>
+

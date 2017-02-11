@@ -1,0 +1,11 @@
+fsk sa pouziva pre tonovu volbu
+
+sirka pasma vs prenosova rychlost:
+prenosova rychlost - meria sa v bitoch za sekundu
+sirka pasma - meria sa v hertzoch
+hlas kodujeme 8 bitmi
+
+oneskorenie v komprimacii reci nie je sposobene vypoctovou narocnostou algoritmu, ale tym, ake velke bitove slovo dany algoritmus komprimuje
+
+blechleypark - velka britania - turingov stroj
+londyn - babaggeov stroj

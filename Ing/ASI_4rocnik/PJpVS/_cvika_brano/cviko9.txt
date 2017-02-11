@@ -1,0 +1,44 @@
+﻿/* 
+ * File:   main.c
+ * Author: student
+ *
+ * Created on November 16, 2015, 10:58 AM
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+/*
+ * 
+ */
+int main(int argc, char** argv) {
+
+   char ch, file_name[25];
+   int convert;
+   FILE *fp;
+   char *filename;
+ 
+   printf("Enter the name of file you wish to see\n");
+   //filename = gets(file_name);
+   nacitajCisla(gets(file_name));
+   
+    return (EXIT_SUCCESS);
+}
+
+void nacitajCisla (char* file_name)
+{
+  FILE* file = fopen (file_name, "r");
+  int i = 0;
+
+  fscanf (file, "%d", &i);    
+  while (!feof (file))
+    {  
+      printf ("%d ", i);
+      
+      fscanf (file, "%d", &i);    
+      
+      if(i == -1)
+          return;
+    }
+  fclose (file);        
+}

@@ -1,0 +1,81 @@
+﻿/* 
+ * File:   main.c
+ * Author: Luká?
+ *
+ * Created on ?tvrtok, 2015, októbra 1, 14:52
+ */
+ 
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
+
+ 
+/*
+ * 
+ */
+
+ 
+void Vypis (int pole[], int dlzka)
+{
+ for(int i =0;i<dlzka;i++)
+    {
+        printf("%d ",pole[i]);
+        
+    }
+ printf("\n");
+}
+
+
+void Generuj (int pole[], int dlzka, int a, int b)
+{
+for(int i =0;i<dlzka;i++)
+    {
+        pole[i]= a +rand()%(b-a+1); // cisla od 10 do 90
+        
+    }
+    
+
+
+}
+void Vymena (int *p_a, int *p_b)
+{
+    int docasna = *p_a;
+    *p_a = *p_b;
+    *p_b = docasna;
+
+}
+
+void Utried (int pole[], int dlzka)
+{
+    for(int i =0;i<dlzka;i++)
+{
+    for(int j=0;j<dlzka;j++)
+    {
+        if(pole [j] > pole[j+1])
+            Vymena(pole+j,pole+(j+1));
+    }
+    
+}
+}
+int main(int argc, char** argv) {
+ 
+   const int dlzka =30;
+    int pole [dlzka];
+
+    Generuj(pole,dlzka,10,90);
+    Vypis(pole,dlzka);
+    Utried(pole,dlzka);
+    printf("Pole je utriedene \n");
+    Vypis(pole,dlzka);
+    
+        
+
+    
+    
+   
+    return (EXIT_SUCCESS);
+    
+}
+
+

@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1477413528 source:/run/media/andrej/7760B2AC30B64684/Skola/FRI/Ing/1.semester/Vstavane_systemy/cvicenia/cv04/odstran_biele_znaky/main.c
+	<stdio.h>
+	<stdlib.h>
+
+1477414099 source:/home/andrej/Desktop/cv04/odstran_biele_znaky/main.c
+	<stdio.h>
+	<stdlib.h>
+

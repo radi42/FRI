@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1477857900 source:/home/andrej/Desktop/cv04/substitute/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

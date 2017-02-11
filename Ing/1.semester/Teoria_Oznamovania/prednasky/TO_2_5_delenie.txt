@@ -1,0 +1,23 @@
+function [podiel, zvysok  ]   = delenie(signal, zpol )
+% Funkcia na delenie polynomov s koeficietami 0 alebo 1
+% Argumenty:
+%   signal - vektor pozostavajuci z 0 a 1
+%   zpol - vektor pozostavajuci z 0 a 1 reprezentujuci
+%            (ireducibilny polynom)
+%
+% Navratove hodnoty:
+%   podiel - vektor 0 a 1 reprezentujuci podiel
+%   zvysok - zvysok po delenie zpol ako vektor z 0 a 1
+%
+
+N = length(zpol)
+pocetVyslednychCislic =  1  + length(signal) - N
+podiel = zeros( 1, pocetVyslednychCislic)
+zvysok = zeros( 1, N - 1)
+
+hore = signal(1, 1:N)
+
+for k = 1:pocetVyslednychCislic
+     	
+
+end

@@ -1,0 +1,37 @@
+Pridanie Cisco ASA Firewallu do GNS3 1.5.2
+
+1) Stiahneme si súbory pre Cisco ASA 842 z
+http://www.mediafire.com/file/ssadit26tl3llms/asa.zip
+2) Extrahujume archív
+3) Otvoríme GNS3 -> Edit -> Preferences -> Qemu VMs -> New
+4) Zadáme názov napr. "Cisco ASA"
+   RAM = aspoň 1024 MB
+5) Keď sa nás spýta na "Disk image (hda)" (disk, na ktory budeme ASU inštalovať), dáme "Create" (lebo ešte žiadny nemáme)
+-qemu-img binary: nechať predvolenú
+-image format: qcow2
+-preallocation: off
+-cluster size: default
+-lazy refcounts: vypnuté
+-refcount entry size: default
+-file location: necháme predvolenú; súbor sa uloží do priečinku "/home/$USER/GNS3/images/QEMU/"
+-size: 1,000 MB (1 GB)
+-local disk
+
+6) Teraz v zozname qemu vms vyberieme ASU -> edit -> advanced settings. Ak sa nás spýta, či chceme daný súbor skopírovať do predvoleného adresára GNS3, klikneme na "OK".
+-init image: <cesta_k_suboru>/asa842-initrd.gz
+-kernel image: <cesta_k_suboru>/asa842-initrd.gz
+-kernel parameters: -append ide_generic.probe_mask=0x01 ide_core.chs=0.0:980,16,32 auto nousb console=ttyS0,9600 bigphysarea=65536
+-qemu parameters: -m 1024 -icount auto -hdachs 980,16,32
+
+6) Pridáme vytvorený firewall do pracovnej plochy gns3
+7) Spustíme simuláciu
+8) Pravé tlačidlo na ASU -> Console. Chvíľu trvá (5-10min), kým sa firewall nainštaluje a inicializuje po prvý krát.
+9) Po inicializácií môžme s ASOU normálne pracovať. Heslo do privilegovaného režimu je prázdne (stačí zadať "enable"->Enter->Enter(potvrdiť prázdne heslo)).
+Nainštalovaná ASA už je licencovaná, pokiaľ by sa však vyskytli problémy s aktiváciou / funkcionalitou, môžeme ju aktivovať dodatočne týmito kľúčmi (zadávať ručne v privilegovanom režime):
+
+activation-key 0x4a3ec071 0x0d86fbf6 0x7cb1bc48 0x8b48b8b0 0xf317c0b5
+activation-key 0xb23bcf4a 0x1c713b4f 0x7d53bcbc 0xc4f8d09c 0x0e24c6b6﻿
+
+zdroje:
+https://plus.google.com/116532165669637416992/posts/6mpL8dmtt4j
+https://www.youtube.com/watch?v=Q4g1rW5ri5o

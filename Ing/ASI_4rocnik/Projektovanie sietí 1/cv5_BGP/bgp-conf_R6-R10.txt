@@ -1,0 +1,140 @@
+﻿en
+conf t
+hostname R6
+no ip domain lookup
+line con 0
+logging synchronous
+int fa0/0
+ip addr 200.33.255.250 255.255.255.252
+no sh
+int fa0/1
+ip addr 10.110.67.6 255.255.255.0
+no sh
+int s1/0
+ip addr	200.33.255.254 255.255.255.252
+no sh
+int l0
+ip addr	10.255.255.6 255.255.255.255
+int l1
+ip addr 200.33.6.1 255.255.255.0
+exit
+router ospf 1
+network 10.110.0.0 255.255.0.0 area 0
+network 10.255.255.6 255.255.255.255 area 0
+passive-interface fa0/0
+passive-interface s1/0
+exit
+int fa0/1
+ip ospf network point-to-point
+router bgp 330
+neighbor 10.255.255.7 remote-as 330
+neighbor 10.255.255.7 update-source l0
+neighbor 200.33.255.253 remote-as 3401
+neighbor 200.33.255.249 remote-as 4502
+
+en
+conf t
+hostname R7
+no ip domain lookup
+line con 0
+logging synchronous
+int fa0/1
+ip addr 10.110.67.7 255.255.255.0
+no sh
+int s1/1
+ip addr	200.33.255.245 255.255.255.252
+no sh
+int l0
+ip addr	10.255.255.7 255.255.255.255
+int l1
+ip addr 200.33.7.1 255.255.255.0
+exit
+router ospf 1
+network 10.110.0.0 255.255.0.0 area 0
+network 10.255.255.7 255.255.255.255 area 0
+passive-interface s1/1
+exit
+int fa0/1
+ip ospf network point-to-point
+router bgp 330
+neighbor 10.255.255.6 remote-as 330
+neighbor 10.255.255.6 update-source l0
+neighbor 200.33.255.246 remote-as 5005
+
+
+en
+conf t
+hostname R8
+no ip domain lookup
+line con 0
+logging synchronous
+int fa0/0
+ip addr 200.110.255.242 255.255.255.252
+no sh
+int fa0/1
+ip addr 10.110.89.8 255.255.255.0
+no sh
+int l0
+ip addr	10.255.255.8 255.255.255.255
+int l1
+ip addr 200.110.12.1 255.255.255.0
+exit
+router ospf 1
+network 10.110.0.0 255.255.0.0 area 0
+network 10.255.255.8 255.255.255.255 area 0
+passive-interface fa0/0
+int fa0/1
+ip ospf network point-to-point
+router bgp 65001
+neighbor 10.255.255.9 remote-as 65001
+neighbor 10.255.255.9 update-source l0
+neighbor 200.110.255.241 remote-as 110
+
+en
+conf t
+hostname R9
+no ip domain lookup
+line con 0
+logging synchronous
+int fa0/0
+ip addr 200.110.255.238 255.255.255.252
+no sh
+int fa0/1
+ip addr 10.110.89.9 255.255.255.0
+no sh
+int l0
+ip addr	10.255.255.9 255.255.255.255
+int l1
+ip addr 200.110.13.1 255.255.255.0
+exit
+router ospf 1
+network 10.110.0.0 255.255.0.0 area 0
+network 10.255.255.9 255.255.255.255 area 0
+passive-interface fa0/0
+int fa0/1
+ip ospf network point-to-point
+router bgp 65001
+neighbor 10.255.255.8 remote-as 65001
+neighbor 10.255.255.8 update-source l0
+neighbor 200.110.255.237 remote-as 110
+
+en
+conf t
+hostname R10
+no ip domain lookup
+line con 0
+logging synchronous
+int s1/0
+ip addr 200.110.255.246 255.255.255.252
+no sh
+int s1/1
+ip addr 200.33.255.246 255.255.255.252
+no sh
+int l0
+ip addr	10.255.255.10 255.255.255.255
+int l1
+ip addr 223.255.255.1 255.255.255.0
+exit
+router bgp 5005
+neighbor 200.110.255.245 remote-as 110
+neighbor 200.33.255.245 remote-as 330

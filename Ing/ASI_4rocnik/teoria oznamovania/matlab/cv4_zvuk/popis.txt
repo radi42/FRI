@@ -1,0 +1,8 @@
+náhodne vygenerované 100-bitové slovo z 15 hodnôt:
+  amplitúdová modulácia: 111011000010010
+  fázová modulácia:	 111101111110110
+  frekvenèná modulácia:  110100101100011
+
+vzorkovacia frekvencia 22050 Hz
+
+

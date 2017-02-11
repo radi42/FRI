@@ -1,0 +1,47 @@
+case 0:             // STOP
+case 1:             // VLAVO
+case 2:             // VLAVO HORE
+case 3:             // VLAVO DOLE
+case 4:            // VPRAVO
+case 5:            // VPRAVO HORE
+case 6:             // VPRAVO DOLE
+
+
+switch (pa_ball->direction)
+  {
+    case 0:             // STOP
+        pa_ball->direction_name = "STOP";
+        break;
+    case 1:             // VLAVO
+        pa_ball->x--;
+        pa_ball->direction_name = "VLAVO";
+        break;
+    case 2:             // VLAVO HORE
+        pa_ball->x--;
+        pa_ball->y--;
+        pa_ball->direction_name = "VLAVO HORE";
+        break;
+
+    case 3:             // VLAVO DOLE
+        pa_ball->x--;
+        pa_ball->y++;
+        pa_ball->direction_name = "VLAVO DOLE";
+        break;
+    case 4:            // VPRAVO
+        pa_ball->x++;
+        pa_ball->direction_name = "VPRAVO";
+        break;
+    case 5:            // VPRAVO HORE
+        pa_ball->x++;
+        pa_ball->y--;
+        pa_ball->direction_name = "VPRAVO HORE";
+        break;
+    case 6:             // VPRAVO DOLE
+        pa_ball->x++;
+        pa_ball->y++;
+        pa_ball->direction_name = "VPRAVO DOLE";
+        break;
+    default:
+        pa_ball->direction_name = "STOP - ina hodnota";
+        break;
+  }

@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1477842048 source:/home/andrej/Desktop/cv04/caesarova_sifra/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1477842048 source:/home/andrej/Desktop/cv04-remove_ASAP/caesarova_sifra/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

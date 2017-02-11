@@ -1,0 +1,136 @@
+/* 
+ * File:   main.c
+ * Author: student
+ *
+ * Created on November 2, 2015, 10:53 AM
+ */
+
+/*
+ * 
+ */
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <time.h>
+#include <string.h>
+
+void vypisPole(int velkostPola,int pole[])
+{
+    for(int i = 0; i<velkostPola;i++)
+    {
+        printf("%d ",pole[i]);
+    }
+
+}
+int compMin(const void * a, const void * b)
+{
+    int pomA =*(int*)a;
+    int pomB =*(int*)b;
+    if(pomA == pomB)
+        {
+            return 0;
+        }
+    else {
+        if(pomA>pomB)
+        {
+            return 1;
+        }
+        else {
+            return -1;
+        }
+    
+    } 
+}     
+int compMax(const void * a, const void * b)
+{
+    int pomA =*(int*)a;
+    int pomB =*(int*)b;
+    if(pomA == pomB)
+        {
+            return 0;
+        }
+    else {
+        if(pomA<pomB)
+        {
+            return 1;
+        }
+        else {
+            return -1;
+        }
+    
+    } 
+}     
+
+
+
+
+void nacitajCisla (char* file_name,int velkostPola, int pole[])
+{
+  FILE* file = fopen (file_name, "r");
+  int ch = 0;
+  int i =0;
+
+
+  fscanf (file, "%d", &ch);    
+  while (!feof (file))
+    {  
+      //printf ("%d ", ch);
+      pole[i]=ch;
+      i++;
+      fscanf (file, "%d", &ch);    
+      
+      if(i == -1)
+      return;
+   
+    }
+  
+
+  fclose (file);
+  }
+
+/*void zapisSubor(int velkostPola, int pole[])
+{
+    FILE* file = fopen ("output.txt", "w");
+ 
+     for(int i = 0; i<velkostPola;i++)
+    {
+        fprintf(file,"%d \n ",pole[i]);
+    }
+
+    fclose(file);
+}*/
+
+int main(int argc, char** argv) {
+
+   char ch, file_name[25];
+  
+   FILE *fp;
+   
+   char *filename;
+   int velkostPola = 0;
+   int menu =0;
+   int *pole = (int *)malloc(velkostPola*sizeof(int));   
+   printf("1. Zotried cisla od zostupne \n");
+   printf("2. Zotried cisla od vzostupne \n");
+   scanf("%d", &menu);
+   printf("Zadaj pocet prvkov na porovnanie \n");
+   scanf("%d",&velkostPola);
+   printf("Zadaj subor, ktory treba nacitat \n");
+   filename = gets(file_name);
+   nacitajCisla(gets(file_name),velkostPola,pole);
+   if(menu==1)
+   {
+       qsort(pole,velkostPola, sizeof(int),compMin);
+   }else
+   {
+       qsort(pole,velkostPola, sizeof(int),compMax);
+   }
+    vypisPole(velkostPola,pole);
+     //zapisSubor(velkostPola,pole);
+   free(pole);
+    return (EXIT_SUCCESS);
+}
+
+
+
+

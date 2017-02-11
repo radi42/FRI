@@ -1,0 +1,726 @@
+1.
+Èo bude v premennej meno po vykonaní nasledujúcich príkazov
+char meno[200];
+scanf("%s", meno);
+ak z klávesnice zadám text "Ahoj Peter!"
+
+Odpoved: Ahoj
+
+
+
+2.
+Akı symbol má operácia celoèíselného delenia?
+
+Odpoved: /
+
+
+
+3.
+Akım symbolom zaèína escape sekvencia?
+
+Odpoved: \
+
+
+
+4.
+Akı je symbol bitového OR-u?
+
+Odpoved: |
+
+
+
+5.
+Èo bude v premennej sum po vykonaní nasledujúceho kódu:
+sum = 0;
+for (int i = 0; i <= 10; i += 2)
+if (!(i % 5))
+sum += i;
+
+Odpoved: 10
+
+
+
+6.
+Ktoré k¾úèové slovo oznaèuje vymenovanı typ?
+
+Odpoved: enum
+
+
+
+7.
+Ktorı príkaz slúi na pomenovanie vlastného údajového typu?
+Zle: typedef
+
+
+
+8.
+Napíšte názov funkcie, ktorá reazec na typ int.
+Odpoved: atoi
+
+
+
+9.
+Èo bude v premennej ret po vykonaní nasledujúcich príkazov:
+char ret[200];
+char *ret1 = "abc"
+char *ret2 = "123";
+strcpy(ret, ret1);
+strcat(ret, ret2);
+strcat(ret, ret1);
+ret[strlen(ret) - 1] = '4';
+
+Odpoveï: abc123ab4
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+1. 
+Akı bude vısledok nasledujúceho vırazu, ak
+a || (b && c == d)
+pre a = 0, b = 1, c = 2, d = 3
+Vyberte jednu:
+a. 0 (false) Správny
+b. 1 (true)
+
+
+
+2.
+Ktorá z nasledujúcich definícií predstavuje pole 3 smerníkov na typ int?
+Vyberte jednu:
+a. (int *)pole[3];
+b. int (*pole)[3];
+c. int (*pole[3]);
+d. int *pole[3]; Správny
+
+
+
+3.
+Majme funkciu s nasledujúcou hlavièkou:
+void fun(int *a);
+a nasledujúcu premennú:
+int b = 10;
+Ako musím zavola funkciu fun, ak jej chcem odovzda premennú b ako parameter?
+Vyberte jednu:
+a. fun(b);
+b. fun(&b); Správny
+c. fun(*&b);
+d. fun(*b);
+
+
+
+4.
+Ktorı z nasledujúcich príkladov predstavuje správne vytvorenie po¾a smerníkov na typ int?
+Vyberte jednu:
+a. 
+int **pole;
+pole = (int **)malloc(2 * sizeof(int *))
+for (int i = 0; i < 2; i++)
+pole[i] = (int *)malloc(3 * sizeof(int));
+b. 
+int **pole;
+pole = (int *)malloc(2 * sizeof(int))
+for (int i = 0; i < 2; i++)
+pole[i] = (int *)malloc(3 * sizeof(int));
+c. 
+int (*pole)[3] = (int (*)[3])malloc(2 * sizeof(int[3]));
+d. 
+int *pole[2];
+for (int i = 0; i < 2; i++)
+pole[i] = (int *)malloc(3 * sizeof(int)); Správny
+
+
+
+5.
+Majme nasledujúci kód:
+int a = 5;
+int b = 10;
+int *p_a = &a;
+int *p_b = &b;
+Po zavolaní ktorej z nasledujúcich funkcií bude smerník p_a ukazova na premennú b a smerník p_b na premennú a?
+Vyberte jednu:
+a. void vymenSmerniky(int **p_a, int **p_b) {
+int **p_c = p_a;
+p_a = p_b;
+p_b = p_c;
+}
+b. void vymenSmerniky(int p_a, int p_b) {
+int *p_c = p_a;
+p_a = p_b;
+p_b = *p_c;
+}
+c. void vymenSmerniky(int **p_a, int **p_b) {
+int *p_c = *p_a;
+*p_a = *p_b;
+*p_b = p_c;
+} Správny
+d. void vymenSmerniky(int *p_a, int *p_b) {
+int *p_c = p_a;
+p_a = p_b;
+p_b = p_c;
+}
+
+
+
+6.
+Èo bude v premennej c po vykonaní nasledujúcich príkazov:
+int a = 3;
+int b = ++a;
+float c = b-- / 5;
+Vyberte jednu:
+a. 0.0 Správny
+b. 0.6 
+c. 0.4
+d. 0.8
+
+
+
+7.
+Èo bude v premennej c po vykonaní nasledujúcich príkazov:
+float a = 3;
+float b = ++a;
+float c = b-- / 5;
+Vyberte jednu:
+a. 0.0 
+b. 0.6 
+c. 0.4
+d. 0.8 Správny
+
+
+
+8.
+Je nasledujúci zápis korektnı v jazyku C:
+for(;;)
+Vyberte jednu:
+a. Áno. Správny
+b. Nie.
+
+
+
+9.
+Ktorá z nasledujúcich definícií predstavuje smerník na smerník na celé èíslo?
+Vyberte jednu:
+a. int **pole; Správny
+b. int pole[][];
+c. int *pole[];
+d. (int **)pole;
+
+
+
+10.
+Akého dátového typu bude nasledujúci vıraz:
+3 * i / 5.0
+ak premenná i je typu int?
+Vyberte jednu:
+a. short
+b. int
+c. double Správny
+d. float
+
+
+
+11.
+Ktorı z nasledujúcich príkladov predstavuje správne vytvorenie dvojrozmerného po¾a typu smerník na pole celıch èísel?
+Vyberte jednu:
+a. 
+int **pole;
+pole = (int **)malloc(2 * sizeof(int *))
+for (int i = 0; i < 2; i++)
+pole[i] = (int *)malloc(3 * sizeof(int));
+b. 
+int **pole;
+pole = (int *)malloc(2 * sizeof(int))
+for (int i = 0; i < 2; i++)
+pole[i] = (int *)malloc(3 * sizeof(int));
+c. 
+int (*pole)[3] = (int (*)[3])malloc(2 * sizeof(int[3])); Správny
+d. 
+int *pole[2];
+for (int i = 0; i < 2; i++)
+pole[i] = (int *)malloc(3 * sizeof(int));
+
+
+
+12.
+Ktorı z nasledujúcich príkazov slúi pre uvo¾nenie dynamicky alokovanej pamäte?
+Vyberte jednu:
+a. dealloc
+b. clear
+c. free Správny
+d. delete
+
+
+
+13.
+Akú hodnotu má nasledujúci vıraz
+!(r % 400) || (r % 100 && !(r % 4))
+pre r = 1900.
+Vyberte jednu:
+a. 0 (false) Správny
+b. 1 (true)
+
+
+
+14.
+Ktorı z nasledujúcich príkladov predstavuje správne vytvorenie dvojrozmerného po¾a typu smerník na smerník na typ int?
+Vyberte jednu:
+a. 
+int **pole;
+pole = (int *)malloc(2 * sizeof(int))
+for (int i = 0; i < 2; i++)
+pole[i] = (int *)malloc(3 * sizeof(int));
+b. 
+int (*pole)[3] = (int (*)[3])malloc(2 * sizeof(int[3]));
+c. 
+int **pole;
+pole = (int **)malloc(2 * sizeof(int *))
+for (int i = 0; i < 2; i++)
+pole[i] = (int *)malloc(3 * sizeof(int)); Správny
+d. 
+int *pole[2];
+for (int i = 0; i < 2; i++)
+pole[i] = (int *)malloc(3 * sizeof(int));
+
+
+
+
+15.
+Akého dátového typu bude nasledujúci vıraz:
+3 * 5 + i / d
+ak premenná i je typu int a premenná d typu double?
+Vyberte jednu:
+a. double Správny
+b. float
+c. int
+d. short
+
+
+
+16.
+Po zavolaní ktorej z nasledujúcich funkcií dôjde k trvalej vımene obsahu dvoch premennıch typu int?
+Vyberte jednu:
+a. void vymen(int *a, int *b) {
+int *c = a;
+*a = *b;
+*b = *c;
+} 
+b. void vymen(int *a, int *b) {
+int c = *a;
+*a = *b;
+*b = c;
+} Správny
+c. void vymen(int a, int b) {
+int c = a;
+a = b;
+b = c;
+}
+d. void vymen(int *a, int *b) {
+int c = *a;
+a = b;
+b = &c;
+}
+
+
+
+
+17.
+Majme nasledujúcu premennú:
+int pole[] = {10, 20, 30};
+Èomu je ekvivalentnı nasledujúci príkaz:
+pole[1] = 50;
+Vyberte jednu:
+a. *(pole + 4) = 50;
+b. (*pole + 1) = 50; Nesprávny
+c. *(pole + 1) = 50; Správny
+d. (pole + 1) = 50; Nesprávny
+
+
+
+18.
+Ktorá z nasledujúcich definícií predstavuje smerník na pole 2 celıch èísel?
+Vyberte jednu:
+a. int *[2]pole;
+b. int (*pole)[2]; Správny
+c. int *pole[2];
+d. int pole[2];
+
+
+
+19.
+Ktorá z nasledujúcich funkcií slúi na konverziu nejakého údajového typu na reazec?
+Vyberte jednu:
+a. atoi
+b. sscanf Nesprávny
+c. Taká funkcia neexistuje. Nesprávny
+d. sprintf Správny
+----------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+1.
+Ktoré z nasledujúcich príkazov slúia pre alokáciu dynamickej pamäte?
+Vyberte jednu alebo viac:
+a. alloc
+b. malloc Správny
+c. new
+d. calloc Správny
+
+
+
+2.
+Ktoré z nasledujúcich definícií nám umonia vytvori dvojrozmerné pole celıch èísel, ktoré bude v pamäti uloené súvisle za kadıch okolností?
+Vyberte jednu alebo viac:
+a. int pole[3][2]; Správny
+b. int **pole;
+c. int (*pole)[2]; Správny
+d. int *pole[3];
+
+
+
+3.
+Majme nasledujúci kód:
+int pole[2][3];
+napln(2, 3, pole);
+Ako môe vyzera hlavièka funkcie "napln", aby bol uvedenı kód funkènı v štandarde C99? 
+Vyberte jednu alebo viac:
+a. void napln(int m, int n, int **pole)
+b. void napln(int m, int n, int pole[m][n]) Správny
+c. void napln(int m, int n, int *pole[m])
+d. void napln(int m, int n, int (*pole)[n]) Správny
+
+
+
+4.
+Ktoré z nasledujúcich tvrdení sú pravdivé?
+Vyberte jednu alebo viac:
+a. Prvı prvok po¾a je umiestnenı v porovnaní s ostatnımi prvkami na najnišej adrese v operaènej pamäti. Správny
+b. Prvı prvok po¾a je umiestnenı v porovnaní s ostatnımi prvkami na najvyššej adrese v operaènej pamäti.
+c. Polia v jazyku C sú indexované od 0. Správny
+d. Pri alokácií sa pre pole môe vyhradi nesúvislı úsek operaènej pamäte.
+
+
+
+5.
+Ktoré z nasledujúcich pamäovıch tried existujú v jazyku C?
+Vyberte jednu alebo viac:
+a. register Správny
+b. static Správny
+c. auto Správny
+d. external 
+
+
+
+6.
+Ktoré z nasledujúcich tvrdení sú pravdivé?
+Vyberte jednu alebo viac:
+a. Funkcia malloc alokuje pamä v halde. Správny
+b. Funkcia malloc vracia netypovı ukazovate¾ na alokovanú pamä. Správny
+c. Funkcia malloc alokuje pamä v zásobníku.
+d. Funkcia malloc má dva parametre.
+
+
+
+7.
+Aké typy cyklov existujú v jazyku C?
+Vyberte jednu alebo viac:
+a. for-each
+b. repeat-until
+c. while Správny
+d. do-while Správny
+e. for Správny
+
+
+
+8.
+Ktoré z nasledujúcich moností nám umonia vytvori premennú, ktorá môe predstavova jednorozmerné pole double-ov?
+Vyberte jednu alebo viac:
+a. double pole[10]; Správny
+b. double *pole; Správny
+c. double []pole;
+d. (double *)pole;
+
+
+
+9.
+Ktoré z nasledujúcich tvrdení sú pravdivé?
+Vyberte jednu alebo viac:
+a. Dåku reazca zistíme pomocou funkcie strlen. Správny
+b. Reazec sa v jazyku C implementuje ako pole znakov ukonèené znakom '\0' Správny
+c. Reazec skonvertujeme na typ int pomocou funkcie atoi. Správny
+d. Jazyk C má vlastnı údajovı typ pre reprezentáciu reazca.
+
+
+
+10.
+Majme nasledujúci kód:
+int **pole = (int **)malloc(5 * sizeof(int *));
+for (int i = 0; i < 5; i++)
+pole[i] = (int *)malloc(10 * sizeof(int));
+Ktoré z nasledujúcich moností zaistia za kadıch okolností správne uvo¾nenie všetkej pamäti, ktorá bola alokovaná poèas vykonávania predchádzajúcich príkazov?
+Vyberte jednu alebo viac:
+
+a. for (int i = 0; i < 5; i++) 
+free(pole + i);
+b. free(pole);
+for (int i = 0; i < 5; i++)
+free(pole[i]);
+c. for (int i = 0; i < 5; i++)
+realloc(pole + i, 0);
+realloc(pole, 0); Správny
+d. for (int i = 0; i < 5; i++)
+free(pole[i]);
+free(pole); Správny
+
+
+
+11.
+V ktorıch z nasledujúcich moností definujeme premennú predstavujúcu pole smerníkov na funkcie s dvoma parametrami typu int, ktorıch návratová hodnota je smerník na double?
+Vyberte jednu alebo viac:
+a. double* (*pole[5])(int, int); Správny
+b. double (*pole[5])(int, int);
+c. typedef double* (*P_FUNKCIA)(int, int);
+P_FUNKCIA pole[5]; Správny
+d. double* (*pole)(int, int)[5];
+
+
+
+12.
+Ktoré z nasledujúcich dátovıch typov môu vystupova ako argument príkazu switch?
+Vyberte jednu alebo viac:
+a. float
+b. double
+c. char Správny
+d. int Správny
+
+
+
+13.
+Ktoré z nasledujúcich tvrdení sú pravdivé?
+Vyberte jednu alebo viac:
+a. Návratovı typ funkcie realloc je void.
+b. Funkciu realloc je moné vyui na uvo¾nenie alokovanej pamäte. Správny
+c. Funkcia calloc vráti v prípade neúspechu hodnotu NULL. Správny
+d. Funkcia calloc má iba jeden parameter.
+
+
+
+14.
+Majme nasledujúcu štruktúru:
+struct osoba {
+char meno[50];
+int vek;
+};
+Ïalej definujme nasledujúcu premennú:
+struct osoba *os = (struct osoba *)malloc(sizeof(struct osoba));
+Ktoré z nasledujúcich príkladov správne naèítajú meno osoby os z klávesnice?
+Vyberte jednu alebo viac:
+a. scanf("%s", os->meno); Správny
+b. scanf("%s", &(os->meno));
+c. scanf("%s", *os.meno);
+d. scanf("%s", (*os).meno); Správny
+
+
+
+15.
+V ktorıch z nasledujúcich moností sa vytvorí premenná ukazujúca na premennú a?
+int a = 10;
+Vyberte jednu alebo viac:
+a. 
+int *p_a;
+p_a = a;
+b. 
+int *p_a = &a; Správny
+c. 
+int *p_a;
+*p_a = &a;
+d. 
+int *p_a;
+p_a = &a; Správny
+
+
+
+16.
+Ktoré z nasledujúcich kódov naèítajú správne do príslušnej premennej vstup z klávesnice?
+Vyberte jednu alebo viac:
+a. 
+int a;
+scanf("%d", &a); Správny
+b. 
+int *a = (int *)malloc(sizeof(int));
+scanf("%d", &a);
+c. 
+int a;
+scanf("%d", a);
+d. 
+int *a = (int *)malloc(sizeof(int));
+scanf("%d", a); Správny
+
+
+
+17
+Pre ktoré typy premennıch sa alokuje pamä v zásobníku?
+Vyberte jednu alebo viac:
+a. parametre funkcií Správny
+b. dynamické premenné
+c. globálne premenné
+d. lokálne premenné Správny
+
+
+
+18.
+Majme nasledujúcu štruktúru:
+struct osoba {
+char meno[50];
+int vek;
+};
+Ïalej definujme nasledujúcu premennú:
+struct osoba *os = (struct osoba *)malloc(sizeof(struct osoba));
+Ktoré z nasledujúcich príkladov správne naèítajú vek osoby os z klávesnice?
+Vyberte jednu alebo viac:
+a. scanf("%d", &os.vek);
+b. scanf("%d", os->vek);
+c. scanf("%d", &(os->vek)); Správny
+d. scanf("%d", &((*os).vek)); Správny
+
+
+
+19.
+Ktoré z nasledujúcich tvrdení sú pravdivé?
+Vyberte jednu alebo viac:
+a. Zápis
+while (1) {
+
+}
+predstavuje nekoneènı cyklus. Správny
+b. Cyklus do-while sa vykoná vdy aspoò raz. Správny
+c. Cyklus while sa nemusí vykona ani raz. Správny
+d. Cyklus
+int i = 1;
+do {
+i--
+} while (i);
+sa zopakuje dvakrát.
+
+
+
+20.
+V ktorej z nasledujúcich moností sa vytvorí pole 10 double-ov?
+Vyberte jednu alebo viac:
+a. double pole[10]; Správny
+b. double *pole = (double *)malloc(10 * sizeof(double)); Správny
+c. double pole[10] = (double *)malloc(10 * sizeof(double));
+d. double pole = (double *)malloc(10 * sizeof(double));
+
+
+
+21.
+Ktoré z nasledujúcich moností nám umonia vytvori premennú, ktorá môe predstavova jednorozmerné pole double-ov?
+Vyberte jednu alebo viac:
+a. double *pole; Správny
+b. (double *)pole;
+c. double pole[10]; Správny
+d. double []pole;
+
+
+
+22.
+Majme nasledujúci kód:
+int **pole = (int **)malloc(5 * sizeof(int *));
+for (int i = 0; i < 5; i++)
+pole[i] = (int *)malloc(10 * sizeof(int));
+Ktoré z nasledujúcich moností zaistia za kadıch okolností správne uvo¾nenie všetkej pamäti, ktorá bola alokovaná poèas vykonávania predchádzajúcich príkazov?
+Vyberte jednu alebo viac:
+a. for (int i = 0; i < 5; i++)
+free(pole[i]);
+free(pole); Správny
+b. for (int i = 0; i < 5; i++)
+realloc(pole + i, 0);
+realloc(pole, 0); Správny
+c. for (int i = 0; i < 5; i++) 
+free(pole + i);
+d. free(pole);
+for (int i = 0; i < 5; i++)
+free(pole[i]);
+
+
+
+23.
+Ktoré z nasledujúcich definícií nám umonia vytvori "zubaté" dvojrozmerné pole celıch èísel?
+Vyberte jednu alebo viac:
+a. int pole[3][2]; Nesprávny
+b. int *pole[3]; Správny
+c. int **pole; Správny
+d. int (*pole)[2] Nesprávny
+
+
+
+24.
+Na èo slúi príkaz break?
+
+Vyberte jednu alebo viac:
+a. Na ukonèenie vykonávania programu.
+b. Na ukonèenie vetvy v príkaze switch. Správny
+c. Na ukonèenie vykonávania cyklu. Správny
+d. Na ukonèenie vykonávania funkcie.
+
+
+
+25.
+Ktoré z nasledujúcich tvrdení sú pravdivé?
+
+Vyberte jednu alebo viac:
+a. Štruktúra alokuje miesto pre všetky svoje zloky. Správny
+b. Štruktúra nemôe obsahova odkaz na samú seba.
+c. Union alokuje miesto pre všetky svoje zloky.
+d. Všetky zloky union-u sú uloené na tom istom pamäovom mieste. Správny
+
+
+
+26.
+Ktoré z nasledujúcich tvrdení sú pravdivé? 
+Vyberte jednu alebo viac:
+a. Globálne a statické premenné musí pouívate¾ inicializova pred ich pouitím, inak majú náhodnı obsah.
+b. Lokálne a registrové premenné musí pouívate¾ inicializova pred ich pouitím, inak majú náhodnı obsah. Správny
+c. Lokálna premenná triedy static existuje aj po ukonèení vykonávania funkcie. Správny
+d. Parametre sa v jazyku C odovzdávajú odkazom. Nesprávny
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Asi správne
+1.	0.5b/1b
+Majme nasledujúci kód:
+
+int *pole[2];
+for (int i = 0; i < 2; i++) {
+pole[i] = (int *)malloc(3 * sizeof(int));
+}
+napln(2, 3, pole);
+
+Ako môe vyzera hlavièka funkcie "napln", aby bol uvedenı kód funkènı v štandarde C99? 
+
+Vyberte jednu alebo viac:
+a. void napln(int m, int n, int *pole[]) Správny
+b. void napln(int m, int n, int (*pole)[n])
+c. void napln(int m, int n, int **pole) Správny
+d. void napln(int m, int n, int pole[m][n])
+
+
+
+
+2.
+Èo bude v premennej c po vykonaní nasledujúcich príkazov:
+int a = 5;
+int b = 2 * --a;
+int c = a < b ? a : b;
+Vyberte jednu:
+a. 8 Spravny
+b. 4 Spravny
+c. 10
+d. 5 
+
+
+
+
+3.	0.5b/1b
+Majme funkciu s nasledujúcou hlavièkou:
+void fun(int *a);
+a nasledujúcu premennú:
+int *b = (int *)calloc(sizeof(int), 1);
+Ako musím zavola funkciu fun, ak jej chcem odovzda premennú b ako parameter?
+Vyberte jednu alebo viac:
+a. fun(*b); Nesprávny
+b. fun(&b);
+c. fun(*&b); Správny
+d. fun(b); Správny

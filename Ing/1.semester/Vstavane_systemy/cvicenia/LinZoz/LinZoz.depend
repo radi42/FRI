@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1480924615 source:/home/andrej/Desktop/LinZoz/linzoz.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdbool.h>
+	"linzoz.h"
+
+1480925141 /home/andrej/Desktop/LinZoz/linzoz.h
+

@@ -1,0 +1,25 @@
+Cisco Routre:
+Odporucane Cisco routre su c3640, c3660, c3725, c3745 a c7200.
+
+Podporovane modely routrov:
+c1700, c2600, c3620, c3640, c3660, c2691, c3275, c3745, c7200
+
+
+Cisco Catalyst Switche:
+oficialne nie su podporovane, ale da sa spravit aj switching -> vid subor "pridanie_switchu".
+
+JunOS
+podporovany cez VirtualBox. Testovana verzia: Olive 12.1R1.9
+
+ASA
+podporovana
+
+Cisco IOU
+podporovane
+
+Mikrotik
+podporovane
+
+
+zdroje:
+https://www.gns3.com/support/docs/virtual-machines-supported-2

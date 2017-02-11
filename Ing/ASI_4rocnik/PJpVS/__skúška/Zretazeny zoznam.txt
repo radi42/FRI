@@ -1,0 +1,117 @@
+/* 
+ * File:   main.c
+ * Author: Lukáš
+ *
+ * Created on Nede¾a, 2016, januára 24, 9:50
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+/*
+ * 
+ */
+
+/*struct Books
+{
+    char title[50];
+    char author[50];
+    char subject [50];
+    int book_id;
+};
+
+void printBook (struct Books *book)
+{
+    printf("%s\n",book->title);
+       printf("%d\n",book->book_id);
+       printf("%s\n",book->subject);
+       printf("%s\n",book->author);
+
+}*/
+
+typedef struct {
+    char nacitaneSlovo[20];
+    struct SLOVO *dalsi;
+} SLOVO;
+
+int main(int argc, char* argv[]) {
+
+    FILE *file = fopen(argv[1], "r+");
+    char *line = NULL;
+    size_t len = 0;
+    int i = 0;
+    SLOVO* prve = (SLOVO*) malloc(sizeof (SLOVO)*1);
+    char c;
+    if (file != NULL) {
+        getline(&line, &len, file);
+        while (!feof(file)) {
+            if (i < 1) {
+
+                strcpy(prve->nacitaneSlovo, line);
+                printf("%s", line);
+
+                getline(&line, &len, file);
+                SLOVO* druhe = (SLOVO*) malloc(sizeof (SLOVO)*1);
+                strcpy(druhe->nacitaneSlovo, line);
+                printf("%s", line);
+                (*prve).dalsi = druhe;
+                (*druhe).dalsi = NULL;
+                i++;
+                getline(&line, &line, file);
+            } else {
+                SLOVO* tretie = (SLOVO*) malloc(sizeof (SLOVO)*1);
+                strcpy(tretie->nacitaneSlovo, line);
+                printf("%s", line);
+                SLOVO* tmp = prve;
+                SLOVO* temp = prve;
+                int tp = 0;
+                c = tretie->nacitaneSlovo[0];
+                while ((tmp != NULL)&&(tretie->nacitaneSlovo[0] >= tmp->nacitaneSlovo[0])) {
+                    //  printf("%s", tmp->nacitaneSlovo);
+                    tmp = tmp->dalsi;
+                    if (tp > 0) {
+
+                        temp = temp->dalsi;
+
+                    }
+                    tp++;
+
+                }
+                (*temp).dalsi = tretie;
+                (*tretie).dalsi = tmp;
+
+
+                getline(&line, &len, file);
+            }
+
+
+
+        }
+
+
+
+    } else {
+        printf("subor nejde otvorit \n");
+    }
+    printf("\n");
+    SLOVO* tmp = prve;
+    while (tmp != NULL) {
+        printf("%s", tmp->nacitaneSlovo);
+        tmp = tmp->dalsi;
+
+    }
+    while (tmp != NULL) {
+        SLOVO* bla = tmp->dalsi;
+        free(tmp);
+        tmp = bla;
+    }
+
+    fclose(file);
+    free(prve);
+
+
+
+    return (EXIT_SUCCESS);
+}
+

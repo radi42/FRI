@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1478358086 source:/home/andrej/Desktop/cv05/caesar_file_crypt_decrypt/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

@@ -1,0 +1,408 @@
+﻿/* 
+ * File:   main.c
+ * Author: student
+ *
+ * Created on November 2, 2015, 10:53 AM
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+/*
+ * 
+ */
+/* 
+ * File:   main.c
+ * Author: student
+ *
+ * Created on November 2, 2015, 10:53 AM
+ */
+
+
+/*
+ * 
+ */
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <time.h>
+#include <string.h>
+
+void naplnPole(int ***pole2D,int pocetRiadkov, int pocetStlpcov ){
+    
+    int a = 10;
+    int b = 20;
+    for(int j = 0;j<pocetRiadkov;j++)
+    {
+    for (int i = 0; i < pocetStlpcov; i++){
+        (*pole2D)[j][i] = a + rand() %(b-a + 1);  //random cisla od 0 - b - a + 1 (horna hranica - dolna + 1))
+    }
+    }
+}
+
+void vypisPole(int ***pole2D,int pocetRiadkov, int pocetStlpcov){
+
+    for(int j = 0;j<pocetRiadkov;j++)
+    {
+    for (int i = 0; i < pocetStlpcov; i++){
+      printf("%d ", (*pole2D)[j][i]);
+    }
+   
+    printf("\n");
+    }
+       
+    
+}
+int NajdiMinimumMatice(int pocetRiadkov, int pocetStlpcov, int pole[pocetRiadkov][pocetStlpcov])
+{
+    int minimum =pole[0][0];
+    for(int j = 0;j<pocetRiadkov;j++)
+    {
+    for (int i = 0; i < pocetStlpcov; i++){
+      if(pole[j][i]<minimum)
+      {
+        minimum=pole[j][i];
+      }
+    }
+   }
+    return minimum;
+}
+void NajdiMinimumRiadka(int pocetRiadkov, int pocetStlpcov, int pole[pocetRiadkov][pocetStlpcov])
+{   int poc =0;
+    int minimum;
+    for(int j = 0;j<pocetRiadkov;j++)
+    {
+        minimum=pole[j][0];
+    for (int i = 0; i < pocetStlpcov; i++){
+      if(pole[j][i]<minimum)
+      {
+        minimum=pole[j][i];
+      }
+    }   poc++;
+        printf(" Minimum riadka %d je: %d \n",poc,minimum);
+   }
+
+}
+
+void dealokujPole(int pocetRiadkov, int pocetStlpcov, int pole[pocetRiadkov][pocetStlpcov])
+{
+    
+ free(pole);
+ pole=NULL;
+}
+
+void zmenVelkostPola(int *pole[], int staraVelkost, int novaVelkost){
+    if(novaVelkost > staraVelkost){
+        int *novePole = (int *)calloc(novaVelkost, sizeof(int));
+        for(int i = 0; i < staraVelkost; i++){
+            novePole[i] = (*pole)[i];
+        }
+        free(*pole);
+        *pole = novePole;
+        free(novePole);
+    }
+}
+
+void vymenSmernikyPoli(int *pole1[], int *pole2[]){
+    int *pomPole = *pole1;
+    *pole1 = *pole2;
+    *pole2 = pomPole;
+}
+
+void vynasobMatice(int pocetRiadkovA, int pocetStlpcovA, int pocetRiadkovB, int pocetStlpcovB, int maticaA[pocetRiadkovA][pocetStlpcovA], int maticaB [pocetRiadkovB][pocetStlpcovB])
+{
+int (*vyslednaMatica)[pocetStlpcovB];
+   vyslednaMatica = (int(*)[pocetStlpcovB])malloc(pocetRiadkovA * sizeof(int[pocetStlpcovB]));
+   int sum =0;
+   for(int i = 0;i<pocetRiadkovA;i++)
+   {
+       for(int j = 0; j <pocetStlpcovB;j++)
+       {
+           for(int k = 0; k < pocetRiadkovB; k++)
+           {
+               sum = sum + maticaA[i][k]*maticaB[k][j];
+           
+           }
+           vyslednaMatica[i][j]=sum;
+           sum = 0;
+       }
+    
+   }
+   
+   //vypisPole(pocetRiadkovA,pocetStlpcovB,vyslednaMatica);
+	free(vyslednaMatica);
+}
+void alokuj(int ***pole2D, int pocetRiadkov, int pocetStlpcov)
+{
+    (*pole2D)= malloc(pocetRiadkov *sizeof(int(*)));
+    for(int i = 0; i < pocetRiadkov;i++) {
+        (*pole2D)[i]= malloc(pocetStlpcov *sizeof(int));
+
+        }
+    printf("Pole bolo alokovane\n");
+
+}
+void dealokuj(int ***pole2D, int pocetRiadkov, int pocetStlpcov)
+{
+for(int i = 0; i < pocetRiadkov;i++) {
+        free((*pole2D)[i]);
+
+        }
+        free(*pole2D);
+      printf("Pole bolo dealokovane\n");
+}
+
+
+
+
+
+int main(int argc, char** argv) {
+   
+    int pocetRiadkovA = 10;
+    int pocetStlpcovA = 5;
+    int pocetRiadkovB;
+    int pocetStlpcovB;
+    int minA;
+    int maxA;
+    int minB;
+    int maxB;
+    int funkcia=-1;
+    int minimumMatice;
+    int **pole2D;
+    
+    void (*pole[4])(int ***, int, int);
+    pole[1]= alokuj;
+    pole[2]=dealokuj;
+    pole[3]=naplnPole;
+    pole[4]=vypisPole;
+            
+    
+    
+    do
+    {
+        if(funkcia >-1)
+        {
+            pole[funkcia](&pole2D, pocetRiadkovA,pocetStlpcovA);
+        }
+        printf("Zadaj pre vyber cislo\n");
+        printf("1. alokuj\n");
+        printf("2. dealokuj\n");
+        printf("3. naplnPole\n");
+        printf("4. vypisPole\n");
+        printf("0. END\n");
+        
+    
+    }while(scanf("%d",&funkcia),funkcia>0);
+    
+    
+   /* printf("Zadaj pocet riadkov prvej matice: \n");
+    scanf("%d",&pocetRiadkovA);
+    printf("Zadaj pocet stlpcov prvej matice:\n");
+    scanf("%d",&pocetStlpcovA);
+    printf("Zadaj od:\n");
+    scanf("%d",&minA);
+    printf("Zadaj do:\n");
+    scanf("%d",&maxA);
+    int (*maticaA) [pocetStlpcovA];
+    maticaA = (int(*)[pocetStlpcovA])malloc(pocetRiadkovA * sizeof(int[pocetStlpcovA]));
+    //naplnPole(pocetRiadkovA,pocetStlpcovA,minA,maxA,maticaA);
+    printf("Prva matica je: \n");
+    vypisPole(pocetRiadkovA,pocetStlpcovA,maticaA);
+    
+    printf("Zadaj pocet riadkov druhej matice: \n");
+    scanf("%d",&pocetRiadkovB);
+    printf("Zadaj pocet stlpcov druhej matice:\n");
+    scanf("%d",&pocetStlpcovB);
+    printf("Zadaj od:\n");
+    scanf("%d",&minB);
+    printf("Zadaj do:\n");
+    scanf("%d",&maxB);
+    int (*maticaB) [pocetStlpcovB];
+    maticaB = (int(*)[pocetStlpcovB])malloc(pocetRiadkovB * sizeof(int[pocetStlpcovB]));
+   // naplnPole(pocetRiadkovB,pocetStlpcovB,minB,maxB,maticaB);
+    printf("Druha matica je: \n");
+    vypisPole(pocetRiadkovB,pocetStlpcovB,maticaB);
+    
+   if(pocetStlpcovA!=pocetRiadkovB)
+   {
+       printf("Matice sa nedaju nasobit !!");
+   
+   }else
+   {
+     printf("Vysledna matica je: \n"); 
+     vynasobMatice(pocetRiadkovA,pocetStlpcovA,pocetRiadkovB,pocetStlpcovB,maticaA,maticaB);
+   }
+   
+free(maticaA);
+free(maticaB);
+    
+    //NajdiMinimumRiadka(pocetRiadkov,pocetStlpcov,pole);
+    //minimumMatice = NajdiMinimumMatice(pocetRiadkov,pocetStlpcov,pole);
+    //printf("Minimum matice je: %d",minimumMatice);
+   //dealokujPole(pocetRiadkov,pocetStlpcov,pole);
+    
+    
+    
+    
+    
+    /* fgets(veta,49,stdin);
+    pocetZnakov=strlen(veta)-1;
+    zmenVelkostPola(&veta,50,pocetZnakov);
+    printf("Veta je: %s",veta );*/
+    
+    /*int n;
+    
+    printf("Zadaj velkost pola: \n");
+    scanf("%d", &n);
+    
+    int pole[n];
+    naplnPole(pole, n, 10, 90);
+    vypisPole(pole, n);*/
+    
+    /*int n;
+    printf("Zadaj velkost pola: \n");
+    scanf("%d", &n);
+    
+    //Dynamicke pole nejde s [] ale iba so smernikom teda *pole
+    //int *pole = (int *)malloc(n*sizeof(int));   
+    //bajty ktore vlozime do pola kukame na ne ako na Integer (int *) a alokujeme si v pameti miesto pomocu malloc n prvkov * velkost INTu
+    //calloc je to iste co malloc len s tym ze sa nas pyta kolko poloziek bude a ake su velke  
+    
+    int *pole = (int *)calloc(n, sizeof(int));  
+    naplnPole(pole, n, 10, 90);
+    vypisPole(pole, n);
+    
+    int n2;
+    printf("Zadaj novu velkost pola: \n");
+    scanf("%d", &n2);
+    
+    //zmenVelkostPola(&pole,n,n2);
+    pole = realloc(pole, n2);
+    vypisPole(pole, n2);
+    
+    free(pole); //zmazeme alokovane miesto v pameti*/
+    /////////////////////////////
+    //Vymenenie smernikov poli //
+    /////////////////////////////
+    /*int n1 = 10;
+    int n2 = 20;
+    
+    printf("Zadaj velkost pola1: \n");
+    scanf("%d", &n1);
+    int *pole1 = (int *)calloc(n1, sizeof(int));
+    naplnPole(pole1, n1, 10, 90);
+    
+    printf("Zadaj velkost pola2: \n");
+    scanf("%d", &n2);
+    int *pole2 = (int *)calloc(n2, sizeof(int));  
+    naplnPole(pole2, n2, 10, 90);
+        
+    printf("Polia pred vymenou: \n");
+    vypisPole(pole1, n1);
+    vypisPole(pole2, n2);
+    
+    printf("Polia po vymene: \n");
+    vymenSmernikyPoli(&pole1, &pole2);
+    vypisPole(pole1, n2);
+    vypisPole(pole2, n1);
+    
+    free(pole1);
+    free(pole2);*/
+    
+    return (EXIT_SUCCESS);
+}
+
+
+
+    
+    //NajdiMinimumRiadka(pocetRiadkov,pocetStlpcov,pole);
+    //minimumMatice = NajdiMinimumMatice(pocetRiadkov,pocetStlpcov,pole);
+    //printf("Minimum matice je: %d",minimumMatice);
+   //dealokujPole(pocetRiadkov,pocetStlpcov,pole);
+    
+    /*int comp(const void * a, const void * b)
+{
+    int pomA =*(int*)a;
+    int pomB =*(int*)b;
+    if(pomA == pomB)
+        {
+            return 0;
+        }
+    else {
+        if(pomA>pomB)
+        {
+            return 1;
+        }
+        else {
+            return -1;
+        }
+    }
+     
+     qsort(maticaA, pocetRiadkovA, sizeof(int),comp);*/
+    
+    
+    
+    /* fgets(veta,49,stdin);
+    pocetZnakov=strlen(veta)-1;
+    zmenVelkostPola(&veta,50,pocetZnakov);
+    printf("Veta je: %s",veta );*/
+    
+    /*int n;
+    
+    printf("Zadaj velkost pola: \n");
+    scanf("%d", &n);
+    
+    int pole[n];
+    naplnPole(pole, n, 10, 90);
+    vypisPole(pole, n);*/
+    
+    /*int n;
+    printf("Zadaj velkost pola: \n");
+    scanf("%d", &n);
+    
+    //Dynamicke pole nejde s [] ale iba so smernikom teda *pole
+    //int *pole = (int *)malloc(n*sizeof(int));   
+    //bajty ktore vlozime do pola kukame na ne ako na Integer (int *) a alokujeme si v pameti miesto pomocu malloc n prvkov * velkost INTu
+    //calloc je to iste co malloc len s tym ze sa nas pyta kolko poloziek bude a ake su velke  
+    
+    int *pole = (int *)calloc(n, sizeof(int));  
+    naplnPole(pole, n, 10, 90);
+    vypisPole(pole, n);
+    
+    int n2;
+    printf("Zadaj novu velkost pola: \n");
+    scanf("%d", &n2);
+    
+    //zmenVelkostPola(&pole,n,n2);
+    pole = realloc(pole, n2);
+    vypisPole(pole, n2);
+    
+    free(pole); //zmazeme alokovane miesto v pameti*/
+    /////////////////////////////
+    //Vymenenie smernikov poli //
+    /////////////////////////////
+    /*int n1 = 10;
+    int n2 = 20;
+    
+    printf("Zadaj velkost pola1: \n");
+    scanf("%d", &n1);
+    int *pole1 = (int *)calloc(n1, sizeof(int));
+    naplnPole(pole1, n1, 10, 90);
+    
+    printf("Zadaj velkost pola2: \n");
+    scanf("%d", &n2);
+    int *pole2 = (int *)calloc(n2, sizeof(int));  
+    naplnPole(pole2, n2, 10, 90);
+        
+    printf("Polia pred vymenou: \n");
+    vypisPole(pole1, n1);
+    vypisPole(pole2, n2);
+    
+    printf("Polia po vymene: \n");
+    vymenSmernikyPoli(&pole1, &pole2);
+    vypisPole(pole1, n2);
+    vypisPole(pole2, n1);
+    
+    free(pole1);
+    free(pole2);*/
+    

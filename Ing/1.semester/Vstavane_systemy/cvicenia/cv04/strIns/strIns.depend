@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1477853094 source:/home/andrej/Desktop/cv04/strIns/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

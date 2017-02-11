@@ -1,0 +1,109 @@
+// takto ich zavol·ö niekde v programe... pekne naplnenÈ zoznamy vöetko uû treba maù, potom staËÌ toto zavolaù...
+
+for (i = 0; i < Mesiace; i++) {
+        POLOZKA *pomPolozka = (POLOZKA*) malloc(sizeof (POLOZKA));
+
+        pomPolozka = najdi(zoz, i);
+        if (pomPolozka != NULL) {
+            printf("Mesiac: %d ", i + 1);
+            vypis(pomPolozka);
+        }
+        free(pomPolozka);
+    }
+
+
+
+// tu s˙ funkcie:
+// len vypise polozku, pouziva sa na to, aby vypisalo najdenu polozku s maximom a minimom...
+void vypis(POLOZKA *polozka) {
+    printf("Min. teplota: %.2f Max. teplota: %.2f Max. vlhkost %.0f %\n", polozka->min, polozka->max, polozka->vlhkost);
+}
+
+// vrati ti novu polozku vytvorenu s udajmy min z celeho mesiaca, max z celeho mesiaca a max velhkost celho mesiaca
+// postupne prech·dza kaûd˝ den mesiaca a hlad· max, min a max vlhkost
+// je to ifovanÈ podla toho, ak˝ to je mesiac a potom sa prejde postupne kaûd˝ den.. kaûd˝ den moûe obsahoaù zoznam, tak sa kaûd˝ den prejde cel˝ zoznam.... 
+POLOZKA * najdi(ZOZNAM **zoz, int mesiac) {
+    POLOZKA *pomPolozka = (POLOZKA*) malloc(sizeof (POLOZKA));
+    double max = 0;
+    double min = 100;
+    double vlhkost = 0;
+    pomPolozka->max = max;
+    pomPolozka->min = min;
+    pomPolozka->vlhkost = vlhkost;
+    pomPolozka->dalsi = NULL;
+    if (mesiac == 2) {
+        int j;
+        for (j = 0; j < 29; j++) {
+            if (zoz[mesiac][j].prvy != NULL) {
+                POLOZKA *pomPolozka2 = (POLOZKA*) malloc(sizeof (POLOZKA));
+                pomPolozka2 = zoz[mesiac][j].prvy;
+                while (pomPolozka2 != NULL) {
+                    max = pomPolozka2->max;
+                    min = pomPolozka2->min;
+                    vlhkost = pomPolozka2->vlhkost;
+                    if (pomPolozka->max < max) {
+                        pomPolozka->max = max;
+                    }
+                    if (pomPolozka->max > min) {
+                        pomPolozka->min = min;
+                    }
+                    if (pomPolozka->vlhkost < vlhkost) {
+                        pomPolozka->vlhkost = vlhkost;
+                    }
+                    pomPolozka2 = pomPolozka2->dalsi;
+                }
+                free(pomPolozka2);
+            }
+        }
+    } else if (mesiac == 4 || mesiac == 6 || mesiac == 9 || mesiac == 11) {
+        int j;
+        for (j = 0; j < 30; j++) {
+            if (zoz[mesiac][j].prvy != NULL) {
+                POLOZKA *pomPolozka2 = (POLOZKA*) malloc(sizeof (POLOZKA));
+                pomPolozka2 = zoz[mesiac][j].prvy;
+                while (pomPolozka2 != NULL) {
+                    max = pomPolozka2->max;
+                    min = pomPolozka2->min;
+                    vlhkost = pomPolozka2->vlhkost;
+                    if (pomPolozka->max < max) {
+                        pomPolozka->max = max;
+                    }
+                    if (pomPolozka->max > min) {
+                        pomPolozka->min = min;
+                    }
+                    if (pomPolozka->vlhkost < vlhkost) {
+                        pomPolozka->vlhkost = vlhkost;
+                    }
+                    pomPolozka2 = pomPolozka2->dalsi;
+                }
+                free(pomPolozka2);
+            }
+        }
+    } else {
+        int j;
+        for (j = 0; j < 31; j++) {
+            if (zoz[mesiac][j].prvy != NULL) {
+                POLOZKA *pomPolozka2 = (POLOZKA*) malloc(sizeof (POLOZKA));
+                pomPolozka2 = zoz[mesiac][j].prvy;
+                while (pomPolozka2 != NULL) {
+                    max = pomPolozka2->max;
+                    min = pomPolozka2->min;
+                    vlhkost = pomPolozka2->vlhkost;
+                    if (pomPolozka->max < max) {
+                        pomPolozka->max = max;
+                    }
+                    if (pomPolozka->max > min) {
+                        pomPolozka->min = min;
+                    }
+                    if (pomPolozka->vlhkost < vlhkost) {
+                        pomPolozka->vlhkost = vlhkost;
+                    }
+                    pomPolozka2 = pomPolozka2->dalsi;
+                }
+                free(pomPolozka2);
+            }
+        }
+    }
+    return pomPolozka;
+}
+

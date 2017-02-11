@@ -1,0 +1,44 @@
+tlmenie optickeho vlakna = P1/ P2
+P1 je vstupny vykon, P2 je vystupny vykon
+a = 10*log A = 10*log(P1/P2)
+P2 = P1/A 
+P2db = P1db - adb
+P2= P1 * 10 ^(adb/10)
+
+sklo hrube 1 meter je takmen nepriehladne
+opticke vlakno musi byt z velmi cisteho skla
+
+tlmenie optickeho kabla je 0,2 - 0,3 dB na km
+tlmenie zvaru by mal by 0,1 - 0,2 dB
+tlmenie konektora je cca 0,2dB
+
+priklad
+trasa- 10km
+po kazdom kilometri treba zvarit + 2 konektory
+10*0,2 + 11*0,1 + 2*0,2 = 3,5 dB
+
+P1 = 1mW
+P2 = ?
+P2= P1 * 10 ^(adb/10)
+
+presnost konektora sa meria na tisiciny milimetra
+najcastejsie pouzivane konektory - SC (subscriber connector),LC
+
+Ferula - cast ukoncenia konektora. je lepsie ho mat zosikmeny (apc)
+
+rychlost chrbticovej optickej siete moze byt aj 40 Gb/s na jednej frekvencii
+
+disperzia - roztiahnutie (predlzenie casu) a zoslabenie vstupneho impulzu
+disperzua je este horsia pre lasery s nizkymi vlnovymi dlzkami
+
+pri vlnovej dlzke 1300 mikrometrov uz nenastavaju disperzie
+
+vnutri optickeho kabla je aj gel, ktory zabranuje prudeniu vody
+
+======================
+
+pon - pasivna opticka siet (pouzivanejsie); nezere to elektrinu, onu je az u zakaznika, odolne voci poveternostnym vplyvom
+
+aon sa poyziva len v hranicnych pripadoch, ked sa neda urobit pon alebo ked vyzadujeme inteligenciu
+
+olt->splitter(1/16)->onu

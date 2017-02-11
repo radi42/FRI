@@ -1,0 +1,28 @@
+UPDATE:
+
+tu su vysledky (mali by byt OK):
+
+1..0,663
+2..0,232
+3..0,657
+4..0,103
+5..0,0081
+6..0,0000656
+7..0,032
+8..5
+
+nejake postupy, v PDF su tieto zle, tie co tu niesu su dobre...
+
+5.
+(1-p)na4
+
+2.
+(8nad4)*pna4*(1-p)na4
+
+7.
+ET=(1-p)/1-(1-p)
+to je ....4=(1-p)/1-(1-p).....cize po uprave p=0,2
+a potom P(N=2)=p na 2*(1-p)=0,032
+
+1.
+P(k>=2)=1-(p0+p1)=1-((5nad1)*p*(p-1)na4+(5nad0)*pna0*(1-p)na5)=0,663

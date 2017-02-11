@@ -1,0 +1,1022 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0072)https://vzdelavanie.uniza.sk/moodle2/mod/quiz/attempt.php -->
+<!DOCTYPE html PUBLIC "" ""><HTML lang="sk" lang="sk" dir="ltr" 
+xml:lang="sk"><HEAD><META content="IE=11.0000" http-equiv="X-UA-Compatible">
+     <TITLE>Skúšobný test PS</TITLE>     <LINK href="https://vzdelavanie.uniza.sk/moodle2/theme/image.php/standard/theme/1440747718/favicon" 
+rel="shortcut icon">     
+<META http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+<META name="keywords" content="moodle, Skúšobný test PS"> 
+<SCRIPT type="text/javascript">
+//<![CDATA[
+var M = {}; M.yui = {};
+M.pageloadstarttime = new Date();
+M.cfg = {"wwwroot":"https:\/\/vzdelavanie.uniza.sk\/moodle2","sesskey":"gESq0cbCik","loadingicon":"https:\/\/vzdelavanie.uniza.sk\/moodle2\/theme\/image.php\/standard\/core\/1440747718\/i\/loading_small","themerev":"1440747718","slasharguments":1,"theme":"standard","jsrev":"1440747718","svgicons":true};var yui1ConfigFn = function(me) {if(/-skin|reset|fonts|grids|base/.test(me.name)){me.type='css';me.path=me.path.replace(/\.js/,'.css');me.path=me.path.replace(/\/yui2-skin/,'/assets/skins/sam/yui2-skin')}};
+var yui2ConfigFn = function(me) {var parts=me.name.replace(/^moodle-/,'').split('-'),component=parts.shift(),module=parts[0],min='-min';if(/-(skin|core)$/.test(me.name)){parts.pop();me.type='css';min=''};if(module){var filename=parts.join('-');me.path=component+'/'+module+'/'+filename+min+'.'+me.type}else me.path=component+'/'+component+'.'+me.type};
+YUI_config = {"debug":false,"base":"https:\/\/vzdelavanie.uniza.sk\/moodle2\/lib\/yuilib\/3.13.0\/","comboBase":"https:\/\/vzdelavanie.uniza.sk\/moodle2\/theme\/yui_combo.php?","combine":true,"filter":null,"insertBefore":"firstthemesheet","groups":{"yui2":{"base":"https:\/\/vzdelavanie.uniza.sk\/moodle2\/lib\/yuilib\/2in3\/2.9.0\/build\/","comboBase":"https:\/\/vzdelavanie.uniza.sk\/moodle2\/theme\/yui_combo.php?","combine":true,"ext":false,"root":"2in3\/2.9.0\/build\/","patterns":{"yui2-":{"group":"yui2","configFn":yui1ConfigFn}}},"moodle":{"name":"moodle","base":"https:\/\/vzdelavanie.uniza.sk\/moodle2\/theme\/yui_combo.php?m\/1440747718\/","combine":true,"comboBase":"https:\/\/vzdelavanie.uniza.sk\/moodle2\/theme\/yui_combo.php?","ext":false,"root":"m\/1440747718\/","patterns":{"moodle-":{"group":"moodle","configFn":yui2ConfigFn}},"filter":null,"modules":{"moodle-core-actionmenu":{"requires":["base","event","node-event-simulate"]},"moodle-core-blocks":{"requires":["base","node","io","dom","dd","dd-scroll","moodle-core-dragdrop","moodle-core-notification"]},"moodle-core-chooserdialogue":{"requires":["base","panel","moodle-core-notification"]},"moodle-core-dock":{"requires":["base","node","event-custom","event-mouseenter","event-resize","escape","moodle-core-dock-loader"]},"moodle-core-dock-loader":{"requires":["escape"]},"moodle-core-formautosubmit":{"requires":["base","event-key"]},"moodle-core-formchangechecker":{"requires":["base","event-focus"]},"moodle-core-lockscroll":{"requires":["plugin","base-build"]},"moodle-core-notification":{"requires":["moodle-core-notification-dialogue","moodle-core-notification-alert","moodle-core-notification-confirm","moodle-core-notification-exception","moodle-core-notification-ajaxexception"]},"moodle-core-notification-dialogue":{"requires":["base","node","panel","escape","event-key","dd-plugin","moodle-core-lockscroll"]},"moodle-core-notification-alert":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-notification-confirm":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-notification-exception":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-notification-ajaxexception":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-popuphelp":{"requires":["moodle-core-tooltip"]},"moodle-core-tooltip":{"requires":["base","node","io-base","moodle-core-notification","json-parse","widget-position","widget-position-align","event-outside","cache-base"]},"moodle-calendar-eventmanager":{"requires":["base","node","event-mouseenter","overlay","moodle-calendar-eventmanager-skin"]},"moodle-course-categoryexpander":{"requires":["node","event-key"]},"moodle-course-management":{"requires":["base","node","io-base","moodle-core-notification-exception","json-parse","dd-constrain","dd-proxy","dd-drop","dd-delegate","node-event-delegate"]},"moodle-course-util":{"requires":["node"],"use":["moodle-course-util-base"],"submodules":{"moodle-course-util-base":{},"moodle-course-util-section":{"requires":["node","moodle-course-util-base"]},"moodle-course-util-cm":{"requires":["node","moodle-course-util-base"]}}},"moodle-mod_quiz-autosave":{"requires":["base","node","event","event-valuechange","node-event-delegate","io-form"]},"moodle-block_navigation-navigation":{"requires":["base","io-base","node","event-synthetic","event-delegate","json-parse"]},"moodle-filter_glossary-autolinker":{"requires":["base","node","io-base","json-parse","event-delegate","overlay","moodle-core-notification-alert"]},"moodle-tool_capability-search":{"requires":["base","node"]},"moodle-theme_bootstrapbase-bootstrap":{"requires":["node","selector-css3"]},"moodle-assignfeedback_editpdf-editor":{"requires":["base","event","node","io","graphics","json","event-move","querystring-stringify-simple","moodle-core-notification-dialog","moodle-core-notification-exception","moodle-core-notification-ajaxexception"]}}}},"modules":{"core_filepicker":{"name":"core_filepicker","fullpath":"https:\/\/vzdelavanie.uniza.sk\/moodle2\/lib\/javascript.php\/1440747718\/repository\/filepicker.js","requires":["base","node","node-event-simulate","json","async-queue","io-base","io-upload-iframe","io-form","yui2-treeview","panel","cookie","datatable","datatable-sort","resize-plugin","dd-plugin","escape","moodle-core_filepicker"]},"core_question_flags":{"name":"core_question_flags","fullpath":"https:\/\/vzdelavanie.uniza.sk\/moodle2\/lib\/javascript.php\/1440747718\/question\/flags.js","requires":["base","dom","event-delegate","io-base"]},"core_question_engine":{"name":"core_question_engine","fullpath":"https:\/\/vzdelavanie.uniza.sk\/moodle2\/lib\/javascript.php\/1440747718\/question\/qengine.js","requires":["node","event"]},"mod_quiz":{"name":"mod_quiz","fullpath":"https:\/\/vzdelavanie.uniza.sk\/moodle2\/lib\/javascript.php\/1440747718\/mod\/quiz\/module.js","requires":["base","dom","event-delegate","event-key","core_question_engine","moodle-core-formchangechecker"]}}};
+M.yui.loader = {modules: {}};
+
+//]]>
+</SCRIPT>
+ <LINK href="Skúšobný%20test%20PS_php_soubory/combo" rel="stylesheet" type="text/css"><LINK 
+href="Skúšobný%20test%20PS_php_soubory/combo(1).1]" rel="stylesheet" type="text/css">
+<SCRIPT src="Skúšobný%20test%20PS_php_soubory/combo(1).2]" type="text/javascript"></SCRIPT>
+
+<SCRIPT src="Skúšobný%20test%20PS_php_soubory/combo(2).1]" type="text/javascript"></SCRIPT>
+
+<SCRIPT id="firstthemesheet" type="text/css">/** Required in order to fix style inclusion problems in IE with YUI **/</SCRIPT>
+<LINK href="Skúšobný%20test%20PS_php_soubory/styles.php" rel="stylesheet" type="text/css"> 
+<SCRIPT src="Skúšobný%20test%20PS_php_soubory/javascript.php" type="text/javascript"></SCRIPT>
+ 
+<META name="GENERATOR" content="MSHTML 11.00.9600.18125"></HEAD> 
+<BODY class="format-topics  path-mod path-mod-quiz ie ie11 dir-ltr lang-sk yui-skin-sam yui3-skin-sam vzdelavanie-uniza-sk--moodle2 pagelayout-incourse course-3000 context-119528 cmid-75582 category-175 side-pre-only" 
+id="page-mod-quiz-attempt">
+<DIV class="skiplinks"><A class="skip" href="https://vzdelavanie.uniza.sk/moodle2/mod/quiz/attempt.php?attempt=495450#maincontent">Prejsť 
+k hlavnému obsahu</A></DIV>
+<SCRIPT type="text/javascript">
+//<![CDATA[
+document.body.className += ' jsenabled';
+//]]>
+</SCRIPT>
+ 
+<DIV id="page">
+<DIV id="page-header">
+<H1 class="headermain">Prístupové siete</H1>
+<DIV class="headermenu">
+<DIV class="logininfo">Ste prihlásený ako <A title="Zobraziť profil" href="https://vzdelavanie.uniza.sk/moodle2/user/profile.php?id=26884">Andrej 
+Kováč</A> (<A href="https://vzdelavanie.uniza.sk/moodle2/login/logout.php?sesskey=gESq0cbCik">Odhlásiť</A>)</DIV></DIV>
+<DIV class="navbar clearfix">
+<DIV class="breadcrumb"><SPAN class="accesshide">Adresa stránky</SPAN><NAV>
+<UL>
+  <LI><A href="https://vzdelavanie.uniza.sk/moodle2/">Domov</A></LI>
+  <LI> <SPAN class="accesshide "><SPAN 
+  class="arrow_text">/</SPAN>&nbsp;</SPAN><SPAN class="arrow sep">►</SPAN> <A 
+  href="https://vzdelavanie.uniza.sk/moodle2/my/">Moje kurzy</A></LI>
+  <LI> <SPAN class="accesshide "><SPAN 
+  class="arrow_text">/</SPAN>&nbsp;</SPAN><SPAN class="arrow sep">►</SPAN> <A 
+  href="https://vzdelavanie.uniza.sk/moodle2/course/index.php?categoryid=168">Fakulta 
+  riadenia a informatiky</A></LI>
+  <LI> <SPAN class="accesshide "><SPAN 
+  class="arrow_text">/</SPAN>&nbsp;</SPAN><SPAN class="arrow sep">►</SPAN> <A 
+  href="https://vzdelavanie.uniza.sk/moodle2/course/index.php?categoryid=172">Denné 
+  inžinierske štúdium</A></LI>
+  <LI> <SPAN class="accesshide "><SPAN 
+  class="arrow_text">/</SPAN>&nbsp;</SPAN><SPAN class="arrow sep">►</SPAN> <A 
+  href="https://vzdelavanie.uniza.sk/moodle2/course/index.php?categoryid=175">1. 
+  ročník</A></LI>
+  <LI> <SPAN class="accesshide "><SPAN 
+  class="arrow_text">/</SPAN>&nbsp;</SPAN><SPAN class="arrow sep">►</SPAN> <A 
+  title="Prístupové siete" href="https://vzdelavanie.uniza.sk/moodle2/course/view.php?id=3000">5IN135 
+  PS</A></LI>
+  <LI> <SPAN class="accesshide "><SPAN 
+  class="arrow_text">/</SPAN>&nbsp;</SPAN><SPAN class="arrow sep">►</SPAN> <SPAN 
+  tabindex="0">Testy</SPAN></LI>
+  <LI> <SPAN class="accesshide "><SPAN 
+  class="arrow_text">/</SPAN>&nbsp;</SPAN><SPAN class="arrow sep">►</SPAN> <A 
+  title="Test" href="https://vzdelavanie.uniza.sk/moodle2/mod/quiz/view.php?id=75582">Skúšobný 
+  test PS</A></LI></UL></NAV></DIV>
+<DIV class="navbutton"></DIV></DIV></DIV><!-- END OF HEADER -->     
+<DIV id="page-content">
+<DIV id="region-main-box">
+<DIV id="region-post-box">
+<DIV id="region-main-wrap">
+<DIV id="region-main">
+<DIV class="region-content">
+<DIV role="main"><SPAN id="maincontent"></SPAN>
+<FORM id="responseform" action="https://vzdelavanie.uniza.sk/moodle2/mod/quiz/processattempt.php" 
+enctype="multipart/form-data" method="post" accept-charset="utf-8">
+<DIV>
+<DIV class="que multichoice deferredfeedback notyetanswered" id="q1">
+<DIV class="info">
+<H3 class="no">Otázka <SPAN class="qno">1</SPAN></H3>
+<DIV class="state">Ešte nezodpovedané</DIV>
+<DIV class="grade">Max. hodnotenie 1</DIV>
+<DIV class="questionflag editable" aria-live="assertive" aria-relevant="text" 
+aria-atomic="true"><INPUT name="q500753:1_:flagged" type="hidden" value="0"><INPUT 
+name="q500753:1_:flagged" id="q500753:1_:flaggedcheckbox" type="checkbox" value="1"><INPUT class="questionflagpostdata" type="hidden" value="qaid=1072536&amp;qubaid=500753&amp;qid=76285&amp;slot=1&amp;checksum=fde8f2cb9cde4826ad1fa1ca2f5d63ed&amp;sesskey=gESq0cbCik&amp;newstate="><LABEL 
+id="q500753:1_:flaggedlabel" for="q500753:1_:flaggedcheckbox"><IMG id="q500753:1_:flaggedimg" 
+alt="Neoznačená" src="Skúšobný%20test%20PS_php_soubory/unflagged.png"></LABEL> 
+</DIV></DIV>
+<DIV class="content">
+<DIV class="formulation">
+<H4 class="accesshide">Text 
+otázky</H4><INPUT name="q500753:1_:sequencecheck" type="hidden" value="1">
+<DIV class="qtext">Metóda FDMA znamená:</DIV>
+<DIV class="ablock">
+<DIV class="prompt">Vyberte jednu:</DIV>
+<DIV class="answer">
+<DIV class="r0"><INPUT name="q500753:1_answer" id="q500753:1_answer0" type="radio" 
+value="0"><LABEL for="q500753:1_answer0">A. frekvenčne delený multiplex</LABEL> 
+</DIV>
+<DIV class="r1"><INPUT name="q500753:1_answer" id="q500753:1_answer1" type="radio" 
+value="1"><LABEL for="q500753:1_answer1">B. fázovo delený multiplex</LABEL> 
+</DIV>
+<DIV class="r0"><INPUT name="q500753:1_answer" id="q500753:1_answer2" type="radio" 
+value="2"><LABEL for="q500753:1_answer2">C. frekvenčne delený duplex</LABEL> 
+</DIV>
+<DIV class="r1"><INPUT name="q500753:1_answer" id="q500753:1_answer3" type="radio" 
+value="3"><LABEL for="q500753:1_answer3">D. viacnásobný prístup s frekvenčným 
+delením</LABEL> </DIV></DIV></DIV></DIV></DIV></DIV>
+<DIV class="que multichoice deferredfeedback notyetanswered" id="q18">
+<DIV class="info">
+<H3 class="no">Otázka <SPAN class="qno">2</SPAN></H3>
+<DIV class="state">Ešte nezodpovedané</DIV>
+<DIV class="grade">Max. hodnotenie 1</DIV>
+<DIV class="questionflag editable" aria-live="assertive" aria-relevant="text" 
+aria-atomic="true"><INPUT name="q500753:18_:flagged" type="hidden" value="0"><INPUT 
+name="q500753:18_:flagged" id="q500753:18_:flaggedcheckbox" type="checkbox" 
+value="1"><INPUT class="questionflagpostdata" type="hidden" value="qaid=1072553&amp;qubaid=500753&amp;qid=77539&amp;slot=18&amp;checksum=4dbef4e5b388fbacaa78e8836526a6e5&amp;sesskey=gESq0cbCik&amp;newstate="><LABEL 
+id="q500753:18_:flaggedlabel" for="q500753:18_:flaggedcheckbox"><IMG id="q500753:18_:flaggedimg" 
+alt="Neoznačená" src="Skúšobný%20test%20PS_php_soubory/unflagged.png"></LABEL> 
+</DIV></DIV>
+<DIV class="content">
+<DIV class="formulation">
+<H4 class="accesshide">Text 
+otázky</H4><INPUT name="q500753:18_:sequencecheck" type="hidden" value="1">
+<DIV class="qtext">K útlmu v optickej trase dochádza vďaka týmto efektom (2 
+správne odpovede)</DIV>
+<DIV class="ablock">
+<DIV class="prompt">Vyberte jednu alebo viac:</DIV>
+<DIV class="answer">
+<DIV class="r0"><INPUT name="q500753:18_choice0" type="hidden" value="0"><INPUT 
+name="q500753:18_choice0" id="q500753:18_choice0" type="checkbox" 
+value="1"><LABEL for="q500753:18_choice0">a. rozptyl</LABEL> </DIV>
+<DIV class="r1"><INPUT name="q500753:18_choice1" type="hidden" value="0"><INPUT 
+name="q500753:18_choice1" id="q500753:18_choice1" type="checkbox" 
+value="1"><LABEL for="q500753:18_choice1">b. štvorvlnové zmiešavanie</LABEL> 
+</DIV>
+<DIV class="r0"><INPUT name="q500753:18_choice2" type="hidden" value="0"><INPUT 
+name="q500753:18_choice2" id="q500753:18_choice2" type="checkbox" 
+value="1"><LABEL for="q500753:18_choice2">c. vlastná fázová modulácia</LABEL> 
+</DIV>
+<DIV class="r1"><INPUT name="q500753:18_choice3" type="hidden" value="0"><INPUT 
+name="q500753:18_choice3" id="q500753:18_choice3" type="checkbox" 
+value="1"><LABEL for="q500753:18_choice3">d. Kraus-Jakobsonov efekt</LABEL> 
+</DIV>
+<DIV class="r0"><INPUT name="q500753:18_choice4" type="hidden" value="0"><INPUT 
+name="q500753:18_choice4" id="q500753:18_choice4" type="checkbox" 
+value="1"><LABEL for="q500753:18_choice4">e. medzisymbolová 
+interferencia</LABEL> </DIV>
+<DIV class="r1"><INPUT name="q500753:18_choice5" type="hidden" value="0"><INPUT 
+name="q500753:18_choice5" id="q500753:18_choice5" type="checkbox" 
+value="1"><LABEL for="q500753:18_choice5">f. znečistením čela vlákna</LABEL> 
+</DIV></DIV></DIV></DIV></DIV></DIV>
+<DIV class="que multichoice deferredfeedback notyetanswered" id="q9">
+<DIV class="info">
+<H3 class="no">Otázka <SPAN class="qno">3</SPAN></H3>
+<DIV class="state">Ešte nezodpovedané</DIV>
+<DIV class="grade">Max. hodnotenie 1</DIV>
+<DIV class="questionflag editable" aria-live="assertive" aria-relevant="text" 
+aria-atomic="true"><INPUT name="q500753:9_:flagged" type="hidden" value="0"><INPUT 
+name="q500753:9_:flagged" id="q500753:9_:flaggedcheckbox" type="checkbox" value="1"><INPUT class="questionflagpostdata" type="hidden" value="qaid=1072544&amp;qubaid=500753&amp;qid=76340&amp;slot=9&amp;checksum=95a3442e3b133abbe8a4c58417d8d7b4&amp;sesskey=gESq0cbCik&amp;newstate="><LABEL 
+id="q500753:9_:flaggedlabel" for="q500753:9_:flaggedcheckbox"><IMG id="q500753:9_:flaggedimg" 
+alt="Neoznačená" src="Skúšobný%20test%20PS_php_soubory/unflagged.png"></LABEL> 
+</DIV></DIV>
+<DIV class="content">
+<DIV class="formulation">
+<H4 class="accesshide">Text 
+otázky</H4><INPUT name="q500753:9_:sequencecheck" type="hidden" value="1">
+<DIV class="qtext">Vo Friisovom vzťahu (výkon prijímaného signálu) klesá výkon 
+prijímaného signálu podľa pravidla:</DIV>
+<DIV class="ablock">
+<DIV class="prompt">Vyberte jednu:</DIV>
+<DIV class="answer">
+<DIV class="r0"><INPUT name="q500753:9_answer" id="q500753:9_answer0" type="radio" 
+value="0"><LABEL for="q500753:9_answer0">A. so 4. mocninou vzdialenosti</LABEL> 
+</DIV>
+<DIV class="r1"><INPUT name="q500753:9_answer" id="q500753:9_answer1" type="radio" 
+value="1"><LABEL for="q500753:9_answer1">B. s 3. mocninou vzdialenosti</LABEL> 
+</DIV>
+<DIV class="r0"><INPUT name="q500753:9_answer" id="q500753:9_answer2" type="radio" 
+value="2"><LABEL for="q500753:9_answer2">C. s 2. mocninou vzdialenosti</LABEL> 
+</DIV>
+<DIV class="r1"><INPUT name="q500753:9_answer" id="q500753:9_answer3" type="radio" 
+value="3"><LABEL for="q500753:9_answer3">D. s 1. mocninou vzdialenosti</LABEL> 
+</DIV></DIV></DIV></DIV></DIV></DIV>
+<DIV class="que multichoice deferredfeedback notyetanswered" id="q13">
+<DIV class="info">
+<H3 class="no">Otázka <SPAN class="qno">4</SPAN></H3>
+<DIV class="state">Ešte nezodpovedané</DIV>
+<DIV class="grade">Max. hodnotenie 1</DIV>
+<DIV class="questionflag editable" aria-live="assertive" aria-relevant="text" 
+aria-atomic="true"><INPUT name="q500753:13_:flagged" type="hidden" value="0"><INPUT 
+name="q500753:13_:flagged" id="q500753:13_:flaggedcheckbox" type="checkbox" 
+value="1"><INPUT class="questionflagpostdata" type="hidden" value="qaid=1072548&amp;qubaid=500753&amp;qid=77403&amp;slot=13&amp;checksum=2e8dc331d0d6ebc6718090e49eb8cbaa&amp;sesskey=gESq0cbCik&amp;newstate="><LABEL 
+id="q500753:13_:flaggedlabel" for="q500753:13_:flaggedcheckbox"><IMG id="q500753:13_:flaggedimg" 
+alt="Neoznačená" src="Skúšobný%20test%20PS_php_soubory/unflagged.png"></LABEL> 
+</DIV></DIV>
+<DIV class="content">
+<DIV class="formulation">
+<H4 class="accesshide">Text 
+otázky</H4><INPUT name="q500753:13_:sequencecheck" type="hidden" value="1">
+<DIV class="qtext">
+<P>Akým napätím môže byť vyjadrená logická 1 pri linkovom kóde HDB3?</P></DIV>
+<DIV class="ablock">
+<DIV class="prompt">Vyberte jednu:</DIV>
+<DIV class="answer">
+<DIV class="r0"><INPUT name="q500753:13_answer" id="q500753:13_answer0" type="radio" 
+value="0"><LABEL for="q500753:13_answer0">a. 0 V</LABEL> </DIV>
+<DIV class="r1"><INPUT name="q500753:13_answer" id="q500753:13_answer1" type="radio" 
+value="1"><LABEL for="q500753:13_answer1">b. Harmonický signál s efektívnou 
+hodnotou napätia 0.75V</LABEL> </DIV>
+<DIV class="r0"><INPUT name="q500753:13_answer" id="q500753:13_answer2" type="radio" 
+value="2"><LABEL for="q500753:13_answer2">c. Pílovitý signál s efektívnou 
+hodnotou napätia 0.75V</LABEL> </DIV>
+<DIV class="r1"><INPUT name="q500753:13_answer" id="q500753:13_answer3" type="radio" 
+value="3"><LABEL for="q500753:13_answer3">d. +/- 0.75V</LABEL> </DIV>
+<DIV class="r0"><INPUT name="q500753:13_answer" id="q500753:13_answer4" type="radio" 
+value="4"><LABEL for="q500753:13_answer4">e. Croneckerov impulz s npätím 
+0.75V</LABEL> </DIV></DIV></DIV></DIV></DIV></DIV>
+<DIV class="que multichoice deferredfeedback notyetanswered" id="q15">
+<DIV class="info">
+<H3 class="no">Otázka <SPAN class="qno">5</SPAN></H3>
+<DIV class="state">Ešte nezodpovedané</DIV>
+<DIV class="grade">Max. hodnotenie 1</DIV>
+<DIV class="questionflag editable" aria-live="assertive" aria-relevant="text" 
+aria-atomic="true"><INPUT name="q500753:15_:flagged" type="hidden" value="0"><INPUT 
+name="q500753:15_:flagged" id="q500753:15_:flaggedcheckbox" type="checkbox" 
+value="1"><INPUT class="questionflagpostdata" type="hidden" value="qaid=1072550&amp;qubaid=500753&amp;qid=77516&amp;slot=15&amp;checksum=7245f2e06a669e300fa7ca09a6ff752f&amp;sesskey=gESq0cbCik&amp;newstate="><LABEL 
+id="q500753:15_:flaggedlabel" for="q500753:15_:flaggedcheckbox"><IMG id="q500753:15_:flaggedimg" 
+alt="Neoznačená" src="Skúšobný%20test%20PS_php_soubory/unflagged.png"></LABEL> 
+</DIV></DIV>
+<DIV class="content">
+<DIV class="formulation">
+<H4 class="accesshide">Text 
+otázky</H4><INPUT name="q500753:15_:sequencecheck" type="hidden" value="1">
+<DIV class="qtext">V ISDN je použitá medziústredňová signalizácia</DIV>
+<DIV class="ablock">
+<DIV class="prompt">Vyberte jednu:</DIV>
+<DIV class="answer">
+<DIV class="r0"><INPUT name="q500753:15_answer" id="q500753:15_answer0" type="radio" 
+value="0"><LABEL for="q500753:15_answer0">a. SS7</LABEL> </DIV>
+<DIV class="r1"><INPUT name="q500753:15_answer" id="q500753:15_answer1" type="radio" 
+value="1"><LABEL for="q500753:15_answer1">b. U</LABEL> </DIV>
+<DIV class="r0"><INPUT name="q500753:15_answer" id="q500753:15_answer2" type="radio" 
+value="2"><LABEL for="q500753:15_answer2">c. SIP</LABEL> </DIV>
+<DIV class="r1"><INPUT name="q500753:15_answer" id="q500753:15_answer3" type="radio" 
+value="3"><LABEL for="q500753:15_answer3">d. DSS1</LABEL> </DIV>
+<DIV class="r0"><INPUT name="q500753:15_answer" id="q500753:15_answer4" type="radio" 
+value="4"><LABEL for="q500753:15_answer4">e. H.323</LABEL> </DIV>
+<DIV class="r1"><INPUT name="q500753:15_answer" id="q500753:15_answer5" type="radio" 
+value="5"><LABEL for="q500753:15_answer5">f. MEGACO</LABEL> 
+</DIV></DIV></DIV></DIV></DIV></DIV>
+<DIV class="que multichoice deferredfeedback notyetanswered" id="q12">
+<DIV class="info">
+<H3 class="no">Otázka <SPAN class="qno">6</SPAN></H3>
+<DIV class="state">Ešte nezodpovedané</DIV>
+<DIV class="grade">Max. hodnotenie 1</DIV>
+<DIV class="questionflag editable" aria-live="assertive" aria-relevant="text" 
+aria-atomic="true"><INPUT name="q500753:12_:flagged" type="hidden" value="0"><INPUT 
+name="q500753:12_:flagged" id="q500753:12_:flaggedcheckbox" type="checkbox" 
+value="1"><INPUT class="questionflagpostdata" type="hidden" value="qaid=1072547&amp;qubaid=500753&amp;qid=77379&amp;slot=12&amp;checksum=3c0cca1aa87f1cdb96d8541323d743a1&amp;sesskey=gESq0cbCik&amp;newstate="><LABEL 
+id="q500753:12_:flaggedlabel" for="q500753:12_:flaggedcheckbox"><IMG id="q500753:12_:flaggedimg" 
+alt="Neoznačená" src="Skúšobný%20test%20PS_php_soubory/unflagged.png"></LABEL> 
+</DIV></DIV>
+<DIV class="content">
+<DIV class="formulation">
+<H4 class="accesshide">Text 
+otázky</H4><INPUT name="q500753:12_:sequencecheck" type="hidden" value="1">
+<DIV class="qtext">Ktorú z uvedených metód viacnásobného prístupu využíva 
+technológia 802.11n?</DIV>
+<DIV class="ablock">
+<DIV class="prompt">Vyberte jednu:</DIV>
+<DIV class="answer">
+<DIV class="r0"><INPUT name="q500753:12_answer" id="q500753:12_answer0" type="radio" 
+value="0"><LABEL for="q500753:12_answer0">a. Space Division Multiple 
+Access</LABEL> </DIV>
+<DIV class="r1"><INPUT name="q500753:12_answer" id="q500753:12_answer1" type="radio" 
+value="1"><LABEL for="q500753:12_answer1">b. Frequency Division Multiple 
+Access</LABEL> </DIV>
+<DIV class="r0"><INPUT name="q500753:12_answer" id="q500753:12_answer2" type="radio" 
+value="2"><LABEL for="q500753:12_answer2">c. Wave Division Multiple 
+Access</LABEL> </DIV></DIV></DIV></DIV></DIV></DIV>
+<DIV class="que multichoice deferredfeedback notyetanswered" id="q19">
+<DIV class="info">
+<H3 class="no">Otázka <SPAN class="qno">7</SPAN></H3>
+<DIV class="state">Ešte nezodpovedané</DIV>
+<DIV class="grade">Max. hodnotenie 1</DIV>
+<DIV class="questionflag editable" aria-live="assertive" aria-relevant="text" 
+aria-atomic="true"><INPUT name="q500753:19_:flagged" type="hidden" value="0"><INPUT 
+name="q500753:19_:flagged" id="q500753:19_:flaggedcheckbox" type="checkbox" 
+value="1"><INPUT class="questionflagpostdata" type="hidden" value="qaid=1072554&amp;qubaid=500753&amp;qid=77575&amp;slot=19&amp;checksum=9fd09a20361427cbd11f1e877c96e877&amp;sesskey=gESq0cbCik&amp;newstate="><LABEL 
+id="q500753:19_:flaggedlabel" for="q500753:19_:flaggedcheckbox"><IMG id="q500753:19_:flaggedimg" 
+alt="Neoznačená" src="Skúšobný%20test%20PS_php_soubory/unflagged.png"></LABEL> 
+</DIV></DIV>
+<DIV class="content">
+<DIV class="formulation">
+<H4 class="accesshide">Text 
+otázky</H4><INPUT name="q500753:19_:sequencecheck" type="hidden" value="1">
+<DIV class="qtext">Technológia GPON používa pre smer downstream svetlo s vlnovou 
+dĺžkou v okolí</DIV>
+<DIV class="ablock">
+<DIV class="prompt">Vyberte jednu:</DIV>
+<DIV class="answer">
+<DIV class="r0"><INPUT name="q500753:19_answer" id="q500753:19_answer0" type="radio" 
+value="0"><LABEL for="q500753:19_answer0">a. 1000 nm</LABEL> </DIV>
+<DIV class="r1"><INPUT name="q500753:19_answer" id="q500753:19_answer1" type="radio" 
+value="1"><LABEL for="q500753:19_answer1">b. 850 nm</LABEL> </DIV>
+<DIV class="r0"><INPUT name="q500753:19_answer" id="q500753:19_answer2" type="radio" 
+value="2"><LABEL for="q500753:19_answer2">c. 1310 nm</LABEL> </DIV>
+<DIV class="r1"><INPUT name="q500753:19_answer" id="q500753:19_answer3" type="radio" 
+value="3"><LABEL for="q500753:19_answer3">d. 1490 nm</LABEL> </DIV>
+<DIV class="r0"><INPUT name="q500753:19_answer" id="q500753:19_answer4" type="radio" 
+value="4"><LABEL for="q500753:19_answer4">e. 10 mm</LABEL> 
+</DIV></DIV></DIV></DIV></DIV></DIV>
+<DIV class="que shortanswer deferredfeedback notyetanswered" id="q6">
+<DIV class="info">
+<H3 class="no">Otázka <SPAN class="qno">8</SPAN></H3>
+<DIV class="state">Ešte nezodpovedané</DIV>
+<DIV class="grade">Max. hodnotenie 1</DIV>
+<DIV class="questionflag editable" aria-live="assertive" aria-relevant="text" 
+aria-atomic="true"><INPUT name="q500753:6_:flagged" type="hidden" value="0"><INPUT 
+name="q500753:6_:flagged" id="q500753:6_:flaggedcheckbox" type="checkbox" value="1"><INPUT class="questionflagpostdata" type="hidden" value="qaid=1072541&amp;qubaid=500753&amp;qid=76367&amp;slot=6&amp;checksum=5aab7af259be505dacac3b08bbc971d5&amp;sesskey=gESq0cbCik&amp;newstate="><LABEL 
+id="q500753:6_:flaggedlabel" for="q500753:6_:flaggedcheckbox"><IMG id="q500753:6_:flaggedimg" 
+alt="Neoznačená" src="Skúšobný%20test%20PS_php_soubory/unflagged.png"></LABEL> 
+</DIV></DIV>
+<DIV class="content">
+<DIV class="formulation">
+<H4 class="accesshide">Text 
+otázky</H4><INPUT name="q500753:6_:sequencecheck" type="hidden" value="1">
+<DIV class="qtext">
+<META name="ProgId" content="Word.Document">
+<META name="Generator" content="Microsoft Word 11">
+<META name="Originator" content="Microsoft Word 11"><LINK href="file:///C:\Users\wieser\AppData\Local\Temp\msohtml1\01\clip_filelist.xml" 
+rel="File-List"><!--[if gte mso 9]><xml><w:WordDocument><w:View>Normal</w:View><w:Zoom>0</w:Zoom><w:HyphenationZone>21</w:HyphenationZone><w:PunctuationKerning/><w:ValidateAgainstSchemas/><w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid><w:IgnoreMixedContent>false</w:IgnoreMixedContent><w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText><w:Compatibility><w:BreakWrappedTables/><w:SnapToGridInCell/><w:WrapTextWithPunct/><w:UseAsianBreakRules/><w:DontGrowAutofit/></w:Compatibility><w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel></w:WordDocument></xml><![endif]--><!--[if gte mso 9]><xml><w:LatentStyles DefLockedState="false" LatentStyleCount="156"></w:LatentStyles></xml><![endif]-->
+<STYLE> &lt;!-- /* Style Definitions */ p.MsoNormal, li.MsoNormal, div.MsoNormal {mso-style-parent:&quot;&quot;; margin:0cm; margin-bottom:.0001pt; mso-pagination:widow-orphan; font-size:12.0pt; font-family:&quot;Times New Roman&quot;; mso-fareast-font-family:&quot;Times New Roman&quot;;} p.MsoPlainText, li.MsoPlainText, div.MsoPlainText {margin:0cm; margin-bottom:.0001pt; mso-pagination:widow-orphan; font-size:10.0pt; font-family:&quot;Courier New&quot;; mso-fareast-font-family:&quot;Times New Roman&quot;;} @page Section1 {size:612.0pt 792.0pt; margin:70.85pt 70.85pt 70.85pt 70.85pt; mso-header-margin:35.4pt; mso-footer-margin:35.4pt; mso-paper-source:0;} div.Section1 {page:Section1;} --&gt; </STYLE>
+<!--[if gte mso 10]><style> <br />
+    /* Style Definitions */<br />
+    table.MsoNormalTable<br />
+   	{mso-style-name:"Normálna tabuľka";<br />
+   	mso-tstyle-rowband-size:0;<br />
+   	mso-tstyle-colband-size:0;<br />
+   	mso-style-noshow:yes;<br />
+   	mso-style-parent:"";<br />
+   	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;<br />
+   	mso-para-margin:0cm;<br />
+   	mso-para-margin-bottom:.0001pt;<br />
+   	mso-pagination:widow-orphan;<br />
+   	font-size:10.0pt;<br />
+   	font-family:"Times New Roman";<br />
+   	mso-ansi-language:#0400;<br />
+   	mso-fareast-language:#0400;<br />
+   	mso-bidi-language:#0400;}<br />
+   </style><![endif]-->
+<P class="MsoPlainText"><SPAN style="background: rgb(255, 255, 255);">Určte 
+počet kanálov celej bunkovej siete ak má operátor pridelených 200</SPAN> 
+duplexných kanálov, používa zväzok buniek K = 4 a tento zväzok 10-krát 
+opakuje.</P></DIV>
+<DIV class="ablock"><LABEL for="q500753:6_answer">Odpoveď: <SPAN 
+class="answer"><INPUT name="q500753:6_answer" id="q500753:6_answer" type="text" size="80"></SPAN></LABEL></DIV></DIV></DIV></DIV>
+<DIV class="que multichoice deferredfeedback notyetanswered" id="q16">
+<DIV class="info">
+<H3 class="no">Otázka <SPAN class="qno">9</SPAN></H3>
+<DIV class="state">Ešte nezodpovedané</DIV>
+<DIV class="grade">Max. hodnotenie 1</DIV>
+<DIV class="questionflag editable" aria-live="assertive" aria-relevant="text" 
+aria-atomic="true"><INPUT name="q500753:16_:flagged" type="hidden" value="0"><INPUT 
+name="q500753:16_:flagged" id="q500753:16_:flaggedcheckbox" type="checkbox" 
+value="1"><INPUT class="questionflagpostdata" type="hidden" value="qaid=1072551&amp;qubaid=500753&amp;qid=77454&amp;slot=16&amp;checksum=d931340de6e29094aba0e23f6072d526&amp;sesskey=gESq0cbCik&amp;newstate="><LABEL 
+id="q500753:16_:flaggedlabel" for="q500753:16_:flaggedcheckbox"><IMG id="q500753:16_:flaggedimg" 
+alt="Neoznačená" src="Skúšobný%20test%20PS_php_soubory/unflagged.png"></LABEL> 
+</DIV></DIV>
+<DIV class="content">
+<DIV class="formulation">
+<H4 class="accesshide">Text 
+otázky</H4><INPUT name="q500753:16_:sequencecheck" type="hidden" value="1">
+<DIV class="qtext">Systém ADSL využíva moduláciu</DIV>
+<DIV class="ablock">
+<DIV class="prompt">Vyberte jednu:</DIV>
+<DIV class="answer">
+<DIV class="r0"><INPUT name="q500753:16_answer" id="q500753:16_answer0" type="radio" 
+value="0"><LABEL for="q500753:16_answer0">a. ASK</LABEL> </DIV>
+<DIV class="r1"><INPUT name="q500753:16_answer" id="q500753:16_answer1" type="radio" 
+value="1"><LABEL for="q500753:16_answer1">b. AM</LABEL> </DIV>
+<DIV class="r0"><INPUT name="q500753:16_answer" id="q500753:16_answer2" type="radio" 
+value="2"><LABEL for="q500753:16_answer2">c. FSK</LABEL> </DIV>
+<DIV class="r1"><INPUT name="q500753:16_answer" id="q500753:16_answer3" type="radio" 
+value="3"><LABEL for="q500753:16_answer3">d. QAM</LABEL> </DIV>
+<DIV class="r0"><INPUT name="q500753:16_answer" id="q500753:16_answer4" type="radio" 
+value="4"><LABEL for="q500753:16_answer4">e. FM</LABEL> </DIV>
+<DIV class="r1"><INPUT name="q500753:16_answer" id="q500753:16_answer5" type="radio" 
+value="5"><LABEL for="q500753:16_answer5">f. PSK</LABEL> </DIV>
+<DIV class="r0"><INPUT name="q500753:16_answer" id="q500753:16_answer6" type="radio" 
+value="6"><LABEL for="q500753:16_answer6">g. PCM</LABEL> 
+</DIV></DIV></DIV></DIV></DIV></DIV>
+<DIV class="que shortanswer deferredfeedback notyetanswered" id="q8">
+<DIV class="info">
+<H3 class="no">Otázka <SPAN class="qno">10</SPAN></H3>
+<DIV class="state">Ešte nezodpovedané</DIV>
+<DIV class="grade">Max. hodnotenie 1</DIV>
+<DIV class="questionflag editable" aria-live="assertive" aria-relevant="text" 
+aria-atomic="true"><INPUT name="q500753:8_:flagged" type="hidden" value="0"><INPUT 
+name="q500753:8_:flagged" id="q500753:8_:flaggedcheckbox" type="checkbox" value="1"><INPUT class="questionflagpostdata" type="hidden" value="qaid=1072543&amp;qubaid=500753&amp;qid=76364&amp;slot=8&amp;checksum=9744dd16921a1110fe6fcb4a0ec96644&amp;sesskey=gESq0cbCik&amp;newstate="><LABEL 
+id="q500753:8_:flaggedlabel" for="q500753:8_:flaggedcheckbox"><IMG id="q500753:8_:flaggedimg" 
+alt="Neoznačená" src="Skúšobný%20test%20PS_php_soubory/unflagged.png"></LABEL> 
+</DIV></DIV>
+<DIV class="content">
+<DIV class="formulation">
+<H4 class="accesshide">Text 
+otázky</H4><INPUT name="q500753:8_:sequencecheck" type="hidden" value="1">
+<DIV class="qtext">
+<META name="ProgId" content="Word.Document">
+<META name="Generator" content="Microsoft Word 11">
+<META name="Originator" content="Microsoft Word 11"><LINK href="file:///C:\Users\wieser\AppData\Local\Temp\msohtml1\01\clip_filelist.xml" 
+rel="File-List"><!--[if gte mso 9]><xml><w:WordDocument><w:View>Normal</w:View><w:Zoom>0</w:Zoom><w:HyphenationZone>21</w:HyphenationZone><w:PunctuationKerning/><w:ValidateAgainstSchemas/><w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid><w:IgnoreMixedContent>false</w:IgnoreMixedContent><w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText><w:Compatibility><w:BreakWrappedTables/><w:SnapToGridInCell/><w:WrapTextWithPunct/><w:UseAsianBreakRules/><w:DontGrowAutofit/></w:Compatibility><w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel></w:WordDocument></xml><![endif]--><!--[if gte mso 9]><xml><w:LatentStyles DefLockedState="false" LatentStyleCount="156"></w:LatentStyles></xml><![endif]-->
+<STYLE> &lt;!-- /* Style Definitions */ p.MsoNormal, li.MsoNormal, div.MsoNormal {mso-style-parent:&quot;&quot;; margin:0cm; margin-bottom:.0001pt; mso-pagination:widow-orphan; font-size:12.0pt; font-family:&quot;Times New Roman&quot;; mso-fareast-font-family:&quot;Times New Roman&quot;;} p.MsoPlainText, li.MsoPlainText, div.MsoPlainText {margin:0cm; margin-bottom:.0001pt; mso-pagination:widow-orphan; font-size:10.0pt; font-family:&quot;Courier New&quot;; mso-fareast-font-family:&quot;Times New Roman&quot;;} @page Section1 {size:612.0pt 792.0pt; margin:70.85pt 70.85pt 70.85pt 70.85pt; mso-header-margin:35.4pt; mso-footer-margin:35.4pt; mso-paper-source:0;} div.Section1 {page:Section1;} --&gt; </STYLE>
+<!--[if gte mso 10]><style> <br />
+    /* Style Definitions */<br />
+    table.MsoNormalTable<br />
+   	{mso-style-name:"Normálna tabuľka";<br />
+   	mso-tstyle-rowband-size:0;<br />
+   	mso-tstyle-colband-size:0;<br />
+   	mso-style-noshow:yes;<br />
+   	mso-style-parent:"";<br />
+   	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;<br />
+   	mso-para-margin:0cm;<br />
+   	mso-para-margin-bottom:.0001pt;<br />
+   	mso-pagination:widow-orphan;<br />
+   	font-size:10.0pt;<br />
+   	font-family:"Times New Roman";<br />
+   	mso-ansi-language:#0400;<br />
+   	mso-fareast-language:#0400;<br />
+   	mso-bidi-language:#0400;}<br />
+   </style><![endif]-->
+<P class="MsoPlainText" style="background-color: rgb(255, 255, 255);"><SPAN 
+style="background-position: 0% 0%; background-image: none; background-attachment: scroll; background-repeat: repeat; -moz-background-size: auto auto; -moz-background-clip: border; -moz-background-origin: padding;">Určte 
+duplexný odstup FDD v systéme GSM900 (UL: 890-915MHz, DL: 935-960MHz)</SPAN> 
+(MHz):</P></DIV>
+<DIV class="ablock"><LABEL for="q500753:8_answer">Odpoveď: <SPAN 
+class="answer"><INPUT name="q500753:8_answer" id="q500753:8_answer" type="text" size="80"></SPAN></LABEL></DIV></DIV></DIV></DIV>
+<DIV class="que multichoice deferredfeedback notyetanswered" id="q17">
+<DIV class="info">
+<H3 class="no">Otázka <SPAN class="qno">11</SPAN></H3>
+<DIV class="state">Ešte nezodpovedané</DIV>
+<DIV class="grade">Max. hodnotenie 1</DIV>
+<DIV class="questionflag editable" aria-live="assertive" aria-relevant="text" 
+aria-atomic="true"><INPUT name="q500753:17_:flagged" type="hidden" value="0"><INPUT 
+name="q500753:17_:flagged" id="q500753:17_:flaggedcheckbox" type="checkbox" 
+value="1"><INPUT class="questionflagpostdata" type="hidden" value="qaid=1072552&amp;qubaid=500753&amp;qid=77453&amp;slot=17&amp;checksum=1f713d73b5b40497bfa9d4198f760157&amp;sesskey=gESq0cbCik&amp;newstate="><LABEL 
+id="q500753:17_:flaggedlabel" for="q500753:17_:flaggedcheckbox"><IMG id="q500753:17_:flaggedimg" 
+alt="Neoznačená" src="Skúšobný%20test%20PS_php_soubory/unflagged.png"></LABEL> 
+</DIV></DIV>
+<DIV class="content">
+<DIV class="formulation">
+<H4 class="accesshide">Text 
+otázky</H4><INPUT name="q500753:17_:sequencecheck" type="hidden" value="1">
+<DIV class="qtext">Systém ADSL2+ pre prenos využíva</DIV>
+<DIV class="ablock">
+<DIV class="prompt">Vyberte jednu:</DIV>
+<DIV class="answer">
+<DIV class="r0"><INPUT name="q500753:17_answer" id="q500753:17_answer0" type="radio" 
+value="0"><LABEL for="q500753:17_answer0">a. maximálne 512 nosných 
+frekvencií</LABEL> </DIV>
+<DIV class="r1"><INPUT name="q500753:17_answer" id="q500753:17_answer1" type="radio" 
+value="1"><LABEL for="q500753:17_answer1">b. jednu nosnú frekvenciu</LABEL> 
+</DIV>
+<DIV class="r0"><INPUT name="q500753:17_answer" id="q500753:17_answer2" type="radio" 
+value="2"><LABEL for="q500753:17_answer2">c. dve nosné frekvencie</LABEL> 
+</DIV></DIV></DIV></DIV></DIV></DIV>
+<DIV class="que multichoice deferredfeedback notyetanswered" id="q4">
+<DIV class="info">
+<H3 class="no">Otázka <SPAN class="qno">12</SPAN></H3>
+<DIV class="state">Ešte nezodpovedané</DIV>
+<DIV class="grade">Max. hodnotenie 1</DIV>
+<DIV class="questionflag editable" aria-live="assertive" aria-relevant="text" 
+aria-atomic="true"><INPUT name="q500753:4_:flagged" type="hidden" value="0"><INPUT 
+name="q500753:4_:flagged" id="q500753:4_:flaggedcheckbox" type="checkbox" value="1"><INPUT class="questionflagpostdata" type="hidden" value="qaid=1072539&amp;qubaid=500753&amp;qid=76454&amp;slot=4&amp;checksum=b4e54874eed44557eec519acf065c1a5&amp;sesskey=gESq0cbCik&amp;newstate="><LABEL 
+id="q500753:4_:flaggedlabel" for="q500753:4_:flaggedcheckbox"><IMG id="q500753:4_:flaggedimg" 
+alt="Neoznačená" src="Skúšobný%20test%20PS_php_soubory/unflagged.png"></LABEL> 
+</DIV></DIV>
+<DIV class="content">
+<DIV class="formulation">
+<H4 class="accesshide">Text 
+otázky</H4><INPUT name="q500753:4_:sequencecheck" type="hidden" value="1">
+<DIV class="qtext">Architektúra SAE (System Architecture Evolution) používa 
+rádiovú prístupovú sieť:</DIV>
+<DIV class="ablock">
+<DIV class="prompt">Vyberte jednu:</DIV>
+<DIV class="answer">
+<DIV class="r0"><INPUT name="q500753:4_answer" id="q500753:4_answer0" type="radio" 
+value="0"><LABEL for="q500753:4_answer0">a. E-UTRAN</LABEL> </DIV>
+<DIV class="r1"><INPUT name="q500753:4_answer" id="q500753:4_answer1" type="radio" 
+value="1"><LABEL for="q500753:4_answer1">b. UTRA</LABEL> </DIV>
+<DIV class="r0"><INPUT name="q500753:4_answer" id="q500753:4_answer2" type="radio" 
+value="2"><LABEL for="q500753:4_answer2">c. neobsahuje rádiovú prístupovú 
+sieť</LABEL> </DIV>
+<DIV class="r1"><INPUT name="q500753:4_answer" id="q500753:4_answer3" type="radio" 
+value="3"><LABEL for="q500753:4_answer3">d. BSS</LABEL> 
+</DIV></DIV></DIV></DIV></DIV></DIV>
+<DIV class="que multichoice deferredfeedback notyetanswered" id="q11">
+<DIV class="info">
+<H3 class="no">Otázka <SPAN class="qno">13</SPAN></H3>
+<DIV class="state">Ešte nezodpovedané</DIV>
+<DIV class="grade">Max. hodnotenie 1</DIV>
+<DIV class="questionflag editable" aria-live="assertive" aria-relevant="text" 
+aria-atomic="true"><INPUT name="q500753:11_:flagged" type="hidden" value="0"><INPUT 
+name="q500753:11_:flagged" id="q500753:11_:flaggedcheckbox" type="checkbox" 
+value="1"><INPUT class="questionflagpostdata" type="hidden" value="qaid=1072546&amp;qubaid=500753&amp;qid=77364&amp;slot=11&amp;checksum=2e8a6fde1f4728c2bf5e856da7230563&amp;sesskey=gESq0cbCik&amp;newstate="><LABEL 
+id="q500753:11_:flaggedlabel" for="q500753:11_:flaggedcheckbox"><IMG id="q500753:11_:flaggedimg" 
+alt="Neoznačená" src="Skúšobný%20test%20PS_php_soubory/unflagged.png"></LABEL> 
+</DIV></DIV>
+<DIV class="content">
+<DIV class="formulation">
+<H4 class="accesshide">Text 
+otázky</H4><INPUT name="q500753:11_:sequencecheck" type="hidden" value="1">
+<DIV class="qtext">Koľko percent porúch je spôsobených v prístupovej 
+sieti?</DIV>
+<DIV class="ablock">
+<DIV class="prompt">Vyberte jednu:</DIV>
+<DIV class="answer">
+<DIV class="r0"><INPUT name="q500753:11_answer" id="q500753:11_answer0" type="radio" 
+value="0"><LABEL for="q500753:11_answer0">a. 75%</LABEL> </DIV>
+<DIV class="r1"><INPUT name="q500753:11_answer" id="q500753:11_answer1" type="radio" 
+value="1"><LABEL for="q500753:11_answer1">b. 10%</LABEL> </DIV>
+<DIV class="r0"><INPUT name="q500753:11_answer" id="q500753:11_answer2" type="radio" 
+value="2"><LABEL for="q500753:11_answer2">c. 20%</LABEL> </DIV>
+<DIV class="r1"><INPUT name="q500753:11_answer" id="q500753:11_answer3" type="radio" 
+value="3"><LABEL for="q500753:11_answer3">d. 30%</LABEL> 
+</DIV></DIV></DIV></DIV></DIV></DIV>
+<DIV class="que multichoice deferredfeedback notyetanswered" id="q3">
+<DIV class="info">
+<H3 class="no">Otázka <SPAN class="qno">14</SPAN></H3>
+<DIV class="state">Ešte nezodpovedané</DIV>
+<DIV class="grade">Max. hodnotenie 1</DIV>
+<DIV class="questionflag editable" aria-live="assertive" aria-relevant="text" 
+aria-atomic="true"><INPUT name="q500753:3_:flagged" type="hidden" value="0"><INPUT 
+name="q500753:3_:flagged" id="q500753:3_:flaggedcheckbox" type="checkbox" value="1"><INPUT class="questionflagpostdata" type="hidden" value="qaid=1072538&amp;qubaid=500753&amp;qid=76460&amp;slot=3&amp;checksum=84dff5000ed8d40f81f92fd368db8f3d&amp;sesskey=gESq0cbCik&amp;newstate="><LABEL 
+id="q500753:3_:flaggedlabel" for="q500753:3_:flaggedcheckbox"><IMG id="q500753:3_:flaggedimg" 
+alt="Neoznačená" src="Skúšobný%20test%20PS_php_soubory/unflagged.png"></LABEL> 
+</DIV></DIV>
+<DIV class="content">
+<DIV class="formulation">
+<H4 class="accesshide">Text 
+otázky</H4><INPUT name="q500753:3_:sequencecheck" type="hidden" value="1">
+<DIV class="qtext">Systém GSM používa prepnutie spojenia typu:</DIV>
+<DIV class="ablock">
+<DIV class="prompt">Vyberte jednu:</DIV>
+<DIV class="answer">
+<DIV class="r0"><INPUT name="q500753:3_answer" id="q500753:3_answer0" type="radio" 
+value="0"><LABEL for="q500753:3_answer0">A. tvrdé prepnutie</LABEL> </DIV>
+<DIV class="r1"><INPUT name="q500753:3_answer" id="q500753:3_answer1" type="radio" 
+value="1"><LABEL for="q500753:3_answer1">B. mäkké prepnutie</LABEL> </DIV>
+<DIV class="r0"><INPUT name="q500753:3_answer" id="q500753:3_answer2" type="radio" 
+value="2"><LABEL for="q500753:3_answer2">C. tvrdé aj mäkké prepnutie</LABEL> 
+</DIV>
+<DIV class="r1"><INPUT name="q500753:3_answer" id="q500753:3_answer3" type="radio" 
+value="3"><LABEL for="q500753:3_answer3">D. mäkšie prepnutie</LABEL> 
+</DIV></DIV></DIV></DIV></DIV></DIV>
+<DIV class="que shortanswer deferredfeedback notyetanswered" id="q7">
+<DIV class="info">
+<H3 class="no">Otázka <SPAN class="qno">15</SPAN></H3>
+<DIV class="state">Ešte nezodpovedané</DIV>
+<DIV class="grade">Max. hodnotenie 1</DIV>
+<DIV class="questionflag editable" aria-live="assertive" aria-relevant="text" 
+aria-atomic="true"><INPUT name="q500753:7_:flagged" type="hidden" value="0"><INPUT 
+name="q500753:7_:flagged" id="q500753:7_:flaggedcheckbox" type="checkbox" value="1"><INPUT class="questionflagpostdata" type="hidden" value="qaid=1072542&amp;qubaid=500753&amp;qid=76380&amp;slot=7&amp;checksum=88e55b7a5471faf4729b5ae7fcf32268&amp;sesskey=gESq0cbCik&amp;newstate="><LABEL 
+id="q500753:7_:flaggedlabel" for="q500753:7_:flaggedcheckbox"><IMG id="q500753:7_:flaggedimg" 
+alt="Neoznačená" src="Skúšobný%20test%20PS_php_soubory/unflagged.png"></LABEL> 
+</DIV></DIV>
+<DIV class="content">
+<DIV class="formulation">
+<H4 class="accesshide">Text 
+otázky</H4><INPUT name="q500753:7_:sequencecheck" type="hidden" value="1">
+<DIV class="qtext"><!--[if gte mso 9]><xml><w:WordDocument><w:View>Normal</w:View><w:Zoom>0</w:Zoom><w:TrackMoves/><w:TrackFormatting/><w:HyphenationZone>21</w:HyphenationZone><w:PunctuationKerning/><w:ValidateAgainstSchemas/><w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid><w:IgnoreMixedContent>false</w:IgnoreMixedContent><w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText><w:DoNotPromoteQF/><w:LidThemeOther>SK</w:LidThemeOther><w:LidThemeAsian>X-NONE</w:LidThemeAsian><w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript><w:Compatibility><w:BreakWrappedTables/><w:SnapToGridInCell/><w:WrapTextWithPunct/><w:UseAsianBreakRules/><w:DontGrowAutofit/><w:SplitPgBreakAndParaMark/><w:DontVertAlignCellWithSp/><w:DontBreakConstrainedForcedTables/><w:DontVertAlignInTxbx/><w:Word11KerningPairs/><w:CachedColBalance/></w:Compatibility><w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel><m:mathPr><m:mathFont m:val="Cambria Math"/><m:brkBin m:val="before"/><m:brkBinSub m:val="&#45;-"/><m:smallFrac m:val="off"/><m:dispDef/><m:lMargin m:val="0"/><m:rMargin m:val="0"/><m:defJc m:val="centerGroup"/><m:wrapIndent m:val="1440"/><m:intLim m:val="subSup"/><m:naryLim m:val="undOvr"/></m:mathPr></w:WordDocument></xml><![endif]--><!--[if gte mso 9]><xml><w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="true"<br />
+     DefSemiHidden="true" DefQFormat="false" DefPriority="99"<br />
+     LatentStyleCount="267"><w:LsdException Locked="false" Priority="0" SemiHidden="false"<br />
+      UnhideWhenUsed="false" QFormat="true" Name="Normal"/><w:LsdException Locked="false" Priority="9" SemiHidden="false"<br />
+      UnhideWhenUsed="false" QFormat="true" Name="heading 1"/><w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 2"/><w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 3"/><w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 4"/><w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5"/><w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6"/><w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7"/><w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8"/><w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9"/><w:LsdException Locked="false" Priority="39" Name="toc 1"/><w:LsdException Locked="false" Priority="39" Name="toc 2"/><w:LsdException Locked="false" Priority="39" Name="toc 3"/><w:LsdException Locked="false" Priority="39" Name="toc 4"/><w:LsdException Locked="false" Priority="39" Name="toc 5"/><w:LsdException Locked="false" Priority="39" Name="toc 6"/><w:LsdException Locked="false" Priority="39" Name="toc 7"/><w:LsdException Locked="false" Priority="39" Name="toc 8"/><w:LsdException Locked="false" Priority="39" Name="toc 9"/><w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption"/><w:LsdException Locked="false" Priority="10" SemiHidden="false"<br />
+      UnhideWhenUsed="false" QFormat="true" Name="Title"/><w:LsdException Locked="false" Priority="1" Name="Default Paragraph Font"/><w:LsdException Locked="false" Priority="11" SemiHidden="false"<br />
+      UnhideWhenUsed="false" QFormat="true" Name="Subtitle"/><w:LsdException Locked="false" Priority="22" SemiHidden="false"<br />
+      UnhideWhenUsed="false" QFormat="true" Name="Strong"/><w:LsdException Locked="false" Priority="20" SemiHidden="false"<br />
+      UnhideWhenUsed="false" QFormat="true" Name="Emphasis"/><w:LsdException Locked="false" Priority="59" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Table Grid"/><w:LsdException Locked="false" UnhideWhenUsed="false" Name="Placeholder Text"/><w:LsdException Locked="false" Priority="1" SemiHidden="false"<br />
+      UnhideWhenUsed="false" QFormat="true" Name="No Spacing"/><w:LsdException Locked="false" Priority="60" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Light Shading"/><w:LsdException Locked="false" Priority="61" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Light List"/><w:LsdException Locked="false" Priority="62" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Light Grid"/><w:LsdException Locked="false" Priority="63" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium Shading 1"/><w:LsdException Locked="false" Priority="64" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium Shading 2"/><w:LsdException Locked="false" Priority="65" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium List 1"/><w:LsdException Locked="false" Priority="66" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium List 2"/><w:LsdException Locked="false" Priority="67" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium Grid 1"/><w:LsdException Locked="false" Priority="68" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium Grid 2"/><w:LsdException Locked="false" Priority="69" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium Grid 3"/><w:LsdException Locked="false" Priority="70" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Dark List"/><w:LsdException Locked="false" Priority="71" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Colorful Shading"/><w:LsdException Locked="false" Priority="72" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Colorful List"/><w:LsdException Locked="false" Priority="73" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Colorful Grid"/><w:LsdException Locked="false" Priority="60" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Light Shading Accent 1"/><w:LsdException Locked="false" Priority="61" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Light List Accent 1"/><w:LsdException Locked="false" Priority="62" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Light Grid Accent 1"/><w:LsdException Locked="false" Priority="63" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1"/><w:LsdException Locked="false" Priority="64" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1"/><w:LsdException Locked="false" Priority="65" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium List 1 Accent 1"/><w:LsdException Locked="false" UnhideWhenUsed="false" Name="Revision"/><w:LsdException Locked="false" Priority="34" SemiHidden="false"<br />
+      UnhideWhenUsed="false" QFormat="true" Name="List Paragraph"/><w:LsdException Locked="false" Priority="29" SemiHidden="false"<br />
+      UnhideWhenUsed="false" QFormat="true" Name="Quote"/><w:LsdException Locked="false" Priority="30" SemiHidden="false"<br />
+      UnhideWhenUsed="false" QFormat="true" Name="Intense Quote"/><w:LsdException Locked="false" Priority="66" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium List 2 Accent 1"/><w:LsdException Locked="false" Priority="67" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1"/><w:LsdException Locked="false" Priority="68" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1"/><w:LsdException Locked="false" Priority="69" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1"/><w:LsdException Locked="false" Priority="70" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Dark List Accent 1"/><w:LsdException Locked="false" Priority="71" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Colorful Shading Accent 1"/><w:LsdException Locked="false" Priority="72" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Colorful List Accent 1"/><w:LsdException Locked="false" Priority="73" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Colorful Grid Accent 1"/><w:LsdException Locked="false" Priority="60" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Light Shading Accent 2"/><w:LsdException Locked="false" Priority="61" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Light List Accent 2"/><w:LsdException Locked="false" Priority="62" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Light Grid Accent 2"/><w:LsdException Locked="false" Priority="63" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2"/><w:LsdException Locked="false" Priority="64" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2"/><w:LsdException Locked="false" Priority="65" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium List 1 Accent 2"/><w:LsdException Locked="false" Priority="66" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium List 2 Accent 2"/><w:LsdException Locked="false" Priority="67" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2"/><w:LsdException Locked="false" Priority="68" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2"/><w:LsdException Locked="false" Priority="69" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2"/><w:LsdException Locked="false" Priority="70" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Dark List Accent 2"/><w:LsdException Locked="false" Priority="71" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Colorful Shading Accent 2"/><w:LsdException Locked="false" Priority="72" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Colorful List Accent 2"/><w:LsdException Locked="false" Priority="73" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Colorful Grid Accent 2"/><w:LsdException Locked="false" Priority="60" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Light Shading Accent 3"/><w:LsdException Locked="false" Priority="61" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Light List Accent 3"/><w:LsdException Locked="false" Priority="62" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Light Grid Accent 3"/><w:LsdException Locked="false" Priority="63" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3"/><w:LsdException Locked="false" Priority="64" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3"/><w:LsdException Locked="false" Priority="65" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium List 1 Accent 3"/><w:LsdException Locked="false" Priority="66" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium List 2 Accent 3"/><w:LsdException Locked="false" Priority="67" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3"/><w:LsdException Locked="false" Priority="68" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3"/><w:LsdException Locked="false" Priority="69" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3"/><w:LsdException Locked="false" Priority="70" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Dark List Accent 3"/><w:LsdException Locked="false" Priority="71" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Colorful Shading Accent 3"/><w:LsdException Locked="false" Priority="72" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Colorful List Accent 3"/><w:LsdException Locked="false" Priority="73" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Colorful Grid Accent 3"/><w:LsdException Locked="false" Priority="60" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Light Shading Accent 4"/><w:LsdException Locked="false" Priority="61" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Light List Accent 4"/><w:LsdException Locked="false" Priority="62" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Light Grid Accent 4"/><w:LsdException Locked="false" Priority="63" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4"/><w:LsdException Locked="false" Priority="64" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4"/><w:LsdException Locked="false" Priority="65" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium List 1 Accent 4"/><w:LsdException Locked="false" Priority="66" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium List 2 Accent 4"/><w:LsdException Locked="false" Priority="67" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4"/><w:LsdException Locked="false" Priority="68" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4"/><w:LsdException Locked="false" Priority="69" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4"/><w:LsdException Locked="false" Priority="70" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Dark List Accent 4"/><w:LsdException Locked="false" Priority="71" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Colorful Shading Accent 4"/><w:LsdException Locked="false" Priority="72" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Colorful List Accent 4"/><w:LsdException Locked="false" Priority="73" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Colorful Grid Accent 4"/><w:LsdException Locked="false" Priority="60" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Light Shading Accent 5"/><w:LsdException Locked="false" Priority="61" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Light List Accent 5"/><w:LsdException Locked="false" Priority="62" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Light Grid Accent 5"/><w:LsdException Locked="false" Priority="63" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5"/><w:LsdException Locked="false" Priority="64" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5"/><w:LsdException Locked="false" Priority="65" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium List 1 Accent 5"/><w:LsdException Locked="false" Priority="66" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium List 2 Accent 5"/><w:LsdException Locked="false" Priority="67" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5"/><w:LsdException Locked="false" Priority="68" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5"/><w:LsdException Locked="false" Priority="69" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5"/><w:LsdException Locked="false" Priority="70" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Dark List Accent 5"/><w:LsdException Locked="false" Priority="71" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Colorful Shading Accent 5"/><w:LsdException Locked="false" Priority="72" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Colorful List Accent 5"/><w:LsdException Locked="false" Priority="73" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Colorful Grid Accent 5"/><w:LsdException Locked="false" Priority="60" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Light Shading Accent 6"/><w:LsdException Locked="false" Priority="61" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Light List Accent 6"/><w:LsdException Locked="false" Priority="62" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Light Grid Accent 6"/><w:LsdException Locked="false" Priority="63" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6"/><w:LsdException Locked="false" Priority="64" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6"/><w:LsdException Locked="false" Priority="65" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium List 1 Accent 6"/><w:LsdException Locked="false" Priority="66" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium List 2 Accent 6"/><w:LsdException Locked="false" Priority="67" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6"/><w:LsdException Locked="false" Priority="68" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6"/><w:LsdException Locked="false" Priority="69" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6"/><w:LsdException Locked="false" Priority="70" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Dark List Accent 6"/><w:LsdException Locked="false" Priority="71" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Colorful Shading Accent 6"/><w:LsdException Locked="false" Priority="72" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Colorful List Accent 6"/><w:LsdException Locked="false" Priority="73" SemiHidden="false"<br />
+      UnhideWhenUsed="false" Name="Colorful Grid Accent 6"/><w:LsdException Locked="false" Priority="19" SemiHidden="false"<br />
+      UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis"/><w:LsdException Locked="false" Priority="21" SemiHidden="false"<br />
+      UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis"/><w:LsdException Locked="false" Priority="31" SemiHidden="false"<br />
+      UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference"/><w:LsdException Locked="false" Priority="32" SemiHidden="false"<br />
+      UnhideWhenUsed="false" QFormat="true" Name="Intense Reference"/><w:LsdException Locked="false" Priority="33" SemiHidden="false"<br />
+      UnhideWhenUsed="false" QFormat="true" Name="Book Title"/><w:LsdException Locked="false" Priority="37" Name="Bibliography"/><w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading"/></w:LatentStyles></xml><![endif]--><!--[if gte mso 10]><style> <br />
+    /* Style Definitions */<br />
+    table.MsoNormalTable<br />
+   	{mso-style-name:"Normální tabulka";<br />
+   	mso-tstyle-rowband-size:0;<br />
+   	mso-tstyle-colband-size:0;<br />
+   	mso-style-noshow:yes;<br />
+   	mso-style-priority:99;<br />
+   	mso-style-qformat:yes;<br />
+   	mso-style-parent:"";<br />
+   	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;<br />
+   	mso-para-margin:0cm;<br />
+   	mso-para-margin-bottom:.0001pt;<br />
+   	mso-pagination:widow-orphan;<br />
+   	font-size:10.0pt;<br />
+   	font-family:"Times New Roman","serif";}<br />
+   </style><![endif]--> 
+Vysielač má výkon 1000W a používa anténu so ziskom 20 dBi. Aký je vyžiarený 
+výkon P<SUB>EIRP </SUB><SPAN></SPAN>(vo watoch) ?</DIV>
+<DIV class="ablock"><LABEL for="q500753:7_answer">Odpoveď: <SPAN 
+class="answer"><INPUT name="q500753:7_answer" id="q500753:7_answer" type="text" size="80"></SPAN></LABEL></DIV></DIV></DIV></DIV>
+<DIV class="que multichoice deferredfeedback notyetanswered" id="q5">
+<DIV class="info">
+<H3 class="no">Otázka <SPAN class="qno">16</SPAN></H3>
+<DIV class="state">Ešte nezodpovedané</DIV>
+<DIV class="grade">Max. hodnotenie 1</DIV>
+<DIV class="questionflag editable" aria-live="assertive" aria-relevant="text" 
+aria-atomic="true"><INPUT name="q500753:5_:flagged" type="hidden" value="0"><INPUT 
+name="q500753:5_:flagged" id="q500753:5_:flaggedcheckbox" type="checkbox" value="1"><INPUT class="questionflagpostdata" type="hidden" value="qaid=1072540&amp;qubaid=500753&amp;qid=76423&amp;slot=5&amp;checksum=6b2d5af6bae2c4a68cd66a9bca2e6cb8&amp;sesskey=gESq0cbCik&amp;newstate="><LABEL 
+id="q500753:5_:flaggedlabel" for="q500753:5_:flaggedcheckbox"><IMG id="q500753:5_:flaggedimg" 
+alt="Neoznačená" src="Skúšobný%20test%20PS_php_soubory/unflagged.png"></LABEL> 
+</DIV></DIV>
+<DIV class="content">
+<DIV class="formulation">
+<H4 class="accesshide">Text 
+otázky</H4><INPUT name="q500753:5_:sequencecheck" type="hidden" value="1">
+<DIV class="qtext">Mäkké prepnutie spojenia v systéme UMTS spočíva v:</DIV>
+<DIV class="ablock">
+<DIV class="prompt">Vyberte jednu:</DIV>
+<DIV class="answer">
+<DIV class="r0"><INPUT name="q500753:5_answer" id="q500753:5_answer0" type="radio" 
+value="0"><LABEL for="q500753:5_answer0">A. súčasnej komunikácii MS maximálne 
+s&nbsp;2 uzlami B</LABEL> </DIV>
+<DIV class="r1"><INPUT name="q500753:5_answer" id="q500753:5_answer1" type="radio" 
+value="1"><LABEL for="q500753:5_answer1">B. súčasnej komunikácii MS 
+s&nbsp;viacerými uzlami B</LABEL> </DIV>
+<DIV class="r0"><INPUT name="q500753:5_answer" id="q500753:5_answer2" type="radio" 
+value="2"><LABEL for="q500753:5_answer2">C. súčasnej komunikácii MS 
+s&nbsp;viacerými sektormi jedného uzla B</LABEL> </DIV>
+<DIV class="r1"><INPUT name="q500753:5_answer" id="q500753:5_answer3" type="radio" 
+value="3"><LABEL for="q500753:5_answer3">D. postupnej komunikácii MS 
+s&nbsp;viacerými uzlami B</LABEL> </DIV></DIV></DIV></DIV></DIV></DIV>
+<DIV class="que multichoice deferredfeedback notyetanswered" id="q20">
+<DIV class="info">
+<H3 class="no">Otázka <SPAN class="qno">17</SPAN></H3>
+<DIV class="state">Ešte nezodpovedané</DIV>
+<DIV class="grade">Max. hodnotenie 1</DIV>
+<DIV class="questionflag editable" aria-live="assertive" aria-relevant="text" 
+aria-atomic="true"><INPUT name="q500753:20_:flagged" type="hidden" value="0"><INPUT 
+name="q500753:20_:flagged" id="q500753:20_:flaggedcheckbox" type="checkbox" 
+value="1"><INPUT class="questionflagpostdata" type="hidden" value="qaid=1072555&amp;qubaid=500753&amp;qid=77586&amp;slot=20&amp;checksum=114d2a87303fd592ae01d599ec05b12f&amp;sesskey=gESq0cbCik&amp;newstate="><LABEL 
+id="q500753:20_:flaggedlabel" for="q500753:20_:flaggedcheckbox"><IMG id="q500753:20_:flaggedimg" 
+alt="Neoznačená" src="Skúšobný%20test%20PS_php_soubory/unflagged.png"></LABEL> 
+</DIV></DIV>
+<DIV class="content">
+<DIV class="formulation">
+<H4 class="accesshide">Text 
+otázky</H4><INPUT name="q500753:20_:sequencecheck" type="hidden" value="1">
+<DIV class="qtext">Ethernetový rámec sa pri technológii GPON zapuzdruje do</DIV>
+<DIV class="ablock">
+<DIV class="prompt">Vyberte jednu:</DIV>
+<DIV class="answer">
+<DIV class="r0"><INPUT name="q500753:20_answer" id="q500753:20_answer0" type="radio" 
+value="0"><LABEL for="q500753:20_answer0">a. SDH rámca</LABEL> </DIV>
+<DIV class="r1"><INPUT name="q500753:20_answer" id="q500753:20_answer1" type="radio" 
+value="1"><LABEL for="q500753:20_answer1">b. LLC rámca</LABEL> </DIV>
+<DIV class="r0"><INPUT name="q500753:20_answer" id="q500753:20_answer2" type="radio" 
+value="2"><LABEL for="q500753:20_answer2">c. FR rámca</LABEL> </DIV>
+<DIV class="r1"><INPUT name="q500753:20_answer" id="q500753:20_answer3" type="radio" 
+value="3"><LABEL for="q500753:20_answer3">d. GEM rámca</LABEL> </DIV>
+<DIV class="r0"><INPUT name="q500753:20_answer" id="q500753:20_answer4" type="radio" 
+value="4"><LABEL for="q500753:20_answer4">e. ani jedna z možností nie je 
+správna</LABEL> </DIV>
+<DIV class="r1"><INPUT name="q500753:20_answer" id="q500753:20_answer5" type="radio" 
+value="5"><LABEL for="q500753:20_answer5">f. ATM bunky</LABEL> 
+</DIV></DIV></DIV></DIV></DIV></DIV>
+<DIV class="que multichoice deferredfeedback notyetanswered" id="q10">
+<DIV class="info">
+<H3 class="no">Otázka <SPAN class="qno">18</SPAN></H3>
+<DIV class="state">Ešte nezodpovedané</DIV>
+<DIV class="grade">Max. hodnotenie 1</DIV>
+<DIV class="questionflag editable" aria-live="assertive" aria-relevant="text" 
+aria-atomic="true"><INPUT name="q500753:10_:flagged" type="hidden" value="0"><INPUT 
+name="q500753:10_:flagged" id="q500753:10_:flaggedcheckbox" type="checkbox" 
+value="1"><INPUT class="questionflagpostdata" type="hidden" value="qaid=1072545&amp;qubaid=500753&amp;qid=76330&amp;slot=10&amp;checksum=549641659a4beb6c52b40e7395df6271&amp;sesskey=gESq0cbCik&amp;newstate="><LABEL 
+id="q500753:10_:flaggedlabel" for="q500753:10_:flaggedcheckbox"><IMG id="q500753:10_:flaggedimg" 
+alt="Neoznačená" src="Skúšobný%20test%20PS_php_soubory/unflagged.png"></LABEL> 
+</DIV></DIV>
+<DIV class="content">
+<DIV class="formulation">
+<H4 class="accesshide">Text 
+otázky</H4><INPUT name="q500753:10_:sequencecheck" type="hidden" value="1">
+<DIV class="qtext">Účinnosť antény s rastom frekvencie:</DIV>
+<DIV class="ablock">
+<DIV class="prompt">Vyberte jednu:</DIV>
+<DIV class="answer">
+<DIV class="r0"><INPUT name="q500753:10_answer" id="q500753:10_answer0" type="radio" 
+value="0"><LABEL for="q500753:10_answer0">a. nesúvisí s frekvenciou</LABEL> 
+</DIV>
+<DIV class="r1"><INPUT name="q500753:10_answer" id="q500753:10_answer1" type="radio" 
+value="1"><LABEL for="q500753:10_answer1">b. nemení sa</LABEL> </DIV>
+<DIV class="r0"><INPUT name="q500753:10_answer" id="q500753:10_answer2" type="radio" 
+value="2"><LABEL for="q500753:10_answer2">c. klesá</LABEL> </DIV>
+<DIV class="r1"><INPUT name="q500753:10_answer" id="q500753:10_answer3" type="radio" 
+value="3"><LABEL for="q500753:10_answer3">d. rastie</LABEL> 
+</DIV></DIV></DIV></DIV></DIV></DIV>
+<DIV class="que multichoice deferredfeedback notyetanswered" id="q2">
+<DIV class="info">
+<H3 class="no">Otázka <SPAN class="qno">19</SPAN></H3>
+<DIV class="state">Ešte nezodpovedané</DIV>
+<DIV class="grade">Max. hodnotenie 1</DIV>
+<DIV class="questionflag editable" aria-live="assertive" aria-relevant="text" 
+aria-atomic="true"><INPUT name="q500753:2_:flagged" type="hidden" value="0"><INPUT 
+name="q500753:2_:flagged" id="q500753:2_:flaggedcheckbox" type="checkbox" value="1"><INPUT class="questionflagpostdata" type="hidden" value="qaid=1072537&amp;qubaid=500753&amp;qid=76327&amp;slot=2&amp;checksum=0d3828ca01fae257350b531777695012&amp;sesskey=gESq0cbCik&amp;newstate="><LABEL 
+id="q500753:2_:flaggedlabel" for="q500753:2_:flaggedcheckbox"><IMG id="q500753:2_:flaggedimg" 
+alt="Neoznačená" src="Skúšobný%20test%20PS_php_soubory/unflagged.png"></LABEL> 
+</DIV></DIV>
+<DIV class="content">
+<DIV class="formulation">
+<H4 class="accesshide">Text 
+otázky</H4><INPUT name="q500753:2_:sequencecheck" type="hidden" value="1">
+<DIV class="qtext">Systém CDMA používa:</DIV>
+<DIV class="ablock">
+<DIV class="prompt">Vyberte jednu:</DIV>
+<DIV class="answer">
+<DIV class="r0"><INPUT name="q500753:2_answer" id="q500753:2_answer0" type="radio" 
+value="0"><LABEL for="q500753:2_answer0">A. ortogonálne fázovanie 
+signálov</LABEL> </DIV>
+<DIV class="r1"><INPUT name="q500753:2_answer" id="q500753:2_answer1" type="radio" 
+value="1"><LABEL for="q500753:2_answer1">B. časové okná na odlíšenie 
+kanálov</LABEL> </DIV>
+<DIV class="r0"><INPUT name="q500753:2_answer" id="q500753:2_answer2" type="radio" 
+value="2"><LABEL for="q500753:2_answer2">C. rozprestierajúce kódy na odlíšenie 
+kanálov</LABEL> </DIV>
+<DIV class="r1"><INPUT name="q500753:2_answer" id="q500753:2_answer3" type="radio" 
+value="3"><LABEL for="q500753:2_answer3">D. súčasný prenos dát na viacerých 
+úzkopásmových nosných</LABEL> </DIV></DIV></DIV></DIV></DIV></DIV>
+<DIV class="que multichoice deferredfeedback notyetanswered" id="q14">
+<DIV class="info">
+<H3 class="no">Otázka <SPAN class="qno">20</SPAN></H3>
+<DIV class="state">Ešte nezodpovedané</DIV>
+<DIV class="grade">Max. hodnotenie 1</DIV>
+<DIV class="questionflag editable" aria-live="assertive" aria-relevant="text" 
+aria-atomic="true"><INPUT name="q500753:14_:flagged" type="hidden" value="0"><INPUT 
+name="q500753:14_:flagged" id="q500753:14_:flaggedcheckbox" type="checkbox" 
+value="1"><INPUT class="questionflagpostdata" type="hidden" value="qaid=1072549&amp;qubaid=500753&amp;qid=77435&amp;slot=14&amp;checksum=e4d566a22ca2190ccb72622ce003c788&amp;sesskey=gESq0cbCik&amp;newstate="><LABEL 
+id="q500753:14_:flaggedlabel" for="q500753:14_:flaggedcheckbox"><IMG id="q500753:14_:flaggedimg" 
+alt="Neoznačená" src="Skúšobný%20test%20PS_php_soubory/unflagged.png"></LABEL> 
+</DIV></DIV>
+<DIV class="content">
+<DIV class="formulation">
+<H4 class="accesshide">Text 
+otázky</H4><INPUT name="q500753:14_:sequencecheck" type="hidden" value="1">
+<DIV class="qtext">V akých jednotkách sa udáva FEXT?</DIV>
+<DIV class="ablock">
+<DIV class="prompt">Vyberte jednu:</DIV>
+<DIV class="answer">
+<DIV class="r0"><INPUT name="q500753:14_answer" id="q500753:14_answer0" type="radio" 
+value="0"><LABEL for="q500753:14_answer0">a. Ohm</LABEL> </DIV>
+<DIV class="r1"><INPUT name="q500753:14_answer" id="q500753:14_answer1" type="radio" 
+value="1"><LABEL for="q500753:14_answer1">b. dB</LABEL> </DIV>
+<DIV class="r0"><INPUT name="q500753:14_answer" id="q500753:14_answer2" type="radio" 
+value="2"><LABEL for="q500753:14_answer2">c. Volt</LABEL> </DIV>
+<DIV class="r1"><INPUT name="q500753:14_answer" id="q500753:14_answer3" type="radio" 
+value="3"><LABEL for="q500753:14_answer3">d. Ampér</LABEL> 
+</DIV></DIV></DIV></DIV></DIV></DIV>
+<DIV 
+class="submitbtns"><INPUT name="next" type="submit" value="Ďalší"></DIV><INPUT name="attempt" type="hidden" value="495450"><INPUT name="thispage" id="followingpage" type="hidden" value="0"><INPUT name="nextpage" type="hidden" value="-1"><INPUT name="timeup" id="timeup" type="hidden" value="0"><INPUT name="sesskey" type="hidden" value="gESq0cbCik"><INPUT name="scrollpos" id="scrollpos" type="hidden"><INPUT name="slots" type="hidden" value="1,18,9,13,15,12,19,6,16,8,17,4,11,3,7,5,20,10,2,14"></DIV></FORM>
+<DIV id="connection-error" role="alert" style="display: none;">
+<P>Network connection lost. (Autosave failed).</P>
+<P>Make a note of any responses entered on this page in the last few minutes, 
+then try to re-connect.</P>
+<P>Once connection has been re-established, your responses should be saved and 
+this message will disappear.</P></DIV>
+<DIV id="connection-ok" role="alert" style="display: none;">
+<P>Network connection restored. You may continue 
+safely.</P></DIV></DIV></DIV></DIV></DIV>
+<DIV class="block-region" id="region-pre">
+<DIV class="region-content"><A class="skip-block" href="https://vzdelavanie.uniza.sk/moodle2/mod/quiz/attempt.php?attempt=495450#sb-1">Preskočiť 
+Navigácia v teste</A>
+<DIV class="block block_fake" id="mod_quiz_navblock" data-block="_fake">
+<DIV class="header">
+<DIV class="title">
+<DIV class="block_action"></DIV>
+<H2>Navigácia v teste</H2></DIV></DIV>
+<DIV class="content">
+<DIV class="clearfix" id="user-picture"><A href="https://vzdelavanie.uniza.sk/moodle2/user/view.php?id=26884&amp;course=3000"><IMG 
+width="35" height="35" title="Obrázok: Kováč Andrej" class="userpicture" alt="Obrázok: Kováč Andrej" 
+src="Skúšobný%20test%20PS_php_soubory/f2.jpg"></A>Kováč Andrej</DIV>
+<DIV id="quiznojswarning">Upozornenie: tieto odkazy neuložia Vaše odpovede. 
+Použite tlačidlo Ďalší na spodku strany.</DIV>
+<DIV class="qn_buttons multipages"><A title="Ešte nezodpovedané" class="qnbutton notyetanswered free thispage" 
+id="quiznavbutton1" href="https://vzdelavanie.uniza.sk/moodle2/mod/quiz/attempt.php?attempt=495450#"><SPAN 
+class="thispageholder"></SPAN><SPAN class="trafficlight"></SPAN><SPAN class="accesshide">Úloha 
+</SPAN>1<SPAN class="accesshide"> Táto stránka <SPAN 
+class="flagstate"></SPAN></SPAN></A><A title="Ešte nezodpovedané" class="qnbutton notyetanswered free thispage" 
+id="quiznavbutton18" href="https://vzdelavanie.uniza.sk/moodle2/mod/quiz/attempt.php?attempt=495450#q18"><SPAN 
+class="thispageholder"></SPAN><SPAN class="trafficlight"></SPAN><SPAN class="accesshide">Úloha 
+</SPAN>2<SPAN class="accesshide"> Táto stránka <SPAN 
+class="flagstate"></SPAN></SPAN></A><A title="Ešte nezodpovedané" class="qnbutton notyetanswered free thispage" 
+id="quiznavbutton9" href="https://vzdelavanie.uniza.sk/moodle2/mod/quiz/attempt.php?attempt=495450#q9"><SPAN 
+class="thispageholder"></SPAN><SPAN class="trafficlight"></SPAN><SPAN class="accesshide">Úloha 
+</SPAN>3<SPAN class="accesshide"> Táto stránka <SPAN 
+class="flagstate"></SPAN></SPAN></A><A title="Ešte nezodpovedané" class="qnbutton notyetanswered free thispage" 
+id="quiznavbutton13" href="https://vzdelavanie.uniza.sk/moodle2/mod/quiz/attempt.php?attempt=495450#q13"><SPAN 
+class="thispageholder"></SPAN><SPAN class="trafficlight"></SPAN><SPAN class="accesshide">Úloha 
+</SPAN>4<SPAN class="accesshide"> Táto stránka <SPAN 
+class="flagstate"></SPAN></SPAN></A><A title="Ešte nezodpovedané" class="qnbutton notyetanswered free thispage" 
+id="quiznavbutton15" href="https://vzdelavanie.uniza.sk/moodle2/mod/quiz/attempt.php?attempt=495450#q15"><SPAN 
+class="thispageholder"></SPAN><SPAN class="trafficlight"></SPAN><SPAN class="accesshide">Úloha 
+</SPAN>5<SPAN class="accesshide"> Táto stránka <SPAN 
+class="flagstate"></SPAN></SPAN></A><A title="Ešte nezodpovedané" class="qnbutton notyetanswered free thispage" 
+id="quiznavbutton12" href="https://vzdelavanie.uniza.sk/moodle2/mod/quiz/attempt.php?attempt=495450#q12"><SPAN 
+class="thispageholder"></SPAN><SPAN class="trafficlight"></SPAN><SPAN class="accesshide">Úloha 
+</SPAN>6<SPAN class="accesshide"> Táto stránka <SPAN 
+class="flagstate"></SPAN></SPAN></A><A title="Ešte nezodpovedané" class="qnbutton notyetanswered free thispage" 
+id="quiznavbutton19" href="https://vzdelavanie.uniza.sk/moodle2/mod/quiz/attempt.php?attempt=495450#q19"><SPAN 
+class="thispageholder"></SPAN><SPAN class="trafficlight"></SPAN><SPAN class="accesshide">Úloha 
+</SPAN>7<SPAN class="accesshide"> Táto stránka <SPAN 
+class="flagstate"></SPAN></SPAN></A><A title="Ešte nezodpovedané" class="qnbutton notyetanswered free thispage" 
+id="quiznavbutton6" href="https://vzdelavanie.uniza.sk/moodle2/mod/quiz/attempt.php?attempt=495450#q6"><SPAN 
+class="thispageholder"></SPAN><SPAN class="trafficlight"></SPAN><SPAN class="accesshide">Úloha 
+</SPAN>8<SPAN class="accesshide"> Táto stránka <SPAN 
+class="flagstate"></SPAN></SPAN></A><A title="Ešte nezodpovedané" class="qnbutton notyetanswered free thispage" 
+id="quiznavbutton16" href="https://vzdelavanie.uniza.sk/moodle2/mod/quiz/attempt.php?attempt=495450#q16"><SPAN 
+class="thispageholder"></SPAN><SPAN class="trafficlight"></SPAN><SPAN class="accesshide">Úloha 
+</SPAN>9<SPAN class="accesshide"> Táto stránka <SPAN 
+class="flagstate"></SPAN></SPAN></A><A title="Ešte nezodpovedané" class="qnbutton notyetanswered free thispage" 
+id="quiznavbutton8" href="https://vzdelavanie.uniza.sk/moodle2/mod/quiz/attempt.php?attempt=495450#q8"><SPAN 
+class="thispageholder"></SPAN><SPAN class="trafficlight"></SPAN><SPAN class="accesshide">Úloha 
+</SPAN>10<SPAN class="accesshide"> Táto stránka <SPAN 
+class="flagstate"></SPAN></SPAN></A><A title="Ešte nezodpovedané" class="qnbutton notyetanswered free thispage" 
+id="quiznavbutton17" href="https://vzdelavanie.uniza.sk/moodle2/mod/quiz/attempt.php?attempt=495450#q17"><SPAN 
+class="thispageholder"></SPAN><SPAN class="trafficlight"></SPAN><SPAN class="accesshide">Úloha 
+</SPAN>11<SPAN class="accesshide"> Táto stránka <SPAN 
+class="flagstate"></SPAN></SPAN></A><A title="Ešte nezodpovedané" class="qnbutton notyetanswered free thispage" 
+id="quiznavbutton4" href="https://vzdelavanie.uniza.sk/moodle2/mod/quiz/attempt.php?attempt=495450#q4"><SPAN 
+class="thispageholder"></SPAN><SPAN class="trafficlight"></SPAN><SPAN class="accesshide">Úloha 
+</SPAN>12<SPAN class="accesshide"> Táto stránka <SPAN 
+class="flagstate"></SPAN></SPAN></A><A title="Ešte nezodpovedané" class="qnbutton notyetanswered free thispage" 
+id="quiznavbutton11" href="https://vzdelavanie.uniza.sk/moodle2/mod/quiz/attempt.php?attempt=495450#q11"><SPAN 
+class="thispageholder"></SPAN><SPAN class="trafficlight"></SPAN><SPAN class="accesshide">Úloha 
+</SPAN>13<SPAN class="accesshide"> Táto stránka <SPAN 
+class="flagstate"></SPAN></SPAN></A><A title="Ešte nezodpovedané" class="qnbutton notyetanswered free thispage" 
+id="quiznavbutton3" href="https://vzdelavanie.uniza.sk/moodle2/mod/quiz/attempt.php?attempt=495450#q3"><SPAN 
+class="thispageholder"></SPAN><SPAN class="trafficlight"></SPAN><SPAN class="accesshide">Úloha 
+</SPAN>14<SPAN class="accesshide"> Táto stránka <SPAN 
+class="flagstate"></SPAN></SPAN></A><A title="Ešte nezodpovedané" class="qnbutton notyetanswered free thispage" 
+id="quiznavbutton7" href="https://vzdelavanie.uniza.sk/moodle2/mod/quiz/attempt.php?attempt=495450#q7"><SPAN 
+class="thispageholder"></SPAN><SPAN class="trafficlight"></SPAN><SPAN class="accesshide">Úloha 
+</SPAN>15<SPAN class="accesshide"> Táto stránka <SPAN 
+class="flagstate"></SPAN></SPAN></A><A title="Ešte nezodpovedané" class="qnbutton notyetanswered free thispage" 
+id="quiznavbutton5" href="https://vzdelavanie.uniza.sk/moodle2/mod/quiz/attempt.php?attempt=495450#q5"><SPAN 
+class="thispageholder"></SPAN><SPAN class="trafficlight"></SPAN><SPAN class="accesshide">Úloha 
+</SPAN>16<SPAN class="accesshide"> Táto stránka <SPAN 
+class="flagstate"></SPAN></SPAN></A><A title="Ešte nezodpovedané" class="qnbutton notyetanswered free thispage" 
+id="quiznavbutton20" href="https://vzdelavanie.uniza.sk/moodle2/mod/quiz/attempt.php?attempt=495450#q20"><SPAN 
+class="thispageholder"></SPAN><SPAN class="trafficlight"></SPAN><SPAN class="accesshide">Úloha 
+</SPAN>17<SPAN class="accesshide"> Táto stránka <SPAN 
+class="flagstate"></SPAN></SPAN></A><A title="Ešte nezodpovedané" class="qnbutton notyetanswered free thispage" 
+id="quiznavbutton10" href="https://vzdelavanie.uniza.sk/moodle2/mod/quiz/attempt.php?attempt=495450#q10"><SPAN 
+class="thispageholder"></SPAN><SPAN class="trafficlight"></SPAN><SPAN class="accesshide">Úloha 
+</SPAN>18<SPAN class="accesshide"> Táto stránka <SPAN 
+class="flagstate"></SPAN></SPAN></A><A title="Ešte nezodpovedané" class="qnbutton notyetanswered free thispage" 
+id="quiznavbutton2" href="https://vzdelavanie.uniza.sk/moodle2/mod/quiz/attempt.php?attempt=495450#q2"><SPAN 
+class="thispageholder"></SPAN><SPAN class="trafficlight"></SPAN><SPAN class="accesshide">Úloha 
+</SPAN>19<SPAN class="accesshide"> Táto stránka <SPAN 
+class="flagstate"></SPAN></SPAN></A><A title="Ešte nezodpovedané" class="qnbutton notyetanswered free thispage" 
+id="quiznavbutton14" href="https://vzdelavanie.uniza.sk/moodle2/mod/quiz/attempt.php?attempt=495450#q14"><SPAN 
+class="thispageholder"></SPAN><SPAN class="trafficlight"></SPAN><SPAN class="accesshide">Úloha 
+</SPAN>20<SPAN class="accesshide"> Táto stránka <SPAN 
+class="flagstate"></SPAN></SPAN></A></DIV>
+<DIV class="othernav"><A class="endtestlink" href="https://vzdelavanie.uniza.sk/moodle2/mod/quiz/summary.php?attempt=495450">Ukončiť 
+pokus ...</A>
+<DIV id="quiz-timer" role="timer" aria-relevant="text" aria-atomic="true">Čas 
+zostávajúci do ukončenia testu <SPAN 
+id="quiz-time-left"></SPAN></DIV></DIV></DIV></DIV><SPAN class="skip-block-to" 
+id="sb-1"></SPAN></DIV></DIV></DIV></DIV></DIV><!-- START OF FOOTER -->          
+   
+<DIV class="clearfix" id="page-footer">
+<P class="helplink"></P>
+<DIV class="logininfo">Ste prihlásený ako <A title="Zobraziť profil" href="https://vzdelavanie.uniza.sk/moodle2/user/profile.php?id=26884">Andrej 
+Kováč</A> (<A href="https://vzdelavanie.uniza.sk/moodle2/login/logout.php?sesskey=gESq0cbCik">Odhlásiť</A>)</DIV>
+<DIV class="homelink"><A href="https://vzdelavanie.uniza.sk/moodle2/course/view.php?id=3000">5IN135 
+PS</A></DIV></DIV>
+<DIV class="clearfix"></DIV></DIV>
+<SCRIPT type="text/javascript">
+//<![CDATA[
+M.str = {"moodle":{"lastmodified":"Posledn\u00e1 zmena","name":"Meno","error":"Chyba","info":"Inform\u00e1cie","cancel":"Zru\u0161i\u0165","changesmadereallygoaway":"Urobili ste zmeny. Naozaj chcete od\u00eds\u0165 pre\u010d a strati\u0165 v\u0161etky zmeny?","morehelp":"Viac n\u00e1povedy","loadinghelp":"Nahr\u00e1vam ...","yes":"\u00c1no","ok":"OK","confirm":"Potvrdi\u0165","no":"Nie","areyousure":"Ste si ist\u00fd?","closebuttontitle":"Zavrie\u0165","unknownerror":"Nezn\u00e1ma chyba"},"repository":{"type":"Typ","size":"Ve\u013ekos\u0165","invalidjson":"Neplatn\u00fd re\u0165azec JSON","nofilesattached":"Neboli pripojen\u00e9 \u017eiadne s\u00fabory","filepicker":"V\u00fdber s\u00faboru","logout":"Odhl\u00e1senie","nofilesavailable":"Ne s\u00fa dostupn\u00e9 \u017eiadne s\u00fabory","norepositoriesavailable":"\u013dutujem, \u017eiadne s va\u0161ich s\u00fa\u010dasn\u00fdch \u00falo\u017e\u00edsk nem\u00f4\u017ee vraca\u0165 s\u00fabory v po\u017eadovanom form\u00e1te.","fileexistsdialogheader":"S\u00fabor existuje","fileexistsdialog_editor":"S\u00fabor s t\u00fdmto n\u00e1zvom u\u017e bol pripojen\u00fd k textu, ktor\u00fd pr\u00e1ve upravujete","fileexistsdialog_filemanager":"S\u00fabor s t\u00fdmto n\u00e1zvom u\u017e bol pripojen\u00fd","renameto":"Premenova\u0165 na \"{$a}\"","referencesexist":"There are {$a} alias\/shortcut files that use this file as their source","select":"Vybra\u0165"},"block":{"addtodock":"Presun\u00fa\u0165 toto do doku","undockitem":"Odpoji\u0165 t\u00fato polo\u017eku z doku","dockblock":"Dock {$a} block","undockblock":"Undock {$a} block","undockall":"Odpoji\u0165 v\u0161etko z doku","hidedockpanel":"Hide the dock panel","hidepanel":"Hide panel"},"langconfig":{"thisdirectionvertical":"btt"},"question":{"flagged":"Ozna\u010den\u00e9"},"quiz":{"functiondisabledbysecuremode":"T\u00e1to funkcia je v s\u00fa\u010dastnosti zablokovan\u00e1","startattempt":"Zah\u00e1jenie pokusu","timesup":"\u010cas vypr\u0161al!"},"admin":{"confirmation":"Potvrdenie"}};
+//]]>
+</SCRIPT>
+ 
+<SCRIPT type="text/javascript">
+//<![CDATA[
+YUI().use('node', function(Y) {
+M.util.load_flowplayer();
+setTimeout("fix_column_widths()", 20);
+M.yui.galleryversion="2010.04.08-12-35";Y.use("moodle-core-dock-loader",function() {M.core.dock.loader.initLoader();
+});
+ M.util.js_pending('random569cad98292ba1'); Y.use('core_question_flags', function(Y) { M.core_question_flags.init(Y, "https:\/\/vzdelavanie.uniza.sk\/moodle2\/question\/toggleflag.php", [{"src":"https:\/\/vzdelavanie.uniza.sk\/moodle2\/theme\/image.php\/standard\/core\/1440747718\/i\/unflagged","title":"Kliknite na ozna\u010denie tejto ot\u00e1zky","alt":"Neozna\u010den\u00e1"},{"src":"https:\/\/vzdelavanie.uniza.sk\/moodle2\/theme\/image.php\/standard\/core\/1440747718\/i\/flagged","title":"Kliknite na odzna\u010denie tejto ot\u00e1zky","alt":"Ozna\u010den\u00e9"}], ["Flag question","Remove flag"]);  M.util.js_complete('random569cad98292ba1'); });
+ M.util.js_pending('random569cad98292ba2'); Y.use('mod_quiz', function(Y) { M.mod_quiz.init_attempt_form(Y);  M.util.js_complete('random569cad98292ba2'); });
+ M.util.js_pending('random569cad98292ba3'); Y.use('mod_quiz', function(Y) { M.mod_quiz.timer.init(Y, 2645, false);  M.util.js_complete('random569cad98292ba3'); });
+ M.util.js_pending('random569cad98292ba4'); Y.use('mod_quiz', function(Y) { M.mod_quiz.nav.init(Y);  M.util.js_complete('random569cad98292ba4'); });
+function legacy_activity_onclick_handler_1(e) { e.halt(); window.open('https://vzdelavanie.uniza.sk/moodle2/mod/url/view.php?id=4353&redirect=1', '', 'width=800,height=600,toolbar=no,location=no,menubar=no,copyhistory=no,status=no,directories=no,scrollbars=yes,resizable=yes'); return false; };
+M.util.help_popups.setup(Y);
+M.yui.galleryversion="2010.04.08-12-35";Y.use("moodle-core-popuphelp",function() {M.core.init_popuphelp();
+});
+M.yui.galleryversion="2010.04.08-12-35";Y.use("moodle-filter_glossary-autolinker",function() {M.filter_glossary.init_filter_autolinking({"courseid":0});
+});
+ M.util.js_pending('random569cad98292ba7'); Y.on('domready', function() { M.util.js_complete("init");  M.util.js_complete('random569cad98292ba7'); });
+
+});
+//]]>
+</SCRIPT>
+ </BODY></HTML>

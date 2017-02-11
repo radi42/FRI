@@ -1,0 +1,21 @@
+semstralka z C
+    -urobit makefile - HOTOVO
+	-rozdelit strukturu na ceckove a hackove subory - HOTOVO
+	-osetrit memory leaky (uniky pamate) -> valgrind - pod linuxami: importovat do suboru potrebne subory, includnut ich do jednotlivych ceckovych suborov (pre istotu za stdlib), mozno to este spustat s nejakym argumentom/parametrom (-D _DEBUG). podobehnuti projektu pozriet vygenerovany txt subor - HOTOVO
+	-(volitelne) urobit vymenu suradnic cez sockety v samostatnom vlakne a vyuzit pri tom smerniky na funkcie - NEUROBIM
+	
+	-premenovat priecinok podla podmienok zadania semestralky - NIE JE POTREBNE, RELATIVNA CESTA K PISMU FUNGUJE
+	-zmenit cestu k fontu na relativnu v priecinku (klient aj server) - HOTOVO
+	-dokoncit dokumentaciu - HOTOVO
+
+rozzipovat archiv cez prikazovy riadok: unzip
+
+pomocou bitoveho posunu sa da realizovat nasobenie / delenie
+
+urobit bonusovu ulohu na linzoz (cv06) - prirobte funkcie
+*item - polozkam ktoru chcem spracovat
+*data - navratova hodnota funkcie vracana ako parameter
+
+urobit aj bonusove ulohy na bitovu mnozinu
+ked ja dopredu viem, ake hodnoty maju byt v poli (bazovej mnozine)
+hodnotu bitu na danej pozicii zistim cez bitovu masku a bitoveho &. bitovu masku nastavim na 1 a postupne ju posuvam dolava. pokial budeme chciet vediet, ci je na danom mieste jednotka, urobime bitovy &

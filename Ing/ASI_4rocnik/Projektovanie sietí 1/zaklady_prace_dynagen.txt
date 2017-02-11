@@ -1,0 +1,44 @@
+Pripojenie na server s virtual topo 
+• meno servera nlab.kis.fri.uniza.sk (158.193.152.33), putty -> Telnet -> Portove cislo podla topologie dodane ucitelom 
+
+Zaklady prace: 
+• vhodne casto konfiguraciu ukladat (copy run start, alebo write mem, ci wr mem) 
+• ulahcenie prace 
+ no ip domain lookup 
+ line con 0  
+  logging synchronous 
+   
+Bezpecnost: 
+• konzolovy pristup smerovaca -> zaheslovat 
+username admin privil 15 secret admin 
+line con 0 
+  login local 
+
+
+Telnet smerovaca povolit: 
+line vty 0 15 
+  transport input all 
+  privilege level 15 
+  no login 
+
+Telnet na iny smerovac 
+  telnet IP_ADDR 
+
+Prerusenie relacie: exit 
+Pozastavenie relacie: Ctrl + Shift + 6  a potom x 
+
+Overenie konektivity – tclsh 
+Skript: v GKR zadaj tclsh  
+a vloz skript, ktory vykona opinganie danych ip adries co su uvedene, adresy je mozne menit podla porteby 
+
+foreach address {  
+192.168.1.1  
+192.168.3.1  
+} {  
+ping $address }  
+ 
+ 
+
+
+ 
+

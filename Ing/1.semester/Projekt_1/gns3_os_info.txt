@@ -1,0 +1,8 @@
+debian
+debianuser; debianroot
+
+fedora
+osboxes.org; osboxes.org
+
+openSuse
+suseuser

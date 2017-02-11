@@ -1,0 +1,155 @@
+en
+conf t
+hostname R6
+no ip domain lookup
+line con 0
+logging synchronous
+session-timeout 30
+int e2/0
+ip addr 192.168.56.6 255.255.255.0
+no sh
+int e2/1
+ip addr 192.168.67.6 255.255.255.0
+no sh
+int lo0
+ip addr 10.255.255.6 255.255.255.255
+no sh
+exit
+
+en
+conf t
+hostname R7
+no ip domain lookup
+line con 0
+logging synchronous
+session-timeout 30
+int e2/1
+ip addr 192.168.67.7 255.255.255.0
+no sh
+int s1/1
+ip addr 192.168.107.7 255.255.255.0
+no sh
+int lo0
+ip addr 10.255.255.7 255.255.255.255
+no sh
+exit
+
+en
+conf t
+hostname R8
+no ip domain lookup
+line con 0
+logging synchronous
+session-timeout 30
+int e2/0
+ip addr 192.168.38.8 255.255.255.0
+no sh
+int e2/1
+ip addr 192.168.89.8 255.255.255.0
+no sh
+int lo0
+ip addr 10.255.255.8 255.255.255.255
+no sh
+exit
+
+en
+conf t
+hostname R9
+no ip domain lookup
+line con 0
+logging synchronous
+session-timeout 30
+int e2/0
+ip addr 10.0.49.9 255.255.255.0
+ip router isis
+isis network point-to-point
+mpls ip
+no sh
+int e2/1
+ip addr 192.168.89.9 255.255.255.0
+no sh
+int s1/0
+ip addr 10.0.39.9 255.255.255.0
+ip router isis
+mpls ip
+no sh
+int lo0
+ip addr 10.255.255.9 255.255.255.255
+ip router isis
+no sh
+router isis
+net 49.0001.0102.5525.5009.00
+ip cef
+mpls ip
+mpls label protocol ldp
+mpls ldp router-id lo0 force
+exit
+
+
+en
+conf t
+hostname R10
+no ip domain lookup
+line con 0
+logging synchronous
+session-timeout 30
+int s1/0
+ip addr 192.168.104.10 255.255.255.0
+no sh
+int s1/1
+ip addr 192.168.107.10 255.255.255.0
+no sh
+int lo0
+ip addr 10.255.255.10 255.255.255.255
+no sh
+exit
+
+
+### MP BGP ###
+
+R5
+router bgp 65003
+neigh 192.168.15.1 remote-as 110
+address-family ipv4 unicast
+neighbor 192.168.15.1 activate
+network 10.255.255.5 mask 255.255.255.255
+
+R8
+router bgp 65001
+neigh 192.168.38.3 remote-as 110
+neigh 192.168.89.9 remote-as 110
+address-family ipv4 unicast
+neighbor 192.168.38.3 activate
+neighbor 192.168.89.9 activate
+network 10.255.255.8 mask 255.255.255.255
+
+R10
+router bgp 65002
+neigh 192.168.104.4 remote-as 110
+address-family ipv4 unicast
+neighbor 192.168.104.4 activate
+network 10.255.255.10 mask 255.255.255.255
+
+
+R9
+router bgp 110
+neighbor 10.255.255.2 remote-as 110
+neighbor 10.255.255.2 update-source lo0
+neighbor 10.255.255.2 next-hop-self
+address-family ipv4 unicast
+neighbor 10.255.255.2 activate
+network 10.255.255.9 mask 255.255.255.255
+
+R2
+router bgp 110
+neighbor PEERS peer-group 
+neighbor PEERS remote-as 110
+neighbor PEERS update-source lo0
+neighbor 10.255.255.1 peer-group PEERS
+neighbor 10.255.255.3 peer-group PEERS
+neighbor 10.255.255.4 peer-group PEERS
+neighbor 10.255.255.9 peer-group PEERS
+address-family ipv4 unicast
+neighbor PEERS activate
+neighbor PEERS route-reflector-client
+network 10.255.255.2

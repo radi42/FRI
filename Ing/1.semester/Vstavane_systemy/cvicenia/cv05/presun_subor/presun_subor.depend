@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1478346044 source:/home/andrej/Desktop/cv05/presun_subor/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

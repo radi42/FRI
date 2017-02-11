@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1479072307 source:/home/andrej/Desktop/tcp_client/main.c
+	<sys/types.h>
+	<sys/socket.h>
+	<netinet/in.h>
+	<netdb.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<unistd.h>
+
+1479120261 source:/home/andrej/Desktop/tcp_client_upgraded/main.c
+	<sys/types.h>
+	<sys/socket.h>
+	<netinet/in.h>
+	<netdb.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<unistd.h>
+

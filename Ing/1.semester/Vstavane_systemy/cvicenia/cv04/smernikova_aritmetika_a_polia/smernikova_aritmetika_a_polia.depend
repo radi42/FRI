@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1477292926 source:/run/media/andrej/7760B2AC30B64684/Skola/FRI/Ing/1.semester/Vstavane_systemy/cvicenia/cv04/smernikova_aritmetika_a_polia/main.c
+	<stdio.h>
+	<stdlib.h>
+

@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1477252342 source:/home/andrej/Desktop/triedenie_pola_komplexnych_cisel_podla_absolutnej_hodnoty/main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<complex.h>
+	<string.h>
+	<math.h>
+

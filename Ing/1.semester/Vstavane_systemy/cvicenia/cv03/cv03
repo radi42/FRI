@@ -1,0 +1,57 @@
+KOMPLEXNE CISLA
+#include <complex.h>
+
+cabs - absolutna hodnota komplexneho cisla (|ai+b| = sqrt(a^2+b^2))
+carg - aky je uhol komplexneho cisla v rovine (z * (i*sinx + cosx)
+conj - vrati komplexne zdruzene cislo
+clog - prirodzeny logaritmus
+
+komplexne cislo je v pamati ulozene ako dvojzlozkove pole
+
+"+.2f%" -> vypise cislo aj so znamienkom
+
+zlozky nacitavame ako lf (long float) nie ako double - keby sme ho nacitavali ako double, hadzalo by nam to chybu
+
+komplexne cisla nevieme porovnavat (vacsie mensie)
+
+JEDNOROZMERNE POLIA
+suvisly blok v pamati
+VLA - Variable Length Array
+
+int pole[0] = {} //pole o velkosti 0, prazdne zatvorky hovoria, ze sa prvky inicializuju na 0; funguje iba v gcc
+c99: int pole[10] = [1,2,3,[9]=10] //vypisane prvky inicializuj, zvysne inicializuj na 0
+pole
+-ako globalna premenna: prvky inicializovane na 0
+-ako lokalna premenna: prvky neinicializovane (nahodna hodnota)
+
+pokial je pole variabilnej dlzky v parametri metody (pole[n]), prekladac sa nepozera na dlzku n toho pola
+
+RETAZCE
+-akonahle v retazci inicializujem aspon jednu hodnotu, vsetky ostatne 'nepriradene' hodnoty sa inicializuju na 0
+
+velkost pola "char ret[] = "Ahoj" " bude 5
+retazce a polia sa nedaju medzi sebou priradzovat t.j. pole1 = pole2 nebude fungovat
+
+UZITOCNE FUNKCIE A KONSTANTY
+gets_s, fgets() - nacitanie retazca po stlaceni
+metody zacinajuce 'f'kom sluzia hlavne na nacitavanie zo suboru
+puts, fputs -> vypisanie na terminal
+ungetc - navrat na uz nacitany znak
+sprintf -> ulozi retazec do pola charov
+
+strchr - najdenie charu v retazci
+strstr - najdenie retazca v retazci
+
+atof atoi atol atoll - metody na konverziu retazca na float, int, long, long long
+
+ULOHY
+3. - generuj nahodne cisla od 0 do 25 a pripocitaj 'a'
+pri komplexnych cislach sa pohrat s vypisom
+
+cim je jednoznacne charakterizovany polynom? koeficientami
+ked nacitavam polynomy, ulozime ich do pola.
+ked scitavam dva polynomy, vytvorim tretie pole, ktore ma dlzku vacsieho z polynomov. koeficienty vypisovat od najvyssej mocniny. nulove koeficienty nevypisujeme. koeficienty budu komplexne cisla
+
+hornerova schema
+sucin 2 komplexnych polynomov - vynasobit kazdeho s kazdym; vysledne pole bude sucet najvyssich mocnin polynomov
+vypisat podiel dvoch polynomov

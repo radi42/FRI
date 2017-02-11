@@ -1,0 +1,20 @@
+Pridanie Juniper routra
+
+1) Treba stiahnut JunOS image
+
+http://commonerrors.blogspot.com/2014/11/download-juniper-router-iosimage-for.html
+
+2) Importujeme image do VirtualBoxu (s defaultnymi nastaveniami)
+3) Po pridani JunOS virtualky do virtualboxu treba ist do nastaveni a nastavit sietovy adapter "Attached to" na "Not connected".
+3.1) Pokial chceme viac Juniper routrov, mozeme si ich naklonovat, ale musime reinicializovat ich MAC adresy
+4) V GNS3 importujeme JunOS virtualku cez Edit->Preferences->VirtualBox VMs->New
+5) Vyber JunOS virtualku zo zoznamu
+6) Potiahni Juniper router z casti "End devices" na pracovnu plochu GNS3
+6.1) Je mozne si nastavit pocet sietoviek (Ethernet portov) na juniperi, najviac vsak 8.
+
+Po spusteni simulacie sa otvori aj Juniper virtualka. Prihlasovacie udaje:
+root / <bez hesla>
+
+zdroje:
+http://commonerrors.blogspot.sk/2014/11/download-juniper-router-iosimage-for.html
+http://commonerrors.blogspot.sk/2014/11/use-juniper-router-image-with-gns3-11.html

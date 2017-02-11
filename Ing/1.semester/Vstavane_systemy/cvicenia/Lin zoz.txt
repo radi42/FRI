@@ -1,0 +1,206 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdbool.h>
+typedef struct prvok
+{
+    double data;
+    struct prvok *dalsi;
+}Prvok;
+typedef struct linZoz
+{
+    Prvok *zac;
+    Prvok *kon;
+    int pocet;
+}LinZoz;
+void init(LinZoz *zoz)
+{
+    zoz->pocet = 0;
+    zoz->zac = zoz->kon = 0;
+}
+void dispose(LinZoz *zoz)
+{
+    Prvok *akt = zoz->zac;
+    while(akt != NULL)
+    {
+        Prvok *pom = akt;
+        akt = pom->dalsi;
+        free(pom);
+    }
+    zoz->pocet = 0;
+    zoz->zac = zoz->kon = NULL;
+}
+void add(LinZoz *zoz, double data)
+{
+    Prvok* pom = malloc(sizeof(Prvok));
+    pom->data = data;
+    pom->dalsi = NULL;
+    if(zoz->pocet <= 0)
+    {
+        zoz->zac = zoz->kon = pom;
+    }
+    else
+    {
+        zoz->kon->dalsi = pom;
+        zoz->kon = pom;
+    }
+    zoz->pocet++;
+}
+void print(const LinZoz *zoz)
+{
+    if(zoz->zac == NULL)
+    {
+        printf("Zoznam je prazdny\n");
+    }
+    Prvok *pom = zoz->zac;
+    for(int i = 0; i < zoz->pocet; i++)
+    {
+        printf("%f ", pom->data);
+        pom = pom->dalsi;
+    }
+}
+_Bool tryInsert(LinZoz *zoz, double data, int pos)
+{
+    if(pos < 0 || pos > zoz->pocet)
+    {
+        return false;
+    }
+    
+    
+    Prvok *pom, *predosli, *dalsi;
+    dalsi = zoz->zac;
+     
+    for(int i = 0; i < pos ;i++)
+    {
+        predosli = dalsi;
+        dalsi = dalsi->dalsi;
+    }
+    
+    pom = (Prvok *)malloc(sizeof(Prvok));
+    pom->data = data;
+    predosli->dalsi = pom;
+    predosli = pom;
+    predosli->dalsi = dalsi;
+    
+    zoz->pocet++;
+    return true;
+}
+_Bool trySet(LinZoz *zoz, double data, int pos)
+{
+    if(pos < 0 || pos >= zoz->pocet)
+    {
+        return false;
+    }
+    Prvok *akt = zoz->zac;
+    for(int i = 0; i < pos;i++)
+    {
+        akt = akt->dalsi;
+    }
+    akt->data = data;
+    return true;
+}
+_Bool tryGet(LinZoz *zoz, double *data, int pos)
+{
+    if(pos < 0 || pos >= zoz->pocet)
+    {
+        return false;
+    }
+    Prvok *akt = zoz->zac;
+    for(int i = 0; i < pos;i++)
+    {
+        akt = akt->dalsi;
+    }
+    *data = akt->data;
+    return true;
+}
+_Bool tryRemove(LinZoz *zoz, int pos)
+{
+    if(pos < 0 || pos > zoz->pocet)
+    {
+        return false;
+    }
+    Prvok *akt = zoz->zac;
+    for(int i = 0; i < pos - 1 ;i++)
+    {
+        akt = akt->dalsi; 
+    }    
+    akt->dalsi = akt->dalsi->dalsi;
+    zoz->pocet--;
+    return true;
+}
+_Bool tryCopy(LinZoz *src, LinZoz *dest)
+{
+    if(src->zac == NULL)
+    {
+        return true;
+    }
+    init(dest);
+    Prvok *akt = src->zac;
+    while(akt != NULL)
+    {
+        add(dest, akt->data);
+        akt = akt->dalsi;
+    }
+}
+void readFromTxt(LinZoz *zoz, FILE *txtFile)
+{
+    char buf[300];
+    buf[299] = '\0';
+    int i = 0;
+    int pom = 0;
+    
+    fscanf(txtFile, "%d\n", &pom); 
+    while(!feof(txtFile))
+    {
+        if(pom == i)
+            break;
+        fgets(buf, 299,txtFile);
+        add(zoz, atof(buf));
+        i++;
+    }
+}
+void writeToTxt(LinZoz *zoz, FILE *txtFile)
+{
+    fprintf(txtFile, "%d\n", zoz->pocet);
+    Prvok *akt = zoz->zac;
+    for(int i = 0; i < zoz->pocet; i++)
+    {
+        fprintf(txtFile, "%.2f\n", akt->data);
+        akt = akt->dalsi;
+    }
+}
+int main(int argc, char** argv) {
+    LinZoz zoznam;
+    LinZoz dest;
+    init(&zoznam);
+    add(&zoznam, 1.25);
+    add(&zoznam, 3.18);
+    add(&zoznam, 2.15);
+    add(&zoznam, 0.23);
+    print(&zoznam);
+    printf("\n");
+    //trySet(&zoznam, 1.11,2);
+    //printf("\n");
+    //tryInsert(&zoznam, 1.11, 2);
+    //tryRemove(&zoznam, 2);
+    
+    //zapis do txt
+    FILE* fw = fopen("test1.txt", "w");
+    writeToTxt(&zoznam, fw);
+    fclose(fw);
+    
+    //vymaz zoznam
+    dispose(&zoznam);
+    print(&zoznam);
+    
+    //nacitaj zo suboru
+    FILE* fr = fopen("test1.txt", "r");
+    init(&zoznam);
+    readFromTxt(&zoznam,fr);
+    fclose(fr);
+    print(&zoznam);
+    printf("\n");
+    
+    
+    return (EXIT_SUCCESS);
+}

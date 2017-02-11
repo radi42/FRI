@@ -1,0 +1,13 @@
+ako volime modul?
+volime ho tak, aby sme jeho mocnin
+
+pomocou primitivnych prvkov vieme dobre robit goniometricky tvar
+
+pri urcovani modula je klucova rovnica 2^k = 1
+modul k bude tolko, kolko mame nenulovych prvkov.
+
+primitivny polynom je ireducib. polynom, v ktorom je x primitivnym prvkom. tym padom je zarucene, ze akakolvek mocnina x vygeneruje cely priestor.
+neprimitivny pokynom negeneruje cely priestor 
+
+ortonormalna baza je taka baza, ktorej vektory su na seba kolme a kazdy vektor ma velkost 1
+

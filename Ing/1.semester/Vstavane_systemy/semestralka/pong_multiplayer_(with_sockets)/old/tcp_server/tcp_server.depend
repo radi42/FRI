@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1479048169 source:/home/andrej/Desktop/tcp_server/main.c
+	<sys/types.h>
+	<sys/socket.h>
+	<netinet/in.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<unistd.h>
+

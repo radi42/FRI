@@ -1,0 +1,50 @@
+instalacia guest additions na debian 8.6 (xfce)
+
+1) apt-get update
+2) apt-get upgrade
+3) apt-get install sudo build-essential module-assistant
+4) su -c 'visudo'
+5) pod riadok "%sudo ..." pridat rovnaky riadok len s nazvom profilu pouzivatela t.j. "debian ALL=(ALL:ALL) ALL"
+6) sudo m-a prepare
+7) z virtualbox menu ist do Devices -> Insert Guest Additions CD Image. Na pracovnej ploche by sa malo objavit namontovane cd
+8) otvor terminal
+9) do terminalu zadaj "sudo nano /etc/fstab"
+10) najdi riadok
+
+/dev/sr0        /media/cdrom0   udf,iso9660 user,noauto     0       0
+
+a zmen ho na
+
+/dev/sr0        /media/cdrom0   udf,iso9660 user,exec     0       0
+
+Tato zmena nam umozni vykonavat spustitelne subory z cd.
+
+11) uloz subor: ctrl+o -> enter
+12) odmontuj guest additions cd
+13) namontuj guest additions cd (vid krok 7)
+14) otvor namontovane cd
+15) drag & drop subor s nazvom "VBoxLinuxAdditions.run" do terminalu. v terminale sa objavi abolutna cesta k suboru
+16) na zaciatok tejto cesty pridaj "sudo" t.j. vysledny prikaz vyzera "sudo <cesta_ku_vboxadditions>"
+17) enter
+18) zadaj do terminalu "sudo nano /etc/fstab" a zmen riadok
+
+/dev/sr0        /media/cdrom0   udf,iso9660 user,exec     0       0
+
+na
+
+/dev/sr0        /media/cdrom0   udf,iso9660 user,noauto     0       0
+
+Subor "/etc/fstab" musime dat do povodneho stavu, aby sme po restarte mali funkcny operacny system.
+
+19) odmontuj guest additions cd
+20) reboot
+21) nastav rozlisenie obrazovky (ak je potrebne): Applications Menu -> Setting -> Display -> Resolution
+
+Poznamka 1:
+kroky 3,6 nainstaluju balicky potrebne na instalaciu guest additions. ak tieto kroky nevykoname, instalacia guest additions zlyha
+
+Poznamka 2:
+ak nevykoname kroky 7-15, pri spusteni suboru "VBoxLinuxAdditions.run" sa zobrazi hlaska "Permission denied" t.j. instalacia guest additions zlyha
+
+Poznamka 3:
+ak nevykoname krok 19, operacny system nenastartuje resp. nastartuje do emergency rezimu (CLI)

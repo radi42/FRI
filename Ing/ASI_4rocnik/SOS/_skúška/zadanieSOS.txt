@@ -1,0 +1,10 @@
+5. Mala firma za NAT s Win a s vlastnym win AD (domenovy radic) s pridanym DNS 
+a Win klientom v domene. Zabezpecit vzdialeny pristup k remote desktop. 
+Servery musia podporovat instalaciu aplikacii.
+
+e.local
+
+NYPHQ-VR44P-648DJ-7283G-P7HJM
+
+Administrator
+Kovac19

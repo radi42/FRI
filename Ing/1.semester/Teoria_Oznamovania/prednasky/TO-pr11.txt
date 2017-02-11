@@ -1,0 +1,19 @@
+ako rychlo vieme preniest data optikou v tretom okne?
+
+vlnovu dlzku prevedieme na hz
+draha= vlnova dlzka * cas
+vlnova dlzka = rychlost svetla * perioda = rychl svetla * 1 / perioda => frekvencia = rychl svetla / lambda
+
+tretie okno ma dolnu dolnu vlnovu dlzku 1430nm a hornu vlnovu dlzku 1580nm
+
+spocitame hornu a dolnu frekvenciu tretieho okna, urobime ich rozdiel 
+f0 = 190 THz
+f1 = 210 THz
+
+f = f1 - f0 = 20THz
+
+ako rychlo vieme prenasat data v 20THz okne
+potrebujeme aspon 2 Hz na 1 bit
+
+max prenosova rychlost = 20THz / 2 = 10Tb/s
+
