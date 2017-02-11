@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1483728787 source:/home/andrej/Documents/Priprava_na_skusku_zo_vstavanych_systemov/swap_a_ine_hratky_s_polom/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

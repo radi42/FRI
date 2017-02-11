@@ -1,0 +1,40 @@
+Zadanie na skúšku 22.1.2016
+
+Na vstupe je súbor, ktorı obsahuje na kadom riadku slovo, ktoré obsahuje malé písmená anglickej abecedy.
+Je potrebné vytvori program, ktorı na štandardnı vıstup vypíše jednotlivé slová, usporiadané abecedne pod¾a prvého písmena.
+
+Podmienkou je, aby sa zachovalo relatívne poradie jednotlivıch slov, ktoré zaèínajú rovnakım písmenom. Pri tvorbe programu nepouívajte triediaci algoritmus.
+
+Aplikácia musí uchova celı vstupnı zoznam slov vo vhodnej štruktúre (napr. pole zreazenıch zoznamov pre jednotlivé poèiatoèné písmená abecedy).
+Názov vstupného súboru vezmite ako argument príkazového riadku. Ak nie je názov súboru zadanı, ohláste chybu na chybovı vıstup.
+
+Hodnotenie:
+
+1. Návrh vhodnej štruktúry na uchovanie jedného slova zo vstupu - 5b
+2. Návrh vhodnej dátovej štruktúry pre uchovanie celého zoznamu slov - 10b
+3. Implementácia funkcie na pridanie jedného slova do štruktúry - 25b
+4. Naèítanie vstupu zo súboru a vloenie do štruktúry pomocou funkcie implementovanej v bode 3 - 10b
+5. Vytvorenie vıstupného vıpisu - 10b
+
+Príklad:
+
+Vstup:
+
+alibaba
+program
+pascal
+ahoj
+tri
+basic
+babe
+
+
+Vıstup:
+
+alibaba
+ahoj
+basic
+babe
+program
+pascal
+tri

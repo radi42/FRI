@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1484587579 source:/home/andrej/Documents/Priprava_na_skusku_zo_vstavanych_systemov/skuska_22_1/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

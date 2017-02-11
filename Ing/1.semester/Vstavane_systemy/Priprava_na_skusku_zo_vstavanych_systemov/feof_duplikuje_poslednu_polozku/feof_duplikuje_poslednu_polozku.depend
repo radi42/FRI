@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1483879836 source:/home/andrej/Documents/Priprava_na_skusku_zo_vstavanych_systemov/feof_duplikuje_poslednu_polozku/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

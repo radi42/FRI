@@ -1,0 +1,7 @@
+11100011 << 2
+11000110	// orez MSB a pridaj nulu na LSB
+10001100
+
+11100011 >> 2
+01110001	// orez LSB a pridaj nulu na MSB
+00111000

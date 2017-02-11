@@ -1,7 +1,0 @@
-instalacia GNS3 1.5.2 na fedoru 24
-
-A) Instalacia zo zdrojakov skriptom
-1) otvorit stranku "https://github.com/lricardo/gns3-for-fedora" a kliknut na "Clone or download" a "Download ZIP"
-2) rozbalit stiahnuty archiv
-3) v terminali ist do vytvoreneho priecinka a spustit "sudo ./aio-install.sh". skript najprv nainstaluje systemove aktualizacie a potom nainstaluje, a podla potreby nakonfiguruje, zavisle balicky
-4) po instalacii treba spustit gns3 a v nastaveniach zmenit cestu k vpcs na "/opt/vpcs/src/vpcs"

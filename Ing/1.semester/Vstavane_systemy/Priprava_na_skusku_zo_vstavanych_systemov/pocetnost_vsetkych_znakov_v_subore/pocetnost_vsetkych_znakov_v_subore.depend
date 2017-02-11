@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1484505165 source:/home/andrej/Documents/Priprava_na_skusku_zo_vstavanych_systemov/pocetnost_vsetkych_znakov_v_subore/main.c
+	<stdio.h>
+	<stdlib.h>
+	<limits.h>
+

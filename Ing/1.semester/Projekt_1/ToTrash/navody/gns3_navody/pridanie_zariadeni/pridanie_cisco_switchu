@@ -1,8 +1,0 @@
-Cisco Catalyst Switche:
-Cisco switch nie je mozne emulovat v GNS3, ale je mozne nastavit router ako "EtherSwitch"
-
-Iny sposob je pouzit lubovolny router (napr. 3600) a pridat don rozsirujucu kartu "NM-16ESW" - 16 ethernetovych portov. Potom sa da nakonfigurovat range portov ako porty na switchi prikazom "switchport". Prikazom "show intarfaces status" zistime stav jednotlivych portov. Podla stlpca "VLAN" vieme urcit, ci sa jedna o L2 alebo L3 port.
-
-zdroje:
-https://www.gns3.com/support/docs/virtual-machines-supported-2
-https://www.youtube.com/watch?v=2gQcLDSj-_c

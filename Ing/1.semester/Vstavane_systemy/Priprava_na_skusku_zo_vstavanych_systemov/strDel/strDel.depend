@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1484491986 source:/home/andrej/Documents/Priprava_na_skusku_zo_vstavanych_systemov/strDel/main.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+
