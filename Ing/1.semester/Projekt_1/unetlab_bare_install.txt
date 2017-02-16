@@ -6,6 +6,14 @@ install unetlab
   curl -s http://www.unetlab.com/rrlabs.key
   curl -s http://www.unetlab.com/install.sh | bash
 
+reboot
+done.
+
+
+
+
+
+OTIONAL AND NOT RECOMMENDED!
 edit grub
   1) Edit /etc/default/grub with
 
