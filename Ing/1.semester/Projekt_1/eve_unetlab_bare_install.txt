@@ -1,0 +1,14 @@
+download eve-ng iso image
+put it on a usb with LiLi on windows (dd on linux does not work!)
+boot from the usb
+choose "Install Eve Bare"
+install eve-ng as a normal ubuntu WITH A CABLE INTERNET CONNECTION (cable connected internet is not necesarry for installation 
+of the operating system, but it is necesarry for the eve-ng packages after the ubuntu installation is finished and 
+the computer is rebooted after the installation is complete)
+As the installation is complete, the system reboots. During initial boot it will install required packages.
+After all necessary packages are installed, the system will reboot again.
+Log in as root / eve
+After first login an initial configuration may be required. When not sure, leave it on defaults.
+
+PROBLEM: eth0 interface has been not detected after ubuntu installation! "failed to raise network interface" "interface eth0 
+doesn't exist"
