@@ -1,4 +1,4 @@
-install ubuntu server 14.04 x64 as usual
+Install ubuntu server 14.04 x64 as usual
 if you can't login follow this guide:
   https://wiki.archlinux.org/index.php/Reset_root_password#Using_GRUB_to_invoke_bash
 
@@ -32,6 +32,77 @@ Source:
   http://superuser.com/questions/543626/ssh-permission-denied-on-correct-password-authentication
   https://www.cyberciti.biz/faq/howto-restart-ssh/
   http://vim.wikia.com/wiki/Searching
+
+
+
+
+
+
+
+UTILITIES INSTALLATION
+#install guestfish
+  apt-get install libguestfs-tools
+  update-guestfs-appliance
+
+
+
+
+
+*********** FOR ASAv **************
+Use UltraVNC's vncviewer.exe to connect to the Cisco ASA command line 
+
+It's possible to use telnet instead of vnc, but it didn't work for me:
+  cd /opt/unetlab/addons/qemu/asav-941-200/
+  guestfish -a virtioa.qcow2
+  update-guestfs-appliance
+  run
+  mount /dev/sda1 /
+  touch /use_ttyS0
+  umount /
+  exit
+
+Sources:
+  https://bugs.launchpad.net/fuel/+bug/1467579
+
+
+
+
+********** FOR CISCO 7200 VXR ***************
+When creating a new cisco vxr7200 router, add all necessary expansion cards right
+on the first configuration screen, otherwise you will not be able to start the router again,
+when you add a expansion card aftwerwards.
+
+
+
+
+UNETLAB PROJECTS LOCATION
+  /opt/unetlab/labs
+
+
+
+**************** FOR ALL QEMU IMAGES *******************
+ALL IMAGES HAVE TO HAVE NAME "hda.qcow2" !!!!
+OTHERWISE THEY WILL NOT BOOT!
+
+Sources:
+  http://noshut.ru/2015/09/how-to-run-juniper-vmx-in-unetlab/
+  http://www.unetlab.com/2014/11/adding-cisco-cloud-service-router-csr1000v-images/
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
