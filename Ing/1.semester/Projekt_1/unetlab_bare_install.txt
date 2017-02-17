@@ -10,6 +10,47 @@ reboot
 done.
 
 
+Now we need to correct SSH settings:
+  vim /etc/ssh/sshd_config
+
+Find and correct these lines (Tip: use '/' in normal mode to search a string from the top of the file):
+To enable password authentication, uncomment
+  #PasswordAuthentication yes
+  
+To enable root login, uncomment
+  #PermitRootLogin yes
+  
+To enable ssh key login, uncomment
+  #PubkeyAuthentication yes
+  #AuthorizedKeysFile .ssh/authorized_keys
+
+Save file and exit from vim.
+Restart SSH service:
+  service ssh restart
+
+Source:
+  http://superuser.com/questions/543626/ssh-permission-denied-on-correct-password-authentication
+  https://www.cyberciti.biz/faq/howto-restart-ssh/
+  http://vim.wikia.com/wiki/Searching
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
