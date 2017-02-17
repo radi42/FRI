@@ -1,3 +1,0 @@
-domain sos3.local
-nameserver 192.168.0.2
-nameserver 192.168.0.3
