@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1487595586 source:/home/andrej/github/FRI/Ing/2.semester/AvS/cvika/avs_cv_01_sockety/main.c
+	<stdlib.h>
+	<stdio.h>
+	<unistd.h>
+	<stdint.h>
+	<string.h>
+	<sys/types.h>
+	<sys/socket.h>
+	<linux/if_packet.h>
+	<net/ethernet.h>
+	<arpa/inet.h>
+	<errno.h>
+	<net/if.h>
+

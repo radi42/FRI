@@ -1,0 +1,46 @@
+wifi: avstestnet (wpa personal - passphrase)
+
+nastroje:
+	wireshark
+	eclipse alebo nejake ide schopne c
+
+ulohy:
+	domace ulohy budu
+
+skuska:
+	prakticka - naprogramovat zadanie
+	rozsirit priklad z cvika
+
+Spolocne miesto na 
+http://www.kis.fri.uniza.sk/~hrabovsky/AvS/
+
+Zdroje:
+	TLPI - The Linux Programming Interface - biblia programovania pod linuxami
+	Network algorithmics - algoritmy a udajove struktury v sietach
+	man pages
+------------------------------------------------------------------------------------------
+
+Tezy:
+Komunikacia (medzi procesmi)
+	lokalna
+		PIPE
+		zdielana pamat
+		spravy
+			
+	vzdialena
+		sockety - mozu byt aj lokalne (v ramci jedneho pocitaca)
+		RPC
+
+	hlavne sa budeme zaoberat SOCKETmi - vytvorenie, nastavenie, prenos, ukoncenie
+
+Komunikacne protokoly
+	implementacia komunikacnych protokolov
+		syntax a semantika (vyznam)
+		stavovy automat - kto zacina, kto ukoncuje, kedy aku spravu poslat
+
+Udajove struktury
+	kedy sa ake udajove struktury pouzivaju
+	switch - prepinacia tabulka, CAM tabulka
+	router - smerovacia tabulka (ako linearne zretazeny zoznam alebo ako binarny strom)
+
+DU: pozriet si vlakna v C, ARP
