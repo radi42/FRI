@@ -1,0 +1,64 @@
+mal by som vediet pochopit navrh a topologiu siete
+
+v dokumentacii ukazat konfiguraciu routra aj prikazmi, aj vypisom cez nejaky "show" prikaz.
+
+dokumentacia: obsah, topologia, adresacia, vysvetlenie konfiguracie
+
+DYNAMICKE ROUTOVANIE
+uzitocne, ak nastanu zmeny v topologii, vie zabezpecit konektivotu
+
+hladame najkratsiu cestu resp. najlacnejsiu kostru
+algoritmy
+  distance vector
+    bellman-ford
+    
+    pri ripku je nahodny interval 
+
+    ospf nevie sam o sebe loadbalancovat
+
+
+
+OSPF
+
+Dijkstra
+narocne na vypoctovy vykon
+preco sa robia arey? aby sa znizili naroky na vypoctove zdroje a velkost databaz
+
+ak je to border router, ten ma 2 ospf databazy
+
+routre
+
+z ospf databazy vieme zistit, ktore routre vidime z nejakeho uzla
+
+kazda area musi byt priamo pripojena k backbone arei, v opacnom pripade sa musi vytvorit virtualna linka
+
+router id je ipcka obvykle loopbacku (lebo je vzdy zivy)
+
+autentifikacia - sposob, ako zistim, ze je sprava prava. sposob ochrany integrity siete
+
+LSA1
+link age - defaultne 30min
+VEB (flagy) - Virtual / External / ASDR
+
+link type
+  point to point
+  transit - vytvoria sa virtualne routre DR (designated router) a BDR (backup designated router), aby sa nemuselo robit full-mesh. namiesto toho sa urobi prepojenie iba k dr a bdr routrom, ktore maju uz vlastne databazy. setri zdroje routrov
+  stub - router, ktory nema ziadnu dalsiu pripojenu siet
+
+
+LSA2
+siri ju iba dr/bdr na ip 224.0.0.6
+
+defaultne ked prepojime dva routre ethernet kablom, linky budu typu broadcast a budu chciet si vybrat
+
+nakonfigurovat
+   ip ospf point-to-point
+aby sme nemuseli
+
+hovori, ktore siete dr / bdr vidi
+
+
+LSA3
+lsa 1 a 2 su iba v jednej arei, lsa3 prechadza aj do inych arei
+
+hovori minimalnu routovaciu informaciu (sumarnu cestu)

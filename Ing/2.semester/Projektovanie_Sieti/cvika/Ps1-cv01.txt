@@ -1,0 +1,21 @@
+kis fri uniza sk /~peterp
+
+copy run start
+
+nikdy nereloadovat router, inak zamrzne
+
+predpripravit do textaku casto pouzivane prikazy
+
+zaheslovat si boxy a nezabudnut heslo
+
+ctrl+shift+6 a potom x
+
+ked sa pripajam na telnet, hodi ma na router na line con0
+
+v unetlabe benchmarkovat 100 routrov
+
+c2691 unetlab, 12.4
+
+prve cislo je set, druhe cislo je cislo routra v sete
+
+skuska: klikacka na moodli + rozhovor

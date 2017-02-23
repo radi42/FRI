@@ -1,0 +1,4 @@
+instalacia a a konfiguracia arch linux 
+rasperry pi projekty (pi-hole)
+
+ulabserv.fri.uniza.sk
