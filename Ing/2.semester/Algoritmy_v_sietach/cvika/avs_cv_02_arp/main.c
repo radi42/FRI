@@ -24,7 +24,7 @@
 #define myMAC "d0:df:9a:73:f3:8e"
 #define myIP "192.168.1.107"
 
-#define DEST_IP "192.168.1.1"
+//#define DEST_IP "192.168.1.1"
 #define ARP_TYPE 0x0806  // alebo 0x806
 
 #define ARP_REQUEST 1
@@ -55,6 +55,11 @@ int main(int argc, char **argv) {
     size_t msgLen = sizeof(struct ethHdr) + sizeof(struct arpHdr);   // velkost spravy
     struct ethHdr *eth;     // adresa zaciatku ethernetoveho ramca
     struct arpHdr *arp;
+
+    if(argc < 2) {
+        fprintf(stderr, "\nZadaj IP (IPv4) adresu!\n\n");
+        exit(ERROR);
+    }
 
     if((sock = socket(AF_PACKET, SOCK_RAW, htons(ETH_P_ALL))) < 0) {
         // vyhodime chybovu hlasku z errno funkciou errno
@@ -89,7 +94,7 @@ int main(int argc, char **argv) {
     memset(&(eth->dstMAC), 0xFF, HW_LEN);   // nastav cielovu MAC adresu na broadcast
 
     // ulozime svoju MAC adresu do zdrojovej MAC adresy v ethernetovom ramci - nemusime konvertovat to Network Byte Order, lebo najvyznamnejsi bajt v MAC adrese je prave prvy zlava
-    sscanf(myMAC, "%02hhx:%02hhx:%02hhx:%02hhx:%02hhx:%02hhx:",       // hhx - dva znaky bude brat ako jeden byte - FUNGUJE IBA PRE HEXA CISLA
+    sscanf(myMAC, "%02hhx:%02hhx:%02hhx:%02hhx:%02hhx:%02hhx",       // hhx - dva znaky bude brat ako jeden byte - FUNGUJE IBA PRE HEXA CISLA
                 &(eth->srcMAC[0]),
                 &(eth->srcMAC[1]),
                 &(eth->srcMAC[2]),
@@ -121,9 +126,9 @@ int main(int argc, char **argv) {
     arp->srcIpAddr = ipAddr.s_addr;
 
 
-    // vyplnime cielovu MAC adresu
+    // vyplnime cielovu MAC adresu - ziskame zo vstupneho argumentu
     memset(&ipAddr, 0, sizeof(struct in_addr));
-    if(inet_aton(DEST_IP, &ipAddr) == 0) {
+    if(inet_aton(argv[1], &ipAddr) == 0) {
         fprintf(stderr, "inet_aton(): Bad IP address input format");
         close(sock);
         free(eth);
@@ -134,16 +139,57 @@ int main(int argc, char **argv) {
     arp->destIpAddr = ipAddr.s_addr;
 
     // odcitavaci for je lepsi ako scitavaci for cyklus, pretoze pri odcitavacom cykle
-    for(int i = 1000; i >= 0; i--) {
+    // nam staci odoslat jedinu spravu, cyklus je len na testovanie ;)
+    //for(int i = 1000; i >= 0; i--) {
         if(write(sock, eth, msgLen) < 0) {
             perror("write(): Error writing to socket\n");
             close(sock);
             free(eth);
             exit(ERROR);
         }
+    //}
+
+    // Prijimanie ARP odpovede
+    struct ethHdr *respEthHdr;
+    struct arpHdr *respArpHdr;
+
+    if((respEthHdr = (struct ethHdr *)malloc(msgLen)) == NULL) {
+        fprintf(stderr, "malloc(): Can't allocate enough memory");
+        close(sock);
+        free(eth);
+        exit(ERROR);
     }
 
+    for(;;) {
+        memset(respEthHdr, 0, msgLen);
+        if((read(sock, respEthHdr, msgLen)) < 0) {
+            perror("read()\n\n");
+            close(sock);
+            free(eth);
+            free(respEthHdr);
+            exit(ERROR);
+        }
 
+        // overime podmienky
+        respArpHdr = (struct arpHdr *) respEthHdr->payload;
+
+        if(respArpHdr->opcode != htons(ARP_REPLY)) {
+            continue;
+        }
+
+        if(respArpHdr->srcIpAddr != arp->destIpAddr) {
+            continue;
+        }
+
+        printf("[IP] %s\t\t[MAC] %02hhx:%02hhx:%02hhx:%02hhx:%02hhx:%02hhx\n", argv[1],      //02 - chcem 2 znaky, ale ak je mensi, nech ju doplni zlava nulou (podobne ako 'hhx')
+            respArpHdr->srcHwAddr[0],
+            respArpHdr->srcHwAddr[1],
+            respArpHdr->srcHwAddr[2],
+            respArpHdr->srcHwAddr[3],
+            respArpHdr->srcHwAddr[4],
+            respArpHdr->srcHwAddr[5]);
+            break;
+    }
 
     close(sock);
     free(eth);

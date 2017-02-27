@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1488193428 source:/home/andrej/github/FRI/Ing/2.semester/Algoritmy_v_sietach/cvika/avs_cv_02_arp/main.c
+1488196402 source:/home/andrej/github/FRI/Ing/2.semester/Algoritmy_v_sietach/cvika/avs_cv_02_arp/main.c
 	<stdlib.h>
 	<stdio.h>
 	<unistd.h>
