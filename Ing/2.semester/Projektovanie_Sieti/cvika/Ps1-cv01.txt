@@ -1,8 +1,10 @@
 kis fri uniza sk /~peterp
 
-copy run start
+velmi casto robit
+	copy run start
+lebo server nahodne pada.
 
-nikdy nereloadovat router, inak zamrzne
+nikdy nereloadovat router, inak zamrzne - nie je treba, server spadne sam ;)
 
 predpripravit do textaku casto pouzivane prikazy
 

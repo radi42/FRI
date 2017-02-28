@@ -1,6 +1,6 @@
 Backbone
 
-!konfiguracia R1
+!KONFIGURACIA R1
 router ospf 1
 	router-id 10.255.255.1
 	redistribute static subnets
@@ -12,7 +12,7 @@ int f0/0
 int f0/0
 !dve redistribucie
 
-!konfiguracia R2
+!KONFIGURACIA R2
 router ospf 1
 	router-id 10.255.255.2
 	exit
@@ -22,24 +22,45 @@ int f0/0
 int f0/1
 	ip ospf 1 area 0
 
+!KONTROLA
 !mali by sme vediet  R1 a R2
 show ip ospf neighbors
-show ip protocols	-zobrazi konfiguraciu ospf
-show ip ospf interface brief	-ktore 
-show ip ospf 	-podrobne nastavenia ospf - zaujimava druha polka
-show ip route	-[110/20] => Administrative distance (priorita cesty - zavisle od protokolu)/Cost cesty
+
+!zobrazi konfiguraciu ospf
+show ip protocols
+
+!ktore interfejsy su zahrnute do ospf procesu
+show ip ospf interface brief 
+
+!podrobne nastavenia ospf - zaujimava druha polka (sifrovanie, timery ..)
+show ip ospf
+
+![110/20] => Administrative distance (priorita cesty - zavisle od protokolu)/Cost cesty
+show ip route
+
+!zobrazi iba cesty naucene cez ospf
 show ip route ospf
-show ip ospf database	-> router link states (lsa_1)
-show ip ospf database router -> LSA1
+
+!LSA 1 - router link states
+show ip ospf database
+show ip ospf database router
 show ip ospf database router self-originate
-show ip ospf database network	-> LSA2
-show ip ospf database summary	-> LSA3
-show ip ospf database asbr-summary	-> LSA4
-show ip ospf database external	-> LSA5
+
+!LSA 2
+show ip ospf database network
+
+!LSA 3
+show ip ospf database summary
+
+!LSA 4
+show ip ospf database asbr-summary
+
+!LSA 5
+show ip ospf database external
 
 
 ULOHY NA OSPF
-Dnes dorobit multiareu ospf!
+Dnes dorobit multiareu ospf
 
 2) ked sa nevoli dr/bdr, zrychli sa konvergencia
 4) passive interface - neposielame hello pakety
