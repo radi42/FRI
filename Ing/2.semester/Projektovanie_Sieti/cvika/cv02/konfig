@@ -1,0 +1,52 @@
+Backbone
+
+!konfiguracia R1
+router ospf 1
+	router-id 10.255.255.1
+	redistribute static subnets
+	redistribute connected subnets
+	exit
+int f0/0
+	ip ospf network point-to-point
+	ip ospf 1 area 0
+int f0/0
+!dve redistribucie
+
+!konfiguracia R2
+router ospf 1
+	router-id 10.255.255.2
+	exit
+int f0/0
+	ip ospf network point-to-point
+	ip ospf 1 area 0
+int f0/1
+	ip ospf 1 area 0
+
+!mali by sme vediet  R1 a R2
+show ip ospf neighbors
+show ip protocols	-zobrazi konfiguraciu ospf
+show ip ospf interface brief	-ktore 
+show ip ospf 	-podrobne nastavenia ospf - zaujimava druha polka
+show ip route	-[110/20] => Administrative distance (priorita cesty - zavisle od protokolu)/Cost cesty
+show ip route ospf
+show ip ospf database	-> router link states (lsa_1)
+show ip ospf database router -> LSA1
+show ip ospf database router self-originate
+show ip ospf database network	-> LSA2
+show ip ospf database summary	-> LSA3
+show ip ospf database asbr-summary	-> LSA4
+show ip ospf database external	-> LSA5
+
+
+ULOHY NA OSPF
+Dnes dorobit multiareu ospf!
+
+2) ked sa nevoli dr/bdr, zrychli sa konvergencia
+4) passive interface - neposielame hello pakety
+DR bude R4
+	-vyhodnotit - konfigurovat a ukazat
+	-nastavit cez "ip ospf priority", ukazat cez ""
+R3 primarny smerovac, R4 sekundarny (zalozny) smerovac - pomenit costy na linkach
+
+
+sucastou dokumentacie bude aj 5 otazok, ktorymi budeme skusat ostatnych. Single choice / Multiple choice / doplnacky

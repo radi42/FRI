@@ -1,0 +1,23 @@
+hostname R4
+no ip domain-lookup
+username admin privilege 15 secret admin
+line con 0
+	login local
+	logging synchronous
+line vty 0 15
+	privilege level 15
+	no login
+int lo1
+	ip address 10.255.255.4 255.255.255.255
+	no shutdown
+int f0/1
+	ip address 10.0.234.4 255.255.255.0
+	no shutdown
+int f0/0
+	ip address 10.2.49.1 255.255.255.0
+	no shutdown
+int s1/0
+	ip address 10.3.104.1 255.255.255.252
+	no shutdown
+
+do show ip interface brief
