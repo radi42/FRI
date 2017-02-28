@@ -13,3 +13,5 @@ int lo1
 int f0/1
 	ip address 10.100.15.2 255.255.255.0
 	no shutdown
+
+do show ip interface brief
