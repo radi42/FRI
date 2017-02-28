@@ -1,0 +1,127 @@
+Den predtym si pozriet prednasky
+
+show ip ospf neighbors	-ak nemam neighbora, nema
+show ip ospf brief	-prehlad procesu ospf
+show ip protocols	-routovacia tabulku
+show ip ospf database	-popis topologickej databazy
+
+hello
+dbd
+lsr
+lsu
+
+
+vsetky topologicke informacie, ktore popisuju topologie
+topologicka tabulka ma setrit cpu, aby sa znizilo sirenie lsa paketov, ktore maju za nasledok pocitanie najkratsej cesty a nasledu zmenu topologickej tabulky. LSAcka sa 
+
+LSAciek je dohromady 12.
+
+Backbone area musi mat ID 0.
+
+Router ID- najvyssia IP na loopbacku - konfiguruje sa rucne alebo loopbackom
+
+
+R1----R2
+
+Topo databaza:
+
+LSA_1 hovori o priamo pripojenych sietach - Router ID
+maska prefix cost typ_siete kto_je_na_druhej_strane_siete
+
+
+LSA_2 - DR IP
+tranzitna linka na volbu dr/bdr. DR/BDR setria premavku v sieti. Bez nich by musel kazdy router udrzovat neighborship s kazdym priamo pripojenymi routrami a to vie byt velmi vypoctovo narocne. DR/BDR sa voli tak, ze sa najprv zvoli lsa1, potom lsa2. DR/BDR sa voli per area.
+
+
+LSA3 - Prefix + Cost
+zoznam sieti v ostatnych 
+pri multiarea ospf vznika ABR (Access Border Router) - router, ktory je v dvoch areach a teda ma 2 topologicke tabulky (a preto musi byt vykonnejsi). ABR nema vedomost o neighborshipoch v inej arei.
+
+LSA5 - Prefix + Cost
+EIGRP Cost: delay bandwidth load
+O1 vs O2
+O2 - externa siet, ktora dostane defaultny cost - defaultne je 20
+O1 - externa siet, ktora dostane defaultny cost
+
+LSA4
+informacia odvodena z lsa 1, ze v danej arey je nejaky asbr router, ktory vie forwardovat pakety na dalsie routre v ramci 
+
+
+SPECIALNE DRUHY AREI
+a) Backbone
+b) Regulerna
+	Stub - ABR prepusti len LSA_3, neprepusti lsa3/5/7 => nevidi externe siete, ale su nahradene defaultnou cestou
+	Totally stub - siet s jednym ABRkom - vsetky cesty (updaty) nahradime defaultnou cestou (jed). NESMU OBSAHOVAT ASBR, do ktoreho by sme redistribuovali externe siete
+virtualne
+	Not so Stuby - ako totally stub, ale podporuje lsa5
+	Totally stuby not so stuby - ako not so stuby, akurat negeneruje lsa5 ale lsa7
+
+
+
+
+Pokyny ku konfiguracii
+
+router ospf 1
+	router id x.y.z.w
+	network net1 wildcard area #cislo
+	!pojdeme do interfejsu a rovno pridame 
+
+oko vidi point to point, ale ethernet je multiaccessova technologia, preto sa bude volit dr/bdr. na zabranenie tejto volby je potrebne zadat prikaz:
+	ip ospf netw point-to-point
+
+pre riadenie volby dr/bdr treba za
+pre znovuzvolenie dr/bdr treba resetnut ospf proces prikazom
+	clear pi ospf
+
+ABR sa konfiguruje rovnaku, akurat ma aj dalsiu areu.
+
+vsetko co r5 nevie, opyta sa r1
+
+konfiguracia statickej routy
+	ip route 0.0.0.0 0.0.0.0 int_out	-> seriak je ok, ethernet by s tym mal problem, lebo nevie cielovu MACu
+	ip route 0.0.0.0 0.0.0.0 ip_addr	-> tiez sa nepouziva na ethernete
+	ip route 0.0.0.0 0.0.0.0 next_hop int_out	- > pouziva sa na ethernete
+
+r1
+
+r2
+	ospf redistribute static subnety	-> objavi sa ako 
+
+Area4 je natiahnuta az na R10
+
+10.0(area).12(linka z 1 na 2)
+
+sede linky neozivujeme
+
+
+PRISTUP NA SERVER
+putty -> telnet
+ukladat, nereloadovat, nastavit vzdialeny pristup
+
+v notepade si spravit skript na opingaju
+
+CISLO SETU: 4 (prve cislo v 
+konzoly na routre 3031-40
+
+ak sa pripojime dvaja na jeden router
+
+
+spravit si zakladnu konfiguraciu:
+	zaheslovat konzolu
+		username admin privilege 15 secret admin
+	line con 0
+		login local
+		logging synchronous
+	line vty 0 15
+		privilege 15
+		no login
+
+	no ip domain-lookup
+	hostname R#
+
+odvaznejsi mozu urobit skripty per router aj ipckami
+
+L1/L2 -> show cdp neighbor
+L1/ show protocols
+sh ip int brief
+sh ip int brief <interface>
