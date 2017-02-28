@@ -9,8 +9,6 @@ router ospf 1
 int f0/0
 	ip ospf network point-to-point
 	ip ospf 1 area 0
-int f0/0
-!dve redistribucie
 
 !KONFIGURACIA R2
 router ospf 1

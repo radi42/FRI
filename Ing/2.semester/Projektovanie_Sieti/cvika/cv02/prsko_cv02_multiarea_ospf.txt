@@ -71,7 +71,7 @@ oko vidi point to point, ale ethernet je multiaccessova technologia, preto sa bu
 
 pre riadenie volby dr/bdr treba za
 pre znovuzvolenie dr/bdr treba resetnut ospf proces prikazom
-	clear pi ospf
+	clear ip ospf
 
 ABR sa konfiguruje rovnaku, akurat ma aj dalsiu areu.
 
@@ -80,12 +80,12 @@ vsetko co r5 nevie, opyta sa r1
 konfiguracia statickej routy
 	ip route 0.0.0.0 0.0.0.0 int_out	-> seriak je ok, ethernet by s tym mal problem, lebo nevie cielovu MACu
 	ip route 0.0.0.0 0.0.0.0 ip_addr	-> tiez sa nepouziva na ethernete
-	ip route 0.0.0.0 0.0.0.0 next_hop int_out	- > pouziva sa na ethernete
+	ip route 0.0.0.0 0.0.0.0 int_out next_hop	- > pouziva sa na ethernete
 
 r1
 
 r2
-	ospf redistribute static subnety	-> objavi sa ako 
+	ospf redistribute static subnet	-> objavi sa ako 
 
 Area4 je natiahnuta az na R10
 
