@@ -1,0 +1,6 @@
+Konzoly
+Ctrl + Alt + F1-7
+
+Prepinanie konzol
+Alt + F1-7
+
