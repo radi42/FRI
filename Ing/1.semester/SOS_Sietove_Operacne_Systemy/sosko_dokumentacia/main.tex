@@ -1,0 +1,82 @@
+% Zakladne parametre a jazyk dokumentu
+\documentclass[12pt,twoside]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[slovak]{babel}
+
+% Aby som mohol davat priamu rec
+\usepackage{dirtytalk}
+
+% Obrazky
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+
+% Uloz obrazok tam, kde je deklarovany - nie tam, kde si latex zmysli (na vrch stranky, na novu stranku a tak)
+\usepackage[section]{placeins}
+
+% Cislovanie obrazkov a tabuliek
+\usepackage{chngcntr}
+%Cisluj obrazky nezavisle od cisla kapitol/podkapitol
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
+
+% Formatovanie strany
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm,bindingoffset=6mm]{geometry}
+
+% Hlavicka a pata
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+%\fancyhead[RO,LE]{Implementácia firemnej siete}
+%\fancyfoot{}
+%\fancyfoot[LE,RO]{\thepage}
+%\fancyfoot[LO,CE]{Kapitola \thechapter}
+%\fancyfoot[CO,RE]{Author Name}
+%\renewcommand{\headrulewidth}{0.4pt}
+%\renewcommand{\footrulewidth}{0.4pt}
+
+% Bibliografia
+\usepackage[style=authoryear,sorting=none]{biblatex}
+\addbibresource{references.bib}
+
+% Metadata
+\title{Implementácia firemnej siete}
+\author{Andrej Hucík, Miroslav Kozák, Andrej Šišila}
+\date{26.2. 2017}
+
+\begin{document}
+
+\input{titlepage}
+
+% abstrakt vypustime
+%\input{abstract}
+
+\tableofcontents
+
+\listoffigures
+
+%\listoftables
+
+\chapter{Úvod}
+\input{chapters/uvod}
+
+\chapter{Ciele práce}
+\input{chapters/ciele_prace}
+
+\chapter{Topológia siete}
+\input{chapters/topologia_siete}
+
+\chapter{Linux}
+\input{chapters/linux}
+
+\chapter{Windows}
+\input{chapters/windows}
+
+\chapter{Záver}
+\input{chapters/zaver}
+
+\printbibliography
+
+\end{document}
