@@ -1,0 +1,113 @@
+Konzoly
+Ctrl + Alt + F1-7
+
+Prepinanie konzol
+Alt + F1-7
+
+Vsetky adresare by mali mat opravnenie 'x', aby sa k nim dalo pristupovat.
+
+man chmod
+man 1 chmod #hladaj v prvej sekcii
+man 2 chmod
+
+ked nevieme, ako sa nejaky prikaz pise alebo hladame podla popisu prikazu:
+apropos
+apropos change
+apropos change -s 1 #hladaj change v prvej sekcii
+
+/bin  - pouzivatelske prikazy
+/sbin - administratorske prikazy (superuser bin)
+/dev  - komunikacia s IO zariadeniami
+
+Runlevel - kontrola
+/sbin/runlevel
+
+Dynamicke kniznice - maju priponu '.so'
+/lib
+/lib64
+
+Moduly pre jadro - narava sa na vyziadanie
+/lib/modules
+
+Nazvy spustenych procesov
+/run
+
+Konfiguracia systemovych zariadeni
+/sys
+
+Pouzivatelske programy nesuvisiace so zakladnou instalaciou (doplnkove programy)
+/usr
+/usr/bin
+
+
+/var        # spravy
+/var/spool  #fronta pre tlaciaren
+/var/log    #logy
+
+
+Stav diskov - aj s mierou zaplnenia
+df
+
+"tmpfs" = ramdisk - docasne volatilne ulozisko
+
+Namontovane filesystemy
+cat /etc/mtab   #zastarale
+cat /etc/fstab  #niekedy ho treba editovat ked klonujeme disky - uprednostnovat UUID namiesto nazvu particie
+ls -l /dev/disk/by-uuid   #symlinky na nazvy particii
+
+sticky bit - spusti sa ako root. pouziva sa pre programy, ktore pouzivatelia potrebuju ale potrebuju na to prava administratora. Napr v:
+ls -l /usr/bin/sudo
+vidime, ze ma opravnenia '-rwsr-xr-x' namiesto klasickeho 'rwx'
+
+Vypis cesty prikazu
+which sudo
+
+Symbolicka linka
+ln -s Jano2017 Jano #Vznikne symlink s nazvom Jano, ktory odkazuje na adresar Jano2017
+
+Spustene procesy
+ps  #iba moje procesy
+ps aux #vsetky procesy (aj v pozadi) aj s pouzivatelom, ktore mu patria
+
+pstree  #strom procesov
+top
+
+Presmerovanie do suboru
+>
+
+Append do suboru
+>>
+
+sledovanie log suboru
+tail -f <subor>
+
+Vypusti vsetky vypisy, ale nechaj chybovy vystup
+"blable" > /dev/null
+
+Vypusti vsetky vypisy
+"blable" 2>/dev/null
+
+zduplikovat vystup aj do suboru aj na konzolu
+tee
+
+podrobnosti o subore
+file <subor>
+
+filtrovanie vystupu
+grep
+
+ssh 7022
+
+Historia prikazov v bashi (~/bash_history)
+history
+
+ukoncenie procesu
+Ctrl+C
+kill
+killall
+
+spustenie programu na pozadi z terminalu, aby sa mi predchadzajuce
+xterm &     #ampersand spusti proces na pozadi
+
+Cpoy & paste v terminali:
+klik strednym tlacitkom
