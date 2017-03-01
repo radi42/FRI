@@ -1,0 +1,6 @@
+instalacia a a konfiguracia arch linux
+software access point
+radius server
+rasperry pi projekty (pi-hole)
+
+ulabserv.fri.uniza.sk
