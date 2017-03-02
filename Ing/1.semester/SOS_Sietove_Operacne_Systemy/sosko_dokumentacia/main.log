@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.2.18)  2 MAR 2017 18:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.2.18)  2 MAR 2017 20:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -799,12 +799,12 @@ Overfull \hbox (3.15326pt too wide) in paragraph at lines 161--162
  []
 
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 197--204
+Underfull \hbox (badness 10000) in paragraph at lines 202--209
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 197--204
+Underfull \hbox (badness 10000) in paragraph at lines 202--209
 
  []
 
@@ -813,10 +813,10 @@ File: images/linux_master_external.jpeg Graphic file (type jpg)
 
 <use images/linux_master_external.jpeg>
 Package pdftex.def Info: images/linux_master_external.jpeg used on input line 2
-07.
+12.
 (pdftex.def)             Requested size: 428.19505pt x 237.88612pt.
 
-Overfull \hbox (1.40372pt too wide) in paragraph at lines 207--208
+Overfull \hbox (1.40372pt too wide) in paragraph at lines 212--213
  [][] 
  []
 
@@ -824,11 +824,11 @@ Overfull \hbox (1.40372pt too wide) in paragraph at lines 207--208
 File: images/linux_master_local.jpeg Graphic file (type jpg)
 
 <use images/linux_master_local.jpeg>
-Package pdftex.def Info: images/linux_master_local.jpeg used on input line 214.
+Package pdftex.def Info: images/linux_master_local.jpeg used on input line 219.
 
 (pdftex.def)             Requested size: 428.19505pt x 237.88612pt.
 
-Overfull \hbox (1.40372pt too wide) in paragraph at lines 214--215
+Overfull \hbox (1.40372pt too wide) in paragraph at lines 219--220
  [][] 
  []
 
@@ -836,10 +836,10 @@ Overfull \hbox (1.40372pt too wide) in paragraph at lines 214--215
 File: images/linux_dns_views.jpeg Graphic file (type jpg)
 
 <use images/linux_dns_views.jpeg>
-Package pdftex.def Info: images/linux_dns_views.jpeg used on input line 221.
+Package pdftex.def Info: images/linux_dns_views.jpeg used on input line 226.
 (pdftex.def)             Requested size: 428.19505pt x 237.88612pt.
 
-Overfull \hbox (1.40372pt too wide) in paragraph at lines 221--222
+Overfull \hbox (1.40372pt too wide) in paragraph at lines 226--227
  [][] 
  []
 
@@ -847,17 +847,17 @@ Overfull \hbox (1.40372pt too wide) in paragraph at lines 221--222
 File: images/linux_named_options.jpeg Graphic file (type jpg)
 
 <use images/linux_named_options.jpeg>
-Package pdftex.def Info: images/linux_named_options.jpeg used on input line 228
+Package pdftex.def Info: images/linux_named_options.jpeg used on input line 233
 .
 (pdftex.def)             Requested size: 428.19505pt x 237.88612pt.
 
-Overfull \hbox (1.40372pt too wide) in paragraph at lines 228--229
+Overfull \hbox (1.40372pt too wide) in paragraph at lines 233--234
  [][] 
  []
 
-[11 <./images/linux_master_external.jpeg>] [12 <./images/linux_master_local.jpe
-g> <./images/linux_dns_views.jpeg>] [13 <./images/linux_named_options.jpeg>]
-Overfull \hbox (2.17676pt too wide) in paragraph at lines 243--244
+[11] [12 <./images/linux_master_external.jpeg> <./images/linux_master_local.jpe
+g>] [13 <./images/linux_dns_views.jpeg> <./images/linux_named_options.jpeg>]
+Overfull \hbox (2.17676pt too wide) in paragraph at lines 248--249
  [] \OT1/cmr/m/n/12 FW pln^^S^^P ^^Sulohu DHCP Re-lay ser-vera. V^^Tsetky DHCP 
 po^^Tziadavky od kli-en-tov prech^^Sa-
  []
@@ -868,10 +868,10 @@ po^^Tziadavky od kli-en-tov prech^^Sa-
 File: images/linux_dhcp.jpeg Graphic file (type jpg)
 
 <use images/linux_dhcp.jpeg>
-Package pdftex.def Info: images/linux_dhcp.jpeg used on input line 282.
+Package pdftex.def Info: images/linux_dhcp.jpeg used on input line 290.
 (pdftex.def)             Requested size: 428.19505pt x 237.88612pt.
 
-Overfull \hbox (1.40372pt too wide) in paragraph at lines 282--283
+Overfull \hbox (1.40372pt too wide) in paragraph at lines 290--291
  [][] 
  []
 
@@ -880,10 +880,10 @@ File: images/linux_ntp_konfiguracia_server.jpeg Graphic file (type jpg)
 
 <use images/linux_ntp_konfiguracia_server.jpeg>
 Package pdftex.def Info: images/linux_ntp_konfiguracia_server.jpeg used on inpu
-t line 293.
+t line 303.
 (pdftex.def)             Requested size: 428.19505pt x 237.88612pt.
 
-Overfull \hbox (1.40372pt too wide) in paragraph at lines 293--294
+Overfull \hbox (1.40372pt too wide) in paragraph at lines 303--304
  [][] 
  []
 
@@ -892,10 +892,10 @@ File: images/linux_ntp_konfiguracia_klient.jpeg Graphic file (type jpg)
 
 <use images/linux_ntp_konfiguracia_klient.jpeg>
 Package pdftex.def Info: images/linux_ntp_konfiguracia_klient.jpeg used on inpu
-t line 300.
+t line 310.
 (pdftex.def)             Requested size: 428.19505pt x 237.88612pt.
 
-Overfull \hbox (1.40372pt too wide) in paragraph at lines 300--301
+Overfull \hbox (1.40372pt too wide) in paragraph at lines 310--311
  [][] 
  []
 
@@ -903,10 +903,10 @@ Overfull \hbox (1.40372pt too wide) in paragraph at lines 300--301
 File: images/linux_ntp_1.png Graphic file (type png)
 
 <use images/linux_ntp_1.png>
-Package pdftex.def Info: images/linux_ntp_1.png used on input line 307.
+Package pdftex.def Info: images/linux_ntp_1.png used on input line 317.
 (pdftex.def)             Requested size: 428.19505pt x 237.88612pt.
 
-Overfull \hbox (1.40372pt too wide) in paragraph at lines 307--308
+Overfull \hbox (1.40372pt too wide) in paragraph at lines 317--318
  [][] 
  []
 
@@ -914,10 +914,10 @@ Overfull \hbox (1.40372pt too wide) in paragraph at lines 307--308
 File: images/linux_ntp_2.png Graphic file (type png)
 
 <use images/linux_ntp_2.png>
-Package pdftex.def Info: images/linux_ntp_2.png used on input line 314.
+Package pdftex.def Info: images/linux_ntp_2.png used on input line 324.
 (pdftex.def)             Requested size: 428.19505pt x 237.88612pt.
 
-Overfull \hbox (1.40372pt too wide) in paragraph at lines 314--315
+Overfull \hbox (1.40372pt too wide) in paragraph at lines 324--325
  [][] 
  []
 
@@ -931,10 +931,10 @@ File: images/linux_web1_konfiguracia.jpeg Graphic file (type jpg)
 
 <use images/linux_web1_konfiguracia.jpeg>
 Package pdftex.def Info: images/linux_web1_konfiguracia.jpeg used on input line
- 380.
+ 393.
 (pdftex.def)             Requested size: 428.19505pt x 237.88612pt.
 
-Overfull \hbox (1.40372pt too wide) in paragraph at lines 380--381
+Overfull \hbox (1.40372pt too wide) in paragraph at lines 393--394
  [][] 
  []
 
@@ -943,74 +943,68 @@ File: images/linux_web_konfiguraky_webstranok.png Graphic file (type png)
 
 <use images/linux_web_konfiguraky_webstranok.png>
 Package pdftex.def Info: images/linux_web_konfiguraky_webstranok.png used on in
-put line 387.
+put line 400.
 (pdftex.def)             Requested size: 430.83406pt x 58.41815pt.
 
-Overfull \hbox (4.04272pt too wide) in paragraph at lines 387--388
+Overfull \hbox (4.04272pt too wide) in paragraph at lines 400--401
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 396--397
+Underfull \hbox (badness 10000) in paragraph at lines 409--410
 
  []
 
 [19 <./images/linux_web1_konfiguracia.jpeg> <./images/linux_web_konfiguraky_web
 stranok.png>]
-Overfull \hbox (62.5258pt too wide) in paragraph at lines 402--403
-\OT1/cmr/m/n/12 kon-fi-gu-ro-vali priebe^^Tzne s ^^Sulohami po^^Tcas se-mes-tra
-. Skript bol ulo^^Tzen^^Sy v ``/etc/skripty/firewall.sh''.
+Overfull \hbox (1.42644pt too wide) in paragraph at lines 415--416
+\OT1/cmr/m/n/12 ``/etc/skripty/firewall.sh''. Skriptu sme na-sta-vili opr^^Savn
+enia ``chmod 744 fi-re-wall.sh'',
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 404--407
+Underfull \hbox (badness 10000) in paragraph at lines 417--420
 
  []
 
 
-Overfull \hbox (4.36024pt too wide) in paragraph at lines 604--604
-[]\OT1/cmtt/m/n/10.95 #FW CONNTRACK - nastav sledovanie aktivnych pripojeni ini
-cializovanych z FW[] 
+Overfull \hbox (38.85237pt too wide) in paragraph at lines 614--614
+[]\OT1/cmtt/m/n/10.95 # CONNTRACK men^^S^^P bezstavov^^Sy firewall na stavov^^S
+y t.j. firewall si pam^^?at^^Sa spojenia,[] 
  []
 
 
-Overfull \hbox (61.84712pt too wide) in paragraph at lines 604--604
+Overfull \hbox (38.85237pt too wide) in paragraph at lines 614--614
+[]\OT1/cmtt/m/n/10.95 # ktor^^Se boli inicializovan^^Se z vn^^Sutornej siete sm
+erom von a automaticky ich povol^^S^^P[] 
+ []
+
+
+Overfull \hbox (61.84712pt too wide) in paragraph at lines 614--614
 []\OT1/cmtt/m/n/10.95 $I -A FORWARD -i eth0 -o eth1.10 -m conntrack --ctstate E
 STABLISHED,RELATED -j ACCEPT[] 
  []
 
 
-Overfull \hbox (61.84712pt too wide) in paragraph at lines 604--604
+Overfull \hbox (61.84712pt too wide) in paragraph at lines 614--614
 []\OT1/cmtt/m/n/10.95 $I -A FORWARD -i eth0 -o eth1.20 -m conntrack --ctstate E
 STABLISHED,RELATED -j ACCEPT[] 
- []
-
-
-Overfull \hbox (44.60106pt too wide) in paragraph at lines 604--604
-[]\OT1/cmtt/m/n/10.95 #a co s druhou ipckou? treba na nu tiez prekladat? mozme 
-pridat aj nat na druhu ip[] 
  []
 
 [20]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [21]
-Overfull \hbox (4.36024pt too wide) in paragraph at lines 604--604
-[]\OT1/cmtt/m/n/10.95 $I -A FORWARD -i eth0 -o eth1.10 -d 192.168.0.2 -p udp --
-dport 53 -j ACCEPT[] 
- []
-
-
-Overfull \hbox (4.36024pt too wide) in paragraph at lines 604--604
-[]\OT1/cmtt/m/n/10.95 $I -A FORWARD -i eth0 -o eth1.10 -d 192.168.0.3 -p udp --
-dport 53 -j ACCEPT[] 
- []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [22]
-Overfull \hbox (38.85237pt too wide) in paragraph at lines 604--604
+Overfull \hbox (4.36024pt too wide) in paragraph at lines 614--614
+[]\OT1/cmtt/m/n/10.95 # Povol^^S^^Pme preposielanie SMTP po^^Tziadaviek v lok^^
+Salnej sieti na/z SMTP server[] 
+ []
+
+
+Overfull \hbox (38.85237pt too wide) in paragraph at lines 614--614
 []\OT1/cmtt/m/n/10.95 $I -t nat -A PREROUTING -p tcp --dport 25 -j DNAT --to-de
 stination 192.168.0.3:25[] 
  []
@@ -1152,8 +1146,8 @@ Package logreq Info: Writing requests to 'main.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
  9453 strings out of 493105
- 156033 string characters out of 6137072
- 555079 words of memory out of 5000000
+ 156009 string characters out of 6137072
+ 556079 words of memory out of 5000000
  12736 multiletter control sequences out of 15000+600000
  9915 words of font info for 35 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1164,7 +1158,7 @@ e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on main.pdf (34 pages, 1242609 bytes).
+Output written on main.pdf (34 pages, 1244845 bytes).
 PDF statistics:
  162 PDF objects out of 1000 (max. 8388607)
  95 compressed objects within 1 object stream

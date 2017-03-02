@@ -148,9 +148,9 @@ $I -A FORWARD -i eth1.20 -o eth0 -p tcp --dport 20 -j ACCEPT
 $I -A FORWARD -i eth1.20 -o eth0 -p tcp --dport 21 -j ACCEPT
 
 ########## DHCP ##########
-#Povol DHCP
-#$I -I FORWARD -i eth1.10 -p udp --dport 67:68 --sport 67:68 -j ACCEPT
-#$I -I FORWARD -i eth1.20 -p udp --dport 67:68 --sport 67:68 -j ACCEPT
+#Povolíme DHCP v lokálnej sieti
+$I -I FORWARD -i eth1.10 -p udp --dport 67:68 --sport 67:68 -j ACCEPT
+$I -I FORWARD -i eth1.20 -p udp --dport 67:68 --sport 67:68 -j ACCEPT
 
 ########## SMTP ##########
 # Povolíme preposielanie SMTP požiadaviek v lokálnej sieti na/z SMTP server

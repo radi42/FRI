@@ -156,7 +156,7 @@ iface eth0 inet6 auto
 
 \section{DNS}
 \paragraph{}
-Systém názvov domén alebo systém mien domén, alebo systém doménových mien (Domain Name System), skr. DNS, je systém, ktorý ukladá prístup k informácii o názve stroja (hostname) a názve domény v istej distribuovanej databáze v počítačo\-vých sieťach ako internet. Najdôležitejšie je, že poskytuje mechanizmus získania IP adresy pre každé meno stroja (lookup) a naopak (reverse), a uvádza poštové servery (MX záznam) akceptujúce poštu pre danú doménu.
+Systém názvov domén alebo systém mien domén, alebo systém doménových mien (Domain Name System), skr. DNS, je systém, ktorý ukladá prístup k informácii o názve zariadení (hostname) a názve domény v istej distribuovanej databáze v počítačových sieťach ako internet. Najdôležitejšie je, že poskytuje mechanizmus získania IP adresy pre každé doménové meno zariadenia (lookup) a naopak (reverse). Uvádza aj záznamy pre poštové servery (MX záznam) akceptujúce poštu pre danú doménu.
 \paragraph{}
 DNS poskytuje na internete všeobecne dôležitú službu, pretože kým počítače a sieťový hardvér pracujú s IP adresami, ľudia si vo všeobecnosti ľahšie pamätajú mená strojov a domén pri použití napr. v URL a e-mailovej adrese (obzvlášť nepríjem\-né by to bolo pri IPv6 adrese). DNS tak tvorí prostredníka medzi potrebami človeka a softvéru.
 \paragraph{}
@@ -164,7 +164,7 @@ V rámci našej doménovej zóny \say{sos3.local} sme si museli nastaviť dva DN
 \paragraph{}
 Na obidva servery sme nainštalovali DNS server a nástroje na overenie jeho funkčnosti príkazom \say{apt-get install bind9 bind9utils dnsutils}.
 \paragraph{}
-Master DNS serveru sme upravovali súbory \say{/etc/resolv.conf} (konfigurácia adries DNS serverov), \say{/etc/bind/master/db.sos3.local} (view-lokálny),\\ \say{/etc/bind/master/db.sos3.external} (view-verejný), \say{/etc/bind/named.conf.local} (definovanie lokálnych a verejných DNS View). Obsah súboru \say{/etc/resolv.conf} je uvedený nižšie.
+Master DNS serveru sme upravovali súbory \say{/etc/resolv.conf} (konfigurácia adries DNS serverov), \say{/etc/bind/master/db.sos3.local} (view-lokálny),\\ \say{/etc/bind/master/db.sos3.external} (view-verejný), \say{/etc/bind/named.conf.local} (definovanie lokálnych a verejných DNS pohľadov). Pohľady na DNS serveri sme definovali kvôli tomu, aby sme vedeli dať tomu, kto sa pýta, správnu IP adresu v závislosti od toho, odkiaľ sa pýta. Pokiaľ sa dotazuje klient z lokálnej siete, DNS server mu odpovie IP adresou v lokálnej sieti. Pokiaľ sa ale pýta klient z vonkajšej siete (internetu), DNS server odošle klientovi verejnú IP adresu. Obsah súboru \say{/etc/resolv.conf} je uvedený nižšie.
 
 \noindent
 {\fontfamily{qcr}\selectfont
@@ -176,7 +176,9 @@ Master DNS serveru sme upravovali súbory \say{/etc/resolv.conf} (konfigurácia 
 \begin{verbatim}
 
 domain sos3.local
+# Master DNS
 nameserver 192.168.0.2
+# Slave DNS
 nameserver 192.168.0.3
 
 \end{verbatim}
@@ -188,13 +190,16 @@ nameserver 192.168.0.3
 \paragraph{}
 V adresári \say{/etc/bind} na S1 sme vytvorili adresár \say{master}, do ktorého sme ukladali zónové súbory pre DNS.
 \paragraph{}
-Viewy sme nastavovali na Master  DNS serveri súbormi\\ \say{/etc/bind/named.conf.local}, \say{/etc/bind/master/db.sos3.local},\\ \say{/etc/bind/master/db.sos3.external}. Pri dotazovaní na doménové meno nášho DNS zvnútra sa použijú privátne adersy DNS serverov zo súboru\\ \say{/etc/bind/master/db.sos3.local}. Pri dotazovaní na doménové meno nášho DNS zvonku sa použijú verejné adersy DNS serverov zo súboru\\ \say{/etc/bind/master/db.sos3.external}. O tom, aký súbor sa použije, rozhoduje súbor \say{/etc/bind/named.conf.local}
+Pohľady pre DNS sme nastavovali na Master fDNS serveri súbormi\\ \say{/etc/bind/named.conf.local}, \say{/etc/bind/master/db.sos3.local},\\ \say{/etc/bind/master/db.sos3.external}. Pri dotazovaní na doménové meno nášho DNS zvnútra sa použijú privátne adersy DNS serverov zo súboru\\ \say{/etc/bind/master/db.sos3.local}. Pri dotazovaní na doménové meno nášho DNS zvonku sa použijú verejné adersy DNS serverov zo súboru\\ \say{/etc/bind/master/db.sos3.external}. O tom, aký súbor sa použije, rozhoduje súbor \say{/etc/bind/named.conf.local}
 \paragraph{}
 Počítače v lokálnej sieti sa dokážu navzájompingať pomocou svojich hostname. Preklad hostname názvov na IP adresy je definovaný v súbore\\ \say{/etc/bind/master/db.sos3.local}.
 \paragraph{}
 Firewall bol nakonfigurovaný tak, aby prepúšťal DNS požiadavky na lokálnej sieti, a tiež aby prepúšťal požiadavky z internetu na obidva DNS servery t.j. aby boli obidva DNS servery viditeľné zvonku (PREROUTING). Záznamy pre DNS sú pre obidve verejné IP adresy pre udp aj tcp port 53 (zdrojový aj cieľový).
 \paragraph{}
 V prípade, že sa vyskytli problémy, skúšali sme vypnúť firewall, kontrolovali sme konfiguračné súbory Master DNS servera príkazmi \say{named-checkconf} a \say{named-checkzone} a príkazom \say{tcpdump} sme monitorovali prenášané správy. Pri každej zmene konfiguračných súborov bolo treba reštartovať bind9 / isc-dhcp-server / interface.
+
+\paragraph{}
+Výnimky pre DNS vo firewall-e sú uvedené v kapitole \say{Firewall}.
 \\
 \\
 \noindent
@@ -206,28 +211,28 @@ https://www.howtoforge.com/two\_in\_one\_dns\_bind9\_views\\
 \centering
 \includegraphics[scale=0.79]{linux_master_external}
 \caption{Verejné DNS záznamy}
-\label{fig:x dns_external}
+\label{fig:dns_external}
 \end{figure}
 
 \begin{figure}[!htb]
 \centering
 \includegraphics[scale=0.79]{linux_master_local}
 \caption{Vnútorné DNS záznamy}
-\label{fig:x dns_internal}
+\label{fig:dns_internal}
 \end{figure}
 
 \begin{figure}[!htb]
 \centering
 \includegraphics[scale=0.79]{linux_dns_views}
-\caption{Konfigurácia DNS pohľadov}
-\label{fig:x dns_views}
+\caption{Nastavenie parametrov pre DNS pohľady a autentifikácia Slave DNS servera spoločným kľúčom}
+\label{fig:dns_views}
 \end{figure}
 
 \begin{figure}[!htb]
 \centering
 \includegraphics[scale=0.79]{linux_named_options}
 \caption{Konfigurácia DNS forwardera}
-\label{fig:x dns_forwarder}
+\label{fig:dns_forwarder}
 \end{figure}
 
 
@@ -277,43 +282,48 @@ OPTIONS=""
 
 }
 
+\paragraph{}
+Výnimky pre DHCP vo firewall-e sú uvedené v kapitole \say{Firewall}.
+
 \begin{figure}[!htb]
 \centering
 \includegraphics[scale=0.79]{linux_dhcp}
 \caption{Konfiguračný súbor pre DHCP}
-\label{fig:x dhcp_config}
+\label{fig:dhcp_config}
 \end{figure}
 
 \section{NTP}
 \paragraph{}
-NTP(Network Time Protocol) je protokol na sychronizáciu všetkých počítačov pripojených do vnutornej siete. Tento protokol zaisťuje, aby všetky počítače v sietei mali rovnaký a presný čas. Bol nvrhnutý aby odolával následkom premenlivého zdržania pri doručovaní paketov. NTP používa UDP na porte 123. NTP server sme zvolili server2, ktorý má ip adresu 192.168.0.3. Nainštalovali sme NTP príkazom apt-get install ntp. Na klientoch sme nainštalovali NTP pomocou príkazu apt-get install ntp ntpdate. V súbore na serveri s2 /etc/ntp.conf sme pridali slovenské servery zo stránky www.pool.ntp.org/zone/sk. a ostatné servery sme zakomentovali. Klienti si z master serveru aktualizujú čas.
+NTP(Network Time Protocol) je protokol na sychronizáciu všetkých počítačov pripojených do vnutornej siete. Tento protokol zaisťuje, aby všetky počítače v sietei mali rovnaký a presný čas. Bol nvrhnutý aby odolával následkom premenlivého zdržania pri doručovaní paketov. NTP používa UDP na porte 123. NTP server sme zvolili server2, ktorý má ip adresu 192.168.0.3. Nainštalovali sme NTP príkazom \say{apt-get install ntp}. Na klientoch sme nainštalovali NTP pomocou príkazu apt-get install ntp ntpdate. V súbore na serveri s2 \say{/etc/ntp.conf} sme pridali slovenské servery zo stránky \say{www.pool.ntp.org/zone/sk}, ostatné servery sme zakomentovali. Klienti si následne z master serveru aktualizujú čas.
+\paragraph{}
+Výnimky pre NTP vo firewall-e sú uvedené v kapitole \say{Firewall}.
 
 \begin{figure}[!htb]
 \centering
 \includegraphics[scale=0.79]{linux_ntp_konfiguracia_server}
 \caption{Konfigurácia NTP servera}
-\label{fig:x ntp_config_server}
+\label{fig:ntp_config_server}
 \end{figure}
 
 \begin{figure}[!htb]
 \centering
 \includegraphics[scale=0.79]{linux_ntp_konfiguracia_klient}
 \caption{Konfigurácia NTP na klientovi}
-\label{fig:x ntp_config_client}
+\label{fig:ntp_config_client}
 \end{figure}
 
 \begin{figure}[!htb]
 \centering
 \includegraphics[scale=0.79]{linux_ntp_1}
 \caption{Kontrola externých NTP serverov}
-\label{fig:x ntp_config_valid_1}
+\label{fig:ntp_config_valid_1}
 \end{figure}
 
 \begin{figure}[!htb]
 \centering
 \includegraphics[scale=0.79]{linux_ntp_2}
 \caption{Stav synchronizácie s NTP serverom}
-\label{fig:x ntp_config_valid_2}
+\label{fig:ntp_config_valid_2}
 \end{figure}
 
 \section{Web server}
@@ -375,18 +385,21 @@ V priečinku /var/www/web2 sme stiahli joomlu verziu 3.6 pomocou príkazu \say{w
 \paragraph{}
 V priečinku var/www/web1 sme stiahli Wikimedia pomocou príkazu\\ \say{wget https://www.mediawiki.org/wiki/Download/mediawiki-1.2.8.zip} . Následne sme odzipovali tento súbor príkazom \say{unzip mediawiki-1.2.8.zip} . A v poslednom kroku sme v prehliadači web2.sos3.local nainštalovali mediawiki.
 
+\paragraph{}
+Výnimky pre webový server vo firewall-e sú uvedené v kapitole \say{Firewall}.
+
 \begin{figure}[!htb]
 \centering
 \includegraphics[scale=0.79]{linux_web1_konfiguracia}
 \caption{Konfiguračný súbor webstránky}
-\label{fig:x web1_config_file}
+\label{fig:web1_config_file}
 \end{figure}
 
 \begin{figure}[!htb]
 \centering
 \includegraphics[scale=0.97]{linux_web_konfiguraky_webstranok}
 \caption{Prehľad konfiguračných súborov webstránok}
-\label{fig:x web_config_files_list}
+\label{fig:web_config_files_list}
 \end{figure}
 
 \section{Poštový server}
@@ -399,7 +412,7 @@ pridat konfigurak a obrazky
 
 \section{Firewall}
 \paragraph{}
-Politika filtrovania sieťovej premávky bola reštriktívna, t.j. čo nebolo vyslovene povolené, bolo zakázané. Pre filtrovanie sme použili nástroj \say{iptables}. Firewall sme konfigurovali priebežne s úlohami počas semestra. Skript bol uložený v \say{/etc/skripty/firewall.sh}. Skriptu sme nastavili oprávnenia \say{chmod 744 firewall.sh}, aby ho mohol spúšťať iba root resp. sudo používateľ. Nižšie je uvedený konfiguračný skript na pridávanie pravidiel pre iptables.
+Politika filtrovania sieťovej premávky bola reštriktívna, t.j. čo nebolo vyslovene povolené, bolo zakázané. Pre filtrovanie sme použili nástroj \say{iptables}. Firewall sme konfigurovali priebežne s úlohami počas semestra. Skript bol uložený v\\ \say{/etc/skripty/firewall.sh}. Skriptu sme nastavili oprávnenia \say{chmod 744 firewall.sh}, aby ho mohol spúšťať iba root resp. sudo používateľ. Pravidlá v skripte sú štruktúro\-vané podľa protokolu resp. funkcie, ktorú vykonávajú. Nižšie je uvedený konfiguračný skript na pridávanie pravidiel pre iptables.
 
 \noindent
 {\fontfamily{qcr}\selectfont
@@ -411,6 +424,191 @@ Politika filtrovania sieťovej premávky bola reštriktívna, t.j. čo nebolo vy
 % Pouzijeme "verbatim", aby sme escapeovali cely odsek
 \begin{verbatim}
 
+#!/bin/bash
+
+I=/sbin/iptables
+
+# Vyčistíme pôvodné pravidlá z tabuliek NAT a FILTER
+$I -F -t filter
+$I -F -t nat
+
+# Používame reštriktívnu politiku:
+# čo nie je vyslovene povolené, je zakázané
+$I -P INPUT DROP
+$I -P FORWARD DROP
+#$I -P INPUT ACCEPT
+#$I -P FORWARD ACCEPT
+
+# Povolíme vstup na loopback pre firewall
+$I -A INPUT -i lo -j ACCEPT
+
+########## CONNTRACK ##########
+# CONNTRACK mení bezstavový firewall na stavový t.j. firewall si pamätá spojenia,
+# ktoré boli inicializované z vnútornej siete smerom von a automaticky ich povolí
+# zvonku dnu
+
+# FW CONNTRACK - čo odíde z firewallu von, nech sa naň aj vráti
+$I -A INPUT -i eth0 -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
+
+# VLAN CONNTRACK - čo odíde z VLAN rozhraní von, nech sa na ne aj vráti
+$I -A FORWARD -i eth0 -o eth1.10 -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
+$I -A FORWARD -i eth0 -o eth1.20 -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
+
+########## SNAT ##########
+# Našej skupine boli pridelené verejné adresy 158.193.139.74 a .75
+# Na tieto adresy prekladáme požiadavky pochádzajúce z vnútornej siete,
+# pretože privátne adresy nie sú smerovateľné na vo verejnej sieti.
+$I -t nat -A POSTROUTING -o eth0 -j SNAT --to-source 158.193.139.74
+$I -t nat -A POSTROUTING -o eth0 -j SNAT --to-source 158.193.139.75
+
+########## VLAN ROUTING ############
+# Povolíme smerovanie medzi VLANami
+$I -A FORWARD -i eth1.10 -o eth1.20 -j ACCEPT
+$I -A FORWARD -i eth1.20 -o eth1.10 -j ACCEPT
+
+########## ICMP ############
+# Povolíme PINGy na firewall zvonku aj zvnútra
+$I -A INPUT -p icmp -j ACCEPT
+
+# Povolíme PINGy z VLANiek von
+$I -A FORWARD -i eth1.10 -o eth0 -p icmp -j ACCEPT
+$I -A FORWARD -i eth1.20 -o eth0 -p icmp -j ACCEPT
+
+########## SSH ##########
+# Povolíme SSH na firewall zvonku dnu
+$I -A INPUT -p tcp --dport 22 -j ACCEPT
+
+# Návrat SSH na FW, pokiaľ sa z neho pripájame niekam inam na SSH
+# v rámci lokálnej siete
+$I -A INPUT -i eth1.10 -p tcp --sport 22 -j ACCEPT
+$I -A INPUT -i eth1.20 -p tcp --sport 22 -j ACCEPT
+
+# Povolíme preposielanie SSH požiadaviek pre server S1 zvonku dnu ...
+$I -t nat -A PREROUTING -d 158.193.139.74 -p tcp --dport 3002 -j DNAT
+   --to-destination 192.168.0.2:22
+$I -A FORWARD -p tcp -d 192.168.0.2 --dport 22 -j ACCEPT
+$I -A FORWARD -p tcp -s 192.168.0.2 --sport 22 -j ACCEPT
+# ... a zvnútra von - musíme povoliť obidva smery: od FW k S1 a naopak
+$I -A FORWARD -d 192.168.0.2 -p tcp --dport 22 -j ACCEPT
+$I -A FORWARD -s 192.168.0.2 -p tcp --sport 22 -j ACCEPT
+
+# Povolíme preposielanie SSH požiadaviek pre server S2 zvonku dnu ...
+$I -t nat -A PREROUTING -d 158.193.139.74 -p tcp --dport 3003 -j DNAT
+   --to-destination 192.168.0.3:22
+$I -A FORWARD -p tcp -d 192.168.0.3 --dport 22 -j ACCEPT
+$I -A FORWARD -p tcp -s 192.168.0.3 --sport 22 -j ACCEPT
+# ... a zvnútra von - musíme povoliť obidva smery: od FW k S1 a naopak
+$I -A FORWARD -d 192.168.0.3 -p tcp --dport 22 -j ACCEPT
+$I -A FORWARD -s 192.168.0.3 -p tcp --sport 22 -j ACCEPT
+
+########## DNS ############
+# Povolíme DNS pre FW
+$I -A INPUT -p udp --sport 53 -j ACCEPT
+$I -A INPUT -p udp --dport 53 -j ACCEPT
+
+# Povolíme DNS zvnútra von
+$I -A FORWARD -i eth1.10 -o eth0 -p tcp --dport 53 -j ACCEPT
+$I -A FORWARD -i eth1.10 -o eth0 -p udp --dport 53 -j ACCEPT
+$I -A FORWARD -i eth1.20 -o eth0 -p tcp --dport 53 -j ACCEPT
+$I -A FORWARD -i eth1.20 -o eth0 -p udp --dport 53 -j ACCEPT
+
+# Povolíme MASTER DNS (S1) pre lokálnu sieť
+$I -A FORWARD -d 192.168.0.2 -p tcp --dport 53 -j ACCEPT
+$I -A FORWARD -s 192.168.0.2 -p tcp --sport 53 -j ACCEPT
+$I -A FORWARD -d 192.168.0.2 -p udp --dport 53 -j ACCEPT
+$I -A FORWARD -s 192.168.0.2 -p udp --sport 53 -j ACCEPT
+
+# Povolíme SLAVE DNS (S2) pre lokálnu sieť
+$I -A FORWARD -d 192.168.0.3 -p tcp --dport 53 -j ACCEPT
+$I -A FORWARD -s 192.168.0.3 -p tcp --sport 53 -j ACCEPT
+$I -A FORWARD -d 192.168.0.3 -p udp --dport 53 -j ACCEPT
+$I -A FORWARD -s 192.168.0.3 -p udp --sport 53 -j ACCEPT
+
+# Povolíme MASTER DNS (S1) zvonku dnu
+$I -t nat -A PREROUTING -d 158.193.139.74 -p tcp --dport 53 -j DNAT
+   --to-destination 192.168.0.2
+$I -t nat -A PREROUTING -d 158.193.139.74 -p udp --dport 53 -j DNAT
+   --to-destination 192.168.0.2
+
+# Povolíme SLAVE DNS (S2) zvonku dnu
+$I -t nat -A PREROUTING -d 158.193.139.75 -p tcp --dport 53 -j DNAT
+   --to-destination 192.168.0.3
+$I -t nat -A PREROUTING -d 158.193.139.75 -p udp --dport 53 -j DNAT
+   --to-destination 192.168.0.3
+
+########## NTP ##########
+# Povolíme NTP pre FW zvonku dnu
+$I -A INPUT -p udp --sport 123 -j ACCEPT
+
+# Povolíme NTP lokálnu sieť
+$I -A FORWARD -d 192.168.0.3 -p udp --dport 123 -j ACCEPT
+$I -A FORWARD -s 192.168.0.3 -p udp --sport 123 -j ACCEPT
+
+# Povolíme NTP zvonku dnu
+$I -t nat -A PREROUTING -d 158.193.139.74 -p udp --dport 123 -j DNAT
+   --to-destination 192.168.0.3:123
+$I -t nat -A PREROUTING -d 158.193.139.75 -p udp --dport 123 -j DNAT
+   --to-destination 192.168.0.3:123
+
+########## HTTP ##########
+#Povol HTTP von
+$I -A FORWARD -i eth1.10 -o eth0 -p tcp --dport 80 -j ACCEPT
+$I -A FORWARD -i eth1.20 -o eth0 -p tcp --dport 80 -j ACCEPT
+
+# Povolíme HTTP lokálnu sieť
+$I -A FORWARD -d 192.168.0.2 -p tcp --dport 80 -j ACCEPT
+$I -A FORWARD -s 192.168.0.2 -p tcp --sport 80 -j ACCEPT
+
+#HTTP zvonku dnu
+$I -t nat -A PREROUTING -d 158.193.139.74 -p tcp --dport 80 -j DNAT
+   --to-destination 192.168.0.2
+
+########## HTTPS ##########
+#Povol HTTPS von
+$I -A FORWARD -i eth1.10 -o eth0 -p tcp --dport 443 -j ACCEPT
+$I -A FORWARD -i eth1.20 -o eth0 -p tcp --dport 443 -j ACCEPT
+
+# Povolíme HTTPS lokálnu sieť
+$I -A FORWARD -d 192.168.0.2 -p tcp --dport 443 -j ACCEPT
+$I -A FORWARD -s 192.168.0.2 -p tcp --sport 443 -j ACCEPT
+
+# HTTP zvonku dnu
+$I -t nat -A PREROUTING -d 158.193.139.74 -p tcp --dport 443 -j DNAT
+   --to-destination 192.168.0.2
+
+########## FTP ##########
+# Povolíme FTP zvnútra von pre servery aj desktopy
+$I -A FORWARD -i eth1.10 -o eth0 -p tcp --dport 20 -j ACCEPT
+$I -A FORWARD -i eth1.10 -o eth0 -p tcp --dport 21 -j ACCEPT
+$I -A FORWARD -i eth1.20 -o eth0 -p tcp --dport 20 -j ACCEPT
+$I -A FORWARD -i eth1.20 -o eth0 -p tcp --dport 21 -j ACCEPT
+
+########## DHCP ##########
+#Povol DHCP
+$I -I FORWARD -i eth1.10 -p udp --dport 67:68 --sport 67:68 -j ACCEPT
+$I -I FORWARD -i eth1.20 -p udp --dport 67:68 --sport 67:68 -j ACCEPT
+
+########## SMTP ##########
+# Povolíme preposielanie SMTP požiadaviek v lokálnej sieti na/z SMTP server
+$I -A FORWARD -p tcp -d 192.168.0.3 --dport 25 -j ACCEPT
+$I -A FORWARD -p tcp -s 192.168.0.3 --sport 25 -j ACCEPT
+
+# Povolíme SMTP zvonku dnu
+$I -t nat -A PREROUTING -p tcp --dport 25 -j DNAT --to-destination 192.168.0.3:25
+
+########## IMAP ##########
+$I -A FORWARD -p tcp -d 192.168.0.3 --dport 143 -j ACCEPT
+$I -A FORWARD -p tcp -s 192.168.0.3 --sport 143 -j ACCEPT
+
+
+
+
+# Logovanie do /var/messages/kern.log kvôli ladeniu
+$I -A INPUT -j LOG
+$I -A FORWARD -j LOG
+
+# Zapneme IP Forwarding pre iptables, aby fungovali "FORWARD" príkazy
+echo 1 > /proc/sys/net/ipv4/ip_forward
 
 
 \end{verbatim}
