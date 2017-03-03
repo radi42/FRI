@@ -162,9 +162,22 @@ DNS poskytuje na internete všeobecne dôležitú službu, pretože kým počít
 \paragraph{}
 V rámci našej doménovej zóny \say{sos3.local} sme si museli nastaviť dva DNS servery: Master (S1) a Slave (S2). Slave zrkadlí hlavný DNS server a v prípade poruchy ho zastúpi. Keďže si Slave DNS server všetko stiahne z Master DNS servera, netreba ho primárne konfigurovať, ale stačí mu  nastaviť \say{allow-transfer} na privátnu IP Master DNS.
 \paragraph{}
-Na obidva servery sme nainštalovali DNS server a nástroje na overenie jeho funkčnosti príkazom \say{apt-get install bind9 bind9utils dnsutils}.
+Na obidva servery sme nainštalovali DNS server a nástroje na overenie jeho funkčnosti:
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{verbatim}
+
+apt-get install bind9 bind9utils dnsutils
+
+\end{verbatim}
+\end{small}
+}
+
+
 \paragraph{}
-Master DNS serveru sme upravovali súbory \say{/etc/resolv.conf} (konfigurácia adries DNS serverov), \say{/etc/bind/master/db.sos3.local} (view-lokálny),\\ \say{/etc/bind/master/db.sos3.external} (view-verejný), \say{/etc/bind/named.conf.local} (definovanie lokálnych a verejných DNS pohľadov). Pohľady na DNS serveri sme definovali kvôli tomu, aby sme vedeli dať tomu, kto sa pýta, správnu IP adresu v závislosti od toho, odkiaľ sa pýta. Pokiaľ sa dotazuje klient z lokálnej siete, DNS server mu odpovie IP adresou v lokálnej sieti. Pokiaľ sa ale pýta klient z vonkajšej siete (internetu), DNS server odošle klientovi verejnú IP adresu. Obsah súboru \say{/etc/resolv.conf} je uvedený nižšie.
+Master DNS serveru sme upravovali súbory \say{/etc/resolv.conf}, kvôli konfigurácií adries DNS serverov, \say{/etc/bind/master/db.sos3.local} (view-lokálny),\\ \say{/etc/bind/master/db.sos3.external} (view-verejný), \say{/etc/bind/named.conf.local} (definovanie lokálnych a verejných DNS pohľadov). Pohľady na DNS serveri sme definovali kvôli tomu, aby sme vedeli dať tomu, kto sa pýta, správnu IP adresu v závislosti od toho, odkiaľ sa pýta. Pokiaľ sa dotazuje klient z lokálnej siete, DNS server mu odpovie IP adresou v lokálnej sieti. Pokiaľ sa ale pýta klient z vonkajšej siete (internetu), DNS server odošle klientovi verejnú IP adresu. Obsah súboru \say{/etc/resolv.conf} je uvedený nižšie.
 
 \noindent
 {\fontfamily{qcr}\selectfont
@@ -190,16 +203,22 @@ nameserver 192.168.0.3
 \paragraph{}
 V adresári \say{/etc/bind} na S1 sme vytvorili adresár \say{master}, do ktorého sme ukladali zónové súbory pre DNS.
 \paragraph{}
-Pohľady pre DNS sme nastavovali na Master fDNS serveri súbormi\\ \say{/etc/bind/named.conf.local}, \say{/etc/bind/master/db.sos3.local},\\ \say{/etc/bind/master/db.sos3.external}. Pri dotazovaní na doménové meno nášho DNS zvnútra sa použijú privátne adersy DNS serverov zo súboru\\ \say{/etc/bind/master/db.sos3.local}. Pri dotazovaní na doménové meno nášho DNS zvonku sa použijú verejné adersy DNS serverov zo súboru\\ \say{/etc/bind/master/db.sos3.external}. O tom, aký súbor sa použije, rozhoduje súbor \say{/etc/bind/named.conf.local}
+Pohľady pre DNS sme nastavovali na Master DNS serveri súbormi\\ \say{/etc/bind/named.conf.local} (obr. \ref{fig:dns_views}), \say{/etc/bind/master/db.sos3.local} (obr. \ref{fig:dns_internal}),\\ \say{/etc/bind/master/db.sos3.external} \ref{fig:dns_external}). Pri dotazovaní na doménové meno nášho DNS zvnútra sa použijú privátne adersy DNS serverov zo súboru\\ \say{/etc/bind/master/db.sos3.local}. Pri dotazovaní na doménové meno nášho DNS zvonku sa použijú verejné adersy DNS serverov zo súboru\\ \say{/etc/bind/master/db.sos3.external}. O tom, aký súbor (pohľad) sa použije, rozhoduje súbor \say{/etc/bind/named.conf.local}
 \paragraph{}
-Počítače v lokálnej sieti sa dokážu navzájompingať pomocou svojich hostname. Preklad hostname názvov na IP adresy je definovaný v súbore\\ \say{/etc/bind/master/db.sos3.local}.
+S počítačmi v lokálnej sieti vieme komunikovať pomocou ich doménových mien (napr. ping). Docielili sme to úpravou lokálneho pohľadu (viď obr. \ref{fig:dns_internal})Preklad doménových mien na IP adresy je definovaný v súbore\\ \say{/etc/bind/master/db.sos3.local}.
+\paragraph{}
+V súbore \say{/etc/bind/named.conf.options} sme nastavili adresu preposielacieho DNS servera. Preposielací DNS server (tiež známy ako \say{DNS forwarder}) sa použije vtedy, ak lokálne DNS servery nemajú požadovaný záznam. Lokálny DNS server v takom prípade kontaktuje preposielací DNS server, ktorý dotazované doménové meno preloží za nás.
 \paragraph{}
 Firewall bol nakonfigurovaný tak, aby prepúšťal DNS požiadavky na lokálnej sieti, a tiež aby prepúšťal požiadavky z internetu na obidva DNS servery t.j. aby boli obidva DNS servery viditeľné zvonku (PREROUTING). Záznamy pre DNS sú pre obidve verejné IP adresy pre udp aj tcp port 53 (zdrojový aj cieľový).
 \paragraph{}
-V prípade, že sa vyskytli problémy, skúšali sme vypnúť firewall, kontrolovali sme konfiguračné súbory Master DNS servera príkazmi \say{named-checkconf} a \say{named-checkzone} a príkazom \say{tcpdump} sme monitorovali prenášané správy. Pri každej zmene konfiguračných súborov bolo treba reštartovať bind9 / isc-dhcp-server / interface.
+V prípade, že sa vyskytli problémy, skúšali sme vypnúť firewall, kontrolovali sme konfiguračné súbory Master DNS servera príkazmi \say{named-checkconf} a \say{named-checkzone} a príkazom \say{tcpdump} sme monitorovali prenášané správy. Pri každej zmene konfiguračných súborov bolo treba reštartovať službu \say{bind9}.
 
 \paragraph{}
 Výnimky pre DNS vo firewall-e sú uvedené v kapitole \say{Firewall}.
+
+\paragraph{}
+TODO - chyba vam aj overenie master/sôave klucmi, to nemate vobec popsaine
+TODO - Toto netsaci, viwes mali byt vsade aj pre default zony, dorrobit
 \\
 \\
 \noindent
@@ -209,16 +228,16 @@ https://www.howtoforge.com/two\_in\_one\_dns\_bind9\_views\\
 
 \begin{figure}[!htb]
 \centering
-\includegraphics[scale=0.79]{linux_master_external}
-\caption{Verejné DNS záznamy}
-\label{fig:dns_external}
+\includegraphics[scale=0.79]{linux_master_local}
+\caption{Vnútorné DNS záznamy}
+\label{fig:dns_internal}
 \end{figure}
 
 \begin{figure}[!htb]
 \centering
-\includegraphics[scale=0.79]{linux_master_local}
-\caption{Vnútorné DNS záznamy}
-\label{fig:dns_internal}
+\includegraphics[scale=0.79]{linux_master_external}
+\caption{Verejné DNS záznamy}
+\label{fig:dns_external}
 \end{figure}
 
 \begin{figure}[!htb]
@@ -242,7 +261,21 @@ Dynamic Host Configuration Protocol (DHCP) je súbor zásad, ktoré využívajú
 
 \paragraph{}
 DHCP server (S2) sme museli upraviť tak, aby prideľoval aj DNS adresy serverov. Súbor \say{/etc/dhcp/dhcpd.conf} na S1 sme upravili tak, že sme doň pridali privátne IP adresy DNS serverov (option domain-name-servers). Do časti pre podsieť sme definovali názvy týchto serverov. Voľbu \say{optionhost-name} sme zmenili z pôvodného \say{example.org} na \say{sos3.local}. Tým, že sme nastavili DNS server, nemusíme meniť na jednotlivých hostoch súbor \say{/etc/resolv.conf}.
-Preto sme na FW museli nainštalovať balíčky \say{isc-dhcp-server} a \say{vlan} t.j. \say{apt-get install isc-dhcp-server vlan}. Potom sme editovali súbor \say{/etc/network/interfaces} tak, že sme odstránili adresné informácie z vnútorného interfacu eth1, ale nechali sme \say{auto eth1}, aby sa port zapol (UP). Následne sme pridali subinterface eth1.10 pre VLAN 10 (servery) a eth1.20 pre VLAN 20 (desktopy). Adresný rozsah pre jednotlivé VLAN bola sieť 192.168.0.0/24 rozdelená na dve /25 siete: 192.168.0.0 - 192.168.0.127 pre VLAN 10 a 192.168.0.128 - 192.168.0.255 pre VLAN 20
+Preto sme na FW museli nainštalovať balíčky pre DHCP preposielací server a podporu VLAN
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{verbatim}
+
+apt-get install isc-dhcp-server vlan
+
+\end{verbatim}
+\end{small}
+}
+
+\paragraph{}
+Potom sme editovali súbor \say{/etc/network/interfaces} tak, že sme odstránili adresné informácie z vnútorného interfacu eth1, ale nechali sme \say{auto eth1}, aby sa port zapol (UP). Následne sme pridali subinterface eth1.10 pre VLAN 10 (servery) a eth1.20 pre VLAN 20 (desktopy). Adresný rozsah pre jednotlivé VLAN bola sieť 192.168.0.0/24 rozdelená na dve /25 siete: 192.168.0.0 - 192.168.0.127 pre VLAN 10 a 192.168.0.128 - 192.168.0.255 pre VLAN 20
 
 \paragraph{}
 FW plní úlohu DHCP Relay servera. Všetky DHCP požiadavky od klientov prechá\-dzajú cez FW ku DHCP serveru, ktorý pridelí klientovi IP adresu a ďalšie nakonfigurované informácie. Týmto spôsobom je FW zodpovedný iba za filtrovanie premávky a server za služby poskytované na sieti. IP adresa DHCP servera sa do konfiguračného súboru \say{/etc/default/isc-dhcp-relay} DHCP relay agenta musí zadať BEZ úvodzoviek a musíme počúvať na obidvoch podrozhraniach t.j. eth1.10 aj eth1.20. Konfigurácia DHCP Relay servera je uvedená nižšie.
@@ -285,6 +318,9 @@ OPTIONS=""
 \paragraph{}
 Výnimky pre DHCP vo firewall-e sú uvedené v kapitole \say{Firewall}.
 
+\paragraph{}
+TODO - Konifg nie je vobec popisany---dorobit prerobit
+
 \begin{figure}[!htb]
 \centering
 \includegraphics[scale=0.79]{linux_dhcp}
@@ -294,9 +330,42 @@ Výnimky pre DHCP vo firewall-e sú uvedené v kapitole \say{Firewall}.
 
 \section{NTP}
 \paragraph{}
-NTP(Network Time Protocol) je protokol na sychronizáciu všetkých počítačov pripojených do vnutornej siete. Tento protokol zaisťuje, aby všetky počítače v sietei mali rovnaký a presný čas. Bol nvrhnutý aby odolával následkom premenlivého zdržania pri doručovaní paketov. NTP používa UDP na porte 123. NTP server sme zvolili server2, ktorý má ip adresu 192.168.0.3. Nainštalovali sme NTP príkazom \say{apt-get install ntp}. Na klientoch sme nainštalovali NTP pomocou príkazu apt-get install ntp ntpdate. V súbore na serveri s2 \say{/etc/ntp.conf} sme pridali slovenské servery zo stránky \say{www.pool.ntp.org/zone/sk}, ostatné servery sme zakomentovali. Klienti si následne z master serveru aktualizujú čas.
+NTP(Network Time Protocol) je protokol na sychronizáciu všetkých počítačov pripojených do vnutornej siete. Tento protokol zaisťuje, aby všetky počítače v sietei mali rovnaký a presný čas. Bol nvrhnutý aby odolával následkom premenlivého zdržania pri doručovaní paketov. NTP používa UDP na porte 123. NTP server sme zvolili server2, ktorý má ip adresu 192.168.0.3. Nainštalovali sme NTP príkazom
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{verbatim}
+
+apt-get install ntp
+
+\end{verbatim}
+\end{small}
+}
+
+
+\paragraph{}
+Na klientoch sme nainštalovali NTP pomocou príkazu
+
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{verbatim}
+
+apt-get install ntp ntpdate
+
+\end{verbatim}
+\end{small}
+}
+
+\paragraph{}
+V súbore na serveri s2 \say{/etc/ntp.conf} sme pridali slovenské servery zo stránky \say{www.pool.ntp.org/zone/sk}, ostatné servery sme zakomentovali. Klienti si následne z master serveru aktualizujú čas.
 \paragraph{}
 Výnimky pre NTP vo firewall-e sú uvedené v kapitole \say{Firewall}.
+
+\paragraph{}
+TODO - Konfig ntp klienta bol aky? Kto je ntp masdter pre firmu s2?
 
 \begin{figure}[!htb]
 \centering
@@ -334,9 +403,24 @@ PHP (PHP: Hypertext Preprocessor) je populárny opensource skriptovací jazyk, k
 \paragraph{}
 MySQL je slobodný a otvorený viacvláknový, viacužívateľský SQL relačný databázový server. MySQL je podporovaný na viacerých platformách (ako Linux, Windows či Solaris) a je implementovaný vo viacerých programovacích jazykoch ako PHP, C++ či Perl. Databázový systém je relačný, typu DBMS (database management system). Každá databáza je v MySQL tvorená z jednej alebo z viacerých tabuliek, ktoré majú riadky a stĺpce. V riadkoch sa rozoznávajú jednotlivé záznamy, stĺpce udávajú dátový typ jednotlivých záznamov, pracuje sa s nimi ako s poľami. Práca s MySQL databázou je vykonávaná pomocou takzvaných dotazov, ktoré vychádzajú z programovacieho jazyka SQL (StructuredQueryLanguage).
 \paragraph{}
-Na webový server sme použili apache. Apache HTTP Server je softwarový webový server s Opensource licenciou pre Linux, BSD, Microsoft Windows a iné platformy. V dnešnej dobe je najrozšírenejším na celom svete. Pre plnú fukncionalitu webového servera sme museli nainštalovať apache, mysql, php príkazom \say{apt-get install apache2 mysql php5} .
+Na webový server sme použili apache. Apache HTTP Server je softwarový webový server s Opensource licenciou pre Linux, BSD, Microsoft Windows a iné platformy. V dnešnej dobe je najrozšírenejším na celom svete. Pre plnú fukncionalitu webového servera sme museli nainštalovať apache, mysql, php príkazom
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{verbatim}
+
+apt-get install apache2 mysql php5
+
+\end{verbatim}
+\end{small}
+}
+
 \paragraph{}
-V adresári /var/www/ sme vytvorili priečinky s názvami web1 a web2. Kde web1 a web2 predstavovali dva virutálne webové servery. Následne sme v etc/apache2/sites-available 003-wiki.sos3.local.conf sme pridali cestu ku web stránke /var/www/web1 a ServerName web2.sos3.local. Pre joomlu v súbore 002-joomla.sos3.local.conf sme pridlai cestu k adresaru ked uz DocumentRoot /var/www/web1 a ServerName\\ web1.sos3.local . Následne do DNS záznamov sme museli pridať:	
+TODO - Akosa instaloval mysql..co sa pytal?
+
+\paragraph{}
+V adresári /var/www/ sme vytvorili priečinky s názvami web1 a web2. Kde web1 a web2 predstavovali dva virutálne webové servery. Následne sme v etc/apache2/sites-available 003-wiki.sos3.local.conf sme pridali cestu ku web stránke /var/www/web1 a ServerName web2.sos3.local. Pre joomlu v súbore 002-joomla.sos3.local.conf sme pridlai cestu k adresaru DocumentRoot /var/www/web1 a ServerName\\ web1.sos3.local . Následne do DNS záznamov sme museli pridať:	
 
 \paragraph{}
 pre súbor \say{db.sos1.local}
@@ -374,7 +458,8 @@ web2 IN A 158.193.139.74
 }
 
 
-
+\paragraph{}
+TODO - A2ensite chyba...t.j. sites-available je nanic bez sites-enabled
 
 
 \subsection{Joomla}
@@ -406,9 +491,24 @@ Výnimky pre webový server vo firewall-e sú uvedené v kapitole \say{Firewall}
 \paragraph{}
 Na poštový server sme použili postfix.Postfix je počítačový program pre unixové systémy pro prepravu elektronickej pošty (MTA).
 \paragraph{}
-Najprv bolo ptorebné nainštalovať postfix príkazom apt-get installpostfix prešli sme inštaláciou kde sme nastavili hostname sos3.local. Následne sme museli reštar\-tovať postfixservicepostfixrestart. V súbore /etc/postfix/main.cf je potrebné upraviť myhostname = sos3.local, odkomentovať\\
+Najprv bolo ptorebné nainštalovať postfix príkazom
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{verbatim}
+
+apt-get install postfix
+
+\end{verbatim}
+\end{small}
+}
+
 \paragraph{}
-pridat konfigurak a obrazky
+Prešli sme inštaláciou kde sme nastavili hostname sos3.local. Následne sme museli reštar\-tovať postfixservicepostfixrestart. V súbore /etc/postfix/main.cf je potrebné upraviť myhostname = sos3.local, odkomentovať\\
+\paragraph{}
+TODO - pridat konfiguraky a obrazky
+TODO - Toto nieje uplne ani zdaleka
 
 \section{Firewall}
 \paragraph{}
