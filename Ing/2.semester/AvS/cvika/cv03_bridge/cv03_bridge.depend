@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1488799584 source:/home/andrej/github/FRI/Ing/2.semester/AvS/cvika/cv03_bridge/cv3_bridge_zadanie.c
+	<stdio.h>
+	<string.h>
+	<unistd.h>
+	<stdlib.h>
+	<net/if.h>
+	<arpa/inet.h>
+	<sys/socket.h>
+	<linux/if_packet.h>
+	<net/ethernet.h>
+	<sys/select.h>
+	<sys/ioctl.h>
+	<time.h>
+

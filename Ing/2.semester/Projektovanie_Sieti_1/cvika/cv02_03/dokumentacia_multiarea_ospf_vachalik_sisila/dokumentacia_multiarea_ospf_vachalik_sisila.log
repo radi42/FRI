@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.2.18)  1 MAR 2017 13:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.2.18)  7 MAR 2017 18:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -299,46 +299,236 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [4]
-Underfull \hbox (badness 10000) in paragraph at lines 268--272
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
+ [5]
+Overfull \hbox (6.65324pt too wide) in paragraph at lines 279--280
+ [] \OT1/ppl/m/n/12 Z[]akladn[]u kon-fi-gur[]aciu sme ove-rili pr[]^^Pkazmi ``s
+how ip in-ter-face brief'', ``show
  []
 
-[5] [6]
+[6]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [7]
-Underfull \hbox (badness 10000) in paragraph at lines 420--424
+[8]
+LaTeX Font Info:    Try loading font information for OML+ppl on input line 476.
+
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlppl.fd
+File: omlppl.fd 
+)
+LaTeX Font Info:    Font shape `OML/ppl/m/n' in size <12> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 476.
+
+Underfull \hbox (badness 10000) in paragraph at lines 476--478
 
  []
 
-[8] [9] (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-32.def
+
+Overfull \hbox (79.09805pt too wide) in paragraph at lines 485--485
+[]  \OT1/pcr/m/n/10.95 Process ID 1, Router ID 10.255.255.3, Network Type POINT
+_TO_POINT, Cost: 10[] 
+ []
+
+[9]
+Overfull \hbox (59.38808pt too wide) in paragraph at lines 540--540
+[]\OT1/pcr/m/n/10.95 Interface    PID   Area            IP Address/Mask    Cost
+  State Nbrs F/C[] 
+ []
+
+
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 541--541
+[]\OT1/pcr/m/n/10.95 Fa0/1        1     0               10.0.234.3/24      1   
+  DR    2/2[] 
+ []
+
+
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 542--542
+[]\OT1/pcr/m/n/10.95 Lo1          1     1               10.255.255.3/32    1   
+  LOOP  0/0[] 
+ []
+
+
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 543--543
+[]\OT1/pcr/m/n/10.95 Fa0/0        1     1               10.1.38.1/24       10  
+  P2P   1/1[] 
+ []
+
+
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 544--544
+[]\OT1/pcr/m/n/10.95 Se1/0        1     2               10.2.39.1/30       64  
+  P2P   1/1[] 
+ []
+
+(/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-32.def
 File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
-) [10]
-[11]
-Overfull \hbox (1.54239pt too wide) in paragraph at lines 693--694
+)
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 564--564
+[]\OT1/pcr/m/n/10.95 !R3 - R3 je ABR, preto pou[]zijeme dodato[]cn[]y pr[]^^Pka
+z "no-summary", aby sme[] 
+ []
+
+[10] [11] [12]
+Overfull \hbox (59.38808pt too wide) in paragraph at lines 753--753
+[]\OT1/pcr/m/n/10.95 Interface    PID   Area            IP Address/Mask    Cost
+  State Nbrs F/C[] 
+ []
+
+
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 754--754
+[]\OT1/pcr/m/n/10.95 VL0          1     0               10.3.104.1/30      64  
+  P2P   1/1[] 
+ []
+
+
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 755--755
+[]\OT1/pcr/m/n/10.95 Fa0/1        1     0               10.0.234.4/24      10  
+  DROTH 2/2[] 
+ []
+
+
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 756--756
+[]\OT1/pcr/m/n/10.95 Fa0/0        1     2               10.2.49.1/24       6553
+5 P2P   1/1[] 
+ []
+
+
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 757--757
+[]\OT1/pcr/m/n/10.95 Lo1          1     3               10.255.255.4/32    1   
+  LOOP  0/0[] 
+ []
+
+
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 758--758
+[]\OT1/pcr/m/n/10.95 Se1/0        1     3               10.3.104.1/30      64  
+  P2P   1/1[] 
+ []
+
+
+Overfull \hbox (59.38808pt too wide) in paragraph at lines 771--771
+[]\OT1/pcr/m/n/10.95 Interface    PID   Area            IP Address/Mask    Cost
+  State Nbrs F/C[] 
+ []
+
+
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 772--772
+[]\OT1/pcr/m/n/10.95 VL0          1     0               10.3.104.2/24      64  
+  P2P   1/1[] 
+ []
+
+
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 773--773
+[]\OT1/pcr/m/n/10.95 Lo1          1     3               10.255.255.10/32   1   
+  LOOP  0/0[] 
+ []
+
+
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 774--774
+[]\OT1/pcr/m/n/10.95 Se1/0        1     3               10.3.104.2/24      64  
+  P2P   1/1[] 
+ []
+
+
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 775--775
+[]\OT1/pcr/m/n/10.95 Se1/1        1     4               10.4.107.2/24      64  
+  P2P   1/1[] 
+ []
+
+[13]
+Overfull \hbox (52.81808pt too wide) in paragraph at lines 841--841
+[]\OT1/pcr/m/n/10.95 O E2    10.255.255.5/32 [110/20] via 10.0.12.1, 00:03:07, 
+FastEthernet0/0[] 
+ []
+
+
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 876--876
+[]\OT1/pcr/m/n/10.95 Neighbor ID     Pri   State           Dead Time   Address 
+        Interface[] 
+ []
+
+
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 877--877
+[]\OT1/pcr/m/n/10.95 10.255.255.3      1   FULL/BDR        00:00:01    10.0.234
+.3      Fa0/1[] 
+ []
+
+
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 878--878
+[]\OT1/pcr/m/n/10.95 10.255.255.4    100   FULL/DR         00:00:01    10.0.234
+.4      Fa0/1[] 
+ []
+
+
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 881--881
+[]\OT1/pcr/m/n/10.95 Neighbor ID     Pri   State           Dead Time   Address 
+        Interface[] 
+ []
+
+[14]
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 882--882
+[]\OT1/pcr/m/n/10.95 10.255.255.3      1   FULL/BDR        00:00:01    10.0.234
+.3      Fa0/1[] 
+ []
+
+
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 883--883
+[]\OT1/pcr/m/n/10.95 10.255.255.4    100   FULL/DR         00:00:01    10.0.234
+.4      Fa0/1[] 
+ []
+
+[15] [16]
+Overfull \hbox (1.54239pt too wide) in paragraph at lines 1023--1024
  [] \OT1/ppl/m/n/12 T[]ym, []ze zn[]^^P[]zime ban-dwidth na tomto ro-z-hran[]^^
 P, zv[]y[]sime jeho "Cost". Zmena
  []
 
-[12] [13] (./dokumentacia_multiarea_ospf_vachalik_sisila.aux) ) 
+[17]
+LaTeX Font Info:    Try loading font information for OMS+ppl on input line 1112
+.
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsppl.fd
+File: omsppl.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1112.
+
+
+Overfull \hbox (3.94234pt too wide) in paragraph at lines 1112--1113
+[]\OT1/ppl/m/n/12 Oblast[] 1 strat[]^^P ko-nek-ti-vitu s chrb-ti-co-vou ob-last
+[]ou, preto[]ze u[]z ne-bude priamo
+ []
+
+[18]
+Overfull \hbox (79.09805pt too wide) in paragraph at lines 1127--1127
+[]  \OT1/pcr/m/n/10.95 Process ID 1, Router ID 10.255.255.1, Network Type POINT
+_TO_POINT, Cost: 10[] 
+ []
+
+
+Overfull \hbox (33.10811pt too wide) in paragraph at lines 1130--1130
+[]  \OT1/pcr/m/n/10.95 Timer intervals configured, Hello 10, Dead 40, Wait 40, 
+Retransmit 5[] 
+ []
+
+[19] (./dokumentacia_multiarea_ospf_vachalik_sisila.aux) ) 
 Here is how much of TeX's memory you used:
- 4414 strings out of 493105
- 59097 string characters out of 6137072
- 128109 words of memory out of 5000000
- 7810 multiletter control sequences out of 15000+600000
- 10451 words of font info for 30 fonts, out of 8000000 for 9000
+ 4458 strings out of 493105
+ 59788 string characters out of 6137072
+ 131109 words of memory out of 5000000
+ 7847 multiletter control sequences out of 15000+600000
+ 11066 words of font info for 32 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 37i,5n,23p,369b,535s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texl
-ive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts
-/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/pa
-latino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8
-a.pfb>
-Output written on dokumentacia_multiarea_ospf_vachalik_sisila.pdf (13 pages, 13
-0527 bytes).
+ 37i,5n,23p,916b,535s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/t
+exmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courie
+r/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb>
+Output written on dokumentacia_multiarea_ospf_vachalik_sisila.pdf (19 pages, 16
+2407 bytes).
 PDF statistics:
- 61 PDF objects out of 1000 (max. 8388607)
- 41 compressed objects within 1 object stream
+ 88 PDF objects out of 1000 (max. 8388607)
+ 60 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

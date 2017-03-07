@@ -1,0 +1,33 @@
+Area 3 bude standardna oblast, nie stub, lebo virtualne linky mozeme tahat iba cez standardne oblasti.
+
+R8 bude vidiet iba vlastny loopback, point-to-point linku a vsetky ostatne siete budu nahradene defaultnou cestou.
+
+Area 2 bude Stub (lebo nie su kladene poziadavky na pocet ABR routrov)
+
+Aby bola R3 preferovana, potrebujeme nastavit na R9, R4 a R3
+Routing musi ist z R4 na R3
+
+Sumarizacia na 10.2.0.0/16
+router ospf na abr (R3 a R4) area 2 range
+
+Vytrhnutie kabla emulujeme shutdownom interfejsu.
+Shutdown Fa0/1 na R3.
+Ak by sme nastavili hello a dead timery na milisekundy, velmi by sme vytazovali CPU routra.
+
+Overenie hello timerov
+	Konstantny ping
+	Admin ping
+	Debug smerovacej tabulky
+	
+
+Overit kompletny routing -> Virtualna linka -> Optimalizacia (niekde nieco zmizne, ale konektivita zostava)
+
+
+loopback R3 hodit do arei 1, aby sme predišli routovacej slučke.
+
+
+
+Pri výpadku f0/1 na R3 vznikol problém s pingovanim loopbacku z arey 3 a dalej.
+
+
+Testujeme konektivitu z R5 na R9.

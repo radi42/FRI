@@ -1,0 +1,16 @@
+end
+conf t
+int range f0/0 - 1
+no shut
+int s1/0
+no shut
+int s1/1
+no shut
+int s1/2
+no shut
+int s1/3
+no shut
+
+
+
+

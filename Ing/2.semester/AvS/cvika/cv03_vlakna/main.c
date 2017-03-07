@@ -15,6 +15,8 @@
 
 #include <stdbool.h>
 
+#include <pthread.h>
+
 // makra uzatvarat do zatvoriek, lebo nikdy neviem, ako sa to rozbali do kodu
 #define SUCCESS (0)
 #define ERROR (1)
@@ -22,7 +24,7 @@
 
 #define HW_LEN 6        // symbolicka konstanta na dlzku MAC adresy
 #define myMAC "d0:df:9a:73:f3:8e"
-#define myIP "192.168.1.107"
+#define mojaIP "192.168.1.107"
 
 //#define DEST_IP "192.168.1.1"
 #define ARP_TYPE 0x0806  // alebo 0x806
@@ -49,12 +51,73 @@ struct arpHdr {
     uint32_t destIpAddr;
 } __attribute__((packed));
 
+//===== GLOBALNE PREMENNE =====
+int sock;
+size_t msgLen = sizeof(struct ethHdr) + sizeof(struct arpHdr);   // velkost spravy
+uint32_t myIP;
+char dstIP_str[16]; //12 cislic, 3 bodky, null terminator
+
+// Prijimanie ARP odpovede
+// pretoze prijimanie sprav je blokujuce
+void *reqProcess(void *arg) {
+    struct ethHdr *resp;
+    struct arpHdr *respArp;
+
+    uint32_t dstIP = *((uint32_t *)arg);
+
+    if((resp = (struct ethHdr *)malloc(msgLen)) == NULL) {
+        fprintf(stderr, "malloc(): Can't allocate enough memory");
+        exit(ERROR);
+    }
+
+    for(;;) {
+        memset(resp, 0, msgLen);
+        if((read(sock, resp, msgLen)) < 0) {
+            perror("read()\n\n");
+            close(sock);
+            free(resp);
+            free(resp);
+            exit(ERROR);
+        }
+
+        // overime podmienky
+        respArp = (struct arpHdr *) resp->payload;
+
+        if(respArp->opcode != htons(ARP_REPLY)) {
+            continue;
+        }
+
+        if(respArp->srcIpAddr != dstIP) {
+            continue;
+        }
+
+        // overit, ci odpoved patri mne
+        if(respArp->destIpAddr != myIP) {
+            continue;
+        }
+
+        // sformujeme cielovu IP
+        struct in_addr tmp;
+        tmp.s_addr = dstIP;
+
+        printf("[IP] %s\t\t[MAC] %02hhx:%02hhx:%02hhx:%02hhx:%02hhx:%02hhx\n",
+            inet_ntoa(tmp),
+            respArp->srcHwAddr[0],
+            respArp->srcHwAddr[1],
+            respArp->srcHwAddr[2],
+            respArp->srcHwAddr[3],
+            respArp->srcHwAddr[4],
+            respArp->srcHwAddr[5]);
+    }
+}
+
 int main(int argc, char **argv) {
-    int sock;
     struct sockaddr_ll addr;
-    size_t msgLen = sizeof(struct ethHdr) + sizeof(struct arpHdr);   // velkost spravy
     struct ethHdr *eth;     // adresa zaciatku ethernetoveho ramca
     struct arpHdr *arp;
+
+    //vytvorime vlakno na prijem sprav
+    pthread_t readerID;
 
     if(argc < 2) {
         fprintf(stderr, "\nZadaj IP (IPv4) adresu!\n\n");
@@ -114,7 +177,7 @@ int main(int argc, char **argv) {
     struct in_addr ipAddr;      /* address in network byte order */
     memset(&ipAddr, 0, sizeof(struct in_addr));
 
-    if(inet_aton(myIP, &ipAddr) == 0) {
+    if(inet_aton(mojaIP, &ipAddr) == 0) {
         fprintf(stderr, "inet_aton(): Bad IP address input format");
         close(sock);
         free(eth);
@@ -124,6 +187,7 @@ int main(int argc, char **argv) {
     // vyplnime zdrojovu MAC adresu
     memcpy(arp->srcHwAddr, eth->srcMAC, HW_LEN);
     arp->srcIpAddr = ipAddr.s_addr;
+    myIP = ipAddr.s_addr;   //spristupni moju IPcku globalne
 
 
     // vyplnime cielovu MAC adresu - ziskame zo vstupneho argumentu
@@ -138,67 +202,27 @@ int main(int argc, char **argv) {
     memcpy(arp->destHwAddr, eth->dstMAC, HW_LEN);
     arp->destIpAddr = ipAddr.s_addr;
 
+
+    pthread_create(&readerID, NULL, reqProcess, (void *)&(arp->destIpAddr));
+
     // odcitavaci for je lepsi ako scitavaci for cyklus, pretoze pri odcitavacom cykle
     // nam staci odoslat jedinu spravu, cyklus je len na testovanie ;)
-    //for(int i = 1000; i >= 0; i--) {
+    for(;;) {
         if(write(sock, eth, msgLen) < 0) {
             perror("write(): Error writing to socket\n");
             close(sock);
             free(eth);
             exit(ERROR);
         }
-    //}
-
-    // Prijimanie ARP odpovede
-    struct ethHdr *respEthHdr;
-    struct arpHdr *respArpHdr;
-
-    if((respEthHdr = (struct ethHdr *)malloc(msgLen)) == NULL) {
-        fprintf(stderr, "malloc(): Can't allocate enough memory");
-        close(sock);
-        free(eth);
-        exit(ERROR);
+        sleep(2);
     }
 
-    for(;;) {
-        memset(respEthHdr, 0, msgLen);
-        if((read(sock, respEthHdr, msgLen)) < 0) {
-            perror("read()\n\n");
-            close(sock);
-            free(eth);
-            free(respEthHdr);
-            exit(ERROR);
-        }
 
-        // overime podmienky
-        respArpHdr = (struct arpHdr *) respEthHdr->payload;
-
-        if(respArpHdr->opcode != htons(ARP_REPLY)) {
-            continue;
-        }
-
-        if(respArpHdr->srcIpAddr != arp->destIpAddr) {
-            continue;
-        }
-
-        // overit, ci odpoved patri mne
-        if(respArpHdr->destIpAddr != arp->srcIpAddr) {
-            continue;
-        }
-
-        printf("[IP] %s\t\t[MAC] %02hhx:%02hhx:%02hhx:%02hhx:%02hhx:%02hhx\n", argv[1],      //02 - chcem 2 znaky, ale ak je mensi, nech ju doplni zlava nulou (podobne ako 'hhx')
-            respArpHdr->srcHwAddr[0],
-            respArpHdr->srcHwAddr[1],
-            respArpHdr->srcHwAddr[2],
-            respArpHdr->srcHwAddr[3],
-            respArpHdr->srcHwAddr[4],
-            respArpHdr->srcHwAddr[5]);
-            break;
-    }
 
     close(sock);
     free(eth);
 
     return SUCCESS;
 }
+
 
