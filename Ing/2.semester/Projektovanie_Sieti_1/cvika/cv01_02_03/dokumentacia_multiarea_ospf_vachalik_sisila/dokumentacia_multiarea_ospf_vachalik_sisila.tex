@@ -568,7 +568,7 @@ Link ID         ADV Router      Age         Seq#       Checksum Tag
 }
 
 \subparagraph{}
-Z výpisu \say{show ip ospf interface f0/0} smerovača R1 vyplýva, že rozhranie \say{f0/0} patrí do oblasti 0, čo je chrbticová oblasť. V OSPF topológií majú smerovače v rovnakej oblasti totožnú LSDB (Link State databázu). Na začiatku výpisu LSDB vidíme \say{Router ID} smerovača, ktorého databázu sledujeme. V časti \say{Router Link States (Area 0)} vidíme priamo pripojené siete ku chrbticovej oblasti. Je medzi nimi aj loopback rozhranie R10, pretože sme museli vytvoriť virtuálne pripojenie oblasti 4 cez oblasť 3. Šíria sa ako LSA 1 a generuje ich každý smerovač v OSPF topológií. V časti \say{Net Link States (Area 0)} vidíme DR smerovač (R4). Šíria sa ako LSA 2 a generuje ich DR smerovač. V časti \say{Summary Net Link States (Area 0)} vidíme ohlasované siete od ABR smerovačov. Niektoré záznamy sú zdvojené, pretože aj R3, aj R4 sú ABR smerovačmi do oblasti 2. Šíria sa ako LSA 3 a generujú ich ABR smerovače. V časti \say{Type-5 AS External Link States} vidíme siete ohlasované z iných autonómnych systémov (AS). V našom prípade sme ohlasovali cestu ku smerovaču R5. R5 bol pripojený ku R1, preto sa stal R1 ASBR smerovačom. Tieto siete sa šíria ako LSA 5 a generuje ich ASBR smerovač.
+Z výpisu \say{show ip ospf interface f0/0} smerovača R1 vyplýva, že rozhranie \say{f0/0} patrí do oblasti 0, čo je chrbticová oblasť. V OSPF topológií majú smerovače v rovnakej oblasti totožnú LSDB (Link State databázu). Na začiatku výpisu LSDB vidíme \say{Router ID} smerovača, ktorého databázu sledujeme. V časti \say{Router Link States (Area 0)} vidíme priamo pripojené siete ku chrbticovej oblasti. Šíria sa ako LSA 1 a generuje ich každý smerovač v OSPF topológií. Je medzi nimi aj loopback rozhranie R10, pretože sme museli vytvoriť virtuálne pripojenie oblasti 4 cez oblasť 3 (viď kapitola \say{Area 3 – Stub}). R10 sa preto tvári ako ABR a šíri svoje siete správami LSA 3. V časti \say{Net Link States (Area 0)} vidíme DR smerovač (R4). Šíria sa ako LSA 2 a generuje ich DR smerovač. V časti \say{Summary Net Link States (Area 0)} vidíme ohlasované siete od ABR smerovačov. Niektoré záznamy sú zdvojené, pretože aj R3, aj R4 sú ABR smerovačmi do oblasti 2. Šíria sa ako LSA 3 a generujú ich ABR smerovače. V časti \say{Type-5 AS External Link States} vidíme siete ohlasované z iných autonómnych systémov (AS). V našom prípade sme ohlasovali cestu ku smerovaču R5. R5 bol pripojený ku R1, preto sa stal R1 ASBR smerovačom. Tieto siete sa šíria ako LSA 5 a generuje ich ASBR smerovač.
 
 
 
@@ -1477,6 +1477,9 @@ Z výpisov vyplýva, že smerovanie z R5 ku R9 prechádza prioritne cez R3. Smer
 Smerovačom R2, R3 a R4 sme na rozhraní \say{Fa0/1} znížili \say{hello} a \say{dead} intervaly na rozhraniach pripojených k prepínaču. Význam \say{hello} intervalu je ten, že oznamuje ostatným smerovačom v oblasti, že jeho priamo pripojená sieť je živá. \say{dead} interval hovorí o tom, ako dlho budeme čakať, kým sieť vyhlásime za odpojenú. Čím sú tieto intervaly kratšie, tým rýchlejšia je konvergencia siete, v prípade, že nastane zmena v topológií. Pokiaľ však nastavíme \say{hello} a \say{dead} intervaly v milisekundách (hodnota menšia ako 1), hrozí, že úplne vyťažíme procesor v smerovači.
 
 \subparagraph{Konfigurácia}
+\subparagraph{}
+Skrátenie \say{hello} a \say{dead} intervalov na smerovačoch R2, R3 a R4 na rozhraní \say{Fa0/1}.
+
 \noindent
 {\fontfamily{qcr}\selectfont
 \begin{small}
@@ -1484,35 +1487,191 @@ Smerovačom R2, R3 a R4 sme na rozhraní \say{Fa0/1} znížili \say{hello} a \sa
 !R3
 int f0/1
     ip ospf hello-interval 1
-    !dead interval je predvolene nastavovaný na štvornásobok
-    !hello intervalu
+    ip ospf dead-interval 2
 
 \end{verbatim}
 \end{small}
 }
 
-\subparagraph{Overenie}
 \subparagraph{}
-Mali sme rôzne spôsoby, ako overiť toto nastavenie: použitím nepretržitého ping-u, pričom sledujeme čas konvergencie; debugging smerovacej tabuľky a OSPF procesu. Avšak použili sme len príkaz \say{show ip ospf názov\_rozhrania}, pretože pri vypnutí rozhrania \say{Fa0/1} vznikali nasledujúce problémy:
+Odpojenie linky Fa0/1 na R3:
 
-\begin{itemize}
-\item Oblasť 1 stratí konektivitu s chrbticovou oblasťou, pretože už nebude priamo pripojená ku chrbticovej oblasti. Riešením by bolo vytvorenie virtuálneho pripojenia cez oblasť 2. Rovnaký problém vznikne aj s oblasťami 3 a 4 pri odpojení linky f0/1 
-\item Vznikne smerovacia slučka medzi smerovačmi R3 a R9. \say{hello}. Keď sme vypli rozhranie \say{f0/1} medzi prepínačom a R3, tak sa router odrezal od chrbticovej oblasti 0. Ale kedže jeho loopback bol stale v oblasti 0, tak sám seba stále považoval za ABR do oblasti 0, a preto generoval LSA 3. Tým pádom R9 dostalo predvolenú cestu od R3 aj od R4. Vybralo si tú od R3, lebo mala menšiu cenu (Cost). A keď prišiel ping z R9 na R3 (pomocou predvolenej cesty), tak tam sa zase cez predvolenú cestu poslal späť na R9. A tak sa to posielalo dookola. Riešením je presunúť loopback na R3 do oblasti 1, tak R3 prestala generovať LSA 3. Na R9 prišla následne len jedna predvolená cesta (z R4) a smerovanie sa upravilo. Táto zmena sa prejavila aj v základnej konfigurácií, ktorú uvádzame na začiatku dokumentácie.
-\end{itemize}
-\subparagraph{}
-Ukážka časovačov na rozhraní \say{f0/0} na smerovači R1.
 \noindent
 {\fontfamily{qcr}\selectfont
 \begin{small}
 \begin{verbatim}
-R1#show ip ospf int fa0/0
-FastEthernet0/0 is up, line protocol is up 
-  Internet Address 10.0.12.1/24, Area 0 
-  Process ID 1, Router ID 10.255.255.1, Network Type POINT_TO_POINT, Cost: 10
-  Enabled by interface config, including secondary ip addresses
-  Transmit Delay is 1 sec, State POINT_TO_POINT
-  Timer intervals configured, Hello 10, Dead 40, Wait 40, Retransmit 5
+R3(config)#int f0/1
+R3(config-if)#shutdown
+
 \end{verbatim}
 \end{small}
 }
+
+
+\subparagraph{Overenie}
+\subparagraph{}
+Zisťovali sme, či sa \say{hello} a \say{dead} intervaly zmenili príkazom \say{show ip ospf interface fa0/1}. Testovali sme čas konvergencie a konektivitu pri výpadku rozhrania \say{Fa0/1} na smerovači R3 v smeroch R5 -\textgreater{} R9, R5 -\textgreater{} R8, R5 -\textgreater{} R10 a R8 -\textgreater{} R6 príkazmi \say{ping} a \say{traceroute}.
+
+
+\subparagraph{}
+Ukážka časovačov na rozhraní \say{f0/1} na smerovači R3.
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+R3#show ip ospf interface fa0/1
+FastEthernet0/1 is administratively down, line protocol is down 
+  Internet Address 10.0.234.3/24, Area 0 
+  Process ID 1, Router ID 10.255.255.3, Network Type BROADCAST, Cost: 1
+  Enabled by interface config, including secondary ip addresses
+  Transmit Delay is 1 sec, State DOWN, Priority 1
+  No designated router on this network
+  No backup designated router on this network
+  \textbf{Timer intervals configured, Hello 1, Dead 2}, Wait 2, Retransmit 5
+    oob-resync timeout 40
+\end{alltt}
+\end{small}
+}
+
+
+\subparagraph{}
+Priebeh \say{ping-u} v smere R5 -\textgreater{} R9:
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+
+R5#ping
+Protocol [ip]:
+Target IP address: 10.255.255.9
+Repeat count [5]: 100000
+Datagram size [100]: 100
+Timeout in seconds [2]: 1
+Extended commands [n]:
+Sweep range of sizes [n]:
+Type escape sequence to abort.
+...
+
+!!!!!!!!........!!!!!!!!!!!
+
+...
+\textbf{Success rate is 99 percent (11853/11870), round-trip min/avg/max = 52/79/148 ms}
+
+
+
+
+R5#traceroute 10.255.255.9
+
+Type escape sequence to abort.
+Tracing the route to 10.255.255.9
+
+  1 10.100.15.1 24 msec 16 msec 16 msec
+  2 10.0.12.2 36 msec 40 msec 36 msec
+  3 10.0.234.4 56 msec 36 msec 80 msec
+  4 10.2.49.2 56 msec *  80 msec
+
+\end{alltt}
+\end{small}
+}
+
+
+
+\subparagraph{}
+Priebeh \say{ping-u} v smere R5 -\textgreater{} R8:
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+
+R5#ping 10.255.255.8
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.255.255.8, timeout is 2 seconds:
+U.U.U
+\textbf{Success rate is 0 percent (0/5)}
+
+
+
+
+R5#traceroute 10.255.255.8
+
+Type escape sequence to abort.
+Tracing the route to 10.255.255.8
+
+  1 10.100.15.1 8 msec 20 msec 16 msec
+  2 10.100.15.1 !H  *  !H
+
+\end{alltt}
+\end{small}
+}
+
+
+\subparagraph{}
+Priebeh \say{ping-u} v smere R5 -\textgreater{} R10:
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+
+R5#ping 10.255.255.10
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.255.255.10, timeout is 2 seconds:
+!!!!!
+\textbf{Success rate is 100 percent (5/5), round-trip min/avg/max = 56/72/84 ms}
+
+\end{alltt}
+\end{small}
+}
+
+
+\subparagraph{}
+Priebeh \say{ping-u} v smere R8 -\textgreater{} R6:
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+
+R8#ping 10.255.255.6
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.255.255.6, timeout is 2 seconds:
+.....
+\textbf{Success rate is 0 percent (0/5)}
+
+
+
+
+
+R8#traceroute 10.255.255.6
+
+Type escape sequence to abort.
+Tracing the route to 10.255.255.6
+
+  1  *  *  * 
+  2  *  *  * 
+  3  *  *  * 
+  4  *  *  * 
+  5  *  *  * 
+  6  *  * 
+
+\end{alltt}
+\end{small}
+}
+
+\subparagraph{}
+Mali sme rôzne spôsoby, ako overiť toto nastavenie: použitím nepretržitého ping-u, pričom sledujeme čas konvergencie; debugging smerovacej tabuľky a OSPF procesu. Avšak použili sme len príkaz \say{show ip ospf názov\_rozhrania}, pretože pri vypnutí rozhrania \say{Fa0/1} vznikali nasledujúce problémy:
+
+\begin{itemize}
+\item Oblasť 1 stratí konektivitu s chrbticovou oblasťou, pretože už nebude priamo pripojená ku chrbticovej oblasti. Riešením by bolo vytvorenie virtuálneho pripojenia cez oblasť 2. Rovnaký problém vznikne aj s oblasťami 3 a 4 pri odpojení linky f0/1 na smerovači R4.
+\item Vznikne smerovacia slučka medzi smerovačmi R3 a R9. Keď sme vypli rozhranie \say{f0/1} medzi prepínačom a R3, tak sa router odrezal od chrbticovej oblasti 0. Ale kedže jeho loopback bol stale v oblasti 0, tak sám seba stále považoval za ABR do oblasti 0, a preto generoval LSA 3. Tým pádom R9 dostalo predvolenú cestu od R3 aj od R4. Vybralo si tú od R3, lebo mala menšiu cenu (Cost). A keď prišiel ping z R9 na R3 (pomocou predvolenej cesty), tak tam sa zase cez predvolenú cestu poslal späť na R9. A tak sa to posielalo dookola. Riešením je presunúť loopback na R3 do oblasti 1, tak R3 prestala generovať LSA 3. Na R9 prišla následne len jedna predvolená cesta (z R4) a smerovanie sa upravilo. Táto zmena sa prejavila aj v základnej konfigurácií, ktorú uvádzame na začiatku dokumentácie.
+\end{itemize}
+
+\subparagraph{}
+Po vypnutí rozhrania \say{Fa0/1} na smerovači R3 sieť skonvergovala za 8 sekúnd (8 neúspešných pingov). Po skonvergovaní bolo možné dostať sa zo smerovača R5 na R9, R10, ale nie na R8, pretože R8 už nebol pripojený priamo na chrbticovú oblasť cez R3, ale na oblasť 2 cez smerovače R3 a R9 (problém nastal na linke medzi R3 a R9). Výpadok konektivity v smeroch R5 -\textgreater{} R8 a R8 -\textgreater{} R6 sme nevedeli vyriešiť. Možno by pomohlo vytvorenie virtuálneho pripojenia resp. tunela ku chrbticovej oblasti, ale tieto možnosti sme nepreskúmali.
+
 \end{document}

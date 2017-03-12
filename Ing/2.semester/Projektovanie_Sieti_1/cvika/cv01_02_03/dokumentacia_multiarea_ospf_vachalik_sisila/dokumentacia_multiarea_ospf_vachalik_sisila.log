@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.2.18)  12 MAR 2017 00:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.2.18)  12 MAR 2017 11:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -505,7 +505,13 @@ Overfull \hbox (0.25815pt too wide) in paragraph at lines 564--564
 09ACE 0[] 
  []
 
-[11] [12]
+(/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-32.def
+File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
+)
+Underfull \vbox (badness 2173) has occurred while \output is active []
+
+ [11]
+[12]
 LaTeX Font Info:    Try loading font information for OML+ppl on input line 644.
 
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlppl.fd
@@ -555,9 +561,7 @@ Overfull \hbox (1.75732pt too wide) in paragraph at lines 720--721
 je v pas[]^^Pvnom m[]ode (LOOP)
  []
 
-(/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-32.def
-File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
-) [13]
+[13]
 Overfull \hbox (39.6781pt too wide) in paragraph at lines 736--736
 []\OT1/pcr/m/n/10.95 !R3 - R3 je ABR, preto pou[]zijeme dodato[]cn[]y pr[]^^Pka
 z "no-summary", aby sme[] 
@@ -1090,33 +1094,62 @@ P, zv[]y[]sime jeho "Cost". Zmena
  []
 
 [24] [25]
-LaTeX Font Info:    Try loading font information for OMS+ppl on input line 1499
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1525--1525
+[]  \OT1/pcr/m/n/10.95 Process ID 1, Router ID 10.255.255.3, Network Type BROAD
+CAST, Cost: 1[] 
+ []
+
+
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 1530--1530
+[]  \OT1/pcr/b/n/10.95 Timer intervals configured, Hello 1, Dead 2\OT1/pcr/m/n/
+10.95 , Wait 2, Retransmit 5[] 
+ []
+
+[26]
+Overfull \hbox (92.23804pt too wide) in paragraph at lines 1559--1559
+[]\OT1/pcr/b/n/10.95 Success rate is 99 percent (11853/11870), round-trip min/a
+vg/max = 52/79/148 ms[] 
+ []
+
+
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 1591--1591
+[]\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 10.255.255.8, timeout is
+ 2 seconds:[] 
+ []
+
+[27]
+Overfull \hbox (33.10811pt too wide) in paragraph at lines 1622--1622
+[]\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 10.255.255.10, timeout i
+s 2 seconds:[] 
+ []
+
+
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1624--1624
+[]\OT1/pcr/b/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
+= 56/72/84 ms[] 
+ []
+
+
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 1642--1642
+[]\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 10.255.255.6, timeout is
+ 2 seconds:[] 
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+ppl on input line 1670
 .
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsppl.fd
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsppl.fd
 File: omsppl.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1499.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1670.
 
 
-Overfull \hbox (3.94234pt too wide) in paragraph at lines 1499--1500
+Overfull \hbox (3.94234pt too wide) in paragraph at lines 1670--1671
 []\OT1/ppl/m/n/12 Oblast[] 1 strat[]^^P ko-nek-ti-vitu s chrb-ti-co-vou ob-last
 []ou, preto[]ze u[]z ne-bude priamo
  []
 
-
-Overfull \hbox (79.09805pt too wide) in paragraph at lines 1511--1511
-[]  \OT1/pcr/m/n/10.95 Process ID 1, Router ID 10.255.255.1, Network Type POINT
-_TO_POINT, Cost: 10[] 
- []
-
-
-Overfull \hbox (33.10811pt too wide) in paragraph at lines 1514--1514
-[]  \OT1/pcr/m/n/10.95 Timer intervals configured, Hello 10, Dead 40, Wait 40, 
-Retransmit 5[] 
- []
-
-[26] (./dokumentacia_multiarea_ospf_vachalik_sisila.aux) ) 
+[28] [29] (./dokumentacia_multiarea_ospf_vachalik_sisila.aux) ) 
 Here is how much of TeX's memory you used:
  4912 strings out of 493105
  65387 string characters out of 6137072
@@ -1124,19 +1157,19 @@ Here is how much of TeX's memory you used:
  8274 multiletter control sequences out of 15000+600000
  13404 words of font info for 40 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 37i,10n,23p,1336b,535s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/t
-exmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courie
-r/ucrb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb>
-Output written on dokumentacia_multiarea_ospf_vachalik_sisila.pdf (26 pages, 16
-1636 bytes).
+ 37i,10n,23p,1542b,535s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texl
+ive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/c
+ourier/ucrb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb>
+Output written on dokumentacia_multiarea_ospf_vachalik_sisila.pdf (29 pages, 16
+7349 bytes).
 PDF statistics:
- 114 PDF objects out of 1000 (max. 8388607)
- 78 compressed objects within 1 object stream
+ 123 PDF objects out of 1000 (max. 8388607)
+ 84 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
