@@ -1,0 +1,610 @@
+#include <stdio.h>
+#include <string.h>
+#include <unistd.h>
+#include <stdlib.h>
+
+#include <net/if.h> // IFNAMSIZ (16)
+#include <arpa/inet.h>
+
+#include <sys/socket.h>
+#include <linux/if_packet.h>
+#include <net/ethernet.h>
+
+// SELECT pre neblokujuci pristup k socketom
+#include <sys/select.h>
+#include <sys/ioctl.h>
+
+#include <time.h>
+#include <sys/types.h>
+
+//====================
+//		MAKRA
+//====================
+
+#define	MTU	(1500)
+#define MACSIZE (6)
+#define MAXINTERFACES (8)
+//#define IFNAMSIZ 16	//netreba definovat, ak pouzivam kompilator 'gnu99' !!!
+
+#define ERROR	(1)
+#define SUCCESS (0)
+
+/*
+ * Struktura IntDescriptor uchovava informacie o sietovom rozhrani, ktore
+ * nas bridge obsluhuje - meno rozhrania, jeho index v Linuxe a socket,
+ * ktorym na tomto rozhrani citame a odosielame ramce.
+ *
+ */
+
+struct IntDescriptor {
+  char name[IFNAMSIZ];
+  unsigned int intNo;
+  int socket;
+  int sockMAC[2];	// cez tento socket mu budeme posielat danu MAC adresu
+};
+
+/*
+ * Struktura MACAddress obaluje 6-bajtove pole pre uchovavanie MAC adresy.
+ * Obalenie do struktury je vyhodne pri kopirovani (priradovani) MAC adresy
+ * medzi premennymi rovnakeho typu.
+ *
+ */
+
+struct MACAddress {
+  unsigned char MAC[MACSIZE];
+} __attribute__ ((packed));
+
+/*
+ * Struct BTEntry je prvok zretazeneho zoznamu, ktory reprezentuje riadok
+ * prepinacej tabulky.  V riadku je okrem smernikov na dalsi a predosly
+ * prvok ulozena MAC adresa a smernik na rozhranie, kde je pripojeny klient,
+ * ako aj cas, kedy sme videli tohto odosielatela naposledy.
+ *
+ */
+
+struct BTEntry {
+  struct BTEntry *next;
+  struct BTEntry *previous;
+  struct MACAddress address;
+  time_t lastSeen;
+  struct IntDescriptor *IFD;
+};
+
+/*
+ * Struct EthFrame reprezentuje zakladny ramec podla IEEE 802.3 s maximalnou
+ * velkostou tela podla MTU.
+ *
+ */
+
+struct EthFrame {
+  struct MACAddress dest;
+  struct MACAddress src;
+  unsigned short type;
+  char payload[MTU];
+} __attribute__ ((packed));
+
+//======= GLOBALNE PREMENNE =======
+struct IntDescriptor ints[MAXINTERFACES];
+int maxSockNo = 0;
+struct BTEntry *table = NULL;
+int InterfaceCount = 0;
+
+/*
+ * Funkcia pre vytvorenie noveho riadku tabulky.  Riadok nebude zaradeny do
+ * tabulky, bude mat len inicializovane vnutorne hodnoty.
+ *
+ */
+
+struct BTEntry *
+CreateBTEntry (void){
+  struct BTEntry *E = (struct BTEntry *) malloc (sizeof (struct BTEntry));
+  if (E != NULL){
+      memset (E, 0, sizeof (struct BTEntry));
+      E->next = E->previous = NULL;
+      E->IFD = NULL;
+  }
+
+  return E;
+}
+
+/*
+ * Funkcia pre vlozenie vytvoreneho riadku do tabulky na jej ZACIATOK.
+ *
+ */
+
+struct BTEntry *
+InsertBTEntry (struct BTEntry *Head, struct BTEntry *Entry)
+{
+  if (Head == NULL)
+    return NULL;
+
+  if (Entry == NULL)
+    return NULL;
+
+  Entry->next = Head->next;
+  Entry->previous = Head;
+  Head->next = Entry;
+
+  return Entry;
+}
+
+/*
+ * Funkcia pre vlozenie vytvoreneho riadku do tabulky na jej koniec.
+ *
+ */
+
+struct BTEntry *
+AppendBTEntry (struct BTEntry *Head, struct BTEntry *Entry)
+{
+  if (Head == NULL)
+    return NULL;
+
+  if (Entry == NULL)
+    return NULL;
+
+  struct BTEntry tmp = *(Head->next);
+  while(tmp.next != NULL) {
+    tmp = *(tmp.next);
+  }
+
+  tmp.next = Entry;
+  Entry->next = NULL;
+
+//  BTEntry tmp = *(Head->previous);
+//  tmp->next = Entry;
+//  Head->previous = Entry;
+//  Entry.next = Head;
+
+  return Entry;
+}
+
+/*
+ * Funkcia hladajuca riadok tabulky podla zadanej MAC adresy.
+ *
+ */
+
+struct BTEntry *
+FindBTEntry (struct BTEntry *Head, const struct MACAddress *Address)
+{
+  struct BTEntry *I;
+
+  if (Head == NULL)
+    return NULL;
+
+  if (Address == NULL)
+    return NULL;
+
+  I = Head->next;
+  while (I != NULL){
+      if (memcmp (&(I->address), Address, MACSIZE) == 0){
+		return I;
+	  }
+      I = I->next;
+   }
+
+  return NULL;
+}
+
+/*
+ * Funkcia, ktora z tabulky vysunie riadok, ak nanho uz mame smernik.
+ * Riadok nebude dealokovany z pamate, bude len vynaty z tabulky.
+ *
+ */
+
+struct BTEntry *
+EjectBTEntryByItem (struct BTEntry *Head, struct BTEntry *Item)
+{
+  if (Head == NULL)
+    return NULL;
+
+  if (Item == NULL)
+    return NULL;
+
+  // Nastav predchodcovi nasledovnika
+  (Item->previous)->next = Item->next;
+  if (Item->next != NULL)   // Nie som posledny, nastav nasledovnikovi predchodcu
+    (Item->next)->previous = Item->previous;
+
+  Item->next = Item->previous = NULL;
+
+  return Item;
+}
+
+/*
+ * Funkcia sluziaca na vynatie riadku z tabulky.  Riadok nebude dealokovany
+ * z pamate, bude len odstraneny z tabulky.  Vyhladava sa podla MAC adresy.
+ *
+ */
+
+struct BTEntry *
+EjectBTEntryByMAC (struct BTEntry *Head, const struct MACAddress *Address)
+{
+  if (Head == NULL)
+    return NULL;
+
+  if (Address == NULL)
+    return NULL;
+
+  struct BTEntry *E;
+
+  // TODO: Najdi prvok v tabulke podla MAC adresy.
+  E = FindBTEntry(Head, Address);
+
+  // TODO: Ak existuje, vyhod ho z tabulky.
+  if (E != NULL) {
+    EjectBTEntryByItem(Head, E);
+  }
+
+  return E;
+}
+
+/*
+ * Funkcia na vynatie a uplne zrusenie riadku tabulky aj z pamate. Vyhladava
+ * sa podla MAC adresy.
+ *
+ */
+
+void
+DestroyBTEntryByMAC (struct BTEntry *Head, const struct MACAddress *Address)
+{
+  struct BTEntry *E;
+
+  E = EjectBTEntryByMAC(Head, Address);
+  if (E != NULL){
+    free((void *) E);
+  }
+  return;
+}
+
+/*
+ * Funkcia uplne zrusi a dealokuje z pamate celu prepinaciu tabulku, necha
+ * iba pociatocny zaznam. Odstranovanie sa uskutocnuje od posledneho prvku.
+ *
+ */
+
+struct BTEntry *
+FlushBT (struct BTEntry *Head)
+{
+  struct BTEntry *I;
+
+  if (Head == NULL)
+    return NULL;
+
+  if (Head->next == NULL)
+    return Head;
+
+  I = Head->next;
+  while (I->next != NULL){
+      I = I->next;
+      free (I->previous);
+  }
+
+  // zmazem posledny prvok
+  free (I);
+
+  Head->next = Head->previous = NULL;
+
+  return Head;
+}
+
+/*
+ * Funkcia na vypis obsahu prepinacej tabulky.
+ *
+ */
+
+void
+PrintBT (const struct BTEntry *Head)
+{
+
+#define TLLEN (2+IFNAMSIZ+3+17+2+1)
+
+  struct BTEntry *I;
+  char TableLine[TLLEN];
+
+  if (Head == NULL) {
+	 printf("Table doesn't exist!\n");
+	 return;
+  }
+
+  // Vypis HLAVICKY tab
+
+  memset (TableLine, '-', TLLEN - 2);
+  TableLine[0] = TableLine[2 + IFNAMSIZ + 1] = TableLine[TLLEN - 2] = '+';
+  TableLine[TLLEN - 1] = '\0';
+  printf (TableLine);
+  printf ("\n");
+
+  memset (TableLine, ' ', TLLEN - 2);
+  TableLine[0] = '|';
+  strncpy (TableLine + 2, "Interface", 9);
+  TableLine[2 + IFNAMSIZ + 1] = '|';
+  strncpy (TableLine + 2 + IFNAMSIZ + 1 + 2, "MAC Address", 11);
+  TableLine[TLLEN - 2] = '|';
+  printf (TableLine);
+  printf ("\n");
+
+  memset (TableLine, '-', TLLEN - 2);
+  TableLine[0] = TableLine[2 + IFNAMSIZ + 1] = TableLine[TLLEN - 2] = '+';
+  TableLine[TLLEN - 1] = '\0';
+  printf (TableLine);
+  printf ("\n");
+
+  if (Head->next == NULL)
+    return;
+
+  I = Head->next;
+  while (I != NULL)
+    {
+      memset (TableLine, ' ', TLLEN - 2);
+      TableLine[0] = '|';
+
+      strncpy (TableLine + 2, I->IFD->name, strlen (I->IFD->name));
+      TableLine[2 + IFNAMSIZ + 1] = '|';
+      sprintf (TableLine + 2 + IFNAMSIZ + 1 + 2,
+	       "%02hhx:%02hhx:%02hhx:%02hhx:%02hhx:%02hhx",
+	       I->address.MAC[0], I->address.MAC[1],
+	       I->address.MAC[2], I->address.MAC[3],
+	       I->address.MAC[4], I->address.MAC[5]);
+      TableLine[TLLEN - 3] = ' ';
+      TableLine[TLLEN - 2] = '|';
+
+      printf (TableLine);
+      printf ("\n");
+
+      I = I->next;
+    }
+
+  // Vypis ukoncovacej ciary
+  memset (TableLine, '-', TLLEN - 2);
+  TableLine[0] = TableLine[2 + IFNAMSIZ + 1] = TableLine[TLLEN - 2] = '+';
+  TableLine[TLLEN - 1] = '\0';
+  printf (TableLine);
+  printf ("\n");
+
+  return;
+}
+
+
+
+/*
+ * Funkcia realizujuca obsluhu zdrojovej adresy v prepinacej tabulke.  Ak
+ * adresa v tabulke neexistuje, funkcia pre nu vytvori a do tabulky vlozi
+ * novy zaznam.  Ak adresa v tabulke existuje, funkcia podla potreby
+ * aktualizuje zaznam o vstupnom rozhrani, a v kazdom pripade aktualizuje
+ * cas, kedy sme naposledy tuto zdrojovu adresu videli.
+ *
+ */
+
+struct BTEntry *
+UpdateOrAddMACEntry (struct BTEntry *Table, const struct MACAddress *Address,
+		     const struct IntDescriptor *IFD)
+{
+  // TODO: Over spravnost vstupnych argumentov.
+  if (Table == NULL)
+    return NULL;
+
+  if (Address == NULL)
+    return NULL;
+
+  if (IFD == NULL)
+    return NULL;
+
+  // TODO: Vyhladaj MAC adresu v tabulke.
+  struct BTEntry *entry;
+    // TODO: Ak nenasiel, vytvor a pridaj novy zaznam.
+    if((entry = FindBTEntry(Table, Address)) == NULL) {
+        if ((entry = CreateBTEntry()) == NULL) {
+            exit(ERROR);
+        }
+
+        // napln strukturu BTEntry
+        entry->address = *Address;
+        entry->IFD = (struct IntDescriptor *) IFD;
+
+        printf("Add MAC: %02hhx:%02hhx:%02hhx:%02hhx:%02hhx:%02hhx -> %s\n",
+        		Address->MAC[0],
+				Address->MAC[1],
+				Address->MAC[2],
+				Address->MAC[3],
+				Address->MAC[4],
+				Address->MAC[5],
+				IFD->name);
+
+        InsertBTEntry(Table, entry);
+        PrintBT(Table);
+    }
+    else {
+    	entry->IFD = (struct IntDescriptor *)IFD;
+    }
+
+  // TODO: Aktualizuj cas poslednej zmeny v zazname.
+  entry->lastSeen = time(NULL);
+  return entry;
+}
+
+void *frameReader(void *arg){
+	struct IntDescriptor *ifd = (struct IntDescriptor *)arg;
+	struct EthFrame frame;
+	int frameLength;
+	struct BTEntry *E;
+	struct MACAddress mac;
+
+	for(;;) {
+		memset(&frame, 0, sizeof(struct EthFrame));
+		/* Nacitame ramec, maximalne do dlzky MTU. */
+		frameLength = read(ifd->socket, &frame, sizeof(struct EthFrame));
+
+		// akonahle sa nacita novy ramec, poslem par socketov. 0- odosielanie, 1 - citanie
+		// a nastavime priznak metode send(), aby nebola blokujuca
+		memcpy(&mac, &frame.src, sizeof(struct MACAddress));
+		send(ifd->sockMAC[0], &mac, sizeof(struct MACAddress), MSG_DONTWAIT);
+
+		/* Obsluzime zdrojovu adresu.  Bud ju uz pozname, a v takom
+		pripade musime aktualizovat udaj o case, kedy sme ju
+		naposledy pouzili (prave teraz), pripadne aj vstupny
+		interfejs, alebo ju nepozname, a v takom pripade ju musime
+		pridat.  */
+
+
+		// TODO: Vyhladaj zaznam v tabulke, ktory prislucha cielovej MAC prijateho ramca.
+		E = FindBTEntry(table, &(frame.dest));
+
+		// TODO: Ak si nasiel a vystupne rozhranie je ine nez vstupne, posli ramec na vystupne rozhranie.
+		if(E != NULL) {
+			// skontrolujeme, ci vystupne rozhranie nie je rovnake ako vstupne rozhranie
+			if(E->IFD != ifd){
+				if(write(E->IFD->socket, &frame, frameLength)){
+					perror("write()");
+					exit(ERROR);
+				}
+			}
+		}
+		// ak som nenasiel MAC adresu, floodnem ho na vsetky rozhrania okrem vstupneho
+		else {
+			//iterujeme vystupne rozhrania
+			for(int j = 0; j < argc -1; j++) {
+				// ak vstupne rozhranie je rozne od vystupneho ...
+				if(E->IFD != ifd){
+					perror("write() - vstupne je rovnake ako vystupne");
+					exit(ERROR);
+				}
+			}
+		}
+	}
+}
+
+// Ma k dispozicii viacero parov socketov. Musime pouzit select, aby sme od rozhrani mohli ziskavat zdrojove adresy ramcov
+void *updateBT(void *arg){
+	struct MACAddress mac;
+	// Najvyssie cislo socketu zvysime o 1, ako pozaduje select()
+	  maxSockNo += 1;
+
+	  /*
+	   * V cykle sa postupne pre kazde rozhranie vybavia tri klucove
+	   * zalezitosti: otvorime socket typu AF_PACKET pre vsetky ramce, zviazeme
+	   * ho s prislusnym rozhranim a rozhranie presunieme do promiskuitneho
+	   * rezimu.
+	   *
+	   */
+
+	  InterfaceCount = argc - 1;
+
+	  for (int i = 1; i < argc; i++){
+
+		  // TODO: Nastav hodnoty popisovaca pre rozhranie.
+	        strncpy(ints[i-1].name, argv[i], IFNAMSIZ);
+
+		  // TODO: Vytvor socket z domeny af_packet.
+	        if((ints[i-1].socket = socket(AF_PACKET, SOCK_RAW, htons(ETH_P_ALL))) == -1) {
+	            perror("socket()");
+	            exit(ERROR);
+	        }
+
+
+		  // TODO: Nastav adresu.
+	        memset(&addr, 0, sizeof(struct sockaddr_ll));
+	        addr.sll_family = AF_PACKET;
+	        addr.sll_protocol = htons(ETH_P_ALL);
+
+	        if(((addr.sll_ifindex = if_nametoindex(argv[i]))) == -1) {
+	            perror("nametoindex()");
+	            exit(ERROR);
+	        }
+
+	        ints[i-1].intNo = addr.sll_ifindex;
+
+		  // TODO: Prepoj socket s adresou.
+	        if(bind(ints[i-1].socket, (struct sockaddr *)&addr, sizeof(struct sockaddr_ll)) == -1) {
+	            perror("bind()");
+	            exit(ERROR);
+	        }
+
+	        memset(&ifr, 0, sizeof(struct ifreq));
+	        strncpy(ifr.ifr_name, (const char*)argv[i], IFNAMSIZ);
+
+	        // TODO: Nastav promiskuitny rezim.
+	        if (ioctl(ints[i-1].socket, SIOCGIFFLAGS, &ifr) == -1) {
+	        	perror("ioctl()");
+	        	exit(ERROR);
+	        }
+
+	        ifr.ifr_flags |= IFF_PROMISC;
+
+	        if (ioctl(ints[i-1].socket, SIOCGIFFLAGS, &ifr) == -1) {
+	                	perror("ioctl()");
+	                	exit(ERROR);
+	        }
+
+	        if(socketpair(AR_UNIX, SOCK_DGRAM, 0, ints[i-1].sockMAC) == -1){
+	        	perror("socketpair()");
+	        	exit(ERROR);
+	        }
+	  }
+
+	  // Vytvorime prepinaciu tabulku zalozenim jej prveho virtualneho riadku
+	  if ((table = CreateBTEntry ()) == NULL){
+	      perror ("malloc");
+	      // TODO: Zavriet sockety.
+	      exit (ERROR);
+	  }
+	return NULL;
+}
+
+void *deleteOldEntries(void *arg){
+	return NULL;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+int main (int argc, char *argv[])
+{
+  struct sockaddr_ll addr;
+  struct ifreq ifr;
+
+  /* Kontrola poctu argumentov pri spusteni programu. */
+  if ((argc > MAXINTERFACES) || (argc == 1)){
+      fprintf (stderr, "Usage: %s IF1 IF2 ... IF%d\n\n", argv[0], MAXINTERFACES);
+      exit (ERROR);
+    }
+
+  /* Inicializacia pola s popisovacmi rozhrani. */
+  memset(ints, 0, sizeof(ints));
+
+  // Este predtym, nez vojdem do nekonecneho cyklu, musim najst maximalne cislo socketu
+  // 1 sluzi na prijem sprav
+  for(int i = 0; i < argc; i++) {
+	  if(ints[i].sockMAC[1] > maxSockNo){
+		  maxSockNo = ints[i].sockMAC;
+	  }
+  }
+
+
+  maxSockNo += 1;
+
+  InterfaceCount = argc - 1;
+
+  /*
+   * Hlavna cast programu.  V nekonecnej slucke program caka na udalost na
+   * niektorom zo sledovanych socketov.  Po zisteni, ze nejaka udalost
+   * nastala, program zisti, na ktorom sockete, potom z daneho socketu
+   * nacita ramec, vyhlada a pripadne prida adresu odosielatela do tabulky,
+   * vyhlada adresu prijemcu a odosle ramec - bud len danym rozhranim (nikdy
+   * vsak nie vstupnym), alebo vsetkymi ostatnymi.
+   *
+   */
+
+
+
+  // TODO: Uprac.
+
+  return SUCCESS;
+}

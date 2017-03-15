@@ -1,0 +1,4 @@
+telnet na routre
+158.193.152.41 8031 - 8040
+
+namiesto 3031 - 3040

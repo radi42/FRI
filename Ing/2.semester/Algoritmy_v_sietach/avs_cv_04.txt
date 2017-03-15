@@ -1,0 +1,6 @@
+netif.h
+man 7 netdevice
+man select
+
+vytvorit si v /etc/network/interfaces dalsi interfejs eth1 a nastavit ho na 'manual'
+vytvorit si dve linuxove minivirtualky PC1 a PC2, priradit im v nastaveniach (virtualboxu) Network -> Attached to: Internal Network = net1 resp. net2, podla nazvu pocitaca. Adapter sa vytvori automaticky po zadani nazvu adaptera.

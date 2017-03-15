@@ -1,0 +1,14 @@
+Je dolezite pouzivat kompilator "gnu99" kvoli makram a spravnemu doplnaniu.
+IDEcko (Eclipse, CodeBlocks, ...) spustat ako root (sudo eclipse).
+
+# Ako pridavat argumenty ku programu v Eclipse
+http://stackoverflow.com/questions/8390356/c-command-line-arguments-eclipse-cdt
+
+# Ako menit kompilator v Eclipse
+Project -> Properties -> C/C++ Build -> Settings -> Tool Settings (defaultny tab) -> GCC C Compiler
+a pridat ku "Command:" okrem 'gcc' aj '-std=gnu99'.
+Kompilator mozeme menit aj v casti Dialekt pod 'GCC C Compiler'.
+http://stackoverflow.com/questions/4236323/how-do-you-configure-gcc-in-eclipse-to-use-c99
+
+# Ako otvorit uz existujuci projekt v Eclipse
+http://stackoverflow.com/questions/23786112/how-to-open-existing-c-project-with-eclipse

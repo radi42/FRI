@@ -1,0 +1,113 @@
+ISIS - z routra na router
+
+smerovanie v sietach - 4 typy:
+  -Level 0: ES - IS: host na router
+  -Level 1: ES - ES v ramci 1 oblasti
+  -Level 2: medzi oblastami v ramci 1 autonomneho systemu
+  -Level 3: medzi oblastami medzi viacerymi autonomneho systemu
+
+SLNA - sub network network attachment - L2 pripojenie  (MAC adresa)
+  HDLC - point 2 point
+NSAP - network service access point: adresa pre jedno zariadenie
+  NSEL - ake sluzby zariadenie ponuka (ak je NULL, je to iba IP adresa zariadenia v sieti)
+NET - adresa boxu ako takeho
+CLNS - ConnectionLess Network Service (UDP)
+CLNP - ConnectionLess Network Protocol (IP)
+Circuit - nazov rozhrania v OSI
+
+Co budeme potrebovat na rozbehnutie IS-IS:
+  IPcky
+	10.0.255.1 => zober kazdy oktet a rozsirime ho na 3 cifry
+	010.000.255.001 => zlej to dohromady
+	010000255001 => rozdel to po 4 cifrach
+	0100.0025.5001 => pridaj selector (NSEL) - pre nase ucely 2 nuly
+	0100.0025.5001.00 => mame hotovy identifikator zariadenia
+  NET adresy:
+	id_domeny :(49 - cislo nie je nahodne - je rezervovane na privatne ucely)
+	cislo_oblasti (0001) - tu nastavujeme cislo oblasti. V IS-IS nie je chrbticova oblast. vsetky routre su iba v jednej oblasti. ISIS ma chrbticove routre, nie chrbticova oblast - chrbtica je suvisle prepojenie routrov.
+  Rozbehneme smerovanie
+	ip router isis
+	  !ziadne network prikazy, lebo IS-IS sa spusta na rozhrani)
+	  !ziadne cislo procesu
+	  !pasivne rozhrania
+
+ISIS router type: L1, L2, L1/L2 (standardne na ciscach)
+L1 a L2 su nezavisle databazy
+standardne budeme mat 2 susedov
+
+
+
+PRIKAZY:
+show isis database
+show isis neighbors
+show clns neighbors
+show isis ?
+show clns ?
+
+
+ISIS ma 2 typy liniek (narozdiel od OSPF, ktore ma ):
+broadcast a point-to-point
+pokial budeme miesat ISIS 
+
+V broadcastovej domene sa voli DIS (ekvivalent DR routra v OSPF)
+  volba DIS je preemptivna - akonahle
+  funkcia - vytvorit pseudo-uzol (v) a posiela csnp / psnp (neposielaju sa cele databazy, ale iba hlavicky ako primarne kluce)
+  sekvencne cisla - od 0000 po FFFF
+
+susedstvo sa 
+to, co vie DIS, vie aj kazdy iny
+pokial ma nejaky router novsiu informaciu, vysle ju do celej siete.
+hello - 10, dead - 3x vacsi
+pri standardnej konfiguracii je casovac DIS 1/3
+dead timer sa nastavuje ako multiplikator
+
+v ramci jednej oblasti sa buduju 2 susedstva - L1 aj l2
+medzi oblastami sa 
+ak routre zistia, ze su v jednej oblasti a v rovnakom autonomnom systeme, vytvori sa L2
+
+metrika v OSPF je Cost a prepocitava cez vzorec
+V ISIS pozname 3 typy metrik:
+  Cisco pozna iba defaultnu - kazda linka ma metriku 10
+  
+metriky mozu byt uzke a siroke
+  uzke: od 0 po 128
+  siroke: omnoho sirsi interval 
+metrika sa nastavuje per box. odporuca sa pouzit siroku metriku
+
+Route leaking
+L2 smerovac vie posielat do L1 smerovaca zaznamy ako default route. Tak budu L1 routre vediet, co sa deje v L2 routroch 
+
+  redistribute isis ip co l2 into l1 mapa/acl
+na zaklade 
+
+
+
+
+ULOHY
+treba kazdemu stroju nastavit NET
+isis network point-to-point/broadcast - preto point-to-point, aby sa zbytocne 
+medzi R1 a R2 zrusit L1 spojenie, lebo kedze su v jednej oblasti, L1 spojenie sa automaticky vytvori
+
+Loopbacky: 10.255.255.<cislo_routra>
+Siete: 10.<area>.<R1_R2>.<cislo_routra>
+
+linku z oblasti do oblasti dat to tej s nizsim cislom t.j. medzi R4 a R10 dat treti oktet 104
+
+DIS = R2
+
+kontrola databaz: podobne ako ospf, len namiesto ospf dame isis
+
+Area 2 redistribucia L2 do L1 - R10/6/7 budu vediet o vsetkom - Route leaking
+
+R3 primarny smerovac - treba nastavit costy a resdistribuciu sieti
+
+ako sa da simulovat vytrhnutie linky - zmenime IPcku na neplatnu. Narozdiel od shutdownu, ktora je udalostne riadenia a (teoreticky) ignoruje dead timer, pri zadani neplatnej IPcky je to administratorska chyba a vtedy siet umrie na dead timer
+
+kuknut paluchovu prednasku
+
+
+
+DIS -> show isis database
+vidime hostname a dve cisla:
+	prve cislo ak je 00 je normalny - ak je prve cislo nenulove, potom je router DISko
+	druhe cislo hovori o nazve rozhrania a ze tam nieco ma pripojene

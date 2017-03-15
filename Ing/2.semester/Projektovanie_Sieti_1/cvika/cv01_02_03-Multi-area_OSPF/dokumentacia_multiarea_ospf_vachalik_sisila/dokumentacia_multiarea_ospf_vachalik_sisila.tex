@@ -983,7 +983,7 @@ Na smerovači R5 sme nastavili predvolenú cestu, aby sme prepojili smerovač ex
 \begin{small}
 \begin{verbatim}
 
-ip route 0.0.0.0 0.0.0.0 f0/1 10.100.15.1
+R5(config)#ip route 0.0.0.0 0.0.0.0 f0/1 10.100.15.1
 
 \end{verbatim}
 \end{small}
@@ -997,10 +997,10 @@ Potom sme na smerovači R1 namapovali cestu k "lo1" na R5, ktorú sme ohlásili 
 \begin{small}
 \begin{verbatim}
 
-ip route 10.255.255.5 255.255.255.255 f0/1 10.100.15.2
-router ospf 1
-    redistribute static subnets
-    redistribute connected subnets
+R1(config)#ip route 10.255.255.5 255.255.255.255 f0/1 10.100.15.2
+R1(config)#router ospf 1
+R1(config-router)#redistribute static subnets
+R1(config-router)#redistribute connected subnets
 
 \end{verbatim}
 \end{small}
