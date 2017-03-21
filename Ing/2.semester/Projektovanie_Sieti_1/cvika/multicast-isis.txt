@@ -1,0 +1,29 @@
+﻿robit iba v isis
+
+mrout traffic infinite
+
+zapnut multicast routing a zapnut dense/sparse mode
+
+iba dense
+iba sparse + rp
+sparse-dense mode + r9 backup rp + odpojit linku k r3 a sledovat cas konvergencie
+
+ako IP pouzivat loopback
+
+
+forward - za interfejsom sa odbera stream
+
+pripojenie vlc na source router
+
+pouzit adresaciu ako pri isis
+
+na loopbackoch a vsetkych pripojenych interfejsoch
+
+show ip mroute
+show ip pim interfaces
+show ip pim neighbors
+
+
+pingy so source masiny
+
+dat do dokumentacie power tools
