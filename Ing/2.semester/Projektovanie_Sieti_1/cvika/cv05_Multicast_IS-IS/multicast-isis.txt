@@ -19,6 +19,7 @@ pouzit adresaciu ako pri isis
 
 na loopbackoch a vsetkych pripojenych interfejsoch
 
+show cdp neighbors
 show ip mroute
 show ip pim interfaces
 show ip pim neighbors
