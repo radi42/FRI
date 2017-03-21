@@ -28,3 +28,20 @@ show ip pim neighbors
 pingy so source masiny
 
 dat do dokumentacie power tools
+
+
+DOKAZ
+overenie fungovania multicastu
+na R5 pripojime source PC 
+WIN(klient)->R6->R1->R5
+
+simulujeme klienta
+if# ip igmp join-group 239.0.0.1
+
+na R5 dat aclko
+    acl 100 icmp permit
+
+po ceste pozerat "show ip mroute"
+
+
+alebo ked pingnem multicastovu grupu z R5 mal by som dostat 2 odpovede (cez "debug ip packet 100")
