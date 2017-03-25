@@ -38,6 +38,7 @@
 \pagenumbering{arabic}
 
 \section*{Multi-area OSPF}
+
 \subsection*{Topológia}
 \paragraph{}
 Budeme konfigurovať Multi-area OSPF, ktorá je znázornená na obrázku \ref{fig:multiarea_ospf_topo}. Smerovač R10 patrí tiež do oblasti 4. IP adresácia je uvedená v tabuľke \ref{tab:ip_adresacia} a dopĺňa grafické znázornenie topológie na obrázku \ref{fig:multiarea_ospf_topo}.
@@ -1079,286 +1080,6 @@ Neighbor ID     Pri   State           Dead Time   Address         Interface
 }
 
 
-\subsubsection*{Kontrola OSPF databáz a smerovacích tabuliek}
-\subparagraph{Popis}
-\subparagraph{}
-OSPF databáza (LSDB - Link State DataBase) je sumárny výstup, v ktorom môžeme sledovať, od ktorých smerovačov získavame ktoré LSA správy. Smerovacia tabuľka je výstup, ktorý obsahuje informácie o topológií siete.
-
-\subparagraph{Overenie}
-\subparagraph{}
-Použili sme tieto príkazy:
-
-\noindent
-{\fontfamily{qcr}\selectfont
-\begin{small}
-\begin{verbatim}
-
-show ip ospf database -> viď kapitolu \say{Nakonfigurovať OSPF s viacerými oblasťami}
-show ip ospf neighbors -> viď kapitolu \say{Nakonfigurovať OSPF s viacerými oblasťami}
-show ip ospf interface brief -> viď kapitolu \say{Nakonfigurovať OSPF s viacerými oblasťami}
-show ip protocols
-show ip route -> viď kapitolu \say{Statická redistribúcia smerovacích záznamov z R5}. Podrobný výpis smerovacej tabuľky uvádzame aj v tejto kapitole.
-
-\end{verbatim}
-\end{small}
-}
-
-
-\subparagraph{}
-Výpis príkazu \say{show ip protocols} zo smerovača R4.
-
-
-\noindent
-{\fontfamily{qcr}\selectfont
-\begin{small}
-\begin{verbatim}
-
-R4#show ip protocols
-Routing Protocol is "ospf 1"
-  Outgoing update filter list for all interfaces is not set
-  Incoming update filter list for all interfaces is not set
-  Router ID 10.255.255.4
-  It is an area border router
-  Number of areas in this router is 3. 3 normal 0 stub 0 nssa
-  Maximum path: 4
-  Routing for Networks:
-    10.255.255.4 0.0.0.0 area 3
-  Routing on Interfaces Configured Explicitly (Area 0):
-    FastEthernet0/1
-  Routing on Interfaces Configured Explicitly (Area 2):
-    FastEthernet0/0
-  Routing on Interfaces Configured Explicitly (Area 3):
-    Serial1/0
- Reference bandwidth unit is 100 mbps
-  Passive Interface(s):
-    Loopback1
-  Routing Information Sources:
-    Gateway         Distance      Last Update
-    10.255.255.10        110      03:28:28
-    10.255.255.9         110      04:08:59
-    10.255.255.2         110      03:44:16
-    Gateway         Distance      Last Update
-    10.255.255.3         110      03:44:18
-    10.255.255.1         110      03:44:08
-  Distance: (default is 110)
-
-
-\end{verbatim}
-\end{small}
-}
-
-
-\subparagraph{}
-Výpis príkazu \say{show ip route} zo smerovača R4.
-
-
-\noindent
-{\fontfamily{qcr}\selectfont
-\begin{small}
-\begin{verbatim}
-
-R4#show ip route
-Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP
-       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
-       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
-       E1 - OSPF external type 1, E2 - OSPF external type 2
-       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
-       ia - IS-IS inter area, * - candidate default, U - per-user static route
-       o - ODR, P - periodic downloaded static route
-
-Gateway of last resort is not set
-
-     10.0.0.0/8 is variably subnetted, 21 subnets, 3 masks
-O       10.255.255.10/32 [110/65] via 10.3.104.2, 03:31:18, Serial1/0
-O IA    10.255.255.8/32 [110/21] via 10.0.234.3, 03:46:56, FastEthernet0/1
-O       10.255.255.9/32 [110/65536] via 10.2.49.2, 04:11:39, FastEthernet0/0
-O       10.0.12.0/24 [110/20] via 10.0.234.2, 03:46:56, FastEthernet0/1
-O       10.255.255.2/32 [110/11] via 10.0.234.2, 03:46:56, FastEthernet0/1
-O IA    10.255.255.3/32 [110/11] via 10.0.234.3, 03:46:56, FastEthernet0/1
-O       10.255.255.1/32 [110/21] via 10.0.234.2, 03:46:57, FastEthernet0/1
-O IA    10.255.255.6/32 [110/139] via 10.3.104.2, 03:31:09, Serial1/0
-O IA    10.255.255.7/32 [110/129] via 10.3.104.2, 03:31:09, Serial1/0
-C       10.255.255.4/32 is directly connected, Loopback1
-O E2    10.255.255.5/32 [110/20] via 10.0.234.2, 03:46:47, FastEthernet0/1
-O IA    10.1.38.0/24 [110/20] via 10.0.234.3, 03:46:57, FastEthernet0/1
-O       10.2.39.0/30 [110/65663] via 10.2.49.2, 04:11:41, FastEthernet0/0
-O       10.2.39.0/24 [110/65599] via 10.2.49.2, 04:11:41, FastEthernet0/0
-C       10.2.49.0/24 is directly connected, FastEthernet0/0
-O IA    10.4.67.0/24 [110/138] via 10.3.104.2, 03:31:10, Serial1/0
-O       10.100.15.0/24 [110/30] via 10.0.234.2, 03:46:58, FastEthernet0/1
-C       10.3.104.0/30 is directly connected, Serial1/0
-O       10.3.104.0/24 [110/128] via 10.3.104.2, 03:31:20, Serial1/0
-O IA    10.4.107.0/24 [110/128] via 10.3.104.2, 03:31:10, Serial1/0
-C       10.0.234.0/24 is directly connected, FastEthernet0/1
-
-
-\end{verbatim}
-\end{small}
-}
-
-
-
-
-\subsubsection*{Kontrola konektivity}
-\subparagraph{Popis}
-\subparagraph{}
-Konektivitu sme testovali pomocou tclsh skriptu, ktorý \say{opingal} každý smerovač v topológií.
-
-\subparagraph{Konfigurácia}
-
-\noindent
-{\fontfamily{qcr}\selectfont
-\begin{small}
-\begin{verbatim}
-
-R1#tclsh
-# Celý foreach cyklus skopírujeme do terminálu
-
-foreach address {
-#R1
-10.100.15.2
-10.0.12.1
-
-#R2
-10.0.12.2
-10.0.234.2
-
-#R3
-10.0.234.3
-10.1.38.1
-10.2.39.1
-
-#R4
-10.0.234.4
-10.2.49.1
-10.3.104.1
-
-#R5
-10.100.15.1
-
-#R6
-10.4.67.1
-
-#R7
-10.4.67.2
-10.4.107.1
-
-#R8
-10.1.38.2
-
-#R9
-10.2.39.2
-10.2.49.2
-
-#R10
-10.4.107.2
-10.3.104.2
-} {
-ping $address}
-
-\end{verbatim}
-\end{small}
-}
-
-\subparagraph{Overenie}
-\subparagraph{}
-Po skopírovaní skriptu do terminálu sa začne okamžite vykonávať (ak nie, stlačíme Enter). Otestuje sa konektivita ku každému smerovaču. Výstup pochádza zo smerovača R10, ale rovnaký výsledok dostaneme aj na všetkých ostatných smerovačoch.
-
-
-\noindent
-{\fontfamily{qcr}\selectfont
-\begin{small}
-\begin{verbatim}
-Type escape sequence to abort.
-Sending 5, 100-byte ICMP Echos to 10.100.15.2, timeout is 2 seconds:
-!!!!!
-Success rate is 100 percent (5/5), round-trip min/avg/max = 56/74/80 ms
-Type escape sequence to abort.
-Sending 5, 100-byte ICMP Echos to 10.0.12.1, timeout is 2 seconds:
-!!!!!
-Success rate is 100 percent (5/5), round-trip min/avg/max = 44/56/60 ms% Unrecognized host or address, or protocol not running.
-
-Type escape sequence to abort.
-Sending 5, 100-byte ICMP Echos to 10.0.12.2, timeout is 2 seconds:
-!!!!!
-Success rate is 100 percent (5/5), round-trip min/avg/max = 24/35/40 ms
-Type escape sequence to abort.
-Sending 5, 100-byte ICMP Echos to 10.0.234.2, timeout is 2 seconds:
-!!!!!
-Success rate is 100 percent (5/5), round-trip min/avg/max = 24/36/44 ms% Unrecognized host or address, or protocol not running.
-
-Type escape sequence to abort.
-Sending 5, 100-byte ICMP Echos to 10.0.234.3, timeout is 2 seconds:
-!!!!!
-Success rate is 100 percent (5/5), round-trip min/avg/max = 24/35/40 ms
-Type escape sequence to abort.
-Sending 5, 100-byte ICMP Echos to 10.1.38.1, timeout is 2 seconds:
-!!!!!
-Success rate is 100 percent (5/5), round-trip min/avg/max = 24/36/44 ms
-Type escape sequence to abort.
-Sending 5, 100-byte ICMP Echos to 10.2.39.1, timeout is 2 seconds:
-!!!!!
-Success rate is 100 percent (5/5), round-trip min/avg/max = 40/48/60 ms% Unrecognized host or address, or protocol not running.
-
-Type escape sequence to abort.
-Sending 5, 100-byte ICMP Echos to 10.0.234.4, timeout is 2 seconds:
-!!!!!
-Success rate is 100 percent (5/5), round-trip min/avg/max = 12/17/24 ms
-Type escape sequence to abort.
-Sending 5, 100-byte ICMP Echos to 10.2.49.1, timeout is 2 seconds:
-!!!!!
-Success rate is 100 percent (5/5), round-trip min/avg/max = 16/18/20 ms
-Type escape sequence to abort.
-Sending 5, 100-byte ICMP Echos to 10.3.104.1, timeout is 2 seconds:
-!!!!!
-Success rate is 100 percent (5/5), round-trip min/avg/max = 12/17/20 ms% Unrecognized host or address, or protocol not running.
-
-Type escape sequence to abort.
-Sending 5, 100-byte ICMP Echos to 10.100.15.1, timeout is 2 seconds:
-!!!!!
-Success rate is 100 percent (5/5), round-trip min/avg/max = 52/58/64 ms% Unrecognized host or address, or protocol not running.
-
-Type escape sequence to abort.
-Sending 5, 100-byte ICMP Echos to 10.4.67.1, timeout is 2 seconds:
-!!!!!
-Success rate is 100 percent (5/5), round-trip min/avg/max = 32/37/40 ms% Unrecognized host or address, or protocol not running.
-
-Type escape sequence to abort.
-Sending 5, 100-byte ICMP Echos to 10.4.67.2, timeout is 2 seconds:
-!!!!!
-Success rate is 100 percent (5/5), round-trip min/avg/max = 16/20/28 ms
-Type escape sequence to abort.
-Sending 5, 100-byte ICMP Echos to 10.4.107.1, timeout is 2 seconds:
-!!!!!
-Success rate is 100 percent (5/5), round-trip min/avg/max = 12/17/20 ms% Unrecognized host or address, or protocol not running.
-
-Type escape sequence to abort.
-Sending 5, 100-byte ICMP Echos to 10.1.38.2, timeout is 2 seconds:
-!!!!!
-Success rate is 100 percent (5/5), round-trip min/avg/max = 44/56/60 ms% Unrecognized host or address, or protocol not running.
-
-Type escape sequence to abort.
-Sending 5, 100-byte ICMP Echos to 10.2.39.2, timeout is 2 seconds:
-!!!!!
-Success rate is 100 percent (5/5), round-trip min/avg/max = 44/54/60 ms
-Type escape sequence to abort.
-Sending 5, 100-byte ICMP Echos to 10.2.49.2, timeout is 2 seconds:
-!!!!!
-Success rate is 100 percent (5/5), round-trip min/avg/max = 24/36/40 ms% Unrecognized host or address, or protocol not running.
-
-Type escape sequence to abort.
-Sending 5, 100-byte ICMP Echos to 10.4.107.2, timeout is 2 seconds:
-!!!!!
-Success rate is 100 percent (5/5), round-trip min/avg/max = 32/36/40 ms
-Type escape sequence to abort.
-Sending 5, 100-byte ICMP Echos to 10.3.104.2, timeout is 2 seconds:
-!!!!!
-Success rate is 100 percent (5/5), round-trip min/avg/max = 36/38/40 ms
-
-\end{verbatim}
-\end{small}
-}
-
 
 
 \subsubsection*{Area 2 – R3 primárny smerovač, R4 sekundárny smerovač so sumarizovanými internými smerovacími záznamami do jedného sumarizačného}
@@ -1673,5 +1394,310 @@ Mali sme rôzne spôsoby, ako overiť toto nastavenie: použitím nepretržitéh
 
 \subparagraph{}
 Po vypnutí rozhrania \say{Fa0/1} na smerovači R3 sieť skonvergovala za 8 sekúnd (8 neúspešných pingov). Po skonvergovaní bolo možné dostať sa zo smerovača R5 na R9, R10, ale nie na R8, pretože R8 už nebol pripojený priamo na chrbticovú oblasť cez R3, ale na oblasť 2 cez smerovače R3 a R9 (problém nastal na linke medzi R3 a R9). Výpadok konektivity v smeroch R5 -\textgreater{} R8 a R8 -\textgreater{} R6 sme nevedeli vyriešiť. Možno by pomohlo vytvorenie virtuálneho pripojenia resp. tunela ku chrbticovej oblasti, ale tieto možnosti sme nepreskúmali.
+
+
+
+
+\subsubsection*{Kontrola OSPF databáz a smerovacích tabuliek}
+\subparagraph{Popis}
+\subparagraph{}
+OSPF databáza (LSDB - Link State DataBase) je sumárny výstup, v ktorom môžeme sledovať, od ktorých smerovačov získavame ktoré LSA správy. Smerovacia tabuľka je výstup, ktorý obsahuje informácie o topológií siete.
+
+\subparagraph{Overenie}
+\subparagraph{}
+Použili sme tieto príkazy:
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+
+show ip ospf database
+show ip ospf neighbors
+show ip ospf interface brief
+show ip protocols
+show ip route
+
+\end{alltt}
+\end{small}
+}
+
+
+\subparagraph{}
+Výpis príkazu \say{show ip protocols} zo smerovača R4.
+
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{verbatim}
+
+R4#show ip protocols
+Routing Protocol is "ospf 1"
+  Outgoing update filter list for all interfaces is not set
+  Incoming update filter list for all interfaces is not set
+  Router ID 10.255.255.4
+  It is an area border router
+  Number of areas in this router is 3. 3 normal 0 stub 0 nssa
+  Maximum path: 4
+  Routing for Networks:
+    10.255.255.4 0.0.0.0 area 3
+  Routing on Interfaces Configured Explicitly (Area 0):
+    FastEthernet0/1
+  Routing on Interfaces Configured Explicitly (Area 2):
+    FastEthernet0/0
+  Routing on Interfaces Configured Explicitly (Area 3):
+    Serial1/0
+ Reference bandwidth unit is 100 mbps
+  Passive Interface(s):
+    Loopback1
+  Routing Information Sources:
+    Gateway         Distance      Last Update
+    10.255.255.10        110      03:28:28
+    10.255.255.9         110      04:08:59
+    10.255.255.2         110      03:44:16
+    Gateway         Distance      Last Update
+    10.255.255.3         110      03:44:18
+    10.255.255.1         110      03:44:08
+  Distance: (default is 110)
+
+
+\end{verbatim}
+\end{small}
+}
+
+
+\subparagraph{}
+Výpis príkazu \say{show ip route} zo smerovača R4.
+
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{verbatim}
+
+R4#show ip route
+Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+     10.0.0.0/8 is variably subnetted, 21 subnets, 3 masks
+O       10.255.255.10/32 [110/65] via 10.3.104.2, 03:31:18, Serial1/0
+O IA    10.255.255.8/32 [110/21] via 10.0.234.3, 03:46:56, FastEthernet0/1
+O       10.255.255.9/32 [110/65536] via 10.2.49.2, 04:11:39, FastEthernet0/0
+O       10.0.12.0/24 [110/20] via 10.0.234.2, 03:46:56, FastEthernet0/1
+O       10.255.255.2/32 [110/11] via 10.0.234.2, 03:46:56, FastEthernet0/1
+O IA    10.255.255.3/32 [110/11] via 10.0.234.3, 03:46:56, FastEthernet0/1
+O       10.255.255.1/32 [110/21] via 10.0.234.2, 03:46:57, FastEthernet0/1
+O IA    10.255.255.6/32 [110/139] via 10.3.104.2, 03:31:09, Serial1/0
+O IA    10.255.255.7/32 [110/129] via 10.3.104.2, 03:31:09, Serial1/0
+C       10.255.255.4/32 is directly connected, Loopback1
+O E2    10.255.255.5/32 [110/20] via 10.0.234.2, 03:46:47, FastEthernet0/1
+O IA    10.1.38.0/24 [110/20] via 10.0.234.3, 03:46:57, FastEthernet0/1
+O       10.2.39.0/30 [110/65663] via 10.2.49.2, 04:11:41, FastEthernet0/0
+O       10.2.39.0/24 [110/65599] via 10.2.49.2, 04:11:41, FastEthernet0/0
+C       10.2.49.0/24 is directly connected, FastEthernet0/0
+O IA    10.4.67.0/24 [110/138] via 10.3.104.2, 03:31:10, Serial1/0
+O       10.100.15.0/24 [110/30] via 10.0.234.2, 03:46:58, FastEthernet0/1
+C       10.3.104.0/30 is directly connected, Serial1/0
+O       10.3.104.0/24 [110/128] via 10.3.104.2, 03:31:20, Serial1/0
+O IA    10.4.107.0/24 [110/128] via 10.3.104.2, 03:31:10, Serial1/0
+C       10.0.234.0/24 is directly connected, FastEthernet0/1
+
+
+\end{verbatim}
+\end{small}
+}
+
+\subparagraph{}
+Výpis uvdených príkazov uvádzame v týchto kapitolách:
+
+\begin{itemize}
+\item show ip ospf database
+	\begin{itemize}
+	\item Nakonfigurovať OSPF s viacerými oblasťami
+	\item Area 1 – Totally Stubby
+	\item Area 3 – Stub
+	\item Area 4 – pripojenie pomocou virtuálnej linky
+	\end{itemize}
+\item show ip ospf neighbors 
+	\begin{itemize}
+	\item Nakonfigurovať OSPF s viacerými oblasťami
+	\end{itemize}
+\item show ip ospf interface brief
+	\begin{itemize}
+	\item Router-id - loopback0, passive-interface
+	\item Area 4 – pripojenie pomocou virtuálnej linky
+	\end{itemize}
+\end{itemize}
+
+
+\subsubsection*{Kontrola konektivity}
+\subparagraph{Popis}
+\subparagraph{}
+Konektivitu sme testovali pomocou tclsh skriptu, ktorý \say{opingal} každý smerovač v topológií.
+
+\subparagraph{Konfigurácia}
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{verbatim}
+
+R1#tclsh
+# Celý foreach cyklus skopírujeme do terminálu
+
+foreach address {
+#R1
+10.100.15.2
+10.0.12.1
+
+#R2
+10.0.12.2
+10.0.234.2
+
+#R3
+10.0.234.3
+10.1.38.1
+10.2.39.1
+
+#R4
+10.0.234.4
+10.2.49.1
+10.3.104.1
+
+#R5
+10.100.15.1
+
+#R6
+10.4.67.1
+
+#R7
+10.4.67.2
+10.4.107.1
+
+#R8
+10.1.38.2
+
+#R9
+10.2.39.2
+10.2.49.2
+
+#R10
+10.4.107.2
+10.3.104.2
+} {
+ping $address}
+
+\end{verbatim}
+\end{small}
+}
+
+\subparagraph{Overenie}
+\subparagraph{}
+Po skopírovaní skriptu do terminálu sa začne okamžite vykonávať (ak nie, stlačíme Enter). Otestuje sa konektivita ku každému smerovaču. Výstup pochádza zo smerovača R10, ale rovnaký výsledok dostaneme aj na všetkých ostatných smerovačoch.
+
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{verbatim}
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.100.15.2, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 56/74/80 ms
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.0.12.1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 44/56/60 ms% Unrecognized host or address, or protocol not running.
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.0.12.2, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 24/35/40 ms
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.0.234.2, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 24/36/44 ms% Unrecognized host or address, or protocol not running.
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.0.234.3, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 24/35/40 ms
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.1.38.1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 24/36/44 ms
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.2.39.1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 40/48/60 ms% Unrecognized host or address, or protocol not running.
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.0.234.4, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 12/17/24 ms
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.2.49.1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 16/18/20 ms
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.3.104.1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 12/17/20 ms% Unrecognized host or address, or protocol not running.
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.100.15.1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 52/58/64 ms% Unrecognized host or address, or protocol not running.
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.4.67.1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 32/37/40 ms% Unrecognized host or address, or protocol not running.
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.4.67.2, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 16/20/28 ms
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.4.107.1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 12/17/20 ms% Unrecognized host or address, or protocol not running.
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.1.38.2, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 44/56/60 ms% Unrecognized host or address, or protocol not running.
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.2.39.2, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 44/54/60 ms
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.2.49.2, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 24/36/40 ms% Unrecognized host or address, or protocol not running.
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.4.107.2, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 32/36/40 ms
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.3.104.2, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 36/38/40 ms
+
+\end{verbatim}
+\end{small}
+}
+
+
 
 \end{document}
