@@ -106,6 +106,1034 @@ Budeme konfigurovať distribúciu multicastovej prevádzky so smerovacím protok
 
 
 \section{Úlohy}
-\subsection{Nakonfigurovať IS-IS}
+\subsection{Použiť IS–IS (L2 only) single area dizajn, priame p2p prepojenia medzi R2, R3, R4}
+\subsection{Nakonfigurovať PIM–SM s jedným statickým RP}
+\subsubsection{Popis}
+Dohodli sme sa, že budeme používať iba smerovací protokol IS-IS.
+Subrozhranie “.13” a VLAN 13 sme premenovali na “.23” a VLAN 23, lebo sieť je medzi smerovačmi R2 a R3 (23), a nie medzi R1 a R3 (13).
+
+
+\subsubsection{Konfigurácia}
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+====================================================
+DENSE MODE
+====================================================
+R1
+ena
+conf t
+hostname R1
+no ip domain-lookup
+username admin privil 15 secret admin
+line con 0
+  login local
+  logging syn
+  exec-time 120
+line vty 0 15
+  privilege level 15
+  no login
+int f0/0
+  ip addr 10.1.12.1 255.255.255.0
+  ip router isis
+  isis network point-to-point
+  no shut
+int lo0
+  ip addr 10.255.255.1 255.255.255.255
+  ip router isis
+  no shut
+int f0/1
+  ip addr 10.100.15.1 255.255.255.0
+  no shut
+router isis
+  net 49.0001.0102.5525.5001.00
+  passive-interface lo0
+  is-type level-2
+  metric-style wide
+  redistribute static
+  redistribute connected
+  exit
+ip route 10.255.255.5 255.255.255.255 f0/1 10.100.15.5
+
+!aktivujeme multicast smerovanie
+ip multicast-routing
+int range f0/0 - 1
+  ip pim dense-mode
+int lo0
+  ip pim dense-mode
+  exit
+
+R2
+ena
+conf t
+hostname R2
+no ip domain-lookup
+username admin privil 15 secret admin
+line con 0
+  login local
+  logging syn
+  exec-time 120
+line vty 0 15
+  privilege level 15
+  no login
+int f0/0
+  ip addr 10.1.12.2 255.255.255.0
+  ip router isis
+  isis network point-to-point
+  no shut
+int lo0
+  ip addr 10.255.255.2 255.255.255.255
+  ip router isis
+  no shut
+int f0/1
+  no ip add
+  isis network point-to-point
+  no sh
+int f0/1.23
+  encap dot1q 23
+  ip addr 10.1.23.2 255.255.255.0
+  ip router isis
+int f0/1.24
+  encap dot1q 24
+  ip addr 10.1.24.2 255.255.255.0
+  ip router isis
+router isis
+  net 49.0001.0102.5525.5002.00
+  passive-interface lo0
+  is-type level-2
+  metric-style wide
+  exit
+
+!aktivujeme multicast smerovanie
+ip multicast-routing
+int f0/0
+  ip pim dense-mode
+int f0/1.23
+  ip pim dense-mode
+int f0/1.24
+  ip pim dense-mode
+int lo0
+  ip pim dense-mode
+  exit
+
+
+
+R3
+ena
+conf t
+hostname R3
+no ip domain-lookup
+username admin privil 15 secret admin
+line con 0
+  login local
+  logging syn
+  exec-time 120
+line vty 0 15
+  privilege level 15
+  no login
+int f0/0
+  ip addr 10.1.38.3 255.255.255.0
+  ip router isis
+  isis network point-to-point
+  no shut
+int lo0
+  ip addr 10.255.255.3 255.255.255.255
+  ip router isis
+  no shut
+int f0/1
+  no ip addr
+  isis network point-to-point
+  no shut
+int f0/1.23
+  encap dot1q 23
+  ip addr 10.1.23.3 255.255.255.0
+  ip router isis
+int f0/1.34
+  encap dot1q 34
+  ip addr 10.1.34.3 255.255.255.0
+  ip router isis
+router isis
+  net 49.0001.0102.5525.5003.00
+  passive-interface lo0
+  is-type level-2
+  metric-style wide
+  exit
+
+!aktivujeme multicast smerovanie
+ip multicast-routing
+int f0/0
+  ip pim dense-mode
+int f0/1.23
+  ip pim dense-mode
+int f0/1.34
+  ip pim dense-mode
+int lo0
+  ip pim dense-mode
+  exit
+
+
+R4
+ena
+conf t
+hostname R4
+no ip domain-lookup
+username admin privil 15 secret admin
+line con 0
+  login local
+  logging syn
+  exec-time 120
+line vty 0 15
+  privilege level 15
+  no login
+int f0/0
+  ip addr 10.1.49.4 255.255.255.0
+  ip router isis
+  isis network point-to-point
+  no shut
+int lo0
+  ip addr 10.255.255.4 255.255.255.255
+  ip router isis
+  no shut
+int f0/1
+  no ip addr
+  isis network point-to-point
+  no sh
+int f0/1.24
+  encap dot1q 24
+  ip addr 10.1.24.4 255.255.255.0
+  ip router isis
+int f0/1.34
+  encap dot1q 34
+  ip addr 10.1.34.4 255.255.255.0
+  ip router isis
+int s1/0
+  ip addr 10.1.104.4 255.255.255.0
+  ip router isis
+  no shut
+router isis
+  net 49.0001.0102.5525.5004.00
+  passive-interface lo0
+  is-type level-2
+  metric-style wide
+  exit
+
+!aktivujeme multicast smerovanie
+ip multicast-routing
+int f0/0
+  ip pim dense-mode
+int f0/1.24
+  ip pim dense-mode
+int f0/1.34
+  ip pim dense-mode
+int s1/0
+  ip pim dense-mode
+int lo0
+  ip pim dense-mode
+  exit
+
+
+R5
+ena
+conf t
+hostname R5
+no ip domain-lookup
+username admin privil 15 secret admin
+line con 0
+  login local
+  logging syn
+  exec-time 120
+line vty 0 15
+  privilege level 15
+  no login
+int lo0
+  ip addr 10.255.255.5 255.255.255.255
+  no shut
+int f0/1
+  ip addr 10.100.15.5 255.255.255.0
+  no shut
+ip route 0.0.0.0 0.0.0.0 f0/1 10.100.15.1
+
+
+
+
+R6
+ena
+conf t
+hostname R6
+no ip domain-lookup
+username admin privil 15 secret admin
+line con 0
+  login local
+  logging syn
+  exec-time 120
+line vty 0 15
+  privilege level 15
+  no login
+int f0/1
+  ip addr 10.2.67.6 255.255.255.0
+  ip router isis
+  isis network point-to-point
+  no shut
+int lo0
+  ip addr 10.255.255.6 255.255.255.255
+  ip router isis
+  no shut
+int lo1
+  ip add 10.255.255.66 255.255.255.255
+  ip router isis
+  ip igmp join-group 239.0.0.1
+router isis
+  net 49.0002.0102.5525.5006.00
+  passive-interface lo0
+  is-type level-2
+  metric-style wide
+  exit
+
+!aktivujeme multicast smerovanie
+ip multicast-routing
+int range f0/1
+  ip pim dense-mode
+  exit
+int lo0
+  ip pim dense-mode
+  exit
+int lo1
+  ip pim dense-mode
+  exit
+
+
+R7
+ena
+conf t
+hostname R7
+no ip domain-lookup
+username admin privil 15 secret admin
+line con 0
+  login local
+  logging syn
+  exec-time 120
+line vty 0 15
+  privilege level 15
+  no login
+int f0/1
+  ip addr 10.2.67.7 255.255.255.0
+  ip router isis
+  isis network point-to-point
+  no shut
+int lo0
+  ip addr 10.255.255.7 255.255.255.255
+  ip router isis
+  no shut
+int f0/0
+  ip addr 10.2.107.7 255.255.255.0
+  Ip router isis
+  isis network point-to-point
+  no shut
+router isis
+  net 49.0002.0102.5525.5007.00
+  passive-interface lo0
+  is-type level-2
+  metric-style wide
+  exit
+
+!aktivujeme multicast smerovanie
+ip multicast-routing
+int range f0/0 - 1
+  ip pim dense-mode
+  exit
+int lo0 
+  ip pim dense-mode
+  exit
+
+
+
+
+R8
+ena
+conf t
+hostname R8
+no ip domain-lookup
+username admin privil 15 secret admin
+line con 0
+  login local
+  logging syn
+  exec-time 120
+line vty 0 15
+  privilege level 15
+  no login
+int f0/0
+  ip addr 10.1.38.8 255.255.255.0
+  ip router isis
+  isis network point-to-point
+  no shut
+int lo0
+  ip addr 10.255.255.8 255.255.255.255
+  ip router isis
+  no shut
+int lo1
+  ip add 10.255.255.88 255.255.255.255
+  ip router isis
+  ip igmp join-group 239.0.0.1
+int f0/1
+  ip addr 10.1.89.8 255.255.255.0
+  Ip router isis
+  isis network point-to-point
+  no shut
+router isis
+  net 49.0001.0102.5525.5008.00
+  passive-interface lo0
+  is-type level-2
+  metric-style wide
+  exit
+
+!aktivujeme multicast smerovanie
+ip multicast-routing
+int range f0/0 - 1 
+  ip pim dense-mode
+  exit
+int lo0
+  ip pim dense-mode
+  exit
+int lo1
+  ip pim dense-mode
+  exit
+
+
+
+
+
+R9
+ena
+conf t
+hostname R9
+no ip domain-lookup
+username admin privil 15 secret admin
+line con 0
+  login local
+  logging syn
+  exec-time 120
+line vty 0 15
+  privilege level 15
+  no login
+int f0/0
+  ip addr 10.1.49.9 255.255.255.0
+  ip router isis
+  isis network point-to-point
+  no shut
+int lo0
+  ip addr 10.255.255.9 255.255.255.255
+  ip router isis
+  no shut
+int f0/1
+  ip addr 10.1.89.9 255.255.255.0
+  ip router isis
+  isis network point-to-point
+  no shut
+router isis
+  net 49.0001.0102.5525.5009.00
+  passive-interface lo0
+  is-type level-2
+  metric-style wide
+  exit
+
+!aktivujeme multicast smerovanie
+ip multicast-routing
+int range f0/0 - 1
+  ip pim dense-mode
+  exit
+int lo0
+  ip pim dense-mode
+
+
+R10
+ena
+conf t
+hostname R10
+no ip domain-lookup
+username admin privil 15 secret admin
+line con 0
+  login local
+  logging syn
+  exec-time 120
+line vty 0 15
+  privilege level 15
+  no login
+int s1/0
+  ip addr 10.1.104.10 255.255.255.0
+  ip router isis
+  no shut
+int lo0
+  ip addr 10.255.255.10 255.255.255.255
+  ip router isis
+  no shut
+int f0/0
+  ip addr 10.2.107.10 255.255.255.0
+  ip router isis
+  isis network point-to-point
+  no shut
+router isis
+  net 49.0002.0102.5525.5010.00
+  passive-interface lo0
+  is-type level-2
+  metric-style wide
+  exit
+
+!aktivujeme multicast smerovanie
+ip multicast-routing
+int f0/0
+  ip pim dense-mode
+  exit
+int s1/0
+  ip pim dense-mode
+  exit
+int lo0
+  ip pim dense-mode
+  exit
+
+\end{alltt}
+\end{small}
+}
+
+\subsubsection{Overenie}
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+R5#ping 239.0.0.1
+
+Type escape sequence to abort.
+Sending 1, 100-byte ICMP Echos to 239.0.0.1, timeout is 2 seconds:
+
+Reply to request 0 from 10.1.38.8, 68 ms
+Reply to request 0 from 10.2.67.6, 132 ms
+----------------------------------------------------------------
+R8#sh ip pim interface
+
+Address          Interface         Ver/   Nbr    Query  DR     DR
+                                   Mode   Count  Intvl  Prior
+10.255.255.88    Loopback1         v2/D   0      30     1      10.255.255.88
+10.1.38.8        FastEthernet0/0   v2/D   1      30     1      10.1.38.8
+10.1.89.8        FastEthernet0/1   v2/D   1      30     1      10.1.89.9
+10.255.255.8     Loopback0         v2/D   0      30     1      10.255.255.8
+
+\end{alltt}
+\end{small}
+}
+
+\subsection{Nakonfigurovať SPARSE mód}
+\subsubsection{Popis}
+Konfigurujeme \say{SPARSE} mód bez záložného RP.
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+====================================================
+SPARSE MODE
+====================================================
+R1
+!aktivujeme multicast smerovanie
+ip multicast-routing
+int range f0/0 - 1
+  ip pim sparse-mode
+int lo0
+  ip pim sparse-mode
+  exit
+ip pim rp-addr 10.255.255.3
+
+R2
+!aktivujeme multicast smerovanie
+ip multicast-routing
+int f0/0
+  ip pim sparse-mode
+int f0/1.23
+  ip pim sparse-mode
+int f0/1.24
+  ip pim sparse-mode
+int lo0
+  ip pim sparse-mode
+  exit
+ip pim rp-addr 10.255.255.3
+
+
+R3
+!aktivujeme multicast smerovanie
+ip multicast-routing
+int f0/0
+  ip pim sparse-mode
+int f0/1.23
+  ip pim sparse-mode
+int f0/1.34
+  ip pim sparse-mode
+int lo0
+  ip pim sparse-mode
+  exit
+ip pim rp-addr 10.255.255.3
+
+
+R4
+!aktivujeme multicast smerovanie
+ip multicast-routing
+int f0/0
+  ip pim sparse-mode
+int f0/1.24
+  ip pim sparse-mode
+int f0/1.34
+  ip pim sparse-mode
+int s1/0
+  ip pim sparse-mode
+int lo0
+  ip pim sparse-mode
+  exit
+ip pim rp-addr 10.255.255.3
+R6
+!aktivujeme multicast smerovanie
+ip multicast-routing
+int range f0/1
+  ip pim sparse-mode
+  exit
+int lo0
+  ip pim sparse-mode
+  exit
+int lo1
+  ip pim sparse-mode
+  exit 
+ip pim rp-addr 10.255.255.3
+
+
+R7
+!aktivujeme multicast smerovanie
+ip multicast-routing
+int range f0/0 - 1
+  ip pim sparse-mode
+  exit
+int lo0 
+  ip pim sparse-mode
+  exit
+ip pim rp-addr 10.255.255.3
+
+
+R8
+!aktivujeme multicast smerovanie
+ip multicast-routing
+int range f0/0 - 1 
+  ip pim sparse-mode
+  exit
+int lo0
+  ip pim sparse-mode
+  exit
+int lo1
+  ip pim sparse-mode
+ exit 
+ip pim rp-addr 10.255.255.3
+
+
+
+R9
+!aktivujeme multicast smerovanie
+ip multicast-routing
+int range f0/0 - 1
+  ip pim sparse-mode
+  exit
+int lo0
+  ip pim sparse-mode
+ip pim rp-addr 10.255.255.3
+
+
+R10
+!aktivujeme multicast smerovanie
+ip multicast-routing
+int f0/0
+  ip pim sparse-mode
+  exit
+int s1/0
+  ip pim sparse-mode
+  exit
+int lo0
+  ip pim sparse-mode
+  exit
+ip pim rp-addr 10.255.255.3
+
+\end{alltt}
+\end{small}
+}
+
+
+\subsubsection{Overenie}
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+R5#ping 239.0.0.1
+
+Type escape sequence to abort.
+Sending 1, 100-byte ICMP Echos to 239.0.0.1, timeout is 2 seconds:
+
+Reply to request 0 from 10.1.38.8, 60 ms
+Reply to request 0 from 10.2.67.6, 124 ms
+\end{alltt}
+\end{small}
+}
+
+\paragraph{}
+Odpovede prichádzali od klientov 10.1.38.8 (R8) a 10.2.67.6 (R6).
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+
+R3#sh ip pim int
+
+Address          Interface            Ver/   Nbr    Query  DR     DR
+                                      Mode   Count  Intvl  Prior
+10.1.38.3        FastEthernet0/0      v2/S   1      30     1      10.1.38.8
+10.1.23.3        FastEthernet0/1.23   v2/S   1      30     1      10.1.23.3
+10.1.34.3        FastEthernet0/1.34   v2/S   1      30     1      10.1.34.4
+10.255.255.3     Loopback0            v2/S   0      30     1      10.255.255.3
+
+R1#sh ip pim rp    
+Group: 239.0.0.1, RP: 10.255.255.3, v2, uptime 00:06:22, expires never
+Group: 224.0.1.40, RP: 10.255.255.3, v2, uptime 00:07:07, expires never
+
+
+R1#sh ip igmp groups
+IGMP Connected Group Membership
+Group Address  Interface         Uptime    Expires   Last Reporter   Group
+                                                                     Accounted
+224.0.1.40     FastEthernet0/0   00:35:38  00:02:21  10.1.12.2
+
+\end{alltt}
+\end{small}
+}
+
+
+\subsection{Zabezpečiť RP redundanciu}
+\subsubsection{Popis}
+\paragraph{}
+V \say{SPARSE-DENSE} móde môžeme nastaviť záložný RP, ktorý bude vyberaný pomocou BSR.
+
+\subsubsection{Konfigurácia}
+
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+====================================================
+SPARSE-DENSE MODE
+====================================================
+R1
+!aktivujeme multicast smerovanie
+ip multicast-routing
+int range f0/0 - 1
+  ip pim sparse-dense-mode
+int lo0
+  ip pim sparse-dense-mode
+  exit
+no ip pim rp-addr 10.255.255.3
+
+
+R2
+!aktivujeme multicast smerovanie
+ip multicast-routing
+int f0/0
+  ip pim sparse-dense-mode
+int f0/1.23
+  ip pim sparse-dense-mode
+int f0/1.24
+  ip pim sparse-dense-mode
+int lo0
+  ip pim sparse-dense-mode
+  exit
+no ip pim rp-addr 10.255.255.3
+
+
+R3
+!aktivujeme multicast smerovanie
+ip multicast-routing
+int f0/0
+  ip pim sparse-dense-mode
+int f0/1.23
+  ip pim sparse-dense-mode
+int f0/1.34
+  ip pim sparse-dense-mode
+int lo0
+  ip pim sparse-dense-mode
+  exit
+no ip pim rp-addr 10.255.255.3
+ip pim rp-candidate lo0
+
+R4
+!aktivujeme multicast smerovanie
+ip multicast-routing
+int f0/0
+  ip pim sparse-dense-mode
+int f0/1.24
+  ip pim sparse-dense-mode
+int f0/1.34
+  ip pim sparse-dense-mode
+int s1/0
+  ip pim sparse-dense-mode
+int lo0
+  ip pim sparse-dense-mode
+  exit
+no ip pim rp-addr 10.255.255.3
+
+
+R6
+!aktivujeme multicast smerovanie
+ip multicast-routing
+int range f0/1
+  ip pim sparse-dense-mode
+  exit
+int lo0
+  ip pim sparse-dense-mode
+  exit
+int lo1
+  ip pim sparse-dense-mode
+  exit 
+no ip pim rp-addr 10.255.255.3
+
+
+R7
+!aktivujeme multicast smerovanie
+ip multicast-routing
+int range f0/0 - 1
+  ip pim sparse-dense-mode
+  exit
+int lo0 
+  ip pim sparse-dense-mode
+  exit
+no ip pim rp-addr 10.255.255.3
+
+
+R8
+!aktivujeme multicast smerovanie
+ip multicast-routing
+int range f0/0 - 1 
+  ip pim sparse-dense-mode
+  exit
+int lo0
+  ip pim sparse-dense-mode
+  exit
+int lo1
+  ip pim sparse-dense-mode
+  exit
+no ip pim rp-addr 10.255.255.3
+
+
+R9
+!aktivujeme multicast smerovanie
+ip multicast-routing
+int range f0/0 - 1
+  ip pim sparse-dense-mode
+  exit
+int lo0
+  ip pim sparse-dense-mode
+no ip pim rp-addr 10.255.255.3
+ip pim bsr-candidate lo0
+
+
+R10
+!aktivujeme multicast smerovanie
+ip multicast-routing
+int f0/0
+  ip pim sparse-dense-mode
+  exit
+int s1/0
+  ip pim sparse-dense-mode
+  exit
+int lo0
+  ip pim sparse-dense-mode
+  exit
+no ip pim rp-addr 10.255.255.3
+
+\end{alltt}
+\end{small}
+}
+
+\subsubsection{Overenie}
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+R5#ping 239.0.0.1
+
+Type escape sequence to abort.
+Sending 1, 100-byte ICMP Echos to 239.0.0.1, timeout is 2 seconds:
+
+Reply to request 0 from 10.1.89.8, 76 ms
+Reply to request 0 from 10.2.67.6, 136 ms
+
+R4#sh ip pim rp
+Group: 239.0.0.1, RP: 10.255.255.3, v2, uptime 00:04:27, expires 00:02:19
+
+R4#sh ip pim int
+
+Address          Interface            Ver/   Nbr    Query  DR     DR
+                                      Mode   Count  Intvl  Prior
+10.1.49.4        FastEthernet0/0      v2/SD  1      30     1      10.1.49.9
+10.1.24.4        FastEthernet0/1.24   v2/SD  1      30     1      10.1.24.4
+10.1.34.4        FastEthernet0/1.34   v2/SD  1      30     1      10.1.34.4
+10.1.104.4       Serial1/0            v2/SD  1      30     1      0.0.0.0
+10.255.255.4     Loopback0            v2/SD  0      30     1      10.255.255.4
+
+R9#sh ip igmp groups
+IGMP Connected Group Membership
+Group Address  Interface        Uptime    Expires   Last Reporter   Group
+                                                                    Accounted
+224.0.1.39     FastEthernet0/0  00:11:57  00:01:57  10.1.49.4
+224.0.1.40     FastEthernet0/0  01:03:32  00:02:59  10.1.49.4
+
+\end{alltt}
+\end{small}
+}
+
+\paragraph{}
+Z výpisov vyplýva, že záložný RP je aktívny.
+
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+R4#show ip pim autorp
+AutoRP Information:
+  AutoRP is enabled.
+
+PIM AutoRP Statistics: Sent/Received
+  RP Announce: 0/184, RP Discovery: 188/160
+
+
+
+
+
+
+Power Tools
+
+R6#mstat 10.100.15.5 224.0.1.40
+Type escape sequence to abort.
+Mtrace from 10.100.15.5 to 10.2.67.6 via group 224.0.1.40
+From source (?) to destination (?)
+Waiting to accumulate statistics......
+Results after 10 seconds:
+
+  Source        Response Dest   Packet Statistics For     Only For Traffic
+10.100.15.5     10.2.67.6       All Multicast Traffic     From 10.100.15.5
+     |       __/  rtt 87   ms   Lost/Sent = Pct  Rate     To 224.0.1.40
+     v      /     hop 87   ms   ---------------------     --------------------
+10.100.15.1
+10.1.12.1       ?
+     |     ^      ttl   0
+     v     |      hop -8   s     0/0 = --%      0 pps    0/0 = --%  0 pps
+10.1.12.2
+10.1.24.2       ?
+     |     ^      ttl   1
+     v     |      hop 2576 ms    0/0 = --%      0 pps    0/0 = --%  0 pps
+10.1.24.4
+10.1.104.4      ?
+     |     ^      ttl   2
+     v     |      hop 15   s     0/0 = --%      0 pps    0/0 = --%  0 pps
+10.1.104.10
+10.2.107.10     ?
+     |     ^      ttl   3
+     v     |      hop -8   s     0/0 = --%      0 pps    0/0 = --%  0 pps
+10.2.107.7
+10.2.67.7       ?
+     |     ^      ttl   4
+     v     |      hop -1   s     0/0 = --%      0 pps    0/0 = --%  0 pps
+10.2.67.6       ?
+     |      \__   ttl   5
+     v         \  hop 0    ms        0         0 pps           0    0 pps
+10.2.67.6       10.2.67.6
+  Receiver      Query Source
+
+\end{alltt}
+\end{small}
+}
+
+
+\subsection{Zmerať konvergenciu v prípade výpadku}
+\subsubsection{Popis}
+Vypli sme linku medzi R2 a R3 zmenou IP adresy na chybnú (z 10.1.23.3 na 10.2.23.3).
+
+\subsubsection{Konfigurácia}
+\paragraph{}
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+R3(config)#int f0/1 
+R3(config-if)#int f0/1.23     
+R3(config-subif)#ip address 10.2.23.3 255.255.255.248
+*Mar  2 23:53:39.844: %PIM-5-DRCHG: DR change from neighbor 10.1.23.3 to\\10.2.23.3 on interface FastEthernet0/1.23
+
+\end{alltt}
+\end{small}
+}
+
+
+Kontrola konvergencie zo smerovača R5:
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+
+R5#ping        
+Protocol [ip]:             
+Target IP address: 10.255.255.8
+Repeat count [5]: 10000000    
+Datagram size [100]:
+Timeout in seconds [2]: 1           
+Extended commands [n]:
+Sweep range of sizes [n]:
+Type escape sequence to abort.
+Sending 10000000, 100-byte ICMP Echos to 10.255.255.8, timeout is 1 seconds:
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!..............!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!.
+Success rate is 98 percent (770/785), round-trip min/avg/max = 56/81/112 ms
+
+\end{alltt}
+\end{small}
+}
+
+\paragraph{}
+Nakoniec sme merali konvergenciu pri celkovom výpadku RP (R3).
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+*Mar  5 23:01:28.230: %PIM-5-NBRCHG: neighbor 10.1.23.3 UP on interface \\FastEthernet0/1.23 
+*Mar  5 23:01:28.282: %PIM-5-DRCHG: DR change from neighbor 0.0.0.0 to \\10.1.23.3 on interface FastEthernet0/1.23
+\end{alltt}
+\end{small}
+}
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+
+R1#show ip pim rp mapping
+PIM Group-to-RP Mappings
+
+Group(s) 224.0.0.0/4
+  RP 10.255.255.3 (?), v2
+    Info source: 10.255.255.9 (?), via bootstrap, priority 0, holdtime 150
+         Uptime: 4d20h, expires: 00:02:13
+
+\end{alltt}
+\end{small}
+}
 
 \end{document}
