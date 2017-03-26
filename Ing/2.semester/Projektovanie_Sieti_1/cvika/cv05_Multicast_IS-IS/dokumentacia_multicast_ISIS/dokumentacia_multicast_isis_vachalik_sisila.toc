@@ -1,0 +1,6 @@
+\select@language {slovak}
+\contentsline {paragraph}{}{1}
+\contentsline {section}{\numberline {1.1}Topol\IeC {\'o}gia}{3}
+\contentsline {paragraph}{}{3}
+\contentsline {section}{\numberline {1.2}\IeC {\'U}lohy}{4}
+\contentsline {subsection}{\numberline {1.2.1}Nakonfigurova\IeC {\v t} IS-IS}{4}
