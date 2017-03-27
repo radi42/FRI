@@ -108,6 +108,7 @@ Budeme konfigurovať distribúciu multicastovej prevádzky so smerovacím protok
 \section{Úlohy}
 \subsection{Použiť IS–IS (L2 only) single area dizajn, priame p2p prepojenia medzi R2, R3, R4}
 \subsection{Nakonfigurovať PIM–SM s jedným statickým RP}
+\subsection{Nakonfigurovať Source a Receiver1 a 2 podľa zadania}
 \subsubsection{Popis}
 Dohodli sme sa, že budeme používať iba smerovací protokol IS-IS.
 Subrozhranie “.13” a VLAN 13 sme premenovali na “.23” a VLAN 23, lebo sieť je medzi smerovačmi R2 a R3 (23), a nie medzi R1 a R3 (13).
@@ -609,7 +610,11 @@ Sending 1, 100-byte ICMP Echos to 239.0.0.1, timeout is 2 seconds:
 
 Reply to request 0 from 10.1.38.8, 68 ms
 Reply to request 0 from 10.2.67.6, 132 ms
+
+
 ----------------------------------------------------------------
+
+
 R8#sh ip pim interface
 
 Address          Interface         Ver/   Nbr    Query  DR     DR
@@ -623,9 +628,14 @@ Address          Interface         Ver/   Nbr    Query  DR     DR
 \end{small}
 }
 
+\paragraph{}
+Po vykonaní ping-u na IP adresu multicastovej skupiny nám prišli odpovede z oboch klientských smerovačov: R6 a R8. Výpis príkazu \say{show ip pim interface} zo smerovača R8 dokazuje, že všetky rozhrania sú nastavené v \say{DENSE} móde (v stĺpci \say{Ver/Mode} vidíme \textbf{D}, čo indikuje aktívny \say{DENSE} mód).
+
 \subsection{Nakonfigurovať SPARSE mód}
 \subsubsection{Popis}
-Konfigurujeme \say{SPARSE} mód bez záložného RP.
+Konfigurujeme \say{SPARSE} mód bez záložného RP. \say{SPARSE} mód, narozdiel od \say{DENSE} módu, nezahlcuje sieť správami na odpojenie od skupiny (tzv. \say{PRUNE} správy). Namiesto toho posiela multicastový tok iba tým, ktorí si o to požiadajú tzv. \say{JOIN} správou. Na preposielanie týchto správ sa používa zdieľaný strom, ktorého \say{koreňom} je Rendezvous (čítaj \textit{randevú}) Point (ďalej len RP smerovač). RP smerovač pozná všetky zdroje, z ktorých sa šíri  multicastový tok a následne ho preposiela multicastovým klientom.
+
+\subsubsection{Konfigurácia}
 
 \noindent
 {\fontfamily{qcr}\selectfont
@@ -779,9 +789,6 @@ Reply to request 0 from 10.2.67.6, 124 ms
 \end{small}
 }
 
-\paragraph{}
-Odpovede prichádzali od klientov 10.1.38.8 (R8) a 10.2.67.6 (R6).
-
 \noindent
 {\fontfamily{qcr}\selectfont
 \begin{small}
@@ -797,8 +804,8 @@ Address          Interface            Ver/   Nbr    Query  DR     DR
 10.255.255.3     Loopback0            v2/S   0      30     1      10.255.255.3
 
 R1#sh ip pim rp    
-Group: 239.0.0.1, RP: 10.255.255.3, v2, uptime 00:06:22, expires never
-Group: 224.0.1.40, RP: 10.255.255.3, v2, uptime 00:07:07, expires never
+Group: 239.0.0.1, \textbf{RP: 10.255.255.3}, v2, uptime 00:06:22, expires never
+Group: 224.0.1.40, \textbf{RP: 10.255.255.3}, v2, uptime 00:07:07, expires never
 
 
 R1#sh ip igmp groups
@@ -811,14 +818,15 @@ Group Address  Interface         Uptime    Expires   Last Reporter   Group
 \end{small}
 }
 
+\paragraph{}
+Rovnako ako pri \say{DENSE} móde, pri ping-u na IP adresu multicastovej skupiny prichádzali odpovede od klientov 10.1.38.8 (R8) a 10.2.67.6 (R6). Výpis príkazu \say{show ip pim interface} hovorí, že rozhrania na smerovači R3 sú v \say{SPARSE} móde (viď písmeno \textbf{S} v stĺpci \say{Ver/Mode}, čo značí aktívny \say{SPARSE} mód). Z výpisu príkazu \say{show ip pim rp} vidíme IP adresu multicastovej skupiny pre klientov a IP adresu RP smerovača, čo je adresa loopback0 rozhrania pre R3.  Vo výpise príkazu \say{show ip igmp groups} vidíme, že smerovač R1 patrí do multicastovej skupiny 224.0.1.40, čo je AutoRP Discovery. AutoRP je Cisco implemenácia hľadania záložného RP smerovača pomocou RP-Mapper smerovača. Do tejto skupiny patria predvolene všetky Cisco smerovače.
 
 \subsection{Zabezpečiť RP redundanciu}
 \subsubsection{Popis}
 \paragraph{}
-V \say{SPARSE-DENSE} móde môžeme nastaviť záložný RP, ktorý bude vyberaný pomocou BSR.
+V \say{SPARSE-DENSE} móde môžeme nastaviť záložný RP, ktorý bude vyberaný pomocou BSR. \say{SPARSE} mód je používaný na šírenie multicastového toku, \say{DENSE} mód na šírenie informácie o prítomnosti RP smerovača.
 
 \subsubsection{Konfigurácia}
-
 
 \noindent
 {\fontfamily{qcr}\selectfont
@@ -971,8 +979,16 @@ Sending 1, 100-byte ICMP Echos to 239.0.0.1, timeout is 2 seconds:
 Reply to request 0 from 10.1.89.8, 76 ms
 Reply to request 0 from 10.2.67.6, 136 ms
 
+
+---------------------------------------------------------------------------
+
+
 R4#sh ip pim rp
 Group: 239.0.0.1, RP: 10.255.255.3, v2, uptime 00:04:27, expires 00:02:19
+
+
+---------------------------------------------------------------------------
+
 
 R4#sh ip pim int
 
@@ -984,6 +1000,10 @@ Address          Interface            Ver/   Nbr    Query  DR     DR
 10.1.104.4       Serial1/0            v2/SD  1      30     1      0.0.0.0
 10.255.255.4     Loopback0            v2/SD  0      30     1      10.255.255.4
 
+
+---------------------------------------------------------------------------
+
+
 R9#sh ip igmp groups
 IGMP Connected Group Membership
 Group Address  Interface        Uptime    Expires   Last Reporter   Group
@@ -991,12 +1011,12 @@ Group Address  Interface        Uptime    Expires   Last Reporter   Group
 224.0.1.39     FastEthernet0/0  00:11:57  00:01:57  10.1.49.4
 224.0.1.40     FastEthernet0/0  01:03:32  00:02:59  10.1.49.4
 
+
+---------------------------------------------------------------------------
+
 \end{alltt}
 \end{small}
 }
-
-\paragraph{}
-Z výpisov vyplýva, že záložný RP je aktívny.
 
 
 \noindent
@@ -1011,8 +1031,7 @@ PIM AutoRP Statistics: Sent/Received
   RP Announce: 0/184, RP Discovery: 188/160
 
 
-
-
+---------------------------------------------------------------------------
 
 
 Power Tools
@@ -1058,10 +1077,18 @@ Results after 10 seconds:
 \end{small}
 }
 
+\paragraph{}
+Po ping-u na multicastovú adresu prišli odpovede od oboch klientských smerovačov: R6 a R8. Výpis príkazu \say{sh ip pim rp} ukazuje, že RP smerovač je R3, o čom hovorí adresa loopback0 rozhrania. Výpis príkazu \say{show ip pim interface} hovorí, že všetky rozhrania na smerovači R4 sú v \say{SPARSE-DENSE} móde. Príkaz \say{show ip igmp groups} ukazuje, že smerovač R9 patrí do multicastových skupín: 224.0.1.40 (RP Discovery) a 224.0.1.39 (RP Announce). Tým, že patrí aj do skupiny \say{RP Announce} oznamuje ostatným smerovačom, že môže byť kandidátom na RP, čo je dôkaz, že záložný RP je v pohotovosti. Príkaz \say{show ip pim autorp} zo smerovača R4 hovorí, že \say{AutoRP} protokol na vyhľadanie záložného RP smerovača je aktívny, čo je dôkaz, že smerovač R4 funguje správne ako \say{RP Mapper}. Nakoniec príkaz \say{mstat} vykreslil zdieľaný strom od zdroja (R5) ku klientovi (R6) cez multicastovú skupinu 224.0.1.40.
+
+
+
+
+
+
 
 \subsection{Zmerať konvergenciu v prípade výpadku}
 \subsubsection{Popis}
-Vypli sme linku medzi R2 a R3 zmenou IP adresy na chybnú (z 10.1.23.3 na 10.2.23.3).
+Vypli sme linku \say{Fa0/1.23} medzi R2 a R3 zmenou IP adresy na chybnú (z 10.1.23.3 na 10.2.23.3).
 
 \subsubsection{Konfigurácia}
 \paragraph{}
@@ -1135,5 +1162,8 @@ Group(s) 224.0.0.0/4
 \end{alltt}
 \end{small}
 }
+
+\paragraph{}
+Kontrola ukázala, že zmena RP smerovača na R9 po výpadku R3 sa uskutočnila za cca 50ms, avšak smerovaciemu protokolu IS-IS trvalo približne 14 sekúnd, kým aj klientský smerovač R8 získal konektivitu so zvyškom siete.
 
 \end{document}
