@@ -1,0 +1,8 @@
+UDP - staci jedno volanie na odoslanie aj prijatie segmentu
+
+prevencia fragmentacie 	- na zaklade vhodnych icmp sprav zistime, aka max. velkost sa pouziva na ceste
+			- odporuca sa 512B
+
+testovanie: aplikacia klient-server
+
+nemozeme mat dve aplikacie, ktore pocuvaju na rovnakej adrese aj rovnaky port, inak by sme nevedeli urcit, ktory paket patri ktorej aplikacii.
