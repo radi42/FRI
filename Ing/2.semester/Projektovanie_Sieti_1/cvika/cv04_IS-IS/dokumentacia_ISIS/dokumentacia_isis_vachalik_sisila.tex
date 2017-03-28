@@ -565,12 +565,8 @@ R1#show isis hostname
 Level  System ID      Dynamic Hostname  (notag)
  2     0102.5525.5003 R3
  2     0102.5525.5002 R2
-\textbf{     * 0102.5525.5001 R1}
- 2     0102.5525.5007 R7
- 2     0102.5525.5006 R6
+     * 0102.5525.5001 R1
  2     0102.5525.5004 R4
- 2     0102.5525.5009 R9
- 2     0102.5525.5008 R8
  2     0102.5525.5010 R10
 
 \end{alltt}
@@ -585,22 +581,18 @@ R1#show isis database
 
 IS-IS Level-2 Link State Database:
 LSPID                 LSP Seq Num  LSP Checksum  LSP Holdtime      ATT/P/OL
-R1.00-00            * 0x00000213   0x7D89        513               0/0/0
-R2.00-00              0x0000021E   0xCE7D        477               0/0/0
-R3.00-00              0x00000222   0x7A79        706               0/0/0
-R4.00-00              0x0000021C   0xC6B6        898               0/0/0
-\textbf{R4.\textit{02}-00              0x0000020C   0x5CF0        800               0/0/0}
-R6.00-00              0x00000210   0xE02D        540               0/0/0
-R7.00-00              0x00000210   0xF9FB        911               0/0/0
-R8.00-00              0x00000215   0x167D        434               0/0/0
-R9.00-00              0x00000213   0xDD3E        458               0/0/0
-R10.00-00             0x00000213   0x4659        1100              0/0/0
+R1.00-00            * 0x0000000B   0x937D        1031              0/0/0
+R2.00-00              0x0000000A   0xB628        852               0/0/0
+R2.01-00              0x00000009   0x5821        901               0/0/0
+R3.00-00              0x0000000D   0xA6AA        681               0/0/0
+R4.00-00              0x0000000D   0xF394        764               0/0/0
+R10.00-00             0x0000000B   0xA9D4        846               0/0/0
 \end{alltt}
 \end{small}
 }
 
 \paragraph{}
-Z výpisu príkazu \say{show ip interface brief} je zrejmé, že IP adresy boli nastavené. Z výpisu príkazu \say{show isis hostname} vieme, že identifikátory smerovačov sú správne nastavené k prislúchajúcim názvom smerovačov. Vo výpise \say{show isis database} vidíme, že v broadcastovej doméne medzi smerovačmi R2, R3 a R4 bol za DIS zvolený smerovač R4. Spoznáme to podľa nenulovej prvej dvojice čísel hneď za názvom smerovača \say{R4.\textbf{\textit{02}}-00}.
+Z výpisu príkazu \say{show ip interface brief} je zrejmé, že IP adresy boli nastavené. Z výpisu príkazu \say{show isis hostname} vieme, že identifikátory smerovačov sú správne nastavené k prislúchajúcim názvom smerovačov. Vidíme mená iba tých smerovačov, s ktorými má R1 založený L2 vzťah. Vo výpise \say{show isis database} vidíme, že v broadcastovej doméne medzi smerovačmi R2, R3 a R4 bol za DIS zvolený smerovač R4. Spoznáme to podľa nenulovej prvej dvojice čísel hneď za názvom smerovača \say{R4.\textbf{\textit{02}}-00}.
 
 
 
@@ -618,8 +610,8 @@ R5(config)#ip route 0.0.0.0 0.0.0.0 f0/1 10.100.15.1
 
 R1(config)#ip route 10.255.255.5 255.255.255.255 f0/1 10.100.15.5
 R1(config)#router isis
-R1(config-router)#redistribute static subnets
-R1(config-router)#redistribute connected subnets
+R1(config-router)#redistribute static
+R1(config-router)#redistribute connected
 \end{verbatim}
 \end{small}
 }
@@ -637,12 +629,12 @@ Výpis smerovacej tabuľky z R5:
 \begin{alltt}
 R5#show ip route
 ...
-Gateway of last resort is 10.100.15.1 to network 0.0.0.0
+Gateway of last resort is 0.0.0.0 to network 0.0.0.0
 
      10.0.0.0/8 is variably subnetted, 2 subnets, 2 masks
 C       10.255.255.5/32 is directly connected, Loopback0
 C       10.100.15.0/24 is directly connected, FastEthernet0/1
-S*   0.0.0.0/0 [1/0] via 10.100.15.1, FastEthernet0/1
+S*   0.0.0.0/0 is directly connected, FastEthernet0/1
 \end{alltt}
 \end{small}
 }
@@ -655,13 +647,15 @@ Výpis smerovacej tabuľky z R1:
 \begin{small}
 \begin{alltt}
 R1#show ip route
+Gateway of last resort is 10.100.15.5 to network 0.0.0.0
+
+     10.0.0.0/8 is variably subnetted, 19 subnets, 2 masks
 ...
-\textbf{Gateway of last resort is not set}
+S       10.255.255.5/32 [1/0] via 10.100.15.5, FastEthernet0/1
 ...
-\textbf{S       10.255.255.5/32 [1/0] via 10.100.15.5, FastEthernet0/1}
+C       10.100.15.0/24 is directly connected, FastEthernet0/1
 ...
-\textbf{C       10.100.15.0/24 is directly connected, FastEthernet0/1}
-...
+S*   0.0.0.0/0 [1/0] via 10.100.15.5, FastEthernet0/1
 \end{alltt}
 \end{small}
 }
@@ -675,18 +669,18 @@ Výpis smerovacej tabuľky z R2:
 \begin{alltt}
 R2#show ip route
 ...
-\textbf{Gateway of last resort is not set}
+Gateway of last resort is not set
 ...
-\textbf{i L2    10.255.255.5/32 [115/10] via 10.1.12.1, FastEthernet0/0}
+i L2    10.255.255.5/32 [115/10] via 10.1.12.1, FastEthernet0/0
 ...
-\textbf{i L2    10.100.15.0/24 [115/10] via 10.1.12.1, FastEthernet0/0}
+i L2    10.100.15.0/24 [115/10] via 10.1.12.1, FastEthernet0/0
 ...
 \end{alltt}
 \end{small}
 }
 
 \paragraph{}
-Z výpisov smerovacích tabuliek vyplýva, že smerovač R5 má nastavenú predvolenú cestu staticky ku R1. R1 ju potom rozšíri do celej IS-IS topológie, ale už nie ako statickú cestu (\say{Gateway of last resort is not set}), ale ako štandardný smerovací záznam, čo je zrejmé z výpisu smerovacej tabuľky na R1 a R2.
+Z výpisov smerovacích tabuliek vyplýva, že smerovač R5 má nastavenú predvolenú cestu staticky ku R1, ktorú potom rozšíri do zvyšku IS-IS topológie.
 
 
 
@@ -695,11 +689,11 @@ Z výpisov smerovacích tabuliek vyplýva, že smerovač R5 má nastavenú predv
 \subsection{R3 – R4 P2P, L2 only}
 \subsubsection{Popis}
 \paragraph{}
-Spojenie medzi smerovačmi R3 a R4 má byť iba typu L2. Pretože R3 a R4 sú smerovače typu L1/L2, štandardne sa medzi nimi vytvorí L1 aj L2 spojenie.
+Keďže R3 a R4 sú smerovače typu L1/L2, štandardne sa medzi nimi vytvorí L1 aj L2 spojenie. Bolo potrebné nastaviť, aby spojenie medzi smerovačmi R3 a R4 bolo iba typu L2.
 
 \subsubsection{Konfigurácia}
 \paragraph{}
-Na smerovačoch R3 a R4 vykonáme tieto príkazy
+Na smerovačoch R3 a R4 vykonáme tieto príkazy:
 
 \noindent
 {\fontfamily{qcr}\selectfont
@@ -713,7 +707,7 @@ int f0/1
 
 \subsubsection{Overenie}
 \paragraph{}
-Susedstvo sme overovali 
+Susedstvo sme overovali príkazom \say{}.
 
 \noindent
 {\fontfamily{qcr}\selectfont
@@ -722,14 +716,15 @@ Susedstvo sme overovali
 R3#show isis neighbors
 
 System Id      Type Interface   IP Address      State Holdtime Circuit Id
-R8             L2   Fa0/0       10.1.38.8       UP    21       00
-
+R8             L1   Fa0/0       10.1.38.8       UP    24       00
+\textbf{R4             L2   Fa0/1       10.1.234.4      UP    27       R2.01}
+R2             L2   Fa0/1       10.1.234.2      UP    8        R2.01
 \end{alltt}
 \end{small}
 }
 
 \paragraph{}
-Z výpisu vyplýva, že medzi smerovačmi R3 a R4 nebolo vytvorené susedstvo. Súvisí s tým úloha popísaná v kapitole ~\ref{R8_primarny_smerovac} \nameref{R8_primarny_smerovac}.
+Z výpisu vyplýva, že medzi smerovačmi R3 a R4 bolo vytvorené iba L2 susedstvo.
 
 
 
@@ -776,46 +771,37 @@ FastEthernet0/1 is up, line protocol is up
   CLNS fast switching enabled
   CLNS SSE switching disabled
   DEC compatibility mode OFF for this interface
-  Next ESH/ISH in 28 seconds
+  Next ESH/ISH in 27 seconds
   Routing Protocol: IS-IS
     Circuit Type: level-1-2
-    Interface number 0x2, local circuit ID 0x2
-    Level-2 Metric: 10, \textbf{Priority: 64}, Circuit ID: R2.02
-    DR ID: 0000.0000.0000.00
+    Interface number 0x1, local circuit ID 0x1
+    Level-2 Metric: 10, \textbf{Priority: 64}, Circuit ID: R4.01
+    DR ID: R4.01
     Level-2 IPv6 Metric: 10
-    Number of active level-2 adjacencies: 0
-    Next IS-IS LAN Level-2 Hello in 7 seconds
+    Number of active level-2 adjacencies: 2
+    Next IS-IS LAN Level-2 Hello in 4 seconds
 
-\end{alltt}
-\end{small}
-}
 
-\noindent
-{\fontfamily{qcr}\selectfont
-\begin{small}
-\begin{alltt}
+--------------------------------------------------------------------------
+
 
 R2#show isis database
 
 IS-IS Level-2 Link State Database:
 LSPID                 LSP Seq Num  LSP Checksum  LSP Holdtime      ATT/P/OL
-R1.00-00              0x00000213   0x7D89        513               0/0/0
-R2.00-00            * 0x0000021E   0xCE7D        477               0/0/0
-R3.00-00              0x00000222   0x7A79        706               0/0/0
-R4.00-00              0x0000021C   0xC6B6        898               0/0/0
-\textbf{R4.02-00              0x0000020C   0x5CF0        800               0/0/0}
-R6.00-00              0x00000210   0xE02D        540               0/0/0
-R7.00-00              0x00000210   0xF9FB        911               0/0/0
-R8.00-00              0x00000215   0x167D        434               0/0/0
-R9.00-00              0x00000213   0xDD3E        458               0/0/0
-R10.00-00             0x00000213   0x4659        1100              0/0/0
+R1.00-00              0x00000010   0x8982        1082              0/0/0
+R2.00-00            * 0x0000000F   0xE4F2        576               0/0/0
+R3.00-00              0x00000012   0xE861        783               0/0/0
+R4.00-00              0x00000012   0xC5BB        618               0/0/0
+\textbf{R4.\textit{01}-00              0x00000002   0x403E        620               0/0/0}
+R10.00-00             0x00000010   0x9FD9        1034              0/0/0
 
 \end{alltt}
 \end{small}
 }
 
 \paragraph{}
-Ak je prvé dvojčíslie nulové (00), potom je to point-to-point linka, pretože sa nevolil DIS smerovač. Ak je nenulové, daný smerovač bol zvolený ako DIS. Pret zmenou bol za DIS zvolený smerovač R4.
+Ak je prvé dvojčíslie nulové (00), potom je to point-to-point linka, pretože sa nevolil DIS smerovač. Ak je nenulové, daný smerovač bol zvolený ako DIS. Pred zmenou bol za DIS zvolený smerovač R4.
 
 
 \paragraph{}
@@ -833,48 +819,55 @@ FastEthernet0/1 is up, line protocol is up
   CLNS fast switching enabled
   CLNS SSE switching disabled
   DEC compatibility mode OFF for this interface
-  Next ESH/ISH in 37 seconds
+  Next ESH/ISH in 38 seconds
   Routing Protocol: IS-IS
     Circuit Type: level-1-2
-    Interface number 0x2, local circuit ID 0x2
-    Level-2 Metric: 10, \textbf{Priority: 100}, Circuit ID: R2.02
-    DR ID: 0000.0000.0000.00
+    Interface number 0x1, local circuit ID 0x1
+    Level-2 Metric: 10, \textbf{Priority: 100}, Circuit ID: R2.01
+    DR ID: R2.01
     Level-2 IPv6 Metric: 10
-    Number of active level-2 adjacencies: 0
-    Next IS-IS LAN Level-2 Hello in 5 seconds
+    Number of active level-2 adjacencies: 2
+    Next IS-IS LAN Level-2 Hello in 1 seconds
 
-\end{alltt}
-\end{small}
-}
 
-\noindent
-{\fontfamily{qcr}\selectfont
-\begin{small}
-\begin{alltt}
+--------------------------------------------------------------------------
 
-R2#show isis database 
+
+R2#show isis database
 
 IS-IS Level-2 Link State Database:
 LSPID                 LSP Seq Num  LSP Checksum  LSP Holdtime      ATT/P/OL
-R1.00-00              0x00000214   0x7B8A        930               0/0/0
-R2.00-00            * 0x00000220   0xAF9B        1074              0/0/0
-\textbf{R2.03-00            * 0x00000001   0x97C3        1074              0/0/0}
-R3.00-00              0x00000223   0x787A        952               0/0/0
-R4.00-00              0x0000021D   0x0479        1072              0/0/0
-\textbf{R4.02-00              0x0000020C   0xA07A        0 \textit{(1074)}          0/0/0}
-R6.00-00              0x00000211   0xDE2E        871               0/0/0
-R7.00-00              0x00000210   0xF9FB        462               0/0/0
-R8.00-00              0x00000216   0x147E        823               0/0/0
-R9.00-00              0x00000214   0xDB3F        893               0/0/0
-R10.00-00             0x00000213   0x4659        651               0/0/0
-
+R1.00-00              0x00000010   0x8982        343               0/0/0
+R2.00-00            * 0x00000011   0xA82F        1047              0/0/0
+\textbf{R2.01-00            * 0x00000001   0x6819        1048              0/0/0}
+R3.00-00              0x00000014   0x98B1        1045              0/0/0
+R4.00-00              0x00000014   0xE59B        1045              0/0/0
+\textit{R4.01-00              0x00000003   0xBF67        0 (1047)          0/0/0}
+R10.00-00             0x00000011   0x9DDA        1039              0/0/0
 \end{alltt}
 \end{small}
 }
 
 \paragraph{}
-Po zmene priority vidíme, že R4 už nie je DIS smerovač, pretože \say{LSP Holdtime} je vynulovaný. Záznam sa z databázy vymaže prejaví až po uplynutí času v zátvorke (v sekundách).
+Po zmene priority vidíme, že R4 už nie je DIS smerovač, pretože \say{LSP Holdtime} je vynulovaný. Záznam sa z databázy vymaže prejaví až po uplynutí času v zátvorke (v sekundách). Nižšie je uvedená finálna podoba IS-IS databázy.
 
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+R2#show isis database
+
+IS-IS Level-2 Link State Database:
+LSPID                 LSP Seq Num  LSP Checksum  LSP Holdtime      ATT/P/OL
+R1.00-00              0x00000012   0x8584        661               0/0/0
+R2.00-00            * 0x00000012   0xA630        484               0/0/0
+\textbf{R2.01-00            * 0x00000002   0x661A        494               0/0/0}
+R3.00-00              0x00000016   0x94B3        1182              0/0/0
+R4.00-00              0x00000015   0xE39C        470               0/0/0
+R10.00-00             0x00000012   0x9BDB        540               0/0/0
+\end{alltt}
+\end{small}
+}
 
 
 
@@ -912,7 +905,40 @@ router isis
 
 \subsubsection{Overenie}
 \paragraph{}
-Konfiguráciu overíme príkazom \say{show ip route} na L1 smerovačoch v oblasti 2 (R6 alebo R7). Výpis by mal ukázať siete naučené z L2 smerovačov ako \say{ia} - Inter-Area IS-IS siete.
+Konfiguráciu overíme príkazom \say{show ip route} na L1 smerovačoch v oblasti 2 (R6 alebo R7).
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{verbatim}
+
+R6#show ip route
+...
+Gateway of last resort is 10.2.67.7 to network 0.0.0.0
+
+     10.0.0.0/8 is variably subnetted, 14 subnets, 2 masks
+i L1    10.255.255.10/32 [115/20] via 10.2.67.7, FastEthernet0/1
+i ia    10.1.12.0/24 [115/50] via 10.2.67.7, FastEthernet0/1
+i ia    10.255.255.2/32 [115/40] via 10.2.67.7, FastEthernet0/1
+i ia    10.255.255.3/32 [115/40] via 10.2.67.7, FastEthernet0/1
+i ia    10.255.255.1/32 [115/50] via 10.2.67.7, FastEthernet0/1
+C       10.255.255.6/32 is directly connected, Loopback0
+i L1    10.255.255.7/32 [115/10] via 10.2.67.7, FastEthernet0/1
+i ia    10.255.255.4/32 [115/30] via 10.2.67.7, FastEthernet0/1
+i ia    10.1.38.0/24 [115/50] via 10.2.67.7, FastEthernet0/1
+i ia    10.1.49.0/24 [115/40] via 10.2.67.7, FastEthernet0/1
+C       10.2.67.0/24 is directly connected, FastEthernet0/1
+i L1    10.2.107.0/24 [115/20] via 10.2.67.7, FastEthernet0/1
+i L1    10.1.104.0/24 [115/30] via 10.2.67.7, FastEthernet0/1
+i ia    10.1.234.0/24 [115/40] via 10.2.67.7, FastEthernet0/1
+i*L1 0.0.0.0/0 [115/20] via 10.2.67.7, FastEthernet0/1
+
+\end{verbatim}
+\end{small}
+}
+
+\paragraph{}
+Výpis smerovacej tabuľky zo smerovača R6 ukazuje siete naučené z L2 smerovačov ako \say{ia} - Inter-Area IS-IS siete.
 
 
 
@@ -987,13 +1013,13 @@ Po konfigurácií:
 \noindent
 {\fontfamily{qcr}\selectfont
 \begin{small}
-\begin{verbatim}
+\begin{alltt}
 R8#traceroute 10.255.255.1
 
 Type escape sequence to abort.
 Tracing the route to 10.255.255.1
 
-  1 10.1.38.3 8 msec 16 msec 16 msec
+\textbf{  1 10.1.38.3 8 msec 16 msec 16 msec}
   2 10.1.234.2 24 msec 36 msec 44 msec
   3 10.1.12.1 44 msec *  68 msec
 
@@ -1005,15 +1031,15 @@ Type escape sequence to abort.
 Tracing the route to 10.255.255.1
 
   1 10.1.89.8 20 msec 16 msec 20 msec
-  2 10.1.38.3 40 msec 40 msec 40 msec
+\textbf{  2 10.1.38.3 40 msec 40 msec 40 msec}
   3 10.1.234.2 56 msec 36 msec 80 msec
   4 10.1.12.1 56 msec *  68 msec
-\end{verbatim}
+\end{alltt}
 \end{small}
 }
 
 \paragraph{}
-Z výpisov príkazu \say{traceroute} vidíme, že pre vnútorné adresy sa pre R8 a R9 používa smerovač R3.
+Z výpisov príkazu \say{traceroute} z R8 a R9 na smerovač R5 vidíme, že pre vnútorné adresy používajú R8 a R9 smerovač R3.
 
 
 
@@ -1023,11 +1049,11 @@ Z výpisov príkazu \say{traceroute} vidíme, že pre vnútorné adresy sa pre R
 \subsection{R4 primárny smerovač len pre R5 smerovacie záznamy}
 \subsubsection{Popis}
 \paragraph{}
-Smerovanie ovplyvňujeme ešte tým, že pre smerovače 
+Smerovanie ovplyvňujeme ešte tým, že pre smerovače R8 a R9 určíme, aby prevádzka smerom k R5 išla cez smerovač R4.
 
 \subsubsection{Konfigurácia}
 \paragraph{}
-Na R4 vytvoríme ACL, v ktorom povolíme statickú cestu
+Na R4 vytvoríme ACL, v ktorom povolíme siete pripojené ku R5. Tie sa následne prepošlú smerovačom R8 a R9, ktoré budú používať R4 ako primárny smerovač len pre prevádzku určenú pre R5.
 
 \noindent
 {\fontfamily{qcr}\selectfont
@@ -1044,12 +1070,98 @@ router isis
 
 \subsubsection{Overenie}
 \paragraph{}
-Konfiguráciu sme overovali týmito príkazmi:\\
-\\
-show ip route\\
-traceroute 10.100.15.5\\
-10.255.255.5\\
-10.255.255.2
+Konfiguráciu sme overovali príkazom \say{traceroute} na IP adresy 10.100.15.5 a 10.255.255.2, aby sme sa uistili, či sa cesty líšia.
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+\textbf{R8#traceroute 10.100.15.5}
+
+Type escape sequence to abort.
+Tracing the route to 10.100.15.5
+
+  1 10.1.89.9 8 msec 16 msec 16 msec
+\textbf{  2 10.1.49.4 36 msec 36 msec 36 msec}
+  3 10.1.234.2 56 msec 36 msec 80 msec
+  4 10.1.12.1 56 msec 88 msec 68 msec
+  5 10.100.15.5 108 msec *  * 
+
+
+
+
+\textbf{R8#traceroute 10.255.255.2}
+
+Type escape sequence to abort.
+Tracing the route to 10.255.255.2
+
+\textbf{  1 10.1.38.3 16 msec 16 msec 16 msec}
+  2 10.1.234.2 28 msec *  16 msec
+
+
+--------------------------------------------------------------------------
+
+
+\textbf{R9#traceroute 10.100.15.5}
+
+Type escape sequence to abort.
+Tracing the route to 10.100.15.5
+
+\textbf{  1 10.1.49.4 16 msec 16 msec 20 msec}
+  2 10.1.234.2 24 msec 36 msec 44 msec
+  3 10.1.12.1 64 msec 48 msec 68 msec
+  4 10.100.15.5 60 msec *  80 msec
+
+
+
+
+\textbf{R9#traceroute 10.255.255.2}
+
+Type escape sequence to abort.
+Tracing the route to 10.255.255.2
+
+  1 10.1.89.8 16 msec 16 msec 20 msec
+\textbf{  2 10.1.38.3 24 msec 36 msec 40 msec}
+  3 10.1.234.2 64 msec *  64 msec
+
+
+--------------------------------------------------------------------------
+
+
+R5#traceroute 10.255.255.8
+
+Type escape sequence to abort.
+Tracing the route to 10.255.255.8
+
+  1 10.100.15.1 8 msec 16 msec 20 msec
+  2 10.1.12.2 36 msec 36 msec 36 msec
+  3 10.1.234.3 60 msec 36 msec 76 msec
+  4 10.1.38.8 88 msec *  80 msec
+R5#traceroute 10.255.255.9
+
+Type escape sequence to abort.
+Tracing the route to 10.255.255.9
+
+  1 10.100.15.1 16 msec 16 msec 16 msec
+  2 10.1.12.2 28 msec 40 msec 36 msec
+  3 10.1.234.4 72 msec 44 msec 68 msec
+  4 10.1.49.9 56 msec *  64 msec
+
+
+--------------------------------------------------------------------------
+
+
+R2#show ip route
+...
+Gateway of last resort is not set
+
+     10.0.0.0/8 is variably subnetted, 19 subnets, 2 masks
+...
+\textbf{i L2    10.255.255.8/32 [115/20] via 10.1.234.3, FastEthernet0/1}
+\textbf{i L2    10.255.255.9/32 [115/20] via 10.1.234.4, FastEthernet0/1}
+\end{alltt}
+\end{small}
+}
 
 \paragraph{}
 Zo smerovačov R8 aj R9 ide smerovanie na R5 cez R4, ale z R5 na R8 nejde cez R4 ale cez bližší router R3, pretože tak hovorila smerovacia tabuľka na R2. Z R5 na R9 išlo smerovanie rovnako cez R4 (takisto kvôli smerovacej tabuľke na R2).
@@ -1083,9 +1195,23 @@ int f0/1
 
 \subsubsection{Overenie}
 \paragraph{}
-Na jednom zo smerovačov vykonáme v privilegovanom režime príkaz \say{debug isis adj-packets}. Sledujeme časy odosielania ‘sending’ správ. Tie budú chodiť v pravidelných intervaloch t.j. každé 3 sekundy.
+Na jednom zo smerovačov vykonáme v privilegovanom režime príkaz \say{debug isis adj-packets}. Sledujeme časy odosielania ‘sending’ správ. Tie budú chodiť v pravidelných intervaloch t.j. každé 3 sekundy. Nižšie je uvedený výpis príkazu \say{debug isis adj-packets} zo smerovača R2.
 
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+...
+\textbf{*Mar 13 04:15:24.691: ISIS-Adj: Rec L2 IIH from c021.025d.0001 \\(FastEthernet0/1), cir type L2, cir id 0102.5525.5002.01, length 1497}
+...
+\textbf{*Mar 13 04:15:27.675: ISIS-Adj: Rec L2 IIH from c021.025d.0001 \\(FastEthernet0/1), cir type L2, cir id 0102.5525.5002.01, length 1497}
+...
+\end{alltt}
+\end{small}
+}
 
+\paragraph{}
+Z \say{debug} výpisu vidíme, že \say{hello} pakety sa posielajú každé 3 sekundy na porte \say{Fa0/1}.
 
 
 \subsection{Status linky R4 – R10 ? L1L2 ?}
@@ -1095,23 +1221,63 @@ Skontrolujeme stav linky medzi smerovačmi na rozhraní oblastí t.j. medzi R4 a
 
 \subsubsection{Overenie}
 \paragraph{}
-Stav linky sme overili príkazom \say{show clns interface s1/0}.
+Stav linky sme overili príkazom \say{show clns interface s1/0} na smerovačoch R4 a R10.
 
 \noindent
 {\fontfamily{qcr}\selectfont
 \begin{small}
-\begin{verbatim}
-
+\begin{alltt}
 R4#show clns interface s1/0
+Serial1/0 is up, line protocol is up
+  Checksums enabled, MTU 1500, Encapsulation HDLC
+  ERPDUs enabled, min. interval 10 msec.
+  CLNS fast switching enabled
+  CLNS SSE switching disabled
+  DEC compatibility mode OFF for this interface
+  Next ESH/ISH in 8 seconds
+  Routing Protocol: IS-IS
+    \textbf{Circuit Type: level-1-2}
+    Interface number 0x2, local circuit ID 0x101
+    Neighbor System-ID: R10
+    Level-1 Metric: 10, Priority: 64, Circuit ID: R10.00
+    Level-1 IPv6 Metric: 10
+    Number of active level-1 adjacencies: 0
+    Level-2 Metric: 10, Priority: 64, Circuit ID: R4.01
+    Level-2 IPv6 Metric: 10
+    Number of active level-2 adjacencies: 1
+    Next IS-IS Hello in 3 seconds
+    if state UP
+
+
+--------------------------------------------------------------------------
+
 
 R10#show clns interface s1/0
-
-\end{verbatim}
+Serial1/0 is up, line protocol is up
+  Checksums enabled, MTU 1500, Encapsulation HDLC
+  ERPDUs enabled, min. interval 10 msec.
+  CLNS fast switching enabled
+  CLNS SSE switching disabled
+  DEC compatibility mode OFF for this interface
+  Next ESH/ISH in 44 seconds
+  Routing Protocol: IS-IS
+    \textbf{Circuit Type: level-1-2}
+    Interface number 0x0, local circuit ID 0x100
+    Neighbor System-ID: R4
+    Level-1 Metric: 10, Priority: 64, Circuit ID: R10.00
+    Level-1 IPv6 Metric: 10
+    Number of active level-1 adjacencies: 0
+    Level-2 Metric: 10, Priority: 64, Circuit ID: R10.00
+    Level-2 IPv6 Metric: 10
+    Number of active level-2 adjacencies: 1
+    Next IS-IS Hello in 5 seconds
+    if state UP
+\end{alltt}
 \end{small}
 }
 
 \paragraph{}
-V obidvoch výpisoch by sme mali vidieť, že \say{Circuit Type} je \say{level-1-2}.
+V obidvoch výpisoch vidíme, že \say{Circuit Type} je typu L1 aj L2 (level-1-2).
 
 
 \end{document}

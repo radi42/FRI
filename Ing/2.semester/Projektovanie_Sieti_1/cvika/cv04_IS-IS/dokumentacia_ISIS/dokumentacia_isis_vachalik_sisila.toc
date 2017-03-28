@@ -21,7 +21,7 @@
 \contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{13}
 \contentsline {subsubsection}{Overenie}{13}
 \contentsline {paragraph}{}{13}
-\contentsline {paragraph}{}{14}
+\contentsline {paragraph}{}{13}
 \contentsline {paragraph}{}{14}
 \contentsline {paragraph}{}{14}
 \contentsline {paragraph}{}{14}
@@ -30,8 +30,8 @@
 \contentsline {paragraph}{}{14}
 \contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{14}
 \contentsline {paragraph}{}{14}
-\contentsline {subsubsection}{Overenie}{15}
-\contentsline {paragraph}{}{15}
+\contentsline {subsubsection}{Overenie}{14}
+\contentsline {paragraph}{}{14}
 \contentsline {paragraph}{}{15}
 \contentsline {subsection}{\numberline {1.2.7}Kontrola LAN DIS}{15}
 \contentsline {subsubsection}{Popis}{15}
@@ -41,7 +41,7 @@
 \contentsline {paragraph}{}{15}
 \contentsline {subsubsection}{Overenie}{15}
 \contentsline {paragraph}{}{15}
-\contentsline {paragraph}{}{16}
+\contentsline {paragraph}{}{15}
 \contentsline {paragraph}{}{16}
 \contentsline {paragraph}{}{16}
 \contentsline {paragraph}{}{17}
@@ -52,6 +52,7 @@
 \contentsline {paragraph}{}{17}
 \contentsline {subsubsection}{Overenie}{18}
 \contentsline {paragraph}{}{18}
+\contentsline {paragraph}{}{18}
 \contentsline {subsection}{\numberline {1.2.9}R8, R9 \IeC {\textendash } R3 prim\IeC {\'a}rny smerova\IeC {\v c} pre v\IeC {\v s}etky vn\IeC {\'u}torn\IeC {\'e} adresy}{18}
 \contentsline {subsubsection}{Popis}{18}
 \contentsline {paragraph}{}{18}
@@ -59,27 +60,28 @@
 \contentsline {paragraph}{}{18}
 \contentsline {subsubsection}{Overenie}{18}
 \contentsline {paragraph}{}{18}
-\contentsline {paragraph}{}{18}
 \contentsline {paragraph}{}{19}
 \contentsline {paragraph}{}{19}
 \contentsline {paragraph}{}{19}
-\contentsline {subsection}{\numberline {1.2.10}R4 prim\IeC {\'a}rny smerova\IeC {\v c} len pre R5 smerovacie z\IeC {\'a}znamy}{19}
-\contentsline {subsubsection}{Popis}{19}
 \contentsline {paragraph}{}{19}
-\contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{19}
-\contentsline {paragraph}{}{19}
-\contentsline {subsubsection}{Overenie}{20}
-\contentsline {paragraph}{}{20}
-\contentsline {paragraph}{}{20}
-\contentsline {subsection}{\numberline {1.2.11}Skr\IeC {\'a}tenie hello a dead\IeC {\textendash }interval \IeC {\v c}asova\IeC {\v c}ov, zistenie funk\IeC {\v c}nosti vytrhnut\IeC {\'\i }m jednej z liniek smerom ku L2 prep\IeC {\'\i }na\IeC {\v c}u}{20}
+\contentsline {subsection}{\numberline {1.2.10}R4 prim\IeC {\'a}rny smerova\IeC {\v c} len pre R5 smerovacie z\IeC {\'a}znamy}{20}
 \contentsline {subsubsection}{Popis}{20}
 \contentsline {paragraph}{}{20}
 \contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{20}
+\contentsline {paragraph}{}{20}
 \contentsline {subsubsection}{Overenie}{20}
 \contentsline {paragraph}{}{20}
-\contentsline {subsection}{\numberline {1.2.12}Status linky R4 \IeC {\textendash } R10 ? L1L2 ?}{20}
-\contentsline {subsubsection}{Popis}{20}
-\contentsline {paragraph}{}{20}
-\contentsline {subsubsection}{Overenie}{21}
-\contentsline {paragraph}{}{21}
-\contentsline {paragraph}{}{21}
+\contentsline {paragraph}{}{22}
+\contentsline {subsection}{\numberline {1.2.11}Skr\IeC {\'a}tenie hello a dead\IeC {\textendash }interval \IeC {\v c}asova\IeC {\v c}ov, zistenie funk\IeC {\v c}nosti vytrhnut\IeC {\'\i }m jednej z liniek smerom ku L2 prep\IeC {\'\i }na\IeC {\v c}u}{22}
+\contentsline {subsubsection}{Popis}{22}
+\contentsline {paragraph}{}{22}
+\contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{22}
+\contentsline {subsubsection}{Overenie}{22}
+\contentsline {paragraph}{}{22}
+\contentsline {paragraph}{}{22}
+\contentsline {subsection}{\numberline {1.2.12}Status linky R4 \IeC {\textendash } R10 ? L1L2 ?}{23}
+\contentsline {subsubsection}{Popis}{23}
+\contentsline {paragraph}{}{23}
+\contentsline {subsubsection}{Overenie}{23}
+\contentsline {paragraph}{}{23}
+\contentsline {paragraph}{}{24}
