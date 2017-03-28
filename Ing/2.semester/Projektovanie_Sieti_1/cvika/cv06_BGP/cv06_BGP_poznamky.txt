@@ -1,0 +1,155 @@
+ASN rozsahy - privatny rozsah je od 0 - 4095, verejny od 4096 - 2^16
+
+Router na ktorom spustime BGP volame BGP speaker
+
+2 druhy vztahov medzi BGP speakrami - iBGP a eBGP
+
+interny peering 
+externy peering musia byt na rovnakej linke - lebo BGP ttl je 1;
+
+treba povolit BGP peera
+
+idle - nastavime IP adresu ale nevieme sa
+vzdy skontrolovat susedske vztahy
+
+UPDATE - sprava o zmene (pridani/odobrati zaznamov) smerovacej tabulky
+
+Reset susedstvo
+  soft
+    clear ip bgp
+  hard
+    treba vsetko nastavit odznova
+
+BGP trva dlhsie, kym sa prejavi zmena
+
+Pokial BGP nerozumie nejakej sprave, posle sa sprava NOTIF
+
+treba zabezpecit konektivitu medzi vsetkymi
+
+
+BGP nepouziva metriky, ale pouziva politiky a route-mapy.
+
+=============================================================
+
+privatne IPcky nesmu byt ohlasovane do eBGP
+IPcky vramci iBGP mozu byt v roznych 
+
+Customer 1
+Dual-Home - dve linky napojene na jedneho providera
+
+Customer 2
+Multi-Home - dve linky - kazda na ineho providera
+
+Peeringove centra
+
+
+Politika - co poslat kam
+
+
+Provider 1 a 2 - ISIS
+Customer 1 nema ziadny vnutorny smerovaci protokol
+
+
+Vsade spustit BGP proces
+  router bgp <cislo_as>
+    !pouzit BGP v4
+    !zatial bude vsetko v routing sekcii
+    neighbor ip remote-as <cislo_vzdialeneho_as>
+
+    neighbor r2_loop0 remote-as <cislo_rovnakeho_as_ako_je_proces>
+    neighbor r2_loop0 update-source loop0
+    
+
+treba davat pozor na duplicitu adries
+
+medzi r1 a r5 ma byt maska /30
+Loopback interfejsy budu /24 siete
+Kazdy router bude mat lo0 - s maskou /24 a iBGP peeringom. lo0 SA OHLASUJE!
+Lo1 budu mat niektore routre.
+
+Customer 1 - medzi routrami bude /30 siet z jeho rozsahu
+
+Zdrojova IP bude IP 
+
+
+R2
+router bgp 110
+    neighbor r2_loop0 remote-as 110
+    neighbor r2_loop0 update-source loop0
+
+R3
+router bgp 110
+    neighbor r2_loop0 remote-as 110
+    neighbor r2_loop0 update-source loop0
+
+overenie BGP vztahov
+  show ip bgp summary
+  show ip bgp neighbor
+
+
+eBGP peering riesime podla IPciek medzi dvoma routrami v roznych AS
+
+neighbor R1_port_fa0/0 remote-as 3401
+
+
+show ip bgp summary
+  v neighbroch mame uvedeny zoznam peerov
+    state/pfxRcd - nemalo by tam byt nic (0) - ani idle ani active
+
+show ip bgp neighbor
+  BGP state musi byt Established
+
+
+Ist po dvojiciach routrov a overovat, ci sa peering vytvoril
+
+"network" vo vnutornych smerovacich protokoloch je na priamo pripojene siete
+"network" v BGP moze byt aj na nie priamo pripojena siet, naucena cez vnutorny smerovaci protokol
+
+Classful siet je /8, /16, /24, ostatne su Classles
+
+"network" prikaz zadat radsej presne aj s maskou
+
+Ako ohlasime Loopback0?
+  network 10.255.255.1 255.255.255.255
+
+nesmieme spravit chybu, ze dame updaty vnutorneho smerovacieho protokolu -> treba dat passive interface na isis medzi roznymi AS
+
+preco mame BGP?
+  flapovacie linky zakaznikov
+  schopne pracovat s obrovskou rutovacou tabulkou (vnutorne smerovacie protokoly by sa zrutili pri takej velkej rutovaces tabulke)
+
+BGP musi vzdy mat vzdy jedninu cestu na dosiahnutie jednej siete
+
+
+
+Routing je spraveny ako postupnost eBGP peerov cez ASka
+
+linky medzi providermi sa neohlasuju, ale potom vznika problem, ze r3 sa nedostane na r1 lo0
+
+
+
+r8 ma jedneho externeho a jedneho externeho peera
+
+
+overenie forwarding tabulky
+  show ip bgp
+    * - next hop je validny
+    > - najlepsia cesta (iba jedna byva takto oznacena)
+    nuly znamenaju, ze siet ohlasujem ja
+    riadky bez siete v stlpci network znamenaju, ze IPcka siete je v nasledujucich riadkoch rovnaka t.j. ku sieti existuje viacero ciest
+
+
+show ip route
+  velke B - siet naucena cez BGP
+
+
+
+sumarizacia
+  summary-address
+
+ak sa r2 nieco nauci z eBGP, posunie to dalej na r1, lebo je to jeho eBGP peer, ale neposunie to na r4, lebo je to iBGP peer
+
+
+na r8 a r9 budu loopbacky dve /25 siete
+
+customer 1 ma podrozsah IPciek od ISP1
