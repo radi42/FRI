@@ -1,6 +1,7 @@
-instalacia a a konfiguracia arch linux
-software access point
-radius server
-rasperry pi projekty (pi-hole)
+Inštalácia a a konfigurácia Arch Linux
+RADIUS server pre Wi-Fi
+DNS Ad-blocker (Pi-hole)
+
 
 ulabserv.fri.uniza.sk
+port: 7023

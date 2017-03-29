@@ -1,0 +1,30 @@
+ps ax | sort -n | head
+-prvy proces je "init"
+
+cat /proc/cmdline
+prikaz vypise parametre jadra pri spustani
+
+teoreticky, ked zabijem ""
+
+pstree
+prikaz zobrazi strom spustenych procesov - korenom je proces "init"
+
+
+v subore /etc/inittab
+V debiane je default runlevel 2 (staci aj na spustenie gui); v redhatoch je na supstenie gui potrebny az runlevel 5. Runlevel 1 je single-user, runlevel 2-5 je multiuser.
+
+viac o runleveloch na "man runlevel" a /etc/init.d/README
+
+
+startovacie skripty su v adresari /etc/init.d a /etc/rc#.d (# je cislo od 0-6, co symbolizuje runlevel)
+skripty su ocislovane kvoli tomu, aby sa zaistili poradie spustania - niektore procesy su zavisle na inych
+
+chkconfig - nastroj na spravu systemovych sluzieb; manipuluje runlevel sluzby pri bootovani
+napr. chkconfig -d apache2 (vymaze proces apache2 z bootovania v /etc/rc2.d)
+chkconfig -a apache2 znova vytvori a aktivuje proces apache2 pri boote
+
+netstat -tln
+vylistuje zoznam sietovych procesov
+
+
+journalctl -vypis systemovych sprav
