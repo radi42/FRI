@@ -1,0 +1,5 @@
+netcad - nc - test UDP servera cez NC (swiss knife for network engineer)
+
+cat | nc -u4 0 1234
+
+zadame z klavesnice nejaku spravu a odosleme ju enterom. na serveri by sa mala zobrazit
