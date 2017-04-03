@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>avs_6.tyzden_odchytavanie_arp_odpovede</name>
+	<name>avs_cv_06_ARPing_cez_libpcap</name>
 	<comment></comment>
 	<projects>
 	</projects>

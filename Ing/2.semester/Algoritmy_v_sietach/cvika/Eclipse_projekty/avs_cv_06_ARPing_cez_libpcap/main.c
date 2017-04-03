@@ -29,8 +29,8 @@ char err_buf[PCAP_ERRBUF_SIZE];
 struct ethHdr{
 	uint8_t dstMAC[6];
 	uint8_t srcMAC[6];
-	uint8_t ethType;
-	uint8_t payload[0];		// moze tam byt smernik namiesto pola nulovej velkosti?
+	uint16_t etherType;
+	uint8_t payload[0];		// moze tam byt smernik namiesto pola nulovej velkosti smernik? nie, lebo pole nulovej velkosti narozdiel od smernika, NEPRIDA 4 bajty navyse
 }__attribute__((packed));
 
 struct arpHdr{

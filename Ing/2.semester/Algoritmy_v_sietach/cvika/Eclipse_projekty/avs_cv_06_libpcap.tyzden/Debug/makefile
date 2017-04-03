@@ -22,19 +22,19 @@ endif
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: avs_6.tyzden
+all: avs_cv_06_libpcap
 
 # Tool invocations
-avs_6.tyzden: $(OBJS) $(USER_OBJS)
+avs_cv_06_libpcap: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C Linker'
-	gcc  -o "avs_6.tyzden" $(OBJS) $(USER_OBJS) $(LIBS)
+	gcc  -o "avs_cv_06_libpcap" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(OBJS)$(C_DEPS)$(EXECUTABLES) avs_6.tyzden
+	-$(RM) $(OBJS)$(C_DEPS)$(EXECUTABLES) avs_cv_06_libpcap
 	-@echo ' '
 
 .PHONY: all clean dependents
