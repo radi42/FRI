@@ -1,0 +1,55 @@
+route-mapa
+	-match - pre vsetky update spravy
+	-set - pre vybrane update spravy
+1. Weight - lokalne je 32768
+2. local preference 	- vyjazd z ASka von
+			- plati lokalne v jednom AS
+			- mozno nastavit globalne (historicky nefungovalo) / lokalne (route-mapou)
+			
+			B1#route-map CH-LOC-PREF permit 10
+				set local-preference 120
+				exit
+			router bgp 110
+				neighbor B2 route-map CH-LOC-PREF out
+
+		lenze nic sa nestane, lebo sa musi BGP proces
+
+hard	- clear ip bgp - treba sa mu vyhnut (rozpadne sa neighborship a vsetko prebieha dlhsi cas - niekolko minut)
+soft	- clear ip bgp * in
+soft (route refresh) - vieme susedovi povedat, nech 
+
+ak potrebujeme my poslat update, pouzijeme out
+ak od routra chceme, aby vyziadal update z ineho routra, pouzijeme in
+
+3. lokalne naucene siete
+4. kolko ASiek je medzi mnou a sietou (dlzka AS-PATH)
+6. MED - ovplyvnujeme rozhodovanie cudzich routrov; namiesto toho pouzivat "Community string"
+7. Cesty naucene eBGP maju vacsiu prioritu
+8. BGP sa pozrie na interny smerovaci protokol (jeho metriku) a na zaklade nej urci preferovanu cestu
+9. Cas naucenia cesty
+10. router id
+
+
+Preco R1 vidi iba dve cesty ku 10.255.255.2 - od R2 a R5, ale nie R6
+Zmenit Router ID na R1 na loopback
+
+show ip bgp neighbors - pozriet, ci route refresh je podporovany
+show ip bgp - bgp tabulka
+show ip bgp 10.255.255.1 - preferovana cesta; preco je preferovana? ktory krok rozhodol?
+
+
+sumarizacia sa robi v bgp procese pre vsetky hranicne routre - ak by sme to nedali na vsetky, aj tie cesty, ktore chceme sumarizovat
+
+router bgp #
+  aggregate PREFIX MASK summary-only
+
+summary-only zaruci to, ze sa bude posielat IBA sumarna cesta bez dalsich podrobnych zaznamov, ktore tvoria sumarny zaznam
+
+overnie sumarizacie je cez "show ip route" a "show ip bgp" - predtym a potom budu ine vystupy. budeme vidiet atribut "aggregate", v akom ASku to bolo agregovane a na aku adresu
+
+
+
+next hop problem sa netyka routrov R1, R5 a R10, lebo maju iba externych peerov
+
+Googlit:
+AS ACL, Community ACL, COMMUNITY BGP, co je COMMUNITY atribut, LOCAL PREFFERENCE, METRIC, AS_PATH_PREPENDING

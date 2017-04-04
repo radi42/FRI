@@ -123,11 +123,35 @@ Budeme konfigurovať smerovacie protokoly BGP a IS-IS na topológií, ktorá je 
 
 \section{Úlohy}
 \subsection{Použiť IGP IS−IS (L2 only) single area dizajn, priame p2p prepojenia}
+\subsection{Zabezpečiť plnú konektivitu prostredníctvom iBGP alebo eBGP protokolov pre zákaznícké a internetové smerovacie záznamy}
+\subsection{Distribúcia internetových statických smerovacích záznamov z AS3401, AS4502 a zákaznických smerovacích záznamov z AS65001, AS5005, AS330}
+\subsection{Prepísať privátne AS65001 − DOROBIŤ!!!}
+\subsection{Sumarizácia}
 
 
 \subsubsection{Popis}
+\paragraph{}
 Dohodli sme sa, že vnútri autonómneho systému budeme používať iba smerovací protokol IS-IS. Medzi autonómnymi systémami používame smerovací protokol BGP. Subrozhranie “.13” a VLAN 13 sme premenovali na “.23” a VLAN 23, lebo sieť je medzi smerovačmi R2 a R3 (23), a nie medzi R1 a R3 (13).
 
+\paragraph{}
+predtym boli linky medzi providermi sirene aj cez ISIS -> toto bolo odstranene; interfejsy boli odstranene z ISIS
+
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+int <nazov_interfaceu>
+  no ip router isis
+router isis
+  no passive-interface <nazov_interfaceu>
+  no redistribute-connected
+\end{alltt}
+\end{small}
+}
+
+\paragraph{}
+Privatne siete operatorov ohlasujeme prikazom \say{network}.
 
 \subsubsection{Konfigurácia}
 
@@ -168,6 +192,8 @@ router bgp 3401
   neighbor 200.33.255.254 remote-as 330
   neighbor 200.110.255.250 remote-as 110
   network 10.255.255.1 mask 255.255.255.255
+  network 64.34.1.0 mask 255.255.255.0
+  aggregate-address 64.34.0.0 255.255.0.0 summary-only
   no auto-summary
   no sync
   bgp log-neighbor-changes
@@ -209,23 +235,30 @@ int lo0
   ip addr 10.255.255.2 255.255.255.255
   ip router isis
   no shut
+int lo1
+  ip addr 200.110.2.1 255.255.255.0
+  ip router isis
+  no shut
 router isis
   net 49.0001.0102.5525.5002.00
   passive-interface lo0
-  passive-interface f0/0
+  passive-interface lo1
   redistribute static
-  redistribute connected
   is-type level-2
   metric-style wide
   exit
 router bgp 110
   neighbor 10.255.255.3 remote-as 110
   neighbor 10.255.255.3 update-source lo0
+  neighbor 10.255.255.3 next-hop-self
   neighbor 10.255.255.4 remote-as 110
   neighbor 10.255.255.4 update-source lo0
+  neighbor 10.255.255.4 next-hop-self
   neighbor 200.110.255.249 remote-as 3401
   neighbor 200.110.255.254 remote-as 4502
   network 10.255.255.2 mask 255.255.255.255
+  network 200.110.2.0 mask 255.255.255.0
+  aggregate-address 200.110.0.0 255.255.0.0 summary-only
   no auto-summary
   no sync
   bgp log-neighbor-changes
@@ -264,22 +297,28 @@ int lo0
   ip addr 10.255.255.3 255.255.255.255
   ip router isis
   no shut
+int lo1
+  ip addr 200.110.3.1 255.255.255.0
+  ip router isis
+  no shut
 router isis
   net 49.0001.0102.5525.5003.00
   passive-interface lo0
-  passive-interface f0/0
+  passive-interface lo1
   redistribute static
-  redistribute connected
   is-type level-2
   metric-style wide
   exit
 router bgp 110
   neighbor 10.255.255.2 remote-as 110
   neighbor 10.255.255.2 update-source lo0
+  neighbor 10.255.255.2 next-hop-self
   neighbor 10.255.255.4 remote-as 110
   neighbor 10.255.255.4 update-source lo0
+  neighbor 10.255.255.4 next-hop-self
   neighbor 200.110.255.242 remote-as 65001
   network 10.255.255.3 mask 255.255.255.255
+  network 200.110.3.0 mask 255.255.255.0
   no auto-summary
   no sync
   bgp log-neighbor-changes
@@ -322,24 +361,29 @@ int lo0
   ip addr 10.255.255.4 255.255.255.255
   ip router isis
   no shut
+int lo1
+  ip addr 200.110.4.1 255.255.255.0
+  ip router isis
+  no shut
 router isis
   net 49.0001.0102.5525.5004.00
   passive-interface lo0
-  passive-interface f0/0
-  passive-interface s1/0
+  passive-interface lo1
   redistribute static
-  redistribute connected
   is-type level-2
   metric-style wide
   exit
 router bgp 110
   neighbor 10.255.255.2 remote-as 110
   neighbor 10.255.255.2 update-source lo0
+  neighbor 10.255.255.2 next-hop-self
   neighbor 10.255.255.3 remote-as 110
   neighbor 10.255.255.3 update-source lo0
+  neighbor 10.255.255.3 next-hop-self
   neighbor 200.110.255.238 remote-as 65001
   neighbor 200.110.255.246 remote-as 5005
   network 10.255.255.4 mask 255.255.255.255
+  network 200.110.4.0 mask 255.255.255.0
   no auto-summary
   no sync
   bgp log-neighbor-changes
@@ -371,13 +415,15 @@ int lo0
   ip addr 10.255.255.5 255.255.255.255
   no shut
 int lo1
-  ip addr 128.45.5.1 255.255.255.0
+  ip addr 128.45.5.1 255.255.255.128
   no shut
 router bgp 4502
   neighbor 200.33.255.250 remote-as 330
   neighbor 200.110.255.253 remote-as 110
   neighbor 64.34.255.253 remote-as 3401
   network 10.255.255.5 mask 255.255.255.255
+  network 128.45.5.0 mask 255.255.255.128
+  aggregate-address 128.45.0.0 255.255.0.0 summary-only
   no auto-summary
   no sync
   bgp log-neighbor-changes
@@ -414,25 +460,25 @@ int lo0
   ip router isis
   no shut
 int lo1
-  ip add 200.33.6.1 255.255.255.0
+  ip add 200.33.6.1 255.255.255.128
   ip router isis
 router isis
   net 49.0001.0102.5525.5006.00
   passive-interface lo0
   passive-interface lo1
-  passive-interface f0/0
-  passive-interface s1/0
   redistribute static
-  redistribute connected
   is-type level-2
   metric-style wide
   exit
 router bgp 330
   neighbor 10.255.255.7 remote-as 330
   neighbor 10.255.255.7 update-source lo0
+  neighbor 10.255.255.7 next-hop-self
   neighbor 200.33.255.253 remote-as 3401
   neighbor 200.33.255.249 remote-as 4502
   network 10.255.255.6 mask 255.255.255.255
+  network 200.33.6.0 mask 255.255.255.128
+  aggregate-address 200.33.0.0 255.255.0.0 summary-only
   no auto-summary
   no sync
   bgp log-neighbor-changes
@@ -465,24 +511,25 @@ int lo0
   ip router isis
   no shut
 int lo1
-  ip addr 200.33.7.1 255.255.255.0
+  ip addr 200.33.7.1 255.255.255.128
   ip router isis
   no shut
 router isis
   net 49.0001.0102.5525.5007.00
   passive-interface lo0
   passive-interface lo1
-  passive-interface s1/1
   redistribute static
-  redistribute connected
   is-type level-2
   metric-style wide
   exit
 router bgp 330
   neighbor 10.255.255.6 remote-as 330
   neighbor 10.255.255.6 update-source lo0
+  neighbor 10.255.255.6 next-hop-self
   neighbor 200.33.255.246 remote-as 5005
   network 10.255.255.7 mask 255.255.255.255
+  network 200.33.7.0 255.255.255.128
+  aggregate-address 200.33.0.0 255.255.0.0 summary-only
   no auto-summary
   no sync
   bgp log-neighbor-changes
@@ -508,7 +555,7 @@ int f0/0
   no shut
 int f0/1
   ip addr 10.110.89.8 255.255.255.0
-  Ip router isis
+  ip router isis
   isis network point-to-point
   no shut
 int lo0
@@ -516,15 +563,13 @@ int lo0
   ip router isis
   no shut
 int lo1
-  ip add 200.110.12.1 255.255.255.0
+  ip add 200.110.12.1 255.255.255.128
   ip router isis
 router isis
   net 49.0001.0102.5525.5008.00
   passive-interface lo0
   passive-interface lo1
-  passive-interface f0/0
   redistribute static
-  redistribute connected
   is-type level-2
   metric-style wide
   exit
@@ -533,7 +578,8 @@ router bgp 65001
   neighbor 10.255.255.9 update-source lo0
   neighbor 200.110.255.241 remote-as 110
   network 10.255.255.8 mask 255.255.255.255
-  network 200.110.12.0 mask 255.255.255.0
+  network 200.110.12.0 mask 255.255.255.128
+  aggregate-address 200.110.12.0 255.255.254.0 summary-only
   no auto-summary
   no sync
   bgp log-neighbor-changes
@@ -568,16 +614,14 @@ int lo0
   ip router isis
   no shut
 int lo1
-  ip addr 200.110.13.1 255.255.255.0
+  ip addr 200.110.13.1 255.255.255.128
   ip router isis
   no shut
 router isis
   net 49.0001.0102.5525.5009.00
   passive-interface lo0
   passive-interface lo1
-  passive-interface f0/0
   redistribute static
-  redistribute connected
   is-type level-2
   metric-style wide
   exit
@@ -586,7 +630,8 @@ router bgp 65001
   neighbor 10.255.255.8 update-source lo0
   neighbor 200.110.255.237 remote-as 110
   network 10.255.255.9 mask 255.255.255.255
-  network 200.110.13.0 mask 255.255.255.0
+  network 200.110.13.0 mask 255.255.255.128
+  aggregate-address 200.110.12.0 255.255.254.0 summary-only
   no auto-summary
   no sync
   bgp log-neighbor-changes
@@ -612,19 +657,19 @@ int s1/0
   no shut
 int s1/1
   ip addr 200.33.255.246 255.255.255.252
-  ip router isis
   no shut
 int lo0
   ip addr 10.255.255.10 255.255.255.255
   no shut
 int lo1
-  ip addr 223.255.255.1 255.255.255.0
+  ip addr 223.255.255.1 255.255.255.128
   no shut
 router bgp 5005
   neighbor 200.110.255.245 remote-as 110
   neighbor 200.33.255.245 remote-as 330
   network 10.255.255.10 mask 255.255.255.255
-  network 223.255.255.0 mask 255.255.255.0
+  network 223.255.255.0 mask 255.255.255.128
+  aggregate-address 223.255.255.0 255.255.255.0 summary-only
   no auto-summary
   no sync
   bgp log-neighbor-changes
@@ -634,24 +679,121 @@ router bgp 5005
 }
 
 \subsubsection{Overenie}
+\paragraph{}
+Kontrola, či interné ISP adresy nie sú propagované
+
+\paragraph{}
+Kontrola konektivity medzi zákazníckymi a internetovými smerovacími záznamami
 
 
 
-\subsection{Zabezpečiť plnú konektivitu prostredníctvom iBGP alebo eBGP protokolov pre zákaznícké a internetové smerovacie záznamy}
-\subsection{Distribúcia internetových statických smerovacích záznamov z AS3401, AS4502 a zákaznických smerovacích záznamov z AS65001, AS5005, AS330}
-\subsection{Prepísať privátne AS65001}
-\subsection{Sumarizácia}
-\subsection{Kontrola, či interné ISP adresy nie sú propagované}
-\subsection{Kontrola konektivity medzi zákazníckymi a internetovými smerovacími záznamami}
+
+
+
+
+
+
 
 \subsection{ISP politika}
-\subsection{Definovať vlastnú politiku − použiť community, community alter LP, AS−PATH filtering, prepending, atď}
+\subsubsection{Popis}
+\paragraph{}
+Definovať vlastnú politiku − použiť community, community alter LP, AS−PATH filtering, prepending, atď
+
+\subsubsection{Konfigurácia}
+\paragraph{}
+
+\subsubsection{Overenie}
+\paragraph{}
+
 \subsection{Primárne linky R3−R8, R4−R10}
+\subsubsection{Popis}
+\paragraph{}
+
+\subsubsection{Konfigurácia}
+\paragraph{}
+
+\subsubsection{Overenie}
+\paragraph{}
+
+
+
+
+
+
+
 \subsection{Distribuovať iba default, AS5005 a peering prefixy do AS65001}
+\subsubsection{Popis}
+\paragraph{}
+
+\subsubsection{Konfigurácia}
+\paragraph{}
+
+\subsubsection{Overenie}
+\paragraph{}
+
+
+
+
+
+
+
 \subsection{AS5005 nesme byť nikdy transit}
+\subsubsection{Popis}
+\paragraph{}
+
+\subsubsection{Konfigurácia}
+\paragraph{}
+
+\subsubsection{Overenie}
+\paragraph{}
+
+
+
+
+
+
+
 \subsection{Peering iba pre ISP1 a ISP2, nie pre prefixy naučené z Upstream ISP}
+\subsubsection{Popis}
+\paragraph{}
+
+\subsubsection{Konfigurácia}
+\paragraph{}
+
+\subsubsection{Overenie}
+\paragraph{}
+
+
+
+
+
+
+
 \subsection{Overiť funkčnosť nastavenia politiky vhodnými výpadkami liniek a smerovačov}
+\subsubsection{Popis}
+\paragraph{}
+
+\subsubsection{Konfigurácia}
+\paragraph{}
+
+\subsubsection{Overenie}
+\paragraph{}
+
+
+
+
+
+
+
 \subsection{Overiť, či je možné odkloniť celú prevádzku (upstream, downstream) na linke R4−R10 v prípade plánovanej údržby (linka musí byť plne funkčna a BGP spojenie propaguje všetky prefixy)}
+\subsubsection{Popis}
+\paragraph{}
+
+\subsubsection{Konfigurácia}
+\paragraph{}
+
+\subsubsection{Overenie}
+\paragraph{}
 
 
 \end{document}
