@@ -136,6 +136,9 @@ Dohodli sme sa, že vnútri autonómneho systému budeme používať iba smerova
 \paragraph{}
 predtym boli linky medzi providermi sirene aj cez ISIS -> toto bolo odstranene; interfejsy boli odstranene z ISIS
 
+\paragraph{}
+inerne siete v ramci AS: \say{neighbor (lebo je to nas sused)}, \say{update-source (aby BGP nenadaval na iny interface, ktorym to sirime)}. Pokial bolo v AS viac ako dva smerovače, este sme pridali príkaz \say{next-hop-self}. Router ID sme najprv nenastavovali, ale potom sa nam to vypomstilo, lebo po pridani loopbacku1 sa router ID nastavil prave nan, lebo mal vacsiu IPcku. Po zmene Router ID prikazom \say{bgp router-id 10.255.255.X} (X symbolizuje cislo smerovača) spôsobí rozpad BGP spojenia, ktoré sa po chvíli (rádovo v desiatkach sekúnd) obnoví.
+
 
 \noindent
 {\fontfamily{qcr}\selectfont
@@ -188,6 +191,7 @@ int lo1
   ip addr 64.34.1.1 255.255.255.0
   no shut
 router bgp 3401
+  bgp router-id 10.255.255.1
   neighbor 64.34.255.254 remote-as 4502
   neighbor 200.33.255.254 remote-as 330
   neighbor 200.110.255.250 remote-as 110
@@ -248,6 +252,7 @@ router isis
   metric-style wide
   exit
 router bgp 110
+  bgp router-id 10.255.255.2
   neighbor 10.255.255.3 remote-as 110
   neighbor 10.255.255.3 update-source lo0
   neighbor 10.255.255.3 next-hop-self
@@ -310,6 +315,7 @@ router isis
   metric-style wide
   exit
 router bgp 110
+  bgp router-id 10.255.255.3
   neighbor 10.255.255.2 remote-as 110
   neighbor 10.255.255.2 update-source lo0
   neighbor 10.255.255.2 next-hop-self
@@ -374,6 +380,7 @@ router isis
   metric-style wide
   exit
 router bgp 110
+  bgp router-id 10.255.255.4
   neighbor 10.255.255.2 remote-as 110
   neighbor 10.255.255.2 update-source lo0
   neighbor 10.255.255.2 next-hop-self
@@ -418,6 +425,7 @@ int lo1
   ip addr 128.45.5.1 255.255.255.128
   no shut
 router bgp 4502
+  bgp router-id 10.255.255.5
   neighbor 200.33.255.250 remote-as 330
   neighbor 200.110.255.253 remote-as 110
   neighbor 64.34.255.253 remote-as 3401
@@ -471,6 +479,7 @@ router isis
   metric-style wide
   exit
 router bgp 330
+  bgp router-id 10.255.255.6
   neighbor 10.255.255.7 remote-as 330
   neighbor 10.255.255.7 update-source lo0
   neighbor 10.255.255.7 next-hop-self
@@ -523,6 +532,7 @@ router isis
   metric-style wide
   exit
 router bgp 330
+  bgp router-id 10.255.255.7
   neighbor 10.255.255.6 remote-as 330
   neighbor 10.255.255.6 update-source lo0
   neighbor 10.255.255.6 next-hop-self
@@ -574,6 +584,7 @@ router isis
   metric-style wide
   exit
 router bgp 65001
+  bgp router-id 10.255.255.8
   neighbor 10.255.255.9 remote-as 65001
   neighbor 10.255.255.9 update-source lo0
   neighbor 200.110.255.241 remote-as 110
@@ -626,6 +637,7 @@ router isis
   metric-style wide
   exit
 router bgp 65001
+  bgp router-id 10.255.255.9
   neighbor 10.255.255.8 remote-as 65001
   neighbor 10.255.255.8 update-source lo0
   neighbor 200.110.255.237 remote-as 110
@@ -665,6 +677,7 @@ int lo1
   ip addr 223.255.255.1 255.255.255.128
   no shut
 router bgp 5005
+  bgp router-id 10.255.255.10
   neighbor 200.110.255.245 remote-as 110
   neighbor 200.33.255.245 remote-as 330
   network 10.255.255.10 mask 255.255.255.255
@@ -678,9 +691,239 @@ router bgp 5005
 \end{small}
 }
 
+
 \subsubsection{Overenie}
 \paragraph{}
-Kontrola, či interné ISP adresy nie sú propagované
+Kontrola, ze vnutorny smerovaci protokol ISIS neohlasuje ziadne siete medzi providermi.
+
+\paragraph{}
+Najprv sme ich ohlasovali cez IS-IS ...
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+R1#sh ip bgp              
+BGP table version is 23, local router ID is 64.34.1.1
+Status codes: s suppressed, d damped, h history, * valid, > best, i - internal,
+              r RIB-failure, S Stale
+Origin codes: i - IGP, e - EGP, ? - incomplete
+
+   Network          Next Hop            Metric LocPrf Weight Path
+*> 10.255.255.1/32  0.0.0.0                  0         32768 i
+*  10.255.255.2/32  64.34.255.254                          0 4502 110 i
+*>                  200.110.255.250          0             0 110 i
+*  10.255.255.3/32  64.34.255.254                          0 4502 110 i
+*>                  200.110.255.250                        0 110 i
+*  10.255.255.4/32  64.34.255.254                          0 4502 110 i
+*>                  200.110.255.250                        0 110 i
+*  10.255.255.5/32  200.110.255.250                        0 110 4502 i
+*                   200.33.255.254                         0 330 4502 i
+*>                  64.34.255.254            0             0 4502 i
+*  10.255.255.6/32  200.110.255.250                        0 110 4502 330 i
+*                   64.34.255.254                          0 4502 330 i
+*>                  200.33.255.254           0             0 330 i
+*  10.255.255.7/32  200.110.255.250                        0 110 4502 330 i
+*                   64.34.255.254                          0 4502 330 i
+*>                  200.33.255.254                         0 330 i
+*  10.255.255.8/32  64.34.255.254                          0 4502 110 65001 i
+   Network          Next Hop            Metric LocPrf Weight Path
+*                   200.33.255.254                         0 330 4502 110 65001 i
+*>                  200.110.255.250                        0 110 65001 i
+*  10.255.255.9/32  64.34.255.254                          0 4502 110 65001 i
+*                   200.33.255.254                         0 330 4502 110 65001 i
+*>                  200.110.255.250                        0 110 65001 i
+*  10.255.255.10/32 64.34.255.254                          0 4502 110 5005 i
+*                   200.110.255.250                        0 110 5005 i
+*>                  200.33.255.254                         0 330 5005 i
+*> 64.34.1.0/25     0.0.0.0                  0         32768 i
+*  128.45.5.0/25    200.110.255.250                        0 110 4502 i
+*                   200.33.255.254                         0 330 4502 i
+*>                  64.34.255.254            0             0 4502 i
+*  200.33.6.0/25    64.34.255.254                          0 4502 330 i
+*>                  200.33.255.254           0             0 330 i
+*  200.33.7.0/25    64.34.255.254                          0 4502 330 i
+*>                  200.33.255.254                         0 330 i
+*  200.110.2.0/25   200.33.255.254                         0 330 4502 110 i
+*                   64.34.255.254                          0 4502 110 i
+*>                  200.110.255.250          0             0 110 i
+*  200.110.3.0/25   200.33.255.254                         0 330 4502 110 i
+   Network          Next Hop            Metric LocPrf Weight Path
+*                   64.34.255.254                          0 4502 110 i
+*>                  200.110.255.250                        0 110 i
+*> 200.110.4.0/25   200.110.255.250                        0 110 i
+*                   64.34.255.254                          0 4502 110 i
+*                   200.33.255.254                         0 330 4502 110 i
+*  200.110.12.0/25  200.33.255.254                         0 330 4502 110 65001 i
+*                   64.34.255.254                          0 4502 110 65001 i
+*>                  200.110.255.250                        0 110 65001 i
+*  200.110.13.0/25  200.33.255.254                         0 330 4502 110 65001 i
+*                   64.34.255.254                          0 4502 110 65001 i
+*>                  200.110.255.250                        0 110 65001 i
+*  223.255.255.0/25 64.34.255.254                          0 4502 330 5005 i
+*                   200.110.255.250                        0 110 5005 i
+*>                  200.33.255.254                         0 330 5005 i
+
+
+-------------------------------------------------------------------------------------
+
+
+R1#sh ip route            
+Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+     200.110.4.0/25 is subnetted, 1 subnets
+B       200.110.4.0 [20/0] via 200.110.255.250, 00:06:48
+     200.33.6.0/25 is subnetted, 1 subnets
+B       200.33.6.0 [20/0] via 200.33.255.254, 00:08:41
+     223.255.255.0/25 is subnetted, 1 subnets
+B       223.255.255.0 [20/0] via 200.33.255.254, 00:11:55
+     200.33.7.0/25 is subnetted, 1 subnets
+B       200.33.7.0 [20/0] via 200.33.255.254, 00:09:14
+     64.0.0.0/8 is variably subnetted, 2 subnets, 2 masks
+C       64.34.255.252/30 is directly connected, FastEthernet0/1
+C       64.34.1.0/25 is directly connected, Loopback1
+     200.110.255.0/30 is subnetted, 1 subnets
+C       200.110.255.248 is directly connected, FastEthernet0/0
+     200.33.255.0/30 is subnetted, 1 subnets
+C       200.33.255.252 is directly connected, Serial1/0
+     200.110.2.0/25 is subnetted, 1 subnets
+B       200.110.2.0 [20/0] via 200.110.255.250, 00:10:45
+     200.110.3.0/25 is subnetted, 1 subnets
+B       200.110.3.0 [20/0] via 200.110.255.250, 00:07:52
+     200.110.12.0/25 is subnetted, 1 subnets
+B       200.110.12.0 [20/0] via 200.110.255.250, 00:10:14
+     128.45.0.0/25 is subnetted, 1 subnets
+B       128.45.5.0 [20/0] via 64.34.255.254, 00:07:22
+     200.110.13.0/25 is subnetted, 1 subnets
+B       200.110.13.0 [20/0] via 200.110.255.250, 00:11:15
+     10.0.0.0/32 is subnetted, 10 subnets
+B       10.255.255.10 [20/0] via 200.33.255.254, 00:18:19
+B       10.255.255.8 [20/0] via 200.110.255.250, 00:18:19
+B       10.255.255.9 [20/0] via 200.110.255.250, 00:18:19
+B       10.255.255.2 [20/0] via 200.110.255.250, 00:21:55
+B       10.255.255.3 [20/0] via 200.110.255.250, 00:20:22
+C       10.255.255.1 is directly connected, Loopback0
+B       10.255.255.6 [20/0] via 200.33.255.254, 00:19:22
+B       10.255.255.7 [20/0] via 200.33.255.254, 00:18:52
+B       10.255.255.4 [20/0] via 200.110.255.250, 00:19:53
+B       10.255.255.5 [20/0] via 64.34.255.254, 00:19:36
+\end{alltt}
+\end{small}
+}
+
+\paragraph{}
+Ale potom sa uz neohlasovali. Z IS-IS sme ich odstranili prikazmi uvdedenymi v casti \say{Popis}.
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+R1#show ip bgp
+BGP table version is 63, local router ID is 64.34.1.1
+Status codes: s suppressed, d damped, h history, * valid, > best, i - internal,
+              r RIB-failure, S Stale
+Origin codes: i - IGP, e - EGP, ? - incomplete
+
+   Network          Next Hop            Metric LocPrf Weight Path
+*> 10.255.255.1/32  0.0.0.0                  0         32768 i
+*  10.255.255.2/32  64.34.255.254                          0 4502 110 i
+*>                  200.110.255.250          0             0 110 i
+*  10.255.255.3/32  64.34.255.254                          0 4502 110 i
+*>                  200.110.255.250                        0 110 i
+*  10.255.255.4/32  64.34.255.254                          0 4502 110 i
+*>                  200.110.255.250                        0 110 i
+*  10.255.255.5/32  200.110.255.250                        0 110 4502 i
+*                   200.33.255.254                         0 330 4502 i
+*>                  64.34.255.254            0             0 4502 i
+*  10.255.255.6/32  200.110.255.250                        0 110 4502 330 i
+*                   64.34.255.254                          0 4502 330 i
+*>                  200.33.255.254           0             0 330 i
+*  10.255.255.7/32  200.110.255.250                        0 110 4502 330 i
+*                   64.34.255.254                          0 4502 330 i
+*>                  200.33.255.254                         0 330 i
+*  10.255.255.8/32  64.34.255.254                          0 4502 110 65001 i
+   Network          Next Hop            Metric LocPrf Weight Path
+*                   200.33.255.254                         0 330 4502 110 65001 i
+*>                  200.110.255.250                        0 110 65001 i
+*  10.255.255.9/32  64.34.255.254                          0 4502 110 65001 i
+*                   200.33.255.254                         0 330 4502 110 65001 i
+*>                  200.110.255.250                        0 110 65001 i
+*  10.255.255.10/32 64.34.255.254                          0 4502 110 5005 i
+*                   200.110.255.250                        0 110 5005 i
+*>                  200.33.255.254                         0 330 5005 i
+*> 64.34.0.0/16     0.0.0.0                            32768 i
+s> 64.34.1.0/25     0.0.0.0                  0         32768 i
+*  128.45.0.0       200.110.255.250                        0 110 4502 i
+*                   200.33.255.254                         0 330 4502 i
+*>                  64.34.255.254            0             0 4502 i
+*  200.33.0.0/16    64.34.255.254                          0 4502 330 i
+*>                  200.33.255.254           0             0 330 i
+*  200.110.0.0/16   200.33.255.254                         0 330 4502 110 i
+*                   64.34.255.254                          0 4502 110 i
+*>                  200.110.255.250          0             0 110 i
+*  223.255.255.0    64.34.255.254                          0 4502 330 5005 i
+*                   200.110.255.250                        0 110 5005 i
+   Network          Next Hop            Metric LocPrf Weight Path
+*>                  200.33.255.254                         0 330 5005 i
+
+
+-------------------------------------------------------------------------------------
+
+
+R1#show ip route
+Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+B    223.255.255.0/24 [20/0] via 200.33.255.254, 00:32:37
+     64.0.0.0/8 is variably subnetted, 3 subnets, 3 masks
+C       64.34.255.252/30 is directly connected, FastEthernet0/1
+B       64.34.0.0/16 [200/0] via 0.0.0.0, 00:28:12, Null0
+C       64.34.1.0/25 is directly connected, Loopback1
+     200.110.255.0/30 is subnetted, 1 subnets
+C       200.110.255.248 is directly connected, FastEthernet0/0
+     200.33.255.0/30 is subnetted, 1 subnets
+C       200.33.255.252 is directly connected, Serial1/0
+B    128.45.0.0/16 [20/0] via 64.34.255.254, 00:27:42
+     10.0.0.0/32 is subnetted, 10 subnets
+B       10.255.255.10 [20/0] via 200.33.255.254, 00:54:15
+B       10.255.255.8 [20/0] via 200.110.255.250, 00:54:15
+B       10.255.255.9 [20/0] via 200.110.255.250, 00:54:16
+B       10.255.255.2 [20/0] via 200.110.255.250, 00:57:51
+B       10.255.255.3 [20/0] via 200.110.255.250, 00:56:19
+C       10.255.255.1 is directly connected, Loopback0
+B       10.255.255.6 [20/0] via 200.33.255.254, 00:55:18
+B       10.255.255.7 [20/0] via 200.33.255.254, 00:54:47
+B       10.255.255.4 [20/0] via 200.110.255.250, 00:55:48
+B       10.255.255.5 [20/0] via 64.34.255.254, 00:55:32
+B    200.33.0.0/16 [20/0] via 200.33.255.254, 00:28:44
+B    200.110.0.0/16 [20/0] via 200.110.255.250, 00:27:13
+\end{alltt}
+\end{small}
+}
+
+\paragraph{}
+Aj BGP tabulka, aj smerovacia tabulka sa trochu scvrkli.
+
+\paragraph{}
+Kontrola, či interné ISP adresy nie sú propagované\\
+
+
+
 
 \paragraph{}
 Kontrola konektivity medzi zákazníckymi a internetovými smerovacími záznamami

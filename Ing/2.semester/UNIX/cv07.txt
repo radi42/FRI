@@ -1,0 +1,74 @@
+CentOS
+-alien - utilitka na konverziu rpm balickov na deb; mozu sa vyskytnut problemy so zdielanymi kniznicami
+-ldd - zisti, na ktorych zdielanych knizniciach zavisi balicek
+-initramfs - ramdisk, v ktorom su ulozene nacitane moduly jadra
+-v "/boot" sidli ramdisk a kernel
+-LVM - potrebuje physical volume (pv) a na nom mozeme vytvarat kolko len chceme logical volumes
+	-prikazom "
+	-pvscan -> zisti, ktore physical volume
+	-lvscan -> zisti virtualne skupiny v ramci physical volume
+	-suborove systemy vieme zistit prikazom "mount" na volume "cg-root"
+
+
+Balickovaci system CentOS
+-yum
+
+-pocet balickov
+yum list installed | wc -l
+
+-jedna verzia CentOSu je oficialne podporovana 10 rokov od vydania
+
+-v Debiane robime "apt-get clean" alebo do /var/lib/dpkg, a vymazeme nepotrebne balicky
+-balicek "tzdata" - timezone data - informacie o casovych pasmach
+-v Debiane mozeme znovu zmenit konfiguraciu balicka prikazom "dpkg --reconfigure"
+
+-vo fedore/centose je jeden z najoblubenejsich repozitarov "epel" - robi fedoru/centos
+-ked chceme pridat dalsi repozitar, potrebujeme nainstalovat dalsi balicek, namiesto aby sme upravovali subor ako v Debiane
+	yum search epel
+
+mal by zobrazit epel repozitar. nainstalujeme.
+	yum install epel-release
+
+===================================================================================================
+
+DOCKER
+
+-pouziva sa, ked vyvojari chcu mat absolutne identicke prostredie pre vyvoj
+-sposob kontajnerovej virtualizacie
+-hlavne pre aplikacie (aplikacny kontajner)
+
+lsmod | grep virt*
+
+-nainstalujeme Docker -
+
+  1) Bud povolime "backports" v /etc/apt/sources.list
+  apt-cache search docker
+  sudo apt-get update && sudo apt-get upgrade && sudo apt-get install docker.io
+
+  2) alebo pouzijeme navod zo stranky "https://docs.docker.com/engine/installation/linux/debian/#install-using-the-repository"
+  curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+  sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/debian \
+   $(lsb_release -cs) \
+   stable"
+  sudo apt-get update && sudo apt-get upgrade && sudo apt-get install docker-ce
+
+invimath:8000
+
+cez "docker pull jupyter/minimal-notebook" pritiahneme image do PC
+
+docker image instaluje po vrstvach - operacny system, systemove aplikacie, dalsie aplikacie
+
+
+docker run -it --user root jupyter/minimal-notebook /bin/sh
+docker ps
+  -vylistuje spustene docker kontajnery
+  -dockery maju nahodne mena
+
+-zastavime kontajner
+  docker 100 <meno_dockeru> stop
+
+-odstranime kontajner
+docker rm <nazov_kontajnera>
+
+docker images
