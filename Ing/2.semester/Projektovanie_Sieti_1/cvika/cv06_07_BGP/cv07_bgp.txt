@@ -16,7 +16,7 @@ route-mapa
 
 hard	- clear ip bgp - treba sa mu vyhnut (rozpadne sa neighborship a vsetko prebieha dlhsi cas - niekolko minut)
 soft	- clear ip bgp * in
-soft (route refresh) - vieme susedovi povedat, nech 
+soft (route refresh) - vieme susedovi povedat, nech obnovi iba smerovaciu tabulku
 
 ak potrebujeme my poslat update, pouzijeme out
 ak od routra chceme, aby vyziadal update z ineho routra, pouzijeme in
