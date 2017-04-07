@@ -13,21 +13,20 @@
 \contentsline {paragraph}{}{5}
 \contentsline {paragraph}{}{5}
 \contentsline {paragraph}{}{5}
-\contentsline {paragraph}{}{5}
+\contentsline {paragraph}{}{6}
+\contentsline {paragraph}{}{6}
 \contentsline {paragraph}{}{6}
 \contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{6}
-\contentsline {subsubsection}{Overenie}{16}
-\contentsline {paragraph}{}{16}
-\contentsline {paragraph}{}{16}
-\contentsline {paragraph}{}{18}
-\contentsline {paragraph}{}{20}
-\contentsline {paragraph}{}{20}
-\contentsline {paragraph}{}{20}
-\contentsline {subsection}{\numberline {1.2.6}ISP politika}{20}
-\contentsline {subsubsection}{Popis}{20}
-\contentsline {paragraph}{}{20}
-\contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{20}
-\contentsline {paragraph}{}{20}
+\contentsline {subsubsection}{Overenie}{17}
+\contentsline {paragraph}{}{17}
+\contentsline {paragraph}{}{17}
+\contentsline {paragraph}{}{19}
+\contentsline {paragraph}{}{21}
+\contentsline {subsection}{\numberline {1.2.6}ISP politika}{21}
+\contentsline {subsubsection}{Popis}{21}
+\contentsline {paragraph}{}{21}
+\contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{21}
+\contentsline {paragraph}{}{21}
 \contentsline {subsubsection}{Overenie}{21}
 \contentsline {paragraph}{}{21}
 \contentsline {subsection}{\numberline {1.2.7}Prim\IeC {\'a}rne linky R3\IeC {\ensuremath {-}}R8, R4\IeC {\ensuremath {-}}R10}{21}
@@ -42,15 +41,15 @@
 \contentsline {paragraph}{}{21}
 \contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{21}
 \contentsline {paragraph}{}{21}
-\contentsline {subsubsection}{Overenie}{21}
-\contentsline {paragraph}{}{21}
-\contentsline {subsection}{\numberline {1.2.9}AS5005 nesme by\IeC {\v t} nikdy transit}{21}
-\contentsline {subsubsection}{Popis}{21}
-\contentsline {paragraph}{}{21}
-\contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{21}
-\contentsline {paragraph}{}{21}
-\contentsline {subsubsection}{Overenie}{21}
-\contentsline {paragraph}{}{21}
+\contentsline {subsubsection}{Overenie}{22}
+\contentsline {paragraph}{}{22}
+\contentsline {subsection}{\numberline {1.2.9}AS5005 nesme by\IeC {\v t} nikdy transit}{22}
+\contentsline {subsubsection}{Popis}{22}
+\contentsline {paragraph}{}{22}
+\contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{22}
+\contentsline {paragraph}{}{22}
+\contentsline {subsubsection}{Overenie}{22}
+\contentsline {paragraph}{}{22}
 \contentsline {subsection}{\numberline {1.2.10}Peering iba pre ISP1 a ISP2, nie pre prefixy nau\IeC {\v c}en\IeC {\'e} z Upstream ISP}{22}
 \contentsline {subsubsection}{Popis}{22}
 \contentsline {paragraph}{}{22}
@@ -65,10 +64,10 @@
 \contentsline {paragraph}{}{22}
 \contentsline {subsubsection}{Overenie}{22}
 \contentsline {paragraph}{}{22}
-\contentsline {subsection}{\numberline {1.2.12}Overi\IeC {\v t}, \IeC {\v c}i je mo\IeC {\v z}n\IeC {\'e} odkloni\IeC {\v t} cel\IeC {\'u} prev\IeC {\'a}dzku (upstream, downstream) na linke R4\IeC {\ensuremath {-}}R10 v pr\IeC {\'\i }pade pl\IeC {\'a}novanej \IeC {\'u}dr\IeC {\v z}by (linka mus\IeC {\'\i } by\IeC {\v t} plne funk\IeC {\v c}na a BGP spojenie propaguje v\IeC {\v s}etky prefixy)}{22}
-\contentsline {subsubsection}{Popis}{22}
-\contentsline {paragraph}{}{22}
-\contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{22}
-\contentsline {paragraph}{}{22}
-\contentsline {subsubsection}{Overenie}{22}
-\contentsline {paragraph}{}{22}
+\contentsline {subsection}{\numberline {1.2.12}Overi\IeC {\v t}, \IeC {\v c}i je mo\IeC {\v z}n\IeC {\'e} odkloni\IeC {\v t} cel\IeC {\'u} prev\IeC {\'a}dzku (upstream, downstream) na linke R4\IeC {\ensuremath {-}}R10 v pr\IeC {\'\i }pade pl\IeC {\'a}novanej \IeC {\'u}dr\IeC {\v z}by (linka mus\IeC {\'\i } by\IeC {\v t} plne funk\IeC {\v c}na a BGP spojenie propaguje v\IeC {\v s}etky prefixy)}{23}
+\contentsline {subsubsection}{Popis}{23}
+\contentsline {paragraph}{}{23}
+\contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{23}
+\contentsline {paragraph}{}{23}
+\contentsline {subsubsection}{Overenie}{23}
+\contentsline {paragraph}{}{23}

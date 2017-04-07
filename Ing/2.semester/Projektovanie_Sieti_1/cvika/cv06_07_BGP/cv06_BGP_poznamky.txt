@@ -63,7 +63,6 @@ Vsade spustit BGP proces
 treba davat pozor na duplicitu adries
 
 medzi r1 a r5 ma byt maska /30
-Loopback0 interfejsy budu /24 siete
 Kazdy router bude mat lo0 - s maskou /24 a iBGP peeringom. lo0 SA OHLASUJE!
 Lo1 budu mat niektore routre.
 
