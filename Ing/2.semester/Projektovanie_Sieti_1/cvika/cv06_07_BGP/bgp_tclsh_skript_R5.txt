@@ -1,9 +1,9 @@
+# Vo foreach cykle chyba adresa 10.255.255.5, pretoze adresu lo0 pingujem osobitne
 foreach address {
 10.255.255.1
 10.255.255.2
 10.255.255.3
 10.255.255.4
-10.255.255.5
 10.255.255.6
 10.255.255.7
 10.255.255.8
@@ -21,4 +21,6 @@ foreach address {
 223.255.255.10
 } {
 # TCL skript spustame z toho routra, ktory ma uvedeny loopback (R5)
-ping $address source 10.255.255.5}
+ping $address source 10.255.255.5
+ping 10.255.255.5
+}
