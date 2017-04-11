@@ -37,7 +37,7 @@ router bgp 65001
   neighbor 200.110.255.241 route-map OUT out
   neighbor 200.110.255.241 send-community
 
-!ak zmenime politiku, musime reloadnut bgp politiku
+!ak zmenime politiku, musime reloadnut bgp proces
 end
 clear ip bgp * out
 =============================================================
@@ -47,8 +47,6 @@ route-map OUT permit 10
 router bgp 65001
   neighbor 200.110.255.237 route-map OUT out
   neighbor 200.110.255.237 send-community
-
-!ak zmenime politiku, musime reloadnut bgp politiku
 end
 clear ip bgp * out
 =============================================================
@@ -90,7 +88,7 @@ Primarne linky R3-R8 a R4-R10
 PREDTYM
 !R8
 show ip bgp
-  !next hop na R4 loop je R
+  !next hop na R4 loop je R3
 ========================================================
 KONFIGURACIA
 !R8
@@ -113,7 +111,7 @@ traceroute <R1_loop_IP>
 
 
 LENZE to je iba riesenie v smere z AS 65001 VON. Teraz musime zabezpecit spatny smer DO AS 65001
-da sa to riesit MEDom alebo
+da sa to riesit MEDom alebo cez routemapy a nastavovanie local preference
 
 r8 a r9 routemapa out na susedne routre v AS 110
 -vsetko sa ma riesit komunitami
@@ -135,6 +133,23 @@ clear ip bgp * in
 OVERENIE
 !R2
 show ip bgp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

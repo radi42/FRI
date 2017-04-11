@@ -12,7 +12,7 @@ route-mapa
 			router bgp 110
 				neighbor B2 route-map CH-LOC-PREF out
 
-		lenze nic sa nestane, lebo sa musi BGP proces
+		lenze nic sa nestane, lebo sa musi BGP proces restartovat
 
 hard	- clear ip bgp - treba sa mu vyhnut (rozpadne sa neighborship a vsetko prebieha dlhsi cas - niekolko minut)
 soft	- clear ip bgp * in

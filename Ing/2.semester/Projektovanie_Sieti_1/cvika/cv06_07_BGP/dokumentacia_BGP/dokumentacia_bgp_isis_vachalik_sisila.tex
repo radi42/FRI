@@ -994,9 +994,11 @@ Paths: (2 available, best #1, table Default-IP-Routing-Table)
       Origin IGP, localpref 100, valid, external
 
 
+----------------------------------------------------------------
 
 
 Potom...
+
 R1#show ip bgp 10.255.255.8
 BGP routing table entry for 10.255.255.8/32, version 157
 Paths: (2 available, best #1, table Default-IP-Routing-Table)
@@ -1064,22 +1066,368 @@ Z výpisov AS\_PATH vidíme, že privátny AS 65001 nie je ohlasovaný do intern
 \newpage
 
 \subsection{ISP politika}
-\subsubsection{Popis}
 \paragraph{}
 Definovať vlastnú politiku − použiť community, community alter LP, AS−PATH filtering, prepending, atď
 
+\subsection{Primárna linka R3−R8}
+\subsubsection{Popis}
+\paragraph{}
+Na R4 sa z R9 máme dopingať cez R8 t.j. namiesto \textbf{R9 -\textgreater{} R4} to pôjde \textbf{R9 -\textgreater{} R8 -\textgreater{} R3 -\textgreater{} R4}. Rovnako aj v spätnom smere.
+
+\paragraph{}
+Komunity
+-nastavujeme cez rotue mapy - cez routemapu vieme ovplyvnovat smerovanie NA ZAKLADE UPDATEOV z inych routrov. MOZEME MAT IBA JEDNU ROUTEMAPU V SMERE "IN" A JEDNU V SMERE "OUT" NA INTERFEJSI. Na R8 a R9 spravime routemapu s názvom \say{AS\_KAM\_TO\_IDE:AS\_ODKIAL\_TO\_IDE}.
+
+\paragraph{}
+Local preference nastavime routemapou na R8 a R9. Chceme aby aj R9 isla cez R8, nie cez R4. R8 si musi zdvihnut local preference smerom na R9 a ohlasovat zvysenu local pref na R9.
+
+\paragraph{}
+Pri akejkoľvek zmene politiky musíme reštartovať BGP proces, aby sa prejavili zmeny.
+
+\paragraph{}
+Keď si teraz zobrazíme informácie o prefixe 10.255.255.8 príkazom \say{show ip bgp 10.255.255.8}, vidíme, že číslo komunity "community" je nejake vysoke cislo. Aby sme mohli precitat cislo community, na vsetkych 4 routroch v globalnom konfig. rezime musíme na smerovačoch R3 a R4 zmeniť formát, v akom sa číslo komunity zobrazuje príkazom \say{ip bgp-community new-format} v globálnom konfiguračnom režime.
+
+\paragraph{}
+LENZE to je iba riesenie v smere z AS 65001 VON. Teraz musime zabezpecit spatny smer DO AS 65001
+da sa to riesit MEDom alebo cez routemapy a nastavovanie local preference.
+r8 a r9 routemapa out na susedne routre v AS 110
+-vsetko sa ma riesit komunitami
+-zvysime routemapou local preference na R3 v smere IN (lebo sa musime pozerat odkial idu updaty) na suseda R8. dat tam match na community, ked sa zhoduje s 65001:110
+-na R3 bude routemapa CUSTOMER
+
+\paragraph{}
+ACLko \say{PREFER} sme mohli na R8 dať buď na suseda R3 v smere IN, alebo na suseda R9 v smere OUT, ale v takom prípade, keby sa do AS 65001 pridal další smerovač pripojený k R8, museli by sme routemapu aplikovať aj na rozhranie na R8, ktorým by bol nový smerovač pripojený ku R8.
+
+
 \subsubsection{Konfigurácia}
 \paragraph{}
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+=============================================================
+!SMEROM VON
+=============================================================
+
+!R8
+!Nastavenie komunity
+ip bgp-community new-format
+route-map OUT permit 10
+  set community 65001:110
+router bgp 65001
+  neighbor 200.110.255.241 route-map OUT out
+  neighbor 200.110.255.241 send-community
+
+!Nastavenie priority pre R3 smerom von
+route-map PREFER permit 10
+  set local-preference 110
+router bgp 65001
+  !neighbor 200.110.255.241 route-map PREFER out
+  neighbor 200.110.255.241 route-map PREFER in
+end
+clear ip bgp * out
+
+
+
+-------------------------------------------------------------
+
+
+!R9
+ip bgp-community new-format
+route-map OUT permit 10
+  set community 65001:110
+router bgp 65001
+  neighbor 200.110.255.237 route-map OUT out
+  neighbor 200.110.255.237 send-community
+end
+clear ip bgp * out
+
+
+-------------------------------------------------------------
+
+
+!R3, R4
+ip bgp-community new-format
+
+
+
+
+
+
+=============================================================
+!SMEROM DNU
+=============================================================
+
+!R3
+!vytvoríme ACL pre komunitu
+ip community 1 permit 65001:110
+
+route-map CUSTOMER permit 10
+  match community 1
+  set local-preference 110
+router bgp 110
+  neighbor 200.110.255.242 route-map CUSTOMER in
+end
+clear ip bgp * in
+\end{alltt}
+\end{small}
+}
 
 \subsubsection{Overenie}
 \paragraph{}
 
-\subsection{Primárne linky R3−R8, R4−R10}
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+smerom von
+!R8 alebo R9
+show route-map
+traceroute 10.255.255.1
+
+PREDTYM
+!R9 - sledovat next hop na R1 loop
+show ip bgp 
+
+
+!R2
+show ip bgp
+traceroute 10.255.255.8
+show ip bgp 10.255.255.8
+
+
+\end{alltt}
+\end{small}
+}
+
+
+
+
+
+
+
+\subsection{Primárna linka R4−R10}
 \subsubsection{Popis}
 \paragraph{}
+Záklazník 2 chce primárne využívať linku ku R4 pre vstup aj výstup t.j. ping z R5 na R7 nepôjde cez AS 330 (R5 -\textgreater{} R6 -\textgreater{} R7), ale cez \textbf{R5 -\textgreater{} R2 -\textgreater{} R4 -\textgreater{} R10 -\textgreater{} R7}. Rovnako aj v spätnom smere.
+
+\paragraph{}
+OBRAŽŽTEEEK (R4-R10) :D :D
 
 \subsubsection{Konfigurácia}
 \paragraph{}
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+
+riesenie VON k r10
+bud cez vahu, alebo route mapa local preference v smere OUT - updaty, ktore dostanem od r4 maju vyssiu local pref ako updaty z r7
+
+riesenie DNU k r10
+Prepending - prependujeme smerom k R7
+^$ - nase ASko - lokalne
+_5005$ - AS PATH konci ASkom 5005
+
+
+Komunity
+R10 musi odosielat komunitu, na ktoru bude zvysok sveta reagovat
+R10 bude mat komunitu 5005:110
+
+R4
+match na komunitu z r10 a dame set local preference vyssi ako default (110)
+
+R7
+match na komunitu z r10 a dame set local preference musi byt medzi 60 a 70
+
+R2 a r6 
+route mapy
+treba dat send-community a by sa komunita zachoval 
+
+R5
+2 routemapy v smere in od susedov r2 a r6, v ktorej nastavim r2 vyssiu local pref
+
+
+Popis
+-----------------
+pre router R10 v AS 5005 spravit linku ku R4 primarnu v smere von z AS 5005
+
+Konfiguracia
+-----------------
+!Zakaznik 2
+!R10
+
+-route mapa local preference v smere OUT - updaty, ktore dostanem od r4 maju vyssiu local pref ako updaty z r7
+-R10 bude mat komunitu 5005:110
+
+NASTAVIME SIRENIE KOMUNITY STRINGU Z AS 5005 NA ROUTRE R2, R4, R5, R6 a R7
+!R4
+conf t
+ip bgp-community new-format
+router bgp 110
+  neighbor 10.255.255.2 send-community
+end
+clear ip bgp * out
+
+
+
+
+!R7
+conf t
+ip bgp-community new-format
+router bgp 330
+  neighbor 10.255.255.6 send-community
+end
+clear ip bgp * out
+
+
+
+
+!R6
+conf t
+ip bgp-community new-format
+router bgp 330
+  neighbor 200.33.255.249 send-community
+end
+clear ip bgp * out
+
+
+
+
+
+!R2
+conf t
+ip bgp-community new-format
+router bgp 110
+  neighbor 200.110.255.254 send-community
+end
+clear ip bgp * out
+
+
+
+
+
+
+!R5
+conf t
+ip bgp-community new-format
+
+end
+clear ip bgp * out
+
+
+
+
+!R10
+conf t
+ip bgp-community new-format
+
+!komunity string pre r4
+
+route-map OUT_110 permit 10
+  set community 5005:110
+router bgp 5005
+  neighbor 200.110.255.245 route-map OUT_110 out
+  neighbor 200.110.255.245 send-community
+
+!komunity string pre r7
+route-map OUT_330 permit 20
+  set community 5005:330
+router bgp 5005
+  neighbor 200.33.255.245 route-map OUT_330 out
+  neighbor 200.33.255.245 send-community
+
+!ak zmenime politiku, musime reloadnut bgp politiku
+end
+clear ip bgp * out
+
+
+
+
+
+
+
+
+Overime, ci sa komunity string odosiela (na routri inom ako r10, napr r2)
+
+show ip bgp 10.255.255.10
+
+mali by sme vidiet "community"
+
+
+
+
+
+Nastavime R4 ako preferovany router na vystup od zakaznika 2.
+conf t
+route-map PREFER_R4 permit 10
+  set local-preference 110
+router bgp 65001
+  neighbor 200.110.255.241 route-map PREFER out
+end
+clear ip bgp * out
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+====================================================
+====================================================
+
+Popis
+pre router R10 v AS 5005 spravit linku ku R4 primarnu v smere DNU do AS 5005
+
+Konfiguracia
+!Zakaznik 2
+!R10
+
+
+
+
+
+! T-Com
+!R4
+
+
+
+!Orange
+!R7
+
+
+
+
+
+!T-Com
+!R2
+
+
+
+
+
+!Orange
+!R6
+
+
+
+
+
+!SIX
+!R5
+\end{alltt}
+\end{small}
+}
+
 
 \subsubsection{Overenie}
 \paragraph{}
@@ -1112,6 +1460,27 @@ Definovať vlastnú politiku − použiť community, community alter LP, AS−PA
 
 \subsubsection{Konfigurácia}
 \paragraph{}
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+-urob aclko
+ip as-path access-list 1 permit ^$
+
+
+komunitou
+do COMUNITY routemapy na r10 dat:
+
+route-map OUT_110
+  match as-path 1
+
+route-map OUT_330
+  match as-path 1
+
+\end{alltt}
+\end{small}
+}
 
 \subsubsection{Overenie}
 \paragraph{}
