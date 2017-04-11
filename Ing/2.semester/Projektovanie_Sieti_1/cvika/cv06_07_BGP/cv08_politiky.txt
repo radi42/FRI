@@ -1,0 +1,382 @@
+na konci AS_PATH mame pre 10.255.255.8 mame privatne ASko
+provider musi privatne ASko odstranit
+
+odstranenie (na R2 a R4 v smere out):
+=============================================================
+router bgp <proces>
+neighbor ip remove-private-as
+=============================================================
+
+potom prikazom show ip bgp overit AS_PATH overit, ze AS 65001 zmizne z AS_PATH
+
+
+POLITIKY
+----------------------
+weight
+local preference - ovplyvnenie, ktory router bude preferovany NA VYSTUP z AS
+lokalne routy
+as path
+origin
+med
+ebgp > ibgp
+igp metrika
+cas ()
+najnizsie router id
+najnizsia IPcka
+
+
+Komunity
+-nastavujeme cez rotue mapy - cez routemapu vieme ovplyvnovat smerovanie NA ZAKLADE UPDATEOV z inych routrov. MOZEME MAT IBA JEDNU ROUTEMAPU V SMERE "IN" A JEDNU V SMERE "OUT" NA INTERFEJSI.
+
+na R8 a R9 spravime routemapu: (AS_KAM_TO_IDE:AS_ODKIAL_TO_IDE)
+--------------------------------------------------------------
+!R8
+route-map OUT permit 10
+  set community 65001:110
+router bgp 65001
+  neighbor 200.110.255.241 route-map OUT out
+  neighbor 200.110.255.241 send-community
+
+!ak zmenime politiku, musime reloadnut bgp politiku
+end
+clear ip bgp * out
+=============================================================
+!R9
+route-map OUT permit 10
+  set community 65001:110
+router bgp 65001
+  neighbor 200.110.255.237 route-map OUT out
+  neighbor 200.110.255.237 send-community
+
+!ak zmenime politiku, musime reloadnut bgp politiku
+end
+clear ip bgp * out
+=============================================================
+
+mozno zvazit staticku tabulku na routroch
+
+
+=============================================================
+overenie
+!R8 alebo R9
+show route
+
+!R3
+show ip bgp 10.255.255.8
+=============================================================
+
+Cislo komunity "community" je nejake vysoke cislo. Aby sme mohli precitat cislo community, na vsetkych 4 routroch v globalnom konfig. rezime
+=============================================================
+!R3, R4, R8 a R9
+ip bgp-community new-format
+=============================================================
+
+potom zase show prikazom uvidime citatelnejsi format "65001:110"
+
+ako na routri spracujeme komunity?
+
+
+
+
+
+
+
+
+Primarne linky R3-R8 a R4-R10
+-local preference nastavime routemapou na R8 a R9
+-chceme aby aj R9 isla cez R8, nie cez R4
+-R8 si musi zdvihnut local preference smerom na R9 a ohlasovat zvysenu local pref na R9
+
+PREDTYM
+!R8
+show ip bgp
+  !next hop na R4 loop je R
+========================================================
+KONFIGURACIA
+!R8
+route-map PREFER permit 10
+  set local-preference 110
+router bgp 65001
+  neighbor 200.110.255.241 route-map PREFER out
+end
+clear ip bgp * out
+========================================================
+
+!bud to dame na r8 na suseda R3 v smere IN - 
+!alebo to dame na r8 na suseda R9 v smere OUT - ale keby sa do AS 65001 pridal dalsi sused k R8, museli by sme routemapu 
+
+OVERENIE
+!R9 - sledovat next hop na R1 loop
+show ip bgp 
+
+traceroute <R1_loop_IP>
+
+
+LENZE to je iba riesenie v smere z AS 65001 VON. Teraz musime zabezpecit spatny smer DO AS 65001
+da sa to riesit MEDom alebo
+
+r8 a r9 routemapa out na susedne routre v AS 110
+-vsetko sa ma riesit komunitami
+-zvysime routemapou local preference na R3 v smere IN (lebo sa musime pozerat odkial idu updaty) na suseda R8. dat tam match na community, ked sa zhoduje s 65001:110
+-na R3 bude routemapa CUSTOMER
+========================================================
+!R3
+!vytvorime ACLko pre komunitu
+ip community 1 permit 65001:110
+
+route-map CUSTOMER permit 10
+  match community 1
+  set local-preference 110
+router bgp 110
+  neighbor 200.110.255.242 route-map CUSTOMER in
+end
+clear ip bgp * in
+=======================================================
+OVERENIE
+!R2
+show ip bgp
+
+
+
+
+PREFEROVANIE R4-R10
+
+riesenie VON k r10
+bud cez vahu, alebo route mapa local preference v smere OUT - updaty, ktore dostanem od r4 maju vyssiu local pref ako updaty z r7
+
+riesenie DNU k r10
+Prepending - prependujeme smerom k R7
+^$ - nase ASko - lokalne
+_5005$ - AS PATH konci ASkom 5005
+
+
+Komunity
+R10 musi odosielat komunitu, na ktoru bude zvysok sveta reagovat
+R10 bude mat komunitu 5005:110
+
+R4
+match na komunitu z r10 a dame set local preference vyssi ako default (110)
+
+R7
+match na komunitu z r10 a dame set local preference musi byt medzi 60 a 70
+
+R2 a r6 
+route mapy
+treba dat send-community a by sa komunita zachoval 
+
+R5
+2 routemapy v smere in od susedov r2 a r6, v ktorej nastavim r2 vyssiu local pref
+
+
+Popis
+-----------------
+pre router R10 v AS 5005 spravit linku ku R4 primarnu v smere von z AS 5005
+
+Konfiguracia
+-----------------
+!Zakaznik 2
+!R10
+
+-route mapa local preference v smere OUT - updaty, ktore dostanem od r4 maju vyssiu local pref ako updaty z r7
+-R10 bude mat komunitu 5005:110
+
+NASTAVIME SIRENIE KOMUNITY STRINGU Z AS 5005 NA ROUTRE R2, R4, R5, R6 a R7
+!R4
+conf t
+ip bgp-community new-format
+router bgp 110
+  neighbor 10.255.255.2 send-community
+end
+clear ip bgp * out
+
+
+
+
+!R7
+conf t
+ip bgp-community new-format
+router bgp 330
+  neighbor 10.255.255.6 send-community
+end
+clear ip bgp * out
+
+
+
+
+!R6
+conf t
+ip bgp-community new-format
+router bgp 330
+  neighbor 200.33.255.249 send-community
+end
+clear ip bgp * out
+
+
+
+
+
+!R2
+conf t
+ip bgp-community new-format
+router bgp 110
+  neighbor 200.110.255.254 send-community
+end
+clear ip bgp * out
+
+
+
+
+
+
+!R5
+conf t
+ip bgp-community new-format
+
+end
+clear ip bgp * out
+
+
+
+
+!R10
+conf t
+ip bgp-community new-format
+
+!komunity string pre r4
+
+route-map OUT_110 permit 10
+  set community 5005:110
+router bgp 5005
+  neighbor 200.110.255.245 route-map OUT_110 out
+  neighbor 200.110.255.245 send-community
+
+!komunity string pre r7
+route-map OUT_330 permit 20
+  set community 5005:330
+router bgp 5005
+  neighbor 200.33.255.245 route-map OUT_330 out
+  neighbor 200.33.255.245 send-community
+
+!ak zmenime politiku, musime reloadnut bgp politiku
+end
+clear ip bgp * out
+
+
+
+
+
+
+
+
+Overime, ci sa komunity string odosiela (na routri inom ako r10, napr r2)
+
+show ip bgp 10.255.255.10
+
+mali by sme vidiet "community"
+
+
+
+
+
+Nastavime R4 ako preferovany router na vystup od zakaznika 2.
+conf t
+route-map PREFER_R4 permit 10
+  set local-preference 110
+router bgp 65001
+  neighbor 200.110.255.241 route-map PREFER out
+end
+clear ip bgp * out
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+====================================================
+====================================================
+
+Popis
+pre router R10 v AS 5005 spravit linku ku R4 primarnu v smere DNU do AS 5005
+
+Konfiguracia
+!Zakaznik 2
+!R10
+
+
+
+
+
+! T-Com
+!R4
+
+
+
+!Orange
+!R7
+
+
+
+
+
+!T-Com
+!R2
+
+
+
+
+
+!Orange
+!R6
+
+
+
+
+
+!SIX
+!R5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+AS 5005 nesmie byt tranzit
+-urob aclko
+ip as-path access-list 1 permit ^$
+
+
+komunitou
+do COMUNITY routemapy na r10 dat:
+
+route-map OUT_110
+  match as-path 1
+
+route-map OUT_330
+  match as-path 1
+
+
+

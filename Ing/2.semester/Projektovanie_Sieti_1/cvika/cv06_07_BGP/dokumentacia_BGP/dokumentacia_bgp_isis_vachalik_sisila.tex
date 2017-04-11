@@ -128,7 +128,6 @@ Budeme konfigurovať smerovacie protokoly BGP a IS-IS na topológií, ktorá je 
 \subsection{Použiť IGP IS−IS (L2 only) single area dizajn, priame p2p prepojenia}
 \subsection{Zabezpečiť plnú konektivitu prostredníctvom iBGP alebo eBGP protokolov pre zákaznícké a internetové smerovacie záznamy}
 \subsection{Distribúcia internetových statických smerovacích záznamov z AS3401, AS4502 a zákaznických smerovacích záznamov z AS65001, AS5005, AS330}
-\subsection{Prepísať privátne AS65001 − DOROBIŤ!!!}
 \subsection{Sumarizácia}
 
 
@@ -935,12 +934,134 @@ Z druhého výpisu BGP tabuľky vidíme, že počet prefixov sa v dôsledku suma
 
 
 
+\subsection{Prepísať privátne AS65001}
+\subsubsection{Popis}
+\paragraph{}
+na konci AS PATH mame pre 10.255.255.8 mame privatne ASko. provider musi privatne ASko odstranit, lebo take sa nemozu dostat do internetu, inak by zblblo smerovanie. Odstraňovanie sa bude diať na smerovačoch R2 (v smere k R1 a R5) a R4 (v smere k R10), pretože R2 a R4 tie sú hraničné smerovače v AS 110.
+
+\subsubsection{Konfigurácia}
+\paragraph{}
+Na smerovačoch R2 a R4 vykonáme tieto príkazy (v globálnom konfiguračnom móde):
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+R2
+
+router bgp 110
+neighbor 200.110.255.249 remove-private-as
+neighbor 200.110.255.254 remove-private-as
+
+------------------------------------------
+
+R4
+
+router bgp 110
+neighbor 200.110.255.246 remove-private-as
+\end{alltt}
+\end{small}
+}
+
+
+\subsubsection{Overenie}
+\paragraph{}
+potom prikazom show ip bgp overit AS PATH overit, ze AS 65001 zmizne z AS PATH
+
+\paragraph{}
+Predtým ...
+
+
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+R1
+
+Predtým...
+
+R1#show ip bgp 10.255.255.8
+BGP routing table entry for 10.255.255.8/32, version 154
+Paths: (2 available, best #1, table Default-IP-Routing-Table)
+  Advertised to update-groups:
+        1
+  110 65001
+    200.110.255.250 from 200.110.255.250 (10.255.255.2)
+      Origin IGP, localpref 100, valid, external, best
+  4502 110 65001
+    64.34.255.254 from 64.34.255.254 (10.255.255.5)
+      Origin IGP, localpref 100, valid, external
+
+
+
+
+Potom...
+R1#show ip bgp 10.255.255.8
+BGP routing table entry for 10.255.255.8/32, version 157
+Paths: (2 available, best #1, table Default-IP-Routing-Table)
+Flag: 0x820
+  Advertised to update-groups:
+        1
+  110
+    200.110.255.250 from 200.110.255.250 (10.255.255.2)
+      Origin IGP, localpref 100, valid, external, best
+  4502 110
+    64.34.255.254 from 64.34.255.254 (10.255.255.5)
+      Origin IGP, localpref 100, valid, external
+
+
+
+================================================================
+
+
+R10
+
+Predtým...
+
+R10#show ip bgp 10.255.255.8
+BGP routing table entry for 10.255.255.8/32, version 56
+Paths: (2 available, best #2, table Default-IP-Routing-Table)
+  Not advertised to any peer
+  330 3401 110
+    200.33.255.245 from 200.33.255.245 (10.255.255.7)
+      Origin IGP, localpref 100, valid, external
+  110 65001
+    200.110.255.245 from 200.110.255.245 (10.255.255.4)
+      Origin IGP, localpref 100, valid, external, best
+
+
+----------------------------------------------------------------
+
+Potom ...
+
+R10#show ip bgp 10.255.255.8
+BGP routing table entry for 10.255.255.8/32, version 59
+Paths: (2 available, best #2, table Default-IP-Routing-Table)
+Flag: 0x820
+  Not advertised to any peer
+  330 3401 110
+    200.33.255.245 from 200.33.255.245 (10.255.255.7)
+      Origin IGP, localpref 100, valid, external
+  110
+    200.110.255.245 from 200.110.255.245 (10.255.255.4)
+      Origin IGP, localpref 100, valid, external, best
+\end{alltt}
+\end{small}
+}
+
+
+\paragraph{}
+Z výpisov AS\_PATH vidíme, že privátny AS 65001 nie je ohlasovaný do internetu ani cez R2, ani cez R4.
 
 
 
 
 
 
+
+
+\newpage
 
 \subsection{ISP politika}
 \subsubsection{Popis}

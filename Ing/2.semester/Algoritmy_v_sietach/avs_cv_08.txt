@@ -1,0 +1,21 @@
+tcp je bytovo orientovany protokol
+tcp si data na odoslanie buffruje, a potom ich naraz odosle. z aplikacie => nemozem sa spoliehat ze na jednu send spravu klientovi staci jedna receive sprava
+
+
+test servera:
+echo "Ahoj!" | nc 0 1234
+
+
+
+netstat -plant
+server moze stale bezat a nedovoli nam pripojit sa -> netstat hovori, ze nas tcp server je v stave "TIME_WAIT". Server vykonal aktivne uzavretie, ale klient pasivne. A ten ktory vykonal aktivne uzavretie (tcp server), musi cakat t.j. dostava sa do stavu "TIME_WAIT". Server posle klientovi FIN, klient, prijme FIN a serveru odosle FIN,ACK A KLIENT SPOJENIE UZAVRIE. server posle klientovi ACK, LENZE KLIENT UZ SPOJENIE UZAVREL.
+
+Vzdy, ked klient ukoncuje proces, takato situacia nenastane.
+Nastava iba pre proces, ktory vykonava aktivne ukoncenie.
+
+
+Zombie proces - ukonceny proces, ktory ale stale zabera pamat v tabulke procesov, ktory si pamata jeho pid - vznika memoryleak 
+	-treba sledovat signaly
+	-kill -l
+	-man kill
+	-man sigaction

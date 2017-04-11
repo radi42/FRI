@@ -6,8 +6,7 @@
 \contentsline {subsection}{\numberline {1.2.1}Pou\IeC {\v z}i\IeC {\v t} IGP IS\IeC {\ensuremath {-}}IS (L2 only) single area dizajn, priame p2p prepojenia}{5}
 \contentsline {subsection}{\numberline {1.2.2}Zabezpe\IeC {\v c}i\IeC {\v t} pln\IeC {\'u} konektivitu prostredn\IeC {\'\i }ctvom iBGP alebo eBGP protokolov pre z\IeC {\'a}kazn\IeC {\'\i }ck\IeC {\'e} a internetov\IeC {\'e} smerovacie z\IeC {\'a}znamy}{5}
 \contentsline {subsection}{\numberline {1.2.3}Distrib\IeC {\'u}cia internetov\IeC {\'y}ch statick\IeC {\'y}ch smerovac\IeC {\'\i }ch z\IeC {\'a}znamov z AS3401, AS4502 a z\IeC {\'a}kaznick\IeC {\'y}ch smerovac\IeC {\'\i }ch z\IeC {\'a}znamov z AS65001, AS5005, AS330}{5}
-\contentsline {subsection}{\numberline {1.2.4}Prep\IeC {\'\i }sa\IeC {\v t} priv\IeC {\'a}tne AS65001 \IeC {\ensuremath {-}} DOROBI\IeC {\v T}!!!}{5}
-\contentsline {subsection}{\numberline {1.2.5}Sumariz\IeC {\'a}cia}{5}
+\contentsline {subsection}{\numberline {1.2.4}Sumariz\IeC {\'a}cia}{5}
 \contentsline {subsubsection}{Popis}{5}
 \contentsline {paragraph}{}{5}
 \contentsline {paragraph}{}{5}
@@ -22,52 +21,61 @@
 \contentsline {paragraph}{}{17}
 \contentsline {paragraph}{}{19}
 \contentsline {paragraph}{}{21}
-\contentsline {subsection}{\numberline {1.2.6}ISP politika}{21}
+\contentsline {subsection}{\numberline {1.2.5}Prep\IeC {\'\i }sa\IeC {\v t} priv\IeC {\'a}tne AS65001}{21}
 \contentsline {subsubsection}{Popis}{21}
 \contentsline {paragraph}{}{21}
 \contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{21}
 \contentsline {paragraph}{}{21}
 \contentsline {subsubsection}{Overenie}{21}
 \contentsline {paragraph}{}{21}
-\contentsline {subsection}{\numberline {1.2.7}Prim\IeC {\'a}rne linky R3\IeC {\ensuremath {-}}R8, R4\IeC {\ensuremath {-}}R10}{21}
-\contentsline {subsubsection}{Popis}{21}
 \contentsline {paragraph}{}{21}
-\contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{21}
-\contentsline {paragraph}{}{21}
-\contentsline {subsubsection}{Overenie}{21}
-\contentsline {paragraph}{}{21}
-\contentsline {subsection}{\numberline {1.2.8}Distribuova\IeC {\v t} iba default, AS5005 a peering prefixy do AS65001}{21}
-\contentsline {subsubsection}{Popis}{21}
-\contentsline {paragraph}{}{21}
-\contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{21}
-\contentsline {paragraph}{}{21}
-\contentsline {subsubsection}{Overenie}{22}
-\contentsline {paragraph}{}{22}
-\contentsline {subsection}{\numberline {1.2.9}AS5005 nesme by\IeC {\v t} nikdy transit}{22}
-\contentsline {subsubsection}{Popis}{22}
-\contentsline {paragraph}{}{22}
-\contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{22}
-\contentsline {paragraph}{}{22}
-\contentsline {subsubsection}{Overenie}{22}
-\contentsline {paragraph}{}{22}
-\contentsline {subsection}{\numberline {1.2.10}Peering iba pre ISP1 a ISP2, nie pre prefixy nau\IeC {\v c}en\IeC {\'e} z Upstream ISP}{22}
-\contentsline {subsubsection}{Popis}{22}
-\contentsline {paragraph}{}{22}
-\contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{22}
-\contentsline {paragraph}{}{22}
-\contentsline {subsubsection}{Overenie}{22}
-\contentsline {paragraph}{}{22}
-\contentsline {subsection}{\numberline {1.2.11}Overi\IeC {\v t} funk\IeC {\v c}nos\IeC {\v t} nastavenia politiky vhodn\IeC {\'y}mi v\IeC {\'y}padkami liniek a smerova\IeC {\v c}ov}{22}
-\contentsline {subsubsection}{Popis}{22}
-\contentsline {paragraph}{}{22}
-\contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{22}
-\contentsline {paragraph}{}{22}
-\contentsline {subsubsection}{Overenie}{22}
-\contentsline {paragraph}{}{22}
-\contentsline {subsection}{\numberline {1.2.12}Overi\IeC {\v t}, \IeC {\v c}i je mo\IeC {\v z}n\IeC {\'e} odkloni\IeC {\v t} cel\IeC {\'u} prev\IeC {\'a}dzku (upstream, downstream) na linke R4\IeC {\ensuremath {-}}R10 v pr\IeC {\'\i }pade pl\IeC {\'a}novanej \IeC {\'u}dr\IeC {\v z}by (linka mus\IeC {\'\i } by\IeC {\v t} plne funk\IeC {\v c}na a BGP spojenie propaguje v\IeC {\v s}etky prefixy)}{23}
-\contentsline {subsubsection}{Popis}{23}
 \contentsline {paragraph}{}{23}
-\contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{23}
-\contentsline {paragraph}{}{23}
-\contentsline {subsubsection}{Overenie}{23}
-\contentsline {paragraph}{}{23}
+\contentsline {subsection}{\numberline {1.2.6}ISP politika}{24}
+\contentsline {subsubsection}{Popis}{24}
+\contentsline {paragraph}{}{24}
+\contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{24}
+\contentsline {paragraph}{}{24}
+\contentsline {subsubsection}{Overenie}{24}
+\contentsline {paragraph}{}{24}
+\contentsline {subsection}{\numberline {1.2.7}Prim\IeC {\'a}rne linky R3\IeC {\ensuremath {-}}R8, R4\IeC {\ensuremath {-}}R10}{24}
+\contentsline {subsubsection}{Popis}{24}
+\contentsline {paragraph}{}{24}
+\contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{24}
+\contentsline {paragraph}{}{24}
+\contentsline {subsubsection}{Overenie}{24}
+\contentsline {paragraph}{}{24}
+\contentsline {subsection}{\numberline {1.2.8}Distribuova\IeC {\v t} iba default, AS5005 a peering prefixy do AS65001}{24}
+\contentsline {subsubsection}{Popis}{24}
+\contentsline {paragraph}{}{24}
+\contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{24}
+\contentsline {paragraph}{}{24}
+\contentsline {subsubsection}{Overenie}{24}
+\contentsline {paragraph}{}{24}
+\contentsline {subsection}{\numberline {1.2.9}AS5005 nesme by\IeC {\v t} nikdy transit}{24}
+\contentsline {subsubsection}{Popis}{24}
+\contentsline {paragraph}{}{24}
+\contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{24}
+\contentsline {paragraph}{}{24}
+\contentsline {subsubsection}{Overenie}{25}
+\contentsline {paragraph}{}{25}
+\contentsline {subsection}{\numberline {1.2.10}Peering iba pre ISP1 a ISP2, nie pre prefixy nau\IeC {\v c}en\IeC {\'e} z Upstream ISP}{25}
+\contentsline {subsubsection}{Popis}{25}
+\contentsline {paragraph}{}{25}
+\contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{25}
+\contentsline {paragraph}{}{25}
+\contentsline {subsubsection}{Overenie}{25}
+\contentsline {paragraph}{}{25}
+\contentsline {subsection}{\numberline {1.2.11}Overi\IeC {\v t} funk\IeC {\v c}nos\IeC {\v t} nastavenia politiky vhodn\IeC {\'y}mi v\IeC {\'y}padkami liniek a smerova\IeC {\v c}ov}{25}
+\contentsline {subsubsection}{Popis}{25}
+\contentsline {paragraph}{}{25}
+\contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{25}
+\contentsline {paragraph}{}{25}
+\contentsline {subsubsection}{Overenie}{25}
+\contentsline {paragraph}{}{25}
+\contentsline {subsection}{\numberline {1.2.12}Overi\IeC {\v t}, \IeC {\v c}i je mo\IeC {\v z}n\IeC {\'e} odkloni\IeC {\v t} cel\IeC {\'u} prev\IeC {\'a}dzku (upstream, downstream) na linke R4\IeC {\ensuremath {-}}R10 v pr\IeC {\'\i }pade pl\IeC {\'a}novanej \IeC {\'u}dr\IeC {\v z}by (linka mus\IeC {\'\i } by\IeC {\v t} plne funk\IeC {\v c}na a BGP spojenie propaguje v\IeC {\v s}etky prefixy)}{25}
+\contentsline {subsubsection}{Popis}{25}
+\contentsline {paragraph}{}{25}
+\contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{25}
+\contentsline {paragraph}{}{25}
+\contentsline {subsubsection}{Overenie}{25}
+\contentsline {paragraph}{}{25}
