@@ -1,0 +1,6 @@
+chattr - utilitka, ktora vie aj zneviditelnit subor v suborovom systeme linuxu
+/etc/udev - pravidla na mountovanie diskov resp. sietoviek
+cups - print server - sprava tlaciarni (aj zdielanych); pocuva na adrese "localhost:631"
+hplip - sprava tlaciarni pre hp
+p910nd - sluzba na tlacenie - lightweight
+lprng - alternativa ku cups
