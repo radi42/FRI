@@ -56,7 +56,7 @@ POUZIVANIE
 SERVER
   # spustenie virtualnej obrazovky (tusim xvfb - pohladat prikaz v historii)
   Xvfb :0 -screen 0 1024x768x16 -ac &
-  DISPLAY=:0 exec startxfce4 &
+  #DISPLAY=:0 exec startxfce4 &		# toto tam ale asi netreba - OTESTOVAT
 
   # spustenie VNC servera
   tightvncserver
