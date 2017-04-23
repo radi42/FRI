@@ -1181,7 +1181,7 @@ clear ip bgp * in
 {\fontfamily{qcr}\selectfont
 \begin{small}
 \begin{alltt}
-smerom von
+smerom von - od Customera 1
 !R8 alebo R9
 show route-map
 traceroute 10.255.255.1
@@ -1192,11 +1192,10 @@ show ip bgp
 
 
 !R2
+smerom dnu - do Customera 1
 show ip bgp
 traceroute 10.255.255.8
 show ip bgp 10.255.255.8
-
-
 \end{alltt}
 \end{small}
 }
@@ -1217,223 +1216,123 @@ OBRAŽŽTEEEK (R4-R10) :D :D
 
 \subsubsection{Konfigurácia}
 \paragraph{}
+Konfigurujeme smerovač R7.
 
 \noindent
 {\fontfamily{qcr}\selectfont
 \begin{small}
 \begin{alltt}
-
-riesenie VON k r10
-bud cez vahu, alebo route mapa local preference v smere OUT - updaty, ktore dostanem od r4 maju vyssiu local pref ako updaty z r7
-
-riesenie DNU k r10
-Prepending - prependujeme smerom k R7
-^$ - nase ASko - lokalne
-_5005$ - AS PATH konci ASkom 5005
-
-
-Komunity
-R10 musi odosielat komunitu, na ktoru bude zvysok sveta reagovat
-R10 bude mat komunitu 5005:110
-
-R4
-match na komunitu z r10 a dame set local preference vyssi ako default (110)
-
-R7
-match na komunitu z r10 a dame set local preference musi byt medzi 60 a 70
-
-R2 a r6 
-route mapy
-treba dat send-community a by sa komunita zachoval 
-
-R5
-2 routemapy v smere in od susedov r2 a r6, v ktorej nastavim r2 vyssiu local pref
-
-
-Popis
------------------
-pre router R10 v AS 5005 spravit linku ku R4 primarnu v smere von z AS 5005
-
-Konfiguracia
------------------
-!Zakaznik 2
-!R10
-
--route mapa local preference v smere OUT - updaty, ktore dostanem od r4 maju vyssiu local pref ako updaty z r7
--R10 bude mat komunitu 5005:110
-
-NASTAVIME SIRENIE KOMUNITY STRINGU Z AS 5005 NA ROUTRE R2, R4, R5, R6 a R7
-!R4
-conf t
-ip bgp-community new-format
-router bgp 110
-  neighbor 10.255.255.2 send-community
-end
-clear ip bgp * out
-
-
-
+=============================================================
+!SMEROM VON
+=============================================================
 
 !R7
-conf t
-ip bgp-community new-format
+route-map ROUTE1 permit 10
+  match as-path 1
+  match community 2
+  set local-preference 65
+exit
 router bgp 330
-  neighbor 10.255.255.6 send-community
-end
-clear ip bgp * out
+neighbor 200.33.255.246 route-map ROUTE1 in
 
 
+=============================================================
+!SMEROM DNU
+=============================================================
+
+R6(config)#route-map R1-R6 permit 10
+R6(config-route-map)#set local-preference 60
+R6(config-route-map)#exit
+R6(config)#route-map R5-R6 permit 10
+R6(config-route-map)#set local-preference 70
+R6(config-route-map)#exit
+R6(config)#router bgp 330
+R6(config-router)#neighbor 200.33.255.249 route-map R5-R6 in
+R6(config-router)#neighbor 200.33.255.253 route-map R1-R6 in
 
 
-!R6
-conf t
-ip bgp-community new-format
-router bgp 330
-  neighbor 200.33.255.249 send-community
-end
-clear ip bgp * out
-
-
-
+-------------------------------------------------------------
 
 
 !R2
-conf t
-ip bgp-community new-format
+route-map R1-R2 permit 10
+  set local-preference 60
+route-map R5-R2 permit 10
+  set local-preference 70
 router bgp 110
-  neighbor 200.110.255.254 send-community
-end
-clear ip bgp * out
+  neighbor 200.110.255.249 route-map R1-R2 in
+  neighbor 200.110.255.254 route-map R5-R2 in
 
 
-
-
-
-
-!R5
-conf t
-ip bgp-community new-format
-
-end
-clear ip bgp * out
-
-
+-------------------------------------------------------------
 
 
 !R10
-conf t
-ip bgp-community new-format
-
-!komunity string pre r4
-
-route-map OUT_110 permit 10
-  set community 5005:110
+route-map R4PREF permit 10
+  set local-preference 160
 router bgp 5005
-  neighbor 200.110.255.245 route-map OUT_110 out
-  neighbor 200.110.255.245 send-community
-
-!komunity string pre r7
-route-map OUT_330 permit 20
-  set community 5005:330
-router bgp 5005
-  neighbor 200.33.255.245 route-map OUT_330 out
-  neighbor 200.33.255.245 send-community
-
-!ak zmenime politiku, musime reloadnut bgp politiku
-end
-clear ip bgp * out
+  neighbor 200.110.255.245 route-map R4PREF in
 
 
+-------------------------------------------------------------
 
 
+!R5
+route-map R1LP permit 10
+  set local-preference 60
+router bgp 4502
+  neighbor 64.34.255.253 route-map R1LP in
 
 
+-------------------------------------------------------------
 
 
-Overime, ci sa komunity string odosiela (na routri inom ako r10, napr r2)
-
-show ip bgp 10.255.255.10
-
-mali by sme vidiet "community"
-
-
-
-
-
-Nastavime R4 ako preferovany router na vystup od zakaznika 2.
-conf t
-route-map PREFER_R4 permit 10
+!R8
+route-map R3-R8 permit 10
   set local-preference 110
 router bgp 65001
-  neighbor 200.110.255.241 route-map PREFER out
-end
-clear ip bgp * out
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-====================================================
-====================================================
-
-Popis
-pre router R10 v AS 5005 spravit linku ku R4 primarnu v smere DNU do AS 5005
-
-Konfiguracia
-!Zakaznik 2
-!R10
-
-
-
-
-
-! T-Com
-!R4
-
-
-
-!Orange
-!R7
-
-
-
-
-
-!T-Com
-!R2
-
-
-
-
-
-!Orange
-!R6
-
-
-
-
-
-!SIX
-!R5
+  neighbor 10.255.255.9 route-map R3-R8 out
 \end{alltt}
 \end{small}
 }
 
 
+
 \subsubsection{Overenie}
 \paragraph{}
+Mozme si vsimnut ze prevadzka ide cez R6.
 
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+R7#sh ip bgp
+BGP table version is 23, local router ID is 10.255.255.7
+Status codes: s suppressed, d damped, h history, * valid, > best, 
+              i - internal, r RIB-failure, S Stale
+Origin codes: i - IGP, e - EGP, ? - incomplete
 
-
+   Network          Next Hop        Metric LocPrf Weight Path
+*>i10.255.255.1/32  10.255.255.6         0    100      0 3401 i
+*>i10.255.255.2/32  10.255.255.6         0    100      0 4502 110 i
+*>i10.255.255.3/32  10.255.255.6         0    100      0 3401 110 i
+*>i10.255.255.4/32  10.255.255.6         0    100      0 4502 110 i
+*>i10.255.255.5/32  10.255.255.6         0    100      0 4502 i
+r>i10.255.255.6/32  10.255.255.6         0    100      0 i
+*> 10.255.255.7/32  0.0.0.0              0         32768 i
+*>i10.255.255.8/32  10.255.255.6         0    100      0 4502 110 65001 i
+*>i10.255.255.9/32  10.255.255.6         0    100      0 4502 110 65001 i
+*>i10.255.255.10/32 10.255.255.6         0    100      0 3401 110 5005 i
+*>i64.34.0.0/16     10.255.255.6         0    100      0 3401 i
+*>i128.45.0.0       10.255.255.6         0    100      0 4502 i
+* i200.33.0.0/16    10.255.255.6         0    100      0 i
+*>                  0.0.0.0                        32768 i
+s> 200.33.7.0/25    0.0.0.0              0         32768 i
+*>i200.110.0.0/16   10.255.255.6         0    100      0 4502 110 i
+*>i223.255.255.0    10.255.255.6         0    100      0 4502 110 5005 i
+\end{alltt}
+\end{small}
+}
 
 
 
@@ -1441,15 +1340,139 @@ Konfiguracia
 \subsection{Distribuovať iba default, AS5005 a peering prefixy do AS65001}
 \subsubsection{Popis}
 \paragraph{}
+R1 treba oznackovat routy. neuvidim siete ktore su z R1 + uvidime default route smerom hore
 
 \subsubsection{Konfigurácia}
 \paragraph{}
 
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+route-map
+* out smery dat comunitu 3401:3401
+send community
+susedia by mali mat komunitu
+
+R3,R4 in - route-mapa
+ak obsahujes send comunity, neposielas to dalej
+
+---config---
+R1
+route-map COM permit 10
+ set community 3401:65001
+
+router bgp 3401
+R1(config-router)# neighbor 200.110.255.250 send-community
+R1(config-router)# neighbor 200.33.255.254 send-community
+ neighbor 200.110.255.250 route-map COM out
+ neighbor 200.33.255.254 route-map COM out
+
+R2
+R2(config)#router bgp 110
+R2(config-router)#nei 10.110.23.3 send
+R2(config-router)#nei 10.110.23.3 send-c
+R2(config-router)#nei 10.110.23.3 send-community
+% Specify remote-as or peer-group commands first
+R2(config-router)#nei 10.255.255.3 send-community
+R2(config-router)#nei 10.255.255.4 send-community
+R2(config-router)#do clear ip bgp * out
+
+R3-R4
+ip bgp-community new-format
+----------------
+comunity list
+route-mapa deny
+
+comunity list permit 20
+
+R3(config)#ip community-list 1 permit 3401:65001
+
+R3(config)#route-map DEFAULT deny 10
+R3(config-route-map)#match co
+R3(config-route-map)#match community 1
+R3(config-route-map)#exit
+
+R3(config)#route-map DEFAULT permit 20
+
+R3(config)#router bgp 110
+R3(config-router)#neighbor 200.110.255.242 route-map DEFAULT out
+R3(config-router)#nei 200.110.255.242 default-originate
+
+---------------------------------------
+R4
+R4(config)#ip community-list 1 permit 3401:65001
+R4(config)#route-map DEFAULT deny 10
+R4(config-route-map)#match community 1
+R4(config-route-map)#exit
+R4(config)#route-map DEFAULT permit 20
+R4(config-route-map)#exit
+R4(config)#router bgp 110
+R4(config-router)#neighbor 200.110.255.238 route-map DEFAULT out
+ nei 200.110.255.238 default-originate
+
+R4(config-router)#do clear ip bgp * out
+\end{alltt}
+\end{small}
+}
+
+
 \subsubsection{Overenie}
 \paragraph{}
+na r8 neuvidim siete ktore su z R1 + uvidime default route smerom hore vo výpise príkazov \say{show ip route} a \say{show ip bgp} t.j. na R8 nevidím cestu do 10.255.255.1.
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+B    223.255.255.0/24 [200/0] via 200.110.255.237, 00:11:22
+     200.110.255.0/30 is subnetted, 2 subnets
+C       200.110.255.240 is directly connected, FastEthernet0/0
+i L2    200.110.255.236 [115/10] via 10.110.89.9, FastEthernet0/1
+     200.110.12.0/25 is subnetted, 1 subnets
+C       200.110.12.0 is directly connected, Loopback1
+B    128.45.0.0/16 [200/0] via 200.110.255.237, 00:11:22
+     200.110.13.0/25 is subnetted, 1 subnets
+i L2    200.110.13.0 [115/10] via 10.110.89.9, FastEthernet0/1
+     10.0.0.0/8 is variably subnetted, 10 subnets, 2 masks
+B       10.255.255.10/32 [200/0] via 200.110.255.237, 00:11:24
+C       10.255.255.8/32 is directly connected, Loopback0
+i L2    10.255.255.9/32 [115/10] via 10.110.89.9, FastEthernet0/1
+B       10.255.255.2/32 [200/0] via 200.110.255.237, 00:11:25
+B       10.255.255.3/32 [200/0] via 200.110.255.237, 00:11:25
+B       10.255.255.6/32 [200/0] via 200.110.255.237, 00:11:25
+B       10.255.255.7/32 [200/0] via 200.110.255.237, 00:11:25
+B       10.255.255.4/32 [200/0] via 200.110.255.237, 00:11:25
+B       10.255.255.5/32 [200/0] via 200.110.255.237, 00:11:25
+C       10.110.89.0/24 is directly connected, FastEthernet0/1
+B    200.33.0.0/16 [200/0] via 200.110.255.237, 00:11:25
+B    200.110.0.0/16 [200/0] via 200.110.255.237, 00:11:25
 
 
 
+R8#sh ip bgp
+BGP table version is 47, local router ID is 200.110.12.1
+Status codes: s suppressed, d damped, h history, * valid, > best, i - internal,
+              r RIB-failure, S Stale
+Origin codes: i - IGP, e - EGP, ? - incomplete
+
+   Network          Next Hop            Metric LocPrf Weight Path
+*>i10.255.255.2/32  200.110.255.237          0    100      0 110 i
+*>i10.255.255.3/32  200.110.255.237          0    100      0 110 i
+*>i10.255.255.4/32  200.110.255.237          0    100      0 110 i
+*>i10.255.255.5/32  200.110.255.237          0    100      0 110 4502 i
+*>i10.255.255.6/32  200.110.255.237          0    100      0 110 4502 330 i
+*>i10.255.255.7/32  200.110.255.237          0    100      0 110 4502 330 i
+*> 10.255.255.8/32  0.0.0.0                  0         32768 i
+r>i10.255.255.9/32  10.255.255.9             0    100      0 i
+*>i10.255.255.10/32 200.110.255.237          0    100      0 110 5005 i
+*>i128.45.0.0       200.110.255.237          0    100      0 110 4502 i
+*>i200.33.0.0/16    200.110.255.237          0    100      0 110 4502 330 i
+*>i200.110.0.0/16   200.110.255.237          0    100      0 110 i
+*>i223.255.255.0    200.110.255.237          0    100      0 110 5005 i
+\end{alltt}
+\end{small}
+}
 
 
 
@@ -1465,18 +1488,16 @@ Konfiguracia
 {\fontfamily{qcr}\selectfont
 \begin{small}
 \begin{alltt}
--urob aclko
-ip as-path access-list 1 permit ^$
-
-
-komunitou
-do COMUNITY routemapy na r10 dat:
-
-route-map OUT_110
+!R10
+route-map OUT_110 permit 10
   match as-path 1
-
-route-map OUT_330
+  et community 5005:110
+route-map OUT_330 permit 20
   match as-path 1
+  set community 5005:330
+router bgp 5005
+  neighbor 200.110.255.245 route-map OUT_110 out
+  neighbor 200.33.255.245 route-map OUT_330 out
 
 \end{alltt}
 \end{small}
@@ -1494,44 +1515,72 @@ route-map OUT_330
 \subsection{Peering iba pre ISP1 a ISP2, nie pre prefixy naučené z Upstream ISP}
 \subsubsection{Popis}
 \paragraph{}
+R2 nebude ohlasovat updaty z R1 do R5
+R6 nebude ohlasovat updaty z R1 do R5
 
 \subsubsection{Konfigurácia}
 \paragraph{}
 
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+R2 route map na R5
+match 3401 -> deny
+
+R6 route map na R5
+match 3401 -> deny
+match comunity 3401 deny
+\end{alltt}
+\end{small}
+}
+
+\paragraph{}
+problem bol ze ked siel ping z napr R10 na R1 tak siel cez R4 R2 R5 R6 R1
+treba zadat tieto prikazy aby to slo priamo do R1
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+R2(config)#route-map DENYR1 deny 10
+R2(config-route-map)#match community 1
+R2(config)#route-map DENYR1 permit 20
+router bgp 110
+ neighbor 200.110.255.254 route-map DENYR1 out
+clear
+
+
+R6
+ip community-list 1 permit 3401:65001
+route-map DENYR1 deny 10
+ match community 1
+route-map DENYR1 permit 20
+router bgp 330
+ nei 200.33.255.249 route-map DENYR1 out
+do clear ip bgp * out
+\end{alltt}
+\end{small}
+}
+
+\paragraph{}
+teraz bol problem ze ping siel od R10 do R4 R2 R5 R1
+preto bolo treba zadat do R2 takuto route-mapu
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+!R2
+route-map R1-R2 permit 5
+ match community 1
+ set local-preference 110
+\end{alltt}
+\end{small}
+}
+
 \subsubsection{Overenie}
 \paragraph{}
-
-
-
-
-
-
-
-\subsection{Overiť funkčnosť nastavenia politiky vhodnými výpadkami liniek a smerovačov}
-\subsubsection{Popis}
-\paragraph{}
-
-\subsubsection{Konfigurácia}
-\paragraph{}
-
-\subsubsection{Overenie}
-\paragraph{}
-
-
-
-
-
-
-
-\subsection{Overiť, či je možné odkloniť celú prevádzku (upstream, downstream) na linke R4−R10 v prípade plánovanej údržby (linka musí byť plne funkčna a BGP spojenie propaguje všetky prefixy)}
-\subsubsection{Popis}
-\paragraph{}
-
-\subsubsection{Konfigurácia}
-\paragraph{}
-
-\subsubsection{Overenie}
-\paragraph{}
-
+traceroute od R10 do R4 R2 R5 R1
 
 \end{document}

@@ -1,0 +1,287 @@
+primarna linka R4-R10
+---------------------------------
+toto presmeruje prevadzku cez r6
+
+R7(config)#route-map ROUTE1 permit 10
+R7(config-route-map)#mat
+R7(config-route-map)#match as
+R7(config-route-map)#match as-path 1
+R7(config-route-map)#mat
+R7(config-route-map)#match co
+R7(config-route-map)#match community 2
+R7(config-route-map)#set
+R7(config-route-map)#set lo
+R7(config-route-map)#set local-preference 65
+R7(config-route-map)#exit
+
+router bgp 330
+nei 200.33.255.246 route-map ROUTE1 in
+
+-----mozme si vsimnut ze prevadzka ide cez R6
+R7#sh ip bgp
+BGP table version is 23, local router ID is 10.255.255.7
+Status codes: s suppressed, d damped, h history, * valid, > best, i - internal,
+              r RIB-failure, S Stale
+Origin codes: i - IGP, e - EGP, ? - incomplete
+
+   Network          Next Hop            Metric LocPrf Weight Path
+*>i10.255.255.1/32  10.255.255.6             0    100      0 3401 i
+*>i10.255.255.2/32  10.255.255.6             0    100      0 4502 110 i
+*>i10.255.255.3/32  10.255.255.6             0    100      0 3401 110 i
+*>i10.255.255.4/32  10.255.255.6             0    100      0 4502 110 i
+*>i10.255.255.5/32  10.255.255.6             0    100      0 4502 i
+r>i10.255.255.6/32  10.255.255.6             0    100      0 i
+*> 10.255.255.7/32  0.0.0.0                  0         32768 i
+*>i10.255.255.8/32  10.255.255.6             0    100      0 4502 110 65001 i
+*>i10.255.255.9/32  10.255.255.6             0    100      0 4502 110 65001 i
+*>i10.255.255.10/32 10.255.255.6             0    100      0 3401 110 5005 i
+*>i64.34.0.0/16     10.255.255.6             0    100      0 3401 i
+*>i128.45.0.0       10.255.255.6             0    100      0 4502 i
+* i200.33.0.0/16    10.255.255.6             0    100      0 i
+*>                  0.0.0.0                            32768 i
+s> 200.33.7.0/25    0.0.0.0                  0         32768 i
+*>i200.110.0.0/16   10.255.255.6             0    100      0 4502 110 i
+*>i223.255.255.0    10.255.255.6             0    100      0 4502 110 5005 i
+
+----------------------------------------------
+nastavenie local preference podla dohody z cvika
+
+R6(config)#route-map R1-R6 permit 10
+R6(config-route-map)#set lo
+R6(config-route-map)#set local-preference 60
+R6(config-route-map)#exit
+R6(config)#route-map R5-R6 permit 10
+R6(config-route-map)#set lo
+R6(config-route-map)#set local-preference 70
+R6(config-route-map)#exit
+
+R6(config)#router bgp 330
+R6(config-router)#nei
+R6(config-router)#neighbor 200.33.255.249 ro
+R6(config-router)#neighbor 200.33.255.249 route-m
+R6(config-router)#neighbor 200.33.255.249 route-map R5
+R6(config-router)#neighbor 200.33.255.249 route-map R5-R6 in
+R6(config-router)#nei
+R6(config-router)#neighbor 200.33.255.253 ro
+R6(config-router)#neighbor 200.33.255.253 route-map R1-R6 in
+R6(config-router)#
+---
+R2
+route-map R1-R2 permit 10
+ set local-preference 60
+route-map R5-R2 permit 10
+ set local-preference 70
+
+router bgp 110
+neighbor 200.110.255.249 route-map R1-R2 in
+neighbor 200.110.255.254 route-map R5-R2 in
+
+
+R10(config)#route-map R4PREF permit 10
+R10(config-route-map)#set lo
+R10(config-route-map)#set local-preference 160
+router bgp 5005
+R10(config-router)#neighbor 200.110.255.245 route-map R4PREF in
+
+R5
+route-map R1LP permit 10
+ set local-preference 60
+router bgp 4502
+ neighbor 64.34.255.253 route-map R1LP in
+------------R3-r8
+R8(config)#route-map R3-R8 permit 10
+R8(config-route-map)#set local-preference 110
+
+R8(config)#router bgp 65001
+R8(config-router)#neighbor 10.255.255.9 route-map R3-R8 out
+--------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+distribuovat iba default, AS5005 a peering prefixy na naicene z upstream ISP
+
+R1 treba oznackovat routy
+route-map
+* out smery dat comunitu 3401:3401
+send community
+susedia by mali mat komunitu
+
+R3,R4 in - route-mapa
+ak obsahujes send comunity, neposielas to dalej
+
+overenie
+na r8
+neuvidim siete ktore su z R1 + uvidime default route smerom hore
+
+---config---
+R1
+route-map COM permit 10
+ set community 3401:65001
+
+router bgp 3401
+R1(config-router)# neighbor 200.110.255.250 send-community
+R1(config-router)# neighbor 200.33.255.254 send-community
+ neighbor 200.110.255.250 route-map COM out
+ neighbor 200.33.255.254 route-map COM out
+
+R2
+R2(config)#router bgp 110
+R2(config-router)#nei 10.110.23.3 send
+R2(config-router)#nei 10.110.23.3 send-c
+R2(config-router)#nei 10.110.23.3 send-community
+% Specify remote-as or peer-group commands first
+R2(config-router)#nei 10.255.255.3 send-community
+R2(config-router)#nei 10.255.255.4 send-community
+R2(config-router)#do clear ip bgp * out
+
+R3-R4
+ip bgp-community new-format
+----------------
+comunity list
+route-mapa deny
+
+comunity list permit 20
+
+R3(config)#ip community-list 1 permit 3401:65001
+
+R3(config)#route-map DEFAULT deny 10
+R3(config-route-map)#match co
+R3(config-route-map)#match community 1
+R3(config-route-map)#exit
+
+R3(config)#route-map DEFAULT permit 20
+
+R3(config)#router bgp 110
+R3(config-router)#neighbor 200.110.255.242 route-map DEFAULT out
+R3(config-router)#nei 200.110.255.242 default-originate
+
+---------------------------------------
+R4
+R4(config)#ip community-list 1 permit 3401:65001
+R4(config)#route-map DEFAULT deny 10
+R4(config-route-map)#match community 1
+R4(config-route-map)#exit
+R4(config)#route-map DEFAULT permit 20
+R4(config-route-map)#exit
+R4(config)#router bgp 110
+R4(config-router)#neighbor 200.110.255.238 route-map DEFAULT out
+ nei 200.110.255.238 default-originate
+
+R4(config-router)#do clear ip bgp * out
+
+------overenie
+R8 nevidim cestu do 10.255.255.1
+B    223.255.255.0/24 [200/0] via 200.110.255.237, 00:11:22
+     200.110.255.0/30 is subnetted, 2 subnets
+C       200.110.255.240 is directly connected, FastEthernet0/0
+i L2    200.110.255.236 [115/10] via 10.110.89.9, FastEthernet0/1
+     200.110.12.0/25 is subnetted, 1 subnets
+C       200.110.12.0 is directly connected, Loopback1
+B    128.45.0.0/16 [200/0] via 200.110.255.237, 00:11:22
+     200.110.13.0/25 is subnetted, 1 subnets
+i L2    200.110.13.0 [115/10] via 10.110.89.9, FastEthernet0/1
+     10.0.0.0/8 is variably subnetted, 10 subnets, 2 masks
+B       10.255.255.10/32 [200/0] via 200.110.255.237, 00:11:24
+C       10.255.255.8/32 is directly connected, Loopback0
+i L2    10.255.255.9/32 [115/10] via 10.110.89.9, FastEthernet0/1
+B       10.255.255.2/32 [200/0] via 200.110.255.237, 00:11:25
+B       10.255.255.3/32 [200/0] via 200.110.255.237, 00:11:25
+B       10.255.255.6/32 [200/0] via 200.110.255.237, 00:11:25
+B       10.255.255.7/32 [200/0] via 200.110.255.237, 00:11:25
+B       10.255.255.4/32 [200/0] via 200.110.255.237, 00:11:25
+B       10.255.255.5/32 [200/0] via 200.110.255.237, 00:11:25
+C       10.110.89.0/24 is directly connected, FastEthernet0/1
+B    200.33.0.0/16 [200/0] via 200.110.255.237, 00:11:25
+B    200.110.0.0/16 [200/0] via 200.110.255.237, 00:11:25
+
+R8 nevidim 10.255.255.1
+R8#sh ip bgp
+BGP table version is 47, local router ID is 200.110.12.1
+Status codes: s suppressed, d damped, h history, * valid, > best, i - internal,
+              r RIB-failure, S Stale
+Origin codes: i - IGP, e - EGP, ? - incomplete
+
+   Network          Next Hop            Metric LocPrf Weight Path
+*>i10.255.255.2/32  200.110.255.237          0    100      0 110 i
+*>i10.255.255.3/32  200.110.255.237          0    100      0 110 i
+*>i10.255.255.4/32  200.110.255.237          0    100      0 110 i
+*>i10.255.255.5/32  200.110.255.237          0    100      0 110 4502 i
+*>i10.255.255.6/32  200.110.255.237          0    100      0 110 4502 330 i
+*>i10.255.255.7/32  200.110.255.237          0    100      0 110 4502 330 i
+*> 10.255.255.8/32  0.0.0.0                  0         32768 i
+r>i10.255.255.9/32  10.255.255.9             0    100      0 i
+*>i10.255.255.10/32 200.110.255.237          0    100      0 110 5005 i
+*>i128.45.0.0       200.110.255.237          0    100      0 110 4502 i
+*>i200.33.0.0/16    200.110.255.237          0    100      0 110 4502 330 i
+*>i200.110.0.0/16   200.110.255.237          0    100      0 110 i
+*>i223.255.255.0    200.110.255.237          0    100      0 110 5005 i
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---peering iba pre ISP1 a ISP2, nie pre prefixy...----
+R2 nebude ohlasovat updaty z R1 do R5
+R6 nebude ohlasovat updaty z R1 do R5
+
+R2 route map na R5
+match 3401 -> deny
+
+R6 route map na R5
+match 3401 -> deny
+match comunity 3401 deny
+-----
+problem bol ze ked siel ping z napr R10 na R1 tak siel cez R4 R2 R5 R6 R1
+treba zadat tieto prikazy aby to slo priamo do R1
+
+R2(config)#route-map DENYR1 deny 10
+R2(config-route-map)#match community 1
+R2(config)#route-map DENYR1 permit 20
+router bgp 110
+ neighbor 200.110.255.254 route-map DENYR1 out
+clear
+
+
+R6
+ip community-list 1 permit 3401:65001
+route-map DENYR1 deny 10
+ match community 1
+route-map DENYR1 permit 20
+router bgp 330
+ nei 200.33.255.249 route-map DENYR1 out
+do clear ip bgp * out
+
+teraz bol problem ze ping siel od R10 do R4 R2 R5 R1
+preto bolo treba zadat do R2 takuto route-mapu
+R2
+route-map R1-R2 permit 5
+ match community 1
+ set local-preference 110
+
+
+
+
+testy vypadkov - zhadzovanie liniek
+
+!!! overenie odklonenia prevadzky - netreba robit !!!

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.2.18)  11 APR 2017 23:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.2.18)  23 APR 2017 09:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -332,18 +332,6 @@ ac[]^^Pch z[]aznamov
 Overfull \hbox (1.95355pt too wide) in paragraph at lines 56--56
  [][] []\OT1/ppl/m/n/12 Distribuovat[] iba de-fault, AS5005 a pe-e-ring pre-fix
 y do AS65001 []  
- []
-
-
-Overfull \hbox (1.84485pt too wide) in paragraph at lines 77--77
- [][] []\OT1/ppl/m/n/12 Overit[] funk[]cnost[] na-sta-ve-nia po-li-tiky vhodn[]
-ymi v[]ypadkami 
- []
-
-
-Overfull \hbox (11.9603pt too wide) in paragraph at lines 84--84
- \OT1/ppl/m/n/12 (linka mus[]^^P byt[] plne funk[]cna a BGP spo-je-nie pro-pa-g
-uje v[]setky 
  []
 
 )
@@ -1093,90 +1081,163 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [25]
 LaTeX Font Info:    Font shape `OML/ppl/m/n' in size <12> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 1213.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 1212.
 
-
-Overfull \hbox (420.73764pt too wide) in paragraph at lines 1227--1227
-[]\OT1/pcr/m/n/10.95 bud cez vahu, alebo route mapa local preference v smere OU
-T - updaty, ktore dostanem od r4 maju vyssiu local pref ako updaty z r7[] 
- []
 
 [26]
-Overfull \hbox (65.95807pt too wide) in paragraph at lines 1240--1240
-[]\OT1/pcr/m/n/10.95 match na komunitu z r10 a dame set local preference vyssi 
-ako default (110)[] 
- []
-
-
-Overfull \hbox (59.38808pt too wide) in paragraph at lines 1243--1243
-[]\OT1/pcr/m/n/10.95 match na komunitu z r10 a dame set local preference musi b
-yt medzi 60 a 70[] 
- []
-
-
-Overfull \hbox (105.37802pt too wide) in paragraph at lines 1250--1250
-[]\OT1/pcr/m/n/10.95 2 routemapy v smere in od susedov r2 a r6, v ktorej nastav
-im r2 vyssiu local pref[] 
- []
-
-
-Overfull \hbox (65.95807pt too wide) in paragraph at lines 1255--1255
-[]\OT1/pcr/m/n/10.95 pre router R10 v AS 5005 spravit linku ku R4 primarnu v sm
-ere von z AS 5005[] 
- []
-
-
-Overfull \hbox (295.90779pt too wide) in paragraph at lines 1262--1262
-[]\OT1/pcr/m/n/10.95 -route mapa local preference v smere OUT - updaty, ktore d
-ostanem od r4 maju vyssiu local pref ako updaty z r7[] 
- []
-
-
-Overfull \hbox (59.38808pt too wide) in paragraph at lines 1265--1265
-[]\OT1/pcr/m/n/10.95 NASTAVIME SIRENIE KOMUNITY STRINGU Z AS 5005 NA ROUTRE R2,
- R4, R5, R6 a R7[] 
- []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [27]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [28]
-Overfull \hbox (52.81808pt too wide) in paragraph at lines 1353--1353
-[]\OT1/pcr/m/n/10.95 Overime, ci sa komunity string odosiela (na routri inom ak
-o r10, napr r2)[] 
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 1311--1311
+[]\OT1/pcr/m/n/10.95 Status codes: s suppressed, d damped, h history, * valid, 
+> best,[] 
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [29]
-Overfull \hbox (72.52806pt too wide) in paragraph at lines 1389--1389
-[]\OT1/pcr/m/n/10.95 pre router R10 v AS 5005 spravit linku ku R4 primarnu v sm
-ere DNU do AS 5005[] 
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 1317--1317
+[]\OT1/pcr/m/n/10.95 *>i10.255.255.2/32  10.255.255.6         0    100      0 4
+502 110 i[] 
  []
 
 
-Overfull \hbox (19.36147pt too wide) in paragraph at lines 1441--1441
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 1318--1318
+[]\OT1/pcr/m/n/10.95 *>i10.255.255.3/32  10.255.255.6         0    100      0 3
+401 110 i[] 
+ []
+
+
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 1319--1319
+[]\OT1/pcr/m/n/10.95 *>i10.255.255.4/32  10.255.255.6         0    100      0 4
+502 110 i[] 
+ []
+
+
+Overfull \hbox (52.81808pt too wide) in paragraph at lines 1323--1323
+[]\OT1/pcr/m/n/10.95 *>i10.255.255.8/32  10.255.255.6         0    100      0 4
+502 110 65001 i[] 
+ []
+
+
+Overfull \hbox (52.81808pt too wide) in paragraph at lines 1324--1324
+[]\OT1/pcr/m/n/10.95 *>i10.255.255.9/32  10.255.255.6         0    100      0 4
+502 110 65001 i[] 
+ []
+
+
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 1325--1325
+[]\OT1/pcr/m/n/10.95 *>i10.255.255.10/32 10.255.255.6         0    100      0 3
+401 110 5005 i[] 
+ []
+
+
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 1331--1331
+[]\OT1/pcr/m/n/10.95 *>i200.110.0.0/16   10.255.255.6         0    100      0 4
+502 110 i[] 
+ []
+
+
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 1332--1332
+[]\OT1/pcr/m/n/10.95 *>i223.255.255.0    10.255.255.6         0    100      0 4
+502 110 5005 i[] 
+ []
+
+
+Overfull \hbox (19.36147pt too wide) in paragraph at lines 1340--1340
 []\OT1/ppl/b/n/14.4 Distribuovat[] iba de-fault, AS5005 a pe-e-ring pre-fixy do
  AS65001 
  []
 
-[30] [31]
-Overfull \hbox (13.03912pt too wide) in paragraph at lines 1510--1510
-[]\OT1/ppl/b/n/14.4 Overit[] funk^^Tcnost[] na-sta-ve-nia po-li-tiky vhodn[]ymi
- v[]ypadkami
+[28] [29]
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 1431--1431
+[]\OT1/pcr/m/n/10.95 i L2    200.110.255.236 [115/10] via 10.110.89.9, FastEthe
+rnet0/1[] 
  []
 
 
-Overfull \hbox (13.12337pt too wide) in paragraph at lines 1526--1526
-\OT1/ppl/b/n/14.4 do-wns-tream) na linke R4$\OMS/cmsy/m/n/14.4 ^^@$\OT1/ppl/b/n
-/14.4 R10 v pr^^S^^Ppade pl^^Sanovanej ^^Sudr[]zby
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 1440--1440
+[]\OT1/pcr/m/n/10.95 i L2    10.255.255.9/32 [115/10] via 10.110.89.9, FastEthe
+rnet0/1[] 
  []
 
-[32] (./dokumentacia_bgp_isis_vachalik_sisila.aux)
+
+Overfull \hbox (92.23804pt too wide) in paragraph at lines 1455--1455
+[]\OT1/pcr/m/n/10.95 Status codes: s suppressed, d damped, h history, * valid, 
+> best, i - internal,[] 
+ []
+
+[30]
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 1459--1459
+[]   \OT1/pcr/m/n/10.95 Network          Next Hop            Metric LocPrf Weig
+ht Path[] 
+ []
+
+
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1460--1460
+[]\OT1/pcr/m/n/10.95 *>i10.255.255.2/32  200.110.255.237          0    100     
+ 0 110 i[] 
+ []
+
+
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1461--1461
+[]\OT1/pcr/m/n/10.95 *>i10.255.255.3/32  200.110.255.237          0    100     
+ 0 110 i[] 
+ []
+
+
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1462--1462
+[]\OT1/pcr/m/n/10.95 *>i10.255.255.4/32  200.110.255.237          0    100     
+ 0 110 i[] 
+ []
+
+
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1463--1463
+[]\OT1/pcr/m/n/10.95 *>i10.255.255.5/32  200.110.255.237          0    100     
+ 0 110 4502 i[] 
+ []
+
+
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 1464--1464
+[]\OT1/pcr/m/n/10.95 *>i10.255.255.6/32  200.110.255.237          0    100     
+ 0 110 4502 330 i[] 
+ []
+
+
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 1465--1465
+[]\OT1/pcr/m/n/10.95 *>i10.255.255.7/32  200.110.255.237          0    100     
+ 0 110 4502 330 i[] 
+ []
+
+
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1468--1468
+[]\OT1/pcr/m/n/10.95 *>i10.255.255.10/32 200.110.255.237          0    100     
+ 0 110 5005 i[] 
+ []
+
+
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1469--1469
+[]\OT1/pcr/m/n/10.95 *>i128.45.0.0       200.110.255.237          0    100     
+ 0 110 4502 i[] 
+ []
+
+
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 1470--1470
+[]\OT1/pcr/m/n/10.95 *>i200.33.0.0/16    200.110.255.237          0    100     
+ 0 110 4502 330 i[] 
+ []
+
+
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1471--1471
+[]\OT1/pcr/m/n/10.95 *>i200.110.0.0/16   200.110.255.237          0    100     
+ 0 110 i[] 
+ []
+
+
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1472--1472
+[]\OT1/pcr/m/n/10.95 *>i223.255.255.0    200.110.255.237          0    100     
+ 0 110 5005 i[] 
+ []
+
+[31] [32] (./dokumentacia_bgp_isis_vachalik_sisila.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1195,7 +1256,7 @@ f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino
 /uplr8a.pfb>
-Output written on dokumentacia_bgp_isis_vachalik_sisila.pdf (32 pages, 173644 b
+Output written on dokumentacia_bgp_isis_vachalik_sisila.pdf (32 pages, 174093 b
 ytes).
 PDF statistics:
  129 PDF objects out of 1000 (max. 8388607)

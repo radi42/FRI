@@ -51,15 +51,15 @@
 \contentsline {paragraph}{}{26}
 \contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{26}
 \contentsline {paragraph}{}{26}
+\contentsline {subsubsection}{Overenie}{28}
+\contentsline {paragraph}{}{28}
+\contentsline {subsection}{\numberline {1.2.9}Distribuova\IeC {\v t} iba default, AS5005 a peering prefixy do AS65001}{28}
+\contentsline {subsubsection}{Popis}{28}
+\contentsline {paragraph}{}{28}
+\contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{29}
+\contentsline {paragraph}{}{29}
 \contentsline {subsubsection}{Overenie}{30}
 \contentsline {paragraph}{}{30}
-\contentsline {subsection}{\numberline {1.2.9}Distribuova\IeC {\v t} iba default, AS5005 a peering prefixy do AS65001}{31}
-\contentsline {subsubsection}{Popis}{31}
-\contentsline {paragraph}{}{31}
-\contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{31}
-\contentsline {paragraph}{}{31}
-\contentsline {subsubsection}{Overenie}{31}
-\contentsline {paragraph}{}{31}
 \contentsline {subsection}{\numberline {1.2.10}AS5005 nesme by\IeC {\v t} nikdy transit}{31}
 \contentsline {subsubsection}{Popis}{31}
 \contentsline {paragraph}{}{31}
@@ -70,21 +70,9 @@
 \contentsline {subsection}{\numberline {1.2.11}Peering iba pre ISP1 a ISP2, nie pre prefixy nau\IeC {\v c}en\IeC {\'e} z Upstream ISP}{31}
 \contentsline {subsubsection}{Popis}{31}
 \contentsline {paragraph}{}{31}
-\contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{31}
-\contentsline {paragraph}{}{31}
-\contentsline {subsubsection}{Overenie}{32}
-\contentsline {paragraph}{}{32}
-\contentsline {subsection}{\numberline {1.2.12}Overi\IeC {\v t} funk\IeC {\v c}nos\IeC {\v t} nastavenia politiky vhodn\IeC {\'y}mi v\IeC {\'y}padkami liniek a smerova\IeC {\v c}ov}{32}
-\contentsline {subsubsection}{Popis}{32}
-\contentsline {paragraph}{}{32}
 \contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{32}
 \contentsline {paragraph}{}{32}
-\contentsline {subsubsection}{Overenie}{32}
 \contentsline {paragraph}{}{32}
-\contentsline {subsection}{\numberline {1.2.13}Overi\IeC {\v t}, \IeC {\v c}i je mo\IeC {\v z}n\IeC {\'e} odkloni\IeC {\v t} cel\IeC {\'u} prev\IeC {\'a}dzku (upstream, downstream) na linke R4\IeC {\ensuremath {-}}R10 v pr\IeC {\'\i }pade pl\IeC {\'a}novanej \IeC {\'u}dr\IeC {\v z}by (linka mus\IeC {\'\i } by\IeC {\v t} plne funk\IeC {\v c}na a BGP spojenie propaguje v\IeC {\v s}etky prefixy)}{32}
-\contentsline {subsubsection}{Popis}{32}
-\contentsline {paragraph}{}{32}
-\contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{32}
 \contentsline {paragraph}{}{32}
 \contentsline {subsubsection}{Overenie}{32}
 \contentsline {paragraph}{}{32}
