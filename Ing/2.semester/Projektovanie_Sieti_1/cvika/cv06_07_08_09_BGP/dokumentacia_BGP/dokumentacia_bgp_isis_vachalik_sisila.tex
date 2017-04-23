@@ -1098,6 +1098,14 @@ r8 a r9 routemapa out na susedne routre v AS 110
 \paragraph{}
 ACLko \say{PREFER} sme mohli na R8 dať buď na suseda R3 v smere IN, alebo na suseda R9 v smere OUT, ale v takom prípade, keby sa do AS 65001 pridal další smerovač pripojený k R8, museli by sme routemapu aplikovať aj na rozhranie na R8, ktorým by bol nový smerovač pripojený ku R8.
 
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=14cm,keepaspectratio]{bgp_isis_r3_r8_primary}
+\caption{Topológia BGP}
+\label{fig:bgp_isis_topo}
+\end{figure}
+
+\newpage
 
 \subsubsection{Konfigurácia}
 \paragraph{}
@@ -1211,8 +1219,12 @@ show ip bgp 10.255.255.8
 \paragraph{}
 Záklazník 2 chce primárne využívať linku ku R4 pre vstup aj výstup t.j. ping z R5 na R7 nepôjde cez AS 330 (R5 -\textgreater{} R6 -\textgreater{} R7), ale cez \textbf{R5 -\textgreater{} R2 -\textgreater{} R4 -\textgreater{} R10 -\textgreater{} R7}. Rovnako aj v spätnom smere.
 
-\paragraph{}
-OBRAŽŽTEEEK (R4-R10) :D :D
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=14cm,keepaspectratio]{bgp_isis_r4_r10_primary}
+\caption{Topológia BGP}
+\label{fig:bgp_isis_topo}
+\end{figure}
 
 \subsubsection{Konfigurácia}
 \paragraph{}
@@ -1344,11 +1356,6 @@ R1 treba oznackovat routy. neuvidim siete ktore su z R1 + uvidime default route 
 
 \subsubsection{Konfigurácia}
 \paragraph{}
-
-\noindent
-{\fontfamily{qcr}\selectfont
-\begin{small}
-\begin{alltt}
 route-map
 * out smery dat comunitu 3401:3401
 send community
@@ -1357,59 +1364,57 @@ susedia by mali mat komunitu
 R3,R4 in - route-mapa
 ak obsahujes send comunity, neposielas to dalej
 
----config---
-R1
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+!R1
 route-map COM permit 10
- set community 3401:65001
-
+  set community 3401:65001
 router bgp 3401
-R1(config-router)# neighbor 200.110.255.250 send-community
-R1(config-router)# neighbor 200.33.255.254 send-community
- neighbor 200.110.255.250 route-map COM out
- neighbor 200.33.255.254 route-map COM out
+neighbor 200.110.255.250 send-community
+neighbor 200.33.255.254 send-community
+  neighbor 200.110.255.250 route-map COM out
+  neighbor 200.33.255.254 route-map COM out
 
-R2
+
+-------------------------------------------------------------
+
+
+!R2
 R2(config)#router bgp 110
-R2(config-router)#nei 10.110.23.3 send
-R2(config-router)#nei 10.110.23.3 send-c
-R2(config-router)#nei 10.110.23.3 send-community
-% Specify remote-as or peer-group commands first
-R2(config-router)#nei 10.255.255.3 send-community
-R2(config-router)#nei 10.255.255.4 send-community
-R2(config-router)#do clear ip bgp * out
+  neighbor 10.255.255.3 send-community
+  neighbor 10.255.255.4 send-community
+do clear ip bgp * out
 
-R3-R4
-ip bgp-community new-format
-----------------
-comunity list
-route-mapa deny
 
-comunity list permit 20
+-------------------------------------------------------------
 
+
+!R3
 R3(config)#ip community-list 1 permit 3401:65001
+route-map DEFAULT deny 10
+  match community 1
+  exit
+route-map DEFAULT permit 20
+router bgp 110
+  neighbor 200.110.255.242 route-map DEFAULT out
+  neighbor 200.110.255.242 default-originate
 
-R3(config)#route-map DEFAULT deny 10
-R3(config-route-map)#match co
-R3(config-route-map)#match community 1
-R3(config-route-map)#exit
 
-R3(config)#route-map DEFAULT permit 20
+-------------------------------------------------------------
 
-R3(config)#router bgp 110
-R3(config-router)#neighbor 200.110.255.242 route-map DEFAULT out
-R3(config-router)#nei 200.110.255.242 default-originate
 
----------------------------------------
-R4
-R4(config)#ip community-list 1 permit 3401:65001
-R4(config)#route-map DEFAULT deny 10
-R4(config-route-map)#match community 1
-R4(config-route-map)#exit
-R4(config)#route-map DEFAULT permit 20
-R4(config-route-map)#exit
-R4(config)#router bgp 110
-R4(config-router)#neighbor 200.110.255.238 route-map DEFAULT out
- nei 200.110.255.238 default-originate
+!R4
+ip community-list 1 permit 3401:65001
+route-map DEFAULT deny 10
+  match community 1
+  exit
+route-map DEFAULT permit 20
+exit
+router bgp 110
+  neighbor 200.110.255.238 route-map DEFAULT out
+  neighbor 200.110.255.238 default-originate
 
 R4(config-router)#do clear ip bgp * out
 \end{alltt}
@@ -1452,8 +1457,8 @@ B    200.110.0.0/16 [200/0] via 200.110.255.237, 00:11:25
 
 R8#sh ip bgp
 BGP table version is 47, local router ID is 200.110.12.1
-Status codes: s suppressed, d damped, h history, * valid, > best, i - internal,
-              r RIB-failure, S Stale
+Status codes: s suppressed, d damped, h history, * valid, > best, 
+              i - internal, r RIB-failure, S Stale
 Origin codes: i - IGP, e - EGP, ? - incomplete
 
    Network          Next Hop            Metric LocPrf Weight Path
@@ -1480,6 +1485,7 @@ r>i10.255.255.9/32  10.255.255.9             0    100      0 i
 \subsection{AS5005 nesme byť nikdy transit}
 \subsubsection{Popis}
 \paragraph{}
+Je nežiadúce, aby komunikácia medzi poskytovateľmi \say{ISP 1} a \say{ISP 2} prechádzala cez oblasť 5005 (Customer 2). Jednak by to bolo bezpečnostné riziko, a navyše by sme obmedzovali prenosovú rýchlosť zákazníka 2.
 
 \subsubsection{Konfigurácia}
 \paragraph{}
@@ -1505,7 +1511,7 @@ router bgp 5005
 
 \subsubsection{Overenie}
 \paragraph{}
-
+TODO - overit transit
 
 
 
@@ -1520,11 +1526,13 @@ R6 nebude ohlasovat updaty z R1 do R5
 
 \subsubsection{Konfigurácia}
 \paragraph{}
+TODO - na routri R5 nesedi konfiguracia routemap!
 
 \noindent
 {\fontfamily{qcr}\selectfont
 \begin{small}
 \begin{alltt}
+TODO - Treba konkretne prikazy
 R2 route map na R5
 match 3401 -> deny
 
@@ -1581,6 +1589,6 @@ route-map R1-R2 permit 5
 
 \subsubsection{Overenie}
 \paragraph{}
-traceroute od R10 do R4 R2 R5 R1
+TODO - traceroute od R10 do R4 R2 R5 R1
 
 \end{document}

@@ -41,38 +41,37 @@
 \contentsline {paragraph}{}{24}
 \contentsline {paragraph}{}{24}
 \contentsline {paragraph}{}{24}
-\contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{24}
-\contentsline {paragraph}{}{24}
+\contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{25}
+\contentsline {paragraph}{}{25}
 \contentsline {subsubsection}{Overenie}{26}
 \contentsline {paragraph}{}{26}
-\contentsline {subsection}{\numberline {1.2.8}Prim\IeC {\'a}rna linka R4\IeC {\ensuremath {-}}R10}{26}
-\contentsline {subsubsection}{Popis}{26}
-\contentsline {paragraph}{}{26}
-\contentsline {paragraph}{}{26}
-\contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{26}
-\contentsline {paragraph}{}{26}
-\contentsline {subsubsection}{Overenie}{28}
-\contentsline {paragraph}{}{28}
-\contentsline {subsection}{\numberline {1.2.9}Distribuova\IeC {\v t} iba default, AS5005 a peering prefixy do AS65001}{28}
-\contentsline {subsubsection}{Popis}{28}
-\contentsline {paragraph}{}{28}
-\contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{29}
+\contentsline {subsection}{\numberline {1.2.8}Prim\IeC {\'a}rna linka R4\IeC {\ensuremath {-}}R10}{27}
+\contentsline {subsubsection}{Popis}{27}
+\contentsline {paragraph}{}{27}
+\contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{27}
+\contentsline {paragraph}{}{27}
+\contentsline {subsubsection}{Overenie}{29}
 \contentsline {paragraph}{}{29}
-\contentsline {subsubsection}{Overenie}{30}
+\contentsline {subsection}{\numberline {1.2.9}Distribuova\IeC {\v t} iba default, AS5005 a peering prefixy do AS65001}{29}
+\contentsline {subsubsection}{Popis}{29}
+\contentsline {paragraph}{}{29}
+\contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{30}
 \contentsline {paragraph}{}{30}
-\contentsline {subsection}{\numberline {1.2.10}AS5005 nesme by\IeC {\v t} nikdy transit}{31}
-\contentsline {subsubsection}{Popis}{31}
-\contentsline {paragraph}{}{31}
-\contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{31}
-\contentsline {paragraph}{}{31}
 \contentsline {subsubsection}{Overenie}{31}
 \contentsline {paragraph}{}{31}
-\contentsline {subsection}{\numberline {1.2.11}Peering iba pre ISP1 a ISP2, nie pre prefixy nau\IeC {\v c}en\IeC {\'e} z Upstream ISP}{31}
-\contentsline {subsubsection}{Popis}{31}
-\contentsline {paragraph}{}{31}
+\contentsline {subsection}{\numberline {1.2.10}AS5005 nesme by\IeC {\v t} nikdy transit}{32}
+\contentsline {subsubsection}{Popis}{32}
+\contentsline {paragraph}{}{32}
 \contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{32}
-\contentsline {paragraph}{}{32}
-\contentsline {paragraph}{}{32}
 \contentsline {paragraph}{}{32}
 \contentsline {subsubsection}{Overenie}{32}
 \contentsline {paragraph}{}{32}
+\contentsline {subsection}{\numberline {1.2.11}Peering iba pre ISP1 a ISP2, nie pre prefixy nau\IeC {\v c}en\IeC {\'e} z Upstream ISP}{32}
+\contentsline {subsubsection}{Popis}{32}
+\contentsline {paragraph}{}{32}
+\contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{32}
+\contentsline {paragraph}{}{32}
+\contentsline {paragraph}{}{33}
+\contentsline {paragraph}{}{33}
+\contentsline {subsubsection}{Overenie}{33}
+\contentsline {paragraph}{}{33}
