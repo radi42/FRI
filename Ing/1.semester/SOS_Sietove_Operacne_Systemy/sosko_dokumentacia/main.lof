@@ -24,38 +24,46 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {7}{\ignorespaces Konfigur\IeC {\'a}cia NTP servera\relax }}{16}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {8}{\ignorespaces Konfigur\IeC {\'a}cia NTP na klientovi\relax }}{16}
+\contentsline {figure}{\numberline {8}{\ignorespaces Konfigur\IeC {\'a}cia NTP na klientovi\relax }}{17}
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {9}{\ignorespaces Kontrola extern\IeC {\'y}ch NTP serverov\relax }}{17}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {10}{\ignorespaces Stav synchroniz\IeC {\'a}cie s NTP serverom\relax }}{17}
+\contentsline {figure}{\numberline {10}{\ignorespaces Stav synchroniz\IeC {\'a}cie s NTP serverom\relax }}{18}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {11}{\ignorespaces Konfigura\IeC {\v c}n\IeC {\'y} s\IeC {\'u}bor webstr\IeC {\'a}nky\relax }}{19}
+\contentsline {figure}{\numberline {11}{\ignorespaces Konfigura\IeC {\v c}n\IeC {\'y} s\IeC {\'u}bor webstr\IeC {\'a}nky\relax }}{20}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {12}{\ignorespaces Preh\IeC {\v l}ad konfigura\IeC {\v c}n\IeC {\'y}ch s\IeC {\'u}borov webstr\IeC {\'a}nok\relax }}{19}
+\contentsline {figure}{\numberline {12}{\ignorespaces Preh\IeC {\v l}ad konfigura\IeC {\v c}n\IeC {\'y}ch s\IeC {\'u}borov webstr\IeC {\'a}nok\relax }}{20}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {13}{\ignorespaces Joomla (zaciatok instalacie)\relax }}{21}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {14}{\ignorespaces Joomla (instalacia MySQL)\relax }}{22}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {15}{\ignorespaces Joomla (kontrola nastaveni)\relax }}{23}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {16}{\ignorespaces Joomla (dokoncenie instalacie)\relax }}{24}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {13}{\ignorespaces Server Manager\relax }}{26}
+\contentsline {figure}{\numberline {17}{\ignorespaces Server Manager\relax }}{30}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {14}{\ignorespaces In\IeC {\v s}tal\IeC {\'a}cia DHCP, DNS a IIS\relax }}{26}
+\contentsline {figure}{\numberline {18}{\ignorespaces In\IeC {\v s}tal\IeC {\'a}cia DHCP, DNS a IIS\relax }}{30}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {15}{\ignorespaces Sp\IeC {\^o}sob in\IeC {\v s}tal\IeC {\'a}cie novej role pre Windows Server\relax }}{27}
+\contentsline {figure}{\numberline {19}{\ignorespaces Sp\IeC {\^o}sob in\IeC {\v s}tal\IeC {\'a}cie novej role pre Windows Server\relax }}{31}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {16}{\ignorespaces Nain\IeC {\v s}talovan\IeC {\'e} role pre syst\IeC {\'e}m Windows Server\relax }}{27}
+\contentsline {figure}{\numberline {20}{\ignorespaces Nain\IeC {\v s}talovan\IeC {\'e} role pre syst\IeC {\'e}m Windows Server\relax }}{31}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {17}{\ignorespaces DNS z\IeC {\'a}znamy\relax }}{29}
+\contentsline {figure}{\numberline {21}{\ignorespaces DNS z\IeC {\'a}znamy\relax }}{33}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {18}{\ignorespaces Konfigur\IeC {\'a}cia DHCP\relax }}{30}
+\contentsline {figure}{\numberline {22}{\ignorespaces Konfigur\IeC {\'a}cia DHCP\relax }}{34}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {19}{\ignorespaces In\IeC {\v s}tal\IeC {\'a}cia webov\IeC {\'e}ho servera IIS\relax }}{31}
+\contentsline {figure}{\numberline {23}{\ignorespaces In\IeC {\v s}tal\IeC {\'a}cia webov\IeC {\'e}ho servera IIS\relax }}{35}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {20}{\ignorespaces Zdrojov\IeC {\'y} k\IeC {\'o}d str\IeC {\'a}nky "web2"\relax }}{32}
+\contentsline {figure}{\numberline {24}{\ignorespaces Zdrojov\IeC {\'y} k\IeC {\'o}d str\IeC {\'a}nky "web2"\relax }}{36}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {21}{\ignorespaces Uk\IeC {\'a}\IeC {\v z}ka webov\IeC {\'y}ch str\IeC {\'a}nok "web1" (vpravo) a "web2" (v\IeC {\v l}avo)\relax }}{32}
+\contentsline {figure}{\numberline {25}{\ignorespaces Uk\IeC {\'a}\IeC {\v z}ka webov\IeC {\'y}ch str\IeC {\'a}nok "web1" (vpravo) a "web2" (v\IeC {\v l}avo)\relax }}{36}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {22}{\ignorespaces In\IeC {\v s}tal\IeC {\'a}cia po\IeC {\v s}tov\IeC {\'e}ho servera MainEnable\relax }}{33}
+\contentsline {figure}{\numberline {26}{\ignorespaces In\IeC {\v s}tal\IeC {\'a}cia po\IeC {\v s}tov\IeC {\'e}ho servera MainEnable\relax }}{37}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {23}{\ignorespaces Povolenie vzdialen\IeC {\'e}ho pr\IeC {\'\i }stupu\relax }}{33}
+\contentsline {figure}{\numberline {27}{\ignorespaces Povolenie vzdialen\IeC {\'e}ho pr\IeC {\'\i }stupu\relax }}{37}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }

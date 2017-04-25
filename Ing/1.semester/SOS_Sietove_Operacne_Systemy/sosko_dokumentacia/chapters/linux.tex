@@ -217,14 +217,7 @@ V prípade, že sa vyskytli problémy, skúšali sme vypnúť firewall, kontrolo
 Výnimky pre DNS vo firewall-e sú uvedené v kapitole \say{Firewall}.
 
 \paragraph{}
-TODO - chyba vam aj overenie master/sôave klucmi, to nemate vobec popsaine
-TODO - Toto netsaci, viwes mali byt vsade aj pre default zony, dorrobit
-\\
-\\
-\noindent
-Zdroje:\\
-\noindent
-https://www.howtoforge.com/two\_in\_one\_dns\_bind9\_views\\
+Pre správne fungovanie SLAVE DNS servera pri výpadku MASTER DNS treba SLAVE server autentifikovať voči MASTER serveru kľúčom (viď obr. \ref{dns_views}). Potrebujeme editovať súbor \say{/etc/bind/named.conf.options}. V lokálnej zóne do časti \say{match-clients} pridáme záznam \say{!key fero}, čím vypneme lokálnu autentifikáciu SLAVE servera, pretože lokálne SLAVE server vedel resolvovať. Vo verejnej zóne sme do \say{match-clients} museli pridať záznam \say{key fero}, aby sa zvonku vedel SLAVE server autentifikovať MASTER DNS serveru kľúčom. Kľúč sme generovali rovnako, ako v kapitole \say{Web server} pre HTTPS.
 
 \begin{figure}[!htb]
 \centering
@@ -275,10 +268,13 @@ apt-get install isc-dhcp-server vlan
 }
 
 \paragraph{}
-Potom sme editovali súbor \say{/etc/network/interfaces} tak, že sme odstránili adresné informácie z vnútorného interfacu eth1, ale nechali sme \say{auto eth1}, aby sa port zapol (UP). Následne sme pridali subinterface eth1.10 pre VLAN 10 (servery) a eth1.20 pre VLAN 20 (desktopy). Adresný rozsah pre jednotlivé VLAN bola sieť 192.168.0.0/24 rozdelená na dve /25 siete: 192.168.0.0 - 192.168.0.127 pre VLAN 10 a 192.168.0.128 - 192.168.0.255 pre VLAN 20
+Potom sme editovali súbor \say{/etc/network/interfaces} tak, že sme odstránili adresné informácie z vnútorného interfacu eth1, ale nechali sme \say{auto eth1}, aby sa port zapol (UP). Následne sme pridali subinterface eth1.10 pre VLAN 10 (servery) a eth1.20 pre VLAN 20 (desktopy). Adresný rozsah pre jednotlivé VLAN bola sieť 192.168.0.0/24 rozdelená na dve /25 siete: 192.168.0.0 - 192.168.0.127 pre VLAN 10 a 192.168.0.128 - 192.168.0.255 pre VLAN 20.
 
 \paragraph{}
-FW plní úlohu DHCP Relay servera. Všetky DHCP požiadavky od klientov prechá\-dzajú cez FW ku DHCP serveru, ktorý pridelí klientovi IP adresu a ďalšie nakonfigurované informácie. Týmto spôsobom je FW zodpovedný iba za filtrovanie premávky a server za služby poskytované na sieti. IP adresa DHCP servera sa do konfiguračného súboru \say{/etc/default/isc-dhcp-relay} DHCP relay agenta musí zadať BEZ úvodzoviek a musíme počúvať na obidvoch podrozhraniach t.j. eth1.10 aj eth1.20. Konfigurácia DHCP Relay servera je uvedená nižšie.
+Uvedenému popisu zodpovedá aj konfiguračný súbor pre DHCP server. Na Serveri 2 sme upravovali súbor \say{/etc/default/isc-dhcp-server}. Definovali sme dva adresné rozsahy: jeden pre servery, druhý pre klientov. Prvý rozsah sme iba definovali, pretože v ňom máme servery so statickými IP adresami. Pre druhý rozsah sme nastavovali parametre ako napr. rozsah prideľovaných adries (\say{range} od 192.168.0.130 - 254), maska (\say{option subnet-mask} - 255.255.255.128), broadcast adresu (\say{option broadcast-address} - 192.168.0.255), predvolenú bránu (\say{option routers} - 192.168.0.129) a IP adresu DNS servera (\say{192.168.0.2}).
+
+\paragraph{}
+FW plní úlohu DHCP Relay servera. Všetky DHCP požiadavky od klientov prechá\-dzajú cez FW ku DHCP serveru, ktorý pridelí klientovi IP adresu a ďalšie nakonfigurované informácie. Týmto spôsobom je FW zodpovedný iba za filtrovanie premávky a server za služby poskytované na sieti. IP adresa DHCP servera sa do konfiguračného súboru \say{/etc/default/isc-dhcp-relay} DHCP relay agenta musí zadať ku atribútu \say{SERVERS} BEZ úvodzoviek. Musíme počúvať nielen na podrozhraní, na ktoré sú pripojení klienti, ale aj na podrozhraní, na ktoré je pripojený aj DHCP server t.j. eth1.10 aj eth1.20, ktoré sú definované v atribúte \say{INTERFACES}. Konfiguračný súbor DHCP Relay servera je uvedená nižšie.
 
 \noindent
 {\fontfamily{qcr}\selectfont
@@ -316,10 +312,11 @@ OPTIONS=""
 }
 
 \paragraph{}
-Výnimky pre DHCP vo firewall-e sú uvedené v kapitole \say{Firewall}.
+Samotná konfigurácia DHCP
 
 \paragraph{}
-TODO - Konifg nie je vobec popisany---dorobit prerobit
+Výnimky pre DHCP vo firewall-e sú uvedené v kapitole \say{Firewall}.
+
 
 \begin{figure}[!htb]
 \centering
@@ -343,6 +340,8 @@ apt-get install ntp
 \end{small}
 }
 
+\paragraph{}
+V súbore na serveri s2 \say{/etc/ntp.conf} sme pridali slovenské servery zo stránky \say{www.pool.ntp.org/zone/sk}, ostatné servery sme zakomentovali. 
 
 \paragraph{}
 Na klientoch sme nainštalovali NTP pomocou príkazu
@@ -359,13 +358,10 @@ apt-get install ntp ntpdate
 \end{small}
 }
 
-\paragraph{}
-V súbore na serveri s2 \say{/etc/ntp.conf} sme pridali slovenské servery zo stránky \say{www.pool.ntp.org/zone/sk}, ostatné servery sme zakomentovali. Klienti si následne z master serveru aktualizujú čas.
-\paragraph{}
-Výnimky pre NTP vo firewall-e sú uvedené v kapitole \say{Firewall}.
+Upravovali sme súbor \say{/etc/ntp.conf}. V ňom sme definovali, pre aké adresné rozsahy sa má čas synchronizovať a z akého servera sa má získavať. Po reštarte NTP služby na serveri aj klientoch príkazom \say{service ntp restart} si klienti z serveru 2 aktualizujú čas.
 
 \paragraph{}
-TODO - Konfig ntp klienta bol aky? Kto je ntp masdter pre firmu s2?
+Výnimky pre NTP vo firewall-e sú uvedené v kapitole \say{Firewall}.
 
 \begin{figure}[!htb]
 \centering
@@ -397,13 +393,16 @@ TODO - Konfig ntp klienta bol aky? Kto je ntp masdter pre firmu s2?
 
 \section{Web server}
 \paragraph{}
-Apache HTTP Server je softwarový webový server s Opensource licenciou pre Linux, BSD, Microsoft Windows a iné platformy.
+Apache HTTP Server je multiplatformový webový server s opensource licenciou.
+
 \paragraph{}
 PHP (PHP: Hypertext Preprocessor) je populárny opensource skriptovací jazyk, ktorý sa používa najmä na programovanie klient-server aplikácií (na strane servera) a pre vývoj dynamických webových stránok.
+
 \paragraph{}
 MySQL je slobodný a otvorený viacvláknový, viacužívateľský SQL relačný databázový server. MySQL je podporovaný na viacerých platformách (ako Linux, Windows či Solaris) a je implementovaný vo viacerých programovacích jazykoch ako PHP, C++ či Perl. Databázový systém je relačný, typu DBMS (database management system). Každá databáza je v MySQL tvorená z jednej alebo z viacerých tabuliek, ktoré majú riadky a stĺpce. V riadkoch sa rozoznávajú jednotlivé záznamy, stĺpce udávajú dátový typ jednotlivých záznamov, pracuje sa s nimi ako s poľami. Práca s MySQL databázou je vykonávaná pomocou takzvaných dotazov, ktoré vychádzajú z programovacieho jazyka SQL (StructuredQueryLanguage).
+
 \paragraph{}
-Na webový server sme použili apache. Apache HTTP Server je softwarový webový server s Opensource licenciou pre Linux, BSD, Microsoft Windows a iné platformy. V dnešnej dobe je najrozšírenejším na celom svete. Pre plnú fukncionalitu webového servera sme museli nainštalovať apache, mysql, php príkazom
+Na webový server sme použili apache. Apache HTTP Server je softwarový webový server s Opensource licenciou pre Linux, BSD, Microsoft Windows a iné platformy. V dnešnej dobe je najrozšírenejším na celom svete. Pre plnú fukncionalitu webového servera sme museli nainštalovať nainštalovaťapache, mysql, php pomocou príkazov.
 
 \noindent
 {\fontfamily{qcr}\selectfont
@@ -416,14 +415,14 @@ apt-get install apache2 mysql php5
 \end{small}
 }
 
-\paragraph{}
-TODO - Akosa instaloval mysql..co sa pytal?
+Pri mysql inštalácii nás inštalátor vyzve pre zadanie hesla ku root používateľovi, ktoré potom použijeme pri inštalácii joomly a mediawiki. Funkcionalitu webového servera upravujeme pomocou tzv. modulov. Jednotlivé moduly sú v priečinku /etc/apache2/mods-availavle. Moduly sa aktivujú/deaktivujú pomocou príkazov a2enmod/a2dismod názov 
+V adresári /var/www/ sme vytvorili priečinky s názvami web1 a web2. Kde web1 a web2 predstavovali dva virutálne webové servery. Následne sme v etc/apache2/sites-available 003-wiki.sos3.local.conf sme pridali cestu ku web stránke /var/www/web1 a ServerName web2.sos3.local. Pre joomlu v súbore 002-joomla.sos3.local.conf sme pridali cestu k adresaru ked uz DocumentRoot /var/www/web1 a ServerName web1.sos3.local
 
 \paragraph{}
 V adresári /var/www/ sme vytvorili priečinky s názvami web1 a web2. Kde web1 a web2 predstavovali dva virutálne webové servery. Následne sme v etc/apache2/sites-available 003-wiki.sos3.local.conf sme pridali cestu ku web stránke /var/www/web1 a ServerName web2.sos3.local. Pre joomlu v súbore 002-joomla.sos3.local.conf sme pridlai cestu k adresaru DocumentRoot /var/www/web1 a ServerName\\ web1.sos3.local . Následne do DNS záznamov sme museli pridať:	
 
 \paragraph{}
-pre súbor \say{db.sos1.local}
+pre súbor \say{db.sos1.local}:
 
 \noindent
 {\fontfamily{qcr}\selectfont
@@ -443,7 +442,7 @@ web2 IN A 192.168.0.4
 }
 
 \paragraph{}
-a pre súbor \say{db.sos1.public}
+a pre súbor \say{db.sos1.public}:
 
 \noindent
 {\fontfamily{qcr}\selectfont
@@ -456,19 +455,6 @@ web2 IN A 158.193.139.74
 \end{verbatim}
 \end{small}
 }
-
-
-\paragraph{}
-TODO - A2ensite chyba...t.j. sites-available je nanic bez sites-enabled
-
-
-\subsection{Joomla}
-\paragraph{}
-V priečinku /var/www/web2 sme stiahli joomlu verziu 3.6 pomocou príkazu \say{wget https://github.com/.../Joomla\_3.6.0-Stable-Full\_Package.zip} . V ďalšom kroku sme odzipovali tento súbor príkazom \say{unzip Joomla\_3.6.0-Stable-Full\_Package.zip} . Nás\-ledne sme v prehliadači otvorili web1.sos3.local a podľa príslušných krokov sme nainštalovali joomlu.
-
-\subsection{Mediawiki}
-\paragraph{}
-V priečinku var/www/web1 sme stiahli Wikimedia pomocou príkazu\\ \say{wget https://www.mediawiki.org/wiki/Download/mediawiki-1.2.8.zip} . Následne sme odzipovali tento súbor príkazom \say{unzip mediawiki-1.2.8.zip} . A v poslednom kroku sme v prehliadači web2.sos3.local nainštalovali mediawiki.
 
 \paragraph{}
 Výnimky pre webový server vo firewall-e sú uvedené v kapitole \say{Firewall}.
@@ -486,6 +472,109 @@ Výnimky pre webový server vo firewall-e sú uvedené v kapitole \say{Firewall}
 \caption{Prehľad konfiguračných súborov webstránok}
 \label{fig:web_config_files_list}
 \end{figure}
+
+\subsection{Joomla}
+\paragraph{}
+Najprv je potrebné prejsť do priečinku \say{/var/www/Joomla} a následne stiahneme Joomlu 3.6.2 a potom ju odzipujeme.
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{verbatim}
+wget https://github.com/joomla/joomla-cms/releases/download/3.6.2/Joomla_3.6.2-Stable-Full_Package.zip
+unzip Joomla_3.6.2-Stable-Full_Package.zip
+\end{verbatim}
+\end{small}
+}
+
+\paragraph{}
+Taktiež je potrebné nastaviť práva a vlastníctvo pre celý adresár Joomla a nastaviť práva pre súbory a adresáre.
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{verbatim}
+chown -R www-data:www-data /var/www/joomla
+find /var/www/joomla -type f -exec chmod 0644 {} \;
+find /var/www/joomla -type d -exec chmod 0755 {} \;
+\end{verbatim}
+\end{small}
+}
+
+\paragraph{}
+Po týchto krokoch sa môžem pustiť do inštalácie Joomly. Do prehliadača zadáme \say{http://localhost} a prehliadač nás presmeruje na Inštaláciu Joomly 3.6.2.
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=14cm]{linux_web_joomla_1}
+\caption{ Joomla (zaciatok instalacie)}
+\label{fig:web_joomla_begin}
+\end{figure}
+
+\paragraph{}
+Zvolíme jazyk aký chceme, odporúčaný je anglický jazyk, pretože pri slovenskom jazyku občas vyhadzovalo chybu. Jazyk je potom možné zmeniť v administrácii Joomla. Ďalej je potrebné nastaviť admin email, username, password a confirm password. Tieto údaje si treba zapísať, lebo práve týmito údajmi sa prihlasuje do Administračnej časti Joomla.
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=14cm]{linux_web_joomla_2}
+\caption{Joomla (instalacia MySQL)}
+\label{fig:web_joomla_mysql}
+\end{figure}
+
+\paragraph{}
+V ďalšej záložke \say{Database} nastavíme údaje, ktoré spoja Joomlu a databázu mysql. Je potrebné zadať údaje username a password, ktoré sme navolili pri inštalácii mysql, poprípade je možné ich zmeniť. Ak máme vytvorenú databázu vložíme meno databázy, ak ju nemáme vytvorenú pri inštalácii nám ju automaticky vytvorí. Prefix je predpona tabuliek, zvolíme podľa uváženia. Ftp záložku preskočíme, keďže sme ftp prístup ešte neinštalovali. Nakoniec v záložke overview skontrolujeme údaje. 
+
+\newpage
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=14cm]{linux_web_joomla_3}
+\caption{Joomla (kontrola nastaveni)}
+\label{fig:web_joomla_check}
+\end{figure}
+
+\paragraph{}
+Je potrebné aby všetky pre-installation check boli Yes, inak bude inštalácia neúspešná. Stretol som sa s chybou Mcrypt support, vtedy je potrebné doinštalovať \\say{mcrypt} pomocou príkazu:
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{verbatim}
+apt-get install php5-mcrypt
+\end{verbatim}
+\end{small}
+}
+
+\paragraph{}
+Po týchto krokoch môžeme stlačiť tlačidlo install. Po úspešnej inštalácii uvidíme správu o dokončení inštalácie.
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=14cm]{linux_web_joomla_4}
+\caption{Joomla (dokoncenie instalacie)}
+\label{fig:web_joomla_finish}
+\end{figure}
+
+\paragraph{}
+Je potrebné zmazať inštalačný adresár. Je to možné kliknutím na tlačidlo \say{remove installation folder}, alebo ho môžeme vymazať ručne v adresári say{/var/www/Joomla/installation}.
+
+\subsection{Mediawiki}
+\paragraph{}
+Do adresára \say{var/www/web2} sme stiahli Wikimedia archív týmito príkazmi
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{verbatim}
+wget https://www.mediawiki.org/wiki/Download/mediawiki-1.2.8.zip
+unzip mediawiki-1.2.8.zip
+rm mediawiki-1.2.8.zip
+\end{verbatim}
+\end{small}
+}
+
+\paragraph{}
+Nakoniec sme v prehliadači na adreseweb2.sos3.local nainštalovali mediawiki.
 
 \section{Poštový server}
 \paragraph{}
@@ -505,10 +594,15 @@ apt-get install postfix
 }
 
 \paragraph{}
-Prešli sme inštaláciou kde sme nastavili hostname sos3.local. Následne sme museli reštar\-tovať postfixservicepostfixrestart. V súbore /etc/postfix/main.cf je potrebné upraviť myhostname = sos3.local, odkomentovať\\
-\paragraph{}
-TODO - pridat konfiguraky a obrazky
-TODO - Toto nieje uplne ani zdaleka
+Prejdeme inštaláciou, kde sme nastavili hostname na \say{sos3.local}. Následne sme museli reštartovať postfix \say{service postfix restart}. V súbore \say{/etc/postfix/main.cf} je potrebné upraviť \say{myhostname = sos3.local}, odkomentovať \say{myorigin = \$myhostname}. Taktiež bolo potrebné odkomentovať \say{inet\_interfaces = all} a \say{inet\_protocols = all} a pridať \say{mynetworks = 192.168.0.0/24}. \say{Mail\_spool\_directory = /var/spool/mail} je cesta ku mailom pre administrátora. Následne nám po reštarte servera vypísalo started postfix: ok.
+
+
+
+
+
+
+
+
 
 \section{Firewall}
 \paragraph{}

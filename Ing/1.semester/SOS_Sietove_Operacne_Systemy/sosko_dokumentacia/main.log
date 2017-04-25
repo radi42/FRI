@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.2.18)  3 MAR 2017 12:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.2.18)  25 APR 2017 22:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -805,72 +805,63 @@ adu (vid[] obr. 2[])Preklad dom^^Senov^^Sych
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 220--228
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 220--228
-
- []
+LaTeX Warning: Reference `dns_views' on page 11 undefined on input line 220.
 
 <images/linux_master_local.jpeg, id=43, 542.025pt x 301.125pt>
 File: images/linux_master_local.jpeg Graphic file (type jpg)
 
 <use images/linux_master_local.jpeg>
-Package pdftex.def Info: images/linux_master_local.jpeg used on input line 231.
+Package pdftex.def Info: images/linux_master_local.jpeg used on input line 224.
 
+(pdftex.def)             Requested size: 428.19505pt x 237.88612pt.
+
+Overfull \hbox (1.40372pt too wide) in paragraph at lines 224--225
+ [][] 
+ []
+
+[11] <images/linux_master_external.jpeg, id=47, 542.025pt x 301.125pt>
+File: images/linux_master_external.jpeg Graphic file (type jpg)
+
+<use images/linux_master_external.jpeg>
+Package pdftex.def Info: images/linux_master_external.jpeg used on input line 2
+31.
 (pdftex.def)             Requested size: 428.19505pt x 237.88612pt.
 
 Overfull \hbox (1.40372pt too wide) in paragraph at lines 231--232
  [][] 
  []
 
-<images/linux_master_external.jpeg, id=44, 542.025pt x 301.125pt>
-File: images/linux_master_external.jpeg Graphic file (type jpg)
+<images/linux_dns_views.jpeg, id=48, 542.025pt x 301.125pt>
+File: images/linux_dns_views.jpeg Graphic file (type jpg)
 
-<use images/linux_master_external.jpeg>
-Package pdftex.def Info: images/linux_master_external.jpeg used on input line 2
-38.
+<use images/linux_dns_views.jpeg>
+Package pdftex.def Info: images/linux_dns_views.jpeg used on input line 238.
 (pdftex.def)             Requested size: 428.19505pt x 237.88612pt.
 
 Overfull \hbox (1.40372pt too wide) in paragraph at lines 238--239
  [][] 
  []
 
-<images/linux_dns_views.jpeg, id=45, 542.025pt x 301.125pt>
-File: images/linux_dns_views.jpeg Graphic file (type jpg)
+<images/linux_named_options.jpeg, id=49, 542.025pt x 301.125pt>
+File: images/linux_named_options.jpeg Graphic file (type jpg)
 
-<use images/linux_dns_views.jpeg>
-Package pdftex.def Info: images/linux_dns_views.jpeg used on input line 245.
+<use images/linux_named_options.jpeg>
+Package pdftex.def Info: images/linux_named_options.jpeg used on input line 245
+.
 (pdftex.def)             Requested size: 428.19505pt x 237.88612pt.
 
 Overfull \hbox (1.40372pt too wide) in paragraph at lines 245--246
  [][] 
  []
 
-<images/linux_named_options.jpeg, id=46, 542.025pt x 301.125pt>
-File: images/linux_named_options.jpeg Graphic file (type jpg)
-
-<use images/linux_named_options.jpeg>
-Package pdftex.def Info: images/linux_named_options.jpeg used on input line 252
-.
-(pdftex.def)             Requested size: 428.19505pt x 237.88612pt.
-
-Overfull \hbox (1.40372pt too wide) in paragraph at lines 252--253
- [][] 
- []
-
-[11] [12 <./images/linux_master_local.jpeg> <./images/linux_master_external.jpe
-g>] [13 <./images/linux_dns_views.jpeg> <./images/linux_named_options.jpeg>]
-Overfull \hbox (2.17676pt too wide) in paragraph at lines 281--282
+[12 <./images/linux_master_local.jpeg> <./images/linux_master_external.jpeg>]
+[13 <./images/linux_dns_views.jpeg> <./images/linux_named_options.jpeg>]
+Overfull \hbox (2.17676pt too wide) in paragraph at lines 277--278
  [] \OT1/cmr/m/n/12 FW pln^^S^^P ^^Sulohu DHCP Re-lay ser-vera. V^^Tsetky DHCP 
 po^^Tziadavky od kli-en-tov prech^^Sa-
  []
 
-[14
-
-] <images/linux_dhcp.jpeg, id=60, 542.025pt x 301.125pt>
+[14] <images/linux_dhcp.jpeg, id=60, 542.025pt x 301.125pt>
 File: images/linux_dhcp.jpeg Graphic file (type jpg)
 
 <use images/linux_dhcp.jpeg>
@@ -887,10 +878,10 @@ File: images/linux_ntp_konfiguracia_server.jpeg Graphic file (type jpg)
 
 <use images/linux_ntp_konfiguracia_server.jpeg>
 Package pdftex.def Info: images/linux_ntp_konfiguracia_server.jpeg used on inpu
-t line 366.
+t line 368.
 (pdftex.def)             Requested size: 428.19505pt x 237.88612pt.
 
-Overfull \hbox (1.40372pt too wide) in paragraph at lines 366--367
+Overfull \hbox (1.40372pt too wide) in paragraph at lines 368--369
  [][] 
  []
 
@@ -899,10 +890,10 @@ File: images/linux_ntp_konfiguracia_klient.jpeg Graphic file (type jpg)
 
 <use images/linux_ntp_konfiguracia_klient.jpeg>
 Package pdftex.def Info: images/linux_ntp_konfiguracia_klient.jpeg used on inpu
-t line 373.
+t line 375.
 (pdftex.def)             Requested size: 428.19505pt x 237.88612pt.
 
-Overfull \hbox (1.40372pt too wide) in paragraph at lines 373--374
+Overfull \hbox (1.40372pt too wide) in paragraph at lines 375--376
  [][] 
  []
 
@@ -910,10 +901,10 @@ Overfull \hbox (1.40372pt too wide) in paragraph at lines 373--374
 File: images/linux_ntp_1.png Graphic file (type png)
 
 <use images/linux_ntp_1.png>
-Package pdftex.def Info: images/linux_ntp_1.png used on input line 380.
+Package pdftex.def Info: images/linux_ntp_1.png used on input line 382.
 (pdftex.def)             Requested size: 428.19505pt x 237.88612pt.
 
-Overfull \hbox (1.40372pt too wide) in paragraph at lines 380--381
+Overfull \hbox (1.40372pt too wide) in paragraph at lines 382--383
  [][] 
  []
 
@@ -921,114 +912,175 @@ Overfull \hbox (1.40372pt too wide) in paragraph at lines 380--381
 File: images/linux_ntp_2.png Graphic file (type png)
 
 <use images/linux_ntp_2.png>
-Package pdftex.def Info: images/linux_ntp_2.png used on input line 387.
+Package pdftex.def Info: images/linux_ntp_2.png used on input line 389.
 (pdftex.def)             Requested size: 428.19505pt x 237.88612pt.
 
-Overfull \hbox (1.40372pt too wide) in paragraph at lines 387--388
+Overfull \hbox (1.40372pt too wide) in paragraph at lines 389--390
  [][] 
  []
 
-[16 <./images/linux_ntp_konfiguracia_server.jpeg> <./images/linux_ntp_konfigura
-cia_klient.jpeg>]
-Underfull \vbox (badness 1946) has occurred while \output is active []
-
- [17 <./images/linux_ntp_1.png> <./images/linux_ntp_2.png>]
-Overfull \hbox (0.82297pt too wide) in paragraph at lines 414--415
- [] \OT1/cmr/m/n/12 TODO - DO-PL-NIT, CI NE-JAKY BA-LI-CEK (NAPR. MY-SQL) NECH-
-CEL KON-
+[16 <./images/linux_ntp_konfiguracia_server.jpeg>] [17 <./images/linux_ntp_konf
+iguracia_klient.jpeg> <./images/linux_ntp_1.png>] [18 <./images/linux_ntp_2.png
+>]
+Overfull \hbox (68.36603pt too wide) in paragraph at lines 418--420
+\OT1/cmr/m/n/12 ser-vera upra-vu-jeme po-mo-cou tzv. mo-du-lov. Jed-not-liv^^Se
+ mo-duly s^^Su v prie^^Tcinku /etc/apache2/mods-
  []
 
-[18] <images/linux_web1_konfiguracia.jpeg, id=77, 542.025pt x 301.125pt>
+
+Overfull \hbox (31.8414pt too wide) in paragraph at lines 418--420
+\OT1/cmr/m/n/12 web1 a web2 pred-sta-vo-vali dva vi-rut^^Salne we-bov^^Se ser-v
+ery. N^^Sasledne sme v etc/apache2/sites-
+ []
+
+
+Overfull \hbox (31.38031pt too wide) in paragraph at lines 418--420
+\OT1/cmr/m/n/12 dali cestu k ad-re-saru ked uz Do-cu-men-tRoot /var/www/web1 a 
+Ser-ver-Name web1.sos3.local 
+ []
+
+[19
+
+] <images/linux_web1_konfiguracia.jpeg, id=81, 542.025pt x 301.125pt>
 File: images/linux_web1_konfiguracia.jpeg Graphic file (type jpg)
 
 <use images/linux_web1_konfiguracia.jpeg>
 Package pdftex.def Info: images/linux_web1_konfiguracia.jpeg used on input line
- 471.
+ 464.
 (pdftex.def)             Requested size: 428.19505pt x 237.88612pt.
 
-Overfull \hbox (1.40372pt too wide) in paragraph at lines 471--472
+Overfull \hbox (1.40372pt too wide) in paragraph at lines 464--465
  [][] 
  []
 
-<images/linux_web_konfiguraky_webstranok.png, id=78, 444.15938pt x 60.225pt>
+<images/linux_web_konfiguraky_webstranok.png, id=82, 444.15938pt x 60.225pt>
 File: images/linux_web_konfiguraky_webstranok.png Graphic file (type png)
 
 <use images/linux_web_konfiguraky_webstranok.png>
 Package pdftex.def Info: images/linux_web_konfiguraky_webstranok.png used on in
-put line 478.
+put line 471.
 (pdftex.def)             Requested size: 430.83406pt x 58.41815pt.
 
-Overfull \hbox (4.04272pt too wide) in paragraph at lines 478--479
+Overfull \hbox (4.04272pt too wide) in paragraph at lines 471--472
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 501--502
-
+Overfull \hbox (159.57481pt too wide) in paragraph at lines 486--486
+[]\OT1/cmtt/m/n/10.95 wget https://github.com/joomla/joomla-cms/releases/downlo
+ad/3.6.2/Joomla_3.6.2-Stable-Full_Package.zip[] 
  []
 
-[19 <./images/linux_web1_konfiguracia.jpeg> <./images/linux_web_konfiguraky_web
+[20 <./images/linux_web1_konfiguracia.jpeg> <./images/linux_web_konfiguraky_web
 stranok.png>]
-Overfull \hbox (1.42644pt too wide) in paragraph at lines 507--508
+<images/linux_web_joomla_1.png, id=86, 1868.9825pt x 2021.5525pt>
+File: images/linux_web_joomla_1.png Graphic file (type png)
+
+<use images/linux_web_joomla_1.png>
+Package pdftex.def Info: images/linux_web_joomla_1.png used on input line 509.
+(pdftex.def)             Requested size: 398.33858pt x 430.83122pt.
+
+<images/linux_web_joomla_2.png, id=87, 1837.86626pt x 1986.42125pt>
+File: images/linux_web_joomla_2.png Graphic file (type png)
+
+<use images/linux_web_joomla_2.png>
+Package pdftex.def Info: images/linux_web_joomla_2.png used on input line 519.
+(pdftex.def)             Requested size: 398.33858pt x 430.52762pt.
+ [21 <./images/linux_web_joomla_1.png>]
+[22 <./images/linux_web_joomla_2.png>]
+<images/linux_web_joomla_3.png, id=96, 1822.81pt x 1247.66125pt>
+File: images/linux_web_joomla_3.png Graphic file (type png)
+
+<use images/linux_web_joomla_3.png>
+Package pdftex.def Info: images/linux_web_joomla_3.png used on input line 531.
+(pdftex.def)             Requested size: 398.33858pt x 272.63966pt.
+
+Overfull \hbox (17.64156pt too wide) in paragraph at lines 537--538
+ [] \OT1/cmr/m/n/12 Je po-trebn^^Se aby v^^Tsetky pre-installation check boli Y
+es, inak bude in^^Tstal^^Sacia ne^^Suspe^^Tsn^^Sa.
+ []
+
+<images/linux_web_joomla_4.png, id=97, 1597.97pt x 1060.96375pt>
+File: images/linux_web_joomla_4.png Graphic file (type png)
+
+<use images/linux_web_joomla_4.png>
+Package pdftex.def Info: images/linux_web_joomla_4.png used on input line 553.
+(pdftex.def)             Requested size: 398.33858pt x 264.4794pt.
+
+Overfull \hbox (71.27745pt too wide) in paragraph at lines 559--560
+\OT1/cmr/m/n/12 ins-tal-la-tion fol-der'', alebo ho m^o^^Tzeme vy-ma-zat[] ru^^
+Tcne v ad-res^^Sari say/var/www/Joomla/installation. 
+ []
+
+[23 <./images/linux_web_joomla_3.png>]
+Overfull \hbox (20.1088pt too wide) in paragraph at lines 597--598
+\OT1/cmr/m/n/12 host-name''. Tak-tie^^Tz bolo po-trebn^^Se od-ko-men-to-vat[] `
+`inet[]interfaces = all'' a ``inet[]protocols
+ []
+
+
+Overfull \hbox (29.56981pt too wide) in paragraph at lines 597--598
+\OT1/cmr/m/n/12 = all'' a pri-dat[] ``my-net-works = 192.168.0.0/24''. ``Mail[]
+spool[]directory = /var/spool/mail''
+ []
+
+
+Overfull \hbox (1.42644pt too wide) in paragraph at lines 609--610
 \OT1/cmr/m/n/12 ``/etc/skripty/firewall.sh''. Skriptu sme na-sta-vili opr^^Savn
 enia ``chmod 744 fi-re-wall.sh'',
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 509--512
+[24 <./images/linux_web_joomla_4.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 611--614
 
  []
 
 
-Overfull \hbox (38.85237pt too wide) in paragraph at lines 706--706
+Overfull \hbox (38.85237pt too wide) in paragraph at lines 808--808
 []\OT1/cmtt/m/n/10.95 # CONNTRACK men^^S^^P bezstavov^^Sy firewall na stavov^^S
 y t.j. firewall si pam^^?at^^Sa spojenia,[] 
  []
 
 
-Overfull \hbox (38.85237pt too wide) in paragraph at lines 706--706
+Overfull \hbox (38.85237pt too wide) in paragraph at lines 808--808
 []\OT1/cmtt/m/n/10.95 # ktor^^Se boli inicializovan^^Se z vn^^Sutornej siete sm
 erom von a automaticky ich povol^^S^^P[] 
  []
 
 
-Overfull \hbox (61.84712pt too wide) in paragraph at lines 706--706
+Overfull \hbox (61.84712pt too wide) in paragraph at lines 808--808
 []\OT1/cmtt/m/n/10.95 $I -A FORWARD -i eth0 -o eth1.10 -m conntrack --ctstate E
 STABLISHED,RELATED -j ACCEPT[] 
  []
 
 
-Overfull \hbox (61.84712pt too wide) in paragraph at lines 706--706
+Overfull \hbox (61.84712pt too wide) in paragraph at lines 808--808
 []\OT1/cmtt/m/n/10.95 $I -A FORWARD -i eth0 -o eth1.20 -m conntrack --ctstate E
 STABLISHED,RELATED -j ACCEPT[] 
  []
 
-[20]
+[25]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [21]
+ [26]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [22]
-Overfull \hbox (4.36024pt too wide) in paragraph at lines 706--706
+ [27]
+Overfull \hbox (4.36024pt too wide) in paragraph at lines 808--808
 []\OT1/cmtt/m/n/10.95 # Povol^^S^^Pme preposielanie SMTP po^^Tziadaviek v lok^^
 Salnej sieti na/z SMTP server[] 
  []
 
 
-Overfull \hbox (38.85237pt too wide) in paragraph at lines 706--706
+Overfull \hbox (38.85237pt too wide) in paragraph at lines 808--808
 []\OT1/cmtt/m/n/10.95 $I -t nat -A PREROUTING -p tcp --dport 25 -j DNAT --to-de
 stination 192.168.0.3:25[] 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [23])
-[24]
+) [28]
 Kapitola 5.
 (./chapters/windows.tex
-<images/win_priprava.png, id=98, 1445.4pt x 803.25093pt>
+<images/win_priprava.png, id=119, 1445.4pt x 803.25093pt>
 File: images/win_priprava.png Graphic file (type png)
 
 <use images/win_priprava.png>
@@ -1039,31 +1091,31 @@ Overfull \hbox (6.83202pt too wide) in paragraph at lines 13--14
  [][] 
  []
 
-<images/win_priprava_2.png, id=99, 593.21625pt x 420.82219pt>
+<images/win_priprava_2.png, id=120, 593.21625pt x 420.82219pt>
 File: images/win_priprava_2.png Graphic file (type png)
 
 <use images/win_priprava_2.png>
 Package pdftex.def Info: images/win_priprava_2.png used on input line 20.
 (pdftex.def)             Requested size: 415.24854pt x 294.57352pt.
 
-<images/win_priprava_3.png, id=100, 593.21625pt x 421.575pt>
+<images/win_priprava_3.png, id=121, 593.21625pt x 421.575pt>
 File: images/win_priprava_3.png Graphic file (type png)
 
 <use images/win_priprava_3.png>
 Package pdftex.def Info: images/win_priprava_3.png used on input line 27.
 (pdftex.def)             Requested size: 415.24854pt x 295.10048pt.
 
-<images/win_priprava_4.png, id=101, 593.21625pt x 421.575pt>
+<images/win_priprava_4.png, id=122, 593.21625pt x 421.575pt>
 File: images/win_priprava_4.png Graphic file (type png)
 
 <use images/win_priprava_4.png>
 Package pdftex.def Info: images/win_priprava_4.png used on input line 34.
 (pdftex.def)             Requested size: 415.24854pt x 295.10048pt.
- [25
+ [29
 
-] [26 <./images/win_priprava.png> <./images/win_priprava_2.png>] [27 <./images/
+] [30 <./images/win_priprava.png> <./images/win_priprava_2.png>] [31 <./images/
 win_priprava_3.png> <./images/win_priprava_4.png>] <images/win_dns_win_zaznamy.
-png, id=112, 633.86812pt x 351.56343pt>
+png, id=133, 633.86812pt x 351.56343pt>
 File: images/win_dns_win_zaznamy.png Graphic file (type png)
 
 <use images/win_dns_win_zaznamy.png>
@@ -1074,33 +1126,33 @@ Overfull \hbox (16.91333pt too wide) in paragraph at lines 55--56
  [][] 
  []
 
-[28
+[32
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 64--69
 
  []
 
-<images/win_dhcp_win_pool.png, id=116, 700.11563pt x 416.30531pt>
+<images/win_dhcp_win_pool.png, id=137, 700.11563pt x 416.30531pt>
 File: images/win_dhcp_win_pool.png Graphic file (type png)
 
 <use images/win_dhcp_win_pool.png>
 Package pdftex.def Info: images/win_dhcp_win_pool.png used on input line 78.
 (pdftex.def)             Requested size: 420.07262pt x 249.78511pt.
- [29 <./images/win_dns_win_zaznamy.png>]
+ [33 <./images/win_dns_win_zaznamy.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 88--92
 
  []
 
-[30 <./images/win_dhcp_win_pool.png>]
-<images/win_iis_web_server.png, id=123, 386.94562pt x 417.05812pt>
+[34 <./images/win_dhcp_win_pool.png>]
+<images/win_iis_web_server.png, id=144, 386.94562pt x 417.05812pt>
 File: images/win_iis_web_server.png Graphic file (type png)
 
 <use images/win_iis_web_server.png>
 Package pdftex.def Info: images/win_iis_web_server.png used on input line 104.
 (pdftex.def)             Requested size: 305.68369pt x 329.4723pt.
 
-<images/win_iis_web2.png, id=124, 1073.51062pt x 581.17125pt>
+<images/win_iis_web2.png, id=145, 1073.51062pt x 581.17125pt>
 File: images/win_iis_web2.png Graphic file (type png)
 
 <use images/win_iis_web2.png>
@@ -1111,7 +1163,7 @@ Overfull \hbox (109.96266pt too wide) in paragraph at lines 111--112
  [][] 
  []
 
-<images/win_iis_web1_web2.png, id=125, 1374.63562pt x 617.30624pt>
+<images/win_iis_web1_web2.png, id=146, 1374.63562pt x 617.30624pt>
 File: images/win_iis_web1_web2.png Graphic file (type png)
 
 <use images/win_iis_web1_web2.png>
@@ -1122,33 +1174,36 @@ Overfull \hbox (123.05318pt too wide) in paragraph at lines 118--119
  [][] 
  []
 
-[31 <./images/win_iis_web_server.png>]
+[35 <./images/win_iis_web_server.png>]
 Underfull \vbox (badness 2189) has occurred while \output is active []
 
- [32 <./images/win_iis_web2.png> <./images/win_iis_web1_web2.png>]
-<images/win_mail_server.png, id=133, 342.5297pt x 176.91093pt>
+ [36 <./images/win_iis_web2.png> <./images/win_iis_web1_web2.png>]
+<images/win_mail_server.png, id=153, 342.5297pt x 176.91093pt>
 File: images/win_mail_server.png Graphic file (type png)
 
 <use images/win_mail_server.png>
 Package pdftex.def Info: images/win_mail_server.png used on input line 131.
 (pdftex.def)             Requested size: 270.59549pt x 139.75809pt.
 
-<images/win_iis_remote_access.png, id=134, 167.87718pt x 27.85406pt>
+<images/win_iis_remote_access.png, id=154, 167.87718pt x 27.85406pt>
 File: images/win_iis_remote_access.png Graphic file (type png)
 
 <use images/win_iis_remote_access.png>
 Package pdftex.def Info: images/win_iis_remote_access.png used on input line 14
 2.
 (pdftex.def)             Requested size: 132.62152pt x 22.00444pt.
-) [33 <./images/win_mail_server.png> <./images/win_iis_remote_access.png>]
+) [37 <./images/win_mail_server.png> <./images/win_iis_remote_access.png>]
 Kapitola 6.
 (./chapters/zaver.tex)
 
 LaTeX Warning: Empty bibliography on input line 80.
 
-[34
+[38
 
 ] (./main.aux)
+
+LaTeX Warning: There were undefined references.
+
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -1157,23 +1212,23 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 9453 strings out of 493105
- 156009 string characters out of 6137072
- 556079 words of memory out of 5000000
- 12736 multiletter control sequences out of 15000+600000
+ 9478 strings out of 493105
+ 156737 string characters out of 6137072
+ 556119 words of memory out of 5000000
+ 12757 multiletter control sequences out of 15000+600000
  9915 words of font info for 35 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 37i,10n,43p,992b,1514s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,11n,43p,992b,1514s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on main.pdf (34 pages, 1246105 bytes).
+Output written on main.pdf (38 pages, 3512941 bytes).
 PDF statistics:
- 162 PDF objects out of 1000 (max. 8388607)
- 95 compressed objects within 1 object stream
+ 186 PDF objects out of 1000 (max. 8388607)
+ 106 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 116 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 136 words of extra memory for PDF output out of 10000 (max. 10000000)
 

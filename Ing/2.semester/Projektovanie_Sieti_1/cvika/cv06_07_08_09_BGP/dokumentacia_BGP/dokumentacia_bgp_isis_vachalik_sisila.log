@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.2.18)  23 APR 2017 17:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.2.18)  24 APR 2017 07:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1077,9 +1077,9 @@ LaTeX Font Info:    Font shape `OML/ppl/bx/n' in size <12> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 1075.
 
 
-Overfull \hbox (25.32986pt too wide) in paragraph at lines 1078--1080
-\OT1/ppl/m/n/12 Na R8 a R9 spra-vime rou-te-mapu s n[]azvom ``AS[]KAM[]TO[]IDE:
-AS[]ODKIAL[]TO[]IDE''. 
+Overfull \hbox (191.99533pt too wide) in paragraph at lines 1078--1080
+\OT1/ppl/m/n/12 SMERE []OUT"NA IN-TER-FEJSI. Na R8 a R9 spra-vime rou-te-mapu s
+ n[]azvom ``AS[]KAM[]TO[]IDE:AS[]ODKIAL[]TO[]IDE''. 
  []
 
 <obr/bgp_isis_r3_r8_primary.png, id=80, 586.5915pt x 408.3255pt>
@@ -1282,7 +1282,7 @@ f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino
 /uplr8a.pfb>
-Output written on dokumentacia_bgp_isis_vachalik_sisila.pdf (33 pages, 4140038 
+Output written on dokumentacia_bgp_isis_vachalik_sisila.pdf (33 pages, 4140091 
 bytes).
 PDF statistics:
  134 PDF objects out of 1000 (max. 8388607)

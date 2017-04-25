@@ -1067,7 +1067,7 @@ Z výpisov AS\_PATH vidíme, že privátny AS 65001 nie je ohlasovaný do intern
 
 \subsection{ISP politika}
 \paragraph{}
-Definovať vlastnú politiku − použiť community, community alter LP, AS−PATH filtering, prepending, atď
+ISP politika umožňuje ovplyvňovať smerovanie prevádzky medzi BGP autonómnymi systémami. Používame na to BGP atribúty , ktoré vieme meniť. Použité atribúty vysvetľujeme bližšie pri jednotlivých úlohách.
 
 \subsection{Primárna linka R3−R8}
 \subsubsection{Popis}
@@ -1076,7 +1076,7 @@ Na R4 sa z R9 máme dopingať cez R8 t.j. namiesto \textbf{R9 -\textgreater{} R4
 
 \paragraph{}
 Komunity
--nastavujeme cez rotue mapy - cez routemapu vieme ovplyvnovat smerovanie NA ZAKLADE UPDATEOV z inych routrov. MOZEME MAT IBA JEDNU ROUTEMAPU V SMERE "IN" A JEDNU V SMERE "OUT" NA INTERFEJSI. Na R8 a R9 spravime routemapu s názvom \say{AS\_KAM\_TO\_IDE:AS\_ODKIAL\_TO\_IDE}.
+-nastavujeme cez smerovacie mapy (ďalej len \say{routemapy}) - cez routemapu vieme ovplyvnovat smerovanie NA ZAKLADE UPDATEOV z inych routrov. MOZEME MAT IBA JEDNU ROUTEMAPU V SMERE "IN" A JEDNU V SMERE "OUT" NA INTERFEJSI. Na R8 a R9 spravime routemapu s názvom \say{AS\_KAM\_TO\_IDE:AS\_ODKIAL\_TO\_IDE}.
 
 \paragraph{}
 Local preference nastavime routemapou na R8 a R9. Chceme aby aj R9 isla cez R8, nie cez R4. R8 si musi zdvihnut local preference smerom na R9 a ohlasovat zvysenu local pref na R9.
