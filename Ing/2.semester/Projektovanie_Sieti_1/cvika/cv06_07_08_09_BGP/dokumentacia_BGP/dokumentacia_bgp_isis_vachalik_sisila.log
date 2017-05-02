@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.2.18)  2 MAY 2017 14:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.2.18)  2 MAY 2017 16:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -332,7 +332,7 @@ ac[]^^Pch z[]aznamov
  []
 
 
-Overfull \hbox (1.95355pt too wide) in paragraph at lines 54--54
+Overfull \hbox (1.95355pt too wide) in paragraph at lines 53--53
  [][] []\OT1/ppl/m/n/12 Distribuovat[] iba de-fault, AS5005 a pe-e-ring pre-fix
 y do AS65001 []  
  []
@@ -1056,207 +1056,425 @@ Overfull \hbox (34.24246pt too wide) in paragraph at lines 1069--1070
 rev[]adzky me-dzi BGP au-ton[]omnymi
  []
 
-LaTeX Font Info:    Try loading font information for OML+ppl on input line 1076
-.
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlppl.fd
-File: omlppl.fd 
-)
 
-LaTeX Font Warning: Font shape `OML/ppl/bx/n' undefined
-(Font)              using `OML/ppl/m/it' instead
-(Font)              for symbol `textgreater' on input line 1076.
-
-LaTeX Font Info:    Font shape `OML/ppl/m/it' in size <12> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 1076.
-
-LaTeX Font Info:    Font shape `OML/ppl/bx/n' in size <12> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 1076.
-
-
-Overfull \hbox (191.99533pt too wide) in paragraph at lines 1079--1081
-\OT1/ppl/m/n/12 SMERE []OUT"NA IN-TER-FEJSI. Na R8 a R9 spra-vime rou-te-mapu s
- n[]azvom ``AS[]KAM[]TO[]IDE:AS[]ODKIAL[]TO[]IDE''. 
+Overfull \hbox (57.2974pt too wide) in paragraph at lines 1077--1078
+ [] \OT1/ppl/m/n/12 Na R8 a R9 sme vy-tvo-rili rou-te-mapu s n[]azvom ``AS[]KAM
+[]TO[]IDE:AS[]ODKIAL[]TO[]IDE''.
  []
 
 <obr/bgp_isis_r3_r8_primary.png, id=80, 586.5915pt x 408.3255pt>
 File: obr/bgp_isis_r3_r8_primary.png Graphic file (type png)
 
 <use obr/bgp_isis_r3_r8_primary.png>
-Package pdftex.def Info: obr/bgp_isis_r3_r8_primary.png used on input line 1104
+Package pdftex.def Info: obr/bgp_isis_r3_r8_primary.png used on input line 1098
 .
 (pdftex.def)             Requested size: 398.33858pt x 277.29005pt.
- [24] [25 <./obr/bgp_isis_r3_r8_primary.png (PNG copy)>] [26]
-LaTeX Font Info:    Font shape `OML/ppl/m/n' in size <12> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 1221.
-
-
-<obr/bgp_isis_r4_r10_primary.png, id=92, 586.5915pt x 408.3255pt>
-File: obr/bgp_isis_r4_r10_primary.png Graphic file (type png)
-
-<use obr/bgp_isis_r4_r10_primary.png>
-Package pdftex.def Info: obr/bgp_isis_r4_r10_primary.png used on input line 122
-5.
-(pdftex.def)             Requested size: 398.33858pt x 277.29005pt.
- [27 <./obr/bgp_isis_r4_r10_primary.png (PNG copy)>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [28]
-Overfull \hbox (0.25815pt too wide) in paragraph at lines 1324--1324
+ [24] [25 <./obr/bgp_isis_r3_r8_primary.png (PNG copy)>]
+Overfull \hbox (92.23804pt too wide) in paragraph at lines 1175--1175
 []\OT1/pcr/m/n/10.95 Status codes: s suppressed, d damped, h history, * valid, 
-> best,[] 
+> best, i - internal,[] 
  []
 
 
-Overfull \hbox (13.39813pt too wide) in paragraph at lines 1330--1330
-[]\OT1/pcr/m/n/10.95 *>i10.255.255.2/32  10.255.255.6         0    100      0 4
-502 110 i[] 
- []
-
-
-Overfull \hbox (13.39813pt too wide) in paragraph at lines 1331--1331
-[]\OT1/pcr/m/n/10.95 *>i10.255.255.3/32  10.255.255.6         0    100      0 3
-401 110 i[] 
- []
-
-
-Overfull \hbox (13.39813pt too wide) in paragraph at lines 1332--1332
-[]\OT1/pcr/m/n/10.95 *>i10.255.255.4/32  10.255.255.6         0    100      0 4
-502 110 i[] 
- []
-
-
-Overfull \hbox (52.81808pt too wide) in paragraph at lines 1336--1336
-[]\OT1/pcr/m/n/10.95 *>i10.255.255.8/32  10.255.255.6         0    100      0 4
-502 110 65001 i[] 
- []
-
-
-Overfull \hbox (52.81808pt too wide) in paragraph at lines 1337--1337
-[]\OT1/pcr/m/n/10.95 *>i10.255.255.9/32  10.255.255.6         0    100      0 4
-502 110 65001 i[] 
- []
-
-
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 1338--1338
-[]\OT1/pcr/m/n/10.95 *>i10.255.255.10/32 10.255.255.6         0    100      0 3
-401 110 5005 i[] 
- []
-
-
-Overfull \hbox (13.39813pt too wide) in paragraph at lines 1344--1344
-[]\OT1/pcr/m/n/10.95 *>i200.110.0.0/16   10.255.255.6         0    100      0 4
-502 110 i[] 
- []
-
-
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 1345--1345
-[]\OT1/pcr/m/n/10.95 *>i223.255.255.0    10.255.255.6         0    100      0 4
-502 110 5005 i[] 
- []
-
-
-Overfull \hbox (19.36147pt too wide) in paragraph at lines 1353--1353
-[]\OT1/ppl/b/n/14.4 Distribuovat[] iba de-fault, AS5005 a pe-e-ring pre-fixy do
- AS65001 
- []
-
-[29] [30]
-Overfull \hbox (0.25815pt too wide) in paragraph at lines 1437--1437
-[]\OT1/pcr/m/n/10.95 i L2    200.110.255.236 [115/10] via 10.110.89.9, FastEthe
-rnet0/1[] 
- []
-
-
-Overfull \hbox (0.25815pt too wide) in paragraph at lines 1446--1446
-[]\OT1/pcr/m/n/10.95 i L2    10.255.255.9/32 [115/10] via 10.110.89.9, FastEthe
-rnet0/1[] 
- []
-
-
-Overfull \hbox (0.25815pt too wide) in paragraph at lines 1461--1461
-[]\OT1/pcr/m/n/10.95 Status codes: s suppressed, d damped, h history, * valid, 
-> best,[] 
- []
-
-
-Overfull \hbox (0.25815pt too wide) in paragraph at lines 1465--1465
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 1179--1179
 []   \OT1/pcr/m/n/10.95 Network          Next Hop            Metric LocPrf Weig
 ht Path[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 1466--1466
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1180--1180
+[]\OT1/pcr/m/n/10.95 *>i0.0.0.0          10.255.255.8             0    110     
+ 0 110 i[] 
+ []
+
+
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1181--1181
+[]\OT1/pcr/m/n/10.95 *                   200.110.255.237          0            
+ 0 110 i[] 
+ []
+
+
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1182--1182
+[]\OT1/pcr/m/n/10.95 *>i10.255.255.2/32  10.255.255.8             0    110     
+ 0 110 i[] 
+ []
+
+
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1183--1183
+[]\OT1/pcr/m/n/10.95 *                   200.110.255.237                       
+ 0 110 i[] 
+ []
+
+
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1184--1184
+[]\OT1/pcr/m/n/10.95 *  10.255.255.3/32  200.110.255.237                       
+ 0 110 i[] 
+ []
+
+
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1185--1185
+[]\OT1/pcr/m/n/10.95 *>i                 10.255.255.8             0    110     
+ 0 110 i[] 
+ []
+
+
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1186--1186
+[]\OT1/pcr/m/n/10.95 *>i10.255.255.4/32  10.255.255.8             0    110     
+ 0 110 i[] 
+ []
+
+
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1187--1187
+[]\OT1/pcr/m/n/10.95 *                   200.110.255.237          0            
+ 0 110 i[] 
+ []
+
+
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1190--1190
+[]\OT1/pcr/m/n/10.95 *>i10.255.255.10/32 10.255.255.8             0    110     
+ 0 110 5005 i[] 
+ []
+
+
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1191--1191
+[]\OT1/pcr/m/n/10.95 *                   200.110.255.237                       
+ 0 110 5005 i[] 
+ []
+
+
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1192--1192
+[]\OT1/pcr/m/n/10.95 *>i200.110.0.0/16   10.255.255.8             0    110     
+ 0 110 i[] 
+ []
+
+
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1193--1193
+[]\OT1/pcr/m/n/10.95 *                   200.110.255.237                       
+ 0 110 i[] 
+ []
+
+
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1194--1194
+[]\OT1/pcr/m/n/10.95 *  200.110.3.0/25   200.110.255.237                       
+ 0 110 i[] 
+ []
+
+
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1195--1195
+[]\OT1/pcr/m/n/10.95 *>i                 10.255.255.8             0    110     
+ 0 110 i[] 
+ []
+
+[26]
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 1197--1197
+[]   \OT1/pcr/m/n/10.95 Network          Next Hop            Metric LocPrf Weig
+ht Path[] 
+ []
+
+
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1198--1198
+[]\OT1/pcr/m/n/10.95 *>i223.255.255.0    10.255.255.8             0    110     
+ 0 110 5005 i[] 
+ []
+
+
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1199--1199
+[]\OT1/pcr/m/n/10.95 *                   200.110.255.237                       
+ 0 110 5005 i[] 
+ []
+
+
+Overfull \hbox (92.23804pt too wide) in paragraph at lines 1222--1222
+[]\OT1/pcr/m/n/10.95 Status codes: s suppressed, d damped, h history, * valid, 
+> best, i - internal,[] 
+ []
+
+
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 1226--1226
+[]   \OT1/pcr/m/n/10.95 Network          Next Hop            Metric LocPrf Weig
+ht Path[] 
+ []
+
+
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 1227--1227
+[]\OT1/pcr/m/n/10.95 *>i10.255.255.1/32  10.255.255.2             0    110     
+ 0 3401 i[] 
+ []
+
+
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 1231--1231
+[]\OT1/pcr/m/n/10.95 *>i10.255.255.5/32  10.255.255.2             0    110     
+ 0 3401 4502 i[] 
+ []
+
+
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1232--1232
+[]\OT1/pcr/m/n/10.95 *>i10.255.255.6/32  10.255.255.2             0    110     
+ 0 3401 330 i[] 
+ []
+
+
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1233--1233
+[]\OT1/pcr/m/n/10.95 *>i10.255.255.7/32  10.255.255.2             0    110     
+ 0 3401 330 i[] 
+ []
+
+
+Overfull \hbox (19.96812pt too wide) in paragraph at lines 1234--1234
+[]\OT1/pcr/m/n/10.95 *>i10.255.255.8/32  10.255.255.3             0    110     
+ 0 65001 i[] 
+ []
+
+
+Overfull \hbox (19.96812pt too wide) in paragraph at lines 1235--1235
+[]\OT1/pcr/m/n/10.95 *                   200.110.255.238                       
+ 0 65001 i[] 
+ []
+
+
+Overfull \hbox (19.96812pt too wide) in paragraph at lines 1236--1236
+[]\OT1/pcr/m/n/10.95 *>i10.255.255.9/32  10.255.255.3             0    110     
+ 0 65001 i[] 
+ []
+
+
+Overfull \hbox (19.96812pt too wide) in paragraph at lines 1237--1237
+[]\OT1/pcr/m/n/10.95 *                   200.110.255.238          0            
+ 0 65001 i[] 
+ []
+
+
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 1238--1238
+[]\OT1/pcr/m/n/10.95 *>i64.34.0.0/16     10.255.255.2             0    110     
+ 0 3401 i[] 
+ []
+
+
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 1239--1239
+[]\OT1/pcr/m/n/10.95 *>i128.45.0.0       10.255.255.2             0    110     
+ 0 3401 4502 i[] 
+ []
+
+
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1240--1240
+[]\OT1/pcr/m/n/10.95 *>i200.33.0.0/16    10.255.255.2             0    110     
+ 0 3401 330 i[] 
+ []
+
+
+Overfull \hbox (19.96812pt too wide) in paragraph at lines 1243--1243
+[]\OT1/pcr/m/n/10.95 *>i200.110.12.0/25  10.255.255.3             0    110     
+ 0 65001 i[] 
+ []
+
+
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 1244--1244
+[]   \OT1/pcr/m/n/10.95 Network          Next Hop            Metric LocPrf Weig
+ht Path[] 
+ []
+
+
+Overfull \hbox (19.96812pt too wide) in paragraph at lines 1245--1245
+[]\OT1/pcr/m/n/10.95 *                   200.110.255.238                       
+ 0 65001 i[] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [27]
+LaTeX Font Info:    Try loading font information for OML+ppl on input line 1273
+.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlppl.fd
+File: omlppl.fd 
+)
+LaTeX Font Info:    Font shape `OML/ppl/m/n' in size <12> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 1273.
+
+
+
+LaTeX Font Warning: Font shape `OML/ppl/bx/n' undefined
+(Font)              using `OML/ppl/m/it' instead
+(Font)              for symbol `textgreater' on input line 1273.
+
+LaTeX Font Info:    Font shape `OML/ppl/m/it' in size <12> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 1273.
+
+LaTeX Font Info:    Font shape `OML/ppl/bx/n' in size <12> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 1273.
+
+<obr/bgp_isis_r4_r10_primary.png, id=94, 586.5915pt x 408.3255pt>
+File: obr/bgp_isis_r4_r10_primary.png Graphic file (type png)
+
+<use obr/bgp_isis_r4_r10_primary.png>
+Package pdftex.def Info: obr/bgp_isis_r4_r10_primary.png used on input line 127
+7.
+(pdftex.def)             Requested size: 398.33858pt x 277.29005pt.
+ [28 <./obr/bgp_isis_r4_r10_primary.png (PNG copy)>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [29]
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 1376--1376
+[]\OT1/pcr/m/n/10.95 Status codes: s suppressed, d damped, h history, * valid, 
+> best,[] 
+ []
+
+
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 1382--1382
+[]\OT1/pcr/m/n/10.95 *>i10.255.255.2/32  10.255.255.6         0    100      0 4
+502 110 i[] 
+ []
+
+
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 1383--1383
+[]\OT1/pcr/m/n/10.95 *>i10.255.255.3/32  10.255.255.6         0    100      0 3
+401 110 i[] 
+ []
+
+
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 1384--1384
+[]\OT1/pcr/m/n/10.95 *>i10.255.255.4/32  10.255.255.6         0    100      0 4
+502 110 i[] 
+ []
+
+
+Overfull \hbox (52.81808pt too wide) in paragraph at lines 1388--1388
+[]\OT1/pcr/m/n/10.95 *>i10.255.255.8/32  10.255.255.6         0    100      0 4
+502 110 65001 i[] 
+ []
+
+
+Overfull \hbox (52.81808pt too wide) in paragraph at lines 1389--1389
+[]\OT1/pcr/m/n/10.95 *>i10.255.255.9/32  10.255.255.6         0    100      0 4
+502 110 65001 i[] 
+ []
+
+
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 1390--1390
+[]\OT1/pcr/m/n/10.95 *>i10.255.255.10/32 10.255.255.6         0    100      0 3
+401 110 5005 i[] 
+ []
+
+
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 1396--1396
+[]\OT1/pcr/m/n/10.95 *>i200.110.0.0/16   10.255.255.6         0    100      0 4
+502 110 i[] 
+ []
+
+
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 1397--1397
+[]\OT1/pcr/m/n/10.95 *>i223.255.255.0    10.255.255.6         0    100      0 4
+502 110 5005 i[] 
+ []
+
+
+Overfull \hbox (19.36147pt too wide) in paragraph at lines 1405--1405
+[]\OT1/ppl/b/n/14.4 Distribuovat[] iba de-fault, AS5005 a pe-e-ring pre-fixy do
+ AS65001 
+ []
+
+
+Underfull \vbox (badness 3954) has occurred while \output is active []
+
+ [30]
+[31]
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 1506--1506
+[]\OT1/pcr/m/n/10.95 i L2    200.110.255.236 [115/10] via 10.110.89.9, FastEthe
+rnet0/1[] 
+ []
+
+
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 1515--1515
+[]\OT1/pcr/m/n/10.95 i L2    10.255.255.9/32 [115/10] via 10.110.89.9, FastEthe
+rnet0/1[] 
+ []
+
+[32]
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 1530--1530
+[]\OT1/pcr/m/n/10.95 Status codes: s suppressed, d damped, h history, * valid, 
+> best,[] 
+ []
+
+
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 1534--1534
+[]   \OT1/pcr/m/n/10.95 Network          Next Hop            Metric LocPrf Weig
+ht Path[] 
+ []
+
+
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1535--1535
 []\OT1/pcr/m/n/10.95 *>i10.255.255.2/32  200.110.255.237          0    100     
  0 110 i[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 1467--1467
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1536--1536
 []\OT1/pcr/m/n/10.95 *>i10.255.255.3/32  200.110.255.237          0    100     
  0 110 i[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 1468--1468
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1537--1537
 []\OT1/pcr/m/n/10.95 *>i10.255.255.4/32  200.110.255.237          0    100     
  0 110 i[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 1469--1469
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1538--1538
 []\OT1/pcr/m/n/10.95 *>i10.255.255.5/32  200.110.255.237          0    100     
  0 110 4502 i[] 
  []
 
 
-Overfull \hbox (65.95807pt too wide) in paragraph at lines 1470--1470
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 1539--1539
 []\OT1/pcr/m/n/10.95 *>i10.255.255.6/32  200.110.255.237          0    100     
  0 110 4502 330 i[] 
  []
 
 
-Overfull \hbox (65.95807pt too wide) in paragraph at lines 1471--1471
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 1540--1540
 []\OT1/pcr/m/n/10.95 *>i10.255.255.7/32  200.110.255.237          0    100     
  0 110 4502 330 i[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 1474--1474
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1543--1543
 []\OT1/pcr/m/n/10.95 *>i10.255.255.10/32 200.110.255.237          0    100     
  0 110 5005 i[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 1475--1475
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1544--1544
 []\OT1/pcr/m/n/10.95 *>i128.45.0.0       200.110.255.237          0    100     
  0 110 4502 i[] 
  []
 
 
-Overfull \hbox (65.95807pt too wide) in paragraph at lines 1476--1476
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 1545--1545
 []\OT1/pcr/m/n/10.95 *>i200.33.0.0/16    200.110.255.237          0    100     
  0 110 4502 330 i[] 
  []
 
-[31]
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 1477--1477
+
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1546--1546
 []\OT1/pcr/m/n/10.95 *>i200.110.0.0/16   200.110.255.237          0    100     
  0 110 i[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 1478--1478
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1547--1547
 []\OT1/pcr/m/n/10.95 *>i223.255.255.0    200.110.255.237          0    100     
  0 110 5005 i[] 
  []
 
 
-Overfull \hbox (23.33548pt too wide) in paragraph at lines 1489--1490
+Overfull \hbox (23.33548pt too wide) in paragraph at lines 1558--1559
  [] \OT1/ppl/m/n/12 Je ne[]ziad[]uce, aby ko-mu-nik[]acia me-dzi po-sky-to-va-t
 el[]mi ``ISP 1'' a ``ISP 2'' prech[]adzala
  []
 
-[32] [33] (./dokumentacia_bgp_isis_vachalik_sisila.aux)
+[33] [34] [35] (./dokumentacia_bgp_isis_vachalik_sisila.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1265,10 +1483,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 5765 strings out of 493105
- 75672 string characters out of 6137072
+ 5764 strings out of 493105
+ 75658 string characters out of 6137072
  154931 words of memory out of 5000000
- 9113 multiletter control sequences out of 15000+600000
+ 9112 multiletter control sequences out of 15000+600000
  15218 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  37i,9n,35p,942b,526s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1278,11 +1496,11 @@ f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino
 /uplr8a.pfb>
-Output written on dokumentacia_bgp_isis_vachalik_sisila.pdf (33 pages, 4140799 
+Output written on dokumentacia_bgp_isis_vachalik_sisila.pdf (35 pages, 4142397 
 bytes).
 PDF statistics:
- 134 PDF objects out of 1000 (max. 8388607)
- 90 compressed objects within 1 object stream
+ 140 PDF objects out of 1000 (max. 8388607)
+ 94 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
