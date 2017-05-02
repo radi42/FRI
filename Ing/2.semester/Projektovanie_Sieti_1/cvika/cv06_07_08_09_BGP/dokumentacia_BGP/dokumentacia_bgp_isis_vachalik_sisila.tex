@@ -1074,10 +1074,7 @@ ISP politika umožňuje ovplyvňovať smerovanie prevádzky medzi BGP autonómny
 Úlohou bolo zabezpečiť aby bola pre smerovač R9 zvolená v oboch smeroch primárna linka do AS 110 cez smerovač R3 a nie R4 (viď obr. \ref{fig:bgp_isis_topo_r3_r8}). 
 
 \paragraph{}
-Na R8 a R9 sme vytvorili routemapu s názvom \say{AS\_KAM\_TO\_IDE:AS\_ODKIAL\_TO\_IDE}.
-
-\paragraph{}
-Local preference nastavime routemapou na R8 a R9. Chceme aby aj R9 isla cez R8, nie cez R4. R8 si musi zdvihnut local preference smerom na R9 a ohlasovat zvysenu local pref na R9.
+Na R8 a R9 sme vytvorili routemapu s názvom \say{AS\_KAM\_TO\_IDE:AS\_ODKIAL\_TO\_IDE}. Na zmenu smerovania smerom von z AS 65001 sme použili atribút \say{Local Preference}, ktorý sme nastavili routemapou na smerovačoch R8 a R9. Chceme aby aj R9 išla cez R8, nie cez R4. Preto si R8 si musí zdvihnúť \say{local preference} smerom na R9, a ohlasovať zvysenu local pref na R9.
 
 \paragraph{}
 Pri akejkoľvek zmene politiky musíme reštartovať BGP proces, aby sa prejavili zmeny.
@@ -1117,22 +1114,14 @@ ACLko \say{PREFER} sme mohli na R8 dať buď na suseda R3 v smere IN, alebo na s
 =============================================================
 
 !R8
-!Nastavenie komunity
-ip bgp-community new-format
-route-map OUT permit 10
-  set community 65001:110
-router bgp 65001
-  neighbor 200.110.255.241 route-map OUT out
-  neighbor 200.110.255.241 send-community
-
+conf t
 !Nastavenie priority pre R3 smerom von
 route-map PREFER permit 10
   set local-preference 110
 router bgp 65001
-  !neighbor 200.110.255.241 route-map PREFER out
   neighbor 200.110.255.241 route-map PREFER in
 end
-clear ip bgp * out
+clear ip bgp * in
 
 
 
