@@ -9,6 +9,18 @@ foreach address {
 10.255.255.8
 10.255.255.9
 10.255.255.10
+} {
+# TCL skript spustame z toho routra, ktory ma uvedeny loopback (R5)
+ping $address source 10.255.255.5
+ping 10.255.255.5
+}
+
+
+
+
+
+
+foreach address {
 64.34.1.1
 200.110.0.2
 200.110.0.133

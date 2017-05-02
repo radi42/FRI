@@ -1064,7 +1064,87 @@ Z výpisov AS\_PATH vidíme, že privátny AS 65001 nie je ohlasovaný do intern
 {\fontfamily{qcr}\selectfont
 \begin{small}
 \begin{alltt}
-
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.255.255.1, timeout is 2 seconds:
+Packet sent with a source address of 10.255.255.5 
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 16/17/20 ms
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.255.255.5, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/1 ms
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.255.255.2, timeout is 2 seconds:
+Packet sent with a source address of 10.255.255.5 
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 8/25/44 ms
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.255.255.5, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/1 ms
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.255.255.3, timeout is 2 seconds:
+Packet sent with a source address of 10.255.255.5 
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 36/49/68 ms
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.255.255.5, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/4 ms
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.255.255.4, timeout is 2 seconds:
+Packet sent with a source address of 10.255.255.5 
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 28/48/72 ms
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.255.255.5, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/4 ms
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.255.255.6, timeout is 2 seconds:
+Packet sent with a source address of 10.255.255.5 
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 16/28/32 ms
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.255.255.5, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/4 ms
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.255.255.7, timeout is 2 seconds:
+Packet sent with a source address of 10.255.255.5 
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 40/48/60 ms
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.255.255.5, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/1 ms
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.255.255.8, timeout is 2 seconds:
+Packet sent with a source address of 10.255.255.5 
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 56/66/84 ms
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.255.255.5, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/1 ms
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.255.255.9, timeout is 2 seconds:
+Packet sent with a source address of 10.255.255.5 
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 80/92/104 ms
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.255.255.5, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/4 ms
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.255.255.10, timeout is 2 seconds:
+Packet sent with a source address of 10.255.255.5 
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 48/65/84 ms
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.255.255.5, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/1 ms
 \end{alltt}
 \end{small}
 }
@@ -1679,12 +1759,73 @@ Vidíme, že smerovanie išlo po trase \textbf{R10 -\textgreater{} R4 -\textgrea
 \subsection{Overiť funkčnosť nastavenia politiky vhodnými výpadkami liniek a smerovačov}
 \subsubsection{Popis}
 \paragraph{}
-Rozhodli sme sa, že odpojíme linky R3-R8, R4-R10, R2-R5, R5-R6
+Rozhodli sme sa, že odpojíme linky R3-R8, R1-R2
 
 \subsubsection{Overenie}
 \paragraph{}
 Výpadok linky R3-R8.
 
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+R8#traceroute 10.255.255.3 source 10.255.255.8
 
+Type escape sequence to abort.
+Tracing the route to 10.255.255.3
+
+  1 10.110.89.9 [AS 110] 16 msec 24 msec 16 msec
+  2 200.110.255.237 [AS 110] 36 msec 36 msec 40 msec
+  3 10.110.34.3 [AS 110] 60 msec *  76 msec
+
+...
+
+*Mar 20 11:39:59.651: %BGP-5-ADJCHANGE: neighbor 200.110.255.241 Up  * 
+
+...
+
+R8#traceroute 10.255.255.3 source 10.255.255.8
+
+Type escape sequence to abort.
+Tracing the route to 10.255.255.3
+
+  1 200.110.255.241 [AS 110] 28 msec *  32 msec
+\end{alltt}
+\end{small}
+}
+
+\paragraph{}
+Vidíme, že premávka bola presmerovaná z \textbf{R8 -\textgreater{} R3} na \textbf{R8 -\textgreater{} R9 -\textgreater{} R4 -\textgreater{} R3}.
+
+\paragraph{}
+Výpadok linky R1-R2.
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+R10#traceroute 10.255.255.5 source 10.255.255.10
+
+Type escape sequence to abort.
+Tracing the route to 10.255.255.5
+
+  1 200.110.255.245 [AS 110] 16 msec 16 msec 16 msec
+  2 10.110.24.2 40 msec 36 msec 36 msec
+  3 200.110.255.249 [AS 110] 68 msec 64 msec 60 msec
+  4 64.34.255.254 [AS 3401] 68 msec *  72 msec
+R10#traceroute 10.255.255.5 source 10.255.255.10
+
+Type escape sequence to abort.
+Tracing the route to 10.255.255.5
+
+  1 200.110.255.245 [AS 110] 8 msec 12 msec 20 msec
+  2 10.110.24.2 36 msec 36 msec 40 msec
+  3 200.110.255.254 [AS 110] 36 msec *  64 msec
+\end{alltt}
+\end{small}
+}
+
+\paragraph{}
+Vidíme, že premávka bola presmerovaná z \textbf{R10 -\textgreater{} R4 -\textgreater{} R2 -\textgreater{} R1 -\textgreater{} R5} na \textbf{R10 -\textgreater{} R4 -\textgreater{} R2 -\textgreater{} R5}.
 
 \end{document}
