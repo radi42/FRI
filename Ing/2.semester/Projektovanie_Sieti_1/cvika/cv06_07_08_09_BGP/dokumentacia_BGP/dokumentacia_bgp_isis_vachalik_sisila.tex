@@ -1056,10 +1056,18 @@ Flag: 0x820
 Z výpisov AS\_PATH vidíme, že privátny AS 65001 nie je ohlasovaný do internetu ani cez R2, ani cez R4.
 
 
+\subsection{Kontrola konektivity medzi zákazníckymi a internetovými smerovacími záznamami}
+\subsubsection{Overenie}
+\paragraph{}
 
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
 
-
-
+\end{alltt}
+\end{small}
+}
 
 
 \newpage
@@ -1068,16 +1076,45 @@ Z výpisov AS\_PATH vidíme, že privátny AS 65001 nie je ohlasovaný do intern
 \paragraph{}
 ISP politika umožňuje ovplyvňovať smerovanie prevádzky medzi BGP autonómnymi systémami. Používame na to BGP atribúty , ktoré vieme meniť. Použité atribúty vysvetľujeme bližšie pri jednotlivých úlohách.
 
+\paragraph{}
+Linku ku upstream providerovi sme sa vo všetkých úlohách snažili používať minimálne. Namiesto toho sme využívali pre ISP 1 a 2 peeringové centrum. Toto správanie sme zapezpečili pomocou zmeny \say{local preferenice} na R2 a R6 nasledovne:
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+!R6
+route-map R1-R6 permit 10
+  set local-preference 60
+route-map R5-R6 permit 10
+  set local-preference 70
+router bgp 330
+  neighbor 200.33.255.249 route-map R5-R6 in
+  neighbor 200.33.255.253 route-map R1-R6 in
+
+
+-------------------------------------------------------------
+
+
+!R2
+route-map R1-R2 permit 10
+  set local-preference 60
+route-map R5-R2 permit 10
+  set local-preference 70
+router bgp 110
+  neighbor 200.110.255.249 route-map R1-R2 in
+  neighbor 200.110.255.254 route-map R5-R2 in
+\end{alltt}
+\end{small}
+}
+
 \subsection{Primárna linka R3−R8}
 \subsubsection{Popis}
 \paragraph{}
 Úlohou bolo zabezpečiť aby bola pre smerovač R9 zvolená v oboch smeroch primárna linka do AS 110 cez smerovač R3 a nie R4 (viď obr. \ref{fig:bgp_isis_topo_r3_r8}). 
 
 \paragraph{}
-Na R8 a R9 sme vytvorili routemapu s názvom \say{AS\_KAM\_TO\_IDE:AS\_ODKIAL\_TO\_IDE}. Na zmenu smerovania smerom von z AS 65001 sme použili atribút \say{Local Preference}, ktorý sme nastavili routemapou na smerovačoch R8 a R9. Chceme aby aj R9 išla cez R8, nie cez R4. Preto si R8 si musí zdvihnúť \say{local preference} smerom na R9, a ohlasovať zvysenu local pref na R9.
-
-\paragraph{}
-Pri akejkoľvek zmene politiky musíme reštartovať BGP proces, aby sa prejavili zmeny.
+Na R8 a R9 sme vytvorili routemapu s názvom \say{AS\_KAM\_TO\_IDE:AS\_ODKIAL\_TO\_IDE}. Na zmenu smerovania smerom von z AS 65001 sme použili atribút \say{Local Preference}, ktorý sme nastavili routemapou na smerovačoch R8 a R9. Chceme aby aj R9 išla cez R8, nie cez R4. Preto si R8 si musí zdvihnúť \say{local preference} smerom na R9, a ohlasovať zvýšenú \say{local preference} na R9. Pri akejkoľvek zmene politiky musíme reštartovať BGP proces, aby sa prejavili zmeny.
 
 \paragraph{}
 Keď si teraz zobrazíme informácie o prefixe 10.255.255.8 príkazom \say{show ip bgp 10.255.255.8}, vidíme, že číslo komunity "community" je nejake vysoke cislo. Aby sme mohli precitat cislo community, na vsetkych 4 routroch v globalnom konfig. rezime musíme na smerovačoch R3 a R4 zmeniť formát, v akom sa číslo komunity zobrazuje príkazom \say{ip bgp-community new-format} v globálnom konfiguračnom režime.
@@ -1096,7 +1133,7 @@ ACLko \say{PREFER} sme mohli na R8 dať buď na suseda R3 v smere IN, alebo na s
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=14cm,keepaspectratio]{bgp_isis_r3_r8_primary}
-\caption{Topológia BGP}
+\caption{Preferovaná linka R3-R8}
 \label{fig:bgp_isis_topo_r3_r8}
 \end{figure}
 
@@ -1275,7 +1312,7 @@ Záklazník 2 chce primárne využívať linku ku R4 pre vstup aj výstup t.j. p
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=14cm,keepaspectratio]{bgp_isis_r4_r10_primary}
-\caption{Topológia BGP}
+\caption{Preferovaná linka R4-R10}
 \label{fig:bgp_isis_topo}
 \end{figure}
 
@@ -1305,72 +1342,54 @@ neighbor 200.33.255.246 route-map ROUTE1 in
 !SMEROM DNU
 =============================================================
 
-R6(config)#route-map R1-R6 permit 10
-R6(config-route-map)#set local-preference 60
-R6(config-route-map)#exit
-R6(config)#route-map R5-R6 permit 10
-R6(config-route-map)#set local-preference 70
-R6(config-route-map)#exit
-R6(config)#router bgp 330
-R6(config-router)#neighbor 200.33.255.249 route-map R5-R6 in
-R6(config-router)#neighbor 200.33.255.253 route-map R1-R6 in
-
-
--------------------------------------------------------------
-
-
-!R2
-route-map R1-R2 permit 10
-  set local-preference 60
-route-map R5-R2 permit 10
-  set local-preference 70
-router bgp 110
-  neighbor 200.110.255.249 route-map R1-R2 in
-  neighbor 200.110.255.254 route-map R5-R2 in
-
-
--------------------------------------------------------------
-
 
 !R10
 route-map R4PREF permit 10
   set local-preference 160
 router bgp 5005
   neighbor 200.110.255.245 route-map R4PREF in
-
-
--------------------------------------------------------------
-
-
-!R5
-route-map R1LP permit 10
-  set local-preference 60
-router bgp 4502
-  neighbor 64.34.255.253 route-map R1LP in
-
-
--------------------------------------------------------------
-
-
-!R8
-route-map R3-R8 permit 10
-  set local-preference 110
-router bgp 65001
-  neighbor 10.255.255.9 route-map R3-R8 out
 \end{alltt}
 \end{small}
 }
 
 
-
 \subsubsection{Overenie}
 \paragraph{}
-Mozme si vsimnut ze prevadzka ide cez R6.
+Primárnu linku sme overovali príkazom \say{show ip bgp} na R7 a R10.
 
 \noindent
 {\fontfamily{qcr}\selectfont
 \begin{small}
 \begin{alltt}
+R10#sh ip bgp
+BGP table version is 127, local router ID is 10.255.255.10
+Status codes: s suppressed, d damped, h history, * valid, > best, i - internal,
+              r RIB-failure, S Stale
+Origin codes: i - IGP, e - EGP, ? - incomplete
+
+   Network          Next Hop            Metric LocPrf Weight Path
+*> 10.255.255.1/32  200.110.255.245               160      0 110 3401 i
+*                   200.33.255.245                         0 330 3401 i
+*> 10.255.255.2/32  200.110.255.245               160      0 110 i
+*                   200.33.255.245                         0 330 3401 110 i
+*  10.255.255.3/32  200.33.255.245                         0 330 3401 110 i
+*>                  200.110.255.245               160      0 110 i
+*  10.255.255.4/32  200.33.255.245                         0 330 3401 110 i
+*>                  200.110.255.245          0    160      0 110 i
+*> 10.255.255.5/32  200.110.255.245               160      0 110 3401 4502 i
+*                   200.33.255.245                         0 330 3401 4502 i
+*> 10.255.255.6/32  200.110.255.245               160      0 110 3401 330 i
+*                   200.33.255.245                         0 330 i
+*> 10.255.255.7/32  200.110.255.245               160      0 110 3401 330 i
+*                   200.33.255.245           0             0 330 i
+*> 10.255.255.8/32  200.110.255.245               160      0 110 i
+*                   200.33.255.245                         0 330 3401 110 i
+*  10.255.255.9/32  200.33.255.245                         0 330 3401 110 i
+
+
+=============================================================
+
+
 R7#sh ip bgp
 BGP table version is 23, local router ID is 10.255.255.7
 Status codes: s suppressed, d damped, h history, * valid, > best, 
@@ -1399,23 +1418,20 @@ s> 200.33.7.0/25    0.0.0.0              0         32768 i
 \end{small}
 }
 
+\paragraph{}
+Môžeme si všimnúť, že prevádzka ide cez R4, kde sme nastavili \say{local preference} na 160. Smerovač R7 presmeroval prevádzku cez R6.
+
 
 
 
 \subsection{Distribuovať iba default, AS5005 a peering prefixy do AS65001}
 \subsubsection{Popis}
 \paragraph{}
-R1 treba oznackovat routy. neuvidim siete ktore su z R1 + uvidime default route smerom hore
+Potrebujeme na R1 nastaviť komunitu. Namiesto toho, aby sme videli videl siete, ktoré sú z R1, uvidíme default route.
 
 \subsubsection{Konfigurácia}
 \paragraph{}
-route-map
-* out smery dat comunitu 3401:3401
-send community
-susedia by mali mat komunitu
-
-R3,R4 in - route-mapa
-ak obsahujes send comunity, neposielas to dalej
+Konfigurovali sme smerovače R1, R3 a R4. R1 posiela komunitu, R3 a R4 túto komunitu zahadzuje smerom na zákazníka 1.
 
 \noindent
 {\fontfamily{qcr}\selectfont
@@ -1431,7 +1447,7 @@ neighbor 200.33.255.254 send-community
   neighbor 200.33.255.254 route-map COM out
 
 
--------------------------------------------------------------
+=============================================================
 
 
 !R2
@@ -1441,7 +1457,7 @@ R2(config)#router bgp 110
 do clear ip bgp * out
 
 
--------------------------------------------------------------
+=============================================================
 
 
 !R3
@@ -1455,7 +1471,7 @@ router bgp 110
   neighbor 200.110.255.242 default-originate
 
 
--------------------------------------------------------------
+=============================================================
 
 
 !R4
@@ -1472,7 +1488,7 @@ router bgp 110
 R4(config-router)#do clear ip bgp * out
 
 
--------------------------------------------------------------
+=============================================================
 
 
 !R9
@@ -1494,62 +1510,66 @@ clear ip bgp * out
 
 \subsubsection{Overenie}
 \paragraph{}
-na r8 neuvidim siete ktore su z R1 + uvidime default route smerom hore vo výpise príkazov \say{show ip route} a \say{show ip bgp} t.j. na R8 nevidím cestu do 10.255.255.1.
+Default route ku zákazníkovi 1 sme overovali výpisom smerovacej tabuľky a BGP databázy.
 
 \noindent
 {\fontfamily{qcr}\selectfont
 \begin{small}
 \begin{alltt}
-B    223.255.255.0/24 [200/0] via 200.110.255.237, 00:11:22
+R8#sh ip route
+...
+
+Gateway of last resort is 200.110.255.241 to network 0.0.0.0
+
+     200.110.4.0/25 is subnetted, 1 subnets
+B       200.110.4.0 [20/0] via 200.110.255.241, 01:20:11
+B    223.255.255.0/24 [20/0] via 200.110.255.241, 00:34:49
      200.110.255.0/30 is subnetted, 2 subnets
 C       200.110.255.240 is directly connected, FastEthernet0/0
 i L2    200.110.255.236 [115/10] via 10.110.89.9, FastEthernet0/1
      200.110.12.0/25 is subnetted, 1 subnets
 C       200.110.12.0 is directly connected, Loopback1
-B    128.45.0.0/16 [200/0] via 200.110.255.237, 00:11:22
      200.110.13.0/25 is subnetted, 1 subnets
 i L2    200.110.13.0 [115/10] via 10.110.89.9, FastEthernet0/1
-     10.0.0.0/8 is variably subnetted, 10 subnets, 2 masks
-B       10.255.255.10/32 [200/0] via 200.110.255.237, 00:11:24
+     10.0.0.0/8 is variably subnetted, 7 subnets, 2 masks
+B       10.255.255.10/32 [20/0] via 200.110.255.241, 00:34:50
 C       10.255.255.8/32 is directly connected, Loopback0
 i L2    10.255.255.9/32 [115/10] via 10.110.89.9, FastEthernet0/1
-B       10.255.255.2/32 [200/0] via 200.110.255.237, 00:11:25
-B       10.255.255.3/32 [200/0] via 200.110.255.237, 00:11:25
-B       10.255.255.6/32 [200/0] via 200.110.255.237, 00:11:25
-B       10.255.255.7/32 [200/0] via 200.110.255.237, 00:11:25
-B       10.255.255.4/32 [200/0] via 200.110.255.237, 00:11:25
-B       10.255.255.5/32 [200/0] via 200.110.255.237, 00:11:25
+B       10.255.255.2/32 [20/0] via 200.110.255.241, 01:20:14
+B       10.255.255.3/32 [20/0] via 200.110.255.241, 01:20:14
+B       10.255.255.4/32 [20/0] via 200.110.255.241, 01:20:14
 C       10.110.89.0/24 is directly connected, FastEthernet0/1
-B    200.33.0.0/16 [200/0] via 200.110.255.237, 00:11:25
-B    200.110.0.0/16 [200/0] via 200.110.255.237, 00:11:25
+B*   0.0.0.0/0 [20/0] via 200.110.255.241, 00:08:57
+B    200.110.0.0/16 [20/0] via 200.110.255.241, 01:20:14
 
 
+-------------------------------------------------------------
 
-R8#sh ip bgp
-BGP table version is 47, local router ID is 200.110.12.1
-Status codes: s suppressed, d damped, h history, * valid, > best, 
-              i - internal, r RIB-failure, S Stale
+
+R8#sh ip bgp                            
+BGP table version is 132, local router ID is 200.110.12.1
+Status codes: s suppressed, d damped, h history, * valid, > best, i - internal,
+              r RIB-failure, S Stale
 Origin codes: i - IGP, e - EGP, ? - incomplete
 
    Network          Next Hop            Metric LocPrf Weight Path
-*>i10.255.255.2/32  200.110.255.237          0    100      0 110 i
-*>i10.255.255.3/32  200.110.255.237          0    100      0 110 i
-*>i10.255.255.4/32  200.110.255.237          0    100      0 110 i
-*>i10.255.255.5/32  200.110.255.237          0    100      0 110 4502 i
-*>i10.255.255.6/32  200.110.255.237          0    100      0 110 4502 330 i
-*>i10.255.255.7/32  200.110.255.237          0    100      0 110 4502 330 i
+*> 0.0.0.0          200.110.255.241          0    110      0 110 i
+*> 10.255.255.2/32  200.110.255.241               110      0 110 i
+*> 10.255.255.3/32  200.110.255.241          0    110      0 110 i
+*> 10.255.255.4/32  200.110.255.241               110      0 110 i
 *> 10.255.255.8/32  0.0.0.0                  0         32768 i
 r>i10.255.255.9/32  10.255.255.9             0    100      0 i
-*>i10.255.255.10/32 200.110.255.237          0    100      0 110 5005 i
-*>i128.45.0.0       200.110.255.237          0    100      0 110 4502 i
-*>i200.33.0.0/16    200.110.255.237          0    100      0 110 4502 330 i
-*>i200.110.0.0/16   200.110.255.237          0    100      0 110 i
-*>i223.255.255.0    200.110.255.237          0    100      0 110 5005 i
+*> 10.255.255.10/32 200.110.255.241               110      0 110 5005 i
+*> 200.110.0.0/16   200.110.255.241               110      0 110 i
+*> 200.110.4.0/25   200.110.255.241               110      0 110 i
+*> 200.110.12.0/25  0.0.0.0                  0         32768 i
+*> 223.255.255.0    200.110.255.241               110      0 110 5005 i
 \end{alltt}
 \end{small}
 }
 
-
+\paragraph{}
+Z výpisu smerovacej tabuľky a BGP databázy z R8 vidíme, že na R8 nevidíme siete, ktoré sú z R1. Namiesto toho vidíme default route z R3 resp. R4.
 
 
 \subsection{AS5005 nesme byť nikdy transit}
@@ -1565,9 +1585,10 @@ Je nežiadúce, aby komunikácia medzi poskytovateľmi \say{ISP 1} a \say{ISP 2}
 \begin{small}
 \begin{alltt}
 !R10
+ip as-path access-list 1 permit ^$
 route-map OUT_110 permit 10
   match as-path 1
-  et community 5005:110
+  set community 5005:110
 route-map OUT_330 permit 20
   match as-path 1
   set community 5005:330
@@ -1579,57 +1600,31 @@ router bgp 5005
 \end{small}
 }
 
-\subsubsection{Overenie}
-\paragraph{}
-TODO - overit transit
-
-
-
-
 
 
 \subsection{Peering iba pre ISP1 a ISP2, nie pre prefixy naučené z Upstream ISP}
 \subsubsection{Popis}
 \paragraph{}
-R2 nebude ohlasovat updaty z R1 do R5
-R6 nebude ohlasovat updaty z R1 do R5
+V tejto úlohe je potrebné zmeniť smerovanie tak, aby sa na Upstream providera nebolo možné dostať cez peeringové centrum, ale iba ISP 1 a 2.
 
 \subsubsection{Konfigurácia}
 \paragraph{}
-TODO - na routri R5 nesedi konfiguracia routemap!
+Konfigurovali sme smerovače R2 a R6.
 
 \noindent
 {\fontfamily{qcr}\selectfont
 \begin{small}
 \begin{alltt}
-TODO - Treba konkretne prikazy
-R2 route map na R5
-match 3401 -> deny
-
-R6 route map na R5
-match 3401 -> deny
-match comunity 3401 deny
-\end{alltt}
-\end{small}
-}
-
-\paragraph{}
-problem bol ze ked siel ping z napr R10 na R1 tak siel cez R4 R2 R5 R6 R1
-treba zadat tieto prikazy aby to slo priamo do R1
-
-\noindent
-{\fontfamily{qcr}\selectfont
-\begin{small}
-\begin{alltt}
-R2(config)#route-map DENYR1 deny 10
-R2(config-route-map)#match community 1
-R2(config)#route-map DENYR1 permit 20
+!R2
+route-map DENYR1 deny 10
+  match community 1
+route-map DENYR1 permit 20
 router bgp 110
- neighbor 200.110.255.254 route-map DENYR1 out
+  neighbor 200.110.255.254 route-map DENYR1 out
 clear
 
 
-R6
+!R6
 ip community-list 1 permit 3401:65001
 route-map DENYR1 deny 10
  match community 1
@@ -1642,8 +1637,7 @@ do clear ip bgp * out
 }
 
 \paragraph{}
-teraz bol problem ze ping siel od R10 do R4 R2 R5 R1
-preto bolo treba zadat do R2 takuto route-mapu
+Teraz bol problém, že ping šiel od R10 do R4 R2 R5 R1, preto bolo treba zadať do R2 takúto routemapu:
 
 \noindent
 {\fontfamily{qcr}\selectfont
@@ -1659,6 +1653,38 @@ route-map R1-R2 permit 5
 
 \subsubsection{Overenie}
 \paragraph{}
-TODO - traceroute od R10 do R4 R2 R5 R1
+Konfiguráciu sme overovali príkazom \say{traceroute} z R10 do R5.
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+R10#traceroute 10.255.255.5 source 10.255.255.10
+
+Type escape sequence to abort.
+Tracing the route to 10.255.255.5
+
+  1 200.110.255.245 [AS 110] 4 msec 16 msec 20 msec
+  2 10.110.24.2 40 msec 40 msec 44 msec
+  3 200.110.255.249 [AS 110] 36 msec 76 msec 52 msec
+  4 64.34.255.254 [AS 3401] 60 msec *  68 msec
+
+\end{alltt}
+\end{small}
+}
+
+\paragraph{}
+Vidíme, že smerovanie išlo po trase \textbf{R10 -\textgreater{} R4 -\textgreater{} R2 -\textgreater{} R1}.
+
+\subsection{Overiť funkčnosť nastavenia politiky vhodnými výpadkami liniek a smerovačov}
+\subsubsection{Popis}
+\paragraph{}
+Rozhodli sme sa, že odpojíme linky R3-R8, R4-R10, R2-R5, R5-R6
+
+\subsubsection{Overenie}
+\paragraph{}
+Výpadok linky R3-R8.
+
+
 
 \end{document}
