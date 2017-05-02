@@ -1,0 +1,40 @@
+longest prefix match - nemozem pouzit prvu zhodnu adresu v smerovacej tabulke, ale musim ju vzdy prehladat celu
+
+prefix aj maska bude uint32_t
+
+Ako vytvorit smerovaciu tabulku cez linearne zretazeny zoznam
+1. vytvorime linkedlist
+	operacie:
+	-void vytvorTab()
+	-bool vlozZaznam(tab, prefix, maska) - DVE VERZIE
+		-bool vlozNaZaciatok
+		-bool vlozPodlaMasky - vyhladavanie vieme zrychlit tak, ze najdlhsie prefixy budeme davat na zaciatok => budeme triedit pri vkladani podla masky- osetrit, ked su vkladana
+	-bool existujeZaznam(tab, prefix, maska) - osetrenie duplicit pri vkladani
+	-vyhladaj(tab, ip) - vrati IPcku nextHopu s longest prefix match. Rozdelime na dve funkcie:
+		-lookup(tab, ip) - hlavna funkcia
+		-vyhladajZaznam(tab, prefix, maska) - 
+	-bool zmazZaznam(tab, prefix, maska) - mozeme spravit aj funkciu na zmazanie vsetkych prefixov s maskou
+	-void zmazTabulku
+	-vypisTabulku(tab)
+
+pouzivame dynamicku pamat
+
+
+---------------------------------------
+
+
+vypis smerovacej tabulky
+printf("%hhu.%hhu.%hhu.%hhu")	//hex + hex + unsigned = budem sa pozerat na 4+4=8bitov = 1 bajt naraz bez znamienka
+
+ip = 0xAABBCCDD
+ip & 0x00FF0000		//0x00BB0000
+ip >> 16	 	//doplname zlava, aby sa nam BB posunulo na koniec t.j. dostanem 0x000000BB
+
+najprv posun az potom robit AND (prehladnejsie)
+
+printf("%hhu...", entry)
+
+DU: dorobit funkcie, prerobit na IP adresy a potom vymysliet generator sieti (prefixov a masiek) a ip adries, aby sme mohli profilovat vykonnost smerovacej tabulky. Zakazdym treba znova inicializovat generatory. Treba osetrit pridavanie viacerych defaultnych rout (IBA JEDNA SIET S MASKOU /0). Merat cas, ktory program stravi lookupmi na vygenerovane ipcky. Cas zistim funkciou "timersub" + nejake statistky, kolko adries som trafil priamo, a kolko islo do default routy (ak som nejaku vygeneroval) a kolko adries som dropol.
+
+pokial sa zhoda s routovacou tabulkou nenasla, vypisem "NOT FOUND"
+pri kazdom volani printf treba flushnut buffer na vypisovanie na terminal

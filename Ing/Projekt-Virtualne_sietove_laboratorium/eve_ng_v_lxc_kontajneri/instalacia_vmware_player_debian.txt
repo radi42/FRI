@@ -43,4 +43,23 @@ echo $CC
 
 ERR-ERR !!! NEVIEM SPUSTIT ZIADNU VIRTUALNU MASINU VO VMWARE, LEBO MODUL "VMMON" NEBOL ZAVEDENY DO KERNELU! (nemam opravnenia)
 
-tak som urobil screenshoty prikazu "ls -al vm*" z mojho notebooku a ucitelskeho pocitaca, porovnal som vystupy. LXC kontajner nemal ziadne subory v /dev adresari prisluchajuce LXC kontajneru. Tak som po rade od Peta Hadaca pouzil prikaz "mknod", ktorym som /dev adresar naplnil. ale ked som spustil vmware player cez moj skript a potom som spustil masinu, zase mi zobrazil chybovu hlasku, ze nevie najst vmmon modul, ze nie je nacitany a spustenie virtualky zlyha. Ked ale spustim vmware player cez Applications menu, tak mi zobrazi dialogove okno, v ktorom odomna ziada cestu ku linux kernel headers (zdrojaky ku kernelu). Lenze kernel headers k debianu 9 este neexistuju resp. balicek este nie je dostupny.  Ked som ich chcel nainstalovat prikazom "apt-get install linux-headers-$(uname -r)", tak vypisal chybu, ze taky balicek neexistuje. Ani instalacia jedninych dostupnych headerov "linux-headers-4.9.0-2-amd64" nepomohla, lebo kernel, ktory momentalne (20.4.2017) bezi v systeme je vo verzii 4.9.0.-1 a VMware si s nim nerozumie! Tym vznikla nezhoda medzi verziou aktualneho kernelu a verziou zdrojovych suborov ku kernelu v apt. Takze musim cakat do 2.5.2017, kym sa Debian 9 Stretch OFICIALNE uvolni a potom nainstalovat zodpovedajuce headery a skusit doinstalovat VMware potom.
+tak som urobil screenshoty prikazu "ls -al vm*" z mojho notebooku a ucitelskeho pocitaca, porovnal som vystupy. LXC kontajner nemal ziadne subory v /dev adresari prisluchajuce LXC kontajneru. Tak som po rade od Peta Hadaca pouzil prikaz "mknod", ktorym som /dev adresar naplnil. ale ked som spustil vmware player cez moj skript a potom som spustil masinu, zase mi zobrazil chybovu hlasku, ze nevie najst vmmon modul, ze nie je nacitany a spustenie virtualky zlyha. Ked ale spustim vmware player cez Applications menu, tak mi zobrazi dialogove okno, v ktorom odomna ziada cestu ku linux kernel headers (zdrojaky ku kernelu). Lenze kernel headers k debianu 9 este neexistuju resp. balicek este nie je dostupny.  Ked som ich chcel nainstalovat prikazom "apt-get install linux-headers-$(uname -r)", tak vypisal chybu, ze taky balicek neexistuje. Ani instalacia jedninych dostupnych headerov "linux-headers-4.9.0-2-amd64" nepomohla, lebo kernel, ktory momentalne (20.4.2017) bezi v systeme je vo verzii 4.9.0.-1 a VMware si s nim nerozumie! Tym vznikla nezhoda medzi verziou aktualneho kernelu a verziou zdrojovych suborov ku kernelu v apt.
+
+Navyse je oficialne vydanie Debian Stretch pozdrzane, lebo chcu do neho integrovat kernel 4.10, vid
+  http://news.softpedia.com/news/debian-9-stretch-freeze-delayed-to-integrated-linux-kernel-4-10-501330.shtml
+
+
+Uz teraz je obtiazne rozbehnut virtualku vo vmwarei pod kernelom 4.9, ale je to mozne obist, vid
+  http://rglinuxtech.com/?p=1847#comment-25733
+
+Mozno to pojde aj pre kernel 4.10, neviem. VMware funguje pod kernelom 4.8 v poriadku.
+Ale mozno to nebude fungovat vobec, lebo lxc kontainer nemoze instalovat moduly do kernelu, ktore potrebuje vmware, vid
+  https://askubuntu.com/questions/314817/how-do-i-install-a-kernel-module-in-an-lxc-guest-machine
+
+Jediny sposob, ako do lxc kontajnera nacitat modul je, ze ho nacitame do hostovskeho systemu.
+
+Nakoniec mi bolo dovolene nainstalovat VMware Player do Odysea.
+
+Vyskusat tieto konfiguracie:
+-Aktualna konfiguracia:Debian strech -> kvm (hadac) -> ubuntu 16 / debian jessie -> vmware -> EVE
+-Debian strech -> debian stretch -> vmware -> EVE

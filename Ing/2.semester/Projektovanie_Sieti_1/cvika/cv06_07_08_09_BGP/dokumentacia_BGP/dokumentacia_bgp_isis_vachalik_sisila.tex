@@ -937,7 +937,9 @@ Z druhého výpisu BGP tabuľky vidíme, že počet prefixov sa v dôsledku suma
 \subsection{Prepísať privátne AS65001}
 \subsubsection{Popis}
 \paragraph{}
-na konci AS PATH mame pre 10.255.255.8 mame privatne ASko. provider musi privatne ASko odstranit, lebo take sa nemozu dostat do internetu, inak by zblblo smerovanie. Odstraňovanie sa bude diať na smerovačoch R2 (v smere k R1 a R5) a R4 (v smere k R10), pretože R2 a R4 tie sú hraničné smerovače v AS 110.
+Na konci atribútu AS\_PATH máme pre 10.255.255.8 privátne číslo AS. ISP1 musí privátne číslo AS odstrániť, lebo také sa nemôžu dostať do internetu, inak by sa narušilo smerovanie. Odstraňovanie sa bude diať na smerovačoch R2 (v smere k R1 a R5) a R4 (v smere k R10), pretože R2 a R4 tie sú hraničné smerovače v AS 110.
+
+
 
 \subsubsection{Konfigurácia}
 \paragraph{}
@@ -966,10 +968,7 @@ neighbor 200.110.255.246 remove-private-as
 
 \subsubsection{Overenie}
 \paragraph{}
-potom prikazom show ip bgp overit AS PATH overit, ze AS 65001 zmizne z AS PATH
-
-\paragraph{}
-Predtým ...
+Prikazom \say{show ip bgp overit} sme overili, že atribút AS\_PATH neobsahuje priváte číslo zákazníka 1.
 
 
 
@@ -1072,11 +1071,10 @@ ISP politika umožňuje ovplyvňovať smerovanie prevádzky medzi BGP autonómny
 \subsection{Primárna linka R3−R8}
 \subsubsection{Popis}
 \paragraph{}
-Na R4 sa z R9 máme dopingať cez R8 t.j. namiesto \textbf{R9 -\textgreater{} R4} to pôjde \textbf{R9 -\textgreater{} R8 -\textgreater{} R3 -\textgreater{} R4}. Rovnako aj v spätnom smere.
+Úlohou bolo zabezpečiť aby bola pre smerovač R9 zvolená v oboch smeroch primárna linka do AS 110 cez smerovač R3 a nie R4 (viď obr. \ref{fig:bgp_isis_topo_r3_r8}). 
 
 \paragraph{}
-Komunity
--nastavujeme cez smerovacie mapy (ďalej len \say{routemapy}) - cez routemapu vieme ovplyvnovat smerovanie NA ZAKLADE UPDATEOV z inych routrov. MOZEME MAT IBA JEDNU ROUTEMAPU V SMERE "IN" A JEDNU V SMERE "OUT" NA INTERFEJSI. Na R8 a R9 spravime routemapu s názvom \say{AS\_KAM\_TO\_IDE:AS\_ODKIAL\_TO\_IDE}.
+Na R8 a R9 sme vytvorili routemapu s názvom \say{AS\_KAM\_TO\_IDE:AS\_ODKIAL\_TO\_IDE}.
 
 \paragraph{}
 Local preference nastavime routemapou na R8 a R9. Chceme aby aj R9 isla cez R8, nie cez R4. R8 si musi zdvihnut local preference smerom na R9 a ohlasovat zvysenu local pref na R9.
@@ -1102,7 +1100,7 @@ ACLko \say{PREFER} sme mohli na R8 dať buď na suseda R3 v smere IN, alebo na s
 \centering
 \includegraphics[width=14cm,keepaspectratio]{bgp_isis_r3_r8_primary}
 \caption{Topológia BGP}
-\label{fig:bgp_isis_topo}
+\label{fig:bgp_isis_topo_r3_r8}
 \end{figure}
 
 \newpage

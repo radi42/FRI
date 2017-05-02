@@ -1,0 +1,167 @@
+VPN
+vyznam - mam pobocky v roznych kutoch slovenska, a cez vpn ich prepojim
+firmy dostanu privatnu WAN siet
+L2 VPN - router zakaznika nevie o routroch providera a tvari sa ako priamo pripojeny ku inemu zakaznickemu routru na inom konci providerskej siete
+L3 VPN - router zakaznika spolupracuje s hranicnym providerskym routrom, ale zakaznicky router nevie o sietach providera a vice versa
+
+2 typy l3 vpn routrov:
+pe - provider edge
+ce - customer edge
+
+pe router nevie nic o sietach zakaznika
+
+vrf - virtual routing forwarder - pe router bude mat pre kazdeho zakaznika routovaciu tabulku + jednu globalnu routovaciu tabulku
+
+dochadza ku dvojitemu tagovaniu
+
+-dojde k posunutiu route reflectora z r2 z r1 (ale moze byt lubovolny iny router), na r2 bude len isis
+
+Konfiguracia:
+-ISIS
+-MPLS + LDP (Label Distribution Protocol)
+-iBGP peering -> R1 bude route reflector
+
+!R3
+router bgp 65001
+  neigh 10.255.255.1 remote 110
+  neigh 10.255.255.1 update-source loop0
+  !next-hop-self nebude treba
+
+!R1
+router bgp 65001
+  !urobime peer grupu
+  neighbor <meno peer grupy> peer-group
+  neighbor <meno peer grupy> update-source loop0
+  neighbor <meno peer grupy> route-reflector-client
+  neighbor <meno peer grupy> IP peer-group
+  ip address ipv4 unicast
+
+
+
+
+VRF - nebude sa prehladavat globalna, ale virtualna smerovacia tabulka pre zakaznika
+Ak na PE routri dame "show ip route"
+  show ip route vrf <meno>
+zobrazi sa virtualna routovacia tabulka pre zakaznika
+
+  ping <IPcka>
+prehladava globalnu smerovaciu tabulku
+  ping <IPcka> vrf <meno>
+prehladava virtualnu smerovaciu tabulku zakaznika
+
+
+
+
+Budeme mat 2 zakaznikov: GREEN a RED
+Konfiguracia na 
+!vytvorenie virtualnej tabulky
+  ip vrf RED
+rd 110:1
+route-target both 110:1
+!vlozenie interfejsu zakaznika do vrf tabulky
+int e2/0
+  ip vrf forwarding RED
+  ip address IP MASK
+
+Overenie
+  show ip vrf forwaring
+
+-Labely budeme vidiet v pingoch
+
+vnutorny tag - meno zakaznika (RED/GREEN)
+vonkajsi tag - ktoru vrf prehladat, aby sa dostal na next hop
+
+route target je podoby ako community string
+RED 110:1
+GREEN 110:2
+a hovori, do ktorej virtualnej smerovacej tabulky (ktoreho zakaznika) mam vlozit update
+
+route-target <import/export/both> ASN:#
+route-target both ASN:#
+
+route distinguisher bude totozny s route-target t.j. ASN:#
+route distinguisher ma 8 bajtov a hovori routru, ze ak dostane update s rovnakym prefixom od roznych routrov, ma ich brat ako dva rozne updaty, ktore rozlisi na zaklade komunity stringu, namiesto toho, aby rovnakemu prefixu prepisoval next hop
+
+
+
+
+
+
+konfiguracia zakaznickeho routra
+!R8
+router bgp 65001
+  neigh r3 remote 110
+  neigh r9 remote 110
+  network
+
+!R3
+router bgp 110
+address-family ipv4 RED
+
+
+
+show run
+
+
+
+
+
+
+Overenie
+
+MPLS labely
+show ip bgp vpnv4 all summary
+(kym tam nie je "active", tak to je ok)
+
+
+kukneme, ci mame peera (pe)
+show ip bgp vpnv4 vrf summary
+(ce)
+show ip bgp
+
+uvidime vsetky prefixy, ktore sme sa naucili
+show ip bgp vpnv4 vrf
+
+show ip bgp vpnv4 vrf RED
+show ip bgp vpnv4 vrf RED 172.21.0.0
+
+show mpls forwarding-table
+
+
+
+
+
+na provider edge routri treba dat AS override, inak dropne paket, lebo paket pochadza z rovnakeho aska
+prikaz:
+
+neighbor <>
+
+ak chceme pingat bez source, potrebujeme zadat prikaz aj na ce aj na pe (v address family vrf RED) routroch zadat prikaz "redistribute connected"
+
+
+EXPLICITNE
+ping vrf RED 172.23.0.1
+
+
+
+
+
+
+
+GREEN
+spravit loopback1 na r1 a r4 pre zakaznika green (akoby jeho siete)
+1)spravit vrf green
+  rd
+  route-target
+  vlozit interfejsy do vrf
+2)router bgp
+  address-family ipv4 vrf GREEN
+    redistribute connected
+
+
+R1 bude mat 3 routovacie tabulky:
+show ip bgp
+show ip vrf red
+show ip vrf green
+
+pingat a traceroutovat cervene a zelene siete z rovnakeho routra a sledovat zmenu labelov
