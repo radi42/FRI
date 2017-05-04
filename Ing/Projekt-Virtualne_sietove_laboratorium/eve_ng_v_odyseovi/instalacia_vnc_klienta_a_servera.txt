@@ -1,15 +1,12 @@
 VNC server
 -VNC server bude v LXC kontajneri
--musime mat otvoreny port 5901, aby sme aj nieco videli :)
-
+-musime mat otvoreny port 5901 resp. rozsah od 5900-5903, aby sme aj nieco videli :)
+-vnc bude nstalovat graficke prostredie - XFCE je nenarocne na zdroje
 
 INSTALACIA
 -----------------------------------
 SERVER
-  sudo apt-get install tightvncserver
-  
-  # doinstalovat graficke prostredie - XFCE je nenarocne na zdroje
-  sudo apt-get install xfce4
+  sudo apt-get install tightvncserver xvfb xfce4
 
 KLIENT
   sudo apt-get install xtightvncviewer
@@ -18,20 +15,25 @@ KLIENT
 KONFIGURACIA
 -------------------------------------
 SERVER
-1) otvorime nizsie uvedeny subor
+0) Uistime sa, ze sme prihlaseny ako bezny pouzivatel. Spustanie 
+1) Spustime vnc server:
 
-  vim .vnc/xstartup
+  tightvncserver
 
-2) upravime ho nasledovne (pridal som iba na zaciatok suboru "startxfce4", aby sa rozbehlo desktopove prostredie pri pripojeni vnc klienta):
+Zobrazi sa cislo obrazovky, ktore si vnc server vybral.
+
+2) Zadame heslo, ktorym sa bude vnc klient pripajat na vnc server. Po zadani hesla sa spusti proces a vytvori sa adresar ".vnc".
+
+3) otvorime nizsie uvedeny subor
+
+  vim ~/.vnc/xstartup
+
+4) Upravime ho nasledovne (pridal som iba na zaciatok suboru "startxfce4", aby sa rozbehlo desktopove prostredie pri pripojeni vnc klienta):
 
 
 #!/bin/sh
 
-#unset SESSION_MANAGER
-#unset DBUS_SESSION_BUS_ADDRESS
-
 startxfce4 &
-
 xrdb $HOME/.Xresources
 xsetroot -solid grey
 #x-terminal-emulator -geometry 80x24+10+10 -ls -title "$VNCDESKTOP Desktop" &
@@ -41,12 +43,16 @@ export XKL_XMODMAP_DISABLE=1
 /etc/X11/Xsession
 
 
+5) Upravime subor "xstartup", ktory sa spusta pri pripojeni vnc klienta. Pokial sme uz spustili tightvncserver, 
+  
+  chmod +x ~/.vnc/xstartup
 
+6) nasledne restartujeme tightvncserver
 
-3) nasledne restartujeme tightvncserver
-
-tightvncserver -kill :1
-tightvncserver
+  tightvncserver -kill :0
+  tightvncserver -kill :1
+  tightvncserver -kill :2
+  tightvncserver
 
 
 
@@ -54,9 +60,11 @@ tightvncserver
 POUZIVANIE
 -------------------------------------
 SERVER
-  # spustenie virtualnej obrazovky (tusim xvfb - pohladat prikaz v historii)
+  # vytvorime virtualny buffer, do ktoreho sa bude 60 krat za sekundu ukladat obraz virtualnej obrazovky
   Xvfb :0 -screen 0 1024x768x16 -ac &
-  #DISPLAY=:0 exec startxfce4 &		# toto tam ale asi netreba - OTESTOVAT
+  
+  # spustime virtualnu obrazovku
+  DISPLAY=:0 exec startxfce4 &
 
   # spustenie VNC servera
   tightvncserver
@@ -74,6 +82,12 @@ SERVER
 KLIENT
   # pripojenie klienta ku VNC serveru
   xtightvncviewer 158.193.152.45:5901
+
+resp.
+
+    xtightvncviewer <ip_vnc_server>:590X
+
+kde X je cislo vnc obrazovky.
 
 SERVER
   # vypnutie VNC servera
