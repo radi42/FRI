@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.2.18)  8 MAY 2017 11:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.2.18)  8 MAY 2017 09:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -310,9 +310,15 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 3.
 
-Overfull \hbox (4.34218pt too wide) in paragraph at lines 22--22
+Overfull \hbox (4.34218pt too wide) in paragraph at lines 20--20
  [][] []\OT1/ppl/m/n/12 R2, R3, R4 bro-ad-cast spo-je-nia pro-stredn[]^^Pctvom 
 L2 prep[]^^Pna[]ca, 
+ []
+
+
+Overfull \hbox (7.68892pt too wide) in paragraph at lines 84--84
+ [][] []\OT1/ppl/m/n/12 Skr[]atenie hello a dead-interval []casova[]cov, zis-te
+-nie funk[]cnosti 
  []
 
 )
@@ -337,525 +343,586 @@ Overfull \hbox (25.13855pt too wide) in paragraph at lines 65--98
 
 [3 <./obr/multiarea_ospf_topo.png>]
 LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 113.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [4]
-LaTeX Font Info:    Try loading font information for OT1+qcr on input line 123.
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 106.
+LaTeX Font Info:    Try loading font information for OT1+qcr on input line 113.
 
 
 (/usr/share/texmf/tex/latex/tex-gyre/ot1qcr.fd
 File: ot1qcr.fd 2009/09/25 v1.2 font definition file for OT1/qcr
 )
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 125.
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [4]
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 115.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-)
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 163--163
+) [5]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [6]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [8]
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 351--351
 []\OT1/pcr/m/n/10.95 Interface                  IP-Address      OK? Method Stat
 us   Protocol[] 
  []
 
 
-Overfull \hbox (0.25815pt too wide) in paragraph at lines 164--164
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 352--352
 []\OT1/pcr/m/n/10.95 FastEthernet0/0            10.1.38.1       YES TFTP   up  
      up[] 
  []
 
 
-Overfull \hbox (0.25815pt too wide) in paragraph at lines 165--165
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 353--353
 []\OT1/pcr/m/n/10.95 FastEthernet0/1            10.0.234.3      YES TFTP   up  
      up[] 
  []
 
 
-Overfull \hbox (0.25815pt too wide) in paragraph at lines 166--166
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 354--354
 []\OT1/pcr/m/n/10.95 Serial1/0                  10.2.39.1       YES TFTP   up  
      up[] 
  []
 
 
-Overfull \hbox (13.39813pt too wide) in paragraph at lines 167--167
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 355--355
 []\OT1/pcr/m/n/10.95 Serial1/1                  unassigned      YES TFTP   up  
      down[] 
  []
 
 
-Overfull \hbox (13.39813pt too wide) in paragraph at lines 168--168
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 356--356
 []\OT1/pcr/m/n/10.95 Serial1/2                  unassigned      YES TFTP   up  
      down[] 
  []
 
 
-Overfull \hbox (13.39813pt too wide) in paragraph at lines 169--169
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 357--357
 []\OT1/pcr/m/n/10.95 Serial1/3                  unassigned      YES TFTP   up  
      down[] 
  []
 
 
-Overfull \hbox (0.25815pt too wide) in paragraph at lines 170--170
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 358--358
 []\OT1/pcr/m/n/10.95 Loopback1                  10.255.255.3    YES TFTP   up  
      up[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 174--174
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 362--362
 []\OT1/pcr/m/n/10.95 Capability Codes: R - Router, T - Trans Bridge, B - Source
  Route Bridge[] 
  []
 
 
-Overfull \hbox (65.95807pt too wide) in paragraph at lines 177--177
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 365--365
 []\OT1/pcr/m/n/10.95 Device ID        Local Intrfce     Holdtme    Capability  
 Platform  Port ID[] 
  []
 
 
-Overfull \hbox (65.95807pt too wide) in paragraph at lines 178--178
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 366--366
 []\OT1/pcr/m/n/10.95 R2               Fas 0/1            125         R S I     
 2691      Fas 0/1[] 
  []
 
 
-Overfull \hbox (65.95807pt too wide) in paragraph at lines 179--179
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 367--367
 []\OT1/pcr/m/n/10.95 R4               Fas 0/1            137         R S I     
 2691      Fas 0/1[] 
  []
 
 
-Overfull \hbox (65.95807pt too wide) in paragraph at lines 180--180
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 368--368
 []\OT1/pcr/m/n/10.95 R8               Fas 0/0            155         R S I     
 2691      Fas 0/0[] 
  []
 
 
-Overfull \hbox (65.95807pt too wide) in paragraph at lines 181--181
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 369--369
 []\OT1/pcr/m/n/10.95 R9               Ser 1/0            147         R S I     
 2691      Ser 1/0[] 
  []
 
-[5]
-LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 236.
+[9] [10]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Overfull \hbox (59.38808pt too wide) in paragraph at lines 253--253
+ [11]
+LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <10.95> not available
+(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 507.
+
+Overfull \hbox (59.38808pt too wide) in paragraph at lines 524--524
 []\OT1/pcr/m/n/10.95 Link ID         ADV Router      Age         Seq#       Che
 cksum Link count[] 
  []
 
 
-Overfull \hbox (0.25815pt too wide) in paragraph at lines 254--254
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 525--525
 []\OT1/pcr/m/n/10.95 10.255.255.1    10.255.255.1    748         0x800000A8 0x0
 0D192 4[] 
  []
 
 
-Overfull \hbox (0.25815pt too wide) in paragraph at lines 255--255
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 526--526
 []\OT1/pcr/m/n/10.95 10.255.255.2    10.255.255.2    835         0x800000A7 0x0
 046AC 4[] 
  []
 
 
-Overfull \hbox (0.25815pt too wide) in paragraph at lines 256--256
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 527--527
 []\OT1/pcr/m/n/10.95 10.255.255.3    10.255.255.3    707         0x800000A4 0x0
 0D1B1 1[] 
  []
 
 
-Overfull \hbox (0.25815pt too wide) in paragraph at lines 257--257
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 528--528
 []\OT1/pcr/m/n/10.95 10.255.255.4    10.255.255.4    811         0x800000A5 0x0
 0CFCA 2[] 
  []
 
-[6]
-Overfull \hbox (59.38808pt too wide) in paragraph at lines 291--291
+
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 529--529
+[]\OT1/pcr/m/n/10.95 10.255.255.10   10.255.255.10   3     (DNA) 0x80000002 0x0
+06AD7 1[] 
+ []
+
+[12]
+Overfull \hbox (59.38808pt too wide) in paragraph at lines 565--565
 []\OT1/pcr/m/n/10.95 Link ID         ADV Router      Age         Seq#       Che
 cksum Link count[] 
  []
 
 
-Overfull \hbox (0.25815pt too wide) in paragraph at lines 292--292
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 566--566
 []\OT1/pcr/m/n/10.95 10.255.255.1    10.255.255.1    245         0x800000A4 0x0
 06F18 0[] 
  []
 
 
-Overfull \hbox (13.39813pt too wide) in paragraph at lines 296--296
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 570--570
 []\OT1/pcr/m/n/10.95 Link ID         ADV Router      Age         Seq#       Che
 cksum Tag[] 
  []
 
 
-Overfull \hbox (0.25815pt too wide) in paragraph at lines 297--297
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 571--571
 []\OT1/pcr/m/n/10.95 10.255.255.5    10.255.255.1    1515        0x8000009E 0x0
 09ACE 0[] 
  []
 
-
-Overfull \hbox (0.18779pt too wide) in paragraph at lines 304--305
+(/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-32.def
+File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
+)
+Overfull \hbox (0.18779pt too wide) in paragraph at lines 578--579
 \OT1/ppl/m/n/12 rova[]ce v rov-na-kej ob-lasti toto[]zn[]u LSDB (Link State da-
 tab[]azu). Na za[]ciatku v[]ypisu
  []
 
-[7]
-Overfull \hbox (7.89882pt too wide) in paragraph at lines 313--313
+
+Overfull \hbox (7.89882pt too wide) in paragraph at lines 582--582
 []\OT1/ppl/b/n/14.4 R2, R3, R4 bro-ad-cast spo-je-nia pro-stredn^^S^^Pctvom L2 
 prep^^S^^Pna^^Tca,
  []
 
-LaTeX Font Info:    Try loading font information for OML+ppl on input line 341.
 
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlppl.fd
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [13]
+[14]
+LaTeX Font Info:    Try loading font information for OML+ppl on input line 651.
+
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlppl.fd
 File: omlppl.fd 
 )
 LaTeX Font Info:    Font shape `OML/ppl/m/n' in size <12> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 341.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 651.
 
-Overfull \hbox (79.09805pt too wide) in paragraph at lines 349--349
+Overfull \hbox (79.09805pt too wide) in paragraph at lines 659--659
 []  \OT1/pcr/m/n/10.95 Process ID 1, Router ID 10.255.255.3, \OT1/pcr/b/n/10.95
  Network Type POINT_TO_POINT\OT1/pcr/m/n/10.95 , Cost: 10[] 
  []
 
-(/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-32.def
-File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
-) [8]
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 437--437
+
+Overfull \hbox (59.38808pt too wide) in paragraph at lines 716--716
+[]\OT1/pcr/m/n/10.95 Interface    PID   Area            IP Address/Mask    Cost
+  State Nbrs F/C[] 
+ []
+
+
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 717--717
+[]\OT1/pcr/m/n/10.95 Fa0/1        1     0               10.0.234.3/24      1   
+  DR    2/2[] 
+ []
+
+
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 718--718
+[]\OT1/pcr/b/n/10.95 Lo1          1     1               10.255.255.3/32    1   
+  LOOP  0/0[] 
+ []
+
+
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 719--719
+[]\OT1/pcr/m/n/10.95 Fa0/0        1     1               10.1.38.1/24       10  
+  P2P   1/1[] 
+ []
+
+
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 720--720
+[]\OT1/pcr/m/n/10.95 Se1/0        1     2               10.2.39.1/30       64  
+  P2P   1/1[] 
+ []
+
+[15]
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 743--743
 []\OT1/pcr/m/n/10.95 !R3 - R3 je ABR, preto pou[]zijeme dodato[]cn[]y pr[]^^Pka
 z "no-summary", aby sme[] 
  []
 
-[9]
-Overfull \hbox (59.38808pt too wide) in paragraph at lines 474--474
+
+Overfull \hbox (59.38808pt too wide) in paragraph at lines 780--780
 []\OT1/pcr/m/n/10.95 Link ID         ADV Router      Age         Seq#       Che
 cksum Link count[] 
  []
 
 
-Overfull \hbox (0.25815pt too wide) in paragraph at lines 475--475
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 781--781
 []\OT1/pcr/m/n/10.95 10.255.255.3    10.255.255.3    23          0x80000088 0x0
 08854 3[] 
  []
 
 
-Overfull \hbox (0.25815pt too wide) in paragraph at lines 476--476
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 782--782
 []\OT1/pcr/m/n/10.95 10.255.255.8    10.255.255.8    24          0x80000081 0x0
 021B8 3[] 
  []
 
-
-Overfull \hbox (0.24896pt too wide) in paragraph at lines 499--500
+[16]
+Overfull \hbox (0.24896pt too wide) in paragraph at lines 805--806
  [] \OT1/ppl/m/n/12 Kon-fi-gu-ro-vali sme sme-rova[]ce R3, R4 a R9. Kon-fi-gur[
 ]acia bola zhodn[]a pre v[]setky
  []
 
-[10] [11]
-Overfull \hbox (59.38808pt too wide) in paragraph at lines 640--640
+[17]
+Underfull \vbox (badness 5217) has occurred while \output is active []
+
+ [18]
+Overfull \hbox (59.38808pt too wide) in paragraph at lines 946--946
 []\OT1/pcr/m/n/10.95 Interface    PID   Area            IP Address/Mask    Cost
   State Nbrs F/C[] 
  []
 
 
-Overfull \hbox (26.53812pt too wide) in paragraph at lines 641--641
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 947--947
 []\OT1/pcr/b/n/10.95 VL0          1     0               10.3.104.1/30      64  
   P2P   1/1[] 
  []
 
 
-Overfull \hbox (26.53812pt too wide) in paragraph at lines 642--642
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 948--948
 []\OT1/pcr/m/n/10.95 Fa0/1        1     0               10.0.234.4/24      10  
   DROTH 2/2[] 
  []
 
 
-Overfull \hbox (26.53812pt too wide) in paragraph at lines 643--643
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 949--949
 []\OT1/pcr/m/n/10.95 Fa0/0        1     2               10.2.49.1/24       6553
 5 P2P   1/1[] 
  []
 
 
-Overfull \hbox (26.53812pt too wide) in paragraph at lines 644--644
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 950--950
 []\OT1/pcr/m/n/10.95 Lo1          1     3               10.255.255.4/32    1   
   LOOP  0/0[] 
  []
 
 
-Overfull \hbox (26.53812pt too wide) in paragraph at lines 645--645
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 951--951
 []\OT1/pcr/m/n/10.95 Se1/0        1     3               10.3.104.1/30      64  
   P2P   1/1[] 
  []
 
 
-Overfull \hbox (59.38808pt too wide) in paragraph at lines 649--649
+Overfull \hbox (59.38808pt too wide) in paragraph at lines 955--955
 []\OT1/pcr/m/n/10.95 Interface    PID   Area            IP Address/Mask    Cost
   State Nbrs F/C[] 
  []
 
 
-Overfull \hbox (26.53812pt too wide) in paragraph at lines 650--650
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 956--956
 []\OT1/pcr/b/n/10.95 VL0          1     0               10.3.104.2/24      64  
   P2P   1/1[] 
  []
 
-[12]
-Overfull \hbox (26.53812pt too wide) in paragraph at lines 651--651
+
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 957--957
 []\OT1/pcr/m/n/10.95 Lo1          1     3               10.255.255.10/32   1   
   LOOP  0/0[] 
  []
 
 
-Overfull \hbox (26.53812pt too wide) in paragraph at lines 652--652
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 958--958
 []\OT1/pcr/m/n/10.95 Se1/0        1     3               10.3.104.2/24      64  
   P2P   1/1[] 
  []
 
 
-Overfull \hbox (26.53812pt too wide) in paragraph at lines 653--653
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 959--959
 []\OT1/pcr/m/n/10.95 Se1/1        1     4               10.4.107.2/24      64  
   P2P   1/1[] 
  []
 
-
-Overfull \hbox (0.25815pt too wide) in paragraph at lines 701--701
+[19]
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 1007--1007
 []\OT1/pcr/m/n/10.95 R1(config)#ip route 10.255.255.5 255.255.255.255 f0/1 10.1
 00.15.2[] 
  []
 
-[13]
-Overfull \hbox (52.81808pt too wide) in paragraph at lines 729--729
+[20]
+Overfull \hbox (52.81808pt too wide) in paragraph at lines 1035--1035
 []\OT1/pcr/m/n/10.95 O E2    10.255.255.5/32 [110/\OT1/pcr/b/n/10.95 20\OT1/pcr
 /m/n/10.95 ] via 10.0.12.1, 00:03:07, FastEthernet0/0[] 
  []
 
 
-Overfull \hbox (65.95807pt too wide) in paragraph at lines 769--769
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 1075--1075
 []\OT1/pcr/m/n/10.95 Neighbor ID     Pri   State           Dead Time   Address 
         Interface[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 770--770
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1076--1076
 []\OT1/pcr/m/n/10.95 10.255.255.3      1   FULL/BDR        00:00:01    10.0.234
 .3      Fa0/1[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 771--771
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1077--1077
 []\OT1/pcr/m/n/10.95 10.255.255.4    100   FULL/DR         00:00:01    10.0.234
 .4      Fa0/1[] 
  []
 
 
-Overfull \hbox (65.95807pt too wide) in paragraph at lines 774--774
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 1080--1080
 []\OT1/pcr/m/n/10.95 Neighbor ID     Pri   State           Dead Time   Address 
         Interface[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 775--775
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1081--1081
 []\OT1/pcr/m/n/10.95 10.255.255.3      1   FULL/BDR        00:00:01    10.0.234
 .3      Fa0/1[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 776--776
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1082--1082
 []\OT1/pcr/m/n/10.95 10.255.255.4    100   FULL/DR         00:00:01    10.0.234
 .4      Fa0/1[] 
  []
 
 
-Overfull \hbox (3.679pt too wide) in paragraph at lines 785--785
+Overfull \hbox (3.679pt too wide) in paragraph at lines 1091--1091
 \OT1/ppl/b/n/14.4 so su-ma-ri-zo-van[]ymi in-tern[]ymi sme-ro-vac^^S^^Pmi z^^Sa
 znamami do
  []
 
-[14] [15] [16]
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 928--928
+[21] [22]
+Overfull \hbox (21.95306pt too wide) in paragraph at lines 1200--1200
+[]\OT1/ppl/b/n/14.4 Skr^^Satenie hello a dead-interval ^^Tcasova^^Tcov, zis-te-
+nie funk^^Tcnosti
+ []
+
+[23]
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1252--1252
 []  \OT1/pcr/m/n/10.95 Process ID 1, Router ID 10.255.255.3, Network Type BROAD
 CAST, Cost: 1[] 
  []
 
 
-Overfull \hbox (13.39813pt too wide) in paragraph at lines 933--933
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 1257--1257
 []  \OT1/pcr/b/n/10.95 Timer intervals configured, Hello 1, Dead 2\OT1/pcr/m/n/
 10.95 , Wait 2, Retransmit 5[] 
  []
 
 
-Overfull \hbox (92.23804pt too wide) in paragraph at lines 962--962
+Overfull \hbox (92.23804pt too wide) in paragraph at lines 1286--1286
 []\OT1/pcr/b/n/10.95 Success rate is 99 percent (11853/11870), round-trip min/a
 vg/max = 52/79/148 ms[] 
  []
 
-[17]
-Overfull \hbox (26.53812pt too wide) in paragraph at lines 994--994
+[24]
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 1318--1318
 []\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 10.255.255.8, timeout is
  2 seconds:[] 
  []
 
 
-Overfull \hbox (33.10811pt too wide) in paragraph at lines 1025--1025
+Overfull \hbox (33.10811pt too wide) in paragraph at lines 1349--1349
 []\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 10.255.255.10, timeout i
 s 2 seconds:[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 1027--1027
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1351--1351
 []\OT1/pcr/b/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
 = 56/72/84 ms[] 
  []
 
 
-Overfull \hbox (26.53812pt too wide) in paragraph at lines 1045--1045
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 1369--1369
 []\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 10.255.255.6, timeout is
  2 seconds:[] 
  []
 
-[18]
-LaTeX Font Info:    Try loading font information for OMS+ppl on input line 1073
+[25]
+LaTeX Font Info:    Try loading font information for OMS+ppl on input line 1397
 .
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsppl.fd
 File: omsppl.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1073.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1397.
 
 
-Overfull \hbox (3.94234pt too wide) in paragraph at lines 1073--1074
+Overfull \hbox (3.94234pt too wide) in paragraph at lines 1397--1398
 []\OT1/ppl/m/n/12 Oblast[] 1 strat[]^^P ko-nek-ti-vitu s chrb-ti-co-vou ob-last
 []ou, preto[]ze u[]z ne-bude priamo
  []
 
-[19]
-Overfull \hbox (26.53812pt too wide) in paragraph at lines 1163--1163
+[26]
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 1487--1487
 []       \OT1/pcr/m/n/10.95 D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF
  inter area[] 
  []
 
 
-Overfull \hbox (26.53812pt too wide) in paragraph at lines 1164--1164
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 1488--1488
 []       \OT1/pcr/m/n/10.95 N1 - OSPF NSSA external type 1, N2 - OSPF NSSA exte
 rnal type 2[] 
  []
 
 
-Overfull \hbox (72.52806pt too wide) in paragraph at lines 1166--1166
+Overfull \hbox (72.52806pt too wide) in paragraph at lines 1490--1490
 []       \OT1/pcr/m/n/10.95 i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, 
 L2 - IS-IS level-2[] 
  []
 
 
-Overfull \hbox (85.66805pt too wide) in paragraph at lines 1167--1167
+Overfull \hbox (85.66805pt too wide) in paragraph at lines 1491--1491
 []       \OT1/pcr/m/n/10.95 ia - IS-IS inter area, * - candidate default, U - p
 er-user static route[] 
  []
 
-[20]
-Overfull \hbox (26.53812pt too wide) in paragraph at lines 1173--1173
+[27]
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 1497--1497
 []\OT1/pcr/m/n/10.95 O       10.255.255.10/32 [110/65] via 10.3.104.2, 03:31:18
 , Serial1/0[] 
  []
 
 
-Overfull \hbox (59.38808pt too wide) in paragraph at lines 1174--1174
+Overfull \hbox (59.38808pt too wide) in paragraph at lines 1498--1498
 []\OT1/pcr/m/n/10.95 O IA    10.255.255.8/32 [110/21] via 10.0.234.3, 03:46:56,
  FastEthernet0/1[] 
  []
 
 
-Overfull \hbox (72.52806pt too wide) in paragraph at lines 1175--1175
+Overfull \hbox (72.52806pt too wide) in paragraph at lines 1499--1499
 []\OT1/pcr/m/n/10.95 O       10.255.255.9/32 [110/65536] via 10.2.49.2, 04:11:3
 9, FastEthernet0/0[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 1176--1176
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1500--1500
 []\OT1/pcr/m/n/10.95 O       10.0.12.0/24 [110/20] via 10.0.234.2, 03:46:56, Fa
 stEthernet0/1[] 
  []
 
 
-Overfull \hbox (59.38808pt too wide) in paragraph at lines 1177--1177
+Overfull \hbox (59.38808pt too wide) in paragraph at lines 1501--1501
 []\OT1/pcr/m/n/10.95 O       10.255.255.2/32 [110/11] via 10.0.234.2, 03:46:56,
  FastEthernet0/1[] 
  []
 
 
-Overfull \hbox (59.38808pt too wide) in paragraph at lines 1178--1178
+Overfull \hbox (59.38808pt too wide) in paragraph at lines 1502--1502
 []\OT1/pcr/m/n/10.95 O IA    10.255.255.3/32 [110/11] via 10.0.234.3, 03:46:56,
  FastEthernet0/1[] 
  []
 
 
-Overfull \hbox (59.38808pt too wide) in paragraph at lines 1179--1179
+Overfull \hbox (59.38808pt too wide) in paragraph at lines 1503--1503
 []\OT1/pcr/m/n/10.95 O       10.255.255.1/32 [110/21] via 10.0.234.2, 03:46:57,
  FastEthernet0/1[] 
  []
 
 
-Overfull \hbox (26.53812pt too wide) in paragraph at lines 1180--1180
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 1504--1504
 []\OT1/pcr/m/n/10.95 O IA    10.255.255.6/32 [110/139] via 10.3.104.2, 03:31:09
 , Serial1/0[] 
  []
 
 
-Overfull \hbox (26.53812pt too wide) in paragraph at lines 1181--1181
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 1505--1505
 []\OT1/pcr/m/n/10.95 O IA    10.255.255.7/32 [110/129] via 10.3.104.2, 03:31:09
 , Serial1/0[] 
  []
 
 
-Overfull \hbox (59.38808pt too wide) in paragraph at lines 1183--1183
+Overfull \hbox (59.38808pt too wide) in paragraph at lines 1507--1507
 []\OT1/pcr/m/n/10.95 O E2    10.255.255.5/32 [110/20] via 10.0.234.2, 03:46:47,
  FastEthernet0/1[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 1184--1184
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1508--1508
 []\OT1/pcr/m/n/10.95 O IA    10.1.38.0/24 [110/20] via 10.0.234.3, 03:46:57, Fa
 stEthernet0/1[] 
  []
 
 
-Overfull \hbox (52.81808pt too wide) in paragraph at lines 1185--1185
+Overfull \hbox (52.81808pt too wide) in paragraph at lines 1509--1509
 []\OT1/pcr/m/n/10.95 O       10.2.39.0/30 [110/65663] via 10.2.49.2, 04:11:41, 
 FastEthernet0/0[] 
  []
 
 
-Overfull \hbox (52.81808pt too wide) in paragraph at lines 1186--1186
+Overfull \hbox (52.81808pt too wide) in paragraph at lines 1510--1510
 []\OT1/pcr/m/n/10.95 O       10.2.39.0/24 [110/65599] via 10.2.49.2, 04:11:41, 
 FastEthernet0/0[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 1188--1188
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1512--1512
 []\OT1/pcr/m/n/10.95 O IA    10.4.67.0/24 [110/138] via 10.3.104.2, 03:31:10, S
 erial1/0[] 
  []
 
 
-Overfull \hbox (52.81808pt too wide) in paragraph at lines 1189--1189
+Overfull \hbox (52.81808pt too wide) in paragraph at lines 1513--1513
 []\OT1/pcr/m/n/10.95 O       10.100.15.0/24 [110/30] via 10.0.234.2, 03:46:58, 
 FastEthernet0/1[] 
  []
 
 
-Overfull \hbox (13.39813pt too wide) in paragraph at lines 1191--1191
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 1515--1515
 []\OT1/pcr/m/n/10.95 O       10.3.104.0/24 [110/128] via 10.3.104.2, 03:31:20, 
 Serial1/0[] 
  []
 
 
-Overfull \hbox (13.39813pt too wide) in paragraph at lines 1192--1192
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 1516--1516
 []\OT1/pcr/m/n/10.95 O IA    10.4.107.0/24 [110/128] via 10.3.104.2, 03:31:10, 
 Serial1/0[] 
  []
 
-[21]
-Overfull \hbox (2.76834pt too wide) in paragraph at lines 1286--1287
+[28]
+Overfull \hbox (2.76834pt too wide) in paragraph at lines 1610--1611
 \OT1/ppl/m/n/12 stla[]c[]^^Pme En-ter). Otes-tuje sa ko-nek-ti-vita ku ka[]zd[]
 emu sme-rova[]cu. V[]ystup poch[]adza
  []
@@ -863,235 +930,255 @@ emu sme-rova[]cu. V[]ystup poch[]adza
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [22]
-Overfull \hbox (19.96812pt too wide) in paragraph at lines 1294--1294
+ [29]
+Overfull \hbox (19.96812pt too wide) in paragraph at lines 1618--1618
 []\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 10.100.15.2, timeout is 
 2 seconds:[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 1296--1296
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1620--1620
 []\OT1/pcr/m/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
 = 56/74/80 ms[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 1298--1298
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1622--1622
 []\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 10.0.12.1, timeout is 2 
 seconds:[] 
  []
 
 
-Overfull \hbox (407.59766pt too wide) in paragraph at lines 1300--1300
+Overfull \hbox (407.59766pt too wide) in paragraph at lines 1624--1624
 []\OT1/pcr/m/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
 = 44/56/60 ms% Unrecognized host or address, or protocol not running.[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 1303--1303
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1627--1627
 []\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 10.0.12.2, timeout is 2 
 seconds:[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 1305--1305
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1629--1629
 []\OT1/pcr/m/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
 = 24/35/40 ms[] 
  []
 
 
-Overfull \hbox (13.39813pt too wide) in paragraph at lines 1307--1307
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 1631--1631
 []\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 10.0.234.2, timeout is 2
  seconds:[] 
  []
 
 
-Overfull \hbox (407.59766pt too wide) in paragraph at lines 1309--1309
+Overfull \hbox (407.59766pt too wide) in paragraph at lines 1633--1633
 []\OT1/pcr/m/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
 = 24/36/44 ms% Unrecognized host or address, or protocol not running.[] 
  []
 
 
-Overfull \hbox (13.39813pt too wide) in paragraph at lines 1312--1312
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 1636--1636
 []\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 10.0.234.3, timeout is 2
  seconds:[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 1314--1314
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1638--1638
 []\OT1/pcr/m/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
 = 24/35/40 ms[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 1316--1316
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1640--1640
 []\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 10.1.38.1, timeout is 2 
 seconds:[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 1318--1318
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1642--1642
 []\OT1/pcr/m/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
 = 24/36/44 ms[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 1320--1320
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1644--1644
 []\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 10.2.39.1, timeout is 2 
 seconds:[] 
  []
 
 
-Overfull \hbox (407.59766pt too wide) in paragraph at lines 1322--1322
+Overfull \hbox (407.59766pt too wide) in paragraph at lines 1646--1646
 []\OT1/pcr/m/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
 = 40/48/60 ms% Unrecognized host or address, or protocol not running.[] 
  []
 
 
-Overfull \hbox (13.39813pt too wide) in paragraph at lines 1325--1325
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 1649--1649
 []\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 10.0.234.4, timeout is 2
  seconds:[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 1327--1327
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1651--1651
 []\OT1/pcr/m/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
 = 12/17/24 ms[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 1329--1329
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1653--1653
 []\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 10.2.49.1, timeout is 2 
 seconds:[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 1331--1331
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1655--1655
 []\OT1/pcr/m/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
 = 16/18/20 ms[] 
  []
 
 
-Overfull \hbox (13.39813pt too wide) in paragraph at lines 1333--1333
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 1657--1657
 []\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 10.3.104.1, timeout is 2
  seconds:[] 
  []
 
 
-Overfull \hbox (407.59766pt too wide) in paragraph at lines 1335--1335
+Overfull \hbox (407.59766pt too wide) in paragraph at lines 1659--1659
 []\OT1/pcr/m/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
 = 12/17/20 ms% Unrecognized host or address, or protocol not running.[] 
  []
 
 
-Overfull \hbox (19.96812pt too wide) in paragraph at lines 1338--1338
+Overfull \hbox (19.96812pt too wide) in paragraph at lines 1662--1662
 []\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 10.100.15.1, timeout is 
 2 seconds:[] 
  []
 
-[23]
-Overfull \hbox (407.59766pt too wide) in paragraph at lines 1340--1340
+[30]
+Overfull \hbox (407.59766pt too wide) in paragraph at lines 1664--1664
 []\OT1/pcr/m/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
 = 52/58/64 ms% Unrecognized host or address, or protocol not running.[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 1343--1343
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1667--1667
 []\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 10.4.67.1, timeout is 2 
 seconds:[] 
  []
 
 
-Overfull \hbox (407.59766pt too wide) in paragraph at lines 1345--1345
+Overfull \hbox (407.59766pt too wide) in paragraph at lines 1669--1669
 []\OT1/pcr/m/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
 = 32/37/40 ms% Unrecognized host or address, or protocol not running.[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 1348--1348
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1672--1672
 []\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 10.4.67.2, timeout is 2 
 seconds:[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 1350--1350
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1674--1674
 []\OT1/pcr/m/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
 = 16/20/28 ms[] 
  []
 
 
-Overfull \hbox (13.39813pt too wide) in paragraph at lines 1352--1352
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 1676--1676
 []\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 10.4.107.1, timeout is 2
  seconds:[] 
  []
 
 
-Overfull \hbox (407.59766pt too wide) in paragraph at lines 1354--1354
+Overfull \hbox (407.59766pt too wide) in paragraph at lines 1678--1678
 []\OT1/pcr/m/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
 = 12/17/20 ms% Unrecognized host or address, or protocol not running.[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 1357--1357
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1681--1681
 []\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 10.1.38.2, timeout is 2 
 seconds:[] 
  []
 
 
-Overfull \hbox (407.59766pt too wide) in paragraph at lines 1359--1359
+Overfull \hbox (407.59766pt too wide) in paragraph at lines 1683--1683
 []\OT1/pcr/m/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
 = 44/56/60 ms% Unrecognized host or address, or protocol not running.[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 1362--1362
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1686--1686
 []\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 10.2.39.2, timeout is 2 
 seconds:[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 1364--1364
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1688--1688
 []\OT1/pcr/m/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
 = 44/54/60 ms[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 1366--1366
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1690--1690
 []\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 10.2.49.2, timeout is 2 
 seconds:[] 
  []
 
 
-Overfull \hbox (407.59766pt too wide) in paragraph at lines 1368--1368
+Overfull \hbox (407.59766pt too wide) in paragraph at lines 1692--1692
 []\OT1/pcr/m/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
 = 24/36/40 ms% Unrecognized host or address, or protocol not running.[] 
  []
 
 
-Overfull \hbox (13.39813pt too wide) in paragraph at lines 1371--1371
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 1695--1695
 []\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 10.4.107.2, timeout is 2
  seconds:[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 1373--1373
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1697--1697
 []\OT1/pcr/m/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
 = 32/36/40 ms[] 
  []
 
 
-Overfull \hbox (13.39813pt too wide) in paragraph at lines 1375--1375
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 1699--1699
 []\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 10.3.104.2, timeout is 2
  seconds:[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 1377--1377
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1701--1701
 []\OT1/pcr/m/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
 = 36/38/40 ms[] 
  []
 
-[24] (./dokumentacia_multiarea_ospf_vachalik_sisila_v2.aux) ) 
+
+Underfull \hbox (badness 10000) in paragraph at lines 1711--1717
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1718--1724
+
+ []
+
+[31]
+Underfull \hbox (badness 10000) in paragraph at lines 1725--1731
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1732--1738
+
+ []
+
+[32] (./dokumentacia_multiarea_ospf_vachalik_sisila_v2.aux) ) 
 Here is how much of TeX's memory you used:
  4936 strings out of 493105
  65756 string characters out of 6137072
@@ -1099,7 +1186,7 @@ Here is how much of TeX's memory you used:
  8294 multiletter control sequences out of 15000+600000
  14820 words of font info for 43 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 37i,10n,23p,1221b,486s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,10n,23p,1545b,486s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texliv
 e/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/t
 ype1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
@@ -1107,11 +1194,11 @@ ublic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/cou
 rier/ucrb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb>
-Output written on dokumentacia_multiarea_ospf_vachalik_sisila_v2.pdf (24 pages,
- 165412 bytes).
+Output written on dokumentacia_multiarea_ospf_vachalik_sisila_v2.pdf (32 pages,
+ 172138 bytes).
 PDF statistics:
- 107 PDF objects out of 1000 (max. 8388607)
- 73 compressed objects within 1 object stream
+ 133 PDF objects out of 1000 (max. 8388607)
+ 91 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -51,7 +51,7 @@ Andrej Šišila, Marián Vachalík
 \newpage
 \section{Topológia}
 \paragraph{}
-Budeme konfigurovať smerovacie protokoly BGP a IS-IS na topológií, ktorá je znázornená na obrázku \ref{fig:bgp_isis_topo}. Vnútri autonómnych systémov sme konfigurovali smerovacie protokoly IS-IS a BGP (iBGP). Medzi autonómnymi systémami sme konfigurovali len BGP (eBGP). IP adresácia je uvedená v tabuľke \ref{tab:ip_adresacia} a dopĺňa grafické znázornenie topológie na obrázku \ref{fig:bgp_isis_topo}. Sieť medzi smerovačmi R1 a R5 nemá mať masku \say{/48} ale \say{/30}. Subrozhranie “.13” (VLAN 13) sme premenovali na “.23” (VLAN 23), lebo sieť je medzi smerovačmi R2 a R3 (23), a nie medzi R1 a R3 (13).
+Budeme konfigurovať smerovacie protokoly BGP a IS-IS na topológií, ktorá je znázornená na obrázku \ref{fig:bgp_isis_topo}. Vrámci autonómnych systémov sme konfigurovali smerovacie protokoly IS-IS a BGP (iBGP). Medzi autonómnymi systémami sme konfigurovali len BGP (eBGP). IP adresácia je uvedená v tabuľke \ref{tab:ip_adresacia} a dopĺňa grafické znázornenie topológie na obrázku \ref{fig:bgp_isis_topo}. Sieť medzi smerovačmi R1 a R5 nemá mať masku \say{/48} ale \say{/30}.
 
 \begin{figure}[!htbp]
 \centering
@@ -126,20 +126,96 @@ Budeme konfigurovať smerovacie protokoly BGP a IS-IS na topológií, ktorá je 
 
 \section{Úlohy}
 \subsection{Použiť IGP IS−IS (L2 only) single area dizajn, priame p2p prepojenia}
+\subsection{Zabezpečiť plnú konektivitu prostredníctvom iBGP alebo eBGP protokolov pre zákaznícké a internetové smerovacie záznamy}
+\subsection{Distribúcia internetových statických smerovacích záznamov z AS3401, AS4502 a zákaznických smerovacích záznamov z AS65001, AS5005, AS330}
+\subsection{Sumarizácia}
+
+
 \subsubsection{Popis}
 \paragraph{}
-ISP1, ISP2 a Zákazník 1 používajú vnútorný smerovací protokol IS-IS.
+V celej topológií používame smerovací protokol BGP. Vnútri všetkých autonómnych systémov navyše používame smerovací protokol IS-IS. Subrozhranie “.13” (VLAN 13) sme premenovali na “.23” (VLAN 23), lebo sieť je medzi smerovačmi R2 a R3 (23), a nie medzi R1 a R3 (13).
 
-
-\subsubsection{Konfigurácia}
 \paragraph{}
-Konfigurovali sme smerovače R2, R3, R4, R6, R7, R8 a R9. Nižšie uvádzame príklad konfigurácie pre R2.
+Najprv sme linky medzi autonómnymi systémami šírili cez IS-IS. Neskôr sa toto ukázalo ako nevhodné riešenie, pretože \say{flappovacie} linky u zákazníkov môžu spôsobiť nestabilitu siete. Preto boli rozhrania medzi AS odstranené z IS-IS príkazmi uvedenými nižšie.
 
 \noindent
 {\fontfamily{qcr}\selectfont
 \begin{small}
 \begin{alltt}
-!R2
+int <nazov_interfaceu>
+  no ip router isis
+router isis
+  no passive-interface <nazov_interfaceu>
+  no redistribute-connected
+\end{alltt}
+\end{small}
+}
+
+\paragraph{}
+Na smerovačoch sme vytvorili dve virtuálne rozhrania: Loopback0 a Loopback100. Loopback0 mal IP adresu v tvare \say{10.255.255.X} s maskou \say{/32}, kde X je číslo smerovača. Router-ID sme nastavili na IP adresu rozhrania Loopback0. V rámci BGP sme ho nastavovali príkazom \say{bgp router-id 10.255.255.X}. Pokiaľ sa Router ID v BGP nenastaví hneď na začiatku, jeho zmena spôsobí rozpad BGP spojenia, ktoré sa po chvíli (rádovo v desiatkach sekúnd) obnoví.
+
+\paragraph{}
+Loopback100 mal IP adresu z verejného rozsahu príslušnej autonómnej oblasti s maskou \say{/25}. Verejné adresné rozsahy na Loopback100 rozhraniach sme sumarizovali pre každú AS príkazom \say{aggregate-address}. S AS 65001 vznikol problém so sumarizáciou ich verejného rozsahu na smerovačoch R3 a R4, lebo, lebo \say{Customer 1} (AS 65001) mal používal podrozsah verejných adries \say{ISP1} (AS 110). Ak by sme na R3 a R4 vykonali sumarizáciu verejných rozsahov pre Loopback100 v AS 110, spôsobilo by to, že \say{next-hop} adresa pre Loopback100 v AS 65001 by bol \say{Null0} t.j. paket by bol zahodený. Na R4 sme sumarizáciu nerobili, pretože keby vypadla linka medzi R2 a R3, do AS 65001 by sme išli cez R4, a pokiaľ by mal R4 spomenutú sumárnu cestu, vznikol by ten istý problém s konektivitou.
+
+\paragraph{}
+V rámci BGP sme každému smerovaču nakonfigurovali siete, s ktorými susedí resp. na ktoré je priamo pripojený príkazom \say{neighbor}. Podľa toho, či sa susediaca sieť nachádza v AS s rovnakým číslom ako je ASN daného smerovača, použije sa iBGP, inak sa použije eBGP. 
+
+\paragraph{}
+Siete obidvoch Loopback rozhraní sme ohlasovali príkazom \say{network} v rámci BGP. Potom sme pre ne použili príkaz \say{update-source}, ktorý slúži na prepísanie zdrojovej IP adresy na Loopback0. Keďže sme Loopback0 ohlásili príkazom \say{network}, susediace smerovače mu budú môcť odpovedať. Zdrojová adresa sa potom použije na otvorenie BGP spojenia medzi susednými smerovačmi. Loopback0 používame aj kvôli tomu, že bude vždy zapnutý, takže BGP spojenie bude stále aktívne.
+
+\paragraph{}
+Pokiaľ boli v AS viac ako dva smerovače, museli sme pridať príkaz \say{next-hop-self}, aby sme zaistili konektivitu medzi AS. Príkaz \say{next-hop-self} sa používa, keď sa BGP smerovač v jednom AS dozvie o ceste z iného AS cez eBGP a dá o tejto ceste vedieť zvyšným iBGP smerovačom v rámci svojho AS. Aby mohol iBGP smerovač získať konektivitu do tejto siete, použijeme na eBGP príkaz \say{next-hop-self}, ktorý namiesto toho, aby preposielal prefix s \say{next-hop} adresou zo siete medzi operátormi, prepíše \say{next-hop} adresu na svoj Loopback0. iBGP smerovač tak získa konektivitu do danej siete cez hraničný eBGP smerovač vo svojej oblasti. Keby sme tak neurobili, iBGP smerovač by sa nemohol dostať do siete v susednom AS, keď k nej nemá eBGP spojenie a z dôvodu bezpečnosti sme linky medzi AS neohlasovali príkazom \say{network}.
+
+
+\subsubsection{Konfigurácia}
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+R1
+ena
+conf t
+hostname R1
+no ip domain-lookup
+username admin privil 15 secret admin
+line con 0
+  login local
+  logging syn
+  exec-time 120
+line vty 0 15
+  privilege level 15
+  no login
+int f0/0
+  ip addr 200.110.255.249 255.255.255.252
+  no shut
+int f0/1
+  ip addr 64.34.255.253 255.255.255.252
+  no shut
+int s1/0
+  ip addr 200.33.255.253 255.255.255.252
+  no shut
+int lo0
+  ip addr 10.255.255.1 255.255.255.255
+  no shut
+int lo100
+  ip addr 64.34.1.1 255.255.255.128
+  no shut
+router bgp 3401
+  bgp router-id 10.255.255.1
+  neighbor 64.34.255.254 remote-as 4502
+  neighbor 200.33.255.254 remote-as 330
+  neighbor 200.110.255.250 remote-as 110
+  network 10.255.255.1 mask 255.255.255.255
+  network 64.34.1.0 mask 255.255.255.128
+  aggregate-address 64.34.0.0 255.255.0.0 summary-only
+  no auto-summary
+  no sync
+  bgp log-neighbor-changes
+
+
+
+R2
 ena
 conf t
 hostname R2
@@ -186,60 +262,7 @@ router isis
   is-type level-2
   metric-style wide
   exit
-\end{alltt}
-\end{small}
-}
-
-\paragraph{}
-Najprv sme linky medzi autonómnymi systémami šírili cez IS-IS. Neskôr sa toto ukázalo ako nevhodné riešenie, pretože \say{flappovacie} linky u zákazníkov môžu spôsobiť nestabilitu siete. Preto boli rozhrania medzi AS odstranené z IS-IS príkazmi uvedenými nižšie.
-
-\noindent
-{\fontfamily{qcr}\selectfont
-\begin{small}
-\begin{alltt}
-int <nazov_interfaceu>
-  no ip router isis
-router isis
-  no passive-interface <nazov_interfaceu>
-  no redistribute-connected
-\end{alltt}
-\end{small}
-}
-
-
-\subsubsection{Overenie}
-\paragraph{}
-Konfiguráciu IS-IS sme neoverovali. Kontrolu odstránenia liniek medzi autonómnymi systémami z IS-IS sme robili v kapitole \ref{sumarizacia} \nameref{sumarizacia}.
-
-
-
-
-
-
-\subsection{Zabezpečiť plnú konektivitu prostredníctvom iBGP alebo eBGP protokolov pre zákaznícké a internetové smerovacie záznamy}
-\subsubsection{Popis}
-\paragraph{}
-V rámci BGP sme každému smerovaču nakonfigurovali siete, s ktorými susedí resp. na ktoré je priamo pripojený príkazom \say{neighbor}. Podľa toho, či sa susediaca sieť nachádza v AS s rovnakým číslom ako je ASN daného smerovača, použije sa iBGP, inak sa použije eBGP. 
-
-\paragraph{}
-Na smerovačoch sme vytvorili dve virtuálne rozhrania: Loopback0 a Loopback100. Loopback0 mal IP adresu v tvare \say{10.255.255.X} s maskou \say{/32}, kde X je číslo smerovača. Všetky rozhrania Loopback100 majú masku \say{/25}. Router-ID sme nastavili na IP adresu rozhrania Loopback0. V rámci BGP sme ho nastavovali príkazom \say{bgp router-id 10.255.255.X}. Pokiaľ sa Router ID v BGP nenastaví hneď na začiatku, jeho zmena spôsobí rozpad BGP spojenia, ktoré sa po chvíli (rádovo v desiatkach sekúnd) obnoví. Loopback100 mal IP adresu z verejného rozsahu príslušnej autonómnej oblasti s maskou \say{/25}.
-
-\paragraph{}
-Siete obidvoch Loopback rozhraní sme ohlasovali príkazom \say{network} v rámci BGP. Potom sme pre ne použili príkaz \say{update-source}, ktorý slúži na prepísanie zdrojovej IP adresy na Loopback0. Keďže sme Loopback0 ohlásili príkazom \say{network}, susediace smerovače mu budú môcť odpovedať. Zdrojová adresa sa potom použije na otvorenie BGP spojenia medzi susednými smerovačmi. Loopback0 používame aj kvôli tomu, že bude vždy zapnutý, takže BGP spojenie bude stále aktívne.
-
-\paragraph{}
-Pokiaľ boli v AS viac ako dva smerovače, museli sme pridať príkaz \say{next-hop-self}, aby sme zaistili konektivitu medzi AS. Príkaz \say{next-hop-self} sa používa, keď sa BGP smerovač v jednom AS dozvie o ceste z iného AS cez eBGP a dá o tejto ceste vedieť zvyšným iBGP smerovačom v rámci svojho AS. Aby mohol iBGP smerovač získať konektivitu do tejto siete, použijeme na eBGP príkaz \say{next-hop-self}, ktorý namiesto toho, aby preposielal prefix s \say{next-hop} adresou zo siete medzi operátormi, prepíše \say{next-hop} adresu na svoj Loopback0. iBGP smerovač tak získa konektivitu do danej siete cez hraničný eBGP smerovač vo svojej oblasti. Keby sme tak neurobili, iBGP smerovač by sa nemohol dostať do siete v susednom AS, keď k nej nemá eBGP spojenie a z dôvodu bezpečnosti sme linky medzi AS neohlasovali príkazom \say{network}.
-
-
-\subsubsection{Konfigurácia}
-\paragraph{}
-Nižšie je uvedená ukážka BGP konfigurácie na R2.
-
-\noindent
-{\fontfamily{qcr}\selectfont
-\begin{small}
-\begin{alltt}
-R2(config)#router bgp 110
+router bgp 110
   bgp router-id 10.255.255.2
   neighbor 10.255.255.3 remote-as 110
   neighbor 10.255.255.3 update-source lo0
@@ -255,6 +278,426 @@ R2(config)#router bgp 110
   no auto-summary
   no sync
   bgp log-neighbor-changes
+
+
+
+R3
+ena
+conf t
+hostname R3
+no ip domain-lookup
+username admin privil 15 secret admin
+line con 0
+  login local
+  logging syn
+  exec-time 120
+line vty 0 15
+  privilege level 15
+  no login
+int f0/0
+  ip addr 200.110.255.241 255.255.255.252
+  no shut
+int f0/1
+  no ip addr
+  isis network point-to-point
+  no shut
+int f0/1.23
+  encap dot1q 23
+  ip addr 10.110.23.3 255.255.255.0
+  ip router isis
+int f0/1.34
+  encap dot1q 34
+  ip addr 10.110.34.3 255.255.255.0
+  ip router isis
+int lo0
+  ip addr 10.255.255.3 255.255.255.255
+  ip router isis
+  no shut
+int lo100
+  ip addr 200.110.0.133 255.255.255.128
+  ip router isis
+  no shut
+router isis
+  net 49.0001.0102.5525.5003.00
+  passive-interface lo0
+  passive-interface lo100
+  redistribute static
+  is-type level-2
+  metric-style wide
+  exit
+router bgp 110
+  bgp router-id 10.255.255.3
+  neighbor 10.255.255.2 remote-as 110
+  neighbor 10.255.255.2 update-source lo0
+  neighbor 10.255.255.2 next-hop-self
+  neighbor 10.255.255.4 remote-as 110
+  neighbor 10.255.255.4 update-source lo0
+  neighbor 10.255.255.4 next-hop-self
+  neighbor 200.110.255.242 remote-as 65001
+  network 10.255.255.3 mask 255.255.255.255
+  network 200.110.0.128 mask 255.255.255.128
+  no auto-summary
+  no sync
+  bgp log-neighbor-changes
+
+
+
+
+R4
+ena
+conf t
+hostname R4
+no ip domain-lookup
+username admin privil 15 secret admin
+line con 0
+  login local
+  logging syn
+  exec-time 120
+line vty 0 15
+  privilege level 15
+  no login
+int f0/0
+  ip addr 200.110.255.237 255.255.255.252
+  no shut
+int f0/1
+  no ip addr
+  isis network point-to-point
+  no sh
+int f0/1.24
+  encap dot1q 24
+  ip addr 10.110.24.4 255.255.255.0
+  ip router isis
+int f0/1.34
+  encap dot1q 34
+  ip addr 10.110.34.4 255.255.255.0
+  ip router isis
+int s1/0
+  ip addr 200.110.255.245 255.255.255.252
+  no shut
+int lo0
+  ip addr 10.255.255.4 255.255.255.255
+  ip router isis
+  no shut
+int lo100
+  ip addr 200.110.1.4 255.255.255.128
+  ip router isis
+  no shut
+router isis
+  net 49.0001.0102.5525.5004.00
+  passive-interface lo0
+  passive-interface lo100
+  redistribute static
+  is-type level-2
+  metric-style wide
+  exit
+router bgp 110
+  bgp router-id 10.255.255.4
+  neighbor 10.255.255.2 remote-as 110
+  neighbor 10.255.255.2 update-source lo0
+  neighbor 10.255.255.2 next-hop-self
+  neighbor 10.255.255.3 remote-as 110
+  neighbor 10.255.255.3 update-source lo0
+  neighbor 10.255.255.3 next-hop-self
+  neighbor 200.110.255.238 remote-as 65001
+  neighbor 200.110.255.246 remote-as 5005
+  network 10.255.255.4 mask 255.255.255.255
+  network 200.110.1.0 mask 255.255.255.128
+  no auto-summary
+  no sync
+  bgp log-neighbor-changes
+
+
+R5
+ena
+conf t
+hostname R5
+no ip domain-lookup
+username admin privil 15 secret admin
+line con 0
+  login local
+  logging syn
+  exec-time 120
+line vty 0 15
+  privilege level 15
+  no login
+int f0/0
+  ip addr 200.33.255.249 255.255.255.252
+  no shut
+int f0/1
+  ip addr 64.34.255.254 255.255.255.252
+  no shut
+int s1/0
+  ip addr 200.110.255.254 255.255.255.252
+  no shut
+int lo0
+  ip addr 10.255.255.5 255.255.255.255
+  no shut
+int lo100
+  ip addr 128.45.5.5 255.255.255.128
+  no shut
+router bgp 4502
+  bgp router-id 10.255.255.5
+  neighbor 200.33.255.250 remote-as 330
+  neighbor 200.110.255.253 remote-as 110
+  neighbor 64.34.255.253 remote-as 3401
+  network 10.255.255.5 mask 255.255.255.255
+  network 128.45.5.0 mask 255.255.255.128
+  aggregate-address 128.45.0.0 255.255.0.0 summary-only
+  no auto-summary
+  no sync
+  bgp log-neighbor-changes
+
+
+
+
+R6
+ena
+conf t
+hostname R6
+no ip domain-lookup
+username admin privil 15 secret admin
+line con 0
+  login local
+  logging syn
+  exec-time 120
+line vty 0 15
+  privilege level 15
+  no login
+int f0/0
+  ip addr 200.33.255.250 255.255.255.252
+  no shut
+int f0/1
+  ip addr 10.110.67.6 255.255.255.0
+  ip router isis
+  isis network point-to-point
+  no shut
+int s1/0
+  ip addr 200.33.255.254 255.255.255.252
+  no shut
+int lo0
+  ip addr 10.255.255.6 255.255.255.255
+  ip router isis
+  no shut
+int lo100
+  ip add 200.33.6.6 255.255.255.128
+  ip router isis
+router isis
+  net 49.0001.0102.5525.5006.00
+  passive-interface lo0
+  passive-interface lo100
+  redistribute static
+  is-type level-2
+  metric-style wide
+  exit
+router bgp 330
+  bgp router-id 10.255.255.6
+  neighbor 10.255.255.7 remote-as 330
+  neighbor 10.255.255.7 update-source lo0
+  neighbor 10.255.255.7 next-hop-self
+  neighbor 200.33.255.253 remote-as 3401
+  neighbor 200.33.255.249 remote-as 4502
+  network 10.255.255.6 mask 255.255.255.255
+  network 200.33.6.0 mask 255.255.255.128
+  aggregate-address 200.33.0.0 255.255.0.0 summary-only
+  no auto-summary
+  no sync
+  bgp log-neighbor-changes
+
+
+
+R7
+ena
+conf t
+hostname R7
+no ip domain-lookup
+username admin privil 15 secret admin
+line con 0
+  login local
+  logging syn
+  exec-time 120
+line vty 0 15
+  privilege level 15
+  no login
+int f0/1
+  ip addr 10.110.67.7 255.255.255.0
+  ip router isis
+  isis network point-to-point
+  no shut
+int s1/1
+  ip addr 200.33.255.245 255.255.255.252
+  no shut
+int lo0
+  ip addr 10.255.255.7 255.255.255.255
+  ip router isis
+  no shut
+int lo100
+  ip addr 200.33.7.7 255.255.255.128
+  ip router isis
+  no shut
+router isis
+  net 49.0001.0102.5525.5007.00
+  passive-interface lo0
+  passive-interface lo100
+  redistribute static
+  is-type level-2
+  metric-style wide
+  exit
+router bgp 330
+  bgp router-id 10.255.255.7
+  neighbor 10.255.255.6 remote-as 330
+  neighbor 10.255.255.6 update-source lo0
+  neighbor 10.255.255.6 next-hop-self
+  neighbor 200.33.255.246 remote-as 5005
+  network 10.255.255.7 mask 255.255.255.255
+  network 200.33.7.0 255.255.255.128
+  aggregate-address 200.33.0.0 255.255.0.0 summary-only
+  no auto-summary
+  no sync
+  bgp log-neighbor-changes
+
+
+
+
+R8
+ena
+conf t
+hostname R8
+no ip domain-lookup
+username admin privil 15 secret admin
+line con 0
+  login local
+  logging syn
+  exec-time 120
+line vty 0 15
+  privilege level 15
+  no login
+int f0/0
+  ip addr 200.110.255.242 255.255.255.252
+  no shut
+int f0/1
+  ip addr 10.110.89.8 255.255.255.0
+  ip router isis
+  isis network point-to-point
+  no shut
+int lo0
+  ip addr 10.255.255.8 255.255.255.255
+  ip router isis
+  no shut
+int lo100
+  ip add 200.110.12.8 255.255.255.128
+  ip router isis
+router isis
+  net 49.0001.0102.5525.5008.00
+  passive-interface lo0
+  passive-interface lo100
+  redistribute static
+  is-type level-2
+  metric-style wide
+  exit
+router bgp 65001
+  bgp router-id 10.255.255.8
+  neighbor 10.255.255.9 remote-as 65001
+  neighbor 10.255.255.9 update-source lo0
+  neighbor 200.110.255.241 remote-as 110
+  network 10.255.255.8 mask 255.255.255.255
+  network 200.110.12.0 mask 255.255.255.128
+  aggregate-address 200.110.12.0 255.255.254.0 summary-only
+  no auto-summary
+  no sync
+  bgp log-neighbor-changes
+
+
+
+
+
+R9
+ena
+conf t
+hostname R9
+no ip domain-lookup
+username admin privil 15 secret admin
+line con 0
+  login local
+  logging syn
+  exec-time 120
+line vty 0 15
+  privilege level 15
+  no login
+int f0/0
+  ip addr 200.110.255.238 255.255.255.252
+  no sh
+int f0/1
+  ip addr 10.110.89.9 255.255.255.0
+  ip router isis
+  isis network point-to-point
+  no shut
+int lo0
+  ip addr 10.255.255.9 255.255.255.255
+  ip router isis
+  no shut
+int lo100
+  ip addr 200.110.13.9 255.255.255.128
+  ip router isis
+  no shut
+router isis
+  net 49.0001.0102.5525.5009.00
+  passive-interface lo0
+  passive-interface lo100
+  redistribute static
+  is-type level-2
+  metric-style wide
+  exit
+router bgp 65001
+  bgp router-id 10.255.255.9
+  neighbor 10.255.255.8 remote-as 65001
+  neighbor 10.255.255.8 update-source lo0
+  neighbor 200.110.255.237 remote-as 110
+  network 10.255.255.9 mask 255.255.255.255
+  network 200.110.13.0 mask 255.255.255.128
+  aggregate-address 200.110.12.0 255.255.254.0 summary-only
+  no auto-summary
+  no sync
+  bgp log-neighbor-changes
+
+
+
+
+R10
+ena
+conf t
+hostname R10
+no ip domain-lookup
+username admin privil 15 secret admin
+line con 0
+  login local
+  logging syn
+  exec-time 120
+line vty 0 15
+  privilege level 15
+  no login
+int s1/0
+  ip addr 200.110.255.246 255.255.255.252
+  no shut
+int s1/1
+  ip addr 200.33.255.246 255.255.255.252
+  no shut
+int lo0
+  ip addr 10.255.255.10 255.255.255.255
+  no shut
+int lo100
+  ip addr 223.255.255.10 255.255.255.128
+  no shut
+router bgp 5005
+  bgp router-id 10.255.255.10
+  neighbor 200.110.255.245 remote-as 110
+  neighbor 200.33.255.245 remote-as 330
+  network 10.255.255.10 mask 255.255.255.255
+  network 223.255.255.0 mask 255.255.255.128
+  aggregate-address 223.255.255.0 255.255.255.0 summary-only
+  no auto-summary
+  no sync
+  bgp log-neighbor-changes
+
 \end{alltt}
 \end{small}
 }
@@ -262,67 +705,7 @@ R2(config)#router bgp 110
 
 \subsubsection{Overenie}
 \paragraph{}
-Overenie konfigurácie BGP je uvedené v kapitole 
-
-
-
-
-
-\subsection{Distribúcia internetových statických smerovacích záznamov z AS3401, AS4502 a zákazníckych smerovacích záznamov z AS65001, AS5005, AS330}
-\subsubsection{Popis}
-\paragraph{}
-Medzi autonómnymi systémami sa budú vymieňať záznamy o prefixoch z AS3401, AS4502, AS65001, AS5005 a AS330.
-
-\subsubsection{Konfigurácia}
-\paragraph{}
-Nižšie je uvedená konfigurácia z R2. Druhý príkaz \say{network} ohlasuje už sumarizovanú sieť zákazníka 1 (viď kapitola \ref{sumarizacia} \nameref{sumarizacia}).
-
-\noindent
-{\fontfamily{qcr}\selectfont
-\begin{small}
-\begin{alltt}
-R2(config)#router bgp 110
-  network 10.255.255.2 mask 255.255.255.255
-  network 200.110.0.0 mask 255.255.255.128
-\end{alltt}
-\end{small}
-}
-
-\subsubsection{Overenie}
-\paragraph{}
-
-
-
-
-
-
-
-
-
-\subsection{Sumarizácia}
-\label{sumarizacia}
-\subsubsection{Popis}
-\paragraph{}
-Verejné adresné rozsahy na Loopback100 rozhraniach sme sumarizovali pre každú AS príkazom \say{aggregate-address}. S AS 65001 vznikol problém so sumarizáciou ich verejného rozsahu na smerovačoch R3 a R4, lebo, lebo \say{Customer 1} (AS 65001) mal používal podrozsah verejných adries \say{ISP1} (AS 110). Ak by sme na R3 a R4 vykonali sumarizáciu verejných rozsahov pre Loopback100 v AS 110, spôsobilo by to, že \say{next-hop} adresa pre Loopback100 v AS 65001 by bol \say{Null0} t.j. paket by bol zahodený. Na R4 sme sumarizáciu nerobili, pretože keby vypadla linka medzi R2 a R3, do AS 65001 by sme išli cez R4, a pokiaľ by mal R4 spomenutú sumárnu cestu, vznikol by ten istý problém s konektivitou.
-
-
-\subsubsection{Konfigurácia}
-\paragraph{}
-
-\noindent
-{\fontfamily{qcr}\selectfont
-\begin{small}
-\begin{alltt}
-R2(config)#router bgp 110
-  aggregate-address 200.110.0.0 255.255.0.0 summary-only
-\end{alltt}
-\end{small}
-}
-
-
-\subsubsection{Overenie}
-\paragraph{}
-BGP, distribúciu prefixov a sumarizáciu sme overovali naraz príkazmi \say{show ip bgp}, \say{show ip route}, 
+Kontrola, že vnútorný smerovací protokol IS-IS neohlasuje žiadne siete medzi operátormi, a že s
 
 \paragraph{}
 Nižšie uvádzame výpisy príkazov \say{show ip bgp} a \say{show ip route} pred odstránením liniek.
@@ -545,10 +928,7 @@ B    200.110.0.0/16 [20/0] via 200.110.255.250, 00:27:13
 }
 
 \paragraph{}
-Z druhého výpisu BGP tabuľky vidíme, že počet prefixov sa v dôsledku sumarizácie sietí znížil.
-
-\paragraph{}
-Z druhého výpisu smerovacej tabuľky vidíme, že interné adresy autonómnych systémov nie sú ohlasované.
+Z druhého výpisu BGP tabuľky vidíme, že počet prefixov sa v dôsledku sumarizácie sietí znížil. A z druhého výpisu smerovacej tabuľky vidíme, že interné adresy autonómnych systémov nie sú ohlasované.
 
 
 

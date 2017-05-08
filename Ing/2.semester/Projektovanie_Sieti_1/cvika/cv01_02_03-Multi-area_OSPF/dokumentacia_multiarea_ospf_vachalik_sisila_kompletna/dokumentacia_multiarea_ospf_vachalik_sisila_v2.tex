@@ -102,28 +102,67 @@ Budeme konfigurovať Multi-area OSPF, ktorá je znázornená na obrázku \ref{fi
 \newpage
 
 
-
-
-
-
-
-
-
 \section{Úlohy a ich konfigurácia}
 \subsection{Základná konfigurácia}
 \subsubsection{Popis}
 \paragraph{}
-Ako za základnú konfiguráciu považujeme nastavenie adresácie, vzdialeného prístupu a vypisovania konzoly. IP adresy sme vytvárali tak, že prvý oktet bola 10, druhý oktet bolo číslo oblasti, tretí oktet bolo číslo, ktoré vzniklo ako spojenie čísel dvojíc smerovačov, medzi ktorými sa sieť nachádzala; napr. pre sieť medzi smerovačmi 4 a 10 by bol tretí oktet 104, medzi smerovačmi R1 a R2 by to bolo 12 atď. Každý smerovač má aj svoje loopback rozhranie, ktoré bližšie opisujeme v kapitole \say{Router-id - loopback0, passive-interface}.
+Ako za základnú konfiguráciu považujeme nastavenie adresácie, vzdialeného prístupu a vypisovania konzoly. IP adresy sme vytvárali tak, že prvý oktet bola 10, druhý oktet bolo číslo oblasti, tretí oktet bolo číslo, ktoré vzniklo ako spojenie čísel dvojíc smerovačov, medzi ktorými sa sieť nachádzala; napr. sieť medzi smerovačmi 4 a 10 by bol tretí oktet 104, medzi smerovačmi R1 a R2 by to bolo 12 atď. Každý smerovač má aj svoje loopback rozhranie, ktoré bližšie opisujeme v kapitole \say{Router-id - loopback0, passive-interface}.
 
 \subsubsection{Konfigurácia}
-\paragraph{}
-Ako príklad uvádzame konfiguráciu pre R3.
-
 \noindent
 {\fontfamily{qcr}\selectfont
 \begin{small}
 \begin{verbatim}
-!R3
+!!!!!!!!!!   R1   !!!!!!!!!!
+hostname R1
+no ip domain-lookup
+username admin privilege 15 secret admin
+line con 0
+	login local
+	logging synchronous
+	exec-timeout 120
+line vty 0 15
+	privilege level 15
+	no login
+int lo1
+	ip address 10.255.255.1 255.255.255.255
+	no shutdown
+int f0/1
+	ip address 10.100.15.1 255.255.255.0
+	no shutdown
+int f0/0
+	ip address 10.0.12.1 255.255.255.0
+	no shutdown
+
+do show ip interface brief
+
+
+!!!!!!!!!!   R2   !!!!!!!!!!
+hostname R2
+no ip domain-lookup
+username admin privilege 15 secret admin
+line con 0
+	login local
+	logging synchronous
+	! Predĺženie intervalu na odpojenie používateľa od konzoly
+	exec-timeout 120
+line vty 0 15
+	privilege level 15
+	no login
+int lo1
+	ip address 10.255.255.2 255.255.255.255
+	no shutdown
+int f0/1
+	ip address 10.0.234.2 255.255.255.0
+	no shutdown
+int f0/0
+	ip address 10.0.12.2 255.255.255.0
+	no shutdown
+
+do show ip interface brief
+
+
+!!!!!!!!!!   R3   !!!!!!!!!!
 hostname R3
 no ip domain-lookup
 username admin privilege 15 secret admin
@@ -146,13 +185,162 @@ int f0/0
 int s1/0
 	ip address 10.2.39.1 255.255.255.252
 	no shutdown
+
+do show ip interface brief
+
+
+!!!!!!!!!!   R4   !!!!!!!!!!
+hostname R4
+no ip domain-lookup
+username admin privilege 15 secret admin
+line con 0
+	login local
+	logging synchronous
+	exec-timeout 120
+line vty 0 15
+	privilege level 15
+	no login
+int lo1
+	ip address 10.255.255.4 255.255.255.255
+	no shutdown
+int f0/1
+	ip address 10.0.234.4 255.255.255.0
+	no shutdown
+int f0/0
+	ip address 10.2.49.1 255.255.255.0
+	no shutdown
+int s1/0
+	ip address 10.3.104.1 255.255.255.252
+	no shutdown
+
+do show ip interface brief
+
+
+!!!!!!!!!!   R5   !!!!!!!!!!
+hostname R5
+no ip domain-lookup
+username admin privilege 15 secret admin
+line con 0
+	login local
+	logging synchronous
+	exec-timeout 120
+line vty 0 15
+	privilege level 15
+	no login
+int lo1
+	ip address 10.255.255.5 255.255.255.255
+	no shutdown
+int f0/1
+	ip address 10.100.15.2 255.255.255.0
+	no shutdown
+
+do show ip interface brief
+
+!!!!!!!!!!   R6   !!!!!!!!!!
+hostname R6
+no ip domain lookup
+username admin privil 15 secret admin
+line con 0
+	login local
+	logging synchro
+	exec-timeout 120
+line vty 0 15
+	privilege level 15	
+	no login
+int lo1
+	ip add 10.255.255.6 255.255.255.255
+	no sh
+int fa0/1 
+	ip add 10.4.67.1 255.255.255.0
+	no sh
+
+!!!!!!!!!!   R7   !!!!!!!!!!
+hostname R7
+no ip domain lookup
+username admin privil 15 secret admin
+line con 0
+	login local
+	logging synchro
+	exec-timeout 120
+line vty 0 15
+	privilege level 15	
+	no login
+int lo1
+	ip add 10.255.255.7 255.255.255.255
+	no sh
+int fa0/1 
+	ip add 10.4.67.2 255.255.255.0
+	no sh
+int s1/1
+	ip add 10.4.107.1 255.255.255.0
+	no sh
+
+!!!!!!!!!!   R8   !!!!!!!!!!
+hostname R8
+no ip domain lookup
+username admin privil 15 secret admin
+line con 0
+	login local
+	logging synchro
+	exec-timeout 120
+line vty 0 15
+	privilege level 15	
+	no login
+int lo1
+	ip add 10.255.255.8 255.255.255.255
+	no sh
+int fa0/0 
+	ip add 10.1.38.2 255.255.255.0
+	no sh
+
+!!!!!!!!!!   R9   !!!!!!!!!!
+hostname R9
+no ip domain lookup
+username admin privil 15 secret admin
+line con 0
+	login local
+	logging synchro
+	exec-timeout 120
+line vty 0 15
+	privilege level 15	
+	no login
+int lo1
+	ip add 10.255.255.9 255.255.255.255
+	no sh
+int fa0/0 
+	ip add 10.2.49.2 255.255.255.0
+	no sh
+int s1/0
+	ip add 10.2.39.2 255.255.255.0
+	no sh
+
+!!!!!!!!!!   R10   !!!!!!!!!!
+hostname R10
+no ip domain lookup
+username admin privil 15 secret admin
+line con 0
+	login local
+	logging synchro
+	exec-timeout 120
+line vty 0 15
+	privilege level 15	
+	no login
+int lo1
+	ip add 10.255.255.10 255.255.255.255
+	no sh
+int s1/1 
+	ip add 10.4.107.2 255.255.255.0
+	no sh
+int s1/0
+	ip add 10.3.104.2 255.255.255.0
+	no sh
 \end{verbatim}
 \end{small}
 }
 
 \subsubsection{Overenie}
 \paragraph{}
-Základnú konfiguráciu sme overili príkazmi \say{show ip interface brief} a \say{show cdp neighbors}. Nižšie sú uvedené výpisy zo smerovača R3.
+Základnú konfiguráciu sme overili príkazmi \say{show ip interface brief}, \say{show cdp neighbors}. Nižšie sú uvedené výpisy zo smerovača R3.
 
 \noindent
 {\fontfamily{qcr}\selectfont
@@ -187,23 +375,12 @@ R9               Ser 1/0            147         R S I     2691      Ser 1/0
 \paragraph{}
 Z výpisov vyplýva, že smerovač R3 susedí so štyrmi ďalšími smerovačmi: R2, R4, R8 a R9. Má vlastný aktívny loopback (viď kapitolu \say{Router-id - loopback0, passive-interface}). R3 na rozhraní \say{Fas 0/1} susedí s dvoma smerovačmi R2 a R4, pretože sú pripojené ku prepínaču, čím R2, R3 a R4 tvoria broadcastovú doménu.
 
-
-
-
-
-
-
-
-
 \subsection{Nakonfigurovať OSPF s viacerými oblasťami}
 \subsubsection{Popis}
 \paragraph{}
-Jednotlivé rozhrania smerovačov sme priradili do oblastí podľa obrázku \ref{fig:multiarea_ospf_topo}.
+Jednotlivé smerovače sme priradili do oblastí podľa obrázku \ref{fig:multiarea_ospf_topo}.
 
 \subsubsection{Konfigurácia}
-\paragraph{}
-Ako príklad uvádzame konfiguráciu pre R1.
-
 \noindent
 {\fontfamily{qcr}\selectfont
 
@@ -212,12 +389,106 @@ Ako príklad uvádzame konfiguráciu pre R1.
 
 % Pouzijeme "verbatim", aby sme escapeovali cely odsek
 \begin{verbatim}
-!R1
+!KONFIGURACIA R1
 router ospf 1
     network 10.255.255.1 0.0.0.0 area 0
     exit
 int f0/0
     ip ospf 1 area 0
+    !treba zapnut interface, ked nam padne router/server
+    no shutdown
+
+!KONFIGURACIA R2
+router ospf 1
+    network 10.255.255.2 0.0.0.0 area 0
+    exit
+int f0/0
+    ip ospf 1 area 0
+    no shutdown
+int f0/1
+    ip ospf 1 area 0
+    no shutdown
+
+!KONFIGURACIA R3
+router ospf 1
+    network 10.255.255.3 0.0.0.0 area 1
+    exit
+int f0/1
+    ip ospf 1 area 0
+    no shutdown
+int f0/0
+    ip ospf 1 area 1
+    no shutdown
+int s1/0
+    ip ospf 1 area 2
+    no shutdown
+
+!KONFIGURACIA R4
+router ospf 1
+    network 10.255.255.4 0.0.0.0 area 3
+    exit
+int f0/1
+    ip ospf 1 area 0
+    no shutdown
+int f0/0
+    ip ospf 1 area 2
+    no shutdown
+int s1/0
+    ip ospf 1 area 3
+    no shutdown
+
+
+!KONFIGURACIA R5
+ip route 0.0.0.0 0.0.0.0 f0/1 10.100.15.1
+
+!KONFIGURACIA R6
+router ospf 1
+    network 10.255.255.6 0.0.0.0 area 4
+    exit
+int f0/1
+    ip ospf 1 area 4
+    no sh
+
+!KONFIGURACIA R7
+router ospf 1
+    network 10.255.255.7 0.0.0.0 area 4
+    exit
+int f0/1
+    ip ospf 1 area 4
+    no sh
+int s1/1
+    ip ospf 1 area 4
+    no sh
+
+!KONFIGURACIA R8
+router ospf 1
+    network 10.255.255.8 0.0.0.0 area 1
+    exit
+int f0/0
+    ip ospf 1 area 1
+    no sh
+
+!KONFIGURACIA R9
+router ospf 1
+    network 10.255.255.9 0.0.0.0 area 2
+    exit
+int f0/0
+    ip ospf 1 area 2
+    no sh
+int s1/0
+    ip ospf 1 area 2
+    no sh 
+
+!KONFIGURACIA R10
+router ospf 1
+    network 10.255.255.10 0.0.0.0 area 3
+    exit
+int s1/0
+    ip ospf 1 area 3
+    no sh
+int s1/1
+    ip ospf 1 area 4
+    no sh
 \end{verbatim}
 \end{small}
 }
@@ -255,6 +526,7 @@ Link ID         ADV Router      Age         Seq#       Checksum Link count
 10.255.255.2    10.255.255.2    835         0x800000A7 0x0046AC 4
 10.255.255.3    10.255.255.3    707         0x800000A4 0x00D1B1 1
 10.255.255.4    10.255.255.4    811         0x800000A5 0x00CFCA 2
+10.255.255.10   10.255.255.10   3     (DNA) 0x80000002 0x006AD7 1
 
 		Net Link States (Area 0)
 
@@ -285,6 +557,8 @@ Link ID         ADV Router      Age         Seq#       Checksum
 10.255.255.8    10.255.255.3    709         0x80000021 0x00787A
 10.255.255.9    10.255.255.3    710         0x8000009F 0x008FAD
 10.255.255.9    10.255.255.4    814         0x8000009F 0x000577
+10.255.255.10   10.255.255.4    814         0x8000009F 0x007FBB
+10.255.255.10   10.255.255.10   7     (DNA) 0x80000001 0x0016FD
 
 		Router Link States (Area 3)
 
@@ -301,12 +575,7 @@ Link ID         ADV Router      Age         Seq#       Checksum Tag
 }
 
 \paragraph{}
-Z výpisu \say{show ip ospf interface f0/0} smerovača R1 vyplýva, že rozhranie \say{f0/0} patrí do oblasti 0, čo je chrbticová oblasť. V OSPF topológií majú smerovače v rovnakej oblasti totožnú LSDB (Link State databázu). Na začiatku výpisu LSDB vidíme \say{Router ID} smerovača, ktorého databázu sledujeme. V časti \say{Router Link States (Area 0)} vidíme priamo pripojené siete ku chrbticovej oblasti. Šíria sa ako LSA 1 a generuje ich každý smerovač v OSPF topológií. V časti \say{Net Link States (Area 0)} vidíme DR smerovač (R4). Šíria sa ako LSA 2 a generuje ich DR smerovač. V časti \say{Summary Net Link States (Area 0)} vidíme ohlasované siete od ABR smerovačov. Niektoré záznamy sú zdvojené, pretože aj R3, aj R4 sú ABR smerovačmi do oblasti 2. Šíria sa ako LSA 3 a generujú ich ABR smerovače. V časti \say{Type-5 AS External Link States} vidíme siete ohlasované z iných autonómnych systémov (AS). V našom prípade sme ohlasovali cestu ku smerovaču R5. R5 bol pripojený ku R1, preto sa stal R1 ASBR smerovačom. Tieto siete sa šíria ako LSA 5 a generuje ich ASBR smerovač.
-
-
-
-
-
+Z výpisu \say{show ip ospf interface f0/0} smerovača R1 vyplýva, že rozhranie \say{f0/0} patrí do oblasti 0, čo je chrbticová oblasť. V OSPF topológií majú smerovače v rovnakej oblasti totožnú LSDB (Link State databázu). Na začiatku výpisu LSDB vidíme \say{Router ID} smerovača, ktorého databázu sledujeme. V časti \say{Router Link States (Area 0)} vidíme priamo pripojené siete ku chrbticovej oblasti. Šíria sa ako LSA 1 a generuje ich každý smerovač v OSPF topológií. Je medzi nimi aj loopback rozhranie R10, pretože sme museli vytvoriť virtuálne pripojenie oblasti 4 cez oblasť 3 (viď kapitola \say{Area 3 – Stub}). R10 sa preto tvári ako ABR a šíri svoje siete správami LSA 3. V časti \say{Net Link States (Area 0)} vidíme DR smerovač (R4). Šíria sa ako LSA 2 a generuje ich DR smerovač. V časti \say{Summary Net Link States (Area 0)} vidíme ohlasované siete od ABR smerovačov. Niektoré záznamy sú zdvojené, pretože aj R3, aj R4 sú ABR smerovačmi do oblasti 2. Šíria sa ako LSA 3 a generujú ich ABR smerovače. V časti \say{Type-5 AS External Link States} vidíme siete ohlasované z iných autonómnych systémov (AS). V našom prípade sme ohlasovali cestu ku smerovaču R5. R5 bol pripojený ku R1, preto sa stal R1 ASBR smerovačom. Tieto siete sa šíria ako LSA 5 a generuje ich ASBR smerovač.
 
 
 
@@ -316,8 +585,6 @@ Z výpisu \say{show ip ospf interface f0/0} smerovača R1 vyplýva, že rozhrani
 V \say{broadcastovej} a \say{non-broadcastovej} doméne smerovače v rámci OSPF topológie komunikujú pomocou LSA 2 správ, ktorými si volia DR/BDR smerovač. DR (Designated Router) je smerovač, ktorý slúži ako centrálny bod pre výmenu smerovacích informácií v \say{broadcast} doméne v rámci OSPF. BDR (Backup DR) je záložný smerovač v prípade, že by DR smerovač prestal fungovať.
 
 \subsubsection{Konfigurácia}
-\paragraph{}
-Ako príklad uvádzame konfiguráciu liniek pre R3. Rozhranie \say{f0/1} sme nenastavovali ako \/say{Point-to-Point}, pretože sa nachádza v broadcastovej doméne.
 
 \noindent
 {\fontfamily{qcr}\selectfont
@@ -327,13 +594,56 @@ Ako príklad uvádzame konfiguráciu liniek pre R3. Rozhranie \say{f0/1} sme nen
 
 % Pouzijeme "verbatim", aby sme escapeovali cely odsek
 \begin{verbatim}
-!R3
+!KONFIGURACIA R1
+int f0/0
+    ip ospf network point-to-point
+
+!KONFIGURACIA R2
+int f0/0
+    ip ospf network point-to-point
+
+!KONFIGURACIA R3
 int f0/0
     ip ospf network point-to-point
 int s1/0
     ip ospf network point-to-point
+
+!KONFIGURACIA R4
+int f0/0
+    ip ospf network point-to-point
+int s1/0
+    ip ospf network point-to-point
+
+!KONFIGURACIA R6
+int f0/1
+    ip ospf network point-to-point
+
+!KONFIGURACIA R7
+int f0/1
+    ip ospf network point-to-point
+int s1/1
+    ip ospf network point-to-point
+
+!KONFIGURACIA R8
+int f0/0
+    ip ospf network point-to-point
+
+!KONFIGURACIA R9
+int f0/0
+    ip ospf network point-to-point
+    ip ospf 1 area 2
+int s1/0
+    ip ospf network point-to-point
+
+!KONFIGURACIA R10
+int s1/0
+    ip ospf network point-to-point
+int s1/1
+    ip ospf network point-to-point
 \end{verbatim}
+
 \end{small}
+
 }
 
 \subsubsection{Overenie}
@@ -354,17 +664,10 @@ FastEthernet0/0 is up, line protocol is up
 \paragraph{}
 Z uvedeného show príkazu vyplýva, že rozhranie \say{Fa0/0} na smerovači R3 patrí do siete typu \say{point-to-point}.
 
-
-
-
-
-
-
-
 \subsection{Router–id – loopback0, passive–interface}
 \subsubsection{Popis}
 \paragraph{}
-IP adresa loopback rozhrania sa nastavila ako Router ID. Zároveň sme loopback rozhranie \say{lo1} nastavili ako pasívne, kvôli bezpečnosti.
+IP adresa loopback rozhrania sa nastavila ako Router ID a zároveň sme loopback rozhranie \say{lo1} nastavili ako pasívne.
 
 \subsubsection{Konfigurácia}
 \paragraph{}
@@ -383,7 +686,9 @@ router ospf 1
 \end{verbatim}
 \end{small}
 }
-'X' symbolizuje číslo smerovača (napr. pre R1: 10.255.255.1).
+
+
+'X' symbolizuje číslo smerovača (napr. pre R1: 10.255.255.1)
 
 \subsubsection{Overenie}
 \paragraph{}
@@ -393,32 +698,33 @@ Router ID sme overovali príkazom \say{show ip ospf 1}.
 {\fontfamily{qcr}\selectfont
 \begin{small}
 \begin{verbatim}
-R8#show ip ospf 1
- Routing Process "ospf 1" with ID 10.255.255.8
+R3#show ip ospf 1
+ Routing Process "ospf 1" with ID 10.255.255.3
 \end{verbatim}
 \end{small}
 }
 
 \paragraph{}
-Pasívne rozhranie sme overovali príkazom \say{show ip protocols}.
+Pasívne rozhranie sme overovali príkazom \say{show ip ospf interface brief}.
 
 \noindent
 {\fontfamily{qcr}\selectfont
 \begin{small}
 \begin{alltt}
 
-R8#show ip protocols
-Routing Protocol is "ospf 1"
-...
- Passive Interface(s):
- Loopback1
-...
+R3#show ip ospf interface brief
+Interface    PID   Area            IP Address/Mask    Cost  State Nbrs F/C
+Fa0/1        1     0               10.0.234.3/24      1     DR    2/2
+\textbf{Lo1          1     1               10.255.255.3/32    1     LOOP  0/0}
+Fa0/0        1     1               10.1.38.1/24       10    P2P   1/1
+Se1/0        1     2               10.2.39.1/30       64    P2P   1/1
+
 \end{alltt}
 \end{small}
 }
 
 \paragraph{}
-Z výpisu vyplýva, že loopback rozhranie \say{Lo1} je v zozname pasívnych rozhraní, a teda nebude odosielať \say{hello} správy.
+Z výpisu vyplýva, že loopback rozhranie \say{Lo1} je v pasívnom móde (LOOP) a teda sa cezeň nemôže vytvoriť susedstvo.
 
 \subsection{Area 1 – Totally Stubby}
 \subsubsection{Popis}
@@ -593,7 +899,7 @@ R4#show ip ospf database router
 }
 
 \paragraph{}
-Z uvedeých výpisov vyplýva, že smerovače R3 a R4 patria k oblasti 2, čo je oblasť typu \say{Stub}. 
+Z uvedeých výpisov vyplýva, že smerovače R3 a R4 patria k oblasti 2, čo je oblasť typu \say{Stub}.
 
 \subsection{Area 4 – pripojenie pomocou virtuálnej linky}
 \subsubsection{Popis}
@@ -804,22 +1110,23 @@ int f0/0
 {\fontfamily{qcr}\selectfont
 \begin{small}
 \begin{verbatim}
-!R4
+!R3 aj R4 - sumarizácia
 router ospf 1
       area 2 range 10.2.0.0 255.255.0.0 1
+
 \end{verbatim}
 \end{small}
 }
 
 \paragraph{}
-Tým, že znížime bandwidth na tomto rozhraní, zvýšime jeho "Cost". Zmena sa potom ohlási všetkým smerovačom v sieti. Následkom toho bude rozhranie f0/1 na R3 preferované pre ďalšie smerovanie.
+Hoci príkaz uvádzame príkaz na sumarizáciu sietí v oblasti 2, nepoužili sme ho na žiadnom zo smerovačov, pretože riadenie toku z R5 do R9 fungovalo správne aj bez sumarizácie.
 
 \paragraph{}
-V spätnom smere sme použili sumarizáciu adries pre oblasť 2 na R4. Spoliehali sme sa na \say{Longest prefix match}. R3 mala špecifickejší záznam, preto bola premávka presmerovaná na ňu.
+Tým, že znížime bandwidth na tomto rozhraní, zvýšime jeho "Cost". Zmena sa potom ohlási všetkým smerovačom v sieti. Následkom toho bude rozhranie f0/1 na R3 preferované pre ďalšie smerovanie.
 
 \subsubsection{Overenie}
 \paragraph{}
-Na overenie sme použili príkaz traceroute v smeroch R5 -\textgreater{} R9 a R9 -\textgreater{} R5.
+Na overenie sme použili príkaz traceroute v smeroch R5 -\textgreater{} R9, R9 -\textgreater{} R5 a R10 -\textgreater{} R5.
 \paragraph{}
 
 \noindent
@@ -854,7 +1161,7 @@ R9#traceroute 10.255.255.5
 Type escape sequence to abort.
 Tracing the route to 10.255.255.5
 
-  \textbf{1 10.2.39.1} 16 msec 16 msec 20 msec
+  \textbf{1 10.2.49.1} 16 msec 16 msec 20 msec
   \textbf{2 10.0.234.2} 36 msec 36 msec 36 msec
   3 10.0.12.1 60 msec 36 msec 80 msec
   4 10.100.15.2 60 msec *  64 msec
@@ -864,16 +1171,33 @@ Tracing the route to 10.255.255.5
 \end{small}
 }
 
+\noindent
+Kontrola smerovania z R10 na R5:
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+R10#traceroute 10.255.255.5
+
+Type escape sequence to abort.
+Tracing the route to 10.255.255.5
+
+  \textbf{1 10.3.104.1} 8 msec 20 msec 12 msec
+  \textbf{2 10.0.234.2} 40 msec 36 msec 36 msec
+  3 10.0.12.1 48 msec 44 msec 76 msec
+  4 10.100.15.2 80 msec *  72 msec
+
+
+\end{alltt}
+\end{small}
+}
+
+
 \paragraph{}
-Z výpisov vyplýva, že smerovanie z R5 ku R9 prechádza prioritne cez R3, rovnako ako z R9 do R3.
+Z výpisov vyplýva, že smerovanie z R5 ku R9 prechádza prioritne cez R3. Smerovanie od R9 do R5 prechádza ale cez R4, rovnako ako z R10 na R5.
 
 
-
-
-
-
-
-\subsection{Skrátenie hello a dead časovačov, zistenie funkčnosti vytrhnutím jednej z liniek smerom ku L2 prepínaču}
+\subsection{Skrátenie hello a dead-interval časovačov, zistenie funkčnosti vytrhnutím jednej z liniek smerom ku L2 prepínaču}
 
 \subsubsection{Popis}
 \paragraph{}
@@ -1379,5 +1703,44 @@ Success rate is 100 percent (5/5), round-trip min/avg/max = 36/38/40 ms
 \end{verbatim}
 \end{small}
 }
+
+
+
+\subsection{Otázky}
+
+\noindent
+1. OSPF posiela 5 typov správ. Ktorý z nasledujúcich je typ 3 ?\\
+A. LSAck\\
+B. Hello\\
+C. DBD/DDP\\
+\textbf{D. LSR}\\
+
+\noindent
+2. Ktorý z nasledujúcich príkazov by sa mal použiť ak chceme manuálne nastaviť cost ?\\
+A. Router(config-router)\#ip ospf cost 100\\
+\textbf{B. Router(config-if)\#ip ospf cost 100}\\
+C. Router(config-router)\#ospf cost 100\\
+D. Router(config-if)\#ospf cost 100\\
+
+\noindent
+3. Ktorý typ siete nepotrebuje voliť DR v rámci OSPF ?\\
+A. Non-Broadcast-Multiple-Access\\
+B. Broadcast\\
+\textbf{C. Point-to-Point}\\
+D. Point-to-Multipoint\\
+
+\noindent
+4. Administrative distance OSPF predstavuje hodnotu ?\\
+A. 120\\
+B. 100\\
+C. 90\\
+\textbf{D. 110}\\
+
+\noindent
+5. LSA typ 3 je sumárne LSA posielané ... ?\\
+A. ASBR\\
+\textbf{B. ABR}\\
+C. DR\\
+D. BDR
 
 \end{document}

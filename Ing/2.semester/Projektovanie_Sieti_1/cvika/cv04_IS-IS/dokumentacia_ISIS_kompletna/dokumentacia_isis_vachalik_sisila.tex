@@ -196,14 +196,8 @@ Postup vytvorenia ISO NSAP identifikátora:
 \paragraph{}
 Takto vytvorený NSAP identifikátor je hotový a použiteľný na konfiguráciu.
 
-\paragraph{}
-Jednotlivé rozhrania sme podľa potreby nastavili ako point-to-point linky príkazom \say{isis network point-to-point}.
-
 
 \subsubsection{Konfigurácia}
-\paragraph{}
-Nižšie uvádzame základnú konfiguráciu IS-IS pre R1.
-
 \noindent
 {\fontfamily{qcr}\selectfont
 \begin{small}
@@ -237,6 +231,306 @@ router isis
   net 49.0001.0102.5525.5001.00
   passive-interface lo0
   is-type level-2
+  metric-style wide
+
+
+
+!R2
+ena
+conf t
+hostname R2
+no ip domain-lookup
+username admin privil 15 secret admin
+line con 0
+  login local
+  logging syn
+  exec-time 120
+line vty 0 15
+  privilege level 15
+  no login
+int f0/0
+  ip addr 10.1.12.2 255.255.255.0
+  ip router isis
+  isis network point-to-point
+  no shut
+int lo0
+  ip addr 10.255.255.2 255.255.255.255
+  ip router isis
+  no shut
+int f0/1
+  ip addr 10.1.234.2 255.255.255.0
+  ip router isis
+  no shut
+router isis
+  net 49.0001.0102.5525.5002.00
+  passive-interface lo0
+  is-type level-2
+  metric-style wide
+
+
+
+
+!R3
+ena
+conf t
+hostname R3
+no ip domain-lookup
+username admin privil 15 secret admin
+line con 0
+  login local
+  logging syn
+  exec-time 120
+line vty 0 15
+  privilege level 15
+  no login
+int f0/0
+  ip addr 10.1.38.3 255.255.255.0
+  ip router isis
+  isis network point-to-point
+  no shut
+int lo0
+  ip addr 10.255.255.3 255.255.255.255
+  ip router isis
+  no shut
+int f0/1
+  ip addr 10.1.234.3 255.255.255.0
+  ip router isis
+  no shut
+router isis
+  net 49.0001.0102.5525.5003.00
+  passive-interface lo0
+  is-type level-1-2
+  metric-style wide
+
+
+
+!R4
+ena
+conf t
+hostname R4
+no ip domain-lookup
+username admin privil 15 secret admin
+line con 0
+  login local
+  logging syn
+  exec-time 120
+line vty 0 15
+  privilege level 15
+  no login
+int f0/0
+  ip addr 10.1.49.4 255.255.255.0
+  ip router isis
+  isis network point-to-point
+  no shut
+int lo0
+  ip addr 10.255.255.4 255.255.255.255
+  ip router isis
+  no shut
+int f0/1
+  ip addr 10.1.234.4 255.255.255.0
+  ip router isis
+  no shut
+int s1/0
+  ip addr 10.1.104.4 255.255.255.0
+  ip router isis
+  no shut
+router isis
+  net 49.0001.0102.5525.5004.00
+  passive-interface lo0
+  is-type level-1-2
+  metric-style wide
+
+
+
+!R5
+ena
+conf t
+hostname R5
+no ip domain-lookup
+username admin privil 15 secret admin
+line con 0
+  login local
+  logging syn
+  exec-time 120
+line vty 0 15
+  privilege level 15
+  no login
+int lo0
+  ip addr 10.255.255.5 255.255.255.255
+  no shut
+int f0/1
+  ip addr 10.100.15.5 255.255.255.0
+  no shut
+
+
+
+
+!R6
+ena
+conf t
+hostname R6
+no ip domain-lookup
+username admin privil 15 secret admin
+line con 0
+  login local
+  logging syn
+  exec-time 120
+line vty 0 15
+  privilege level 15
+  no login
+int f0/1
+  ip addr 10.2.67.6 255.255.255.0
+  ip router isis
+  isis network point-to-point
+  no shut
+int lo0
+  ip addr 10.255.255.6 255.255.255.255
+  ip router isis
+  no shut
+router isis
+  net 49.0002.0102.5525.5006.00
+  passive-interface lo0
+  is-type level-1
+  metric-style wide
+
+
+
+!R7
+ena
+conf t
+hostname R7
+no ip domain-lookup
+username admin privil 15 secret admin
+line con 0
+  login local
+  logging syn
+  exec-time 120
+line vty 0 15
+  privilege level 15
+  no login
+int f0/1
+  ip addr 10.2.67.7 255.255.255.0
+  ip router isis
+  isis network point-to-point
+  no shut
+int lo0
+  ip addr 10.255.255.7 255.255.255.255
+  ip router isis
+  no shut
+int s1/1
+  ip addr 10.2.107.7 255.255.255.0
+  Ip router isis
+  no shut
+router isis
+  net 49.0002.0102.5525.5007.00
+  passive-interface lo0
+  is-type level-1
+  metric-style wide
+
+
+
+
+!R8
+ena
+conf t
+hostname R8
+no ip domain-lookup
+username admin privil 15 secret admin
+line con 0
+  login local
+  logging syn
+  exec-time 120
+line vty 0 15
+  privilege level 15
+  no login
+int f0/0
+  ip addr 10.1.38.8 255.255.255.0
+  ip router isis
+  isis network point-to-point
+  no shut
+int lo0
+  ip addr 10.255.255.8 255.255.255.255
+  ip router isis
+  no shut
+int f0/1
+  ip addr 10.1.89.8 255.255.255.0
+  Ip router isis
+  isis network point-to-point
+  no shut
+router isis
+  net 49.0001.0102.5525.5008.00
+  passive-interface lo0
+  is-type level-1
+  metric-style wide
+
+
+
+
+!R9
+ena
+conf t
+hostname R9
+no ip domain-lookup
+username admin privil 15 secret admin
+line con 0
+  login local
+  logging syn
+  exec-time 120
+line vty 0 15
+  privilege level 15
+  no login
+int f0/0
+  ip addr 10.1.49.9 255.255.255.0
+  ip router isis
+  isis network point-to-point
+  no shut
+int lo0
+  ip addr 10.255.255.9 255.255.255.255
+  ip router isis
+  no shut
+int f0/1
+  ip addr 10.1.89.9 255.255.255.0
+  Ip router isis
+  isis network point-to-point
+  no shut
+router isis
+  net 49.0001.0102.5525.5009.00
+  passive-interface lo0
+  is-type level-1
+  metric-style wide
+
+
+
+
+!R10
+ena
+conf t
+hostname R10
+no ip domain-lookup
+username admin privil 15 secret admin
+line con 0
+  login local
+  logging syn
+  exec-time 120
+line vty 0 15
+  privilege level 15
+  no login
+int s1/0
+  ip addr 10.1.104.10 255.255.255.0
+  ip router isis
+  no shut
+int lo0
+  ip addr 10.255.255.10 255.255.255.255
+  ip router isis
+  no shut
+int s1/1
+  ip addr 10.2.107.10 255.255.255.0
+  Ip router isis
+  no shut
+router isis
+  net 49.0002.0102.5525.5010.00
+  passive-interface lo0
+  is-type level-1-2
   metric-style wide
 \end{verbatim}
 \end{small}
@@ -289,7 +583,7 @@ IS-IS Level-2 Link State Database:
 LSPID                 LSP Seq Num  LSP Checksum  LSP Holdtime      ATT/P/OL
 R1.00-00            * 0x0000000B   0x937D        1031              0/0/0
 R2.00-00              0x0000000A   0xB628        852               0/0/0
-\textbf{R2.01-00              0x00000009   0x5821        901               0/0/0}
+R2.01-00              0x00000009   0x5821        901               0/0/0
 R3.00-00              0x0000000D   0xA6AA        681               0/0/0
 R4.00-00              0x0000000D   0xF394        764               0/0/0
 R10.00-00             0x0000000B   0xA9D4        846               0/0/0
@@ -298,12 +592,7 @@ R10.00-00             0x0000000B   0xA9D4        846               0/0/0
 }
 
 \paragraph{}
-Z výpisu príkazu \say{show ip interface brief} je zrejmé, že IP adresy boli nastavené. Z výpisu príkazu \say{show isis hostname} vieme, že identifikátory smerovačov sú správne nastavené k prislúchajúcim názvom smerovačov. Vidíme mená iba tých smerovačov, s ktorými má R1 založený L2 vzťah. Vo výpise \say{show isis database} vidíme, že v broadcastovej doméne medzi smerovačmi R2, R3 a R4 bol za DIS zvolený smerovač R4. Spoznáme to podľa nenulovej prvej dvojice čísel hneď za názvom smerovača \say{R2.\textbf{\textit{01}}-00}.
-
-
-
-
-
+Z výpisu príkazu \say{show ip interface brief} je zrejmé, že IP adresy boli nastavené. Z výpisu príkazu \say{show isis hostname} vieme, že identifikátory smerovačov sú správne nastavené k prislúchajúcim názvom smerovačov. Vidíme mená iba tých smerovačov, s ktorými má R1 založený L2 vzťah. Vo výpise \say{show isis database} vidíme, že v broadcastovej doméne medzi smerovačmi R2, R3 a R4 bol za DIS zvolený smerovač R4. Spoznáme to podľa nenulovej prvej dvojice čísel hneď za názvom smerovača \say{R4.\textbf{\textit{02}}-00}.
 
 
 
@@ -391,13 +680,7 @@ i L2    10.100.15.0/24 [115/10] via 10.1.12.1, FastEthernet0/0
 }
 
 \paragraph{}
-Z výpisov smerovacích tabuliek vyplýva, že smerovač R5 má nastavenú predvolenú cestu staticky ku R1, ktorú potom rozšíri do zvyšku IS-IS topológie. V smerovacej tabuľke na R1 vidíme predvolenú cestu ako \say{S*} záznam. Je to dôsledok príkazu \say{redistribute static} vykonaného na R5.
-
-
-
-
-
-
+Z výpisov smerovacích tabuliek vyplýva, že smerovač R5 má nastavenú predvolenú cestu staticky ku R1, ktorú potom rozšíri do zvyšku IS-IS topológie.
 
 
 
@@ -598,13 +881,12 @@ Redistribúcia smerovacích záznamov z L2 do L1 slúži na to, aby L1 smerovač
 
 \subsubsection{Konfigurácia}
 \paragraph{}
-Konfigurujeme L1/L2 smerovač R10. Najprv si vytvoríme ACL, ktorým explicitne určíme, ktoré siete chceme preposlať do oblasti 2 L1 smerovačom. Toto ACL aplikujeme do konfigurácie IS-IS protokolu príkazom \say{redistribute}, ktorým R10 prepošle siete obsiahnuté v ACL L1 smerovačom v oblasti 2.
+Konfigurujeme L1/L2 smerovač R10. Najprv si vytvoríme ACL, ktorý bude obsahovať všetky siete, ktoré chceme L1 smerovačom preposlať.
 
 \noindent
 {\fontfamily{qcr}\selectfont
 \begin{small}
 \begin{verbatim}
-!R10
 access-list 100 permit ip 10.255.255.1 0.0.0.0 any
 access-list 100 permit ip 10.255.255.2 0.0.0.0 any
 access-list 100 permit ip 10.255.255.3 0.0.0.0 any

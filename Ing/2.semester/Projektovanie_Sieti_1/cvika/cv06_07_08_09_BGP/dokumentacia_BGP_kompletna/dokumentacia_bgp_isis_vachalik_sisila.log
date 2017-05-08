@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.2.18)  8 MAY 2017 20:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.2.18)  2 MAY 2017 19:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -326,19 +326,19 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 3.
 
-Overfull \hbox (4.13707pt too wide) in paragraph at lines 24--24
+Overfull \hbox (4.13707pt too wide) in paragraph at lines 8--8
  [][] []\OT1/ppl/m/n/12 Distrib[]ucia in-ter-ne-tov[]ych sta-tick[]ych sme-ro-v
 ac[]^^Pch z[]aznamov 
  []
 
 
-Overfull \hbox (1.95355pt too wide) in paragraph at lines 75--75
+Overfull \hbox (1.95355pt too wide) in paragraph at lines 57--57
  [][] []\OT1/ppl/m/n/12 Distribuovat[] iba de-fault, AS5005 a pe-e-ring pre-fix
 y do AS65001 []  
  []
 
 
-Overfull \hbox (1.84485pt too wide) in paragraph at lines 97--97
+Overfull \hbox (1.84485pt too wide) in paragraph at lines 79--79
  [][] []\OT1/ppl/m/n/12 Overit[] funk[]cnost[] na-sta-ve-nia po-li-tiky vhodn[]
 ymi v[]ypadkami 
  []
@@ -352,10 +352,7 @@ ymi v[]ypadkami
 ]
 LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <17.28> not available
 (Font)              Font shape `OT1/ppl/b/n' tried instead on input line 52.
- (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-32.def
-File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
-)
-<obr/bgp_isis_topo.png, id=12, 586.5915pt x 408.3255pt>
+ <obr/bgp_isis_topo.png, id=12, 586.5915pt x 408.3255pt>
 File: obr/bgp_isis_topo.png Graphic file (type png)
 
 <use obr/bgp_isis_topo.png>
@@ -376,371 +373,410 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <14.4> on input line 128.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 128.
-LaTeX Font Info:    Try loading font information for OT1+qcr on input line 139.
 
+Overfull \hbox (7.27892pt too wide) in paragraph at lines 130--130
+[]\OT1/ppl/b/n/14.4 Distrib^^Sucia in-ter-ne-tov[]ych sta-tick[]ych sme-ro-vac^
+^S^^Pch z^^Saznamov
+ []
+
+(/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-32.def
+File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
+)
+Overfull \hbox (25.68713pt too wide) in paragraph at lines 136--137
+ [] \OT1/ppl/m/n/12 V ce-lej to-pol[]ogi[]^^P pou[]z[]^^Pvame sme-ro-vac[]^^P p
+ro-to-kol BGP. Vn[]utri v[]setk[]ych au-ton[]omnych
+ []
+
+
+Overfull \hbox (3.42915pt too wide) in paragraph at lines 136--137
+\OT1/ppl/m/n/12 syst[]emov navy[]se pou[]z[]^^Pvame sme-ro-vac[]^^P pro-to-kol 
+IS-IS. Sub-ro-z-hra-nie \.13" (VLAN
+ []
+
+LaTeX Font Info:    Try loading font information for OT1+qcr on input line 142.
 
 (/usr/share/texmf/tex/latex/tex-gyre/ot1qcr.fd
 File: ot1qcr.fd 2009/09/25 v1.2 font definition file for OT1/qcr
 )
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 141.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 144.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 ) [5] [6]
-Overfull \hbox (7.27892pt too wide) in paragraph at lines 271--271
-[]\OT1/ppl/b/n/14.4 Distrib^^Sucia in-ter-ne-tov[]ych sta-tick[]ych sme-ro-vac^
-^S^^Pch z^^Saznamov
- []
-
-
-Underfull \vbox (badness 2173) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [7]
-[8]
-Overfull \hbox (92.23804pt too wide) in paragraph at lines 336--336
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [8]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [9]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [10]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [11]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [12]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [13]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [14]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [15]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [16]
+Overfull \hbox (92.23804pt too wide) in paragraph at lines 719--719
 []\OT1/pcr/m/n/10.95 Status codes: s suppressed, d damped, h history, * valid, 
 > best, i - internal,[] 
  []
 
 
-Overfull \hbox (0.25815pt too wide) in paragraph at lines 340--340
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 723--723
 []   \OT1/pcr/m/n/10.95 Network          Next Hop            Metric LocPrf Weig
 ht Path[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 342--342
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 725--725
 []\OT1/pcr/m/n/10.95 *  10.255.255.2/32  64.34.255.254                         
  0 4502 110 i[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 343--343
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 726--726
 []\OT1/pcr/m/n/10.95 *>                  200.110.255.250          0            
  0 110 i[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 344--344
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 727--727
 []\OT1/pcr/m/n/10.95 *  10.255.255.3/32  64.34.255.254                         
  0 4502 110 i[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 345--345
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 728--728
 []\OT1/pcr/m/n/10.95 *>                  200.110.255.250                       
  0 110 i[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 346--346
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 729--729
 []\OT1/pcr/m/n/10.95 *  10.255.255.4/32  64.34.255.254                         
  0 4502 110 i[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 347--347
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 730--730
 []\OT1/pcr/m/n/10.95 *>                  200.110.255.250                       
  0 110 i[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 348--348
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 731--731
 []\OT1/pcr/m/n/10.95 *  10.255.255.5/32  200.110.255.250                       
  0 110 4502 i[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 349--349
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 732--732
 []\OT1/pcr/m/n/10.95 *                   200.33.255.254                        
  0 330 4502 i[] 
  []
 
 
-Overfull \hbox (13.39813pt too wide) in paragraph at lines 350--350
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 733--733
 []\OT1/pcr/m/n/10.95 *>                  64.34.255.254            0            
  0 4502 i[] 
  []
 
 
-Overfull \hbox (65.95807pt too wide) in paragraph at lines 351--351
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 734--734
 []\OT1/pcr/m/n/10.95 *  10.255.255.6/32  200.110.255.250                       
  0 110 4502 330 i[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 352--352
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 735--735
 []\OT1/pcr/m/n/10.95 *                   64.34.255.254                         
  0 4502 330 i[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 353--353
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 736--736
 []\OT1/pcr/m/n/10.95 *>                  200.33.255.254           0            
  0 330 i[] 
  []
 
 
-Overfull \hbox (65.95807pt too wide) in paragraph at lines 354--354
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 737--737
 []\OT1/pcr/m/n/10.95 *  10.255.255.7/32  200.110.255.250                       
  0 110 4502 330 i[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 355--355
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 738--738
 []\OT1/pcr/m/n/10.95 *                   64.34.255.254                         
  0 4502 330 i[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 356--356
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 739--739
 []\OT1/pcr/m/n/10.95 *>                  200.33.255.254                        
  0 330 i[] 
  []
 
 
-Overfull \hbox (79.09805pt too wide) in paragraph at lines 357--357
+Overfull \hbox (79.09805pt too wide) in paragraph at lines 740--740
 []\OT1/pcr/m/n/10.95 *  10.255.255.8/32  64.34.255.254                         
  0 4502 110 65001 i[] 
  []
 
 
-Overfull \hbox (0.25815pt too wide) in paragraph at lines 358--358
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 741--741
 []   \OT1/pcr/m/n/10.95 Network          Next Hop            Metric LocPrf Weig
 ht Path[] 
  []
 
 
-Overfull \hbox (105.37802pt too wide) in paragraph at lines 359--359
+Overfull \hbox (105.37802pt too wide) in paragraph at lines 742--742
 []\OT1/pcr/m/n/10.95 *                   200.33.255.254                        
  0 330 4502 110 65001 i[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 360--360
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 743--743
 []\OT1/pcr/m/n/10.95 *>                  200.110.255.250                       
  0 110 65001 i[] 
  []
 
 
-Overfull \hbox (79.09805pt too wide) in paragraph at lines 361--361
+Overfull \hbox (79.09805pt too wide) in paragraph at lines 744--744
 []\OT1/pcr/m/n/10.95 *  10.255.255.9/32  64.34.255.254                         
  0 4502 110 65001 i[] 
  []
 
 
-Overfull \hbox (105.37802pt too wide) in paragraph at lines 362--362
+Overfull \hbox (105.37802pt too wide) in paragraph at lines 745--745
 []\OT1/pcr/m/n/10.95 *                   200.33.255.254                        
  0 330 4502 110 65001 i[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 363--363
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 746--746
 []\OT1/pcr/m/n/10.95 *>                  200.110.255.250                       
  0 110 65001 i[] 
  []
 
 
-Overfull \hbox (72.52806pt too wide) in paragraph at lines 364--364
+Overfull \hbox (72.52806pt too wide) in paragraph at lines 747--747
 []\OT1/pcr/m/n/10.95 *  10.255.255.10/32 64.34.255.254                         
  0 4502 110 5005 i[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 365--365
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 748--748
 []\OT1/pcr/m/n/10.95 *                   200.110.255.250                       
  0 110 5005 i[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 366--366
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 749--749
 []\OT1/pcr/m/n/10.95 *>                  200.33.255.254                        
  0 330 5005 i[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 368--368
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 751--751
 []\OT1/pcr/m/n/10.95 *  128.45.5.0/25    200.110.255.250                       
  0 110 4502 i[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 369--369
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 752--752
 []\OT1/pcr/m/n/10.95 *                   200.33.255.254                        
  0 330 4502 i[] 
  []
 
 
-Overfull \hbox (13.39813pt too wide) in paragraph at lines 370--370
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 753--753
 []\OT1/pcr/m/n/10.95 *>                  64.34.255.254            0            
  0 4502 i[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 371--371
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 754--754
 []\OT1/pcr/m/n/10.95 *  200.33.6.0/25    64.34.255.254                         
  0 4502 330 i[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 372--372
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 755--755
 []\OT1/pcr/m/n/10.95 *>                  200.33.255.254           0            
  0 330 i[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 373--373
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 756--756
 []\OT1/pcr/m/n/10.95 *  200.33.7.0/25    64.34.255.254                         
  0 4502 330 i[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 374--374
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 757--757
 []\OT1/pcr/m/n/10.95 *>                  200.33.255.254                        
  0 330 i[] 
  []
 
 
-Overfull \hbox (65.95807pt too wide) in paragraph at lines 375--375
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 758--758
 []\OT1/pcr/m/n/10.95 *  200.110.0.0/25   200.33.255.254                        
  0 330 4502 110 i[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 376--376
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 759--759
 []\OT1/pcr/m/n/10.95 *                   64.34.255.254                         
  0 4502 110 i[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 377--377
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 760--760
 []\OT1/pcr/m/n/10.95 *>                  200.110.255.250          0            
  0 110 i[] 
  []
 
 
-Overfull \hbox (79.09805pt too wide) in paragraph at lines 378--378
+Overfull \hbox (79.09805pt too wide) in paragraph at lines 761--761
 []\OT1/pcr/m/n/10.95 *  200.110.0.128/25   200.33.255.254                      
    0 330 4502 110 i[] 
  []
 
-
-Overfull \hbox (0.25815pt too wide) in paragraph at lines 379--379
+[17]
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 762--762
 []   \OT1/pcr/m/n/10.95 Network          Next Hop            Metric LocPrf Weig
 ht Path[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 380--380
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 763--763
 []\OT1/pcr/m/n/10.95 *                   64.34.255.254                         
  0 4502 110 i[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 381--381
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 764--764
 []\OT1/pcr/m/n/10.95 *>                  200.110.255.250                       
  0 110 i[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 382--382
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 765--765
 []\OT1/pcr/m/n/10.95 *> 200.110.1.0/25   200.110.255.250                       
  0 110 i[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 383--383
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 766--766
 []\OT1/pcr/m/n/10.95 *                   64.34.255.254                         
  0 4502 110 i[] 
  []
 
-[9]
-Overfull \hbox (65.95807pt too wide) in paragraph at lines 384--384
+
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 767--767
 []\OT1/pcr/m/n/10.95 *                   200.33.255.254                        
  0 330 4502 110 i[] 
  []
 
 
-Overfull \hbox (105.37802pt too wide) in paragraph at lines 385--385
+Overfull \hbox (105.37802pt too wide) in paragraph at lines 768--768
 []\OT1/pcr/m/n/10.95 *  200.110.12.0/25  200.33.255.254                        
  0 330 4502 110 65001 i[] 
  []
 
 
-Overfull \hbox (79.09805pt too wide) in paragraph at lines 386--386
+Overfull \hbox (79.09805pt too wide) in paragraph at lines 769--769
 []\OT1/pcr/m/n/10.95 *                   64.34.255.254                         
  0 4502 110 65001 i[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 387--387
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 770--770
 []\OT1/pcr/m/n/10.95 *>                  200.110.255.250                       
  0 110 65001 i[] 
  []
 
 
-Overfull \hbox (105.37802pt too wide) in paragraph at lines 388--388
+Overfull \hbox (105.37802pt too wide) in paragraph at lines 771--771
 []\OT1/pcr/m/n/10.95 *  200.110.13.0/25  200.33.255.254                        
  0 330 4502 110 65001 i[] 
  []
 
 
-Overfull \hbox (79.09805pt too wide) in paragraph at lines 389--389
+Overfull \hbox (79.09805pt too wide) in paragraph at lines 772--772
 []\OT1/pcr/m/n/10.95 *                   64.34.255.254                         
  0 4502 110 65001 i[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 390--390
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 773--773
 []\OT1/pcr/m/n/10.95 *>                  200.110.255.250                       
  0 110 65001 i[] 
  []
 
 
-Overfull \hbox (72.52806pt too wide) in paragraph at lines 391--391
+Overfull \hbox (72.52806pt too wide) in paragraph at lines 774--774
 []\OT1/pcr/m/n/10.95 *  223.255.255.0/25 64.34.255.254                         
  0 4502 330 5005 i[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 392--392
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 775--775
 []\OT1/pcr/m/n/10.95 *                   200.110.255.250                       
  0 110 5005 i[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 393--393
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 776--776
 []\OT1/pcr/m/n/10.95 *>                  200.33.255.254                        
  0 330 5005 i[] 
  []
 
 
-Overfull \hbox (131.65799pt too wide) in paragraph at lines 396--396
+Overfull \hbox (131.65799pt too wide) in paragraph at lines 779--779
 []\OT1/pcr/m/n/10.95 ----------------------------------------------------------
 ---------------------------[] 
  []
 
 
-Overfull \hbox (26.53812pt too wide) in paragraph at lines 401--401
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 784--784
 []       \OT1/pcr/m/n/10.95 D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF
  inter area[] 
  []
 
 
-Overfull \hbox (26.53812pt too wide) in paragraph at lines 402--402
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 785--785
 []       \OT1/pcr/m/n/10.95 N1 - OSPF NSSA external type 1, N2 - OSPF NSSA exte
 rnal type 2[] 
  []
 
 
-Overfull \hbox (72.52806pt too wide) in paragraph at lines 404--404
+Overfull \hbox (72.52806pt too wide) in paragraph at lines 787--787
 []       \OT1/pcr/m/n/10.95 i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, 
 L2 - IS-IS level-2[] 
  []
 
 
-Overfull \hbox (85.66805pt too wide) in paragraph at lines 405--405
+Overfull \hbox (85.66805pt too wide) in paragraph at lines 788--788
 []       \OT1/pcr/m/n/10.95 ia - IS-IS inter area, * - candidate default, U - p
 er-user static route[] 
  []
@@ -748,266 +784,266 @@ er-user static route[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [10]
-Overfull \hbox (92.23804pt too wide) in paragraph at lines 459--459
+ [18]
+Overfull \hbox (92.23804pt too wide) in paragraph at lines 842--842
 []\OT1/pcr/m/n/10.95 Status codes: s suppressed, d damped, h history, * valid, 
 > best, i - internal,[] 
  []
 
 
-Overfull \hbox (0.25815pt too wide) in paragraph at lines 463--463
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 846--846
 []   \OT1/pcr/m/n/10.95 Network          Next Hop            Metric LocPrf Weig
 ht Path[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 465--465
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 848--848
 []\OT1/pcr/m/n/10.95 *  10.255.255.2/32  64.34.255.254                         
  0 4502 110 i[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 466--466
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 849--849
 []\OT1/pcr/m/n/10.95 *>                  200.110.255.250          0            
  0 110 i[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 467--467
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 850--850
 []\OT1/pcr/m/n/10.95 *  10.255.255.3/32  64.34.255.254                         
  0 4502 110 i[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 468--468
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 851--851
 []\OT1/pcr/m/n/10.95 *>                  200.110.255.250                       
  0 110 i[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 469--469
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 852--852
 []\OT1/pcr/m/n/10.95 *  10.255.255.4/32  64.34.255.254                         
  0 4502 110 i[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 470--470
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 853--853
 []\OT1/pcr/m/n/10.95 *>                  200.110.255.250                       
  0 110 i[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 471--471
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 854--854
 []\OT1/pcr/m/n/10.95 *  10.255.255.5/32  200.110.255.250                       
  0 110 4502 i[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 472--472
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 855--855
 []\OT1/pcr/m/n/10.95 *                   200.33.255.254                        
  0 330 4502 i[] 
  []
 
 
-Overfull \hbox (13.39813pt too wide) in paragraph at lines 473--473
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 856--856
 []\OT1/pcr/m/n/10.95 *>                  64.34.255.254            0            
  0 4502 i[] 
  []
 
 
-Overfull \hbox (65.95807pt too wide) in paragraph at lines 474--474
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 857--857
 []\OT1/pcr/m/n/10.95 *  10.255.255.6/32  200.110.255.250                       
  0 110 4502 330 i[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 475--475
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 858--858
 []\OT1/pcr/m/n/10.95 *                   64.34.255.254                         
  0 4502 330 i[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 476--476
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 859--859
 []\OT1/pcr/m/n/10.95 *>                  200.33.255.254           0            
  0 330 i[] 
  []
 
 
-Overfull \hbox (65.95807pt too wide) in paragraph at lines 477--477
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 860--860
 []\OT1/pcr/m/n/10.95 *  10.255.255.7/32  200.110.255.250                       
  0 110 4502 330 i[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 478--478
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 861--861
 []\OT1/pcr/m/n/10.95 *                   64.34.255.254                         
  0 4502 330 i[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 479--479
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 862--862
 []\OT1/pcr/m/n/10.95 *>                  200.33.255.254                        
  0 330 i[] 
  []
 
 
-Overfull \hbox (79.09805pt too wide) in paragraph at lines 480--480
+Overfull \hbox (79.09805pt too wide) in paragraph at lines 863--863
 []\OT1/pcr/m/n/10.95 *  10.255.255.8/32  64.34.255.254                         
  0 4502 110 65001 i[] 
  []
 
 
-Overfull \hbox (0.25815pt too wide) in paragraph at lines 481--481
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 864--864
 []   \OT1/pcr/m/n/10.95 Network          Next Hop            Metric LocPrf Weig
 ht Path[] 
  []
 
 
-Overfull \hbox (105.37802pt too wide) in paragraph at lines 482--482
+Overfull \hbox (105.37802pt too wide) in paragraph at lines 865--865
 []\OT1/pcr/m/n/10.95 *                   200.33.255.254                        
  0 330 4502 110 65001 i[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 483--483
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 866--866
 []\OT1/pcr/m/n/10.95 *>                  200.110.255.250                       
  0 110 65001 i[] 
  []
 
 
-Overfull \hbox (79.09805pt too wide) in paragraph at lines 484--484
+Overfull \hbox (79.09805pt too wide) in paragraph at lines 867--867
 []\OT1/pcr/m/n/10.95 *  10.255.255.9/32  64.34.255.254                         
  0 4502 110 65001 i[] 
  []
 
 
-Overfull \hbox (105.37802pt too wide) in paragraph at lines 485--485
+Overfull \hbox (105.37802pt too wide) in paragraph at lines 868--868
 []\OT1/pcr/m/n/10.95 *                   200.33.255.254                        
  0 330 4502 110 65001 i[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 486--486
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 869--869
 []\OT1/pcr/m/n/10.95 *>                  200.110.255.250                       
  0 110 65001 i[] 
  []
 
 
-Overfull \hbox (72.52806pt too wide) in paragraph at lines 487--487
+Overfull \hbox (72.52806pt too wide) in paragraph at lines 870--870
 []\OT1/pcr/m/n/10.95 *  10.255.255.10/32 64.34.255.254                         
  0 4502 110 5005 i[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 488--488
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 871--871
 []\OT1/pcr/m/n/10.95 *                   200.110.255.250                       
  0 110 5005 i[] 
  []
 
-
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 489--489
+[19]
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 872--872
 []\OT1/pcr/m/n/10.95 *>                  200.33.255.254                        
  0 330 5005 i[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 492--492
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 875--875
 []\OT1/pcr/m/n/10.95 *  128.45.0.0       200.110.255.250                       
  0 110 4502 i[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 493--493
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 876--876
 []\OT1/pcr/m/n/10.95 *                   200.33.255.254                        
  0 330 4502 i[] 
  []
 
-[11]
-Overfull \hbox (13.39813pt too wide) in paragraph at lines 494--494
+
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 877--877
 []\OT1/pcr/m/n/10.95 *>                  64.34.255.254            0            
  0 4502 i[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 495--495
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 878--878
 []\OT1/pcr/m/n/10.95 *  200.33.0.0/16    64.34.255.254                         
  0 4502 330 i[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 496--496
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 879--879
 []\OT1/pcr/m/n/10.95 *>                  200.33.255.254           0            
  0 330 i[] 
  []
 
 
-Overfull \hbox (65.95807pt too wide) in paragraph at lines 497--497
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 880--880
 []\OT1/pcr/m/n/10.95 *  200.110.0.0/16   200.33.255.254                        
  0 330 4502 110 i[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 498--498
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 881--881
 []\OT1/pcr/m/n/10.95 *                   64.34.255.254                         
  0 4502 110 i[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 499--499
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 882--882
 []\OT1/pcr/m/n/10.95 *>                  200.110.255.250          0            
  0 110 i[] 
  []
 
 
-Overfull \hbox (72.52806pt too wide) in paragraph at lines 500--500
+Overfull \hbox (72.52806pt too wide) in paragraph at lines 883--883
 []\OT1/pcr/m/n/10.95 *  223.255.255.0    64.34.255.254                         
  0 4502 330 5005 i[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 501--501
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 884--884
 []\OT1/pcr/m/n/10.95 *                   200.110.255.250                       
  0 110 5005 i[] 
  []
 
 
-Overfull \hbox (0.25815pt too wide) in paragraph at lines 502--502
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 885--885
 []   \OT1/pcr/m/n/10.95 Network          Next Hop            Metric LocPrf Weig
 ht Path[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 503--503
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 886--886
 []\OT1/pcr/m/n/10.95 *>                  200.33.255.254                        
  0 330 5005 i[] 
  []
 
 
-Overfull \hbox (131.65799pt too wide) in paragraph at lines 506--506
+Overfull \hbox (131.65799pt too wide) in paragraph at lines 889--889
 []\OT1/pcr/m/n/10.95 ----------------------------------------------------------
 ---------------------------[] 
  []
 
 
-Overfull \hbox (26.53812pt too wide) in paragraph at lines 511--511
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 894--894
 []       \OT1/pcr/m/n/10.95 D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF
  inter area[] 
  []
 
 
-Overfull \hbox (26.53812pt too wide) in paragraph at lines 512--512
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 895--895
 []       \OT1/pcr/m/n/10.95 N1 - OSPF NSSA external type 1, N2 - OSPF NSSA exte
 rnal type 2[] 
  []
 
 
-Overfull \hbox (72.52806pt too wide) in paragraph at lines 514--514
+Overfull \hbox (72.52806pt too wide) in paragraph at lines 897--897
 []       \OT1/pcr/m/n/10.95 i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, 
 L2 - IS-IS level-2[] 
  []
 
 
-Overfull \hbox (85.66805pt too wide) in paragraph at lines 515--515
+Overfull \hbox (85.66805pt too wide) in paragraph at lines 898--898
 []       \OT1/pcr/m/n/10.95 ia - IS-IS inter area, * - candidate default, U - p
 er-user static route[] 
  []
@@ -1015,751 +1051,754 @@ er-user static route[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [12]
-[13]
+ [20]
+[21]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [14]
-Overfull \hbox (26.53812pt too wide) in paragraph at lines 688--688
+ [22]
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 1068--1068
 []\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 10.255.255.1, timeout is
  2 seconds:[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 691--691
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1071--1071
 []\OT1/pcr/m/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
 = 16/17/20 ms[] 
  []
 
 
-Overfull \hbox (26.53812pt too wide) in paragraph at lines 693--693
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 1073--1073
 []\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 10.255.255.5, timeout is
  2 seconds:[] 
  []
 
 
-Overfull \hbox (19.96812pt too wide) in paragraph at lines 695--695
+Overfull \hbox (19.96812pt too wide) in paragraph at lines 1075--1075
 []\OT1/pcr/m/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
 = 1/1/1 ms[] 
  []
 
 
-Overfull \hbox (26.53812pt too wide) in paragraph at lines 697--697
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 1077--1077
 []\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 10.255.255.2, timeout is
  2 seconds:[] 
  []
 
 
-Overfull \hbox (33.10811pt too wide) in paragraph at lines 700--700
+Overfull \hbox (33.10811pt too wide) in paragraph at lines 1080--1080
 []\OT1/pcr/m/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
 = 8/25/44 ms[] 
  []
 
 
-Overfull \hbox (26.53812pt too wide) in paragraph at lines 702--702
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 1082--1082
 []\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 10.255.255.5, timeout is
  2 seconds:[] 
  []
 
 
-Overfull \hbox (19.96812pt too wide) in paragraph at lines 704--704
+Overfull \hbox (19.96812pt too wide) in paragraph at lines 1084--1084
 []\OT1/pcr/m/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
 = 1/1/1 ms[] 
  []
 
 
-Overfull \hbox (26.53812pt too wide) in paragraph at lines 706--706
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 1086--1086
 []\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 10.255.255.3, timeout is
  2 seconds:[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 709--709
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1089--1089
 []\OT1/pcr/m/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
 = 36/49/68 ms[] 
  []
 
 
-Overfull \hbox (26.53812pt too wide) in paragraph at lines 711--711
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 1091--1091
 []\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 10.255.255.5, timeout is
  2 seconds:[] 
  []
 
 
-Overfull \hbox (19.96812pt too wide) in paragraph at lines 713--713
+Overfull \hbox (19.96812pt too wide) in paragraph at lines 1093--1093
 []\OT1/pcr/m/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
 = 1/1/4 ms[] 
  []
 
 
-Overfull \hbox (26.53812pt too wide) in paragraph at lines 715--715
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 1095--1095
 []\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 10.255.255.4, timeout is
  2 seconds:[] 
  []
 
-
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 718--718
+[23]
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1098--1098
 []\OT1/pcr/m/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
 = 28/48/72 ms[] 
  []
 
-[15]
-Overfull \hbox (26.53812pt too wide) in paragraph at lines 720--720
+
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 1100--1100
 []\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 10.255.255.5, timeout is
  2 seconds:[] 
  []
 
 
-Overfull \hbox (19.96812pt too wide) in paragraph at lines 722--722
+Overfull \hbox (19.96812pt too wide) in paragraph at lines 1102--1102
 []\OT1/pcr/m/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
 = 1/1/4 ms[] 
  []
 
 
-Overfull \hbox (26.53812pt too wide) in paragraph at lines 724--724
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 1104--1104
 []\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 10.255.255.6, timeout is
  2 seconds:[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 727--727
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1107--1107
 []\OT1/pcr/m/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
 = 16/28/32 ms[] 
  []
 
 
-Overfull \hbox (26.53812pt too wide) in paragraph at lines 729--729
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 1109--1109
 []\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 10.255.255.5, timeout is
  2 seconds:[] 
  []
 
 
-Overfull \hbox (19.96812pt too wide) in paragraph at lines 731--731
+Overfull \hbox (19.96812pt too wide) in paragraph at lines 1111--1111
 []\OT1/pcr/m/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
 = 1/1/4 ms[] 
  []
 
 
-Overfull \hbox (26.53812pt too wide) in paragraph at lines 733--733
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 1113--1113
 []\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 10.255.255.7, timeout is
  2 seconds:[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 736--736
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1116--1116
 []\OT1/pcr/m/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
 = 40/48/60 ms[] 
  []
 
 
-Overfull \hbox (26.53812pt too wide) in paragraph at lines 738--738
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 1118--1118
 []\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 10.255.255.5, timeout is
  2 seconds:[] 
  []
 
 
-Overfull \hbox (19.96812pt too wide) in paragraph at lines 740--740
+Overfull \hbox (19.96812pt too wide) in paragraph at lines 1120--1120
 []\OT1/pcr/m/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
 = 1/1/1 ms[] 
  []
 
 
-Overfull \hbox (26.53812pt too wide) in paragraph at lines 742--742
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 1122--1122
 []\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 10.255.255.8, timeout is
  2 seconds:[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 745--745
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1125--1125
 []\OT1/pcr/m/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
 = 56/66/84 ms[] 
  []
 
 
-Overfull \hbox (26.53812pt too wide) in paragraph at lines 747--747
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 1127--1127
 []\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 10.255.255.5, timeout is
  2 seconds:[] 
  []
 
 
-Overfull \hbox (19.96812pt too wide) in paragraph at lines 749--749
+Overfull \hbox (19.96812pt too wide) in paragraph at lines 1129--1129
 []\OT1/pcr/m/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
 = 1/1/1 ms[] 
  []
 
 
-Overfull \hbox (26.53812pt too wide) in paragraph at lines 751--751
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 1131--1131
 []\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 10.255.255.9, timeout is
  2 seconds:[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 754--754
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 1134--1134
 []\OT1/pcr/m/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
 = 80/92/104 ms[] 
  []
 
 
-Overfull \hbox (26.53812pt too wide) in paragraph at lines 756--756
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 1136--1136
 []\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 10.255.255.5, timeout is
  2 seconds:[] 
  []
 
 
-Overfull \hbox (19.96812pt too wide) in paragraph at lines 758--758
+Overfull \hbox (19.96812pt too wide) in paragraph at lines 1138--1138
 []\OT1/pcr/m/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
 = 1/1/4 ms[] 
  []
 
 
-Overfull \hbox (33.10811pt too wide) in paragraph at lines 760--760
+Overfull \hbox (33.10811pt too wide) in paragraph at lines 1140--1140
 []\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 10.255.255.10, timeout i
 s 2 seconds:[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 763--763
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1143--1143
 []\OT1/pcr/m/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
 = 48/65/84 ms[] 
  []
 
 
-Overfull \hbox (26.53812pt too wide) in paragraph at lines 765--765
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 1145--1145
 []\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 10.255.255.5, timeout is
  2 seconds:[] 
  []
 
 
-Overfull \hbox (19.96812pt too wide) in paragraph at lines 767--767
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [24]
+Overfull \hbox (19.96812pt too wide) in paragraph at lines 1147--1147
 []\OT1/pcr/m/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
 = 1/1/1 ms[] 
  []
 
-[16]
-Overfull \hbox (34.24246pt too wide) in paragraph at lines 777--778
+[25]
+Overfull \hbox (34.24246pt too wide) in paragraph at lines 1157--1158
  [] \OT1/ppl/m/n/12 ISP po-li-tika umo[]z[]nuje ovplyv[]novat[] sme-ro-va-nie p
 rev[]adzky me-dzi BGP au-ton[]omnymi
  []
 
 
-Overfull \hbox (57.2974pt too wide) in paragraph at lines 817--818
+Overfull \hbox (57.2974pt too wide) in paragraph at lines 1197--1198
  [] \OT1/ppl/m/n/12 Na R8 a R9 sme vy-tvo-rili rou-te-mapu s n[]azvom ``AS[]KAM
 []TO[]IDE:AS[]ODKIAL[]TO[]IDE''.
  []
 
-[17] <obr/bgp_isis_r3_r8_primary.png, id=61, 586.5915pt x 408.3255pt>
+[26] <obr/bgp_isis_r3_r8_primary.png, id=90, 586.5915pt x 408.3255pt>
 File: obr/bgp_isis_r3_r8_primary.png Graphic file (type png)
 
 <use obr/bgp_isis_r3_r8_primary.png>
-Package pdftex.def Info: obr/bgp_isis_r3_r8_primary.png used on input line 835.
-
+Package pdftex.def Info: obr/bgp_isis_r3_r8_primary.png used on input line 1215
+.
 (pdftex.def)             Requested size: 398.33858pt x 277.29005pt.
- [18 <./obr/bgp_isis_r3_r8_primary.png (PNG copy)>] [19]
-Overfull \hbox (92.23804pt too wide) in paragraph at lines 912--912
+ [27 <./obr/bgp_isis_r3_r8_primary.png (PNG copy)>] [28]
+Overfull \hbox (92.23804pt too wide) in paragraph at lines 1292--1292
 []\OT1/pcr/m/n/10.95 Status codes: s suppressed, d damped, h history, * valid, 
 > best, i - internal,[] 
  []
 
 
-Overfull \hbox (0.25815pt too wide) in paragraph at lines 916--916
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 1296--1296
 []   \OT1/pcr/m/n/10.95 Network          Next Hop            Metric LocPrf Weig
 ht Path[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 917--917
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1297--1297
 []\OT1/pcr/m/n/10.95 *>i0.0.0.0          10.255.255.8             0    110     
  0 110 i[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 918--918
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1298--1298
 []\OT1/pcr/m/n/10.95 *                   200.110.255.237          0            
  0 110 i[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 919--919
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1299--1299
 []\OT1/pcr/m/n/10.95 *>i10.255.255.2/32  10.255.255.8             0    110     
  0 110 i[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 920--920
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1300--1300
 []\OT1/pcr/m/n/10.95 *                   200.110.255.237                       
  0 110 i[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 921--921
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1301--1301
 []\OT1/pcr/m/n/10.95 *  10.255.255.3/32  200.110.255.237                       
  0 110 i[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 922--922
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1302--1302
 []\OT1/pcr/m/n/10.95 *>i                 10.255.255.8             0    110     
  0 110 i[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 923--923
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1303--1303
 []\OT1/pcr/m/n/10.95 *>i10.255.255.4/32  10.255.255.8             0    110     
  0 110 i[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 924--924
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1304--1304
 []\OT1/pcr/m/n/10.95 *                   200.110.255.237          0            
  0 110 i[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 927--927
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1307--1307
 []\OT1/pcr/m/n/10.95 *>i10.255.255.10/32 10.255.255.8             0    110     
  0 110 5005 i[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 928--928
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1308--1308
 []\OT1/pcr/m/n/10.95 *                   200.110.255.237                       
  0 110 5005 i[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 929--929
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1309--1309
 []\OT1/pcr/m/n/10.95 *>i200.110.0.0/16   10.255.255.8             0    110     
  0 110 i[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 930--930
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1310--1310
 []\OT1/pcr/m/n/10.95 *                   200.110.255.237                       
  0 110 i[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 931--931
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1311--1311
 []\OT1/pcr/m/n/10.95 *  200.110.3.0/25   200.110.255.237                       
  0 110 i[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 932--932
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1312--1312
 []\OT1/pcr/m/n/10.95 *>i                 10.255.255.8             0    110     
  0 110 i[] 
  []
 
 
-Overfull \hbox (0.25815pt too wide) in paragraph at lines 934--934
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 1314--1314
 []   \OT1/pcr/m/n/10.95 Network          Next Hop            Metric LocPrf Weig
 ht Path[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 935--935
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1315--1315
 []\OT1/pcr/m/n/10.95 *>i223.255.255.0    10.255.255.8             0    110     
  0 110 5005 i[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 936--936
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1316--1316
 []\OT1/pcr/m/n/10.95 *                   200.110.255.237                       
  0 110 5005 i[] 
  []
 
-[20]
-Overfull \hbox (92.23804pt too wide) in paragraph at lines 959--959
+[29]
+Overfull \hbox (92.23804pt too wide) in paragraph at lines 1339--1339
 []\OT1/pcr/m/n/10.95 Status codes: s suppressed, d damped, h history, * valid, 
 > best, i - internal,[] 
  []
 
 
-Overfull \hbox (0.25815pt too wide) in paragraph at lines 963--963
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 1343--1343
 []   \OT1/pcr/m/n/10.95 Network          Next Hop            Metric LocPrf Weig
 ht Path[] 
  []
 
 
-Overfull \hbox (13.39813pt too wide) in paragraph at lines 964--964
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 1344--1344
 []\OT1/pcr/m/n/10.95 *>i10.255.255.1/32  10.255.255.2             0    110     
  0 3401 i[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 968--968
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 1348--1348
 []\OT1/pcr/m/n/10.95 *>i10.255.255.5/32  10.255.255.2             0    110     
  0 3401 4502 i[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 969--969
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1349--1349
 []\OT1/pcr/m/n/10.95 *>i10.255.255.6/32  10.255.255.2             0    110     
  0 3401 330 i[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 970--970
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1350--1350
 []\OT1/pcr/m/n/10.95 *>i10.255.255.7/32  10.255.255.2             0    110     
  0 3401 330 i[] 
  []
 
 
-Overfull \hbox (19.96812pt too wide) in paragraph at lines 971--971
+Overfull \hbox (19.96812pt too wide) in paragraph at lines 1351--1351
 []\OT1/pcr/m/n/10.95 *>i10.255.255.8/32  10.255.255.3             0    110     
  0 65001 i[] 
  []
 
 
-Overfull \hbox (19.96812pt too wide) in paragraph at lines 972--972
+Overfull \hbox (19.96812pt too wide) in paragraph at lines 1352--1352
 []\OT1/pcr/m/n/10.95 *                   200.110.255.238                       
  0 65001 i[] 
  []
 
 
-Overfull \hbox (19.96812pt too wide) in paragraph at lines 973--973
+Overfull \hbox (19.96812pt too wide) in paragraph at lines 1353--1353
 []\OT1/pcr/m/n/10.95 *>i10.255.255.9/32  10.255.255.3             0    110     
  0 65001 i[] 
  []
 
 
-Overfull \hbox (19.96812pt too wide) in paragraph at lines 974--974
+Overfull \hbox (19.96812pt too wide) in paragraph at lines 1354--1354
 []\OT1/pcr/m/n/10.95 *                   200.110.255.238          0            
  0 65001 i[] 
  []
 
 
-Overfull \hbox (13.39813pt too wide) in paragraph at lines 975--975
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 1355--1355
 []\OT1/pcr/m/n/10.95 *>i64.34.0.0/16     10.255.255.2             0    110     
  0 3401 i[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 976--976
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 1356--1356
 []\OT1/pcr/m/n/10.95 *>i128.45.0.0       10.255.255.2             0    110     
  0 3401 4502 i[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 977--977
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1357--1357
 []\OT1/pcr/m/n/10.95 *>i200.33.0.0/16    10.255.255.2             0    110     
  0 3401 330 i[] 
  []
 
 
-Overfull \hbox (19.96812pt too wide) in paragraph at lines 980--980
+Overfull \hbox (19.96812pt too wide) in paragraph at lines 1360--1360
 []\OT1/pcr/m/n/10.95 *>i200.110.12.0/25  10.255.255.3             0    110     
  0 65001 i[] 
  []
 
 
-Overfull \hbox (0.25815pt too wide) in paragraph at lines 981--981
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 1361--1361
 []   \OT1/pcr/m/n/10.95 Network          Next Hop            Metric LocPrf Weig
 ht Path[] 
  []
 
 
-Overfull \hbox (19.96812pt too wide) in paragraph at lines 982--982
+Overfull \hbox (19.96812pt too wide) in paragraph at lines 1362--1362
 []\OT1/pcr/m/n/10.95 *                   200.110.255.238                       
  0 65001 i[] 
  []
 
-LaTeX Font Info:    Try loading font information for OML+ppl on input line 1010
+LaTeX Font Info:    Try loading font information for OML+ppl on input line 1390
 .
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlppl.fd
 File: omlppl.fd 
 )
 LaTeX Font Info:    Font shape `OML/ppl/m/n' in size <12> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 1010.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 1390.
 
 
 
 LaTeX Font Warning: Font shape `OML/ppl/bx/n' undefined
 (Font)              using `OML/ppl/m/it' instead
-(Font)              for symbol `textgreater' on input line 1010.
+(Font)              for symbol `textgreater' on input line 1390.
 
 LaTeX Font Info:    Font shape `OML/ppl/m/it' in size <12> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 1010.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 1390.
 
 LaTeX Font Info:    Font shape `OML/ppl/bx/n' in size <12> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 1010.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 1390.
 
-<obr/bgp_isis_r4_r10_primary.png, id=72, 586.5915pt x 408.3255pt>
+<obr/bgp_isis_r4_r10_primary.png, id=100, 586.5915pt x 408.3255pt>
 File: obr/bgp_isis_r4_r10_primary.png Graphic file (type png)
 
 <use obr/bgp_isis_r4_r10_primary.png>
-Package pdftex.def Info: obr/bgp_isis_r4_r10_primary.png used on input line 101
+Package pdftex.def Info: obr/bgp_isis_r4_r10_primary.png used on input line 139
 4.
 (pdftex.def)             Requested size: 398.33858pt x 277.29005pt.
 
 Underfull \vbox (badness 3503) has occurred while \output is active []
 
- [21]
-[22 <./obr/bgp_isis_r4_r10_primary.png (PNG copy)>]
-Overfull \hbox (92.23804pt too wide) in paragraph at lines 1066--1066
+ [30]
+[31 <./obr/bgp_isis_r4_r10_primary.png (PNG copy)>]
+Overfull \hbox (92.23804pt too wide) in paragraph at lines 1446--1446
 []\OT1/pcr/m/n/10.95 Status codes: s suppressed, d damped, h history, * valid, 
 > best, i - internal,[] 
  []
 
 
-Overfull \hbox (0.25815pt too wide) in paragraph at lines 1070--1070
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 1450--1450
 []   \OT1/pcr/m/n/10.95 Network          Next Hop            Metric LocPrf Weig
 ht Path[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 1071--1071
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1451--1451
 []\OT1/pcr/m/n/10.95 *> 10.255.255.1/32  200.110.255.245               160     
  0 110 3401 i[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 1072--1072
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1452--1452
 []\OT1/pcr/m/n/10.95 *                   200.33.255.245                        
  0 330 3401 i[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 1073--1073
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1453--1453
 []\OT1/pcr/m/n/10.95 *> 10.255.255.2/32  200.110.255.245               160     
  0 110 i[] 
  []
 
 
-Overfull \hbox (65.95807pt too wide) in paragraph at lines 1074--1074
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 1454--1454
 []\OT1/pcr/m/n/10.95 *                   200.33.255.245                        
  0 330 3401 110 i[] 
  []
 
 
-Overfull \hbox (65.95807pt too wide) in paragraph at lines 1075--1075
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 1455--1455
 []\OT1/pcr/m/n/10.95 *  10.255.255.3/32  200.33.255.245                        
  0 330 3401 110 i[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 1076--1076
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1456--1456
 []\OT1/pcr/m/n/10.95 *>                  200.110.255.245               160     
  0 110 i[] 
  []
 
 
-Overfull \hbox (65.95807pt too wide) in paragraph at lines 1077--1077
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 1457--1457
 []\OT1/pcr/m/n/10.95 *  10.255.255.4/32  200.33.255.245                        
  0 330 3401 110 i[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 1078--1078
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1458--1458
 []\OT1/pcr/m/n/10.95 *>                  200.110.255.245          0    160     
  0 110 i[] 
  []
 
 
-Overfull \hbox (72.52806pt too wide) in paragraph at lines 1079--1079
+Overfull \hbox (72.52806pt too wide) in paragraph at lines 1459--1459
 []\OT1/pcr/m/n/10.95 *> 10.255.255.5/32  200.110.255.245               160     
  0 110 3401 4502 i[] 
  []
 
 
-Overfull \hbox (72.52806pt too wide) in paragraph at lines 1080--1080
+Overfull \hbox (72.52806pt too wide) in paragraph at lines 1460--1460
 []\OT1/pcr/m/n/10.95 *                   200.33.255.245                        
  0 330 3401 4502 i[] 
  []
 
 
-Overfull \hbox (65.95807pt too wide) in paragraph at lines 1081--1081
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 1461--1461
 []\OT1/pcr/m/n/10.95 *> 10.255.255.6/32  200.110.255.245               160     
  0 110 3401 330 i[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 1082--1082
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1462--1462
 []\OT1/pcr/m/n/10.95 *                   200.33.255.245                        
  0 330 i[] 
  []
 
 
-Overfull \hbox (65.95807pt too wide) in paragraph at lines 1083--1083
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 1463--1463
 []\OT1/pcr/m/n/10.95 *> 10.255.255.7/32  200.110.255.245               160     
  0 110 3401 330 i[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 1084--1084
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1464--1464
 []\OT1/pcr/m/n/10.95 *                   200.33.255.245           0            
  0 330 i[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 1085--1085
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1465--1465
 []\OT1/pcr/m/n/10.95 *> 10.255.255.8/32  200.110.255.245               160     
  0 110 i[] 
  []
 
 
-Overfull \hbox (65.95807pt too wide) in paragraph at lines 1086--1086
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 1466--1466
 []\OT1/pcr/m/n/10.95 *                   200.33.255.245                        
  0 330 3401 110 i[] 
  []
 
 
-Overfull \hbox (65.95807pt too wide) in paragraph at lines 1087--1087
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 1467--1467
 []\OT1/pcr/m/n/10.95 *  10.255.255.9/32  200.33.255.245                        
  0 330 3401 110 i[] 
  []
 
 
-Overfull \hbox (0.25815pt too wide) in paragraph at lines 1095--1095
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 1475--1475
 []\OT1/pcr/m/n/10.95 Status codes: s suppressed, d damped, h history, * valid, 
 > best,[] 
  []
 
 
-Overfull \hbox (13.39813pt too wide) in paragraph at lines 1101--1101
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 1481--1481
 []\OT1/pcr/m/n/10.95 *>i10.255.255.2/32  10.255.255.6         0    100      0 4
 502 110 i[] 
  []
 
 
-Overfull \hbox (13.39813pt too wide) in paragraph at lines 1102--1102
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 1482--1482
 []\OT1/pcr/m/n/10.95 *>i10.255.255.3/32  10.255.255.6         0    100      0 3
 401 110 i[] 
  []
 
 
-Overfull \hbox (13.39813pt too wide) in paragraph at lines 1103--1103
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 1483--1483
 []\OT1/pcr/m/n/10.95 *>i10.255.255.4/32  10.255.255.6         0    100      0 4
 502 110 i[] 
  []
 
 
-Overfull \hbox (52.81808pt too wide) in paragraph at lines 1107--1107
+Overfull \hbox (52.81808pt too wide) in paragraph at lines 1487--1487
 []\OT1/pcr/m/n/10.95 *>i10.255.255.8/32  10.255.255.6         0    100      0 4
 502 110 65001 i[] 
  []
 
 
-Overfull \hbox (52.81808pt too wide) in paragraph at lines 1108--1108
+Overfull \hbox (52.81808pt too wide) in paragraph at lines 1488--1488
 []\OT1/pcr/m/n/10.95 *>i10.255.255.9/32  10.255.255.6         0    100      0 4
 502 110 65001 i[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 1109--1109
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 1489--1489
 []\OT1/pcr/m/n/10.95 *>i10.255.255.10/32 10.255.255.6         0    100      0 3
 401 110 5005 i[] 
  []
 
-[23]
-Overfull \hbox (13.39813pt too wide) in paragraph at lines 1115--1115
+[32]
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 1495--1495
 []\OT1/pcr/m/n/10.95 *>i200.110.0.0/16   10.255.255.6         0    100      0 4
 502 110 i[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 1116--1116
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 1496--1496
 []\OT1/pcr/m/n/10.95 *>i223.255.255.0    10.255.255.6         0    100      0 4
 502 110 5005 i[] 
  []
 
 
-Overfull \hbox (26.56146pt too wide) in paragraph at lines 1127--1127
+Overfull \hbox (26.56146pt too wide) in paragraph at lines 1507--1507
 []\OT1/ppl/b/n/14.4 Distribuovat[] iba de-fault, AS5005 a pe-e-ring pre-fixy do
  AS65001 
  []
 
-[24]
-Overfull \hbox (0.25815pt too wide) in paragraph at lines 1229--1229
+[33]
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 1609--1609
 []\OT1/pcr/m/n/10.95 i L2    200.110.255.236 [115/10] via 10.110.89.9, FastEthe
 rnet0/1[] 
  []
 
-[25]
-Overfull \hbox (0.25815pt too wide) in paragraph at lines 1237--1237
+[34]
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 1617--1617
 []\OT1/pcr/m/n/10.95 i L2    10.255.255.9/32 [115/10] via 10.110.89.9, FastEthe
 rnet0/1[] 
  []
 
 
-Overfull \hbox (92.23804pt too wide) in paragraph at lines 1251--1251
+Overfull \hbox (92.23804pt too wide) in paragraph at lines 1631--1631
 []\OT1/pcr/m/n/10.95 Status codes: s suppressed, d damped, h history, * valid, 
 > best, i - internal,[] 
  []
 
 
-Overfull \hbox (0.25815pt too wide) in paragraph at lines 1255--1255
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 1635--1635
 []   \OT1/pcr/m/n/10.95 Network          Next Hop            Metric LocPrf Weig
 ht Path[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 1256--1256
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1636--1636
 []\OT1/pcr/m/n/10.95 *> 0.0.0.0          200.110.255.241          0    110     
  0 110 i[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 1257--1257
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1637--1637
 []\OT1/pcr/m/n/10.95 *> 10.255.255.2/32  200.110.255.241               110     
  0 110 i[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 1258--1258
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1638--1638
 []\OT1/pcr/m/n/10.95 *> 10.255.255.3/32  200.110.255.241          0    110     
  0 110 i[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 1259--1259
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1639--1639
 []\OT1/pcr/m/n/10.95 *> 10.255.255.4/32  200.110.255.241               110     
  0 110 i[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 1262--1262
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1642--1642
 []\OT1/pcr/m/n/10.95 *> 10.255.255.10/32 200.110.255.241               110     
  0 110 5005 i[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 1263--1263
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1643--1643
 []\OT1/pcr/m/n/10.95 *> 200.110.0.0/16   200.110.255.241               110     
  0 110 i[] 
  []
 
 
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 1264--1264
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 1644--1644
 []\OT1/pcr/m/n/10.95 *> 200.110.4.0/25   200.110.255.241               110     
  0 110 i[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 1266--1266
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1646--1646
 []\OT1/pcr/m/n/10.95 *> 223.255.255.0    200.110.255.241               110     
  0 110 5005 i[] 
  []
 
 
-Overfull \hbox (23.33548pt too wide) in paragraph at lines 1278--1279
+Overfull \hbox (23.33548pt too wide) in paragraph at lines 1658--1659
  [] \OT1/ppl/m/n/12 Je ne[]ziad[]uce, aby ko-mu-nik[]acia me-dzi po-sky-to-va-t
 el[]mi ``ISP 1'' a ``ISP 2'' prech[]adzala
  []
 
-[26] [27]
-Overfull \hbox (13.03912pt too wide) in paragraph at lines 1379--1379
+[35] [36]
+Overfull \hbox (13.03912pt too wide) in paragraph at lines 1759--1759
 []\OT1/ppl/b/n/14.4 Overit[] funk^^Tcnost[] na-sta-ve-nia po-li-tiky vhodn[]ymi
  v[]ypadkami
  []
 
 
-Overfull \hbox (33.10811pt too wide) in paragraph at lines 1403--1403
+Overfull \hbox (33.10811pt too wide) in paragraph at lines 1783--1783
 []\OT1/pcr/m/n/10.95 *Mar 20 11:39:59.651: %BGP-5-ADJCHANGE: neighbor 200.110.2
 55.241 Up  *[] 
  []
 
-[28] [29] (./dokumentacia_bgp_isis_vachalik_sisila.aux)
+[37] [38] (./dokumentacia_bgp_isis_vachalik_sisila.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1768,10 +1807,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 5765 strings out of 493105
- 75671 string characters out of 6137072
- 154982 words of memory out of 5000000
- 9113 multiletter control sequences out of 15000+600000
+ 5764 strings out of 493105
+ 75658 string characters out of 6137072
+ 154952 words of memory out of 5000000
+ 9112 multiletter control sequences out of 15000+600000
  15218 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  37i,9n,35p,942b,526s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1781,11 +1820,11 @@ f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino
 /uplr8a.pfb>
-Output written on dokumentacia_bgp_isis_vachalik_sisila.pdf (29 pages, 4141748 
+Output written on dokumentacia_bgp_isis_vachalik_sisila.pdf (38 pages, 4147234 
 bytes).
 PDF statistics:
- 121 PDF objects out of 1000 (max. 8388607)
- 81 compressed objects within 1 object stream
+ 153 PDF objects out of 1000 (max. 8388607)
+ 103 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
