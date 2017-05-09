@@ -1,0 +1,2005 @@
+\documentclass[12pt,twoside,a4paper]{report}
+\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm,bindingoffset=6mm]{geometry}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[slovak]{babel}
+\usepackage{palatino,verbatim}
+
+% Balicek pre priamu rec - \say
+\usepackage{dirtytalk}
+
+% Balicek "alltt" je to iste ako "verbatim" mod, ale navyse podporuje aj formatovacie znacky textu
+\usepackage{alltt}
+
+% Obrazky
+\usepackage{graphicx}
+\graphicspath{ {obr/} }
+
+% Cislovanie obrazkov a tabuliek
+\usepackage{chngcntr}
+%Cisluj obrazky nezavisle od cisla kapitol/podkapitol
+\counterwithout{figure}{subsection}
+\counterwithout{table}{subsection}
+
+% Referencovanie kapitol/sekcii/... podľa ich nadpisu
+\usepackage{nameref}
+
+% Tabulky s viacriadkovymi bunkami a zlucenymi bunkami
+% Tabulky generujem naastrojom "http://www.tablesgenerator.com/"
+\usepackage{booktabs}
+\usepackage{multirow}
+% LaTeX ma problemy s prikazmi cline a cmidrule, ked je babel nastaveny na slovencinu/cestinu, kvoli definicii pomlcky
+% NAMIESTO POMLCKY POUZI ZNAK ZNAMIENKA MINUS "−" (plati hlavne v nazvoch nadpisov a labelov)
+\usepackage{etoolbox}
+\preto\tabular{\shorthandoff{-}}
+
+%Uloz obrazok tam, kde je deklarovany
+%\usepackage[subsection]{placeins}
+
+\newcommand\sktxt[1]{\foreignlanguage{slovak}{#1}}
+
+\begin{document}
+\pagenumbering{arabic}
+
+\setcounter{chapter}{1}
+\chapter*{MPLS}
+\paragraph{}
+Andrej Šišila, Marián Vachalík
+
+\tableofcontents
+
+\newpage
+\section{Topológia}
+\paragraph{}
+Budeme konfigurovať smerovacie protokoly MPLS a IS-IS na topológií, ktorá je znázornená na obrázku \ref{fig:mpls_isis_topo}. Vrámci autonómnych systémov sme konfigurovali smerovacie protokoly IS-IS a BGP (iBGP). Medzi autonómnymi systémami sme konfigurovali len BGP (eBGP). IP adresácia je uvedená v tabuľke \ref{tab:ip_adresacia} a dopĺňa grafické znázornenie topológie na obrázku \ref{fig:mpls_isis_topo}. Smerovače R6 a R7 sme nekonfigurovali.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=14cm,keepaspectratio]{mpls_isis_topo}
+\caption{Topológia MPLS}
+\label{fig:mpls_isis_topo}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=14cm,keepaspectratio]{mpls_l3vpn_topo}
+\caption{Topológia MPLS + L3 VPN}
+\label{fig:mpls_l3vpn_topo}
+\end{figure}
+
+
+
+\clearpage
+
+
+\begin{table}[!htbp]
+\centering
+\caption{IP adresácia}
+\label{tab:ip_adresacia}
+\begin{tabular}{|c|l|l|l|}
+\hline
+\textbf{Smerovač}    & \multicolumn{1}{c|}{\textbf{Rozhranie}} & \multicolumn{1}{c|}{\textbf{IP adresa}} & \multicolumn{1}{c|}{\textbf{Maska}} \\ \hline
+\multirow{5}{*}{R1}  & Fa0/0                                   & 200.110.255.249                         & 255.255.255.252                     \\ \cline{2-4} 
+                     & Fa0/1                                   & 64.34.255.253                           & 255.255.255.252                     \\ \cline{2-4} 
+                     & S1/0                                    & 200.33.255.253                          & 255.255.255.252                     \\ \cline{2-4} 
+                     & Lo0                                     & 10.255.255.1                            & 255.255.255.0                       \\ \cline{2-4} 
+                     & Lo100                                   & 64.34.1.1                               & 255.255.255.128                     \\ \hline
+\multirow{6}{*}{R2}  & Fa0/0                                   & 200.110.255.250                         & 255.255.255.252                     \\ \cline{2-4} 
+                     & Fa0/1.23                                & 10.110.23.2                             & 255.255.255.0                       \\ \cline{2-4} 
+                     & Fa0/1.24                                & 10.110.24.2                             & 255.255.255.0                       \\ \cline{2-4} 
+                     & S1/0                                    & 200.110.255.253                         & 255.255.255.252                     \\ \cline{2-4} 
+                     & Lo0                                     & 10.255.255.2                            & 255.255.255.0                       \\ \cline{2-4} 
+                     & Lo100                                   & 200.110.0.2                             & 255.255.255.128                     \\ \hline
+\multirow{5}{*}{R3}  & Fa0/0                                   & 200.110.255.241                         & 255.255.255.252                     \\ \cline{2-4} 
+                     & Fa0/1.23                                & 10.110.23.3                             & 255.255.255.0                       \\ \cline{2-4} 
+                     & Fa0/1.34                                & 10.110.34.3                             & 255.255.255.0                       \\ \cline{2-4} 
+                     & Lo0                                     & 10.255.255.3                            & 255.255.255.0                       \\ \cline{2-4} 
+                     & Lo100                                   & 200.110.0.133                           & 255.255.255.128                     \\ \hline
+\multirow{6}{*}{R4}  & Fa0/0                                   & 200.110.255.237                         & 255.255.255.252                     \\ \cline{2-4} 
+                     & Fa0/1.24                                & 10.110.24.4                             & 255.255.255.0                       \\ \cline{2-4} 
+                     & Fa0/1.34                                & 10.110.34.4                             & 255.255.255.0                       \\ \cline{2-4} 
+                     & S1/0                                    & 200.110.255.245                         & 255.255.255.252                     \\ \cline{2-4} 
+                     & Lo0                                     & 10.255.255.4                            & 255.255.255.0                       \\ \cline{2-4} 
+                     & Lo100                                   & 200.110.1.4                             & 255.255.255.128                     \\ \hline
+\multirow{5}{*}{R5}  & Fa0/0                                   & 200.33.255.249                          & 255.255.255.252                     \\ \cline{2-4} 
+                     & Fa0/1                                   & 10.100.15.2                             & 255.255.255.252                     \\ \cline{2-4} 
+                     & S1/0                                    & 200.110.255.254                         & 255.255.255.252                     \\ \cline{2-4} 
+                     & Lo0                                     & 10.255.255.5                            & 255.255.255.0                       \\ \cline{2-4} 
+                     & Lo100                                   & 128.45.5.5                              & 255.255.255.128                     \\ \hline
+\multirow{5}{*}{R6}  & Fa0/0                                   & 200.33.255.250                          & 255.255.255.252                     \\ \cline{2-4} 
+                     & Fa0/1                                   & 10.110.67.6                             & 255.255.255.0                       \\ \cline{2-4} 
+                     & S1/0                                    & 200.33.255.254                          & 255.255.255.252                     \\ \cline{2-4} 
+                     & Lo0                                     & 10.255.255.6                            & 255.255.255.0                       \\ \cline{2-4} 
+                     & Lo100                                   & 200.33.6.6                              & 255.255.255.128                     \\ \hline
+\multirow{4}{*}{R7}  & Fa0/1                                   & 10.110.67.7                             & 255.255.255.0                       \\ \cline{2-4} 
+                     & S1/1                                    & 200.33.255.245                          & 255.255.255.252                     \\ \cline{2-4} 
+                     & Lo0                                     & 10.255.255.7                            & 255.255.255.0                       \\ \cline{2-4} 
+                     & Lo100                                   & 200.33.7.7                              & 255.255.255.128                     \\ \hline
+\multirow{4}{*}{R8}  & Fa0/0                                   & 200.110.255.242                         & 255.255.255.252                     \\ \cline{2-4} 
+                     & Fa0/1                                   & 10.110.89.8                             & 255.255.255.0                       \\ \cline{2-4} 
+                     & Lo0                                     & 10.255.255.8                            & 255.255.255.0                       \\ \cline{2-4} 
+                     & Lo100                                   & 200.110.12.8                            & 255.255.255.128                     \\ \hline
+\multirow{4}{*}{R9}  & Fa0/0                                   & 200.110.255.238                         & 255.255.255.252                     \\ \cline{2-4} 
+                     & Fa0/1                                   & 10.110.89.9                             & 255.255.255.0                       \\ \cline{2-4} 
+                     & Lo0                                     & 10.255.255.9                            & 255.255.255.0                       \\ \cline{2-4} 
+                     & Lo100                                   & 200.110.13.9                            & 255.255.255.128                     \\ \hline
+\multirow{4}{*}{R10} & S1/0                                    & 200.110.255.246                         & 255.255.255.252                     \\ \cline{2-4} 
+                     & S1/1                                    & 200.33.255.246                          & 255.255.255.252                     \\ \cline{2-4} 
+                     & Lo0                                     & 10.255.255.10                           & 255.255.255.0                       \\ \cline{2-4} 
+                     & Lo100                                   & 223.255.255.10                          & 255.255.255.128                     \\ \hline
+\end{tabular}
+\end{table}
+
+
+% Novu kapitolu davam na novu stranu, lebo bez toho mi zobrazuje tabulku v dalsej kapitole, kde ale tabulka nepatri.
+\clearpage
+
+\section{Úlohy}
+\subsection{IS-IS alebo OSPF}
+\subsubsection{Popis}
+\paragraph{}
+Ako vnútorný protokol sme zvolili IS-IS. Jeho konfigurácia je rovnaká ako v predchádzajúcich cvičeniach s ohľadom na aktuálny adresný plán.
+
+\subsubsection{Konfigurácia}
+\paragraph{}
+IS-IS sme konfigurovali na R1, R2, R3, R4 a R9
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+R1(config)#router isis
+  net 49.0002.0102.5525.5001.00
+  exit
+int e2/0
+  ip router isis
+  isis network point-to-point
+int lo0
+  ip router isis
+\end{alltt}
+\end{small}
+}
+
+\subsubsection{Overenie}
+\paragraph{}
+Konfiguráciu IS-IS sme overovali zobrazením IS-IS databázy.
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+R1# show isis database
+\end{alltt}
+\end{small}
+}
+
+
+
+
+
+
+
+\subsection{MPLS}
+\subsubsection{Popis}
+\paragraph{}
+Základnú konfiguráciu MPLS sme robili podľa stránky \say{nil.uniza.sk}. Najprv zapneme \say{Cisco express forwarding} príkazom \say{ip cef}. Potom aktivujeme LDP značkovanie príkazom \say{mpls label protocol ldp}. Nakoniec zapneme MPLS príkazom \say{mpls ip}. Príkaz \say{mpls ip} sme použili iba na rozhraniach vnútri providerskej siete, nie na PE smerovačoch smerom k zákazníkom.
+\subsubsection{Konfigurácia}
+\paragraph{}
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+R1 (config)#ip cef
+mpls ip
+mpls label protocol ldp
+int serial1/0
+  mpls ip
+\end{alltt}
+\end{small}
+}
+
+\subsubsection{Overenie}
+\paragraph{}
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+show mpls ldp discovery
+\end{alltt}
+\end{small}
+}
+
+
+
+
+
+
+\subsection{LDP alebo RSVP}
+\subsubsection{Popis}
+\paragraph{}
+
+\subsubsection{Konfigurácia}
+\paragraph{}
+
+\subsubsection{Overenie}
+\paragraph{}
+
+
+
+
+
+
+\subsection{Router Reflector}
+\subsubsection{Popis}
+\paragraph{}
+
+\subsubsection{Konfigurácia}
+\paragraph{}
+
+\subsubsection{Overenie}
+\paragraph{}
+
+
+
+
+
+
+\subsection{Multiprotocol BGP}
+\subsubsection{Popis}
+\paragraph{}
+
+\subsubsection{Konfigurácia}
+\paragraph{}
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+R1(config)#do sh run
+Building configuration...
+
+Current configuration : 3764 bytes
+!
+! Last configuration change at 09:05:48 UTC Tue May 9 2017
+upgrade fpd auto
+version 15.3
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname R1
+!
+boot-start-marker
+boot-end-marker
+!
+aqm-register-fnf
+!
+!
+no aaa new-model
+!
+!
+!
+ip vrf GREEN
+ rd 100:2 
+ route-target export 110:2
+ route-target import 110:2
+!
+ip vrf RED
+ rd 110:1
+ route-target export 110:1
+ route-target import 110:1
+!
+!
+!
+!
+no ip domain lookup
+ip cef
+no ipv6 cef
+!
+multilink bundle-name authenticated
+mpls label protocol ldp
+!
+!
+!
+!
+!
+!         
+!
+!
+!
+username admin privilege 15 secret 5 $1$eKi3$TJSJS.zu5o6JMF5F3h4bV1
+!
+redundancy
+!
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 10.255.255.1 255.255.255.255
+ ip router isis 
+!
+interface Loopback1
+ ip vrf forwarding GREEN
+ ip address 172.23.0.1 255.255.0.0
+!
+interface FastEthernet0/0
+ no ip address
+ shutdown
+ duplex half
+!
+interface Serial1/0
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/1
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/2
+ no ip address
+ shutdown
+ serial restart-delay 0
+!         
+interface Serial1/3
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/4
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/5
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/6
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/7
+ no ip address
+ shutdown 
+ serial restart-delay 0
+!
+interface Ethernet2/0
+ ip address 10.0.12.1 255.255.255.0
+ ip router isis 
+ duplex half
+ mpls ip
+ isis network point-to-point 
+!
+interface Ethernet2/1
+ ip vrf forwarding RED
+ ip address 192.168.15.1 255.255.255.0
+ duplex half
+!
+interface Ethernet2/2
+ no ip address
+ shutdown
+ duplex half
+!
+interface Ethernet2/3
+ no ip address
+ shutdown
+ duplex half
+!
+interface Ethernet2/4
+ no ip address
+ shutdown
+ duplex half
+!
+interface Ethernet2/5
+ no ip address
+ shutdown
+ duplex half
+!
+interface Ethernet2/6
+ no ip address
+ shutdown
+ duplex half
+!
+interface Ethernet2/7
+ no ip address
+ shutdown
+ duplex half
+!
+router isis
+ net 49.0001.0102.5525.5001.00
+!
+router bgp 110
+ bgp log-neighbor-changes
+ no bgp default ipv4-unicast
+ neighbor 10.255.255.3 remote-as 110
+ neighbor 10.255.255.3 update-source Loopback0
+ neighbor 10.255.255.4 remote-as 110
+ neighbor 10.255.255.4 update-source Loopback0
+ neighbor 10.255.255.9 remote-as 110
+ neighbor 10.255.255.9 update-source Loopback0
+ !
+ address-family ipv4
+ exit-address-family
+ !
+ address-family vpnv4
+  neighbor 10.255.255.3 activate
+  neighbor 10.255.255.3 send-community extended
+  neighbor 10.255.255.3 route-reflector-client
+  neighbor 10.255.255.4 activate
+  neighbor 10.255.255.4 send-community extended
+  neighbor 10.255.255.4 route-reflector-client
+  neighbor 10.255.255.9 activate
+  neighbor 10.255.255.9 send-community extended
+  neighbor 10.255.255.9 route-reflector-client
+ exit-address-family
+ !
+ address-family ipv4 vrf GREEN
+  redistribute connected
+ exit-address-family
+ !
+ address-family ipv4 vrf RED
+  redistribute connected
+  neighbor 192.168.15.5 remote-as 65001
+  neighbor 192.168.15.5 activate
+  neighbor 192.168.15.5 as-override
+ exit-address-family
+!
+ip forward-protocol nd
+no ip http server
+no ip http secure-server
+!
+!
+!
+!
+!
+mpls ldp router-id Loopback0 force
+!
+control-plane
+!
+!
+mgcp behavior rsip-range tgcp-only
+mgcp behavior comedia-role none
+mgcp behavior comedia-check-media-src disable
+mgcp behavior comedia-sdp-force disable
+!
+mgcp profile default
+!
+!
+!
+gatekeeper
+ shutdown
+!
+!
+line con 0
+ exec-timeout 120 0
+ logging synchronous
+ login local
+ stopbits 1
+line aux 0
+ stopbits 1
+line vty 0 4
+ privilege level 15
+ no login
+ transport input all
+line vty 5 15
+ privilege level 15
+ no login
+ transport input all
+!
+!
+end
+
+R1(config)# 
+==================
+R2(config-subif)#do sh run
+Building configuration...
+
+Current configuration : 2739 bytes
+!
+! Last configuration change at 09:06:53 UTC Tue May 9 2017
+upgrade fpd auto
+version 15.3
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname R2
+!
+boot-start-marker
+boot-end-marker
+!
+aqm-register-fnf
+!
+!
+no aaa new-model
+!
+!
+!
+!
+!         
+!
+no ip domain lookup
+ip cef
+no ipv6 cef
+!
+multilink bundle-name authenticated
+mpls label protocol ldp
+!
+!
+!
+!
+!
+!
+!
+!
+!
+username admin privilege 15 secret 5 $1$QNaa$DSiUgQZG.ZRbem2tUy4nv.
+!
+redundancy
+!
+!
+! 
+!         
+!
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 10.255.255.2 255.255.255.255
+ ip router isis 
+!
+interface FastEthernet0/0
+ no ip address
+ shutdown
+ duplex half
+!
+interface Serial1/0
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/1
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/2
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/3
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/4
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/5
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/6
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/7
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Ethernet2/0
+ ip address 10.0.12.2 255.255.255.0
+ ip router isis 
+ duplex half
+ mpls ip
+ isis network point-to-point 
+!
+interface Ethernet2/1
+ no ip address
+ shutdown
+ duplex half
+ isis network point-to-point 
+!
+interface Ethernet2/1.23
+ encapsulation dot1Q 23
+ ip address 10.0.23.2 255.255.255.0
+ ip router isis 
+ mpls ip
+ isis network point-to-point 
+!
+interface Ethernet2/1.24
+ encapsulation dot1Q 24
+ ip address 10.0.24.2 255.255.255.0
+ ip router isis 
+ mpls ip
+ isis network point-to-point 
+!
+interface Ethernet2/2
+ no ip address
+ shutdown
+ duplex half
+!
+interface Ethernet2/3
+ no ip address
+ shutdown 
+ duplex half
+!
+interface Ethernet2/4
+ no ip address
+ shutdown
+ duplex half
+!
+interface Ethernet2/5
+ no ip address
+ shutdown
+ duplex half
+!
+interface Ethernet2/6
+ no ip address
+ shutdown
+ duplex half
+!
+interface Ethernet2/7
+ no ip address
+ shutdown
+ duplex half
+!
+router isis
+ net 49.0001.0102.5525.5002.00
+!
+ip forward-protocol nd
+no ip http server
+no ip http secure-server
+!
+!
+!
+!
+!
+mpls ldp router-id Loopback0 force
+!
+control-plane
+!
+!
+mgcp behavior rsip-range tgcp-only
+mgcp behavior comedia-role none
+mgcp behavior comedia-check-media-src disable
+mgcp behavior comedia-sdp-force disable
+!
+mgcp profile default
+!
+!         
+!
+gatekeeper
+ shutdown
+!
+!
+line con 0
+ exec-timeout 120 0
+ logging synchronous
+ login local
+ stopbits 1
+line aux 0
+ stopbits 1
+line vty 0 4
+ privilege level 15
+ no login
+ transport input all
+line vty 5 15
+ privilege level 15
+ no login
+ transport input all
+!
+!
+end       
+
+R2(config-subif)#   
+============================
+R3(config)#do sh run
+Building configuration...
+
+Current configuration : 3254 bytes
+!
+! Last configuration change at 09:08:12 UTC Tue May 9 2017
+upgrade fpd auto
+version 15.3
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname R3
+!
+boot-start-marker
+boot-end-marker
+!
+aqm-register-fnf
+!
+!
+no aaa new-model
+!
+!
+!
+ip vrf RED
+ rd 110:1 
+ route-target export 110:1
+ route-target import 110:1
+!
+!
+!
+!
+no ip domain lookup
+ip cef
+no ipv6 cef
+!
+multilink bundle-name authenticated
+mpls label protocol ldp
+!
+!
+!
+!
+!
+!
+!
+!
+!
+username admin privilege 15 secret 5 $1$ierK$7ZnPCJ2hvc7ypP11a//Tc.
+!         
+redundancy
+!
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 10.255.255.3 255.255.255.255
+ ip router isis 
+!
+interface FastEthernet0/0
+ no ip address
+ shutdown
+ duplex half
+!
+interface Serial1/0
+ ip address 10.0.39.3 255.255.255.0
+ ip router isis 
+ mpls ip
+ serial restart-delay 0
+!
+interface Serial1/1
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/2
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/3
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/4
+ no ip address
+ shutdown 
+ serial restart-delay 0
+!
+interface Serial1/5
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/6
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/7
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Ethernet2/0
+ ip vrf forwarding RED
+ ip address 192.168.38.3 255.255.255.0
+ duplex half
+!
+interface Ethernet2/1
+ no ip address
+ duplex half
+ isis network point-to-point 
+!
+interface Ethernet2/1.23
+ encapsulation dot1Q 23
+ ip address 10.0.23.3 255.255.255.0
+ ip router isis 
+ mpls ip
+ isis network point-to-point 
+!
+interface Ethernet2/1.34
+ encapsulation dot1Q 34
+ ip address 10.0.34.3 255.255.255.0
+ ip router isis 
+ mpls ip
+ isis network point-to-point 
+!
+interface Ethernet2/2
+ no ip address
+ shutdown
+ duplex half
+!         
+interface Ethernet2/3
+ no ip address
+ shutdown
+ duplex half
+!
+interface Ethernet2/4
+ no ip address
+ shutdown
+ duplex half
+!
+interface Ethernet2/5
+ no ip address
+ shutdown
+ duplex half
+!
+interface Ethernet2/6
+ no ip address
+ shutdown
+ duplex half
+!
+interface Ethernet2/7
+ no ip address
+ shutdown 
+ duplex half
+!
+router isis
+ net 49.0001.0102.5525.5003.00
+!
+router bgp 110
+ bgp log-neighbor-changes
+ neighbor 10.255.255.1 remote-as 110
+ neighbor 10.255.255.1 update-source Loopback0
+ !
+ address-family vpnv4
+  neighbor 10.255.255.1 activate
+  neighbor 10.255.255.1 send-community extended
+ exit-address-family
+ !
+ address-family ipv4 vrf RED
+  redistribute connected
+  neighbor 192.168.38.8 remote-as 65001
+  neighbor 192.168.38.8 activate
+  neighbor 192.168.38.8 as-override
+ exit-address-family
+!
+ip forward-protocol nd
+no ip http server
+no ip http secure-server
+!
+!
+!
+!
+!
+mpls ldp router-id Loopback0 force
+!
+control-plane
+!
+!
+mgcp behavior rsip-range tgcp-only
+mgcp behavior comedia-role none
+mgcp behavior comedia-check-media-src disable
+mgcp behavior comedia-sdp-force disable
+!
+mgcp profile default
+!
+!
+!
+gatekeeper
+ shutdown 
+!
+!
+line con 0
+ exec-timeout 120 0
+ logging synchronous
+ login local
+ stopbits 1
+line aux 0
+ stopbits 1
+line vty 0 4
+ privilege level 15
+ no login
+ transport input all
+line vty 5 15
+ privilege level 15
+ no login
+ transport input all
+!
+!
+end
+
+=-==================
+R4(config)#
+*May  9 09:46:52.772: %LDP-5-NBRCHG: LDP Neighbor 10.255.255.3:0 (1) is UP
+R4(config)#do sh run
+Building configuration...
+
+Current configuration : 3599 bytes
+!
+! Last configuration change at 09:09:38 UTC Tue May 9 2017
+upgrade fpd auto
+version 15.3
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname R4
+!
+boot-start-marker
+boot-end-marker
+!
+aqm-register-fnf
+!
+!
+no aaa new-model
+!
+!
+!
+ip vrf GREEN
+ rd 110:2 
+ route-target export 110:2
+ route-target import 110:2
+!
+ip vrf RED
+ rd 110:1
+ route-target export 110:1
+ route-target import 110:1
+!
+!
+!
+!
+no ip domain lookup
+ip cef
+no ipv6 cef
+!
+multilink bundle-name authenticated
+mpls label protocol ldp
+!
+!
+!
+!
+!
+!         
+!
+!
+!
+username admin privilege 15 secret 5 $1$Eu2a$rgRjxOvteTJdNyTEKValI/
+!
+redundancy
+!
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 10.255.255.4 255.255.255.255
+ ip router isis 
+!
+interface Loopback1
+ ip vrf forwarding GREEN
+ ip address 172.22.0.1 255.255.0.0
+!
+interface FastEthernet0/0
+ no ip address
+ shutdown
+ duplex half
+!
+interface Serial1/0
+ ip vrf forwarding RED
+ ip address 192.168.104.4 255.255.255.0
+ serial restart-delay 0
+!
+interface Serial1/1
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/2
+ no ip address
+ shutdown
+ serial restart-delay 0
+!         
+interface Serial1/3
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/4
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/5
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/6
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/7
+ no ip address
+ shutdown 
+ serial restart-delay 0
+!
+interface Ethernet2/0
+ ip address 10.0.49.4 255.255.255.0
+ ip router isis
+ duplex half
+ mpls ip
+ isis network point-to-point 
+!
+interface Ethernet2/1
+ no ip address
+ duplex half
+ isis network point-to-point 
+!
+interface Ethernet2/1.23
+ isis network point-to-point 
+!
+interface Ethernet2/1.24
+ encapsulation dot1Q 24
+ ip address 10.0.24.4 255.255.255.0
+ ip router isis 
+ mpls ip  
+ isis network point-to-point 
+!
+interface Ethernet2/1.34
+ encapsulation dot1Q 34
+ ip address 10.0.34.4 255.255.255.0
+ ip router isis 
+ mpls ip
+ isis network point-to-point 
+!
+interface Ethernet2/2
+ no ip address
+ shutdown
+ duplex half
+!
+interface Ethernet2/3
+ no ip address
+ shutdown
+ duplex half
+!
+interface Ethernet2/4
+ no ip address
+ shutdown
+ duplex half
+!
+interface Ethernet2/5
+ no ip address
+ shutdown
+ duplex half
+!
+interface Ethernet2/6
+ no ip address
+ shutdown
+ duplex half
+!
+interface Ethernet2/7
+ no ip address
+ shutdown
+ duplex half
+!
+router isis
+ net 49.0001.0102.5525.5004.00
+!
+router bgp 110
+ bgp log-neighbor-changes
+ neighbor 10.255.255.1 remote-as 110
+ neighbor 10.255.255.1 update-source Loopback0
+ !
+ address-family vpnv4
+  neighbor 10.255.255.1 activate
+  neighbor 10.255.255.1 send-community extended
+ exit-address-family
+ !
+ address-family ipv4 vrf GREEN
+  redistribute connected
+ exit-address-family
+ !
+ address-family ipv4 vrf RED
+  redistribute connected
+  neighbor 192.168.104.10 remote-as 65001
+  neighbor 192.168.104.10 activate
+  neighbor 192.168.104.10 as-override
+ exit-address-family
+!
+ip forward-protocol nd
+no ip http server
+no ip http secure-server
+!
+!
+!         
+!
+!
+mpls ldp router-id Loopback0 force
+!
+control-plane
+!
+!
+mgcp behavior rsip-range tgcp-only
+mgcp behavior comedia-role none
+mgcp behavior comedia-check-media-src disable
+mgcp behavior comedia-sdp-force disable
+!
+mgcp profile default
+!
+!
+!
+gatekeeper
+ shutdown
+!
+!
+line con 0
+ exec-timeout 120 0
+ logging synchronous
+ login local
+ stopbits 1
+line aux 0
+ stopbits 1
+line vty 0 4
+ privilege level 15
+ no login
+ transport input all
+line vty 5 15
+ privilege level 15
+ no login
+ transport input all
+!
+!
+end
+
+==================
+R5(config)#do sh run
+Building configuration...
+
+Current configuration : 2432 bytes
+!
+! Last configuration change at 09:10:04 UTC Tue May 9 2017
+upgrade fpd auto
+version 15.3
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname R5
+!
+boot-start-marker
+boot-end-marker
+!
+aqm-register-fnf
+!
+!
+no aaa new-model
+!
+!
+!
+!
+!         
+!
+no ip domain lookup
+ip cef
+no ipv6 cef
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!
+!
+!
+!
+username admin privilege 15 secret 5 $1$n4c4$fjx3bLiFEXqL3tjOX2tda/
+!
+redundancy
+!
+!
+! 
+!
+!         
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 10.255.255.5 255.255.255.255
+!
+interface Loopback1
+ ip address 172.23.0.1 255.255.0.0
+!
+interface FastEthernet0/0
+ no ip address
+ shutdown
+ duplex half
+!
+interface Serial1/0
+ no ip address
+ shutdown
+ serial restart-delay 0
+!         
+interface Serial1/1
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/2
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/3
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/4
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/5
+ no ip address
+ shutdown 
+ serial restart-delay 0
+!
+interface Serial1/6
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/7
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Ethernet2/0
+ no ip address
+ shutdown
+ duplex half
+!
+interface Ethernet2/1
+ ip address 192.168.15.5 255.255.255.0
+ duplex half
+!
+interface Ethernet2/2
+ no ip address
+ shutdown
+ duplex half
+!
+interface Ethernet2/3
+ no ip address
+ shutdown
+ duplex half
+!
+interface Ethernet2/4
+ no ip address
+ shutdown
+ duplex half
+!
+interface Ethernet2/5
+ no ip address
+ shutdown
+ duplex half
+!
+interface Ethernet2/6
+ no ip address
+ shutdown
+ duplex half
+!         
+interface Ethernet2/7
+ no ip address
+ shutdown
+ duplex half
+!
+router bgp 65001
+ bgp log-neighbor-changes
+ network 172.23.0.0
+ redistribute connected
+ neighbor 192.168.15.1 remote-as 110
+!
+ip forward-protocol nd
+no ip http server
+no ip http secure-server
+!
+!
+!
+!
+!
+!
+control-plane
+!
+!         
+mgcp behavior rsip-range tgcp-only
+mgcp behavior comedia-role none
+mgcp behavior comedia-check-media-src disable
+mgcp behavior comedia-sdp-force disable
+!
+mgcp profile default
+!
+!
+!
+gatekeeper
+ shutdown
+!
+!
+line con 0
+ exec-timeout 120 0
+ logging synchronous
+ login local
+ stopbits 1
+line aux 0
+ stopbits 1
+line vty 0 4
+ privilege level 15
+ no login 
+ transport input all
+line vty 5 15
+ privilege level 15
+ no login
+ transport input all
+!
+!
+end
+===============
+R8(config-router)#do sh run
+Building configuration...
+
+Current configuration : 1943 bytes
+!
+! Last configuration change at 09:10:47 UTC Tue May 9 2017
+upgrade fpd auto
+version 15.3
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname R8
+!
+boot-start-marker
+boot-end-marker
+!
+aqm-register-fnf
+!
+!
+no aaa new-model
+!
+!
+!
+!
+!         
+!
+no ip domain lookup
+ip cef
+no ipv6 cef
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!
+!
+!
+!
+username admin privilege 15 secret 5 $1$Mq.F$L/F7f8cDOy57qHWHgR/1v1
+!
+redundancy
+!
+!
+! 
+!
+!         
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 10.255.255.8 255.255.255.255
+!
+interface Loopback1
+ ip address 172.21.0.1 255.255.0.0
+!
+interface FastEthernet0/0
+ no ip address
+ shutdown
+ duplex half
+!
+interface Ethernet2/0
+ ip address 192.168.38.8 255.255.255.0
+ duplex half
+!
+interface Ethernet2/1
+ ip address 192.168.89.8 255.255.255.0
+ duplex half
+!
+interface Ethernet2/2
+ no ip address
+ shutdown
+ duplex half
+!
+interface Ethernet2/3
+ no ip address
+ shutdown
+ duplex half
+!
+interface Ethernet2/4
+ no ip address
+ shutdown
+ duplex half
+!
+interface Ethernet2/5
+ no ip address
+ shutdown
+ duplex half
+!         
+interface Ethernet2/6
+ no ip address
+ shutdown
+ duplex half
+!
+interface Ethernet2/7
+ no ip address
+ shutdown
+ duplex half
+!
+router bgp 65001
+ bgp router-id 10.255.255.8
+ bgp log-neighbor-changes
+ network 172.21.0.0
+ redistribute connected
+ neighbor 192.168.38.3 remote-as 110
+ neighbor 192.168.89.9 remote-as 110
+!
+ip forward-protocol nd
+no ip http server
+no ip http secure-server
+!
+!         
+!
+!
+!
+!
+control-plane
+!
+!
+mgcp behavior rsip-range tgcp-only
+mgcp behavior comedia-role none
+mgcp behavior comedia-check-media-src disable
+mgcp behavior comedia-sdp-force disable
+!
+mgcp profile default
+!
+!
+!
+gatekeeper
+ shutdown
+!
+!
+line con 0
+ exec-timeout 120 0
+ logging synchronous
+ login local
+ stopbits 1
+line aux 0
+ stopbits 1
+line vty 0 4
+ privilege level 15
+ no login
+ transport input all
+line vty 5 15
+ privilege level 15
+ no login
+ transport input all
+!
+!
+end
+
+===============
+R9(config)#do sh run
+Building configuration...
+
+Current configuration : 3100 bytes
+!
+! Last configuration change at 09:11:23 UTC Tue May 9 2017
+upgrade fpd auto
+version 15.3
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname R9
+!
+boot-start-marker
+boot-end-marker
+!
+aqm-register-fnf
+!
+!
+no aaa new-model
+!
+!
+!
+ip vrf RED
+ rd 110:1 
+ route-target export 110:1
+ route-target import 110:1
+!
+!
+!
+!
+no ip domain lookup
+ip cef
+no ipv6 cef
+!
+multilink bundle-name authenticated
+mpls label protocol ldp
+!
+!
+!
+!
+!
+!
+!
+!
+!
+username admin privilege 15 secret 5 $1$9Xfg$w5/FVeQ3L3lr67UN.zzch.
+!         
+redundancy
+!
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 10.255.255.9 255.255.255.255
+ ip router isis 
+!
+interface Loopback1
+ ip address 172.21.0.1 255.255.0.0
+!
+interface FastEthernet0/0
+ no ip address
+ shutdown 
+ duplex half
+!
+interface Serial1/0
+ ip address 10.0.39.9 255.255.255.0
+ ip router isis 
+ mpls ip
+ serial restart-delay 0
+!
+interface Serial1/1
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/2
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/3
+ no ip address
+ shutdown
+ serial restart-delay 0
+!         
+interface Serial1/4
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/5
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/6
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/7
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Ethernet2/0
+ ip address 10.0.49.9 255.255.255.0
+ ip router isis 
+ duplex half
+ mpls ip
+ isis network point-to-point 
+!
+interface Ethernet2/1
+ ip vrf forwarding RED
+ ip address 192.168.89.9 255.255.255.0
+ duplex half
+!
+interface Ethernet2/2
+ no ip address
+ shutdown
+ duplex half
+!
+interface Ethernet2/3
+ no ip address
+ shutdown
+ duplex half
+!
+interface Ethernet2/4
+ no ip address
+ shutdown
+ duplex half
+!
+interface Ethernet2/5
+ no ip address
+ shutdown
+ duplex half
+!
+interface Ethernet2/6
+ no ip address
+ shutdown
+ duplex half
+!
+interface Ethernet2/7
+ no ip address
+ shutdown
+ duplex half
+!
+router isis
+ net 49.0001.0102.5525.5009.00
+!
+router bgp 110
+ bgp router-id 10.255.255.9
+ bgp log-neighbor-changes
+ neighbor 10.255.255.1 remote-as 110
+ neighbor 10.255.255.1 update-source Loopback0
+ !
+ address-family vpnv4
+  neighbor 10.255.255.1 activate
+  neighbor 10.255.255.1 send-community extended
+ exit-address-family
+ !
+ address-family ipv4 vrf RED
+  redistribute connected
+  neighbor 192.168.89.8 remote-as 65001
+  neighbor 192.168.89.8 activate
+  neighbor 192.168.89.8 as-override
+ exit-address-family
+!
+ip forward-protocol nd
+no ip http server
+no ip http secure-server
+!
+!
+!
+!
+!
+mpls ldp router-id Loopback0 force
+!
+control-plane
+!
+!
+mgcp behavior rsip-range tgcp-only
+mgcp behavior comedia-role none
+mgcp behavior comedia-check-media-src disable
+mgcp behavior comedia-sdp-force disable
+!
+mgcp profile default
+!
+!
+!
+gatekeeper
+ shutdown
+!
+!
+line con 0
+ exec-timeout 120 0
+ logging synchronous
+ login local
+ stopbits 1
+line aux 0
+ stopbits 1
+line vty 0 4
+ privilege level 15
+ no login
+ transport input all
+line vty 5 15
+ privilege level 15
+ no login
+ transport input all
+!
+!
+end
+===============
+R10(config-if)#do sh run
+Building configuration...
+
+Current configuration : 1941 bytes
+!
+! Last configuration change at 09:12:01 UTC Tue May 9 2017
+upgrade fpd auto
+version 15.3
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname R10
+!
+boot-start-marker
+boot-end-marker
+!
+aqm-register-fnf
+!
+!
+no aaa new-model
+!
+!
+!
+!
+!         
+!
+no ip domain lookup
+ip cef
+no ipv6 cef
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!
+!
+!
+!
+username admin privilege 15 secret 5 $1$B5L1$Z/2grhIGcOAdN05y9rl7M1
+!
+redundancy
+!
+!
+! 
+!
+!         
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 10.255.255.10 255.255.255.255
+!
+interface Loopback1
+ ip address 172.22.0.1 255.255.0.0
+!
+interface FastEthernet0/0
+ no ip address
+ shutdown
+ duplex half
+!
+interface Serial1/0
+ ip address 192.168.104.10 255.255.255.0
+ serial restart-delay 0
+!
+interface Serial1/1
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/2
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/3
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/4
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/5
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/6
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/7
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+router bgp 65001
+ bgp log-neighbor-changes
+ network 172.22.0.0
+ redistribute connected
+ neighbor 192.168.104.4 remote-as 110
+!
+ip forward-protocol nd
+no ip http server
+no ip http secure-server
+!
+!
+!         
+!
+!
+!
+control-plane
+!
+!
+mgcp behavior rsip-range tgcp-only
+mgcp behavior comedia-role none
+mgcp behavior comedia-check-media-src disable
+mgcp behavior comedia-sdp-force disable
+!
+mgcp profile default
+!
+!
+!
+gatekeeper
+ shutdown
+!
+!
+line con 0
+ exec-timeout 120 0
+ logging synchronous
+ login local
+ stopbits 1
+line aux 0
+ stopbits 1
+line vty 0 4
+ privilege level 15
+ no login
+ transport input all
+line vty 5 15
+ privilege level 15
+ no login
+ transport input all
+!
+!
+end
+
+R10(config-if)#  
+\end{alltt}
+\end{small}
+}
+
+
+\subsubsection{Overenie}
+\paragraph{}
+
+
+
+
+
+\subsection{Hub \& Spoke VPN}
+\subsubsection{Popis}
+\paragraph{}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=14cm,keepaspectratio]{mpls_hub_spoke_topo}
+\caption{Topológia MPLS Hub \& Spoke}
+\label{fig:mpls_hub_spoke_topo}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=14cm,keepaspectratio]{mpls_hub_spoke_route_target_topo}
+\caption{Topológia MPLS Hub \& Spoke s Route Target}
+\label{fig:mpls_hub_spoke_route_target_topo}
+\end{figure}
+
+\subsubsection{Konfigurácia}
+\paragraph{}
+
+\subsubsection{Overenie}
+\paragraph{}
+
+
+
+
+
+
+\subsection{AS Override}
+\subsubsection{Popis}
+\paragraph{}
+
+\subsubsection{Konfigurácia}
+\paragraph{}
+
+\subsubsection{Overenie}
+\paragraph{}
+
+
+
+
+
+
+\subsection{MPLS/VPLS}
+\subsubsection{Popis}
+\paragraph{}
+
+\subsubsection{Konfigurácia}
+\paragraph{}
+
+\subsubsection{Overenie}
+\paragraph{}
+
+
+
+\end{document}
