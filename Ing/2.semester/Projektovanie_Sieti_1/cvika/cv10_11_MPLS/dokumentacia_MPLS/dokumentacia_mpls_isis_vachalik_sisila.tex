@@ -51,7 +51,7 @@ Andrej Šišila, Marián Vachalík
 \newpage
 \section{Topológia}
 \paragraph{}
-Budeme konfigurovať smerovacie protokoly MPLS a IS-IS na topológií, ktorá je znázornená na obrázku \ref{fig:mpls_isis_topo}. Vrámci autonómnych systémov sme konfigurovali smerovacie protokoly IS-IS a BGP (iBGP). Medzi autonómnymi systémami sme konfigurovali len BGP (eBGP). IP adresácia je uvedená v tabuľke \ref{tab:ip_adresacia} a dopĺňa grafické znázornenie topológie na obrázku \ref{fig:mpls_isis_topo}. Smerovače R6 a R7 sme nekonfigurovali.
+Budeme konfigurovať smerovacie protokoly MPLS a IS-IS na topológií, ktorá je znázornená na obrázku \ref{fig:mpls_isis_topo}. V rámci autonómnych systémov sme konfigurovali smerovacie protokoly IS-IS (pokiaľ má autonómny systém viac ako 2 smerovače) a BGP (iBGP). Medzi autonómnymi systémami sme konfigurovali len BGP (eBGP). IP adresácia je uvedená v tabuľke \ref{tab:ip_adresacia} a dopĺňa grafické znázornenie topológie na obrázku \ref{fig:mpls_isis_topo}. Smerovače R6 a R7 sme nekonfigurovali.
 
 \begin{figure}[!htbp]
 \centering
@@ -135,7 +135,7 @@ Budeme konfigurovať smerovacie protokoly MPLS a IS-IS na topológií, ktorá je
 \clearpage
 
 \section{Úlohy}
-\subsection{IS-IS alebo OSPF}
+\subsection{IS−IS alebo OSPF}
 \subsubsection{Popis}
 \paragraph{}
 Ako vnútorný protokol sme zvolili IS-IS. Jeho konfigurácia je rovnaká ako v predchádzajúcich cvičeniach s ohľadom na aktuálny adresný plán.
@@ -183,8 +183,10 @@ R1# show isis database
 \subsubsection{Popis}
 \paragraph{}
 Základnú konfiguráciu MPLS sme robili podľa stránky \say{nil.uniza.sk}. Najprv zapneme \say{Cisco express forwarding} príkazom \say{ip cef}. Potom aktivujeme LDP značkovanie príkazom \say{mpls label protocol ldp}. Nakoniec zapneme MPLS príkazom \say{mpls ip}. Príkaz \say{mpls ip} sme použili iba na rozhraniach vnútri providerskej siete, nie na PE smerovačoch smerom k zákazníkom.
+
 \subsubsection{Konfigurácia}
 \paragraph{}
+Aby sme zabezpečili konektivitu medzi jednotlivými zákazníkmi R5, R8 a R10, je potrebné nakonfigurovať BGP medzi týmito smerovačmi a ich susedmi v ISP1. Rovnako aj ohlasujeme požadovanú sieť zákazníka, v našom prípade Lo0. Na smerovači R2 BGP nekonfigurujeme.
 
 \noindent
 {\fontfamily{qcr}\selectfont
@@ -195,6 +197,11 @@ mpls ip
 mpls label protocol ldp
 int serial1/0
   mpls ip
+router bgp 65003
+  neighbor 192.168.15.1 remote-as 110
+  address-family ipv4 unicast
+  neighbor 192.168.15.1 activate
+  network 10.255.255.5 mask 255.255.255.255
 \end{alltt}
 \end{small}
 }
@@ -206,6 +213,8 @@ int serial1/0
 \begin{small}
 \begin{alltt}
 show mpls ldp discovery
+sh ip bgp ipv4 unicast
+traceroute 10.255.255.8 source l0 =\textgreater sledovat znacku
 \end{alltt}
 \end{small}
 }
@@ -230,15 +239,117 @@ show mpls ldp discovery
 
 
 
-\subsection{Router Reflector}
+\subsection{Router Reflector alebo konfederácie}
 \subsubsection{Popis}
 \paragraph{}
+V tomto prípade sme sa dohodli o nastavení Route Reflectora (RR) na smerovač R1. RR je BGP smerovač, ktorý obchádza pravidlo, že iBGP topológia musí byť \say{full-mesh} t.j. iBGP smerovač v jednej oblasti nešíri prefixy, ktoré sa naučil cez iBGP smerovač z inej oblasti.
+
+
 
 \subsubsection{Konfigurácia}
 \paragraph{}
+Smerovače R3, R4 a R9 sme nastavovali ako museli nadviazať BGP s R1.
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+router bgp 110
+  neighbor 10.255.255.1 remote-as 110
+  neighbor 10.255.255.1 update-source Loopback0
+  address-family ipv4 unicast
+    neighbor 10.255.255.1 activate
+    neighbor 10.255.255.1 next-hop-self
+  network 10.255.255.3 mask 255.255.255.255
+\end{alltt}
+\end{small}
+}
+
+\paragraph{}
+Potom nasledovala konfigurácia RR, teda smerovača R1.
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+R1
+router bgp 110
+  neighbor 10.255.255.3 remote-as 110
+  neighbor 10.255.255.3 update-source l0
+  neighbor 10.255.255.4 remote-as 110
+  neighbor 10.255.255.4 update-source l0
+  neighbor 10.255.255.9 remote-as 110
+  neighbor 10.255.255.9 update-source l0
+  address-family ipv4 unicast
+    neighbor 10.255.255.3 route-reflector-client
+    neighbor 10.255.255.3 send-community extended
+    neighbor 10.255.255.3 next-hop-self
+    neighbor 10.255.255.3 activate
+    neighbor 10.255.255.4 route-reflector-client
+    neighbor 10.255.255.4 send-community extended
+    neighbor 10.255.255.4 next-hop-self
+    neighbor 10.255.255.4 activate
+    neighbor 10.255.255.9 route-reflector-client
+    neighbor 10.255.255.9 send-community extended
+    neighbor 10.255.255.9 next-hop-self
+    neighbor 10.255.255.9 activate 
+\end{alltt}
+\end{small}
+}
 
 \subsubsection{Overenie}
 \paragraph{}
+Konektivita by mala byť v tomto prípade už všade. Presvedčíme sa pomocou tcl skriptu.
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+R1#tclsh
+R1(tcl)#foreach address {
++>(tcl)#10.255.255.1
++>(tcl)#10.255.255.2
++>(tcl)#10.255.255.3
++>(tcl)#10.255.255.4
++>(tcl)#10.255.255.5
++>(tcl)#10.255.255.6
++>(tcl)#10.255.255.7
++>(tcl)#10.255.255.8
++>(tcl)#10.255.255.9
++>(tcl)#10.255.255.10
++>(tcl)#} {
++>(tcl)#ping $address source 10.255.255.1}
+Sending 5, 100-byte ICMP Echos to 10.255.255.1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 8/8/8 ms
+Sending 5, 100-byte ICMP Echos to 10.255.255.2, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 16/22/28 ms
+Sending 5, 100-byte ICMP Echos to 10.255.255.3, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 24/39/68 ms
+Sending 5, 100-byte ICMP Echos to 10.255.255.4, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 16/33/52 ms
+Sending 5, 100-byte ICMP Echos to 10.255.255.5, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 16/26/40 ms
+Sending 5, 100-byte ICMP Echos to 10.255.255.8, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 72/88/100 ms
+Sending 5, 100-byte ICMP Echos to 10.255.255.9, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 48/63/80 ms
+Sending 5, 100-byte ICMP Echos to 10.255.255.10, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 72/79/100 ms
+\end{alltt}
+\end{small}
+}
+
+TODO - ZLE - nejak tam treba zakomponovat tie RED GREEN - urobit cez VRF PING
+
+
 
 
 
@@ -1949,6 +2060,25 @@ R10(config-if)#
 \subsection{Hub \& Spoke VPN}
 \subsubsection{Popis}
 \paragraph{}
+Topológia bola pozmenená tak, že namiesto dvoch rôznych zákazníkov RED a GREEN budeme mať iba jedného, ktorý má tri pobočky s rovnakým ASN 65001.
+
+\paragraph{}
+Adresovanie ostáva rovnaké, len pobočkám sme pridali nové siete na rozhraní Loopback1.\\
+	R5	lo1	172.23.0.1 /16\\
+	R8	lo1	172.21.0.1 /16\\
+	R10	lo1	172.22.0.1 /16
+
+\paragraph{}
+Na prepojenie týchto pobočiek sme využili VPN. V prvom kroku bolo potrebné na smerovačoch R5, R8 a R10 vypnúť bežiaci BGP (no router bgp 65001/2/3), keďže nastala zmena AS oproti pôvodnému zadaniu.
+
+\paragraph{}
+Ďalším krokom bola aktivácia VRF (Virtual Routing Instance) pre pobočky na každom provider edge (PE) smerovači v AS 110 (R1, R3, R4 a R9). Aby sa vytvorila unikátna VPN cesta pre daného zákazníka, bolo potrebné definovať Route Distingusher (RD) a následne aj Route Target (RT).
+
+\paragraph{}
+Potom danú VRF treba priradiť rozhraniam, ktoré smerujú k zákazníkom. Následne bolo potrebné nadviazať BGP susedstvá medzi PE smerovačmi a CE smerovačmi v zákazníckom AS 65001 vytvorením VRF tabuľky.
+
+\paragraph{}
+Úlohou bolo zmeniť predošlú konfiguráciu tak, aby smerovač R1 bol hubom pre ostatné PE smerovače a R5 hubom pre zákaznícke CE smerovače (viď obr. \ref{fig:mpls_hub_spoke_topo}). Medzi týmito dvomi smerovačmi v topológii tiež pribudla linka, avšak fyzickú máme k dispozícii len jednu, preto sme museli vytvoriť pre jedného dve podrozhrania: jedno pre odosielanie dát \say{spoke} smerovačom, druhé pre príjem správ od nich. Tým pádom je nutné fyzické rozhranie e2/1 rozdeliť na dve subrozhrania a na nich vytvoriť dve samostatné VRF pre import a export (viď obr. \ref{fig:mpls_hub_spoke_route_target_topo}). Predtým sme však museli odstrániť staré VRF z predošlých cvičení, príkazom no ip vrf z1.
 
 \begin{figure}[!htbp]
 \centering
@@ -1967,32 +2097,239 @@ R10(config-if)#
 \subsubsection{Konfigurácia}
 \paragraph{}
 
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+R5 (CE smerovač)
+router bgp 65001
+  address-family ipv4 unicast
+    network 10.255.255.5 mask 255.255.255.255
+    network 172.23.0.0 mask 255.255.255.0
+    neighbor 192.168.15.1 activate
+\end{alltt}
+\end{small}
+}
+
+\paragraph{}
+Pokračovali sme konfiguráciou 
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+R1
+no ip vrf RED
+
+ip vrf Z1_DOWN
+ rd 110:1001
+ route-target import 110:1001
+
+ip vrf Z1_UP
+ rd 110:1000
+ route-target export 110:1000
+
+interface Ethernet2/1
+ no ip address
+ duplex half
+
+interface Ethernet2/1.15
+ encapsulation dot1Q 15
+ ip vrf forwarding Z1_UP
+ ip address 192.168.15.1 255.255.255.0
+
+interface Ethernet2/1.51
+ encapsulation dot1Q 51
+ ip vrf forwarding Z1_DOWN
+ ip address 192.168.51.1 255.255.255.0
+
+router bgp 110
+ address-family ipv4
+  neighbor 10.255.255.3 activate
+  neighbor 10.255.255.4 activate
+  neighbor 10.255.255.9 activate
+ exit-address-family
+ 
+ address-family ipv4 vrf Z1_DOWN
+  redistribute connected
+  neighbor 192.168.51.5 remote-as 65001
+  neighbor 192.168.51.5 activate
+  neighbor 192.168.51.5 as-override
+ exit-address-family
+ 
+ address-family ipv4 vrf Z1_UP
+  redistribute connected
+  redistribute static
+  neighbor 192.168.15.5 remote-as 65001
+  neighbor 192.168.15.5 activate
+  neighbor 192.168.15.5 as-override
+  default-information originate
+ exit-address-family
+
+ip route vrf Z1_UP 0.0.0.0 0.0.0.0 192.168.15.5
+mpls ldp router-id Loopback0
+==============================================
+R3#
+!namiesto RED dal:
+no ip vrf RED
+
+int eth2/0
+ ip addr 192.168.38.3
+
+ip vrf Z1_SPOKE
+ rd 110:1001
+ route-target export 110:1001
+ route-target import 110:1000
+
+interface Ethernet2/0
+ ip vrf forwarding Z1_SPOKE
+
+router bgp 110
+ address-family ipv4 vrf Z1_SPOKE
+  redistribute connected
+  neighbor 192.168.38.8 remote-as 65001
+  neighbor 192.168.38.8 activate
+  neighbor 192.168.38.8 as-override
+ exit-address-family
+=======================================
+R4#sh run
+!ip brf GREEN a RED zmazal a dal:
+
+int s1/0
+ ip addr 192.168.104.4 255.255.255.0
+
+int e2/0
+ ip addr 10.0.49.4 255.255.255.0
+
+ip vrf Z1_SPOKE
+ rd 110:1001
+ route-target export 110:1001
+ route-target import 110:1000
+
+interface Serial1/0
+ ip vrf forwarding Z1_SPOKE
+
+router bgp 110
+!namiesto RED a GREEN dal:
+
+ address-family ipv4 vrf Z1_SPOKE
+  redistribute connected
+  neighbor 192.168.104.10 remote-as 65001
+  neighbor 192.168.104.10 activate
+  neighbor 192.168.104.10 as-override
+ exit-address-family
+=================================================
+R9#
+!ip vrf RED zmenil na:
+
+ip vrf Z1_SPOKE
+ rd 110:1001
+ route-target export 110:1001
+ route-target import 110:1000
+
+interface Ethernet2/1
+ ip addr 192.168.89.9 255.255.255.0
+ ip vrf forwarding Z1_SPOKE
+
+router bgp 110
+!namiesto RED dal:
+
+ address-family ipv4 vrf Z1_SPOKE
+  redistribute connected
+  neighbor 192.168.38.8 remote-as 65001
+  neighbor 192.168.38.8 activate
+  neighbor 192.168.38.8 as-override
+ exit-address-family
+============
+R5
+
+interface Ethernet2/1
+ no ip address
+
+interface Ethernet2/1.15
+ encapsulation dot1Q 15
+ ip address 192.168.15.5 255.255.255.0
+
+interface Ethernet2/1.51
+ encapsulation dot1Q 51
+ ip address 192.168.51.5 255.255.255.0
+
+router bgp 65001
+ network 10.255.255.5 mask 255.255.255.255
+ neighbor 192.168.51.1 remote-as 110
+\end{alltt}
+\end{small}
+}
+
+\paragraph{}
+Parameter as-override zabezpečí, aby smerovače nezahadzovali siete, ktoré prechádzajú do rovnakého AS (65001). Príkaz redistribute connected distribuuje všetky pripojené siete zákazníka v rámci BGP. Tieto príkazy zadáme na smerovačoch R1 smerom k R5, na R9 k R8 a na R4 k R10.
+
+\paragraph{}
+Konfigurácia CE smerovačov je podobná, využíva však address-family, pretože zákazníci sa o VRF nezaujímajú. Na smerovačoch R5, R8 a R10 musíme zmeniť predošlú konfiguráciu BGP, teda pôvodné AS nahradíme AS 65001, ohlásime ich vlastné siete a aktivujeme spojenie na suseda.
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+R5 (CE smerovač)
+router bgp 65001
+  address-family ipv4 unicast
+    network 10.255.255.5 mask 255.255.255.255
+    network 172.23.0.0 mask 255.255.255.0
+    neighbor 192.168.15.1 activate
+\end{alltt}
+\end{small}
+}
+
 \subsubsection{Overenie}
 \paragraph{}
+Zadaním tohto príkazu sa presunie záznam z globálnej smerovacej tabuľky do smerovacej tabuľky vrf z1. Po zadaní príkazu je takisto potrebné na ňom nanovo zadať IP adresu. Overenie, že sa rozhranie pridalo do danej VRF, vykonáme príkazom \say{sh ip vrf}.
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+R1#show ip vrf
+TODO
+\end{alltt}
+\end{small}
+}
+
+\paragraph{}
+Po správnej konfigurácii by sa na CE smerovačoch v BGP tabuľke pre ipv4 unicast mali objaviť všetky ohlasované siete smerovačov R5, R8 a R10 (Lo0 aj Lo1).
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+R5#sh ip bgp ipv4 unicast
+TODO
+\end{alltt}
+\end{small}
+}
+
+\paragraph{}
+Rovnako sme použili Traceroute z R5 lo1 na R10 lo1
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+R5#traceroute 172.22.0.1 source 172.23.0.1
+TODO
+\end{alltt}
+\end{small}
+}
 
 
 
 
 
 
-\subsection{AS Override}
+\subsection{Draft Rosen}
 \subsubsection{Popis}
 \paragraph{}
-
-\subsubsection{Konfigurácia}
-\paragraph{}
-
-\subsubsection{Overenie}
-\paragraph{}
-
-
-
-
-
-
-\subsection{MPLS/VPLS}
-\subsubsection{Popis}
-\paragraph{}
+Darth Vader je multicastová MPLS technológia. Pochádza z inej galaxie. Prvá zmienka bola v seriáli StarWars.
 
 \subsubsection{Konfigurácia}
 \paragraph{}

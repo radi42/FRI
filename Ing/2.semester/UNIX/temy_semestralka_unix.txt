@@ -1,0 +1,41 @@
+-lvm - pohrat sa, odporucany ext4
+-virtualizacia:
+typ 2: kvm, vmware, vbox, xen
+typ 1: openvz (free vps cz), lxc, docker
+-instalacia a konfiguracia apache, nginx, lighttpd + nainstalovat nejaku appku (django, pyramid) alebo cms: joomla, drupal, wordpress
+-instalacia a konfiguracia mail servera (postfix) + antispam (spam assassin) + antivirus
+-prenos/synchronizacia suborov: (s)ftp, ssh, scp, rsync, nfs, amba
+-cloud computing/storage: owncloud, pydio
+-google: cloud synchronization opensource
+-syncthing - (bitsync)
+-firewall, iptables
+-kali linux
+-linux from scratch, alpine linux
+-systemd vs vsetko ostatne
+
+stvrtok je unix od 14:00
+
+osmijanko - mal osmidunca; knizka od kristy bendovej
+
+osmijanko.fri.uniza.sk
+
+-prihlasenie ako na skolske pocitace 
+-md - markdown subor
+
+git init
+git status
+git add -A
+git status
+git commit -m "commit sprava"
+git status
+git log -info o commite.
+
+info o commite je do
+
+misolietavec - kauki
+
+ssh-keygen -> vsetko odenterovat -> vysledne kluce sa ulozia do adresara ~/.ssh
+
+potom v nastaveniach gitlabu pridat VEREJNY ssh kluc
+
+a potom mozeme pushovat do repozitara cez ssh namiesto https

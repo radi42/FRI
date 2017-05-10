@@ -1,0 +1,177 @@
+{\rtf1\ansi\ansicpg1250\deff0\deflang1051{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset238 Calibri;}{\f2\fnil\fcharset2 Symbol;}}
+{\colortbl ;\red0\green0\blue0;}
+{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\sa200\sl276\slmult1\lang1033\f0\fs22 Popis\lang9\par
+Aby sme zabezpe\lang1033\u269?i\u357? konektivitu medzi jednotliv\'fdmi z\'e1kazn\'edkmi R5, R8 a R10, je potrebn\'e9 nakonfigurova\u357? BGP medzi t\'fdmito smerova\u269?mi a ich susedmi v ISP1. Rovnako aj ohlasujeme po\'9eadovan\'fa sie\u357? z\'e1kazn\'edka, v na\'9aom pr\'edpade Lo0. Na smerova\u269?i R2 BGP nekonfigurujeme.\par
+Konfiguracia\par
+Pr\'edklad uv\'e1dzame konfigur\'e1ciu na smerova\u269?i R5.\par
+R5\par
+router bgp 65003\par
+  neighbor 192.168.15.1 remote-as 110\par
+  address-family ipv4 unicast\par
+  neighbor 192.168.15.1 activate\par
+  network 10.255.255.5 mask 255.255.255.255\par
+Overenie\par
+Po spr\'e1vnom nakofigurovan\'ed by v BGP tabu\u318?ke malo by\u357? vidie\u357? v\'9aetky smerova\u269?e.\par
+R1#sh ip bgp ipv4 unicast\par
+\tab Network \tab Next Hop \tab Metric \tab LocPrf \tab Weight\tab Path\par
+*> \tab 10.255.255.1/32 0.0.0.0 \tab 0 \tab\tab 32768 \tab i\par
+r>i \tab 10.255.255.3/32 10.255.255.3 \tab 0 \tab 100 \tab 0 \tab i\par
+r>i \tab 10.255.255.4/32 10.255.255.4 \tab 0\tab 100 \tab 0 \tab i\par
+*> \tab 10.255.255.5/32 192.168.15.5 \tab 0 \tab 0 \tab 65003 \tab i\par
+*>i \tab 10.255.255.8/32 10.255.255.3 \tab 0 \tab 100\tab 0 65001 i\par
+r>i \tab 10.255.255.9/32 10.255.255.9 \tab 0 \tab 100 \tab 0 \tab i\par
+*>i \tab 10.255.255.10/32 10.255.255.4    0 \tab 100 0 \tab 65002 \tab i\par
+Smerova\u269? R2 naozaj nem\'e1 zapnut\'e9 BGP.\par
+R2#sh ip bgp\par
+% BGP not active\par
+Pre \u271?al\'9aie overenie sme pou\'9eili traceroute zo smerova\u269?a na R5 do R8. M\'f4\'9eeme vidie\u357? aj MPLS zna\u269?ku.\par
+R5#traceroute 10.255.255.8 source l0\par
+Tracing the route to 10.255.255.8\par
+     1 192.168.15.1 24 msec 56 msec 12 msec\par
+     2 10.0.12.2 [MPLS: Label 17 Exp 0] 88 msec 76 msec 80 msec\par
+     3 10.0.23.3 48 msec 38 msec 64 msec\par
+     4 192.168.38.8 88 msec * 96 msec\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-540\li540\cf1\kerning24\fs56 RR alebo konfeder\'e1cie\par
+\pard\sa200\sl276\slmult1\cf0\kerning0\fs22 Popis\lang9\par
+V \lang1033 tomto pr\'edpade sme sa dohodli o nastaven\'ed Route Reflectora (RR). RR je BGP smerova\u269?, ktor\'fd obch\'e1dza pravidlo, \'9ee cez iBGP sa nesmie odovzd\'e1va\u357? inform\'e1cia, ktor\'e1 bola nau\u269?en\'e1 pr\'e1ve cez iBGP. \par
+V \lang9 AS 110 sme \lang1033 RR\lang9  nakonfigurov\lang1033 ali smerova\u269? R1. To zabezpe\u269?\'ed, \'9ee z full-mesh topol\'f3gie sa stane hup-and-spoke, kde R1 bude vystupova\u357? ako hub a R3, R4 a R9 ako spoke-y. \par
+Konfiguracia\par
+Smerova\u269?e R3, R4 a R9 museli nadviaza\u357? BGP s R1:\par
+R3\par
+router bgp 110\par
+  neighbor 10.255.255.1 remote-as 110\par
+  neighbor 10.255.255.1 update-source Loopback0\par
+  address-family ipv4 unicast\par
+    neighbor 10.255.255.1 activate\par
+    neighbor 10.255.255.1 next-hop-self\par
+  network 10.255.255.3 mask 255.255.255.255\par
+Potom nasledovala konfigur\'e1cia RR, teda smerova\u269?a R1. Pre zjednodu\'9aenie konfigur\'e1cie susedstiev sme pou\'9eili peer-group.\par
+R1\par
+router bgp 110\par
+  neighbor PEERS peer-group\par
+  neighbor PEERS remote-as 110\par
+  neighbor PEERS update-source l0\par
+  neighbor 10.255.255.3 peer-group PEERS\par
+  neighbor 10.255.255.4 peer-group PEERS\par
+  neighbor 10.255.255.9 peer-group PEERS\par
+  address-family ipv4 unicast\par
+    neighbor PEERS route-reflector-client\par
+    neighbor PEERS send-community extended\par
+    neighbor PEERS next-hop-self\par
+\pard\cf1     neighbor 10.255.255.3 activate \par
+    neighbor 10.255.255.4 activate \par
+\pard\sa200\sl276\slmult1     neighbor 10.255.255.9 activate \cf0\par
+Peer-group s\'fa na susedoch aktivovan\'e9 automaticky.\par
+Overenie\par
+Konektivita by mala by\u357? v tomto pr\'edpade u\'9e v\'9aade. Presved\u269?\'edme sa pomocou tcl skriptu:\par
+R1#tclsh\par
+R1(tcl)#foreach address \{\par
++>(tcl)#10.255.255.1\par
++>(tcl)#10.255.255.2\par
++>(tcl)#10.255.255.3\par
++>(tcl)#10.255.255.4\par
++>(tcl)#10.255.255.5\par
++>(tcl)#10.255.255.6\par
++>(tcl)#10.255.255.7\par
++>(tcl)#10.255.255.8\par
++>(tcl)#10.255.255.9\par
++>(tcl)#10.255.255.10\par
++>(tcl)#\} \{\par
++>(tcl)#ping $address source 10.255.255.1\}\par
+Sending 5, 100-byte ICMP Echos to 10.255.255.1, timeout is 2 seconds:\par
+!!!!!\par
+Success rate is 100 percent (5/5), round-trip min/avg/max = 8/8/8 ms\par
+Sending 5, 100-byte ICMP Echos to 10.255.255.2, timeout is 2 seconds:\par
+!!!!!\par
+Success rate is 100 percent (5/5), round-trip min/avg/max = 16/22/28 ms\par
+Sending 5, 100-byte ICMP Echos to 10.255.255.3, timeout is 2 seconds:\par
+!!!!!\par
+Success rate is 100 percent (5/5), round-trip min/avg/max = 24/39/68 ms\par
+Sending 5, 100-byte ICMP Echos to 10.255.255.4, timeout is 2 seconds:\par
+!!!!!\par
+Success rate is 100 percent (5/5), round-trip min/avg/max = 16/33/52 ms\par
+Sending 5, 100-byte ICMP Echos to 10.255.255.5, timeout is 2 seconds:\par
+!!!!!\par
+Success rate is 100 percent (5/5), round-trip min/avg/max = 16/26/40 ms\par
+Sending 5, 100-byte ICMP Echos to 10.255.255.8, timeout is 2 seconds:\par
+!!!!!\par
+Success rate is 100 percent (5/5), round-trip min/avg/max = 72/88/100 ms\par
+Sending 5, 100-byte ICMP Echos to 10.255.255.9, timeout is 2 seconds:\par
+!!!!!\par
+Success rate is 100 percent (5/5), round-trip min/avg/max = 48/63/80 ms\par
+Sending 5, 100-byte ICMP Echos to 10.255.255.10, timeout is 2 seconds:\par
+!!!!!\par
+Success rate is 100 percent (5/5), round-trip min/avg/max = 72/79/100 ms\par
+======================================================================\par
+\lang1051\f1 ZLE - nejak tam treba zakomponovat tie RED GREEN\lang1033\f0\par
+\fs40 Cvi\u269?enie 2 \endash  Protokol MPLS\par
+\fs22 Topol\'f3gia a adresovanie\par
+Topol\'f3gia bola pozmenen\'e1 tak, \'9ee v\'9aetci traja z\'e1kazn\'edci sa nach\'e1dzaj\'fa v tom istom AS 65001.\par
+\tab\tab hodis sem obrazok\par
+\cf1\fs23 Adresovanie ost\'e1va rovnak\'e9, len z\'e1kazn\'edkom sme pridali nov\'e9 siete na rozhran\'ed Loopback1. \par
+\tab R5\tab lo1\tab 172.23.0.1 /16\par
+\tab R8\tab lo1\tab 172.21.0.1 /16\par
+\tab R10\tab lo1\tab 172.22.0.1 /16\cf0\fs22\par
+Na prepojenie t\'fdchto z\'e1kazn\'edkov sme vyu\'9eili VPN. V prvom kroku bolo potrebn\'e9 na smerova\u269?och R5, R8 a R10 vypn\'fa\u357? be\'9eiaci BGP (no router bgp 65001/2/3), ke\u271?\'9ee nastala zmena AS oproti p\'f4vodn\'e9mu zadaniu.\par
+Konfigur\'e1cia VRF\par
+Popis\par
+\u270?al\'9a\'edm krokom bola aktiv\'e1cia VRF (Virtual Routing Instance) pre z\'e1kazn\'edkov na ka\'9edom provider edge (PE) smerova\u269?i v AS 110 (R1, R3, R4 a R9). Aby sa vytvorila unik\'e1tna VPN cesta pre dan\'e9ho z\'e1kazn\'edka, bolo potrebn\'e9 definova\u357? Route Distingusher (RD) a n\'e1sledne aj Route Target (RT).\par
+Potom dan\'fa VRF treba priradi\u357? rozhraniam, ktor\'e9 smeruj\'fa k z\'e1kazn\'edkom.\par
+N\'e1sledne bolo potrebn\'e9 nadviaza\u357? BGP susedstv\'e1 medzi PE smerova\u269?mi a CE smerova\u269?mi v z\'e1kazn\'edckom AS 65001 a to pomocou VRF.\par
+Konfiguracia\par
+R1 (PE smerova\u269?)\par
+ip vrf z1\par
+  rd 110:1\par
+  route-target 110:1\par
+int e2/1\par
+  ip vrf forwarding z1\par
+router bgp 110\par
+  address-family ipv4 vrf z1\par
+    neighbor 192.168.15.5 remote-as 65001\par
+    neighbor 192.168.15.5 activate\par
+    neighbor 192.168.15.5 as-override\par
+    redistribute connected\par
+Parameter as-override zabezpe\u269?\'ed, aby smerova\u269?e nezahadzovali siete, ktor\'e9 prech\'e1dzaj\'fa do rovnak\'e9ho AS (65001). Pr\'edkaz redistribute connected distribuuje v\'9aetky pripojen\'e9 siete z\'e1kazn\'edka v r\'e1mci BGP. Tieto pr\'edkazy zad\'e1me na smerova\u269?och R1 smerom k R5, na R9 k R8 a na R4 k R10.\par
+\cf1\fs23 Konfigur\'e1cia CE smerova\u269?ov je podobn\'e1, vyu\'9e\'edva v\'9aak address-family, preto\'9ee z\'e1kazn\'edci sa o VRF nezauj\'edmaj\'fa. \lang1051\f1 Na smerova\'e8och \lang1033\f0 R5, R8 a R10 mus\'edme zmeni\u357? predo\'9al\'fa konfigur\'e1ciu BGP, teda p\'f4vodn\'e9 AS nahrad\'edme AS 65001, ohl\'e1sime ich vlastn\'e9 siete a aktivujeme spojenie na suseda. \cf0\fs22\par
+R5 (CE smerova\u269?)\par
+router bgp 65001\par
+  address-family ipv4 unicast\par
+    network 10.255.255.5 mask 255.255.255.255\par
+    network 172.23.0.0 mask 255.255.255.0\par
+    neighbor 192.168.15.1 activate\par
+Overenie\cf1\fs24\par
+\cf0\fs22 Zadan\'edm tohto pr\'edkazu sa presunie z\'e1znam z glob\'e1lnej smerovacej tabu\u318?ky do smerovacej tabu\u318?ky vrf z1. Po zadan\'ed pr\'edkazu je takisto potrebn\'e9 na \u328?om nanovo zada\u357? IP adresu. Overenie, \'9ee sa rozhranie pridalo do danej VRF, vykon\'e1me pr\'edkazom \i sh ip vrf\i0 . \par
+\lang9 R1#sh ip vrf\par
+Name \lang1033\tab\lang9 Default RD \lang1033\tab\lang9 Interfaces\par
+z1 \lang1033\tab\lang9 110:1 \lang1033\tab\tab\lang9 Et2/1\par
+Po \lang1051\f1 spr\'e1vnej konfigur\'e1cii by sa \lang9\f0 na CE smerova\lang1051\f1\'e8och v BGP tabu\'beke pre ipv4 unicast mali objavi\'9d v\'9aetky ohlasovan\'e9 siete smerova\'e8ov R5, R8 a R10 (Lo0 aj Lo1).\par
+R5#sh ip bgp ipv4 unicast\par
+\tab Network \tab Next Hop \tab Metric \tab LocPrf \tab Weight \tab Path\par
+*> \tab 10.255.255.5/32 0.0.0.0 \tab 0 \tab\tab 32768 \tab i\par
+*> \tab 10.255.255.8/32 192.168.15.1 \tab\tab\tab 0 \tab 110 110 i\par
+*> \tab 10.255.255.10/32 192.168.15.1 \tab\tab 0 \tab 110 110 i\par
+*> \tab 172.21.0.0 \tab 192.168.15.1 \tab\tab\tab 0 \tab 110 110 i\par
+*> \tab 172.22.0.0 \tab 192.168.15.1 \tab\tab\tab 0 \tab 110 110 i\par
+*> \tab 172.23.0.0 \tab 0.0.0.0 \tab\tab 0\tab  \tab 32768 \tab i\par
+r> \tab 192.168.15.0 \tab 192.168.15.1 \tab 0 \tab\tab\tab 0 110 ?\par
+*> \tab 192.168.38.0 \tab 192.168.15.1 \tab\tab\tab\tab 0 110 ?\par
+*> \tab 192.168.89.0 \tab 192.168.15.1 \tab\tab\tab\tab 0 110 ?\par
+*> \tab 192.168.104.0 \tab 192.168.15.1 \tab\tab\tab\tab 0 110 ?\par
+Rovnako sme pou\'9eili Traceroute z R5 lo1 na R10 lo1\par
+R5#traceroute 172.22.0.1 source 172.23.0.1\par
+Type escape sequence to abort.\par
+Tracing the route to 172.22.0.1\par
+VRF info: (vrf in name/id, vrf out name/id)\par
+     1 192.168.15.1 [AS 110] 60 msec 28 msec 20 msec\par
+     2 10.0.12.2 [MPLS: Labels 22/24 Exp 0] 84 msec 100 msec 84 msec\par
+     3 192.168.104.4 [AS 110] [MPLS: Label 24 Exp 0] 56 msec 44 msec 56 msec\par
+     4 192.168.104.10 [AS 110] 96 msec 100 msec *\par
+==========================================================================\par
+\lang9\f0\fs40 Cvi\lang1051\f1\'e8enie 3 \endash  Hub and Spoke VPN\lang9\f0\fs22\par
+\lang1051\f1 Topol\'f3gia\par
+\tab\tab hod sem obrazok 1 a 2\par
+\lang1033\f0 Popis\lang1051\f1  TOTO JE ALE SKOPIROVANE ZADANIE ALE LEPSIE TO POVEDA\'8d SA ASI ANI NEDA :)\lang1033\f0\par
+\cf1\'dalohou bolo zmeni\u357? predo\'9al\'fa konfigur\'e1ciu tak, aby smerova\u269? R1 bol hubom pre ostatn\'e9 PE smerova\u269?e a R5 hubom pre z\'e1kazn\'edcke CE smerova\u269?e. Medzi t\'fdmito dvomi smerova\u269?mi v topol\'f3gii tie\'9e pribudla linka, av\'9aak fyzick\'fa m\'e1me k dispoz\'edcii len jednu. T\'fdm p\'e1dom je nutn\'e9 fyzick\'e9 rozhranie e2/1 rozdeli\u357? na dve subrozhrania a na nich vytvori\u357? dve samostatn\'e9 VRF pre import a export. Predt\'fdm sme v\'9aak museli odstr\'e1ni\u357? star\'e9 VRF z predo\'9al\'fdch cvi\u269?en\'ed, pr\'edkazom \i no ip vrf z1\i0 . \par
+\cf0\lang9\par
+}
+ 
