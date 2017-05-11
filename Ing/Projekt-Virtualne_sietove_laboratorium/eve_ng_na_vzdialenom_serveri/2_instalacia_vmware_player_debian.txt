@@ -1,6 +1,12 @@
-stiahneme vmware player bundle
+Instalacia VMWare Workstation Player 12.5.5 (cez vnc na odysea)
 
-nainstalujeme ako sudo
+
+nainstalovat dependency
+
+stiahneme vmware player bundle
+  wget http://www.vmware.com/go/tryplayerpro-linux-64
+
+nainstalujeme ako sudo resp. root
 
 urobime skript na ploche na spustanie vmware player, lebo cez application menu -> system -> vmware player dava chybu pri spusteni:
 
@@ -34,7 +40,7 @@ TENTO PROBLEM JE UZ VYRIESENY! Credits to: Jakub, veduci
 =============================================================================
 
 potom treba nainstalovat par dalsich veci
-  apt-get install gcc linux-headers-$(uname -r)
+  apt-get install gcc linux-headers-$(uname -r) build-essential
 
 export CC=/usr/bin/gcc-6
 echo $CC
@@ -58,8 +64,31 @@ Ale mozno to nebude fungovat vobec, lebo lxc kontainer nemoze instalovat moduly 
 
 Jediny sposob, ako do lxc kontajnera nacitat modul je, ze ho nacitame do hostovskeho systemu.
 
-Nakoniec mi bolo dovolene nainstalovat VMware Player do Odysea.
+------------------------------------------------------
+Pokracujeme instalaciou na odysea.
 
-Vyskusat tieto konfiguracie:
--Aktualna konfiguracia:Debian strech -> kvm (hadac) -> ubuntu 16 / debian jessie -> vmware -> EVE
--Debian strech -> debian stretch -> vmware -> EVE
+-Nainstalujeme potrebne balicky:
+(https://askubuntu.com/questions/40979/what-is-the-path-to-the-kernel-headers-so-i-can-install-vmware)
+
+  apt-get install gcc linux-headers-$(uname -r) build-essential
+
+-stiahneme vmware player
+
+  wget http://www.vmware.com/go/tryplayerpro-linux-64
+
+-nainstalujeme stiahnuty vmware player ako sudo resp. root
+
+  chmod +x
+  sudo ./<nazov_stiahnuteho_suboru_vmware_playera>
+  
+-spustime vmware player z terminalu prikazom
+
+  vmplayer
+
+pretoze odkaz v "Application menu -> System -> VMware Player" nefunguje
+
+-Po prvom vykonani prikazu "vmplayer" nam vyskoci dialogove okno, ktore nas vyzve na instalaciu modulov do aktualneho kernelu. Pokial nam vyhodi okno na zadanie cesty ku "GCC", nainstalujeme balicek "build-essential" Potvrdime instalaciu kliknutim na tlacidlo "Install". Instalacia vmware modulov do kernelu trva nejaky cas, ktory zavisi od vypoctoveho vykonu servera.
+
+-Po uspesnej instalacii modulov mozeme znova spustit VMware Player z terminalu prikazom "vmplayer". Malo by sa zobrazit uvodne okno. Teraz je VMware Player pripraveny na pouzivanie.
+
+Pre instalaciu nastroja EVE-ng pokracujeme navodom "3_hardverova_konfiguracia_EVE_vo_VMware_Player.txt".

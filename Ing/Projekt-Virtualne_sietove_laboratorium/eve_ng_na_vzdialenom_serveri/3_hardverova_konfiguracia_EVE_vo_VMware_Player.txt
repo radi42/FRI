@@ -1,0 +1,34 @@
+Inštalácia EVE-ng pre VMware Player
+
+Zvolime moznost "I will install the operating system later"
+
+Hardverova konfiguracia masiny vo VMware:
+Memory:
+  >16GB RAM, najlepsie maximalna mozna velkost
+
+Processor:
+  Virtualization Engine -> Prefered mode: Automatic
+  Virtualize Intel VT-x/EPT or AMD-V/RVI (dôležité pre QEMU boxy, inak bude EVE hlásiť chybu "VT-x or AMD-V not found")
+  (Ako zapnúť VT-x vid
+    https://communities.vmware.com/message/2649277#2649277
+    https://communities.vmware.com/docs/DOC-8970 (časť "Workstation 11 / Player 7 / Fusion 6" - postup je rovnaký aj pre VMware Workstation/Player 12) 
+
+Network adapter: 
+  Bridged
+  zaškrtneme "Replicate physical network connectrion state"
+
+CD/DVD (SATA):
+  Connected
+  Connect at power on
+  Use ISO image -> Najdeme EVE-ng ISO
+
+
+
+Teraz mozeme virtualku spustit. Mala by sa spustit (treba sa preklikat cez vela otravnych dialogovych okien). Po chvili by sme mali vidiet instalacnu obrazovku s vyberom jazyka.
+
+
+Pri spúšťaní EVE virtuálky VMware moze vyhodit dialógové okno, že treba zapnúť promiskuitný mód sieťového adaptéra: (http://vmware.com/info?id=161). To ale nie je potrebné, lebo na web rozhranie (EVE login screen) sa podarilo pripojiť aj bez tohto módu.
+
+Spúšťanie virtuáliek funguje správne zatiaľ iba na VMware Workstation. Na VMware Player-i je tak zabugovaný, až je nepoužiteľný. Inak bude treba ako hosťovský operačný systém použiť Ubuntu s Unity v LXC namiesto Ubuntu Server.
+
+Pre instalaciu nastroja EVE-ng pokracujeme navodom "4_instalacia_eve_ng_pre_vmware_player".

@@ -1,0 +1,268 @@
+Follow the Ubuntu server installation. During install please choose only OpenSSH server as a feature to be installed !!!!
+
+After the installation of Ubuntu server is done, follow the steps below in order to install the EVE. For futher convenient choose hostname as eve-ng.
+
+1. Login with your user as root (via SSH or console). If we installed EVE-ng with the tutorial "4_instalacia_eve_ng_pre_vmware_player", then the default credentials are already set (root/eve) and jump to step 4.
+
+sudo su
+
+2. Change root password:
+
+This password change option is only for how to purposes, of course you can choose your own root password, but don't forget that it will be used in the Wireshark wrapper file!
+
+sudo passwd root
+root@eve-ng:~# sudo passwd root
+Enter new UNIX password: eve
+Retype new UNIX password: eve
+passwd: password updated successfully
+
+3. Change hostname if you like, for save settings do (:wq):
+
+vim.tiny /etc/hostname 
+
+eve-ng
+
+
+
+vim.tiny /etc/hosts                                               
+
+ GNU vim.tiny 2.5.3                       File: /etc/hosts                                                      
+127.0.0.1       localhost
+127.0.1.1       eve-ng.example.com      eve-ng
+
+4. Allow access to use root user ssh, edit line below:
+
+vim.tiny /etc/ssh/sshd_config
+PermitRootLogin prohibit-password
+to
+PermitRootLogin yes
+
+5. Save settings (:wq) and do restart ssh server:
+
+sudo service ssh restart
+
+6. Restart your server:
+
+reboot
+
+7. After first boot, ssh IP to your server and modify:
+
+sed -i -e 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX="net.ifnames=0"/'  /etc/default/grub
+update-grub
+
+8. IMPORTANT!!! Do adding’s and necessary changes for this file below. It can also to be a static IP as well, follow Linux Ubuntu how to set stat IP for the interface. example below showing DHCP IP settings.
+
+!!! Warning !!! after GRUB update changed interface names to ethX, original name after first boot will not work !!!!! Do edit the following below and reboot!!!
+
+vim.tiny /etc/network/interfaces
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+# The loopback network interface
+
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+
+auto eth0
+iface eth0 inet dhcp
+
+   8.1. Option for Broadcom interfaces NetXtreme II 10Gb, not necessary for regular servers:
+
+     apt-get install firmware-bnx2x
+
+9. Save :wq settings and reboot:
+
+reboot
+
+10. Get the eve key from repositary:
+
+wget -O - http://www.eve-ng.net/repo/eczema@ecze.com.gpg.key | sudo apt-key add -
+
+11. Update server:
+
+apt-get update
+apt-get install software-properties-common python3-software-properties python-software-properties
+sudo add-apt-repository "deb [arch=amd64]  http://www.eve-ng.net/repo xenial main"
+apt-get update
+
+("add-apt-repository" command not found => https://askubuntu.com/questions/493460/how-to-install-add-apt-repository-using-the-terminal)
+
+12. Install the EVE:
+
+DEBIAN_FRONTEND=noninteractive apt-get -y install eve-ng
+
+13. reboot
+
+14. Login first time to the EVE and setup IP setting following by wizard:
+
+http://www.eve-ng.net/index.php/documentation/howto-s/65-howto-configure-eve-during-first-boot
+
+15. Update and upgrade the EVE:
+
+apt-get update
+apt-get upgrade
+
+
+
+
+Sources:
+  http://www.eve-ng.net/index.php/documentation/installation/bare-install
+
+
+
+
+
+
+
+
+
+
+
+
+
+1) Prihlásime sa na UNetLab server cez SSH.
+	Linux:
+		ssh root@<ip_adresa_UNetLabu>
+	Windows (Putty):
+		<ip_adresa_UnetLabu>, port 22, SSH → Open
+
+2) Ak sme vyzvaní, prevedieme úvodné nastavenia textovým sprievodcom
+-> Zmeníme heslo pre root-a, nastavíme hostname, DNS, DHCP (pokiaľ beží UnetLab z VirtualBox-u) / Static (pokiaľ beží UnetLab v kontajneri).
+Sieťové nastavenia vyplníme tak, ako je uvedené v podkapitole „Sieťová konfigurácia“ (jednotlivé údaje vyčítame z ukážky súboru „/etc/network/interfaces“). Pokiaľ tieto nastavenia vyplníme správne na prvý krát, mali by sme byť schopný opätovne sa prihlásiť na server cez SSH, pretože po dokončení úvodného skriptu sa server reštartuje.
+
+Ak sa konfigurácia nepodarí, potrebujeme vykonať nasledovný skript ako root resp. „sudo“. vykonáme príkaz:
+
+sudo /opt/ovf/ovfconfig.sh
+
+a vykonáme prvotné nastavenie UNetLab servera.
+
+Tento skript slúži na úvodnú konfiguráciu UNetLab servera. Nachádza sa v “/opt/ovf/ovfconfig.sh”. Po úspešnej inštalácií UNetLab servera zo skriptu “install.sh” sa server reštartuje. Akonále sa prihlásime, spustí sa uvedený úvodný konfiguračný skript.
+
+Po vykonaní úvodnej konfigurácie sa systém reštartuje. Avšak po reštarte sa môže stať, že sa nebudeme vedieť znovu prihlásiť na UNetLab server cez SSH. Riešením je manuálne upraviť sieťové nastavenia tak, ako je uvedené v podkapitole “Sieťová konfigurácia”.
+
+3) Pomocou terminálu / Putty sa prihlásime na virtuálny stroj. IP adrresu zistíme vykonaním príkazu “ip a”.  Hľadaná IP adresa je priradená interface-u “pnet0” alebo v hornej časti prihlasovacej obrazovky na virtuálnom stroji. Pripojíme sa cez SSH príkazom:
+
+4) Stiahneme skript na vygenerovanie Cisco IOU/IOL licencie:
+https://drive.google.com/file/d/0BwTFjgBPz3MhZGlCc2tvSGxpVVU/view
+
+
+5) Nahráme tento stiahnutý skript na server.
+
+	Linux:
+		Otvoríme ďalšie terminálové okno, v ktorom sa cez sftp pripojíme ku UNetLab SFTP serveru príkazom:
+
+		sftp root@<ip_adresa_UNetLabu>
+
+	Windows:
+		Otvoríme FTP klienta FileZilla. Ak ho nemáme nainštalovaný, stiahneme si ho z adresy
+
+https://sourceforge.net/projects/filezilla/files/FileZilla_Client/3.22.2.2/FileZilla_3.22.2.2_win64.zip/download
+
+
+Pokiaľ sme nemenili prihlasovacie údaje, prihlásime sa na UNetLab server ako “root” pod heslom “unl”.
+
+6) Stiahnuté súbory skopírujeme do adresára “/opt/unetlab/addons/iol/bin/” v UNetLab-e:
+Linux:
+# zmení priečinok na vzdialenom počítači
+	cd “/opt/unetlab/addons/iol/bin/
+# zmení priečinok na lokálnom počítači (tam, kde sú potrebné súbory)	
+	lcs /home/andrej/Downloads
+# skopírovanie skriptu na IOU licenciu súboru z lokálneho PC na vzdialený server
+put CiscoIOUKeygen.py
+Windows:
+	Drag&Drop CiscoIOUKeygen.py
+
+7) Teraz vytvoríme IOU/IOL licenciu, aby sme mohli spúšťať Cisco IOL zariadenia. POZOR, nie "~/.iourc" (ako hovorí oficiálna dokumentácia aj skript "CiscoIOLKeygen.py") ! - licenčný súbor pre Cisco IOL zariadenia musí byť v adresári "/opt/unetlab/addons/iol/bin" a musí mať názov "iourc".
+    su -
+    cd /opt/unetlab/addons/iol/bin
+    python CiscoKeygen.py > iourc
+
+Upravíme súbor iourc.
+Takto vyzerá pôvodný súbor "iourc":
+
+*********************************************************************
+Cisco IOU License Generator - Kal 2011, python port of 2006 C version
+hostid=007f0101, hostname=unetlab-server, ioukey=7f06b0
+
+Add the following text to ~/.iourc:
+[license]
+unetlab-server = a21569e17941c747;
+
+You can disable the phone home feature with something like:
+ echo '127.0.0.127 xml.cisco.com' >> /etc/hosts
+
+
+
+Súbor "iourc" musíme upraviť tak, že bude obsahovať iba dva riadky: značku "[license]" a samotné licenčné číslo tj. potrebujeme 
+vymazať prvých 5 a posledné 4 riadky.
+
+    vim.tiny iourc
+    :i
+    #vymazať spomenuté riadky
+
+# Výsledný obsah súboru "iourc"
+[license]
+unetlab-server = a21569e17941c747
+
+# Uložíme a zatvoríme súbor:
+    :wq
+
+^Opravíme oprávnenia
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions 
+
+
+Pokiaľ licenciu nevytvoríme, Cisco IOL zariadenia sa nebudú dať spustiť!
+
+8) UNetLab server je teraz pripravený na použtie z webového rozhrania. Otvoríme internetový prehľadávač a zadáme doň adresu UNetLab serveru (napr. 192.168.1.137 - IPčku zistíme príkazom “ip a” na interface-i “pnet0”)
+
+Prihlásime sa ako
+	admin
+s heslom
+	unl
+
+Po prihlásení sa do webového rozhrania môžeme spravovať topológie a zariadenia.
+Poznámka: Jeden používateľ môže byť súčasne prihlásený z jedného počítača.
+
+Z bezpečnostných dôvodov okamžite zmeníme aj heslo administrátorského účtu. Heslá sú na UNetLab serveri uložené v SQLite databázi. (http://www.unetlab.com/2015/06/default-username-for-unetlab/). Viac informácií o administrácií používateľov v rámci webového rozhrania UNetLab nájdeme v súbore "Administrácia webových používateľov v UNetLab-e".
+
+
+9) Novú topológiu vytvoríme kliknutím na: Actions → Add a new lab
+10) Vyplníme potrebné údaje a potvrdíme tlačidlom “Save”.
+11) Dvojklikom zvolíme vytvorený súbor → Open
+12) Teraz môžeme do vytvoreného projektu pridávať zariadenia.
+
+Sieťová konfigurácia
+Tu je ukážka súboru “/etc/network/interfaces”, ktorý používame na serveri.
+Vykonáme príkaz:
+	sudo vim.tiny /etc/network/interfaces
+
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+source /etc/network/interfaces.d/*
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+# This is an autoconfigured IPv6 interface
+auto eth0
+iface eth0 inet static
+	address 158.193.152.49
+	netmask 255.255.255.128
+	gateway 158.193.152.1
+	dns-nameservers 158.193.152.4
+
+iface eth0 inet6 auto
+
+
+
+Zatiaľ tam nesmie byť viac než jedno virtuálne rozhranie okrem "pnet0" !
+Po uložení súboru reštartujeme server / kontajner.
+
+Zdroje:
+https://www.youtube.com/watch?v=fk0E8FvSdlo
+http://askubuntu.com/questions/496520/vim-installation-in-ubuntu-14-04

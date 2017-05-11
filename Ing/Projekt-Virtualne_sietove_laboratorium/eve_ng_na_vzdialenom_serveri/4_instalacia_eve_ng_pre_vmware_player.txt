@@ -1,0 +1,50 @@
+-Zvolime moznost "Install EVE Bare".
+
+UNetLab je možné nainštalovať priamo na fyzický server bez nutnosti vnorenej virtualizácie. Takéto riešenie poskytuje vyšší výkon.
+Podporované OS
+Oficiálne je podporovaný výlučne Ubuntu 14.04 x64. Ale teoreticky by mohol server fungovať pod akoukoľvek linuxovou distribúciou založenou na Debiane / Ubuntu. To bude
+Ubuntu inštalácia
+Sitahneme si najnovšie ISO vo verzií 14.04 64bit Ubuntu pre servery.
+
+Zvolíme jazyk (angličtina je preferovaná).
+
+Potvrdíme voľbu “Install Ubuntu Server”.
+
+Znova zvolíme jazyk (angličtina je preferovaná).
+
+Zvolíme krajinu (Slovensko).
+
+Rozloženie klávesnice (SK / EN podľa preferencie).
+
+Preskočíme automatickú detekciu rozloženia podľa klávesnice.
+
+Zvolíme krajinu (SK)
+
+Zvolíme rozloženie klávesnice.
+
+Nastavíme hostname.
+
+Celé meno používateľa.
+
+Názov používateľského účtu.
+
+Zopakujeme heslo.
+
+Zvolíme “No” - nezabezpečíme “home” adresár používateľa.
+
+Z vlastnej skúsenosti odporúčame zvoliť “Guided – use entire disk” - vyhradíme celý disk pre Ubuntu.
+
+Nastavíme proxy (ak nemáme žiaden, necháme prázdne).
+
+Oficiálna dokumentácia odporúča nechať aktualizácie inštalovať automaticky. Ale radšej by som zvolil “No automatic updates”, aby sme predišli nepredvídaným následkom.
+
+Pridáme balíček “OpenSSH server”.
+
+Nainštalujeme GRUB na disk.
+
+“Continue”.
+
+Nasledne sa server restartuje.
+
+
+Po restarte sa prihlasime s predvolenymi prihlasovacimi udajmi "root/eve". Po prvom prihlasenie treba vykonat prvotnu konfiguraciu, ktora je opisana v subore "5_prvotna_konfiguracia_EVE_ng".

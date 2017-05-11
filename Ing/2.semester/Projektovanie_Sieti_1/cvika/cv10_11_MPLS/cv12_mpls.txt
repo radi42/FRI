@@ -1,0 +1,28 @@
+Hub & Spoke MPLS
+-spokovia medzi sebou nekomunikuju
+-na strane CE routrov sa nic nemeni
+-na PE routroch potrebujeme pre kazdeho zakaznika jednu vrf
+-pre H&S potrebujeme menit rd a route target, pricom sa rozdeluje
+-interface moze byt iba v jednej vrf. pre kazdeho zakaznika treba mat z hubu jednu linku. jednu fyzicku linku rozdelime na subinterfejsy cez dot1q a kazdemu zakaznikovi pridelime jeden subinterface
+
+oprava obrazka UP interface je DOWN a opacne
+UP = zo spokov na centralu (hub)	- 1.15 - route target import 110:1001
+DOWN = z centraly na spokov		- 1.51 - route target export 110:1000
+
+na pe routroch zadat - route target import 110:1000 - pe routre budu 
+
+na pe (pri hube) treba urobit as-override
+centrala robi default route a posiela ho na pe routre (zakaznicke)
+
+na pe (pri hube) na spokov spravit rd
+
+
+!z R3
+show ip vrf
+ping 192.168.38.3 vrf Z1_SPOKE
+show ip bgp vpnv4 all summary
+
+!z R8
+ping 10.255.255.5 source lo0
+
+!
