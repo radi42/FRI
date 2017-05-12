@@ -78,22 +78,24 @@ reboot
 
 10. Get the eve key from repositary:
 
-wget -O - http://www.eve-ng.net/repo/eczema@ecze.com.gpg.key | sudo apt-key add -
+  wget -O - http://www.eve-ng.net/repo/eczema@ecze.com.gpg.key | sudo apt-key add -
 
 11. Update server:
 
-apt-get update
-apt-get install software-properties-common python3-software-properties python-software-properties
-sudo add-apt-repository "deb [arch=amd64]  http://www.eve-ng.net/repo xenial main"
-apt-get update
+  apt-get update
+  apt-get install software-properties-common python3-software-properties python-software-properties
+  sudo add-apt-repository "deb [arch=amd64]  http://www.eve-ng.net/repo xenial main"
+  apt-get update
 
 ("add-apt-repository" command not found => https://askubuntu.com/questions/493460/how-to-install-add-apt-repository-using-the-terminal)
 
 12. Install the EVE:
 
-DEBIAN_FRONTEND=noninteractive apt-get -y install eve-ng
+  DEBIAN_FRONTEND=noninteractive apt-get -y install eve-ng
 
-13. reboot
+13. Restartujeme server
+
+  reboot
 
 14. Login first time to the EVE and setup IP setting following by wizard:
 
@@ -101,18 +103,8 @@ http://www.eve-ng.net/index.php/documentation/howto-s/65-howto-configure-eve-dur
 
 15. Update and upgrade the EVE:
 
-apt-get update
-apt-get upgrade
-
-
-
-
-Sources:
-  http://www.eve-ng.net/index.php/documentation/installation/bare-install
-
-
-
-
+  apt-get update
+  apt-get upgrade
 
 
 
@@ -220,7 +212,7 @@ Pokiaľ licenciu nevytvoríme, Cisco IOL zariadenia sa nebudú dať spustiť!
 Prihlásime sa ako
 	admin
 s heslom
-	unl
+	eve
 
 Po prihlásení sa do webového rozhrania môžeme spravovať topológie a zariadenia.
 Poznámka: Jeden používateľ môže byť súčasne prihlásený z jedného počítača.
@@ -263,6 +255,11 @@ iface eth0 inet6 auto
 Zatiaľ tam nesmie byť viac než jedno virtuálne rozhranie okrem "pnet0" !
 Po uložení súboru reštartujeme server / kontajner.
 
-Zdroje:
-https://www.youtube.com/watch?v=fk0E8FvSdlo
-http://askubuntu.com/questions/496520/vim-installation-in-ubuntu-14-04
+
+Sources:
+  http://www.eve-ng.net/index.php/documentation/installation/bare-install
+  https://www.youtube.com/watch?v=fk0E8FvSdlo
+  http://askubuntu.com/questions/496520/vim-installation-in-ubuntu-14-04
+  http://www.eve-ng.net/index.php/faq
+
+Takisto mozeme prvotnu konfiguraciu doplnit z "https://bsnetworking.blog/2017/01/16/eve-ng-initial-configs/"

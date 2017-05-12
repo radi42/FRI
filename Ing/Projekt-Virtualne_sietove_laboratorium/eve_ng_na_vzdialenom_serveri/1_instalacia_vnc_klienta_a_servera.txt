@@ -20,15 +20,15 @@ SERVER
 
   tightvncserver
 
-Zobrazi sa cislo obrazovky, ktore si vnc server vybral.
 
-2) Zadame heslo, ktorym sa bude vnc klient pripajat na vnc server. Po zadani hesla sa spusti proces a vytvori sa adresar ".vnc".
+
+2) Pokial spustame vnc server uplne po prvy krat t.j. este neexistuje adresar "~/.vnc", vyzve na na zadanie hesla, ktorym sa bude vnc klient pripajat na vnc server. Po zadani hesla sa spusti proces a vytvori sa adresar ".vnc".
 
 3) otvorime nizsie uvedeny subor
 
   vim ~/.vnc/xstartup
 
-4) Upravime ho nasledovne (pridal som iba na zaciatok suboru "startxfce4", aby sa rozbehlo desktopove prostredie pri pripojeni vnc klienta):
+4) Upravime ho nasledovne (pridal som iba na zaciatok suboru "startxfce4", aby sa rozbehlo desktopove prostredie xfce4 pri pripojeni vnc klienta):
 
 
 #!/bin/sh
@@ -61,10 +61,10 @@ POUZIVANIE
 -------------------------------------
 SERVER
   # vytvorime virtualny buffer, do ktoreho sa bude 60 krat za sekundu ukladat obraz virtualnej obrazovky
-  Xvfb :0 -screen 0 1024x768x16 -ac &
+  Xvfb :3 -screen 0 1024x768x16 -ac &
   
   # spustime virtualnu obrazovku
-  DISPLAY=:0 exec startxfce4 &
+  DISPLAY=:3 exec startxfce4 &
 
   # spustenie VNC servera
   tightvncserver

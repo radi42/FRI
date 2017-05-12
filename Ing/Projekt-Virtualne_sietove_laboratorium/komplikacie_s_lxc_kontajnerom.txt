@@ -1,0 +1,15 @@
+ked sa vmware player otvori, zavrieme ho a restartujeme pc resp. vypneme lxc kontajner (shutdown now) a potom ho znova spustime z lxc konzoly (treba povedat Marekovi).
+
+Lenze po vypnuti lxc kontajnera "eve-test" sa don nedalo pripojit cez ssh. konektivita sa obnovila, ked sme attachli "eve-test" (konektivita s ssh stale nebola) a potom sme spravili "ping 8.8.8.8" a v tom momente sa objavil ssh prompt na prihlasovacie udaje. lxc kontajner som celu dobu spamoval prikazom "ssh andrej@158.193.152.45" a bol som pripojenzy na wifi siet "eduroam".
+
+do odysea sa ssh pakety dostanu, odyseus ich dalej forwarduje na br0 (bridge pre lxc), ale do lxc kontajnera sa nedostanu.
+
+prikazom "tcpdump -e -i eth0 tcp port 22 and host 158.193.152.45 and ether host <falosna MAC adresa>" sme zistili, ze pakety sa forwarduju na zlu cielovu MAC adresu, preto sa do "eve-test" kontajnera nedostanu.
+
+ARP tabulka "arp -a" v odyseovi mala zle namapovanu MAC adresu na IP adresu mojho kontajnera. MAC adresa ARP zaznamu v Odyseovej ARP tabulke bola odlisna od MAC adresy vnutri kontajnera. Ale akonahle sme urobili "ping 8.8.8.8" ARP tabulka sa upravila do spravnej podoby a dostal som ssh prompt.
+
+Zrejme sa tam zle arp zaznamy dostavaju z gatewayu, ale tam nemame pristup. Ale na vsetky ostatne IPcky kontajnerov sa ARPckom opyta, ale nie na IPcku mojho kontajnera.
+
+Mozne riesenie je nastavit MAC adresu kontajnera na fixnu, aby sme predisli zbytocnym zasahom do arp tabulky.
+
+TENTO PROBLEM JE UZ VYRIESENY! Credits to: Jakub, veduci

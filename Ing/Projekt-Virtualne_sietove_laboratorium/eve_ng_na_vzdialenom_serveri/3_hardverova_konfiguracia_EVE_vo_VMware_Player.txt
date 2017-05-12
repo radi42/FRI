@@ -1,6 +1,7 @@
 Inštalácia EVE-ng pre VMware Player
 
 Zvolime moznost "I will install the operating system later"
+Na dalsej obrazovke zvolime ako typ OS "Ubuntu 64"
 
 Hardverova konfiguracia masiny vo VMware:
 Memory:
@@ -15,7 +16,7 @@ Processor:
 
 Network adapter: 
   Bridged
-  zaškrtneme "Replicate physical network connectrion state"
+  zaškrtneme "Replicate physical network connection state"
 
 CD/DVD (SATA):
   Connected

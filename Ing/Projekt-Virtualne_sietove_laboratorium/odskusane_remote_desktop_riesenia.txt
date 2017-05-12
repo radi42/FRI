@@ -1,0 +1,4 @@
+xvfb - najprv vytvorit virtualny displej a potom spustit vnc server -> USPECH! :D
+xdummy - google "headless xorg vnc access"
+xrdp - vid youtube "xrdp server ubuntu"
+x2go - neda sa nainstalovat, lebo stretch v aprili 2017 este stale nebol oficialne vydany, pretoze debian vyvojari cakali na jadro 4.10, ktore este nevyslo

@@ -1,71 +1,20 @@
-Instalacia VMWare Workstation Player 12.5.5 (cez vnc na odysea)
+Instalacia VMWare Workstation Player 12.5.5 (cez vnc do odysea aj do kontajnera)
 
+VMware instalujeme do hostovskeho operacneho systemu na to, aby VMware nainstaloval moduly do kernelu, lebo z kontajnera sa to neda, pretoze jadro je zdielane a neda sa modifikovat zvnutra kontajnera. Potom nainstalujeme VMware aj do kontajnera. Avsak pouzivame a vzdialene spravujeme iba VMware vnutri kontajnera, nie v hostovskom systeme. Kontajnerovy VMware potom spravujeme bud pomocou VNC, alebo inym sposobom zdielania vzdialenej pracovnej plochy v headless serveri.
 
-nainstalovat dependency
+Zakladny postup:
+0) Uistime sa, ze mame nainstalovane linux-headers v rovnakej verzii ako aktualny kernel.
+1) Nainstalujeme VMware do hostovskeho operacneho systemu.
+2) Nainstalujeme VMware do kontajnera
+3) Spustime VMware v kontajneri
 
-stiahneme vmware player bundle
-  wget http://www.vmware.com/go/tryplayerpro-linux-64
+Podrobny postup:
+-aktualizujeme server
 
-nainstalujeme ako sudo resp. root
+  aptitude update
+  aptitude upgrade
 
-urobime skript na ploche na spustanie vmware player, lebo cez application menu -> system -> vmware player dava chybu pri spusteni:
-
-#!/bin/bash
-exec /usr/lib/vmware/lib/vmplayer
-
-vmware player spustime dvojklikom na skript (plati pre xfce4)
-
-ked sa vmware player otvori, zavrieme ho a restartujeme pc resp. vypneme lxc kontajner (shutdown now) a potom ho znova spustime z lxc konzoly (treba povedat Marekovi)
-
-
-=============================================================================
-=============================================================================
-
-
-lenze po vypnuti lxc kontajnera "eve-test" sa don nedalo pripojit cez ssh. konektivita sa obnovila, ked sme attachli "eve-test" (konektivita s ssh stale nebola) a potom sme spravili "ping 8.8.8.8" a v tom momente sa objavil ssh prompt na prihlasovacie udaje. lxc kontajner som celu dobu spamoval prikazom "ssh andrej@158.193.152.45" a bol som pripojenzy na wifi siet "eduroam".
-
-do odysea sa ssh pakety dostanu, odyseus ich dalej forwarduje na br0 (bridge pre lxc), ale do lxc kontajnera sa nedostanu.
-
-prikazom "tcpdump -e -i eth0 tcp port 22 and host 158.193.152.45 and ether host <falosna MAC adresa>" sme zistili, ze pakety sa forwarduju na zlu cielovu MAC adresu, preto sa do "eve-test" kontajnera nedostanu.
-
-ARP tabulka "arp -a" v odyseovi mala zle namapovanu MAC adresu na IP adresu mojho kontajnera. MAC adresa ARP zaznamu v Odyseovej ARP tabulke bola odlisna od MAC adresy vnutri kontajnera. Ale akonahle sme urobili "ping 8.8.8.8" ARP tabulka sa upravila do spravnej podoby a dostal som ssh prompt.
-
-Zrejme sa tam zle arp zaznamy dostavaju z gatewayu, ale tam nemame pristup. Ale na vsetky ostatne IPcky kontajnerov sa ARPckom opyta, ale nie na IPcku mojho kontajnera.
-
-Mozne riesenie je nastavit MAC adresu kontajnera na fixnu, aby sme predisli zbytocnym zasahom do arp tabulky.
-
-TENTO PROBLEM JE UZ VYRIESENY! Credits to: Jakub, veduci
-
-=============================================================================
-=============================================================================
-
-potom treba nainstalovat par dalsich veci
-  apt-get install gcc linux-headers-$(uname -r) build-essential
-
-export CC=/usr/bin/gcc-6
-echo $CC
-
-
-
-ERR-ERR !!! NEVIEM SPUSTIT ZIADNU VIRTUALNU MASINU VO VMWARE, LEBO MODUL "VMMON" NEBOL ZAVEDENY DO KERNELU! (nemam opravnenia)
-
-tak som urobil screenshoty prikazu "ls -al vm*" z mojho notebooku a ucitelskeho pocitaca, porovnal som vystupy. LXC kontajner nemal ziadne subory v /dev adresari prisluchajuce LXC kontajneru. Tak som po rade od Peta Hadaca pouzil prikaz "mknod", ktorym som /dev adresar naplnil. ale ked som spustil vmware player cez moj skript a potom som spustil masinu, zase mi zobrazil chybovu hlasku, ze nevie najst vmmon modul, ze nie je nacitany a spustenie virtualky zlyha. Ked ale spustim vmware player cez Applications menu, tak mi zobrazi dialogove okno, v ktorom odomna ziada cestu ku linux kernel headers (zdrojaky ku kernelu). Lenze kernel headers k debianu 9 este neexistuju resp. balicek este nie je dostupny.  Ked som ich chcel nainstalovat prikazom "apt-get install linux-headers-$(uname -r)", tak vypisal chybu, ze taky balicek neexistuje. Ani instalacia jedninych dostupnych headerov "linux-headers-4.9.0-2-amd64" nepomohla, lebo kernel, ktory momentalne (20.4.2017) bezi v systeme je vo verzii 4.9.0.-1 a VMware si s nim nerozumie! Tym vznikla nezhoda medzi verziou aktualneho kernelu a verziou zdrojovych suborov ku kernelu v apt.
-
-Navyse je oficialne vydanie Debian Stretch pozdrzane, lebo chcu do neho integrovat kernel 4.10, vid
-  http://news.softpedia.com/news/debian-9-stretch-freeze-delayed-to-integrated-linux-kernel-4-10-501330.shtml
-
-
-Uz teraz je obtiazne rozbehnut virtualku vo vmwarei pod kernelom 4.9, ale je to mozne obist, vid
-  http://rglinuxtech.com/?p=1847#comment-25733
-
-Mozno to pojde aj pre kernel 4.10, neviem. VMware funguje pod kernelom 4.8 v poriadku.
-Ale mozno to nebude fungovat vobec, lebo lxc kontainer nemoze instalovat moduly do kernelu, ktore potrebuje vmware, vid
-  https://askubuntu.com/questions/314817/how-do-i-install-a-kernel-module-in-an-lxc-guest-machine
-
-Jediny sposob, ako do lxc kontajnera nacitat modul je, ze ho nacitame do hostovskeho systemu.
-
-------------------------------------------------------
-Pokracujeme instalaciou na odysea.
+Pokial bude medzi aktualizovanymi balickami aj novsi kernel, potom musime po nainstalovani aktualizacii restartovat cely server.
 
 -Nainstalujeme potrebne balicky:
 (https://askubuntu.com/questions/40979/what-is-the-path-to-the-kernel-headers-so-i-can-install-vmware)
@@ -85,10 +34,20 @@ Pokracujeme instalaciou na odysea.
 
   vmplayer
 
-pretoze odkaz v "Application menu -> System -> VMware Player" nefunguje
+alebo vytvorime maly skript na pracovnu plochu, ktory bude spustat VMware Player
+
+    -urobime skript na ploche na spustanie vmware player, lebo cez application menu -> system -> vmware player dava chybu pri spusteni:
+
+#!/bin/bash
+exec /usr/lib/vmware/lib/vmplayer
+
+    -vmware player spustime dvojklikom na skript (plati pre xfce4)
+
+
+    -pretoze odkaz v "Application menu -> System -> VMware Player" nefunguje
 
 -Po prvom vykonani prikazu "vmplayer" nam vyskoci dialogove okno, ktore nas vyzve na instalaciu modulov do aktualneho kernelu. Pokial nam vyhodi okno na zadanie cesty ku "GCC", nainstalujeme balicek "build-essential" Potvrdime instalaciu kliknutim na tlacidlo "Install". Instalacia vmware modulov do kernelu trva nejaky cas, ktory zavisi od vypoctoveho vykonu servera.
 
--Po uspesnej instalacii modulov mozeme znova spustit VMware Player z terminalu prikazom "vmplayer". Malo by sa zobrazit uvodne okno. Teraz je VMware Player pripraveny na pouzivanie.
+-Po uspesnej instalacii modulov sa mozeme vratit do kontajnera a znova spustit VMware Player z terminalu prikazom "vmplayer". Malo by sa zobrazit uvodne okno. Teraz je VMware Player pripraveny na pouzivanie.
 
 Pre instalaciu nastroja EVE-ng pokracujeme navodom "3_hardverova_konfiguracia_EVE_vo_VMware_Player.txt".
