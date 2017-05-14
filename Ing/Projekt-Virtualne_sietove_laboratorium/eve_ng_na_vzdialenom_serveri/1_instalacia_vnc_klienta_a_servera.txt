@@ -61,10 +61,12 @@ POUZIVANIE
 -------------------------------------
 SERVER
   # vytvorime virtualny buffer, do ktoreho sa bude 60 krat za sekundu ukladat obraz virtualnej obrazovky
-  Xvfb :3 -screen 0 1024x768x16 -ac &
+  Xvfb :1 -screen 0 1024x768x16 -ac &
+  Xvfb -screen 1 1024x768x16 -ac &
   
   # spustime virtualnu obrazovku
-  DISPLAY=:3 exec startxfce4 &
+  DISPLAY=:1 exec startxfce4 &
+  DISPLAY=:1 startxfce4 &
 
   # spustenie VNC servera
   tightvncserver
@@ -78,6 +80,10 @@ SERVER
 
   # ked chceme vediet cislo displeja, na ktory Xvfb vykresluje
   ps -ef|grep Xvfb
+
+resp.
+
+  ps afx | grep Xvfb
 
 KLIENT
   # pripojenie klienta ku VNC serveru
