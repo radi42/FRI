@@ -107,12 +107,12 @@ Budeme konfigurovať IS-IS na topológií, ktorá je znázornená na obrázku \r
 
 \section{Úlohy}
 \subsection{Základná konfigurácia}
-\subsection{Nakonfigurovať IS-IS s dvoma oblasťami}
-\subsection{R2, R3, R4 broadcast spojenia prostredníctvom L2 prepínača zvyšok spojení P2P}
-\subsection{Router id – ISO NSAP formát odvodený z loopback0 rozhrania}
 \subsubsection{Popis}
 \paragraph{}
-Ako za základnú konfiguráciu považujeme nastavenie adresácie, vzdialeného prístupu a vypisovania konzoly. IP adresy sme vytvárali tak, že prvý oktet bola 10, druhý oktet bolo číslo oblasti, tretí oktet bolo číslo, ktoré vzniklo ako spojenie čísel dvojíc smerovačov, medzi ktorými sa sieť nachádzala; napr. sieť medzi smerovačmi 4 a 10 by bol tretí oktet 104, medzi smerovačmi R1 a R2 by to bolo 12 atď. a štvrtý oktet bolo zvolené číslo smerovača.
+Základná konfigurácia protokolu IS-IS spočívala z vytvorenia dvoch oblastí, nastavenia broadcast spojení pre R2, R3 a R4 a nastavenia zvyšku spojení ako P2P a vytvorenia NSAP identifikátorov. Podobne ako pri OSPF sme do základnej konfigurácie zahrnuli aj nastavenie adresácie, vzdialeného prístupu a úpravu vypisovania konzoly.
+
+\paragraph{}
+IP adresy sme vytvárali tak, že prvý oktet bola 10, druhý oktet bolo číslo oblasti, tretí oktet bolo číslo, ktoré vzniklo ako spojenie čísel dvojíc smerovačov, medzi ktorými sa sieť nachádzala; napr. sieť medzi smerovačmi 4 a 10 by bol tretí oktet 104, medzi smerovačmi R1 a R2 by to bolo 12 atď. a štvrtý oktet bolo zvolené číslo smerovača.
 
 \paragraph{}
 ISO NSAP Router ID bolo odvodené od loopback0 rozhrania. Postup vytvorenia Router ID pre smerovač R1 uvádzame nižšie.
