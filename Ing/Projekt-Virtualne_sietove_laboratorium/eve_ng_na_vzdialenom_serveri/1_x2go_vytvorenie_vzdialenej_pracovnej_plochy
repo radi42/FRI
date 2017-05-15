@@ -57,7 +57,7 @@ So lets install xfce desktop in the container.
 
   test:~$ sudo apt-get install xubuntu-desktop -y
 
-Poznamka: V Debiane by sa namiesto balicka "xubuntu-desktop" instaloval balicek "xfce4".
+Poznamka: V Debiane by sa namiesto balicka "xubuntu-desktop" instaloval balicek "xfce4" => "apt-get install xfce4", resp. "aptitude install xfce4"
 
 In order to install x2go PPA in the container I have to get “add-apt-repository” (its not by default)
 
@@ -75,7 +75,9 @@ Aktualizujeme databazu:
 
 Next, install the x2goserver to which I will connect from my Host by using the x2goclient I will install there later.
 
-  test:~$ sudo apt-get install x2goserver x2goserver-xsession -y
+  test:~$ sudo aptitude install x2goserver x2goserver-xsession -y
+
+Poznamka: ked som to na debian 9 stretch robil cez apt-get "sudo apt-get install x2goserver x2goserver-xsession -y", nevedelo mi vyriesit zavisle balicky (dependencies). ani pouzitie "aptitude" namiesto "apt-get" nevyriesilo zavislosti, hoci lepsie detegoval chybajuce balicky. Ale niektore jednoducho v stretchi nie su.
 
 x2goclient uses SSH to login to an x2goserver.
 
