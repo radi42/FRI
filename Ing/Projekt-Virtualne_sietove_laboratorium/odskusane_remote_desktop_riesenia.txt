@@ -1,5 +1,5 @@
-xvfb - najprv vytvorit virtualny displej a potom spustit vnc server. funkcne, ale nestabilne
-x2go - ako sa bude spravat v ubuntu 16.04 server?
+xvfb+thightvnc - najprv vytvorit virtualny displej a potom spustit vnc server. funkcne, ale nestabilne. Funguje na debiane (niekedy), na ubuntu som neskusal, lebo tam funguje x2go
+x2go - jednoducha instalacia servera aj klienta. funguje vynikajuco na ubuntu, ale na debian sa neda nainstalovat, kvoli zavislostiam. => Ako pojde x2go, ked ho skompilujem zo zdrojakov?
 
 xdummy - google "headless xorg vnc access"
 xrdp - vid youtube "xrdp server ubuntu"

@@ -47,12 +47,11 @@ export XKL_XMODMAP_DISABLE=1
   
   chmod +x ~/.vnc/xstartup
 
-6) nasledne restartujeme tightvncserver
+6) nasledne vypneme tightvncserver
 
   tightvncserver -kill :0
   tightvncserver -kill :1
   tightvncserver -kill :2
-  tightvncserver
 
 
 
@@ -61,11 +60,11 @@ POUZIVANIE
 -------------------------------------
 SERVER
   # vytvorime virtualny buffer, do ktoreho sa bude 60 krat za sekundu ukladat obraz virtualnej obrazovky
-  Xvfb :1 -screen 0 1024x768x16 -ac &
+  Xvfb :0 -screen 0 1024x768x16 -ac &
   Xvfb -screen 1 1024x768x16 -ac &
   
   # spustime virtualnu obrazovku
-  DISPLAY=:1 exec startxfce4 &
+  DISPLAY=:0 exec startxfce4 &
   DISPLAY=:1 startxfce4 &
 
   # spustenie VNC servera
