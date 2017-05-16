@@ -1,0 +1,4 @@
+9) Novú topológiu vytvoríme kliknutím na: Actions → Add a new lab
+10) Vyplníme potrebné údaje a potvrdíme tlačidlom “Save”.
+11) Dvojklikom zvolíme vytvorený súbor → Open
+12) Teraz môžeme do vytvoreného projektu pridávať zariadenia.

@@ -1,1 +1,0 @@
-libnx-x11-6 libnx-xcomposite1 libnx-xdamage1 libnx-xext6 libnx-xfixes3 libnx-xinerama1 libnx-xpm4 libnx-xrandr2 libnx-xrender1 libnx-xtst6 libxcomp3 libxcompext3 libxcompshad3 nxagent x2goagent x2goserver x2goserver-extensions x2goserver-xsession

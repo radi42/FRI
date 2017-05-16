@@ -1,6 +1,10 @@
 ====================================
 X2GO SERVER
 ====================================
+
+X2Go server bol v tomto pripade LXC kontajner s Debian 9 Stretch. Hostovsky system bol tiez Debian 9 Stretch. Je to kvoli tomu, aby som mohol nainstalovat potrebne balicky pre VMware, ktory budem neskor instalovat, a ktoremu sa blizsie venujem v subore "2_instalacia_vmware_player_debian".
+
+
 Education and the Cloud
 November 20, 2013
 Configure x2go remote desktop capability into LXC Containers
@@ -75,9 +79,24 @@ Aktualizujeme databazu:
 
 Next, install the x2goserver to which I will connect from my Host by using the x2goclient I will install there later.
 
-  test:~$ sudo aptitude install x2goserver x2goserver-xsession -y
+Poznamka: Ked som chcel nainstalovat X2Go server na Debian 9 Stretch, dostaval som takuto chybu:
 
-Poznamka: ked som to na debian 9 stretch robil cez apt-get "sudo apt-get install x2goserver x2goserver-xsession -y", nevedelo mi vyriesit zavisle balicky (dependencies). ani pouzitie "aptitude" namiesto "apt-get" nevyriesilo zavislosti, hoci lepsie detegoval chybajuce balicky. Ale niektore jednoducho v stretchi nie su.
+==================================================
+The following packages have unmet dependencies:
+ libxcompext3 : Depends: libpng12-0 (>= 1.2.13-4) which is a virtual package and is not provided by any available package
+
+ libxcomp3 : Depends: libpng12-0 (>= 1.2.13-4) which is a virtual package and is not provided by any available package
+==================================================
+
+Riesenim je este pred instalaciou x2go servera stiahnut a nainstalovat balicek "libpng12-0", ktory je pricinou problemu s instalaciou x2go servera, pretoze zo vsetkych zavislych balickov, ktore x2go server vyzaduje, je tento uplne naspodu stromu zavislosti. Tento balicek nie je este pritomny v oficialnom repozitari Debian 9 Stretch, ani v repozitaroch X2Go a treba ho nainstalovat manualne. Pouzil som balicek "libpng12-0" z repozitara pre Debian 8 Jessie. Nizsie su uvedene kroky, ktore je potrebne vykonat pred instalaciou x2go servera na Debian 9 Stretch (nie su nutne pre Ubuntu 16.04).
+
+  cd ~/Downloads
+  wget http://ftp.de.debian.org/debian/pool/main/libp/libpng/libpng12-0_1.2.50-2+deb8u3_amd64.deb
+  sudo dpkg -i libpng12-0_1.2.50-2+deb8u3_amd64.deb
+  
+Nasledne mozeme nainstalovat x2go server:
+
+  test:~$ sudo aptitude install x2goserver x2goserver-xsession -y
 
 x2goclient uses SSH to login to an x2goserver.
 
@@ -109,7 +128,7 @@ At this point the x2goserver is all setup in the LXC container so you can access
 ====================================
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-V tomto momente je X2GO server funkcny
+V tomto momente je X2GO server funkcny a zvysne kroky netreba vykonavat.
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ====================================
@@ -164,14 +183,26 @@ Objavi sa okno. Vyplnime nasledovne polozky:
   Session name: <nazov_pripojenia>
   Host: <IP_adresa_hosta_s_x2go_serverom>
   Login: <username>
-  Session type: <nazov_pouzivatelskeho_prostredia> (v tomto pripade zvolime XFCE)>
+  Session type: <nazov_pouzivatelskeho_prostredia>
+
+Napriklad (pre eve-test):
+
+  Session name: eve-test
+  Host: 158.193.152.45
+  Login: andrej
+  Session type: XFCE
+
 
 Potvrdime volby tlacidlom "OK" a pripojime sa ku hostovi. Zobrazi sa nam prihlasovacia obrazovka s uz vyplnenym pouzivatelskym menom. Po zadani hesla sa objavi pracovna plocha XFCE4.
 
 
 Zdroj:
+  (Rychly univerzalny navod)
+  https://ubuntuforums.org/showthread.php?t=1893429
+
   (Server)
-  https://bmullan.wordpress.com/2013/11/20/configure-x2go-remote-desktop-capability-into-lxc-containers/
+  https://bmullan.wordpress.com/2013/11/20/configure-x2go-remote-desktop-capability-into-lxc-containers/	
+  https://packages.debian.org/jessie/libpng12-0
 
   (Klient)
   https://www.tecmint.com/setup-remote-desktop-using-x2go-server-and-client-in-debian/2/
@@ -179,5 +210,3 @@ Zdroj:
   (Ako pouzivat)
   https://www.youtube.com/results?search_query=x2go
   https://www.youtube.com/watch?v=IYsHa260zi4
-
-  https://ubuntuforums.org/showthread.php?t=1893429

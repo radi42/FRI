@@ -1,0 +1,25 @@
+Skopírujeme tieto adresáre:
+
+	/opt/unetlab/addons		# obrazy diskov
+	/opt/unetlab/labs		# projektové súbory (topológie)
+	/opt/unetlab/html/templates	# šablóny pre jednotlivé typy zariadení
+
+z adresára addons musíme vylúčiť podadresár "/opt/unetlab/addons/iol/lib", aby nedošlo ku konfliktu súborov!
+
+príkazom
+	scp -r <zdrojovy_adresar> andrej@158.193.152.42:<cielovy_adresar>
+resp.
+	put -r <zdrojovy_adresar>/* <cielovy_adresar>	# ta hviezdička na konci zdrojového adresára je veľmi dôležitá ;)
+
+	scp -r /opt/unetlab/addons andrej@158.193.152.42:/home/andrej
+	scp -r /opt/unetlab/labs andrej@158.193.152.42:/home/andrej
+	scp -r /opt/unetlab/html/templates andrej@158.193.152.42:/home/andrej
+
+A nakoniec treba vygenerovať novú Cisco IOU/IOL licenciu tak, ako je popísané v súbore "6_vytvorenie_cisco_iou_iol_licencie".
+
+Pokiaľ licenciu nevytvoríme na novom stroji znovu, nepôjdu Cisco IOL zariadenia!
+
+IOL boxy kopirujeme opatrne po jednom, aby sme neprepisali jednak IOL licenciu, alebo "lib" adresar.
+
+Zdroje:
+http://superuser.com/questions/387477/sftp-upload-all-files-directories-and-sub-directories-contained-in-a-folder#387543

@@ -1,9 +1,11 @@
 Instalacia VMWare Workstation Player 12.5.5 (cez vnc do odysea aj do kontajnera)
 
+Hostovsky operacny system je Debian 9 Stretch. V nom bezi LXC kontajner, ktory ma tiez Debian 9 Stretch. Do hostovskeho systemu sme potrebovali nainstalovat balicky potrebne pre instalaciu VMware. Medzi potrebnymi balickami pre VMware je aj linux-headers. VMware striktne vyzaduje, aby bola verzia linux-headers zhodna s aktualne beziacim jadrom, preto je operacny system v kontajneri a hostovsky operacny system zhodny!
+
 VMware instalujeme do hostovskeho operacneho systemu na to, aby VMware nainstaloval moduly do kernelu, lebo z kontajnera sa to neda, pretoze jadro je zdielane a neda sa modifikovat zvnutra kontajnera. Potom nainstalujeme VMware aj do kontajnera. Avsak pouzivame a vzdialene spravujeme iba VMware vnutri kontajnera, nie v hostovskom systeme. Kontajnerovy VMware potom spravujeme bud pomocou VNC, alebo inym sposobom zdielania vzdialenej pracovnej plochy v headless serveri.
 
 Zakladny postup:
-0) Uistime sa, ze mame nainstalovane linux-headers v rovnakej verzii ako aktualny kernel.
+0) Uistime sa, ze mame nainstalovane linux-headers v rovnakej verzii ako aktualny kernel na hostovskom OS.
 1) Nainstalujeme VMware do hostovskeho operacneho systemu.
 2) Nainstalujeme VMware do kontajnera
 3) Spustime VMware v kontajneri
