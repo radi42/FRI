@@ -1,0 +1,9 @@
+Draft rosen
+
+r1 r5 treba vratit na jednu linku (zrusit trunky)
+route target import a export bude rovnaky
+mdt id pre zakaznika 239.10.10.10 - GREEN
+v sieti zakaznika rozbehnut PIM sparse mode
+RP bude R1, v sieti zakaznika to bude r5
+konfigurujeme zakaznicke routre r8-r10
+staticky join na r10 a pingat nanho
