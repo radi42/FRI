@@ -106,260 +106,27 @@ Budeme konfigurovať distribúciu multicastovej prevádzky so smerovacím protok
 
 
 \section{Úlohy}
-\subsection{Použiť IS–IS (L2 only) single area dizajn, priame p2p prepojenia medzi R2, R3, R4}
-\subsection{Nakonfigurovať PIM–SM s jedným statickým RP}
-\subsection{Nakonfigurovať Source a Receiver1 a 2 podľa zadania}
+\subsection{Konfigurácia PIM Dense Mode}
 \subsubsection{Popis}
-Dohodli sme sa, že budeme používať iba smerovací protokol IS-IS.
+Úlohou bolo najprv sa oboznámiť s konfiguráciou PIM Dense Mode. Dohodli sme sa, že budeme používať iba smerovací protokol IS-IS.
 Subrozhranie “.13” a VLAN 13 sme premenovali na “.23” a VLAN 23, lebo sieť je medzi smerovačmi R2 a R3 (23), a nie medzi R1 a R3 (13).
+
+\paragraph{}
+V rámci tohto zadania sme použili IS–IS (L2 only) s jednou oblasťou a priame point-to-point prepojenia medzi R2, R3, R4. Takisto sme použili R5 ako zdroj multicastovej prevádzky. R6 a R8 sme nakonfigurovali ako multicast klientov.
+
+\paragraph{}
+IP adresa multicastovej skupiny bola \say{239.0.0.1}. Klientov pridávame do multicastovej skupiny skupiny príkazom \say{igmp join-group 239.0.0.1}
 
 
 \subsubsection{Konfigurácia}
+\paragraph{}
+Nižšie je uvedená konfigurácia pre klientský smerovač R6.
 
 \noindent
 {\fontfamily{qcr}\selectfont
 \begin{small}
 \begin{alltt}
-====================================================
-DENSE MODE
-====================================================
-R1
-ena
-conf t
-hostname R1
-no ip domain-lookup
-username admin privil 15 secret admin
-line con 0
-  login local
-  logging syn
-  exec-time 120
-line vty 0 15
-  privilege level 15
-  no login
-int f0/0
-  ip addr 10.1.12.1 255.255.255.0
-  ip router isis
-  isis network point-to-point
-  no shut
-int lo0
-  ip addr 10.255.255.1 255.255.255.255
-  ip router isis
-  no shut
-int f0/1
-  ip addr 10.100.15.1 255.255.255.0
-  no shut
-router isis
-  net 49.0001.0102.5525.5001.00
-  passive-interface lo0
-  is-type level-2
-  metric-style wide
-  redistribute static
-  redistribute connected
-  exit
-ip route 10.255.255.5 255.255.255.255 f0/1 10.100.15.5
-
-!aktivujeme multicast smerovanie
-ip multicast-routing
-int range f0/0 - 1
-  ip pim dense-mode
-int lo0
-  ip pim dense-mode
-  exit
-
-R2
-ena
-conf t
-hostname R2
-no ip domain-lookup
-username admin privil 15 secret admin
-line con 0
-  login local
-  logging syn
-  exec-time 120
-line vty 0 15
-  privilege level 15
-  no login
-int f0/0
-  ip addr 10.1.12.2 255.255.255.0
-  ip router isis
-  isis network point-to-point
-  no shut
-int lo0
-  ip addr 10.255.255.2 255.255.255.255
-  ip router isis
-  no shut
-int f0/1
-  no ip add
-  isis network point-to-point
-  no sh
-int f0/1.23
-  encap dot1q 23
-  ip addr 10.1.23.2 255.255.255.0
-  ip router isis
-int f0/1.24
-  encap dot1q 24
-  ip addr 10.1.24.2 255.255.255.0
-  ip router isis
-router isis
-  net 49.0001.0102.5525.5002.00
-  passive-interface lo0
-  is-type level-2
-  metric-style wide
-  exit
-
-!aktivujeme multicast smerovanie
-ip multicast-routing
-int f0/0
-  ip pim dense-mode
-int f0/1.23
-  ip pim dense-mode
-int f0/1.24
-  ip pim dense-mode
-int lo0
-  ip pim dense-mode
-  exit
-
-
-
-R3
-ena
-conf t
-hostname R3
-no ip domain-lookup
-username admin privil 15 secret admin
-line con 0
-  login local
-  logging syn
-  exec-time 120
-line vty 0 15
-  privilege level 15
-  no login
-int f0/0
-  ip addr 10.1.38.3 255.255.255.0
-  ip router isis
-  isis network point-to-point
-  no shut
-int lo0
-  ip addr 10.255.255.3 255.255.255.255
-  ip router isis
-  no shut
-int f0/1
-  no ip addr
-  isis network point-to-point
-  no shut
-int f0/1.23
-  encap dot1q 23
-  ip addr 10.1.23.3 255.255.255.0
-  ip router isis
-int f0/1.34
-  encap dot1q 34
-  ip addr 10.1.34.3 255.255.255.0
-  ip router isis
-router isis
-  net 49.0001.0102.5525.5003.00
-  passive-interface lo0
-  is-type level-2
-  metric-style wide
-  exit
-
-!aktivujeme multicast smerovanie
-ip multicast-routing
-int f0/0
-  ip pim dense-mode
-int f0/1.23
-  ip pim dense-mode
-int f0/1.34
-  ip pim dense-mode
-int lo0
-  ip pim dense-mode
-  exit
-
-
-R4
-ena
-conf t
-hostname R4
-no ip domain-lookup
-username admin privil 15 secret admin
-line con 0
-  login local
-  logging syn
-  exec-time 120
-line vty 0 15
-  privilege level 15
-  no login
-int f0/0
-  ip addr 10.1.49.4 255.255.255.0
-  ip router isis
-  isis network point-to-point
-  no shut
-int lo0
-  ip addr 10.255.255.4 255.255.255.255
-  ip router isis
-  no shut
-int f0/1
-  no ip addr
-  isis network point-to-point
-  no sh
-int f0/1.24
-  encap dot1q 24
-  ip addr 10.1.24.4 255.255.255.0
-  ip router isis
-int f0/1.34
-  encap dot1q 34
-  ip addr 10.1.34.4 255.255.255.0
-  ip router isis
-int s1/0
-  ip addr 10.1.104.4 255.255.255.0
-  ip router isis
-  no shut
-router isis
-  net 49.0001.0102.5525.5004.00
-  passive-interface lo0
-  is-type level-2
-  metric-style wide
-  exit
-
-!aktivujeme multicast smerovanie
-ip multicast-routing
-int f0/0
-  ip pim dense-mode
-int f0/1.24
-  ip pim dense-mode
-int f0/1.34
-  ip pim dense-mode
-int s1/0
-  ip pim dense-mode
-int lo0
-  ip pim dense-mode
-  exit
-
-
-R5
-ena
-conf t
-hostname R5
-no ip domain-lookup
-username admin privil 15 secret admin
-line con 0
-  login local
-  logging syn
-  exec-time 120
-line vty 0 15
-  privilege level 15
-  no login
-int lo0
-  ip addr 10.255.255.5 255.255.255.255
-  no shut
-int f0/1
-  ip addr 10.100.15.5 255.255.255.0
-  no shut
-ip route 0.0.0.0 0.0.0.0 f0/1 10.100.15.1
-
-
-
-
-R6
+!R6
 ena
 conf t
 hostname R6
@@ -403,196 +170,6 @@ int lo0
 int lo1
   ip pim dense-mode
   exit
-
-
-R7
-ena
-conf t
-hostname R7
-no ip domain-lookup
-username admin privil 15 secret admin
-line con 0
-  login local
-  logging syn
-  exec-time 120
-line vty 0 15
-  privilege level 15
-  no login
-int f0/1
-  ip addr 10.2.67.7 255.255.255.0
-  ip router isis
-  isis network point-to-point
-  no shut
-int lo0
-  ip addr 10.255.255.7 255.255.255.255
-  ip router isis
-  no shut
-int f0/0
-  ip addr 10.2.107.7 255.255.255.0
-  Ip router isis
-  isis network point-to-point
-  no shut
-router isis
-  net 49.0002.0102.5525.5007.00
-  passive-interface lo0
-  is-type level-2
-  metric-style wide
-  exit
-
-!aktivujeme multicast smerovanie
-ip multicast-routing
-int range f0/0 - 1
-  ip pim dense-mode
-  exit
-int lo0 
-  ip pim dense-mode
-  exit
-
-
-
-
-R8
-ena
-conf t
-hostname R8
-no ip domain-lookup
-username admin privil 15 secret admin
-line con 0
-  login local
-  logging syn
-  exec-time 120
-line vty 0 15
-  privilege level 15
-  no login
-int f0/0
-  ip addr 10.1.38.8 255.255.255.0
-  ip router isis
-  isis network point-to-point
-  no shut
-int lo0
-  ip addr 10.255.255.8 255.255.255.255
-  ip router isis
-  no shut
-int lo1
-  ip add 10.255.255.88 255.255.255.255
-  ip router isis
-  ip igmp join-group 239.0.0.1
-int f0/1
-  ip addr 10.1.89.8 255.255.255.0
-  Ip router isis
-  isis network point-to-point
-  no shut
-router isis
-  net 49.0001.0102.5525.5008.00
-  passive-interface lo0
-  is-type level-2
-  metric-style wide
-  exit
-
-!aktivujeme multicast smerovanie
-ip multicast-routing
-int range f0/0 - 1 
-  ip pim dense-mode
-  exit
-int lo0
-  ip pim dense-mode
-  exit
-int lo1
-  ip pim dense-mode
-  exit
-
-
-
-
-
-R9
-ena
-conf t
-hostname R9
-no ip domain-lookup
-username admin privil 15 secret admin
-line con 0
-  login local
-  logging syn
-  exec-time 120
-line vty 0 15
-  privilege level 15
-  no login
-int f0/0
-  ip addr 10.1.49.9 255.255.255.0
-  ip router isis
-  isis network point-to-point
-  no shut
-int lo0
-  ip addr 10.255.255.9 255.255.255.255
-  ip router isis
-  no shut
-int f0/1
-  ip addr 10.1.89.9 255.255.255.0
-  ip router isis
-  isis network point-to-point
-  no shut
-router isis
-  net 49.0001.0102.5525.5009.00
-  passive-interface lo0
-  is-type level-2
-  metric-style wide
-  exit
-
-!aktivujeme multicast smerovanie
-ip multicast-routing
-int range f0/0 - 1
-  ip pim dense-mode
-  exit
-int lo0
-  ip pim dense-mode
-
-
-R10
-ena
-conf t
-hostname R10
-no ip domain-lookup
-username admin privil 15 secret admin
-line con 0
-  login local
-  logging syn
-  exec-time 120
-line vty 0 15
-  privilege level 15
-  no login
-int s1/0
-  ip addr 10.1.104.10 255.255.255.0
-  ip router isis
-  no shut
-int lo0
-  ip addr 10.255.255.10 255.255.255.255
-  ip router isis
-  no shut
-int f0/0
-  ip addr 10.2.107.10 255.255.255.0
-  ip router isis
-  isis network point-to-point
-  no shut
-router isis
-  net 49.0002.0102.5525.5010.00
-  passive-interface lo0
-  is-type level-2
-  metric-style wide
-  exit
-
-!aktivujeme multicast smerovanie
-ip multicast-routing
-int f0/0
-  ip pim dense-mode
-  exit
-int s1/0
-  ip pim dense-mode
-  exit
-int lo0
-  ip pim dense-mode
-  exit
-
 \end{alltt}
 \end{small}
 }
@@ -629,22 +206,33 @@ Address          Interface         Ver/   Nbr    Query  DR     DR
 }
 
 \paragraph{}
-Po vykonaní ping-u na IP adresu multicastovej skupiny nám prišli odpovede z oboch klientských smerovačov: R6 a R8. Výpis príkazu \say{show ip pim interface} zo smerovača R8 dokazuje, že všetky rozhrania sú nastavené v \say{DENSE} móde (v stĺpci \say{Ver/Mode} vidíme \textbf{D}, čo indikuje aktívny \say{DENSE} mód).
+Po vykonaní ping-u na IP adresu multicastovej skupiny nám prišli odpovede z oboch klientských smerovačov: R6 a R8. Výpis príkazu \say{show ip pim interface} zo smerovača R8 dokazuje, že všetky rozhrania sú nastavené v \say{Dense} móde (v stĺpci \say{Ver/Mode} vidíme \textbf{D}, čo indikuje aktívny \say{Dense} mód).
 
-\subsection{Nakonfigurovať SPARSE mód}
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Konfigurácia PIM Sparse Mode}
 \subsubsection{Popis}
-Konfigurujeme \say{SPARSE} mód bez záložného RP. \say{SPARSE} mód, narozdiel od \say{DENSE} módu, nezahlcuje sieť správami na odpojenie od skupiny (tzv. \say{PRUNE} správy). Namiesto toho posiela multicastový tok iba tým, ktorí si o to požiadajú tzv. \say{JOIN} správou. Na preposielanie týchto správ sa používa zdieľaný strom, ktorého \say{koreňom} je Rendezvous (čítaj \textit{randevú}) Point (ďalej len RP smerovač). RP smerovač pozná všetky zdroje, z ktorých sa šíri  multicastový tok a následne ho preposiela multicastovým klientom.
+Konfigurujeme \say{Sparse} mód s jedným RP bez záložného RP. Úlohu RP plnil smerovač R3 \say{Sparse} mód, narozdiel od \say{Dense} módu, nezahlcuje sieť správami na odpojenie od skupiny (tzv. \say{PRUNE} správy). Namiesto toho posiela multicastový tok iba tým, ktorí si o to požiadajú tzv. \say{JOIN} správou. Na preposielanie týchto správ sa používa zdieľaný strom, ktorého \say{koreňom} je Rendezvous (čítaj \textit{randevú}) Point (ďalej len RP smerovač). RP smerovač pozná všetky zdroje, z ktorých sa šíri  multicastový tok a následne ho preposiela multicastovým klientom.
 
 \subsubsection{Konfigurácia}
+\paragraph{}
+Nižšie je uvedená konfigurácia R1.
 
 \noindent
 {\fontfamily{qcr}\selectfont
 \begin{small}
 \begin{alltt}
-====================================================
-SPARSE MODE
-====================================================
-R1
+!R1
 !aktivujeme multicast smerovanie
 ip multicast-routing
 int range f0/0 - 1
@@ -653,120 +241,6 @@ int lo0
   ip pim sparse-mode
   exit
 ip pim rp-addr 10.255.255.3
-
-R2
-!aktivujeme multicast smerovanie
-ip multicast-routing
-int f0/0
-  ip pim sparse-mode
-int f0/1.23
-  ip pim sparse-mode
-int f0/1.24
-  ip pim sparse-mode
-int lo0
-  ip pim sparse-mode
-  exit
-ip pim rp-addr 10.255.255.3
-
-
-R3
-!aktivujeme multicast smerovanie
-ip multicast-routing
-int f0/0
-  ip pim sparse-mode
-int f0/1.23
-  ip pim sparse-mode
-int f0/1.34
-  ip pim sparse-mode
-int lo0
-  ip pim sparse-mode
-  exit
-ip pim rp-addr 10.255.255.3
-
-
-R4
-!aktivujeme multicast smerovanie
-ip multicast-routing
-int f0/0
-  ip pim sparse-mode
-int f0/1.24
-  ip pim sparse-mode
-int f0/1.34
-  ip pim sparse-mode
-int s1/0
-  ip pim sparse-mode
-int lo0
-  ip pim sparse-mode
-  exit
-ip pim rp-addr 10.255.255.3
-R6
-!aktivujeme multicast smerovanie
-ip multicast-routing
-int range f0/1
-  ip pim sparse-mode
-  exit
-int lo0
-  ip pim sparse-mode
-  exit
-int lo1
-  ip pim sparse-mode
-  exit 
-ip pim rp-addr 10.255.255.3
-
-
-R7
-!aktivujeme multicast smerovanie
-ip multicast-routing
-int range f0/0 - 1
-  ip pim sparse-mode
-  exit
-int lo0 
-  ip pim sparse-mode
-  exit
-ip pim rp-addr 10.255.255.3
-
-
-R8
-!aktivujeme multicast smerovanie
-ip multicast-routing
-int range f0/0 - 1 
-  ip pim sparse-mode
-  exit
-int lo0
-  ip pim sparse-mode
-  exit
-int lo1
-  ip pim sparse-mode
- exit 
-ip pim rp-addr 10.255.255.3
-
-
-
-R9
-!aktivujeme multicast smerovanie
-ip multicast-routing
-int range f0/0 - 1
-  ip pim sparse-mode
-  exit
-int lo0
-  ip pim sparse-mode
-ip pim rp-addr 10.255.255.3
-
-
-R10
-!aktivujeme multicast smerovanie
-ip multicast-routing
-int f0/0
-  ip pim sparse-mode
-  exit
-int s1/0
-  ip pim sparse-mode
-  exit
-int lo0
-  ip pim sparse-mode
-  exit
-ip pim rp-addr 10.255.255.3
-
 \end{alltt}
 \end{small}
 }
@@ -802,29 +276,27 @@ Address          Interface            Ver/   Nbr    Query  DR     DR
 10.1.23.3        FastEthernet0/1.23   v2/S   1      30     1      10.1.23.3
 10.1.34.3        FastEthernet0/1.34   v2/S   1      30     1      10.1.34.4
 10.255.255.3     Loopback0            v2/S   0      30     1      10.255.255.3
-
-R1#sh ip pim rp    
-Group: 239.0.0.1, \textbf{RP: 10.255.255.3}, v2, uptime 00:06:22, expires never
-Group: 224.0.1.40, \textbf{RP: 10.255.255.3}, v2, uptime 00:07:07, expires never
-
-
-R1#sh ip igmp groups
-IGMP Connected Group Membership
-Group Address  Interface         Uptime    Expires   Last Reporter   Group
-                                                                     Accounted
-224.0.1.40     FastEthernet0/0   00:35:38  00:02:21  10.1.12.2
-
 \end{alltt}
 \end{small}
 }
 
-\paragraph{}
-Rovnako ako pri \say{DENSE} móde, pri ping-u na IP adresu multicastovej skupiny prichádzali odpovede od klientov 10.1.38.8 (R8) a 10.2.67.6 (R6). Výpis príkazu \say{show ip pim interface} hovorí, že rozhrania na smerovači R3 sú v \say{SPARSE} móde (viď písmeno \textbf{S} v stĺpci \say{Ver/Mode}, čo značí aktívny \say{SPARSE} mód). Z výpisu príkazu \say{show ip pim rp} vidíme IP adresu multicastovej skupiny pre klientov a IP adresu RP smerovača, čo je adresa loopback0 rozhrania pre R3.  Vo výpise príkazu \say{show ip igmp groups} vidíme, že smerovač R1 patrí do multicastovej skupiny 224.0.1.40, čo je AutoRP Discovery. AutoRP je Cisco implemenácia hľadania záložného RP smerovača pomocou RP-Mapper smerovača. Do tejto skupiny patria predvolene všetky Cisco smerovače.
 
-\subsection{Zabezpečiť RP redundanciu}
+\paragraph{}
+Rovnako ako pri \say{Dense} móde, pri ping-u na IP adresu multicastovej skupiny prichádzali odpovede od klientov 10.1.38.8 (R8) a 10.2.67.6 (R6). Výpis príkazu \say{show ip pim interface} hovorí, že rozhrania na smerovači R3 sú v \say{Sparse} móde (viď písmeno \textbf{S} v stĺpci \say{Ver/Mode}, čo značí aktívny \say{Sparse} mód).
+
+
+
+
+
+
+
+
+
+
+\subsection{Konfigurácia PIM Sparse−Dense Mode a zabezpečenie RP redundancie}
 \subsubsection{Popis}
 \paragraph{}
-V \say{SPARSE-DENSE} móde môžeme nastaviť záložný RP, ktorý bude vyberaný pomocou BSR. \say{SPARSE} mód je používaný na šírenie multicastového toku, \say{DENSE} mód na šírenie informácie o prítomnosti RP smerovača.
+V \say{Sparse-Dense} móde môžeme nastaviť záložný RP, ktorý bude vyberaný pomocou BSR. \say{Sparse} mód je používaný na šírenie multicastového toku, \say{Dense} mód na šírenie informácie o prítomnosti RP smerovača.
 
 \subsubsection{Konfigurácia}
 
@@ -832,10 +304,7 @@ V \say{SPARSE-DENSE} móde môžeme nastaviť záložný RP, ktorý bude vyberan
 {\fontfamily{qcr}\selectfont
 \begin{small}
 \begin{alltt}
-====================================================
-SPARSE-DENSE MODE
-====================================================
-R1
+!R1
 !aktivujeme multicast smerovanie
 ip multicast-routing
 int range f0/0 - 1
@@ -845,23 +314,7 @@ int lo0
   exit
 no ip pim rp-addr 10.255.255.3
 
-
-R2
-!aktivujeme multicast smerovanie
-ip multicast-routing
-int f0/0
-  ip pim sparse-dense-mode
-int f0/1.23
-  ip pim sparse-dense-mode
-int f0/1.24
-  ip pim sparse-dense-mode
-int lo0
-  ip pim sparse-dense-mode
-  exit
-no ip pim rp-addr 10.255.255.3
-
-
-R3
+!R3
 !aktivujeme multicast smerovanie
 ip multicast-routing
 int f0/0
@@ -876,66 +329,7 @@ int lo0
 no ip pim rp-addr 10.255.255.3
 ip pim rp-candidate lo0
 
-R4
-!aktivujeme multicast smerovanie
-ip multicast-routing
-int f0/0
-  ip pim sparse-dense-mode
-int f0/1.24
-  ip pim sparse-dense-mode
-int f0/1.34
-  ip pim sparse-dense-mode
-int s1/0
-  ip pim sparse-dense-mode
-int lo0
-  ip pim sparse-dense-mode
-  exit
-no ip pim rp-addr 10.255.255.3
-
-
-R6
-!aktivujeme multicast smerovanie
-ip multicast-routing
-int range f0/1
-  ip pim sparse-dense-mode
-  exit
-int lo0
-  ip pim sparse-dense-mode
-  exit
-int lo1
-  ip pim sparse-dense-mode
-  exit 
-no ip pim rp-addr 10.255.255.3
-
-
-R7
-!aktivujeme multicast smerovanie
-ip multicast-routing
-int range f0/0 - 1
-  ip pim sparse-dense-mode
-  exit
-int lo0 
-  ip pim sparse-dense-mode
-  exit
-no ip pim rp-addr 10.255.255.3
-
-
-R8
-!aktivujeme multicast smerovanie
-ip multicast-routing
-int range f0/0 - 1 
-  ip pim sparse-dense-mode
-  exit
-int lo0
-  ip pim sparse-dense-mode
-  exit
-int lo1
-  ip pim sparse-dense-mode
-  exit
-no ip pim rp-addr 10.255.255.3
-
-
-R9
+!R9
 !aktivujeme multicast smerovanie
 ip multicast-routing
 int range f0/0 - 1
@@ -945,22 +339,6 @@ int lo0
   ip pim sparse-dense-mode
 no ip pim rp-addr 10.255.255.3
 ip pim bsr-candidate lo0
-
-
-R10
-!aktivujeme multicast smerovanie
-ip multicast-routing
-int f0/0
-  ip pim sparse-dense-mode
-  exit
-int s1/0
-  ip pim sparse-dense-mode
-  exit
-int lo0
-  ip pim sparse-dense-mode
-  exit
-no ip pim rp-addr 10.255.255.3
-
 \end{alltt}
 \end{small}
 }
@@ -1023,17 +401,6 @@ Group Address  Interface        Uptime    Expires   Last Reporter   Group
 {\fontfamily{qcr}\selectfont
 \begin{small}
 \begin{alltt}
-R4#show ip pim autorp
-AutoRP Information:
-  AutoRP is enabled.
-
-PIM AutoRP Statistics: Sent/Received
-  RP Announce: 0/184, RP Discovery: 188/160
-
-
----------------------------------------------------------------------------
-
-
 Power Tools
 
 R6#mstat 10.100.15.5 224.0.1.40
@@ -1078,7 +445,10 @@ Results after 10 seconds:
 }
 
 \paragraph{}
-Po ping-u na multicastovú adresu prišli odpovede od oboch klientských smerovačov: R6 a R8. Výpis príkazu \say{sh ip pim rp} ukazuje, že RP smerovač je R3, o čom hovorí adresa loopback0 rozhrania. Výpis príkazu \say{show ip pim interface} hovorí, že všetky rozhrania na smerovači R4 sú v \say{SPARSE-DENSE} móde. Príkaz \say{show ip igmp groups} ukazuje, že smerovač R9 patrí do multicastových skupín: 224.0.1.40 (RP Discovery) a 224.0.1.39 (RP Announce). Tým, že patrí aj do skupiny \say{RP Announce} oznamuje ostatným smerovačom, že môže byť kandidátom na RP, čo je dôkaz, že záložný RP je v pohotovosti. Príkaz \say{show ip pim autorp} zo smerovača R4 hovorí, že \say{AutoRP} protokol na vyhľadanie záložného RP smerovača je aktívny, čo je dôkaz, že smerovač R4 funguje správne ako \say{RP Mapper}. Nakoniec príkaz \say{mstat} vykreslil zdieľaný strom od zdroja (R5) ku klientovi (R6) cez multicastovú skupinu 224.0.1.40.
+Rovnako ako pri \say{Dense} móde, pri ping-u na IP adresu multicastovej skupiny prichádzali odpovede od klientov 10.1.38.8 (R8) a 10.2.67.6 (R6). Výpis príkazu \say{show ip pim interface} hovorí, že rozhrania na smerovači R3 sú v \say{Sparse-Dense} móde (viď písmeno \textbf{SD} v stĺpci \say{Ver/Mode}, čo značí aktívny \say{Sparse-Dense} mód). Z výpisu príkazu \say{show ip pim rp} vidíme IP adresu multicastovej skupiny pre klientov a IP adresu RP smerovača, čo je adresa loopback0 rozhrania pre R3.  Vo výpise príkazu \say{show ip igmp groups} vidíme, že smerovač R1 patrí do multicastovej skupiny \say{224.0.1.40}, čo je AutoRP Discovery. AutoRP je Cisco implemenácia hľadania záložného RP smerovača pomocou RP-Mapper smerovača. Do tejto skupiny patria predvolene všetky Cisco smerovače.
+
+\paragraph{}
+Po ping-u na multicastovú adresu prišli odpovede od oboch klientských smerovačov: R6 a R8. Výpis príkazu \say{sh ip pim rp} ukazuje, že RP smerovač je R3, o čom hovorí adresa loopback0 rozhrania. Výpis príkazu \say{show ip pim interface} hovorí, že všetky rozhrania na smerovači R4 sú v \say{Sparse-Dense} móde. Príkaz \say{show ip igmp groups} ukazuje, že smerovač R9 patrí do multicastových skupín: 224.0.1.40 (RP Discovery) a 224.0.1.39 (RP Announce). Tým, že patrí aj do skupiny \say{RP Announce} oznamuje ostatným smerovačom, že môže byť kandidátom na RP, čo je dôkaz, že záložný RP je v pohotovosti. Príkaz \say{show ip pim autorp} zo smerovača R4 hovorí, že \say{AutoRP} protokol na vyhľadanie záložného RP smerovača je aktívny, čo je dôkaz, že smerovač R4 funguje správne ako \say{RP Mapper}. Nakoniec príkaz \say{mstat} vykreslil zdieľaný strom od zdroja (R5) ku klientovi (R6) cez multicastovú skupinu 224.0.1.40.
 
 
 

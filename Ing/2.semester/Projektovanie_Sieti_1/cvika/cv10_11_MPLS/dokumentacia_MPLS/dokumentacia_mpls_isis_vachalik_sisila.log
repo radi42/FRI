@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.2.18)  10 MAY 2017 19:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.2.18)  17 MAY 2017 14:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -668,7 +668,219 @@ Overfull \hbox (46.3283pt too wide) in paragraph at lines 2265--2266
  ne-za-ha-dzo-vali siete, ktor[]e prech[]adzaj[]u
  []
 
-[47] [48] (./dokumentacia_mpls_isis_vachalik_sisila.aux) ) 
+[47]
+Overfull \hbox (144.79797pt too wide) in paragraph at lines 2394--2394
+[]\OT1/pcr/m/n/10.95 % Interface Ethernet2/1 IPv4 disabled and address(es) remo
+ved due to enabling VRF GREEN[] 
+ []
+
+
+Overfull \hbox (85.66805pt too wide) in paragraph at lines 2403--2403
+[]\OT1/pcr/m/n/10.95 *May 16 10:10:08.158: %BGP-5-ADJCHANGE: neighbor 192.168.1
+5.5 vpn vrf GREEN Up[] 
+ []
+
+
+Overfull \hbox (5.40463pt too wide) in paragraph at lines 2413--2415
+[]\OT1/ppl/m/n/12 KONFIGURACIA DRAFT RO-SEN mdt id pre za-kaz-nika 239.10.10.10
+ - GREEN.
+ []
+
+[48] [49]
+Overfull \hbox (92.23804pt too wide) in paragraph at lines 2579--2579
+[]\OT1/pcr/m/n/10.95 Status codes: s suppressed, d damped, h history, * valid, 
+> best, i - internal,[] 
+ []
+
+
+Overfull \hbox (85.66805pt too wide) in paragraph at lines 2580--2580
+[]              \OT1/pcr/m/n/10.95 r RIB-failure, S Stale, m multipath, b backu
+p-path, f RT-Filter,[] 
+ []
+
+
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 2581--2581
+[]              \OT1/pcr/m/n/10.95 x best-external, a additional-path, c RIB-co
+mpressed,[] 
+ []
+
+
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 2585--2585
+[]     \OT1/pcr/m/n/10.95 Network          Next Hop            Metric LocPrf We
+ight Path[] 
+ []
+
+
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 2586--2586
+[] \OT1/pcr/m/n/10.95 *   10.255.255.5/32  192.168.89.9                        
+   0 110 110 i[] 
+ []
+
+
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 2587--2587
+[] \OT1/pcr/m/n/10.95 *>                   192.168.38.3                        
+   0 110 110 i[] 
+ []
+
+
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 2589--2589
+[] \OT1/pcr/m/n/10.95 *   10.255.255.10/32 192.168.89.9                        
+   0 110 110 ?[] 
+ []
+
+
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 2590--2590
+[] \OT1/pcr/m/n/10.95 *>                   192.168.38.3                        
+   0 110 110 ?[] 
+ []
+
+
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 2592--2592
+[] \OT1/pcr/m/n/10.95 *   172.22.0.0       192.168.89.9                        
+   0 110 110 i[] 
+ []
+
+
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 2593--2593
+[] \OT1/pcr/m/n/10.95 *>                   192.168.38.3                        
+   0 110 110 i[] 
+ []
+
+
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 2594--2594
+[] \OT1/pcr/m/n/10.95 *   172.23.0.0       192.168.89.9                        
+   0 110 110 i[] 
+ []
+
+
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 2595--2595
+[] \OT1/pcr/m/n/10.95 *>                   192.168.38.3                        
+   0 110 110 i[] 
+ []
+
+
+Overfull \hbox (19.96812pt too wide) in paragraph at lines 2596--2596
+[] \OT1/pcr/m/n/10.95 *   192.168.15.0     192.168.89.9                        
+   0 110 ?[] 
+ []
+
+
+Overfull \hbox (19.96812pt too wide) in paragraph at lines 2597--2597
+[] \OT1/pcr/m/n/10.95 *>                   192.168.38.3                        
+   0 110 ?[] 
+ []
+
+
+Overfull \hbox (19.96812pt too wide) in paragraph at lines 2598--2598
+[] \OT1/pcr/m/n/10.95 *   192.168.38.0     192.168.89.9                        
+   0 110 ?[] 
+ []
+
+
+Overfull \hbox (19.96812pt too wide) in paragraph at lines 2599--2599
+[] \OT1/pcr/m/n/10.95 *                    192.168.38.3             0          
+   0 110 ?[] 
+ []
+
+
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 2600--2600
+[]     \OT1/pcr/m/n/10.95 Network          Next Hop            Metric LocPrf We
+ight Path[] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [50]
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 2602--2602
+[] \OT1/pcr/m/n/10.95 *   192.168.56.0     192.168.89.9                        
+   0 110 110 ?[] 
+ []
+
+
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 2603--2603
+[] \OT1/pcr/m/n/10.95 *>                   192.168.38.3                        
+   0 110 110 ?[] 
+ []
+
+
+Overfull \hbox (19.96812pt too wide) in paragraph at lines 2604--2604
+[] \OT1/pcr/m/n/10.95 *   192.168.89.0     192.168.89.9             0          
+   0 110 ?[] 
+ []
+
+
+Overfull \hbox (19.96812pt too wide) in paragraph at lines 2605--2605
+[] \OT1/pcr/m/n/10.95 *                    192.168.38.3                        
+   0 110 ?[] 
+ []
+
+
+Overfull \hbox (19.96812pt too wide) in paragraph at lines 2607--2607
+[] \OT1/pcr/m/n/10.95 *   192.168.104.0    192.168.89.9                        
+   0 110 ?[] 
+ []
+
+
+Overfull \hbox (19.96812pt too wide) in paragraph at lines 2608--2608
+[] \OT1/pcr/m/n/10.95 *>                   192.168.38.3                        
+   0 110 ?[] 
+ []
+
+
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 2609--2609
+[] \OT1/pcr/m/n/10.95 *   192.168.107.0    192.168.89.9                        
+   0 110 110 ?[] 
+ []
+
+
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 2610--2610
+[] \OT1/pcr/m/n/10.95 *>                   192.168.38.3                        
+   0 110 110 ?[] 
+ []
+
+
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 2620--2620
+[]\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 172.22.0.1, timeout is 2
+ seconds:[] 
+ []
+
+
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 2623--2623
+[]\OT1/pcr/m/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
+= 52/56/60 ms[] 
+ []
+
+
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 2631--2631
+[]\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 172.23.0.1, timeout is 2
+ seconds:[] 
+ []
+
+
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 2633--2633
+[]\OT1/pcr/m/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
+= 52/59/72 ms[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2639--2645
+
+ []
+
+
+Overfull \hbox (217.06789pt too wide) in paragraph at lines 2648--2648
+[]\OT1/pcr/m/n/10.95 *May 16 10:59:35.306: %LINEPROTO-5-UPDOWN: Line protocol o
+n Interface Tunnel0, changed state to up[] 
+ []
+
+
+Overfull \hbox (217.06789pt too wide) in paragraph at lines 2649--2649
+[]\OT1/pcr/m/n/10.95 *May 16 10:59:35.474: %LINEPROTO-5-UPDOWN: Line protocol o
+n Interface Tunnel1, changed state to up[] 
+ []
+
+[51] (./dokumentacia_mpls_isis_vachalik_sisila.aux) ) 
 Here is how much of TeX's memory you used:
  5508 strings out of 493105
  72902 string characters out of 6137072
@@ -677,17 +889,17 @@ Here is how much of TeX's memory you used:
  15577 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  37i,9n,35p,835b,525s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/t
-exmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courie
-r/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb>
-Output written on dokumentacia_mpls_isis_vachalik_sisila.pdf (48 pages, 359020 
+{/usr/share/texlive/texmf-
+dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucr
+r8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb>
+Output written on dokumentacia_mpls_isis_vachalik_sisila.pdf (51 pages, 363591 
 bytes).
 PDF statistics:
- 185 PDF objects out of 1000 (max. 8388607)
- 124 compressed objects within 2 object streams
+ 195 PDF objects out of 1000 (max. 8388607)
+ 131 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

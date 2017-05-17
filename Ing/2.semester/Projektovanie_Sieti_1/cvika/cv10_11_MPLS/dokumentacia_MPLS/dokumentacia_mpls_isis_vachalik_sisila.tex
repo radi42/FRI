@@ -2329,42 +2329,65 @@ TODO
 \subsection{Draft Rosen}
 \subsubsection{Popis}
 \paragraph{}
-Darth Vader je multicastová MPLS technológia. Pochádza z inej galaxie. Prvá zmienka bola v seriáli StarWars.
+Darth Vader je multicastová MPLS technológia. Pochádza z inej galaxie. Prvá zmienka bola v seriáli StarWars :)
 
 \subsubsection{Konfigurácia}
 \paragraph{}
 Najprv zrusime vsetko, co sme nakonfigurovali pre hub and spoke. Potom:
 
+\paragraph{}
 r1 r5 treba vratit na jednu linku (zrusit trunky). 
----
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
 no int eth2/1.15
 no int eth2/1.51
 int eth2/1
 ip addr 192.168.15.# 255.255.255.0
+\end{alltt}
+\end{small}
+}
 
 
 
-
-
-route target import a export bude rovnaky.
----
-Najprv vymazeme VRFky z Hub & Spoke
+\paragraph{}
+Najprv vymazeme VRFky z Hub \& Spoke
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
 !R1
 no ip vrf Z1_DOWN
 no ip vrf Z1_UP
 
 !R3, R4, R9
 no ip vrf Z1_SPOKE
+\end{alltt}
+\end{small}
+}
 
-Nanovo nahodime ipcky na interfejsoch
+\paragraph{}
+Vytvorime novu VRFku pre klienta GREEN. Route target import a export bude rovnaky. Novu VRFku nastavime na R1, R3, R4 a R9.
 
-Teraz nastavime nove VRFky na R1, R3, R4 a R9
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
 ip vrf GREEN
-rd 110:2
-route-target both 110:2
+  rd 110:2
+  route-target both 110:2
+\end{alltt}
+\end{small}
+}
 
+\paragraph{}
+Aplikujeme VRFky na interfacey R1, R3, R4 a R9 a nanovo nahodime ipcky na interfejsoch:
 
-Aplikujeme VRFky na interfacey R1, R3, R4 a R9:
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
 !R1
 R1(config)#int eth2/1
 R1(config-if)#ip vrf forwarding GREEN
@@ -2381,32 +2404,53 @@ R1(config-router-af)#neighbor 192.168.15.5 activa
 R1(config-router-af)#neighbor 192.168.15.5 activate
 R1(config-router-af)#neighbor 192.168.15.5 as-ov   
 R1(config-router-af)#neighbor 192.168.15.5 as-override
+\end{alltt}
+\end{small}
+}
 
 
 
---------------------------------------------------------------
 KONFIGURACIA DRAFT ROSEN
 mdt id pre zakaznika 239.10.10.10 - GREEN. v sieti zakaznika rozbehnut PIM sparse mode. RP bude R1, v sieti zakaznika to bude r5. konfigurujeme zakaznicke routre r8-r10. staticky join na r10 a pingat nanho.
 
 
 Na vsetkych routroch:
-
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
 ip multicast-routing
+\end{alltt}
+\end{small}
+}
 
 
 
 
 Na PE routroch 1,3,4,9
 
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
 ip multicast-routing vrf GREEN
-
+\end{alltt}
+\end{small}
+}
 
 
 
 
 Na providerskych routroch zadat pre vsetky interfejsy (aj na loopback0) prikaz
 
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
 ip pim sparse-mode
+\end{alltt}
+\end{small}
+}
 
 aby sme zapli PIM Sparse Mode, kvoli sireniu multicastov. V trojuholniku staci davat prikaz iba na subinterfejsy. Rovnako urobime aj na CE routroch, ale iba pre interfejsy smerujuce na PE routre.
 
@@ -2415,20 +2459,40 @@ aby sme zapli PIM Sparse Mode, kvoli sireniu multicastov. V trojuholniku staci d
 
 
 
-Nastavime RP pre providera na R1 a pre zakaznika na R5.
-!PE routre
+Nastavime RP pre providera na R1 a pre zakaznika na R5.\\
+PE routre
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
 ip pim rp-address 10.255.255.1
+\end{alltt}
+\end{small}
+}
 
-!Zakaznicke CE routre
+Zakaznicke CE routre
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
 ip pim rp-address 172.23.0.1
+\end{alltt}
+\end{small}
+}
 
 
 
+Na PE routroch pouzijeme prikazy
 
-Na PE routroch pouzijeme prikaz
-
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
 ip vrf GREEN
   mdt default 239.10.10.10
+\end{alltt}
+\end{small}
+}
 
 Tak ho priradime do multicastovej skupiny.
 
@@ -2439,27 +2503,50 @@ Tak ho priradime do multicastovej skupiny.
 
 Na PE routroch musime nastavit zakaznicky RP pre VRF GREEN.
 
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
 R9(config)#ip pim vrf GREEN rp-address 172.23.0.1
-
+\end{alltt}
+\end{small}
+}
 
 
 
 Na CE routroch priradime loopback do multicastovej skupiny
 
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
 int lo0
-ip igmp join-group 239.10.10.10
+  ip igmp join-group 239.10.10.10
+\end{alltt}
+\end{small}
+}
 
 
 
 
 
-
-\subsubsection{Overenie: Zakladna MP-BGP konektivita}
+\subsubsection{Overenie − Zakladná MP−BGP konektivita}
 \paragraph{}
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
 show ip route vrf GREEN
 show ip vrf
+\end{alltt}
+\end{small}
+}
 
 
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
 R4(config-router-af)#do sh ip route vrf GREEN
 
 Routing Table: GREEN
@@ -2545,23 +2632,29 @@ Sending 5, 100-byte ICMP Echos to 172.23.0.1, timeout is 2 seconds:
 !!!!!
 Success rate is 100 percent (5/5), round-trip min/avg/max = 52/59/72 ms
 
+\end{alltt}
+\end{small}
+}
 
-
-============
-OVERENIE Multicastovych tunelov 
-==============
+============\\
+OVERENIE Multicastovych tunelov\\
+==============\\
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
 R1(config)#ip pim rp-address 10.255.255.1
 R1(config)#
 *May 16 10:59:35.306: %LINEPROTO-5-UPDOWN: Line protocol on Interface Tunnel0, changed state to up
 *May 16 10:59:35.474: %LINEPROTO-5-UPDOWN: Line protocol on Interface Tunnel1, changed state to up
+\end{alltt}
+\end{small}
+}
 
 
 
-
-
-
-
-
+\paragraph{}
+MPLS funguje, Draft Rosen nefunguje.
 
 
 \end{document}
