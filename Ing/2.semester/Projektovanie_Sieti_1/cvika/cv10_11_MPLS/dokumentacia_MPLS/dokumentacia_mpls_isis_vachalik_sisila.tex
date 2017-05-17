@@ -2349,6 +2349,10 @@ ip addr 192.168.15.# 255.255.255.0
 \end{small}
 }
 
+Vymažeme IPčku druhého spätného subinterfejsu eth2/1.51 \say{192.168.51.1} z neighbrov v BGP na R5
+
+no neighbor 192.168.51.1 remote-as 110
+
 
 
 \paragraph{}
@@ -2651,10 +2655,28 @@ R1(config)#
 \end{small}
 }
 
+Ide aj multicastový ping
 
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+R5#ping 239.10.10.10 repeat 2 
+Type escape sequence to abort.
+Sending 2, 100-byte ICMP Echos to 239.10.10.10, timeout is 2 seconds:
+
+Reply to request 0 from 172.23.0.1, 32 ms
+Reply to request 0 from 172.21.0.1, 84 ms
+Reply to request 0 from 172.22.0.1, 80 ms
+Reply to request 1 from 172.23.0.1, 8 ms
+Reply to request 1 from 172.21.0.1, 80 ms
+Reply to request 1 from 172.22.0.1, 80 ms
+\end{alltt}
+\end{small}
+}
 
 \paragraph{}
-MPLS funguje, Draft Rosen nefunguje.
+Zaver
 
 
 \end{document}

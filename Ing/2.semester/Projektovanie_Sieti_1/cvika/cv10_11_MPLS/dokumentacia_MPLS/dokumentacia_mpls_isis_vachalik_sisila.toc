@@ -65,6 +65,6 @@
 \contentsline {paragraph}{}{48}
 \contentsline {paragraph}{}{48}
 \contentsline {paragraph}{}{48}
-\contentsline {subsubsection}{Overenie \IeC {\ensuremath {-}} Zakladn\IeC {\'a} MP\IeC {\ensuremath {-}}BGP konektivita}{49}
-\contentsline {paragraph}{}{49}
-\contentsline {paragraph}{}{51}
+\contentsline {subsubsection}{Overenie \IeC {\ensuremath {-}} Zakladn\IeC {\'a} MP\IeC {\ensuremath {-}}BGP konektivita}{50}
+\contentsline {paragraph}{}{50}
+\contentsline {paragraph}{}{52}
