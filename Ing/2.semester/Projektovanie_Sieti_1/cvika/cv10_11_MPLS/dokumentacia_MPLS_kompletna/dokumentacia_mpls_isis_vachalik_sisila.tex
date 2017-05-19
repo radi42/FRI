@@ -79,44 +79,54 @@ Budeme konfigurovať smerovacie protokoly MPLS a IS-IS na topológií, ktorá je
 \begin{tabular}{|c|l|l|l|}
 \hline
 \textbf{Smerovač}    & \multicolumn{1}{c|}{\textbf{Rozhranie}} & \multicolumn{1}{c|}{\textbf{IP adresa}} & \multicolumn{1}{c|}{\textbf{Maska}} \\ \hline
-\multirow{3}{*}{R1}  & E2/0                                    & 10.0.12.1                               & 255.255.255.0                       \\ \cline{2-4} 
-                     & E2/1                                    & 192.168.15.1                            & 255.255.255.0                       \\ \cline{2-4} 
-                     & Lo0                                     & 10.255.255.1                            & 255.255.255.255                     \\ \hline
-\multirow{4}{*}{R2}  & E2/0                                    & 10.0.12.2                               & 255.255.255.0                       \\ \cline{2-4} 
-                     & E2/1.23                                 & 10.0.23.2                               & 255.255.255.0                       \\ \cline{2-4} 
-                     & E2/1.24                                 & 10.0.24.2                               & 255.255.255.0                       \\ \cline{2-4} 
-                     & Lo0                                     & 10.255.255.2                            & 255.255.255.255                     \\ \hline
-\multirow{4}{*}{R3}  & E2/0                                    & 192.168.38.3                            & 255.255.255.0                       \\ \cline{2-4} 
-                     & E2/1.23                                 & 10.0.23.3                               & 255.255.255.0                       \\ \cline{2-4} 
-                     & E2/1.34                                 & 10.0.34.3                               & 255.255.255.0                       \\ \cline{2-4} 
-                     & Lo0                                     & 10.255.255.3                            & 255.255.255.255                     \\ \hline
-\multirow{5}{*}{R4}  & S1/0                                    & 192.168.104.4                           & 255.255.255.0                       \\ \cline{2-4} 
-                     & E2/0                                    & 10.0.49.4                               & 255.255.255.0                       \\ \cline{2-4} 
-                     & E2/1.24                                 & 10.0.24.4                               & 255.255.255.0                       \\ \cline{2-4} 
-                     & E2/1.34                                 & 10.0.34.4                               & 255.255.255.0                       \\ \cline{2-4} 
-                     & Lo0                                     & 10.255.255.4                            & 255.255.255.255                     \\ \hline
-\multirow{4}{*}{R5}  & E2/0                                    & 192.168.56.5                            & 255.255.255.0                       \\ \cline{2-4} 
-                     & E2/1                                    & 192.168.15.5                            & 255.255.255.0                       \\ \cline{2-4} 
-                     & Lo0                                     & 10.255.255.5                            & 255.255.255.255                     \\ \cline{2-4} 
-                     & Lo1                                     & 172.23.0.1                              & 255.255.0.0                         \\ \hline
-\multirow{3}{*}{R6}  & E2/0                                    & 192.168.56.6                            & 255.255.255.0                       \\ \cline{2-4} 
-                     & E2/1                                    & 192.168.67.6                            & 255.255.255.0                       \\ \cline{2-4} 
-                     & Lo0                                     & 10.255.255.6                            & 255.255.255.255                     \\ \hline
-\multirow{3}{*}{R7}  & E2/1                                    & 192.168.67.7                            & 255.255.255.0                       \\ \cline{2-4} 
-                     & S1/1                                    & 192.168.107.7                           & 255.255.255.0                       \\ \cline{2-4} 
-                     & Lo0                                     & 10.255.255.7                            & 255.255.255.255                     \\ \hline
-\multirow{4}{*}{R8}  & E2/0                                    & 192.168.38.8                            & 255.255.255.0                       \\ \cline{2-4} 
-                     & E2/1                                    & 192.168.89.8                            & 255.255.255.0                       \\ \cline{2-4} 
+\multirow{5}{*}{R1}  & Fa0/0                                   & 200.110.255.249                         & 255.255.255.252                     \\ \cline{2-4} 
+                     & Fa0/1                                   & 64.34.255.253                           & 255.255.255.252                     \\ \cline{2-4} 
+                     & S1/0                                    & 200.33.255.253                          & 255.255.255.252                     \\ \cline{2-4} 
+                     & Lo0                                     & 10.255.255.1                            & 255.255.255.0                       \\ \cline{2-4} 
+                     & Lo100                                   & 64.34.1.1                               & 255.255.255.128                     \\ \hline
+\multirow{6}{*}{R2}  & Fa0/0                                   & 200.110.255.250                         & 255.255.255.252                     \\ \cline{2-4} 
+                     & Fa0/1.23                                & 10.110.23.2                             & 255.255.255.0                       \\ \cline{2-4} 
+                     & Fa0/1.24                                & 10.110.24.2                             & 255.255.255.0                       \\ \cline{2-4} 
+                     & S1/0                                    & 200.110.255.253                         & 255.255.255.252                     \\ \cline{2-4} 
+                     & Lo0                                     & 10.255.255.2                            & 255.255.255.0                       \\ \cline{2-4} 
+                     & Lo100                                   & 200.110.0.2                             & 255.255.255.128                     \\ \hline
+\multirow{5}{*}{R3}  & Fa0/0                                   & 200.110.255.241                         & 255.255.255.252                     \\ \cline{2-4} 
+                     & Fa0/1.23                                & 10.110.23.3                             & 255.255.255.0                       \\ \cline{2-4} 
+                     & Fa0/1.34                                & 10.110.34.3                             & 255.255.255.0                       \\ \cline{2-4} 
+                     & Lo0                                     & 10.255.255.3                            & 255.255.255.0                       \\ \cline{2-4} 
+                     & Lo100                                   & 200.110.0.133                           & 255.255.255.128                     \\ \hline
+\multirow{6}{*}{R4}  & Fa0/0                                   & 200.110.255.237                         & 255.255.255.252                     \\ \cline{2-4} 
+                     & Fa0/1.24                                & 10.110.24.4                             & 255.255.255.0                       \\ \cline{2-4} 
+                     & Fa0/1.34                                & 10.110.34.4                             & 255.255.255.0                       \\ \cline{2-4} 
+                     & S1/0                                    & 200.110.255.245                         & 255.255.255.252                     \\ \cline{2-4} 
+                     & Lo0                                     & 10.255.255.4                            & 255.255.255.0                       \\ \cline{2-4} 
+                     & Lo100                                   & 200.110.1.4                             & 255.255.255.128                     \\ \hline
+\multirow{5}{*}{R5}  & Fa0/0                                   & 200.33.255.249                          & 255.255.255.252                     \\ \cline{2-4} 
+                     & Fa0/1                                   & 10.100.15.2                             & 255.255.255.252                     \\ \cline{2-4} 
+                     & S1/0                                    & 200.110.255.254                         & 255.255.255.252                     \\ \cline{2-4} 
+                     & Lo0                                     & 10.255.255.5                            & 255.255.255.0                       \\ \cline{2-4} 
+                     & Lo100                                   & 128.45.5.5                              & 255.255.255.128                     \\ \hline
+\multirow{5}{*}{R6}  & Fa0/0                                   & 200.33.255.250                          & 255.255.255.252                     \\ \cline{2-4} 
+                     & Fa0/1                                   & 10.110.67.6                             & 255.255.255.0                       \\ \cline{2-4} 
+                     & S1/0                                    & 200.33.255.254                          & 255.255.255.252                     \\ \cline{2-4} 
+                     & Lo0                                     & 10.255.255.6                            & 255.255.255.0                       \\ \cline{2-4} 
+                     & Lo100                                   & 200.33.6.6                              & 255.255.255.128                     \\ \hline
+\multirow{4}{*}{R7}  & Fa0/1                                   & 10.110.67.7                             & 255.255.255.0                       \\ \cline{2-4} 
+                     & S1/1                                    & 200.33.255.245                          & 255.255.255.252                     \\ \cline{2-4} 
+                     & Lo0                                     & 10.255.255.7                            & 255.255.255.0                       \\ \cline{2-4} 
+                     & Lo100                                   & 200.33.7.7                              & 255.255.255.128                     \\ \hline
+\multirow{4}{*}{R8}  & Fa0/0                                   & 200.110.255.242                         & 255.255.255.252                     \\ \cline{2-4} 
+                     & Fa0/1                                   & 10.110.89.8                             & 255.255.255.0                       \\ \cline{2-4} 
                      & Lo0                                     & 10.255.255.8                            & 255.255.255.0                       \\ \cline{2-4} 
-                     & Lo1                                     & 172.21.0.1                              & 255.255.0.0                         \\ \hline
-\multirow{4}{*}{R9}  & E2/0                                    & 10.0.49.9                               & 255.255.255.0                       \\ \cline{2-4} 
-                     & E2/1                                    & 192.168.89.9                            & 255.255.255.0                       \\ \cline{2-4} 
-                     & Lo0                                     & 10.255.255.9                            & 255.255.255.255                     \\ \cline{2-4} 
-                     & Lo1                                     & 172.21.0.1                              & 255.255.0.0                         \\ \hline
-\multirow{4}{*}{R10} & S1/0                                    & 192.168.104.10                          & 255.255.255.0                       \\ \cline{2-4} 
-                     & S1/1                                    & 192.168.107.10                          & 255.255.255.0                       \\ \cline{2-4} 
-                     & Lo0                                     & 10.255.255.10                           & 255.255.255.255                     \\ \cline{2-4} 
-                     & Lo1                                     & 172.22.0.1                              & 255.255.0.0                         \\ \hline
+                     & Lo100                                   & 200.110.12.8                            & 255.255.255.128                     \\ \hline
+\multirow{4}{*}{R9}  & Fa0/0                                   & 200.110.255.238                         & 255.255.255.252                     \\ \cline{2-4} 
+                     & Fa0/1                                   & 10.110.89.9                             & 255.255.255.0                       \\ \cline{2-4} 
+                     & Lo0                                     & 10.255.255.9                            & 255.255.255.0                       \\ \cline{2-4} 
+                     & Lo100                                   & 200.110.13.9                            & 255.255.255.128                     \\ \hline
+\multirow{4}{*}{R10} & S1/0                                    & 200.110.255.246                         & 255.255.255.252                     \\ \cline{2-4} 
+                     & S1/1                                    & 200.33.255.246                          & 255.255.255.252                     \\ \cline{2-4} 
+                     & Lo0                                     & 10.255.255.10                           & 255.255.255.0                       \\ \cline{2-4} 
+                     & Lo100                                   & 223.255.255.10                          & 255.255.255.128                     \\ \hline
 \end{tabular}
 \end{table}
 
@@ -172,7 +182,7 @@ R1# show isis database
 \subsection{MPLS}
 \subsubsection{Popis}
 \paragraph{}
-Základnú konfiguráciu MPLS sme robili podľa stránky \say{nil.uniza.sk}. Najprv zapneme \say{Cisco express forwarding} príkazom \say{ip cef}. Nakoniec zapneme MPLS príkazom \say{mpls ip}. Príkaz \say{mpls ip} sme použili iba na rozhraniach vnútri providerskej siete, nie na PE smerovačoch smerom k zákazníkom.
+Základnú konfiguráciu MPLS sme robili podľa stránky \say{nil.uniza.sk}. Najprv zapneme \say{Cisco express forwarding} príkazom \say{ip cef}. Potom aktivujeme LDP značkovanie príkazom \say{mpls label protocol ldp}. Nakoniec zapneme MPLS príkazom \say{mpls ip}. Príkaz \say{mpls ip} sme použili iba na rozhraniach vnútri providerskej siete, nie na PE smerovačoch smerom k zákazníkom.
 
 \subsubsection{Konfigurácia}
 \paragraph{}
@@ -202,30 +212,9 @@ router bgp 65003
 {\fontfamily{qcr}\selectfont
 \begin{small}
 \begin{alltt}
-R10#sh ip bgp ipv4 unicast      
-...
-
-     Network          Next Hop            Metric LocPrf Weight Path
- *>  10.255.255.5/32  192.168.104.4                          0 110 110 i
- *>  10.255.255.8/32  192.168.104.4                          0 110 110 i
- *>  10.255.255.10/32 0.0.0.0                  0         32768 i
- *>  \textbf{172.21.0.0}       192.168.104.4                          0 110 110 ?
- *>  \textbf{172.22.0.0}       0.0.0.0                  0         32768 ?
- *>  \textbf{172.23.0.0}       192.168.104.4                          0 110 110 ?
-...
-
-
-
-
-R10#traceroute 10.255.255.8 source l0
-Type escape sequence to abort.
-Tracing the route to 10.255.255.8
-VRF info: (vrf in name/id, vrf out name/id)
-  1 192.168.104.4 24 msec 16 msec 16 msec
-  2 192.168.38.3 [AS 110] \textbf{[MPLS: Label 26 Exp 0]} 16 msec 36 msec 36 msec
-  3 192.168.38.8 [AS 110] 68 msec *  52 msec
-R10#
-
+show mpls ldp discovery
+sh ip bgp ipv4 unicast
+traceroute 10.255.255.8 source l0 =\textgreater sledovat znacku
 \end{alltt}
 \end{small}
 }
@@ -238,42 +227,15 @@ R10#
 \subsection{LDP alebo RSVP}
 \subsubsection{Popis}
 \paragraph{}
-Dohodli sme sa, že aktivujeme LDP značkovanie.
 
 \subsubsection{Konfigurácia}
 \paragraph{}
-Na kažom providerskom smerovači sme v globálnom konfiguračnom režime aktivovali LDP príkazom:
-
-\noindent
-{\fontfamily{qcr}\selectfont
-\begin{small}
-\begin{alltt}
-mpls label protocol ldp
-\end{alltt}
-\end{small}
-}
 
 \subsubsection{Overenie}
 \paragraph{}
 
-\noindent
-{\fontfamily{qcr}\selectfont
-\begin{small}
-\begin{alltt}
-R3#show mpls ldp disc
- Local LDP Identifier:
-    10.255.255.3:0
-    Discovery Sources:
-    Interfaces:
-	Serial1/0 (ldp): xmit/recv
-	    LDP Id: 10.255.255.9:0
-	Ethernet2/1.23 (ldp): xmit/recv
-	    LDP Id: 10.255.255.2:0
-	Ethernet2/1.34 (ldp): xmit/recv
-	    LDP Id: 10.255.255.4:
-\end{alltt}
-\end{small}
-}
+
+
 
 
 

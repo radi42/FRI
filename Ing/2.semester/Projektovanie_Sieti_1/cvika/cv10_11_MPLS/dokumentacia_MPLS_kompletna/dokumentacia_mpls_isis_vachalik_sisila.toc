@@ -24,47 +24,47 @@
 \contentsline {paragraph}{}{7}
 \contentsline {subsubsection}{Overenie}{7}
 \contentsline {paragraph}{}{7}
-\contentsline {subsection}{\numberline {1.2.4}Router Reflector alebo konfeder\IeC {\'a}cie}{8}
-\contentsline {subsubsection}{Popis}{8}
+\contentsline {subsection}{\numberline {1.2.4}Router Reflector alebo konfeder\IeC {\'a}cie}{7}
+\contentsline {subsubsection}{Popis}{7}
+\contentsline {paragraph}{}{7}
+\contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{7}
+\contentsline {paragraph}{}{7}
 \contentsline {paragraph}{}{8}
-\contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{8}
+\contentsline {subsubsection}{Overenie}{8}
 \contentsline {paragraph}{}{8}
-\contentsline {paragraph}{}{8}
-\contentsline {subsubsection}{Overenie}{9}
+\contentsline {subsection}{\numberline {1.2.5}Multiprotocol BGP}{9}
+\contentsline {subsubsection}{Popis}{9}
 \contentsline {paragraph}{}{9}
-\contentsline {subsection}{\numberline {1.2.5}Multiprotocol BGP}{10}
-\contentsline {subsubsection}{Popis}{10}
-\contentsline {paragraph}{}{10}
-\contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{10}
-\contentsline {paragraph}{}{10}
-\contentsline {subsubsection}{Overenie}{43}
-\contentsline {paragraph}{}{43}
-\contentsline {subsection}{\numberline {1.2.6}Hub \& Spoke VPN}{43}
-\contentsline {subsubsection}{Popis}{43}
-\contentsline {paragraph}{}{43}
-\contentsline {paragraph}{}{43}
-\contentsline {paragraph}{}{43}
+\contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{9}
+\contentsline {paragraph}{}{9}
+\contentsline {subsubsection}{Overenie}{42}
+\contentsline {paragraph}{}{42}
+\contentsline {subsection}{\numberline {1.2.6}Hub \& Spoke VPN}{42}
+\contentsline {subsubsection}{Popis}{42}
+\contentsline {paragraph}{}{42}
+\contentsline {paragraph}{}{42}
+\contentsline {paragraph}{}{42}
+\contentsline {paragraph}{}{42}
 \contentsline {paragraph}{}{43}
 \contentsline {paragraph}{}{43}
+\contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{43}
 \contentsline {paragraph}{}{43}
-\contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{45}
-\contentsline {paragraph}{}{45}
-\contentsline {paragraph}{}{45}
-\contentsline {paragraph}{}{48}
-\contentsline {paragraph}{}{48}
-\contentsline {subsubsection}{Overenie}{48}
-\contentsline {paragraph}{}{48}
-\contentsline {paragraph}{}{48}
-\contentsline {paragraph}{}{48}
+\contentsline {paragraph}{}{43}
+\contentsline {paragraph}{}{47}
+\contentsline {paragraph}{}{47}
+\contentsline {subsubsection}{Overenie}{47}
+\contentsline {paragraph}{}{47}
+\contentsline {paragraph}{}{47}
+\contentsline {paragraph}{}{47}
 \contentsline {subsection}{\numberline {1.2.7}Draft Rosen}{48}
 \contentsline {subsubsection}{Popis}{48}
 \contentsline {paragraph}{}{48}
 \contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{48}
 \contentsline {paragraph}{}{48}
-\contentsline {paragraph}{}{49}
-\contentsline {paragraph}{}{49}
-\contentsline {paragraph}{}{49}
-\contentsline {paragraph}{}{49}
+\contentsline {paragraph}{}{48}
+\contentsline {paragraph}{}{48}
+\contentsline {paragraph}{}{48}
+\contentsline {paragraph}{}{48}
 \contentsline {subsubsection}{Overenie \IeC {\ensuremath {-}} Zakladn\IeC {\'a} MP\IeC {\ensuremath {-}}BGP konektivita}{50}
 \contentsline {paragraph}{}{50}
 \contentsline {paragraph}{}{52}
