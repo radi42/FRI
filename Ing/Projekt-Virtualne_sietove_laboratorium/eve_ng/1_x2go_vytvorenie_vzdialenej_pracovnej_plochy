@@ -4,6 +4,8 @@ X2GO SERVER
 
 X2Go server bol v tomto pripade LXC kontajner s Debian 9 Stretch. Hostovsky system bol tiez Debian 9 Stretch. Je to kvoli tomu, aby som mohol nainstalovat potrebne balicky pre VMware, ktory budem neskor instalovat, a ktoremu sa blizsie venujem v subore "2_instalacia_vmware_player_debian".
 
+X2Go prenasa grafiku cez SSH tunel, takze je potrebne otvorit port 22 na firewalle.
+
 
 Education and the Cloud
 November 20, 2013
