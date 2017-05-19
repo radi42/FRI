@@ -15,7 +15,7 @@ KLIENT
 KONFIGURACIA
 -------------------------------------
 SERVER
-0) Uistime sa, ze sme prihlaseny ako bezny pouzivatel. Spustanie 
+0) Uistime sa, ze sme prihlaseny ako bezny pouzivatel. 
 1) Spustime vnc server:
 
   tightvncserver

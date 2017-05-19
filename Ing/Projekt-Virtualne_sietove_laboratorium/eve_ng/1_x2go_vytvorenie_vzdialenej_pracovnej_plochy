@@ -18,6 +18,10 @@ Note 1:
 
     the following assumes an Ubuntu Host OS.   LXC is implemented in the Linux Kernel and should be available on ANY Distro but use may differ in some ways not documented here.
 
+====================================
+Vytvorenie kontajnera
+====================================
+
 First lets create a test LXC container
 
   $ sudo lxc-create -t ubuntu -n test
@@ -46,6 +50,10 @@ Next we have to “start” the LXC container we called “test”
   $ sudo lxc-start -n test
 
 As part of executing the above command you will be presented with a login prompt for the LXC container.   The default LoginID = ubuntu and the password = ubuntu
+
+====================================
+Instalacia X2Go pre Debian
+====================================
 
 So login to the LXC container called “test”
 

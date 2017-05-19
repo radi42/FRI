@@ -2,7 +2,7 @@ Instalacia VMWare Workstation Player 12.5.5 (cez vnc do odysea aj do kontajnera)
 
 Hostovsky operacny system je Debian 9 Stretch. V nom bezi LXC kontajner, ktory ma tiez Debian 9 Stretch. Do hostovskeho systemu sme potrebovali nainstalovat balicky potrebne pre instalaciu VMware. Medzi potrebnymi balickami pre VMware je aj linux-headers. VMware striktne vyzaduje, aby bola verzia linux-headers zhodna s aktualne beziacim jadrom, preto je operacny system v kontajneri a hostovsky operacny system zhodny!
 
-VMware instalujeme do hostovskeho operacneho systemu na to, aby VMware nainstaloval moduly do kernelu, lebo z kontajnera sa to neda, pretoze jadro je zdielane a neda sa modifikovat zvnutra kontajnera. Potom nainstalujeme VMware aj do kontajnera. Avsak pouzivame a vzdialene spravujeme iba VMware vnutri kontajnera, nie v hostovskom systeme. Kontajnerovy VMware potom spravujeme bud pomocou VNC, alebo inym sposobom zdielania vzdialenej pracovnej plochy v headless serveri.
+VMware instalujeme do hostovskeho operacneho systemu na to, aby VMware nainstaloval moduly do kernelu, lebo z kontajnera sa to neda, pretoze jadro je zdielane a neda sa modifikovat zvnutra kontajnera. Potom nainstalujeme VMware aj do kontajnera. Avsak pouzivame a vzdialene spravujeme iba VMware vnutri kontajnera, nie v hostovskom systeme (tato myslienka sa ukazala ako mylna - vid "Zaver"). Kontajnerovy VMware potom spravujeme bud pomocou VNC, alebo inym sposobom zdielania vzdialenej pracovnej plochy v headless serveri.
 
 Zakladny postup:
 0) Uistime sa, ze mame nainstalovane linux-headers v rovnakej verzii ako aktualny kernel na hostovskom OS.
@@ -48,8 +48,11 @@ exec /usr/lib/vmware/lib/vmplayer
 
     -pretoze odkaz v "Application menu -> System -> VMware Player" nefunguje
 
--Po prvom vykonani prikazu "vmplayer" nam vyskoci dialogove okno, ktore nas vyzve na instalaciu modulov do aktualneho kernelu. Pokial nam vyhodi okno na zadanie cesty ku "GCC", nainstalujeme balicek "build-essential" Potvrdime instalaciu kliknutim na tlacidlo "Install". Instalacia vmware modulov do kernelu trva nejaky cas, ktory zavisi od vypoctoveho vykonu servera.
+-Po prvom vykonani prikazu "vmplayer" na hostovskom systeme nam vyskoci dialogove okno, ktore nas vyzve na instalaciu modulov do aktualneho kernelu. Pokial nam vyhodi okno na zadanie cesty ku "GCC", nainstalujeme balicek "build-essential". Po nainstalovani potrebnych balickov znova spustime "vmplayer" a v dialogovom okne potvrdime instalaciu modulov kliknutim na tlacidlo "Install".
 
--Po uspesnej instalacii modulov sa mozeme vratit do kontajnera a znova spustit VMware Player z terminalu prikazom "vmplayer". Malo by sa zobrazit uvodne okno. Teraz je VMware Player pripraveny na pouzivanie.
+-Tento isty postup opakujeme na instalaciu VMware Player do kontajnera.
 
-Pre instalaciu nastroja EVE-ng pokracujeme navodom "3_hardverova_konfiguracia_EVE_vo_VMware_Player.txt".
+============================================
+Zaver
+============================================
+-Moduly sa nainstaluju do hostovskeho systemu bez problemov. Predpokladali sme, ze LXC kontajner vie spolupracovat s modulmi v hostovskom systeme. Ale po nainstalovani a spusteni VMware Player v LXC kontajneri sa znova zobrazilo dialogove okno na instalaciu modulov do kernelu. Pri pokuse o instalaciu kernel modulov z LXC kontajnera instalacia zlyhala. Z toho vyplyva, ze LXC kontajner nedokaze pristupovat ku kernelovym modulom v hostovskom systeme.
