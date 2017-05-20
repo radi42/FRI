@@ -36,7 +36,11 @@
 %Uloz obrazok tam, kde je deklarovany
 %\usepackage[subsection]{placeins}
 
+% Pisanie v slovenčine
 \newcommand\sktxt[1]{\foreignlanguage{slovak}{#1}}
+
+% Tabulator
+\newcommand\tab[1][1cm]{\hspace*{#1}}
 
 \begin{document}
 \pagenumbering{arabic}
@@ -56,15 +60,8 @@ Budeme konfigurovať smerovacie protokoly MPLS a IS-IS na topológií, ktorá je
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=14cm,keepaspectratio]{mpls_isis_topo}
-\caption{Topológia MPLS}
+\caption{Topológia MPLS + L3VPN}
 \label{fig:mpls_isis_topo}
-\end{figure}
-
-\begin{figure}[!htbp]
-\centering
-\includegraphics[width=14cm,keepaspectratio]{mpls_l3vpn_topo}
-\caption{Topológia MPLS + L3 VPN}
-\label{fig:mpls_l3vpn_topo}
 \end{figure}
 
 
@@ -128,7 +125,7 @@ Budeme konfigurovať smerovacie protokoly MPLS a IS-IS na topológií, ktorá je
 \subsection{IS−IS alebo OSPF}
 \subsubsection{Popis}
 \paragraph{}
-Ako vnútorný protokol sme zvolili IS-IS. Jeho konfigurácia je rovnaká ako v predchádzajúcich cvičeniach s ohľadom na aktuálny adresný plán.
+Ako vnútorný smerovací protokol sme zvolili IS-IS. Jeho konfigurácia je rovnaká ako v predchádzajúcich cvičeniach s ohľadom na aktuálny adresný plán.
 
 \subsubsection{Konfigurácia}
 \paragraph{}
@@ -152,16 +149,46 @@ int lo0
 
 \subsubsection{Overenie}
 \paragraph{}
-Konfiguráciu IS-IS sme overovali zobrazením IS-IS databázy.
+Konfiguráciu IS-IS sme overovali zobrazením IS-IS databázy. Nižšie uvádzame výpis príkazu \say{show isis database} zo smerovača R1.
 
 \noindent
 {\fontfamily{qcr}\selectfont
 \begin{small}
 \begin{alltt}
-R1# show isis database
+R1#sh isis database 
+
+Tag null:
+IS-IS Level-1 Link State Database:
+LSPID                 LSP Seq Num  LSP Checksum  LSP Holdtime      ATT/P/OL
+R1.00-00            * 0x000004BE   0x23C9        944               0/0/0
+R2.00-00              0x000004BD   0x5254        619               0/0/0
+R3.00-00              0x000004C3   0x3539        945               0/0/0
+R3.01-00              0x000004BE   0x0B18        733               0/0/0
+R4.00-00              0x000004C2   0x4758        420               0/0/0
+R4.01-00              0x000004BB   0x170D        465               0/0/0
+R4.02-00              0x000004BC   0x27F9        900               0/0/0
+R9.00-00              0x000004C0   0x0BD0        1084              0/0/0
+IS-IS Level-2 Link State Database:
+LSPID                 LSP Seq Num  LSP Checksum  LSP Holdtime      ATT/P/OL
+R1.00-00            * 0x000004C6   0x7857        787               0/0/0
+R2.00-00              0x000004C1   0x9FB1        1186              0/0/0
+R3.00-00              0x000004C8   0xE562        973               0/0/0
+R3.01-00              0x000004BE   0x9A11        1157              0/0/0
+R4.00-00              0x000004CB   0x89ED        973               0/0/0
+R4.01-00              0x000004BE   0xA009        1146              0/0/0
+R4.02-00              0x000004B6   0xC2EC        1122              0/0/0
+R9.00-00              0x000004C2   0xAE2A        768               0/0/0
 \end{alltt}
 \end{small}
 }
+
+
+\paragraph{}
+Z výpisu vyplýva, že protokol IS-IS na R1 je spustený. IS-IS databáza na R1 obsahuje aj záznamy o smerovačoch, ktoré sa nacáhádzajú v oblasti 110 t.j. R2, R3, R4 a R9. Z toho vyplýva, že IS-IS je spustený v celej oblasti 110.
+
+
+
+
 
 
 
@@ -172,7 +199,7 @@ R1# show isis database
 \subsection{MPLS}
 \subsubsection{Popis}
 \paragraph{}
-Základnú konfiguráciu MPLS sme robili podľa stránky \say{nil.uniza.sk}. Najprv zapneme \say{Cisco express forwarding} príkazom \say{ip cef}. Nakoniec zapneme MPLS príkazom \say{mpls ip}. Príkaz \say{mpls ip} sme použili iba na rozhraniach vnútri providerskej siete, nie na PE smerovačoch smerom k zákazníkom.
+Základnú konfiguráciu MPLS sme vypracovali podľa stránky \say{nil.uniza.sk}. Najprv zapneme \say{Cisco express forwarding} príkazom \say{ip cef}. Nakoniec zapneme MPLS príkazom \say{mpls ip}. Príkaz \say{mpls ip} sme použili iba na rozhraniach vnútri providerskej siete, nie na PE smerovačoch smerom k zákazníkom.
 
 \subsubsection{Konfigurácia}
 \paragraph{}
@@ -184,10 +211,9 @@ Aby sme zabezpečili konektivitu medzi jednotlivými zákazníkmi R5, R8 a R10, 
 \begin{alltt}
 R1 (config)#ip cef
 mpls ip
-mpls label protocol ldp
 int serial1/0
   mpls ip
-router bgp 65003
+router bgp 65001
   neighbor 192.168.15.1 remote-as 110
   address-family ipv4 unicast
   neighbor 192.168.15.1 activate
@@ -202,7 +228,7 @@ router bgp 65003
 {\fontfamily{qcr}\selectfont
 \begin{small}
 \begin{alltt}
-R10#sh ip bgp ipv4 unicast      
+R10#sh ip bgp ipv4 unicast
 ...
 
      Network          Next Hop            Metric LocPrf Weight Path
@@ -230,7 +256,8 @@ R10#
 \end{small}
 }
 
-
+\paragraph{}
+Z výpisu \say{show ip bgp ipv4 unicast} z klientského smerovača R10 vyplýva, že vidíme zákaznícke siete aj zo smerovačov R5 a R8. Na výpise \say{traceroute 10.255.255.8 source l0} vidíme, že paketu bola priradená MPLS značka.
 
 
 
@@ -238,7 +265,7 @@ R10#
 \subsection{LDP alebo RSVP}
 \subsubsection{Popis}
 \paragraph{}
-Dohodli sme sa, že aktivujeme LDP značkovanie.
+Dohodli sme sa, že aktivujeme LDP (Label Distribution Protocol), aby si smerovače mohli MPLS značky posielať medzi sebou.
 
 \subsubsection{Konfigurácia}
 \paragraph{}
@@ -255,12 +282,13 @@ mpls label protocol ldp
 
 \subsubsection{Overenie}
 \paragraph{}
+Funkčnosť LDP sme overovali príkazom \say{show mpls ldp discovery} na providerských smerovačoch. Nižšie je uvedený výpis z R3.
 
 \noindent
 {\fontfamily{qcr}\selectfont
 \begin{small}
 \begin{alltt}
-R3#show mpls ldp disc
+R3#show mpls ldp discovery
  Local LDP Identifier:
     10.255.255.3:0
     Discovery Sources:
@@ -275,6 +303,20 @@ R3#show mpls ldp disc
 \end{small}
 }
 
+\paragraph{}
+Z výpisu vyplýva, že R3 vidí aktívne LDP na susedných providerských smerovačoch R2, R4 a R9.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \subsection{Router Reflector alebo konfederácie}
@@ -286,12 +328,13 @@ V tomto prípade sme sa dohodli o nastavení Route Reflectora (RR) na smerovač 
 
 \subsubsection{Konfigurácia}
 \paragraph{}
-Smerovače R3, R4 a R9 sme nastavovali ako museli nadviazať BGP s R1.
+Smerovače R3, R4 a R9 sme nakonfigurovali tak, aby používali R1 ako RR.
 
 \noindent
 {\fontfamily{qcr}\selectfont
 \begin{small}
 \begin{alltt}
+!R3, R4, R9
 router bgp 110
   neighbor 10.255.255.1 remote-as 110
   neighbor 10.255.255.1 update-source Loopback0
@@ -304,13 +347,13 @@ router bgp 110
 }
 
 \paragraph{}
-Potom nasledovala konfigurácia RR, teda smerovača R1.
+Potom sme nakonfigurovali R1 ako RR.
 
 \noindent
 {\fontfamily{qcr}\selectfont
 \begin{small}
 \begin{alltt}
-R1
+!R1
 router bgp 110
   neighbor 10.255.255.3 remote-as 110
   neighbor 10.255.255.3 update-source l0
@@ -381,11 +424,34 @@ Success rate is 100 percent (5/5), round-trip min/avg/max = 48/63/80 ms
 Sending 5, 100-byte ICMP Echos to 10.255.255.10, timeout is 2 seconds:
 !!!!!
 Success rate is 100 percent (5/5), round-trip min/avg/max = 72/79/100 ms
+
+
+
+
+
+R4#ping vrf GREEN 172.21.0.1
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 172.21.0.1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 20/31/40 ms
+R4#ping vrf GREEN 172.22.0.1
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 172.22.0.1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 12/23/36 ms
+R4#ping vrf GREEN 172.23.0.1
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 172.23.0.1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 44/56/72 ms
 \end{alltt}
 \end{small}
 }
 
-TODO - ZLE - nejak tam treba zakomponovat tie RED GREEN - urobit cez VRF PING
+\paragraph{}
+Z výpisov z R1 vyplýva, že konektivita zostala zachovaná ku všetkým smerovačom v oblasti 110. S použitím VRF pingu z R4 sme zistili, že aj zákaznícke siete sú stále dostupné.
+
+
 
 
 
@@ -397,192 +463,62 @@ TODO - ZLE - nejak tam treba zakomponovat tie RED GREEN - urobit cez VRF PING
 \subsection{Multiprotocol BGP}
 \subsubsection{Popis}
 \paragraph{}
+Multiprotokolové BGP (MP-BGP) je kombinácia BGP s, v tomto prípade, MPLS. Tak možeme poskytovať L3VPN službu viacerým zákazníkom, v tomto prípade zákazníkom RED a GREEN.
+
+\paragraph{}
+Zákazník RED mal loopback0 rozhrania s IP adresami 172.[21/22/23].0.1 /16 v AS 65001, 65002 a 65003. Zákazník GREEN mal dve loopback1 rozhrania: jedno na R1, druhé na R9 s IP adresami 172.[21/22].0.1 /16.
 
 \subsubsection{Konfigurácia}
 \paragraph{}
+MP-BGP sme konfigurovali na všetkých PE smerovačoch t.j. R1, R3, R4 a R9. Nižšie je uvedená konfigurácia pre R1.
 
 \noindent
 {\fontfamily{qcr}\selectfont
 \begin{small}
 \begin{alltt}
-R1(config)#do sh run
-Building configuration...
+R1(config)#ip cef
+mpls label protocol ldp
 
-Current configuration : 3764 bytes
-!
-! Last configuration change at 09:05:48 UTC Tue May 9 2017
-upgrade fpd auto
-version 15.3
-service timestamps debug datetime msec
-service timestamps log datetime msec
-no service password-encryption
-!
-hostname R1
-!
-boot-start-marker
-boot-end-marker
-!
-aqm-register-fnf
-!
-!
-no aaa new-model
-!
-!
-!
 ip vrf GREEN
  rd 100:2 
  route-target export 110:2
  route-target import 110:2
-!
+ exit
 ip vrf RED
  rd 110:1
  route-target export 110:1
  route-target import 110:1
-!
-!
-!
-!
-no ip domain lookup
-ip cef
-no ipv6 cef
-!
-multilink bundle-name authenticated
-mpls label protocol ldp
-!
-!
-!
-!
-!
-!         
-!
-!
-!
-username admin privilege 15 secret 5 $1$eKi3$TJSJS.zu5o6JMF5F3h4bV1
-!
-redundancy
-!
-!
-! 
-!
-!
-!
-!
-!
-!
-!
-!
-!
+ exit
+
 interface Loopback0
  ip address 10.255.255.1 255.255.255.255
- ip router isis 
-!
+ ip router isis
+
 interface Loopback1
+ ip address 172.21.0.1 255.255.0.0
  ip vrf forwarding GREEN
- ip address 172.23.0.1 255.255.0.0
-!
-interface FastEthernet0/0
- no ip address
- shutdown
- duplex half
-!
-interface Serial1/0
- no ip address
- shutdown
- serial restart-delay 0
-!
-interface Serial1/1
- no ip address
- shutdown
- serial restart-delay 0
-!
-interface Serial1/2
- no ip address
- shutdown
- serial restart-delay 0
-!         
-interface Serial1/3
- no ip address
- shutdown
- serial restart-delay 0
-!
-interface Serial1/4
- no ip address
- shutdown
- serial restart-delay 0
-!
-interface Serial1/5
- no ip address
- shutdown
- serial restart-delay 0
-!
-interface Serial1/6
- no ip address
- shutdown
- serial restart-delay 0
-!
-interface Serial1/7
- no ip address
- shutdown 
- serial restart-delay 0
-!
+
 interface Ethernet2/0
  ip address 10.0.12.1 255.255.255.0
  ip router isis 
  duplex half
  mpls ip
  isis network point-to-point 
-!
+
 interface Ethernet2/1
  ip vrf forwarding RED
  ip address 192.168.15.1 255.255.255.0
  duplex half
-!
-interface Ethernet2/2
- no ip address
- shutdown
- duplex half
-!
-interface Ethernet2/3
- no ip address
- shutdown
- duplex half
-!
-interface Ethernet2/4
- no ip address
- shutdown
- duplex half
-!
-interface Ethernet2/5
- no ip address
- shutdown
- duplex half
-!
-interface Ethernet2/6
- no ip address
- shutdown
- duplex half
-!
-interface Ethernet2/7
- no ip address
- shutdown
- duplex half
-!
-router isis
- net 49.0001.0102.5525.5001.00
-!
+
 router bgp 110
  bgp log-neighbor-changes
- no bgp default ipv4-unicast
  neighbor 10.255.255.3 remote-as 110
  neighbor 10.255.255.3 update-source Loopback0
  neighbor 10.255.255.4 remote-as 110
  neighbor 10.255.255.4 update-source Loopback0
  neighbor 10.255.255.9 remote-as 110
  neighbor 10.255.255.9 update-source Loopback0
- !
- address-family ipv4
- exit-address-family
- !
+
  address-family vpnv4
   neighbor 10.255.255.3 activate
   neighbor 10.255.255.3 send-community extended
@@ -594,1495 +530,17 @@ router bgp 110
   neighbor 10.255.255.9 send-community extended
   neighbor 10.255.255.9 route-reflector-client
  exit-address-family
- !
+ 
  address-family ipv4 vrf GREEN
   redistribute connected
  exit-address-family
- !
+ 
  address-family ipv4 vrf RED
   redistribute connected
   neighbor 192.168.15.5 remote-as 65001
   neighbor 192.168.15.5 activate
   neighbor 192.168.15.5 as-override
  exit-address-family
-!
-ip forward-protocol nd
-no ip http server
-no ip http secure-server
-!
-!
-!
-!
-!
-mpls ldp router-id Loopback0 force
-!
-control-plane
-!
-!
-mgcp behavior rsip-range tgcp-only
-mgcp behavior comedia-role none
-mgcp behavior comedia-check-media-src disable
-mgcp behavior comedia-sdp-force disable
-!
-mgcp profile default
-!
-!
-!
-gatekeeper
- shutdown
-!
-!
-line con 0
- exec-timeout 120 0
- logging synchronous
- login local
- stopbits 1
-line aux 0
- stopbits 1
-line vty 0 4
- privilege level 15
- no login
- transport input all
-line vty 5 15
- privilege level 15
- no login
- transport input all
-!
-!
-end
-
-R1(config)# 
-==================
-R2(config-subif)#do sh run
-Building configuration...
-
-Current configuration : 2739 bytes
-!
-! Last configuration change at 09:06:53 UTC Tue May 9 2017
-upgrade fpd auto
-version 15.3
-service timestamps debug datetime msec
-service timestamps log datetime msec
-no service password-encryption
-!
-hostname R2
-!
-boot-start-marker
-boot-end-marker
-!
-aqm-register-fnf
-!
-!
-no aaa new-model
-!
-!
-!
-!
-!         
-!
-no ip domain lookup
-ip cef
-no ipv6 cef
-!
-multilink bundle-name authenticated
-mpls label protocol ldp
-!
-!
-!
-!
-!
-!
-!
-!
-!
-username admin privilege 15 secret 5 $1$QNaa$DSiUgQZG.ZRbem2tUy4nv.
-!
-redundancy
-!
-!
-! 
-!         
-!
-!
-!
-!
-!
-!
-!
-!
-interface Loopback0
- ip address 10.255.255.2 255.255.255.255
- ip router isis 
-!
-interface FastEthernet0/0
- no ip address
- shutdown
- duplex half
-!
-interface Serial1/0
- no ip address
- shutdown
- serial restart-delay 0
-!
-interface Serial1/1
- no ip address
- shutdown
- serial restart-delay 0
-!
-interface Serial1/2
- no ip address
- shutdown
- serial restart-delay 0
-!
-interface Serial1/3
- no ip address
- shutdown
- serial restart-delay 0
-!
-interface Serial1/4
- no ip address
- shutdown
- serial restart-delay 0
-!
-interface Serial1/5
- no ip address
- shutdown
- serial restart-delay 0
-!
-interface Serial1/6
- no ip address
- shutdown
- serial restart-delay 0
-!
-interface Serial1/7
- no ip address
- shutdown
- serial restart-delay 0
-!
-interface Ethernet2/0
- ip address 10.0.12.2 255.255.255.0
- ip router isis 
- duplex half
- mpls ip
- isis network point-to-point 
-!
-interface Ethernet2/1
- no ip address
- shutdown
- duplex half
- isis network point-to-point 
-!
-interface Ethernet2/1.23
- encapsulation dot1Q 23
- ip address 10.0.23.2 255.255.255.0
- ip router isis 
- mpls ip
- isis network point-to-point 
-!
-interface Ethernet2/1.24
- encapsulation dot1Q 24
- ip address 10.0.24.2 255.255.255.0
- ip router isis 
- mpls ip
- isis network point-to-point 
-!
-interface Ethernet2/2
- no ip address
- shutdown
- duplex half
-!
-interface Ethernet2/3
- no ip address
- shutdown 
- duplex half
-!
-interface Ethernet2/4
- no ip address
- shutdown
- duplex half
-!
-interface Ethernet2/5
- no ip address
- shutdown
- duplex half
-!
-interface Ethernet2/6
- no ip address
- shutdown
- duplex half
-!
-interface Ethernet2/7
- no ip address
- shutdown
- duplex half
-!
-router isis
- net 49.0001.0102.5525.5002.00
-!
-ip forward-protocol nd
-no ip http server
-no ip http secure-server
-!
-!
-!
-!
-!
-mpls ldp router-id Loopback0 force
-!
-control-plane
-!
-!
-mgcp behavior rsip-range tgcp-only
-mgcp behavior comedia-role none
-mgcp behavior comedia-check-media-src disable
-mgcp behavior comedia-sdp-force disable
-!
-mgcp profile default
-!
-!         
-!
-gatekeeper
- shutdown
-!
-!
-line con 0
- exec-timeout 120 0
- logging synchronous
- login local
- stopbits 1
-line aux 0
- stopbits 1
-line vty 0 4
- privilege level 15
- no login
- transport input all
-line vty 5 15
- privilege level 15
- no login
- transport input all
-!
-!
-end       
-
-R2(config-subif)#   
-============================
-R3(config)#do sh run
-Building configuration...
-
-Current configuration : 3254 bytes
-!
-! Last configuration change at 09:08:12 UTC Tue May 9 2017
-upgrade fpd auto
-version 15.3
-service timestamps debug datetime msec
-service timestamps log datetime msec
-no service password-encryption
-!
-hostname R3
-!
-boot-start-marker
-boot-end-marker
-!
-aqm-register-fnf
-!
-!
-no aaa new-model
-!
-!
-!
-ip vrf RED
- rd 110:1 
- route-target export 110:1
- route-target import 110:1
-!
-!
-!
-!
-no ip domain lookup
-ip cef
-no ipv6 cef
-!
-multilink bundle-name authenticated
-mpls label protocol ldp
-!
-!
-!
-!
-!
-!
-!
-!
-!
-username admin privilege 15 secret 5 $1$ierK$7ZnPCJ2hvc7ypP11a//Tc.
-!         
-redundancy
-!
-!
-! 
-!
-!
-!
-!
-!
-!
-!
-!
-!
-interface Loopback0
- ip address 10.255.255.3 255.255.255.255
- ip router isis 
-!
-interface FastEthernet0/0
- no ip address
- shutdown
- duplex half
-!
-interface Serial1/0
- ip address 10.0.39.3 255.255.255.0
- ip router isis 
- mpls ip
- serial restart-delay 0
-!
-interface Serial1/1
- no ip address
- shutdown
- serial restart-delay 0
-!
-interface Serial1/2
- no ip address
- shutdown
- serial restart-delay 0
-!
-interface Serial1/3
- no ip address
- shutdown
- serial restart-delay 0
-!
-interface Serial1/4
- no ip address
- shutdown 
- serial restart-delay 0
-!
-interface Serial1/5
- no ip address
- shutdown
- serial restart-delay 0
-!
-interface Serial1/6
- no ip address
- shutdown
- serial restart-delay 0
-!
-interface Serial1/7
- no ip address
- shutdown
- serial restart-delay 0
-!
-interface Ethernet2/0
- ip vrf forwarding RED
- ip address 192.168.38.3 255.255.255.0
- duplex half
-!
-interface Ethernet2/1
- no ip address
- duplex half
- isis network point-to-point 
-!
-interface Ethernet2/1.23
- encapsulation dot1Q 23
- ip address 10.0.23.3 255.255.255.0
- ip router isis 
- mpls ip
- isis network point-to-point 
-!
-interface Ethernet2/1.34
- encapsulation dot1Q 34
- ip address 10.0.34.3 255.255.255.0
- ip router isis 
- mpls ip
- isis network point-to-point 
-!
-interface Ethernet2/2
- no ip address
- shutdown
- duplex half
-!         
-interface Ethernet2/3
- no ip address
- shutdown
- duplex half
-!
-interface Ethernet2/4
- no ip address
- shutdown
- duplex half
-!
-interface Ethernet2/5
- no ip address
- shutdown
- duplex half
-!
-interface Ethernet2/6
- no ip address
- shutdown
- duplex half
-!
-interface Ethernet2/7
- no ip address
- shutdown 
- duplex half
-!
-router isis
- net 49.0001.0102.5525.5003.00
-!
-router bgp 110
- bgp log-neighbor-changes
- neighbor 10.255.255.1 remote-as 110
- neighbor 10.255.255.1 update-source Loopback0
- !
- address-family vpnv4
-  neighbor 10.255.255.1 activate
-  neighbor 10.255.255.1 send-community extended
- exit-address-family
- !
- address-family ipv4 vrf RED
-  redistribute connected
-  neighbor 192.168.38.8 remote-as 65001
-  neighbor 192.168.38.8 activate
-  neighbor 192.168.38.8 as-override
- exit-address-family
-!
-ip forward-protocol nd
-no ip http server
-no ip http secure-server
-!
-!
-!
-!
-!
-mpls ldp router-id Loopback0 force
-!
-control-plane
-!
-!
-mgcp behavior rsip-range tgcp-only
-mgcp behavior comedia-role none
-mgcp behavior comedia-check-media-src disable
-mgcp behavior comedia-sdp-force disable
-!
-mgcp profile default
-!
-!
-!
-gatekeeper
- shutdown 
-!
-!
-line con 0
- exec-timeout 120 0
- logging synchronous
- login local
- stopbits 1
-line aux 0
- stopbits 1
-line vty 0 4
- privilege level 15
- no login
- transport input all
-line vty 5 15
- privilege level 15
- no login
- transport input all
-!
-!
-end
-
-=-==================
-R4(config)#
-*May  9 09:46:52.772: %LDP-5-NBRCHG: LDP Neighbor 10.255.255.3:0 (1) is UP
-R4(config)#do sh run
-Building configuration...
-
-Current configuration : 3599 bytes
-!
-! Last configuration change at 09:09:38 UTC Tue May 9 2017
-upgrade fpd auto
-version 15.3
-service timestamps debug datetime msec
-service timestamps log datetime msec
-no service password-encryption
-!
-hostname R4
-!
-boot-start-marker
-boot-end-marker
-!
-aqm-register-fnf
-!
-!
-no aaa new-model
-!
-!
-!
-ip vrf GREEN
- rd 110:2 
- route-target export 110:2
- route-target import 110:2
-!
-ip vrf RED
- rd 110:1
- route-target export 110:1
- route-target import 110:1
-!
-!
-!
-!
-no ip domain lookup
-ip cef
-no ipv6 cef
-!
-multilink bundle-name authenticated
-mpls label protocol ldp
-!
-!
-!
-!
-!
-!         
-!
-!
-!
-username admin privilege 15 secret 5 $1$Eu2a$rgRjxOvteTJdNyTEKValI/
-!
-redundancy
-!
-!
-! 
-!
-!
-!
-!
-!
-!
-!
-!
-!
-interface Loopback0
- ip address 10.255.255.4 255.255.255.255
- ip router isis 
-!
-interface Loopback1
- ip vrf forwarding GREEN
- ip address 172.22.0.1 255.255.0.0
-!
-interface FastEthernet0/0
- no ip address
- shutdown
- duplex half
-!
-interface Serial1/0
- ip vrf forwarding RED
- ip address 192.168.104.4 255.255.255.0
- serial restart-delay 0
-!
-interface Serial1/1
- no ip address
- shutdown
- serial restart-delay 0
-!
-interface Serial1/2
- no ip address
- shutdown
- serial restart-delay 0
-!         
-interface Serial1/3
- no ip address
- shutdown
- serial restart-delay 0
-!
-interface Serial1/4
- no ip address
- shutdown
- serial restart-delay 0
-!
-interface Serial1/5
- no ip address
- shutdown
- serial restart-delay 0
-!
-interface Serial1/6
- no ip address
- shutdown
- serial restart-delay 0
-!
-interface Serial1/7
- no ip address
- shutdown 
- serial restart-delay 0
-!
-interface Ethernet2/0
- ip address 10.0.49.4 255.255.255.0
- ip router isis
- duplex half
- mpls ip
- isis network point-to-point 
-!
-interface Ethernet2/1
- no ip address
- duplex half
- isis network point-to-point 
-!
-interface Ethernet2/1.23
- isis network point-to-point 
-!
-interface Ethernet2/1.24
- encapsulation dot1Q 24
- ip address 10.0.24.4 255.255.255.0
- ip router isis 
- mpls ip  
- isis network point-to-point 
-!
-interface Ethernet2/1.34
- encapsulation dot1Q 34
- ip address 10.0.34.4 255.255.255.0
- ip router isis 
- mpls ip
- isis network point-to-point 
-!
-interface Ethernet2/2
- no ip address
- shutdown
- duplex half
-!
-interface Ethernet2/3
- no ip address
- shutdown
- duplex half
-!
-interface Ethernet2/4
- no ip address
- shutdown
- duplex half
-!
-interface Ethernet2/5
- no ip address
- shutdown
- duplex half
-!
-interface Ethernet2/6
- no ip address
- shutdown
- duplex half
-!
-interface Ethernet2/7
- no ip address
- shutdown
- duplex half
-!
-router isis
- net 49.0001.0102.5525.5004.00
-!
-router bgp 110
- bgp log-neighbor-changes
- neighbor 10.255.255.1 remote-as 110
- neighbor 10.255.255.1 update-source Loopback0
- !
- address-family vpnv4
-  neighbor 10.255.255.1 activate
-  neighbor 10.255.255.1 send-community extended
- exit-address-family
- !
- address-family ipv4 vrf GREEN
-  redistribute connected
- exit-address-family
- !
- address-family ipv4 vrf RED
-  redistribute connected
-  neighbor 192.168.104.10 remote-as 65001
-  neighbor 192.168.104.10 activate
-  neighbor 192.168.104.10 as-override
- exit-address-family
-!
-ip forward-protocol nd
-no ip http server
-no ip http secure-server
-!
-!
-!         
-!
-!
-mpls ldp router-id Loopback0 force
-!
-control-plane
-!
-!
-mgcp behavior rsip-range tgcp-only
-mgcp behavior comedia-role none
-mgcp behavior comedia-check-media-src disable
-mgcp behavior comedia-sdp-force disable
-!
-mgcp profile default
-!
-!
-!
-gatekeeper
- shutdown
-!
-!
-line con 0
- exec-timeout 120 0
- logging synchronous
- login local
- stopbits 1
-line aux 0
- stopbits 1
-line vty 0 4
- privilege level 15
- no login
- transport input all
-line vty 5 15
- privilege level 15
- no login
- transport input all
-!
-!
-end
-
-==================
-R5(config)#do sh run
-Building configuration...
-
-Current configuration : 2432 bytes
-!
-! Last configuration change at 09:10:04 UTC Tue May 9 2017
-upgrade fpd auto
-version 15.3
-service timestamps debug datetime msec
-service timestamps log datetime msec
-no service password-encryption
-!
-hostname R5
-!
-boot-start-marker
-boot-end-marker
-!
-aqm-register-fnf
-!
-!
-no aaa new-model
-!
-!
-!
-!
-!         
-!
-no ip domain lookup
-ip cef
-no ipv6 cef
-!
-multilink bundle-name authenticated
-!
-!
-!
-!
-!
-!
-!
-!
-!
-username admin privilege 15 secret 5 $1$n4c4$fjx3bLiFEXqL3tjOX2tda/
-!
-redundancy
-!
-!
-! 
-!
-!         
-!
-!
-!
-!
-!
-!
-!
-interface Loopback0
- ip address 10.255.255.5 255.255.255.255
-!
-interface Loopback1
- ip address 172.23.0.1 255.255.0.0
-!
-interface FastEthernet0/0
- no ip address
- shutdown
- duplex half
-!
-interface Serial1/0
- no ip address
- shutdown
- serial restart-delay 0
-!         
-interface Serial1/1
- no ip address
- shutdown
- serial restart-delay 0
-!
-interface Serial1/2
- no ip address
- shutdown
- serial restart-delay 0
-!
-interface Serial1/3
- no ip address
- shutdown
- serial restart-delay 0
-!
-interface Serial1/4
- no ip address
- shutdown
- serial restart-delay 0
-!
-interface Serial1/5
- no ip address
- shutdown 
- serial restart-delay 0
-!
-interface Serial1/6
- no ip address
- shutdown
- serial restart-delay 0
-!
-interface Serial1/7
- no ip address
- shutdown
- serial restart-delay 0
-!
-interface Ethernet2/0
- no ip address
- shutdown
- duplex half
-!
-interface Ethernet2/1
- ip address 192.168.15.5 255.255.255.0
- duplex half
-!
-interface Ethernet2/2
- no ip address
- shutdown
- duplex half
-!
-interface Ethernet2/3
- no ip address
- shutdown
- duplex half
-!
-interface Ethernet2/4
- no ip address
- shutdown
- duplex half
-!
-interface Ethernet2/5
- no ip address
- shutdown
- duplex half
-!
-interface Ethernet2/6
- no ip address
- shutdown
- duplex half
-!         
-interface Ethernet2/7
- no ip address
- shutdown
- duplex half
-!
-router bgp 65001
- bgp log-neighbor-changes
- network 172.23.0.0
- redistribute connected
- neighbor 192.168.15.1 remote-as 110
-!
-ip forward-protocol nd
-no ip http server
-no ip http secure-server
-!
-!
-!
-!
-!
-!
-control-plane
-!
-!         
-mgcp behavior rsip-range tgcp-only
-mgcp behavior comedia-role none
-mgcp behavior comedia-check-media-src disable
-mgcp behavior comedia-sdp-force disable
-!
-mgcp profile default
-!
-!
-!
-gatekeeper
- shutdown
-!
-!
-line con 0
- exec-timeout 120 0
- logging synchronous
- login local
- stopbits 1
-line aux 0
- stopbits 1
-line vty 0 4
- privilege level 15
- no login 
- transport input all
-line vty 5 15
- privilege level 15
- no login
- transport input all
-!
-!
-end
-===============
-R8(config-router)#do sh run
-Building configuration...
-
-Current configuration : 1943 bytes
-!
-! Last configuration change at 09:10:47 UTC Tue May 9 2017
-upgrade fpd auto
-version 15.3
-service timestamps debug datetime msec
-service timestamps log datetime msec
-no service password-encryption
-!
-hostname R8
-!
-boot-start-marker
-boot-end-marker
-!
-aqm-register-fnf
-!
-!
-no aaa new-model
-!
-!
-!
-!
-!         
-!
-no ip domain lookup
-ip cef
-no ipv6 cef
-!
-multilink bundle-name authenticated
-!
-!
-!
-!
-!
-!
-!
-!
-!
-username admin privilege 15 secret 5 $1$Mq.F$L/F7f8cDOy57qHWHgR/1v1
-!
-redundancy
-!
-!
-! 
-!
-!         
-!
-!
-!
-!
-!
-!
-!
-interface Loopback0
- ip address 10.255.255.8 255.255.255.255
-!
-interface Loopback1
- ip address 172.21.0.1 255.255.0.0
-!
-interface FastEthernet0/0
- no ip address
- shutdown
- duplex half
-!
-interface Ethernet2/0
- ip address 192.168.38.8 255.255.255.0
- duplex half
-!
-interface Ethernet2/1
- ip address 192.168.89.8 255.255.255.0
- duplex half
-!
-interface Ethernet2/2
- no ip address
- shutdown
- duplex half
-!
-interface Ethernet2/3
- no ip address
- shutdown
- duplex half
-!
-interface Ethernet2/4
- no ip address
- shutdown
- duplex half
-!
-interface Ethernet2/5
- no ip address
- shutdown
- duplex half
-!         
-interface Ethernet2/6
- no ip address
- shutdown
- duplex half
-!
-interface Ethernet2/7
- no ip address
- shutdown
- duplex half
-!
-router bgp 65001
- bgp router-id 10.255.255.8
- bgp log-neighbor-changes
- network 172.21.0.0
- redistribute connected
- neighbor 192.168.38.3 remote-as 110
- neighbor 192.168.89.9 remote-as 110
-!
-ip forward-protocol nd
-no ip http server
-no ip http secure-server
-!
-!         
-!
-!
-!
-!
-control-plane
-!
-!
-mgcp behavior rsip-range tgcp-only
-mgcp behavior comedia-role none
-mgcp behavior comedia-check-media-src disable
-mgcp behavior comedia-sdp-force disable
-!
-mgcp profile default
-!
-!
-!
-gatekeeper
- shutdown
-!
-!
-line con 0
- exec-timeout 120 0
- logging synchronous
- login local
- stopbits 1
-line aux 0
- stopbits 1
-line vty 0 4
- privilege level 15
- no login
- transport input all
-line vty 5 15
- privilege level 15
- no login
- transport input all
-!
-!
-end
-
-===============
-R9(config)#do sh run
-Building configuration...
-
-Current configuration : 3100 bytes
-!
-! Last configuration change at 09:11:23 UTC Tue May 9 2017
-upgrade fpd auto
-version 15.3
-service timestamps debug datetime msec
-service timestamps log datetime msec
-no service password-encryption
-!
-hostname R9
-!
-boot-start-marker
-boot-end-marker
-!
-aqm-register-fnf
-!
-!
-no aaa new-model
-!
-!
-!
-ip vrf RED
- rd 110:1 
- route-target export 110:1
- route-target import 110:1
-!
-!
-!
-!
-no ip domain lookup
-ip cef
-no ipv6 cef
-!
-multilink bundle-name authenticated
-mpls label protocol ldp
-!
-!
-!
-!
-!
-!
-!
-!
-!
-username admin privilege 15 secret 5 $1$9Xfg$w5/FVeQ3L3lr67UN.zzch.
-!         
-redundancy
-!
-!
-! 
-!
-!
-!
-!
-!
-!
-!
-!
-!
-interface Loopback0
- ip address 10.255.255.9 255.255.255.255
- ip router isis 
-!
-interface Loopback1
- ip address 172.21.0.1 255.255.0.0
-!
-interface FastEthernet0/0
- no ip address
- shutdown 
- duplex half
-!
-interface Serial1/0
- ip address 10.0.39.9 255.255.255.0
- ip router isis 
- mpls ip
- serial restart-delay 0
-!
-interface Serial1/1
- no ip address
- shutdown
- serial restart-delay 0
-!
-interface Serial1/2
- no ip address
- shutdown
- serial restart-delay 0
-!
-interface Serial1/3
- no ip address
- shutdown
- serial restart-delay 0
-!         
-interface Serial1/4
- no ip address
- shutdown
- serial restart-delay 0
-!
-interface Serial1/5
- no ip address
- shutdown
- serial restart-delay 0
-!
-interface Serial1/6
- no ip address
- shutdown
- serial restart-delay 0
-!
-interface Serial1/7
- no ip address
- shutdown
- serial restart-delay 0
-!
-interface Ethernet2/0
- ip address 10.0.49.9 255.255.255.0
- ip router isis 
- duplex half
- mpls ip
- isis network point-to-point 
-!
-interface Ethernet2/1
- ip vrf forwarding RED
- ip address 192.168.89.9 255.255.255.0
- duplex half
-!
-interface Ethernet2/2
- no ip address
- shutdown
- duplex half
-!
-interface Ethernet2/3
- no ip address
- shutdown
- duplex half
-!
-interface Ethernet2/4
- no ip address
- shutdown
- duplex half
-!
-interface Ethernet2/5
- no ip address
- shutdown
- duplex half
-!
-interface Ethernet2/6
- no ip address
- shutdown
- duplex half
-!
-interface Ethernet2/7
- no ip address
- shutdown
- duplex half
-!
-router isis
- net 49.0001.0102.5525.5009.00
-!
-router bgp 110
- bgp router-id 10.255.255.9
- bgp log-neighbor-changes
- neighbor 10.255.255.1 remote-as 110
- neighbor 10.255.255.1 update-source Loopback0
- !
- address-family vpnv4
-  neighbor 10.255.255.1 activate
-  neighbor 10.255.255.1 send-community extended
- exit-address-family
- !
- address-family ipv4 vrf RED
-  redistribute connected
-  neighbor 192.168.89.8 remote-as 65001
-  neighbor 192.168.89.8 activate
-  neighbor 192.168.89.8 as-override
- exit-address-family
-!
-ip forward-protocol nd
-no ip http server
-no ip http secure-server
-!
-!
-!
-!
-!
-mpls ldp router-id Loopback0 force
-!
-control-plane
-!
-!
-mgcp behavior rsip-range tgcp-only
-mgcp behavior comedia-role none
-mgcp behavior comedia-check-media-src disable
-mgcp behavior comedia-sdp-force disable
-!
-mgcp profile default
-!
-!
-!
-gatekeeper
- shutdown
-!
-!
-line con 0
- exec-timeout 120 0
- logging synchronous
- login local
- stopbits 1
-line aux 0
- stopbits 1
-line vty 0 4
- privilege level 15
- no login
- transport input all
-line vty 5 15
- privilege level 15
- no login
- transport input all
-!
-!
-end
-===============
-R10(config-if)#do sh run
-Building configuration...
-
-Current configuration : 1941 bytes
-!
-! Last configuration change at 09:12:01 UTC Tue May 9 2017
-upgrade fpd auto
-version 15.3
-service timestamps debug datetime msec
-service timestamps log datetime msec
-no service password-encryption
-!
-hostname R10
-!
-boot-start-marker
-boot-end-marker
-!
-aqm-register-fnf
-!
-!
-no aaa new-model
-!
-!
-!
-!
-!         
-!
-no ip domain lookup
-ip cef
-no ipv6 cef
-!
-multilink bundle-name authenticated
-!
-!
-!
-!
-!
-!
-!
-!
-!
-username admin privilege 15 secret 5 $1$B5L1$Z/2grhIGcOAdN05y9rl7M1
-!
-redundancy
-!
-!
-! 
-!
-!         
-!
-!
-!
-!
-!
-!
-!
-interface Loopback0
- ip address 10.255.255.10 255.255.255.255
-!
-interface Loopback1
- ip address 172.22.0.1 255.255.0.0
-!
-interface FastEthernet0/0
- no ip address
- shutdown
- duplex half
-!
-interface Serial1/0
- ip address 192.168.104.10 255.255.255.0
- serial restart-delay 0
-!
-interface Serial1/1
- no ip address
- shutdown
- serial restart-delay 0
-!
-interface Serial1/2
- no ip address
- shutdown
- serial restart-delay 0
-!
-interface Serial1/3
- no ip address
- shutdown
- serial restart-delay 0
-!
-interface Serial1/4
- no ip address
- shutdown
- serial restart-delay 0
-!
-interface Serial1/5
- no ip address
- shutdown
- serial restart-delay 0
-!
-interface Serial1/6
- no ip address
- shutdown
- serial restart-delay 0
-!
-interface Serial1/7
- no ip address
- shutdown
- serial restart-delay 0
-!
-router bgp 65001
- bgp log-neighbor-changes
- network 172.22.0.0
- redistribute connected
- neighbor 192.168.104.4 remote-as 110
-!
-ip forward-protocol nd
-no ip http server
-no ip http secure-server
-!
-!
-!         
-!
-!
-!
-control-plane
-!
-!
-mgcp behavior rsip-range tgcp-only
-mgcp behavior comedia-role none
-mgcp behavior comedia-check-media-src disable
-mgcp behavior comedia-sdp-force disable
-!
-mgcp profile default
-!
-!
-!
-gatekeeper
- shutdown
-!
-!
-line con 0
- exec-timeout 120 0
- logging synchronous
- login local
- stopbits 1
-line aux 0
- stopbits 1
-line vty 0 4
- privilege level 15
- no login
- transport input all
-line vty 5 15
- privilege level 15
- no login
- transport input all
-!
-!
-end
-
-R10(config-if)#  
 \end{alltt}
 \end{small}
 }
@@ -2090,6 +548,91 @@ R10(config-if)#
 
 \subsubsection{Overenie}
 \paragraph{}
+Funkčnosť BGP sme overovali príkazmi \say{show ip bgp vpnv4 vrf RED}, \say{show ip bgp vpnv4 vrf GREEN} a \say{show ip bgp vpnv4 vrf RED 172.21.0.0} na PE smerovačoch a príkazom \say{show ip bgp} na Customer Edge (CE) smerovačoch.
+
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+R1#show ip bgp vpnv4 vrf RED
+BGP table version is 144, local router ID is 10.255.255.1
+...
+
+     Network          Next Hop            Metric LocPrf Weight Path
+Route Distinguisher: 110:2 (default for vrf RED)
+ * i 172.21.0.0       10.255.255.9             0    100      0 65001 ?
+ *>i                  10.255.255.3             0    100      0 65001 ?
+ *>i 172.22.0.0       10.255.255.4             0    100      0 65002 ?
+ *>  172.23.0.0       192.168.15.5             0             0 65003 ?
+...
+
+
+
+
+
+R1#show ip bgp vpnv4 vrf GREEN
+BGP table version is 144, local router ID is 10.255.255.1
+...
+
+     Network          Next Hop            Metric LocPrf Weight Path
+Route Distinguisher: 110:2 (default for vrf RED)
+ * i 172.21.0.0       0.0.0.0                  0    100      0 65004 ?
+ *>i 172.22.0.0       10.255.255.9             0    100      0 65005 ?
+...
+
+
+
+
+R8#show ip bgp
+BGP table version is 47, local router ID is 10.255.255.8
+...
+
+     Network          Next Hop            Metric LocPrf Weight Path
+...
+ *>  172.21.0.0       0.0.0.0                  0         32768 ?
+ *   172.22.0.0       192.168.89.9                           0 110 110 ?
+ *>                   192.168.38.3                           0 110 110 ?
+ *   172.23.0.0       192.168.89.9                           0 110 110 ?
+ *>                   192.168.38.3                           0 110 110 ?
+...
+
+
+
+
+R1#show ip bgp vpnv4 vrf RED 172.21.0.0
+BGP routing table entry for 110:2:172.21.0.0/16, version 142
+Paths: (2 available, best #2, table RED)
+  Advertised to update-groups:
+     9          3         
+  Refresh Epoch 10
+  65001, (Received from a RR-client)
+    10.255.255.9 (metric 40) from 10.255.255.9 (10.255.255.9)
+      Origin incomplete, metric 0, localpref 100, valid, internal
+      Extended Community: RT:110:2
+      Connector Attribute: count=1
+       type 1 len 12 value 110:2:10.255.255.9
+      mpls labels in/out nolabel/24
+      rx pathid: 0, tx pathid: 0
+  Refresh Epoch 10
+  65001, (Received from a RR-client)
+    10.255.255.3 (metric 30) from 10.255.255.3 (10.255.255.3)
+      Origin incomplete, metric 0, localpref 100, valid, internal, best
+      Extended Community: RT:110:2
+      Connector Attribute: count=1
+       type 1 len 12 value 110:2:10.255.255.3
+      mpls labels in/out nolabel/22
+      rx pathid: 0, tx pathid: 0x0
+\end{alltt}
+\end{small}
+}
+
+\paragraph{}
+Z výpisov uvedených vyššie vyplýva, že pre zákazníkov GREEN a RED sme vytvorili L3VPN. Tak sme oddelili siete jednotlivých zákazníkov. To, že obaja zákazníci používajú rovnaký adresný rozsah, neprekáža, pretože na PE smerovačoch boli vytvorené VRF tabuľky (každému zákazníkovi sa vytvorila jedna VRF tabuľka), ktoré na základe \say{route target} parametra vedia, o ktorého zákazníka ide, a na základe toho smerujú premávku do sietí rovnakého zákazníka. O tom, že napr. zákazník RED sa môže dostať aj do ďalších svojich sietí, ktoré sú na opačných koncoch providerovej siete, svedčí aj BGP tabuľka zákazníka, kde sú uvedené prefixy z jeho pobočiek.
+
+
+
+
+
 
 
 
@@ -2102,9 +645,9 @@ Topológia bola pozmenená tak, že namiesto dvoch rôznych zákazníkov RED a G
 
 \paragraph{}
 Adresovanie ostáva rovnaké, len pobočkám sme pridali nové siete na rozhraní Loopback1.\\
-	R5	lo1	172.23.0.1 /16\\
-	R8	lo1	172.21.0.1 /16\\
-	R10	lo1	172.22.0.1 /16
+\tab[2cm]R5 \tab[2cm] lo1\tab[2cm] 172.23.0.1 /16\\
+\tab[2cm]R8 \tab[2cm] lo1\tab[2cm] 172.21.0.1 /16\\
+\tab[2cm]R10 \tab[1.8cm] lo1\tab[2cm] 172.22.0.1 /16
 
 \paragraph{}
 Na prepojenie týchto pobočiek sme využili VPN. V prvom kroku bolo potrebné na smerovačoch R5, R8 a R10 vypnúť bežiaci BGP (no router bgp 65001/2/3), keďže nastala zmena AS oproti pôvodnému zadaniu.
@@ -2208,7 +751,6 @@ ip route vrf Z1_UP 0.0.0.0 0.0.0.0 192.168.15.5
 mpls ldp router-id Loopback0
 ==============================================
 R3#
-!namiesto RED dal:
 no ip vrf RED
 
 int eth2/0
@@ -2294,6 +836,7 @@ interface Ethernet2/1.51
 
 router bgp 65001
  network 10.255.255.5 mask 255.255.255.255
+ neighbor 192.168.15.1 remote-as 110
  neighbor 192.168.51.1 remote-as 110
 \end{alltt}
 \end{small}
@@ -2328,7 +871,9 @@ Zadaním tohto príkazu sa presunie záznam z globálnej smerovacej tabuľky do 
 \begin{small}
 \begin{alltt}
 R1#show ip vrf
-TODO
+  Name                             Default RD          Interfaces  
+  Z1_DOWN                               110:2            Et2/1.15
+  Z1_UP                                 110:2            Et2/1.51
 \end{alltt}
 \end{small}
 }
@@ -2340,24 +885,49 @@ Po správnej konfigurácii by sa na CE smerovačoch v BGP tabuľke pre ipv4 unic
 {\fontfamily{qcr}\selectfont
 \begin{small}
 \begin{alltt}
-R5#sh ip bgp ipv4 unicast
-TODO
+R8#
+...
+     Network          Next Hop            Metric LocPrf Weight Path
+ *   10.255.255.5/32  192.168.89.9                           0 110 110 i
+ *>                   192.168.38.3                           0 110 110 i
+ *>  10.255.255.8/32  0.0.0.0                  0         32768 i
+ *   10.255.255.10/32 192.168.89.9                           0 110 110 i
+ *>                   192.168.38.3                           0 110 110 i
+ *>  172.21.0.0       0.0.0.0                  0         32768 ?
+ *   172.22.0.0       192.168.89.9                           0 110 110 ?
+ *>                   192.168.38.3                           0 110 110 ?
+ *   172.23.0.0       192.168.89.9                           0 110 110 ?
+ *>                   192.168.38.3                           0 110 110 ?
+...
 \end{alltt}
 \end{small}
 }
 
 \paragraph{}
-Rovnako sme použili Traceroute z R5 lo1 na R10 lo1
+Rovnako sme použili traceroute z R8 (lo1) na R10 (lo1):
 
 \noindent
 {\fontfamily{qcr}\selectfont
 \begin{small}
 \begin{alltt}
-R5#traceroute 172.22.0.1 source 172.23.0.1
-TODO
+R8#traceroute 172.22.0.1 source lo0       
+Type escape sequence to abort.
+Tracing the route to 172.22.0.1
+VRF info: (vrf in name/id, vrf out name/id)
+  1 192.168.38.3 16 msec 52 msec 16 msec
+  2 192.168.15.1 [AS 110] [MPLS: Label 34 Exp 0] 13 msec 19 msec 66 msec
+  3 192.168.51.1 [AS 110] [MPLS: Label 21 Exp 0] 16 msec 20 msec 60 msec
+  4 192.168.104.4 [AS 110] [MPLS: Label 29 Exp 0] 18 msec 25 msec 40 msec
+  5 192.168.104.10 [AS 110] 60 msec *  72 msec
 \end{alltt}
 \end{small}
 }
+
+\paragraph{}
+Z výpisu \say{show ip vrf} vyplýva, že obidve subrozhrania medzi R1 a R5 (pre odoslanú a prijatú premávku) patria do VRF s názvom Z1\_SPOKE. Výpis príkazu \say{sh ip bgp ipv4 unicast} ukazuje naučené lo0 a lo1 rozhrania od R5, R8 a R10. Nakoniec vo výpise príkazu traceroute z R8 na R10 vidíme, že premávka smeruje zo spoke smerovača najprv na hub R5 a odtiaľ späť na spoke R10.
+
+
+
 
 
 
@@ -2367,14 +937,21 @@ TODO
 \subsection{Draft Rosen}
 \subsubsection{Popis}
 \paragraph{}
-Darth Vader je multicastová MPLS technológia. Pochádza z inej galaxie. Prvá zmienka bola v seriáli StarWars :)
+Draft Rosen je multicastová MPLS technológia pre VPN, ktorá na riadenie multicastovej premávky používa BGP. Topológiu môžeme vidieť na obr. \ref{fig:mpls_l3vpn_draft_rosen_topo}.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=14cm,keepaspectratio]{mpls_l3vpn_topo}
+\caption{Topológia Draft Rosen}
+\label{fig:mpls_l3vpn_draft_rosen_topo}
+\end{figure}
 
 \subsubsection{Konfigurácia}
 \paragraph{}
-Najprv zrusime vsetko, co sme nakonfigurovali pre hub and spoke. Potom:
+Najprv zrušíme všetko, čo sme nakonfigurovali pri Hub \& Spoke:
 
 \paragraph{}
-r1 r5 treba vratit na jednu linku (zrusit trunky). 
+Zrušíme subrozhrania medzi R1 a R5 a urobíme medzi nimi iba jednu linku.
 \noindent
 {\fontfamily{qcr}\selectfont
 \begin{small}
@@ -2387,14 +964,22 @@ ip addr 192.168.15.# 255.255.255.0
 \end{small}
 }
 
-Vymažeme IPčku druhého spätného subinterfejsu eth2/1.51 \say{192.168.51.1} z neighbrov v BGP na R5
+Vymažeme IPčku druhého spätného subinterfejsu eth2/1.51 \say{192.168.51.1} z neighbrov v BGP na R5.
 
-no neighbor 192.168.51.1 remote-as 110
-
+\noindent
+{\fontfamily{qcr}\selectfont
+\begin{small}
+\begin{alltt}
+R5(config)#router bgp 65001
+  no neighbor 192.168.51.1 remote-as 110
+\end{alltt}
+\end{small}
+}
 
 
 \paragraph{}
-Najprv vymazeme VRFky z Hub \& Spoke
+Vymažeme VRF z Hub \& Spoke.
+
 \noindent
 {\fontfamily{qcr}\selectfont
 \begin{small}
@@ -2410,7 +995,7 @@ no ip vrf Z1_SPOKE
 }
 
 \paragraph{}
-Vytvorime novu VRFku pre klienta GREEN. Route target import a export bude rovnaky. Novu VRFku nastavime na R1, R3, R4 a R9.
+Vytvoríme novú VRF pre klienta GREEN. Route target import a export pre ne bude rovnaký. Novú VRF nastavíme na R1, R3, R4 a R9.
 
 \noindent
 {\fontfamily{qcr}\selectfont
@@ -2424,7 +1009,7 @@ ip vrf GREEN
 }
 
 \paragraph{}
-Aplikujeme VRFky na interfacey R1, R3, R4 a R9 a nanovo nahodime ipcky na interfejsoch:
+VRF GREEN aplikujeme na rozhrania R1, R3, R4 a R9 a nanovo nastavíme IP adresy na na rozhraniach, pretože tým, že sme zrušili pôvodné VRF, odstránili sa zároveň IP adresy z rozhraní, na ktorých boli nastavené.
 
 \noindent
 {\fontfamily{qcr}\selectfont
@@ -2450,13 +1035,10 @@ R1(config-router-af)#neighbor 192.168.15.5 as-override
 \end{small}
 }
 
+Teraz môžeme začať konfigurovať Draft Rosen. IP adresa multicastovej skupiny (MDT ID) pre zákaznika GREEN je 239.10.10.10. V sieti zákaznika je potrebné nastaviť PIM sparse mode. RP bude R1, v sieti zakaznika to bude R5. konfigurujeme zákaznicke routre R5, R8 a R10. Zákaznícke smerovače potom staticky pripojíme do multicastovej skupiny a overíme funkčnosť.
 
-
-KONFIGURACIA DRAFT ROSEN
-mdt id pre zakaznika 239.10.10.10 - GREEN. v sieti zakaznika rozbehnut PIM sparse mode. RP bude R1, v sieti zakaznika to bude r5. konfigurujeme zakaznicke routre r8-r10. staticky join na r10 a pingat nanho.
-
-
-Na vsetkych routroch:
+\paragraph{}
+Na všetkých smerovačoch zadáme nižšie uvedený príkaz, aby sme aktivovali multicastové smerovanie.
 \noindent
 {\fontfamily{qcr}\selectfont
 \begin{small}
@@ -2467,9 +1049,8 @@ ip multicast-routing
 }
 
 
-
-
-Na PE routroch 1,3,4,9
+\paragraph{}
+Na PE smerovačoch (R1, R3, R4, R9) aktivujeme multicastové smerovanie aj pre VRF GREEN.
 
 \noindent
 {\fontfamily{qcr}\selectfont
@@ -2482,8 +1063,8 @@ ip multicast-routing vrf GREEN
 
 
 
-
-Na providerskych routroch zadat pre vsetky interfejsy (aj na loopback0) prikaz
+\paragraph{}
+Na všetkých providerských smerovačoch zadáme pre všetky rozhrania, ktoré sa podieľajú na multicastovom prenose (aj na loopback0), príkaz:
 
 \noindent
 {\fontfamily{qcr}\selectfont
@@ -2494,56 +1075,50 @@ ip pim sparse-mode
 \end{small}
 }
 
-aby sme zapli PIM Sparse Mode, kvoli sireniu multicastov. V trojuholniku staci davat prikaz iba na subinterfejsy. Rovnako urobime aj na CE routroch, ale iba pre interfejsy smerujuce na PE routre.
+\paragraph{}
+Tým aktivujeme PIM Sparse Mode, ktorý bude prenášať dátový multicastový tok. V trojuholníku stačí dávať príkaz iba na subrozhrania. Tento príkaz vykonáme aj na CE routroch, ale iba pre rozhrania smerujúce ku PE smerovačom.
 
+\paragraph{}
+Nastavíme RP pre providera na R1 a pre zakaznika na R5.
 
-
-
-
-
-Nastavime RP pre providera na R1 a pre zakaznika na R5.\\
-PE routre
+\paragraph{}
+PE smerovače:
 \noindent
 {\fontfamily{qcr}\selectfont
 \begin{small}
 \begin{alltt}
-ip pim rp-address 10.255.255.1
+R3(config)#ip pim rp-address 10.255.255.1
 \end{alltt}
 \end{small}
 }
 
-Zakaznicke CE routre
+\paragraph{}
+Zákaznicke CE smerovače:
 \noindent
 {\fontfamily{qcr}\selectfont
 \begin{small}
 \begin{alltt}
-ip pim rp-address 172.23.0.1
+R8(config)#ip pim rp-address 172.23.0.1
 \end{alltt}
 \end{small}
 }
 
 
-
-Na PE routroch pouzijeme prikazy
+\paragraph{}
+PE smerovače priradíme do multicastovej skupiny.
 
 \noindent
 {\fontfamily{qcr}\selectfont
 \begin{small}
 \begin{alltt}
-ip vrf GREEN
+R1(config)#ip vrf GREEN
   mdt default 239.10.10.10
 \end{alltt}
 \end{small}
 }
 
-Tak ho priradime do multicastovej skupiny.
-
-
-
-
-
-
-Na PE routroch musime nastavit zakaznicky RP pre VRF GREEN.
+\paragraph{}
+Na PE smerovačoch nastavíme zákaznicky RP pre VRF GREEN na R5.
 
 \noindent
 {\fontfamily{qcr}\selectfont
@@ -2555,14 +1130,14 @@ R9(config)#ip pim vrf GREEN rp-address 172.23.0.1
 }
 
 
-
-Na CE routroch priradime loopback do multicastovej skupiny
+\paragraph{}
+Na CE smerovačoch priradíme loopback1 do multicastovej skupiny
 
 \noindent
 {\fontfamily{qcr}\selectfont
 \begin{small}
 \begin{alltt}
-int lo0
+int lo1
   ip igmp join-group 239.10.10.10
 \end{alltt}
 \end{small}
@@ -2572,18 +1147,9 @@ int lo0
 
 
 
-\subsubsection{Overenie − Zakladná MP−BGP konektivita}
+\subsubsection{Overenie MP-BGP konektivity}
 \paragraph{}
-\noindent
-{\fontfamily{qcr}\selectfont
-\begin{small}
-\begin{alltt}
-show ip route vrf GREEN
-show ip vrf
-\end{alltt}
-\end{small}
-}
-
+Najprv sme overovali základnú MP−BGP konektivitu príkazmi \say{sh ip route vrf GREEN} z R4, \say{show ip bgp ipv4 unicast} z R8, \say{ping 172.22.0.1 source 172.21.0.1} z R8 a \say{ping vrf GREEN 172.23.0.1} z R4.
 
 \noindent
 {\fontfamily{qcr}\selectfont
@@ -2678,9 +1244,13 @@ Success rate is 100 percent (5/5), round-trip min/avg/max = 52/59/72 ms
 \end{small}
 }
 
-============\\
-OVERENIE Multicastovych tunelov\\
-==============\\
+\paragraph{}
+Z výpisov uvedených vyššie vyplýva, že privátne siete 172.2X.0.0 sa rozšírili medzi všetky PE aj CE smerovače. Výpisy príkazu \say{ping} ukazujú vzájomnú konektivitu medzi pobočkami zákazníka GREEN.
+
+\subsubsection{Overenie Draft Rosen a multicastových tunelov}
+\paragraph{}
+Draft Rosen sme overovali príkazmi \say{ip pim rp-address 10.255.255.1} z R1 a \say{ping 239.10.10.10 repeat 2} z R5.
+
 \noindent
 {\fontfamily{qcr}\selectfont
 \begin{small}
@@ -2689,11 +1259,10 @@ R1(config)#ip pim rp-address 10.255.255.1
 R1(config)#
 *May 16 10:59:35.306: %LINEPROTO-5-UPDOWN: Line protocol on Interface Tunnel0, changed state to up
 *May 16 10:59:35.474: %LINEPROTO-5-UPDOWN: Line protocol on Interface Tunnel1, changed state to up
+
 \end{alltt}
 \end{small}
 }
-
-Ide aj multicastový ping
 
 \noindent
 {\fontfamily{qcr}\selectfont
@@ -2714,7 +1283,7 @@ Reply to request 1 from 172.22.0.1, 80 ms
 }
 
 \paragraph{}
-Zaver
+Po vykonaní príkazu \say{ip pim rp-address 10.255.255.1} sa zobrazili správy, ktoré hovoria o vytvorení tunelových rozhraní ku smerovačom, ktoré sa nachádzajú v multicastovej doméne. Na ping zákazníckej multicastovej skupiny odpovedali všetky smerovače nachádzajúce sa v zákazníckej multicastovej doméne t.j. R5, R8 a R10.
 
 
 \end{document}

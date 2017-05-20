@@ -37,8 +37,8 @@
 \contentsline {paragraph}{}{8}
 \contentsline {paragraph}{}{9}
 \contentsline {paragraph}{}{11}
-\contentsline {paragraph}{}{13}
-\contentsline {paragraph}{}{13}
+\contentsline {paragraph}{}{12}
+\contentsline {paragraph}{}{12}
 \contentsline {subsection}{\numberline {1.2.5}Prep\IeC {\'\i }sa\IeC {\v t} priv\IeC {\'a}tne AS65001}{13}
 \contentsline {subsubsection}{Popis}{13}
 \contentsline {paragraph}{}{13}
