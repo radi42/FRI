@@ -1,6 +1,10 @@
+clear
+close all
+
 velkostTimeslotu = 0.004;
 % velkostTimeslotu = 0.05;
 cesta = 'E:\Skola\2. semester\TIS\Labaky\L4\M5.txt';
+%cesta = '\\Vboxsvr\fri\Ing\2.semester\Teoria_informacnych_systemov\L5-Analyza_realneho_toku\M4.txt';
 A = importdata(cesta);
 
 medzery = minus(A(2:end),A(1:end-1));
@@ -89,7 +93,7 @@ end
 % legend('Povodny tok', 'Bernoulli', 'Poisson', 'Fontsize', 12);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% slotovanie na 4., urËiù parametre MMRP pomocou pravdepodobnosti peaku
+% slotovanie na 4., urËi? parametre MMRP pomocou pravdepodobnosti peaku
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 peakSum = 0;
 peak = max(sloty);
@@ -117,7 +121,11 @@ for l = 1 : (peak+1)
     pempir(l) = pempir(l) / pocetSlotov;
 end
 
-alfa = 1 - (ppeak*(peak/avg))^(1/(peak - 1));
+ppeak
+peak
+avg
+
+%alfa = 1 - (ppeak*(peak/avg))^(1/(peak - 1));
 beta = (avg*alfa)/(peak - avg);
 
 % alfa = 1.02;
