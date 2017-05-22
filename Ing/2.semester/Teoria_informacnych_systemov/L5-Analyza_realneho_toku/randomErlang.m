@@ -1,4 +1,4 @@
-function varargout = randraw(distribName, distribParams, varargin)
+function varargout = randraw(distribName, distribParams, sampleSize, varargin)
 
 funcName = mfilename;
 
