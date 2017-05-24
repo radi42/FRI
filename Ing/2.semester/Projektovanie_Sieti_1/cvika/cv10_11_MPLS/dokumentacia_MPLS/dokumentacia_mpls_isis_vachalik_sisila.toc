@@ -40,36 +40,34 @@
 \contentsline {subsubsection}{Popis}{10}
 \contentsline {paragraph}{}{10}
 \contentsline {paragraph}{}{10}
-\contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{10}
 \contentsline {paragraph}{}{10}
-\contentsline {subsubsection}{Overenie}{11}
+\contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{11}
 \contentsline {paragraph}{}{11}
+\contentsline {subsubsection}{Overenie}{12}
+\contentsline {paragraph}{}{12}
 \contentsline {paragraph}{}{13}
-\contentsline {subsection}{\numberline {1.2.6}Hub \& Spoke VPN}{13}
-\contentsline {subsubsection}{Popis}{13}
-\contentsline {paragraph}{}{13}
-\contentsline {paragraph}{}{13}
-\contentsline {paragraph}{}{13}
-\contentsline {paragraph}{}{13}
+\contentsline {subsection}{\numberline {1.2.6}Hub \& Spoke VPN}{14}
+\contentsline {subsubsection}{Popis}{14}
+\contentsline {paragraph}{}{14}
+\contentsline {paragraph}{}{14}
+\contentsline {paragraph}{}{14}
+\contentsline {paragraph}{}{14}
 \contentsline {paragraph}{}{14}
 \contentsline {paragraph}{}{14}
 \contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{14}
 \contentsline {paragraph}{}{14}
-\contentsline {paragraph}{}{14}
+\contentsline {paragraph}{}{16}
 \contentsline {paragraph}{}{18}
 \contentsline {paragraph}{}{18}
-\contentsline {subsubsection}{Overenie}{18}
-\contentsline {paragraph}{}{18}
-\contentsline {paragraph}{}{18}
+\contentsline {subsubsection}{Overenie}{19}
 \contentsline {paragraph}{}{19}
-\contentsline {paragraph}{}{19}
-\contentsline {subsection}{\numberline {1.2.7}Draft Rosen}{19}
-\contentsline {subsubsection}{Popis}{19}
-\contentsline {paragraph}{}{19}
-\contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{19}
 \contentsline {paragraph}{}{19}
 \contentsline {paragraph}{}{19}
 \contentsline {paragraph}{}{20}
+\contentsline {subsection}{\numberline {1.2.7}Draft Rosen}{20}
+\contentsline {subsubsection}{Popis}{20}
+\contentsline {paragraph}{}{20}
+\contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{20}
 \contentsline {paragraph}{}{20}
 \contentsline {paragraph}{}{20}
 \contentsline {paragraph}{}{21}
@@ -77,14 +75,17 @@
 \contentsline {paragraph}{}{21}
 \contentsline {paragraph}{}{21}
 \contentsline {paragraph}{}{21}
-\contentsline {paragraph}{}{21}
-\contentsline {paragraph}{}{21}
-\contentsline {paragraph}{}{21}
-\contentsline {paragraph}{}{21}
+\contentsline {paragraph}{}{22}
+\contentsline {paragraph}{}{22}
+\contentsline {paragraph}{}{22}
+\contentsline {paragraph}{}{22}
+\contentsline {paragraph}{}{22}
+\contentsline {paragraph}{}{22}
+\contentsline {paragraph}{}{22}
 \contentsline {paragraph}{}{22}
 \contentsline {subsubsection}{Overenie MP\unhbox \voidb@x \kern \z@ \char `\discretionary {-}{}{}BGP konektivity}{22}
 \contentsline {paragraph}{}{22}
-\contentsline {paragraph}{}{23}
+\contentsline {paragraph}{}{24}
 \contentsline {subsubsection}{Overenie Draft Rosen a multicastov\IeC {\'y}ch tunelov}{24}
 \contentsline {paragraph}{}{24}
-\contentsline {paragraph}{}{24}
+\contentsline {paragraph}{}{25}

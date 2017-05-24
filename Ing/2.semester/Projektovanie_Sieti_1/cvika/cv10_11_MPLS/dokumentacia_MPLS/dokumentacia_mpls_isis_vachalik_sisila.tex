@@ -466,7 +466,17 @@ Z výpisov z R1 vyplýva, že konektivita zostala zachovaná ku všetkým smerov
 Multiprotokolové BGP (MP-BGP) je kombinácia BGP s, v tomto prípade, MPLS. Tak možeme poskytovať L3VPN službu viacerým zákazníkom, v tomto prípade zákazníkom RED a GREEN.
 
 \paragraph{}
-Zákazník RED mal loopback0 rozhrania s IP adresami 172.[21/22/23].0.1 /16 v AS 65001, 65002 a 65003. Zákazník GREEN mal dve loopback1 rozhrania: jedno na R1, druhé na R9 s IP adresami 172.[21/22].0.1 /16.
+Zákazník RED mal loopback rozhrania s IP adresami 172.[21/22/23].0.1 /16 na smerovačoch v AS 65001. Zákazník GREEN mal dve loopback rozhrania: jedno na R1, druhé na R9 s IP adresami 172.[21/22].0.1 /16.
+
+\paragraph{}
+Topológia pre MP-BGP je znázornená na obr. \ref{fig:mpls_mpbgp_topo}.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=14cm,keepaspectratio]{mpls_l3vpn_topo}
+\caption{Topológia MP-BGP}
+\label{fig:mpls_mpbgp_topo}
+\end{figure}
 
 \subsubsection{Konfigurácia}
 \paragraph{}

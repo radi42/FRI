@@ -38,15 +38,14 @@
 \contentsline {paragraph}{}{9}
 \contentsline {paragraph}{}{11}
 \contentsline {paragraph}{}{12}
+\contentsline {subsection}{\numberline {1.2.5}Prep\IeC {\'\i }sa\IeC {\v t} priv\IeC {\'a}tne AS65001}{12}
+\contentsline {subsubsection}{Popis}{12}
 \contentsline {paragraph}{}{12}
-\contentsline {subsection}{\numberline {1.2.5}Prep\IeC {\'\i }sa\IeC {\v t} priv\IeC {\'a}tne AS65001}{13}
-\contentsline {subsubsection}{Popis}{13}
-\contentsline {paragraph}{}{13}
 \contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{13}
 \contentsline {paragraph}{}{13}
 \contentsline {subsubsection}{Overenie}{13}
 \contentsline {paragraph}{}{13}
-\contentsline {paragraph}{}{15}
+\contentsline {paragraph}{}{14}
 \contentsline {subsection}{\numberline {1.2.6}Kontrola konektivity medzi z\IeC {\'a}kazn\IeC {\'\i }ckymi a internetov\IeC {\'y}mi smerovac\IeC {\'\i }mi z\IeC {\'a}znamami}{15}
 \contentsline {subsubsection}{Overenie}{15}
 \contentsline {paragraph}{}{15}

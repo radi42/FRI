@@ -251,3 +251,11 @@ p(5) = pi1*(1-alfa)^3;
 
 figure,plot(pocetnosti, pravdep_prichodu_paketov, pocetnosti, mmrp, pocetnosti, p);
 legend('Empiricke pravdepodobnosti','Pravdepodobnosti pre proces MMRP', 'Vylepsene pravdepodobnosti MMRP');
+
+%%Ukladanie grafov do suboru
+% h = get(0,'children');
+% for i=1:length(h)
+%     %saveas(h(i), ['figure' num2str(i)], 'fig');
+%     index = num2str(i);
+%     saveas(h(i), strcat('C:\Users\Andrej\Desktop\obr_', index, '.png'));
+% end

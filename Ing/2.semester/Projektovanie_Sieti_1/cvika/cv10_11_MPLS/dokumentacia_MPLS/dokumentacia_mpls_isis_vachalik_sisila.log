@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.2.18)  20 MAY 2017 18:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.2.18)  24 MAY 2017 12:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -651,475 +651,472 @@ Overfull \hbox (0.45029pt too wide) in paragraph at lines 466--467
 , v tomto pr[]^^Ppade, MPLS.
  []
 
-[10] [11]
-Overfull \hbox (13.39813pt too wide) in paragraph at lines 561--561
+<obr/mpls_l3vpn_topo.png, id=37, 691.08188pt x 415.5525pt>
+File: obr/mpls_l3vpn_topo.png Graphic file (type png)
+
+<use obr/mpls_l3vpn_topo.png>
+Package pdftex.def Info: obr/mpls_l3vpn_topo.png used on input line 476.
+(pdftex.def)             Requested size: 398.33858pt x 239.52419pt.
+ [10 <./obr/mpls_l3vpn_topo.png>] [11]
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 571--571
 []     \OT1/pcr/m/n/10.95 Network          Next Hop            Metric LocPrf We
 ight Path[] 
  []
 
 
-Overfull \hbox (33.10811pt too wide) in paragraph at lines 563--563
+Overfull \hbox (33.10811pt too wide) in paragraph at lines 573--573
 [] \OT1/pcr/m/n/10.95 * i 172.21.0.0       10.255.255.9             0    100   
    0 65001 ?[] 
  []
 
 
-Overfull \hbox (33.10811pt too wide) in paragraph at lines 564--564
+Overfull \hbox (33.10811pt too wide) in paragraph at lines 574--574
 [] \OT1/pcr/m/n/10.95 *>i                  10.255.255.3             0    100   
    0 65001 ?[] 
  []
 
 
-Overfull \hbox (33.10811pt too wide) in paragraph at lines 565--565
+Overfull \hbox (33.10811pt too wide) in paragraph at lines 575--575
 [] \OT1/pcr/m/n/10.95 *>i 172.22.0.0       10.255.255.4             0    100   
    0 65002 ?[] 
  []
 
 
-Overfull \hbox (33.10811pt too wide) in paragraph at lines 566--566
+Overfull \hbox (33.10811pt too wide) in paragraph at lines 576--576
 [] \OT1/pcr/m/n/10.95 *>  172.23.0.0       192.168.15.5             0          
    0 65003 ?[] 
  []
 
 
-Overfull \hbox (13.39813pt too wide) in paragraph at lines 577--577
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 587--587
 []     \OT1/pcr/m/n/10.95 Network          Next Hop            Metric LocPrf We
 ight Path[] 
  []
 
 
-Overfull \hbox (33.10811pt too wide) in paragraph at lines 579--579
+Overfull \hbox (33.10811pt too wide) in paragraph at lines 589--589
 [] \OT1/pcr/m/n/10.95 * i 172.21.0.0       0.0.0.0                  0    100   
    0 65004 ?[] 
  []
 
 
-Overfull \hbox (33.10811pt too wide) in paragraph at lines 580--580
+Overfull \hbox (33.10811pt too wide) in paragraph at lines 590--590
 [] \OT1/pcr/m/n/10.95 *>i 172.22.0.0       10.255.255.9             0    100   
    0 65005 ?[] 
  []
 
-
-Overfull \hbox (13.39813pt too wide) in paragraph at lines 590--590
+[12]
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 600--600
 []     \OT1/pcr/m/n/10.95 Network          Next Hop            Metric LocPrf We
 ight Path[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 593--593
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 603--603
 [] \OT1/pcr/m/n/10.95 *   172.22.0.0       192.168.89.9                        
    0 110 110 ?[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 594--594
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 604--604
 [] \OT1/pcr/m/n/10.95 *>                   192.168.38.3                        
    0 110 110 ?[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 595--595
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 605--605
 [] \OT1/pcr/m/n/10.95 *   172.23.0.0       192.168.89.9                        
    0 110 110 ?[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 596--596
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 606--606
 [] \OT1/pcr/m/n/10.95 *>                   192.168.38.3                        
    0 110 110 ?[] 
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [12]
-Overfull \hbox (0.25815pt too wide) in paragraph at lines 610--610
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 620--620
 []      \OT1/pcr/m/n/10.95 Origin incomplete, metric 0, localpref 100, valid, i
 nternal[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 619--619
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 629--629
 []      \OT1/pcr/m/n/10.95 Origin incomplete, metric 0, localpref 100, valid, i
 nternal, best[] 
  []
 
 
-Overfull \hbox (16.22067pt too wide) in paragraph at lines 630--631
+Overfull \hbox (16.22067pt too wide) in paragraph at lines 640--641
 \OT1/ppl/m/n/12 z[]akazn[]^^Pci pou[]z[]^^Pvaj[]u rov-nak[]y ad-resn[]y roz-sah
 , ne-prek[]a[]za, preto[]ze na PE sme-rova[]coch
  []
 
-
-Overfull \hbox (22.89209pt too wide) in paragraph at lines 659--660
+[13]
+Overfull \hbox (22.89209pt too wide) in paragraph at lines 669--670
  [] \OT1/ppl/m/n/12 Po-tom dan[]u VRF treba pri-ra-dit[] ro-z-hra-niam, ktor[]e
  sme-ruj[]u k z[]akazn[]^^Pkom. N[]asledne
  []
 
-[13] <obr/mpls_hub_spoke_topo.png, id=50, 675.7245pt x 442.0515pt>
+<obr/mpls_hub_spoke_topo.png, id=51, 675.7245pt x 442.0515pt>
 File: obr/mpls_hub_spoke_topo.png Graphic file (type png)
 
 <use obr/mpls_hub_spoke_topo.png>
-Package pdftex.def Info: obr/mpls_hub_spoke_topo.png used on input line 666.
+Package pdftex.def Info: obr/mpls_hub_spoke_topo.png used on input line 676.
 (pdftex.def)             Requested size: 398.33858pt x 260.58553pt.
 
-<obr/mpls_hub_spoke_route_target_topo.png, id=51, 675.12225pt x 404.712pt>
+<obr/mpls_hub_spoke_route_target_topo.png, id=52, 675.12225pt x 404.712pt>
 File: obr/mpls_hub_spoke_route_target_topo.png Graphic file (type png)
 
 <use obr/mpls_hub_spoke_route_target_topo.png>
 Package pdftex.def Info: obr/mpls_hub_spoke_route_target_topo.png used on input
- line 673.
+ line 683.
 (pdftex.def)             Requested size: 398.33858pt x 238.79654pt.
- [14 <./obr/mpls_hub_spoke_topo.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [15 <./obr/mpls_hub_spoke_route_target_topo.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [16]
+ [14] [15 <./obr/mpls_hub_spoke_topo.png> <./obr/mpls_hub_spoke_route_target_to
+po.png>] [16]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [17]
-Overfull \hbox (46.3283pt too wide) in paragraph at lines 846--847
+Overfull \hbox (46.3283pt too wide) in paragraph at lines 856--857
  [] \OT1/ppl/m/n/12 Pa-ra-me-ter as-override za-bezpe[]c[]^^P, aby sme-rova[]ce
  ne-za-ha-dzo-vali siete, ktor[]e prech[]adzaj[]u
  []
 
-
-Overfull \hbox (0.25815pt too wide) in paragraph at lines 874--874
+[18]
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 884--884
 []  \OT1/pcr/m/n/10.95 Name                             Default RD          Int
 erfaces[] 
  []
 
 
-Overfull \hbox (0.25815pt too wide) in paragraph at lines 875--875
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 885--885
 []  \OT1/pcr/m/n/10.95 Z1_DOWN                               110:2            E
 t2/1.15[] 
  []
 
 
-Overfull \hbox (0.25815pt too wide) in paragraph at lines 876--876
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 886--886
 []  \OT1/pcr/m/n/10.95 Z1_UP                                 110:2            E
 t2/1.51[] 
  []
 
 
-Overfull \hbox (13.39813pt too wide) in paragraph at lines 890--890
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 900--900
 []     \OT1/pcr/m/n/10.95 Network          Next Hop            Metric LocPrf We
 ight Path[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 891--891
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 901--901
 [] \OT1/pcr/m/n/10.95 *   10.255.255.5/32  192.168.89.9                        
    0 110 110 i[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 892--892
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 902--902
 [] \OT1/pcr/m/n/10.95 *>                   192.168.38.3                        
    0 110 110 i[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 894--894
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 904--904
 [] \OT1/pcr/m/n/10.95 *   10.255.255.10/32 192.168.89.9                        
    0 110 110 i[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 895--895
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 905--905
 [] \OT1/pcr/m/n/10.95 *>                   192.168.38.3                        
    0 110 110 i[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 897--897
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 907--907
 [] \OT1/pcr/m/n/10.95 *   172.22.0.0       192.168.89.9                        
    0 110 110 ?[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 898--898
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 908--908
 [] \OT1/pcr/m/n/10.95 *>                   192.168.38.3                        
    0 110 110 ?[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 899--899
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 909--909
 [] \OT1/pcr/m/n/10.95 *   172.23.0.0       192.168.89.9                        
    0 110 110 ?[] 
  []
 
-[18]
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 900--900
+
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 910--910
 [] \OT1/pcr/m/n/10.95 *>                   192.168.38.3                        
    0 110 110 ?[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 918--918
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 928--928
 []  \OT1/pcr/m/n/10.95 2 192.168.15.1 [AS 110] [MPLS: Label 34 Exp 0] 13 msec 1
 9 msec 66 msec[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 919--919
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 929--929
 []  \OT1/pcr/m/n/10.95 3 192.168.51.1 [AS 110] [MPLS: Label 21 Exp 0] 16 msec 2
 0 msec 60 msec[] 
  []
 
 
-Overfull \hbox (52.81808pt too wide) in paragraph at lines 920--920
+Overfull \hbox (52.81808pt too wide) in paragraph at lines 930--930
 []  \OT1/pcr/m/n/10.95 4 192.168.104.4 [AS 110] [MPLS: Label 29 Exp 0] 18 msec 
 25 msec 40 msec[] 
  []
 
-<obr/mpls_l3vpn_topo.png, id=67, 691.08188pt x 415.5525pt>
+[19]
 File: obr/mpls_l3vpn_topo.png Graphic file (type png)
-
-<use obr/mpls_l3vpn_topo.png>
-Package pdftex.def Info: obr/mpls_l3vpn_topo.png used on input line 944.
+ <use obr/mpls_l3vpn_topo.png>
+Package pdftex.def Info: obr/mpls_l3vpn_topo.png used on input line 954.
 (pdftex.def)             Requested size: 398.33858pt x 239.52419pt.
- [19]
-Overfull \hbox (144.79797pt too wide) in paragraph at lines 1021--1021
+ [20]
+Overfull \hbox (144.79797pt too wide) in paragraph at lines 1031--1031
 []\OT1/pcr/m/n/10.95 % Interface Ethernet2/1 IPv4 disabled and address(es) remo
 ved due to enabling VRF GREEN[] 
  []
 
-[20 <./obr/mpls_l3vpn_topo.png>]
-Overfull \hbox (85.66805pt too wide) in paragraph at lines 1030--1030
+
+Overfull \hbox (85.66805pt too wide) in paragraph at lines 1040--1040
 []\OT1/pcr/m/n/10.95 *May 16 10:10:08.158: %BGP-5-ADJCHANGE: neighbor 192.168.1
 5.5 vpn vrf GREEN Up[] 
  []
 
-
-Overfull \hbox (3.78796pt too wide) in paragraph at lines 1079--1080
+[21]
+Overfull \hbox (3.78796pt too wide) in paragraph at lines 1089--1090
 \OT1/ppl/m/n/12 tok. V tro-j-u-holn[]^^Pku sta[]c[]^^P d[]avat[] pr[]^^Pkaz iba
  na sub-ro-z-hra-nia. Tento pr[]^^Pkaz vy-kon[]ame
  []
 
-[21]
-Overfull \hbox (92.23804pt too wide) in paragraph at lines 1187--1187
+[22]
+Overfull \hbox (92.23804pt too wide) in paragraph at lines 1197--1197
 []\OT1/pcr/m/n/10.95 Status codes: s suppressed, d damped, h history, * valid, 
 > best, i - internal,[] 
  []
 
 
-Overfull \hbox (85.66805pt too wide) in paragraph at lines 1188--1188
+Overfull \hbox (85.66805pt too wide) in paragraph at lines 1198--1198
 []              \OT1/pcr/m/n/10.95 r RIB-failure, S Stale, m multipath, b backu
 p-path, f RT-Filter,[] 
  []
 
 
-Overfull \hbox (13.39813pt too wide) in paragraph at lines 1189--1189
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 1199--1199
 []              \OT1/pcr/m/n/10.95 x best-external, a additional-path, c RIB-co
 mpressed,[] 
  []
 
 
-Overfull \hbox (13.39813pt too wide) in paragraph at lines 1193--1193
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 1203--1203
 []     \OT1/pcr/m/n/10.95 Network          Next Hop            Metric LocPrf We
 ight Path[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 1194--1194
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 1204--1204
 [] \OT1/pcr/m/n/10.95 *   10.255.255.5/32  192.168.89.9                        
    0 110 110 i[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 1195--1195
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 1205--1205
 [] \OT1/pcr/m/n/10.95 *>                   192.168.38.3                        
    0 110 110 i[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 1197--1197
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 1207--1207
 [] \OT1/pcr/m/n/10.95 *   10.255.255.10/32 192.168.89.9                        
    0 110 110 ?[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 1198--1198
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 1208--1208
 [] \OT1/pcr/m/n/10.95 *>                   192.168.38.3                        
    0 110 110 ?[] 
- []
-
-
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 1200--1200
-[] \OT1/pcr/m/n/10.95 *   172.22.0.0       192.168.89.9                        
-   0 110 110 i[] 
- []
-
-[22]
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 1201--1201
-[] \OT1/pcr/m/n/10.95 *>                   192.168.38.3                        
-   0 110 110 i[] 
- []
-
-
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 1202--1202
-[] \OT1/pcr/m/n/10.95 *   172.23.0.0       192.168.89.9                        
-   0 110 110 i[] 
- []
-
-
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 1203--1203
-[] \OT1/pcr/m/n/10.95 *>                   192.168.38.3                        
-   0 110 110 i[] 
- []
-
-
-Overfull \hbox (19.96812pt too wide) in paragraph at lines 1204--1204
-[] \OT1/pcr/m/n/10.95 *   192.168.15.0     192.168.89.9                        
-   0 110 ?[] 
- []
-
-
-Overfull \hbox (19.96812pt too wide) in paragraph at lines 1205--1205
-[] \OT1/pcr/m/n/10.95 *>                   192.168.38.3                        
-   0 110 ?[] 
- []
-
-
-Overfull \hbox (19.96812pt too wide) in paragraph at lines 1206--1206
-[] \OT1/pcr/m/n/10.95 *   192.168.38.0     192.168.89.9                        
-   0 110 ?[] 
- []
-
-
-Overfull \hbox (19.96812pt too wide) in paragraph at lines 1207--1207
-[] \OT1/pcr/m/n/10.95 *                    192.168.38.3             0          
-   0 110 ?[] 
- []
-
-
-Overfull \hbox (13.39813pt too wide) in paragraph at lines 1208--1208
-[]     \OT1/pcr/m/n/10.95 Network          Next Hop            Metric LocPrf We
-ight Path[] 
  []
 
 
 Overfull \hbox (46.2481pt too wide) in paragraph at lines 1210--1210
-[] \OT1/pcr/m/n/10.95 *   192.168.56.0     192.168.89.9                        
-   0 110 110 ?[] 
+[] \OT1/pcr/m/n/10.95 *   172.22.0.0       192.168.89.9                        
+   0 110 110 i[] 
  []
 
 
 Overfull \hbox (46.2481pt too wide) in paragraph at lines 1211--1211
 [] \OT1/pcr/m/n/10.95 *>                   192.168.38.3                        
-   0 110 110 ?[] 
+   0 110 110 i[] 
  []
 
 
-Overfull \hbox (19.96812pt too wide) in paragraph at lines 1212--1212
-[] \OT1/pcr/m/n/10.95 *   192.168.89.0     192.168.89.9             0          
-   0 110 ?[] 
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 1212--1212
+[] \OT1/pcr/m/n/10.95 *   172.23.0.0       192.168.89.9                        
+   0 110 110 i[] 
  []
 
 
-Overfull \hbox (19.96812pt too wide) in paragraph at lines 1213--1213
-[] \OT1/pcr/m/n/10.95 *                    192.168.38.3                        
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 1213--1213
+[] \OT1/pcr/m/n/10.95 *>                   192.168.38.3                        
+   0 110 110 i[] 
+ []
+
+
+Overfull \hbox (19.96812pt too wide) in paragraph at lines 1214--1214
+[] \OT1/pcr/m/n/10.95 *   192.168.15.0     192.168.89.9                        
    0 110 ?[] 
  []
 
 
 Overfull \hbox (19.96812pt too wide) in paragraph at lines 1215--1215
-[] \OT1/pcr/m/n/10.95 *   192.168.104.0    192.168.89.9                        
+[] \OT1/pcr/m/n/10.95 *>                   192.168.38.3                        
    0 110 ?[] 
  []
 
 
 Overfull \hbox (19.96812pt too wide) in paragraph at lines 1216--1216
+[] \OT1/pcr/m/n/10.95 *   192.168.38.0     192.168.89.9                        
+   0 110 ?[] 
+ []
+
+
+Overfull \hbox (19.96812pt too wide) in paragraph at lines 1217--1217
+[] \OT1/pcr/m/n/10.95 *                    192.168.38.3             0          
+   0 110 ?[] 
+ []
+
+
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 1218--1218
+[]     \OT1/pcr/m/n/10.95 Network          Next Hop            Metric LocPrf We
+ight Path[] 
+ []
+
+
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 1220--1220
+[] \OT1/pcr/m/n/10.95 *   192.168.56.0     192.168.89.9                        
+   0 110 110 ?[] 
+ []
+
+
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 1221--1221
+[] \OT1/pcr/m/n/10.95 *>                   192.168.38.3                        
+   0 110 110 ?[] 
+ []
+
+
+Overfull \hbox (19.96812pt too wide) in paragraph at lines 1222--1222
+[] \OT1/pcr/m/n/10.95 *   192.168.89.0     192.168.89.9             0          
+   0 110 ?[] 
+ []
+
+
+Overfull \hbox (19.96812pt too wide) in paragraph at lines 1223--1223
+[] \OT1/pcr/m/n/10.95 *                    192.168.38.3                        
+   0 110 ?[] 
+ []
+
+
+Overfull \hbox (19.96812pt too wide) in paragraph at lines 1225--1225
+[] \OT1/pcr/m/n/10.95 *   192.168.104.0    192.168.89.9                        
+   0 110 ?[] 
+ []
+
+
+Overfull \hbox (19.96812pt too wide) in paragraph at lines 1226--1226
 [] \OT1/pcr/m/n/10.95 *>                   192.168.38.3                        
    0 110 ?[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 1217--1217
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 1227--1227
 [] \OT1/pcr/m/n/10.95 *   192.168.107.0    192.168.89.9                        
    0 110 110 ?[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 1218--1218
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 1228--1228
 [] \OT1/pcr/m/n/10.95 *>                   192.168.38.3                        
    0 110 110 ?[] 
- []
-
-
-Overfull \hbox (13.39813pt too wide) in paragraph at lines 1228--1228
-[]\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 172.22.0.1, timeout is 2
- seconds:[] 
- []
-
-
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 1231--1231
-[]\OT1/pcr/m/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
-= 52/56/60 ms[] 
- []
-
-
-Overfull \hbox (13.39813pt too wide) in paragraph at lines 1239--1239
-[]\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 172.23.0.1, timeout is 2
- seconds:[] 
- []
-
-
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 1241--1241
-[]\OT1/pcr/m/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
-= 52/59/72 ms[] 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [23]
-Overfull \hbox (217.06789pt too wide) in paragraph at lines 1260--1260
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 1238--1238
+[]\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 172.22.0.1, timeout is 2
+ seconds:[] 
+ []
+
+
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1241--1241
+[]\OT1/pcr/m/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
+= 52/56/60 ms[] 
+ []
+
+
+Overfull \hbox (13.39813pt too wide) in paragraph at lines 1249--1249
+[]\OT1/pcr/m/n/10.95 Sending 5, 100-byte ICMP Echos to 172.23.0.1, timeout is 2
+ seconds:[] 
+ []
+
+
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 1251--1251
+[]\OT1/pcr/m/n/10.95 Success rate is 100 percent (5/5), round-trip min/avg/max 
+= 52/59/72 ms[] 
+ []
+
+
+Overfull \hbox (217.06789pt too wide) in paragraph at lines 1270--1270
 []\OT1/pcr/m/n/10.95 *May 16 10:59:35.306: %LINEPROTO-5-UPDOWN: Line protocol o
 n Interface Tunnel0, changed state to up[] 
  []
 
 
-Overfull \hbox (217.06789pt too wide) in paragraph at lines 1261--1261
+Overfull \hbox (217.06789pt too wide) in paragraph at lines 1271--1271
 []\OT1/pcr/m/n/10.95 *May 16 10:59:35.474: %LINEPROTO-5-UPDOWN: Line protocol o
 n Interface Tunnel1, changed state to up[] 
  []
 
 
-Overfull \hbox (26.53812pt too wide) in paragraph at lines 1273--1273
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 1283--1283
 []\OT1/pcr/m/n/10.95 Sending 2, 100-byte ICMP Echos to 239.10.10.10, timeout is
  2 seconds:[] 
  []
 
 
-Overfull \hbox (0.53746pt too wide) in paragraph at lines 1286--1287
+Overfull \hbox (0.53746pt too wide) in paragraph at lines 1296--1297
  [] \OT1/ppl/m/n/12 Po vy-ko-nan[]^^P pr[]^^Pkazu ``ip pim rp-address 10.255.25
 5.1'' sa zo-bra-zili spr[]avy, ktor[]e
  []
 
-[24] (./dokumentacia_mpls_isis_vachalik_sisila.aux) ) 
+[24] [25] (./dokumentacia_mpls_isis_vachalik_sisila.aux) ) 
 Here is how much of TeX's memory you used:
- 5497 strings out of 493105
- 72676 string characters out of 6137072
- 150029 words of memory out of 5000000
- 8848 multiletter control sequences out of 15000+600000
+ 5498 strings out of 493105
+ 72697 string characters out of 6137072
+ 150061 words of memory out of 5000000
+ 8849 multiletter control sequences out of 15000+600000
  15733 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  37i,9n,35p,835b,525s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-
-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/couri
-er/ucrb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb>
-Output written on dokumentacia_mpls_isis_vachalik_sisila.pdf (24 pages, 358263 
+{/usr/share/texlive/t
+exmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/
+courier/ucrb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8
+a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb>
+Output written on dokumentacia_mpls_isis_vachalik_sisila.pdf (25 pages, 358610 
 bytes).
 PDF statistics:
- 106 PDF objects out of 1000 (max. 8388607)
- 70 compressed objects within 1 object stream
+ 110 PDF objects out of 1000 (max. 8388607)
+ 73 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
