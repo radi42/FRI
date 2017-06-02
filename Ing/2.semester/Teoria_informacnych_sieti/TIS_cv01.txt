@@ -1,0 +1,94 @@
+Spracovanie bitoveho toku
+
+1011011000101011001010110101010100001010110110101010101111010101011111000010101100010101000101001010
+
+
+100 binarnych cisel = 100 merani
+ak su rozdelene podla normalneho rozdelenia, polovicu by malo byt jednotiek
+
+N = 100
+n_1 = 50
+
+Pravdepodobnost
+odhad pravdepodobnosti, ze nasledujuce cislo bude 1
+P = 50 / 100 = 0.5
+
+rozdelime data so slotom (casovy interval) = 2
+---------------------
+
+rozdelime na sloty po 2
+10 11 01 10 00 10 10 11 00 10 10 11 01 01 01 01 00 00 10 10 11 01 10 10 10 10 10 11 11 01 01 01 01 11 11 00 00 10 10 11 00 01 01 01 00 01 01 00 10 10
+
+Statistika
+P(00) =  9/ 50 = 0.18
+P(01 alebo 10) = 30/ 50 = 0.6
+P(11) = 11/ 50 = 0.22
+
+aka je pravdepodobnost, ze ako dalsie napiseme '11'
+P(11) = Pravdepodobnost jednotky ^ 2
+
+aka je statistika, ze padli '11'
+P(11) = 0.11
+
+Pravdepodobnost vs Statistika
+Pravdepodobnost
+	-pred dejom
+	-teoria
+	-vytvara matematicky model (priemerne na kocke padne 3.5 ak je kocka homogenna a v ruke nemam ziaden grif)
+Statistika
+	-po deji
+	-realne hadzeme kockou a vyhodnocujeme vysledky
+Simulacia
+	-pri deji (v realnom case)
+	-vytvorenie kvazirealneho modelu
+
+---------------------------------------------------------------
+
+nezavislost nezachytime jednotlivo (ze pozerame iba na 0 alebo 1)
+ked dam malu velkost casoveho okna, nemusim zachytit vlastnost
+ale ked dam prilis velke casove okno, prijdem o data
+
+-----------------------------------------------------------------
+(data podla tabule, nechcelo sa mi pocitat odznova)
+rozdelime data podla casoveho intervalu = 4
+Vytvorime statistiku suctu jednotiek vnutri intervalu
+50 binarnych cisel
+N = 14
+pravdepodobnost, ze jednotlivo padne jednotka => P(1) = 0.518
+
+Statistika:
+P(0) = 0
+P(1) = 0.149
+P(2) = 0.715
+P(3) = 0.071
+P(4) = 0.071
+
+Pravdepodobnost:
+styri nuly		P(0) = (1 - 0.518) ^ 4 = 0.054
+tri 0, jedna jednotka	P(1) = 0.518 * (1 - 0.518) ^ 3 = 0.232
+tve 0, dve 1		P(2) = 0.518 ^ 2 * (1 - 0.518) ^ 2 = 0.374
+jedna 0, dve 1		P(3) = 0.518 ^ 3 * (1 - 0.518) = 0.268
+styri 1			P(4) = 0.518 ^ 4 = 0.072
+
+Bernoulliho tok
+	-nastatie udalost X s pravdepodobnostou P
+	-vyskyt udalosti je NEZAVISLY (mozem nasobit)
+	-nemenia sa podmienky
+
+Aka je pravdepodobnost, ze z 10 hodov kockou mi 7 krat padne sestka
+X = padne sestka
+P(X) = 1 / 6
+
+vyskyt paketu ma nejaku pravdepodobnost
+a pakety prichadzaju
+potrebujeme vediet strednu intenzitu toku paketov - average rate
+peak rate - kvoli QoS-u, aby sa VoIP nedrhol
+
+Cim viac toho je, tym viac je to nezavisle
+
+
+
+
+
+
+DU - zopakovat si binomicke rozdelenie
