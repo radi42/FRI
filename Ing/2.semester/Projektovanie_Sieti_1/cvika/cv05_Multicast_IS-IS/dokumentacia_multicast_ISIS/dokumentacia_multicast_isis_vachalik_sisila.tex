@@ -107,6 +107,7 @@ Budeme konfigurovať distribúciu multicastovej prevádzky so smerovacím protok
 
 \section{Úlohy}
 \subsection{Konfigurácia PIM Dense Mode}
+\label{konfiguracia_pim_dense_mode}
 \subsubsection{Popis}
 Úlohou bolo najprv sa oboznámiť s konfiguráciou PIM Dense Mode. Dohodli sme sa, že budeme používať iba smerovací protokol IS-IS.
 Subrozhranie “.13” a VLAN 13 sme premenovali na “.23” a VLAN 23, lebo sieť je medzi smerovačmi R2 a R3 (23), a nie medzi R1 a R3 (13).
@@ -115,12 +116,15 @@ Subrozhranie “.13” a VLAN 13 sme premenovali na “.23” a VLAN 23, lebo si
 V rámci tohto zadania sme použili IS–IS (L2 only) s jednou oblasťou a priame point-to-point prepojenia medzi R2, R3, R4. Takisto sme použili R5 ako zdroj multicastovej prevádzky. R6 a R8 sme nakonfigurovali ako multicast klientov.
 
 \paragraph{}
-IP adresa multicastovej skupiny bola \say{239.0.0.1}. Klientov pridávame do multicastovej skupiny skupiny príkazom \say{igmp join-group 239.0.0.1}
+IP adresa multicastovej skupiny bola \say{239.0.0.1}.
 
 
 \subsubsection{Konfigurácia}
 \paragraph{}
-Nižšie je uvedená konfigurácia pre klientský smerovač R6.
+Nižšie je uvedená konfigurácia pre klientský smerovač R6. Rozhranie pridáme do IS-IS protokolu príkazom \say{ip router isis}. V nastaveniach procesu ISIS (\say{router isis}) sme definovali Lo0 ako pasívne rozhranie (neposielajú sa Hello pakety), nastavili sme NSAP identifikátor príkazom \say{net}, typ priľahlosti pre R1 sme nastavili ako L2 príkazom \say{is-type level-2}, a nakoniec sme nastavili rozšírenú metriku pre R1 príkazom \say{metric-style wide}. Rozšírená metrika je novšou implementáciou počítania metriky pre IS-IS. Pokiaľ sa rozhodneme použiť takúto metriku, musíme ju nastaviť na všetkých smerovačoch v IS-IS doméne.
+
+\paragraph{}
+Následne sme nakonfigurovali PIM Dense Mode. Multicast režim aktivujeme príkazom \say{ip multicast-routing} v globálnom konfiguračnom režime. Potom pre jednotlivé rozhrania povolíme multicastové smerovanie príkazom \say{ip pim dense-mode}. Klientov, t.j. Lo1, pridávame do multicastovej skupiny skupiny príkazom \say{igmp join-group 239.0.0.1} v rámci konfigurácie rozhrania.
 
 \noindent
 {\fontfamily{qcr}\selectfont
@@ -222,11 +226,11 @@ Po vykonaní ping-u na IP adresu multicastovej skupiny nám prišli odpovede z o
 
 \subsection{Konfigurácia PIM Sparse Mode}
 \subsubsection{Popis}
-Konfigurujeme \say{Sparse} mód s jedným RP bez záložného RP. Úlohu RP plnil smerovač R3 \say{Sparse} mód, narozdiel od \say{Dense} módu, nezahlcuje sieť správami na odpojenie od skupiny (tzv. \say{PRUNE} správy). Namiesto toho posiela multicastový tok iba tým, ktorí si o to požiadajú tzv. \say{JOIN} správou. Na preposielanie týchto správ sa používa zdieľaný strom, ktorého \say{koreňom} je Rendezvous (čítaj \textit{randevú}) Point (ďalej len RP smerovač). RP smerovač pozná všetky zdroje, z ktorých sa šíri  multicastový tok a následne ho preposiela multicastovým klientom.
+Konfigurujeme \say{Sparse} mód (šetrný mód) s jedným RP bez záložného RP. Úlohu RP plnil smerovač R3 \say{Sparse} mód, narozdiel od \say{Dense} módu, nezahlcuje sieť správami na odpojenie od skupiny (tzv. \say{PRUNE} správy), čím šetrí vyťaženie smerovačou. Namiesto toho posiela multicastový tok iba tým, ktorí si o to požiadajú tzv. \say{JOIN} správou. Na preposielanie týchto správ sa používa zdieľaný strom, ktorého \say{koreňom} je Rendezvous (čítaj \textit{randevú}) Point (ďalej len RP smerovač). RP smerovač pozná všetky zdroje, z ktorých sa šíri  multicastový tok a následne ho preposiela multicastovým klientom.
 
 \subsubsection{Konfigurácia}
 \paragraph{}
-Nižšie je uvedená konfigurácia R1.
+Nižšie je uvedená konfigurácia R1. IS-IS konfigurácia zostáva totožná s tou v kapitole \ref{konfiguracia_pim_dense_mode}. Multicast režim aktivujeme príkazom \say{ip multicast-routing} v globálnom konfiguračnom režime. Rozhranie pridáme do PIM Sparse Mode procesu príkazom \say{ip pim sparse-mode}. RP nastavíme v globálnom konfiguračnom režime príkazom \say{ip pim rp-addr 10.255.255.3}
 
 \noindent
 {\fontfamily{qcr}\selectfont

@@ -125,25 +125,47 @@ Budeme konfigurovať smerovacie protokoly MPLS a IS-IS na topológií, ktorá je
 \subsection{IS−IS alebo OSPF}
 \subsubsection{Popis}
 \paragraph{}
-Ako vnútorný smerovací protokol sme zvolili IS-IS. Jeho konfigurácia je rovnaká ako v predchádzajúcich cvičeniach s ohľadom na aktuálny adresný plán.
+Ako vnútorný smerovací protokol sme zvolili IS-IS, ktorý sme konfigurovali na smerovačoch R1, R2, R3, R4, R6, R7 a R9. Základná konfigurácia protokolu IS-IS spočívala z vytvorenia dvoch oblastí: jednu pre chrbticovú oblasť (R1, R2, R3, R4, R9) a oblasť ďalšieho providera (R6, R7), nastavenia broadcast spojení pre R2, R3 a R4 a nastavenia zvyšku spojení ako P2P a vytvorenia NSAP identifikátorov. Podobne ako pri OSPF sme do základnej konfigurácie zahrnuli aj nastavenie adresácie, vzdialeného prístupu a úpravu vypisovania konzoly.
 
 \subsubsection{Konfigurácia}
 \paragraph{}
-IS-IS sme konfigurovali na R1, R2, R3, R4 a R9
+Nižšie uvádzame základnú konfiguráciu IS-IS pre R1. Rozhranie pridáme do IS-IS protokolu príkazom \say{ip router isis}. V nastaveniach procesu IS-IS (\say{router isis}) sme definovali Lo0 a eth2/1 ako pasívne rozhranie (neposielajú sa Hello pakety) príkazom \say{passive-interface}. Nastavili sme NSAP identifikátor príkazom \say{net}. Typ priľahlosti pre smerovače R1, R2, R3, R4, R6, R7 a R9 sme nastavili ako typ L2 príkazom \say{is-type level-2}, a nakoniec sme nastavili rozšírenú metriku pre R1 príkazom \say{metric-style wide}. Rozšírená metrika je novšou implementáciou počítania metriky pre IS-IS. Pokiaľ sa rozhodneme použiť takúto metriku, musíme ju nastaviť na všetkých smerovačoch v IS-IS doméne.
 
 \noindent
 {\fontfamily{qcr}\selectfont
 \begin{small}
-\begin{alltt}
-R1(config)#router isis
-  net 49.0002.0102.5525.5001.00
-  exit
+\begin{verbatim}
+!R1
+ena
+conf t
+hostname R1
+no ip domain-lookup
+username admin privil 15 secret admin
+line con 0
+  login local
+  logging syn
+  exec-time 120
+line vty 0 15
+  privilege level 15
+  no login
 int e2/0
+  ip addr 10.1.12.1 255.255.255.0
   ip router isis
   isis network point-to-point
+int e2/1
+  ip addr 10.100.15.1 255.255.255.0
+  no shut
 int lo0
+  ip addr 10.255.255.1 255.255.255.255
   ip router isis
-\end{alltt}
+  no shut
+router isis
+  net 49.0001.0102.5525.5001.00
+  passive-interface lo0
+  passive-interface e2/1
+  is-type level-2
+  metric-style wide
+\end{verbatim}
 \end{small}
 }
 
@@ -184,7 +206,7 @@ R9.00-00              0x000004C2   0xAE2A        768               0/0/0
 
 
 \paragraph{}
-Z výpisu vyplýva, že protokol IS-IS na R1 je spustený. IS-IS databáza na R1 obsahuje aj záznamy o smerovačoch, ktoré sa nacáhádzajú v oblasti 110 t.j. R2, R3, R4 a R9. Z toho vyplýva, že IS-IS je spustený v celej oblasti 110.
+Z výpisu vyplýva, že protokol IS-IS na R1 je spustený. IS-IS databáza na R1 obsahuje aj záznamy o smerovačoch, ktoré sa nacáhádzajú v IS-IS oblasti 1 t.j. R2, R3, R4 a R9. Z toho vyplýva, že IS-IS je spustený v celej oblasti 1.
 
 
 
@@ -199,12 +221,10 @@ Z výpisu vyplýva, že protokol IS-IS na R1 je spustený. IS-IS databáza na R1
 \subsection{MPLS}
 \subsubsection{Popis}
 \paragraph{}
-Základnú konfiguráciu MPLS sme vypracovali podľa stránky \say{nil.uniza.sk}. Najprv zapneme \say{Cisco express forwarding} príkazom \say{ip cef}. Nakoniec zapneme MPLS príkazom \say{mpls ip}. Príkaz \say{mpls ip} sme použili iba na rozhraniach vnútri providerskej siete, nie na PE smerovačoch smerom k zákazníkom.
+Aby sme zabezpečili konektivitu medzi jednotlivými zákazníkmi R5, R8 a R10, bolo potrebné nakonfigurovať BGP a MPLS v sieti providera ISP1. Vďaka tomu bude pre zákazníka sieť za Provider Edge smerovačom transparentná. Providerské smerovače ohlasujú požadovanú sieť zákazníka, v našom prípade Lo0. Na smerovači R2 nekonfigurujeme BGP, pretože sa nachádza vnútri providerovej siete a nie na jej okraji. Najprv zapneme \say{Cisco express forwarding} príkazom \say{ip cef}. Nakoniec zapneme MPLS príkazom \say{mpls ip}. Príkaz \say{mpls ip} sme použili iba na rozhraniach vnútri providerskej siete, nie na PE smerovačoch smerom k zákazníkom (R2).
 
 \subsubsection{Konfigurácia}
 \paragraph{}
-Aby sme zabezpečili konektivitu medzi jednotlivými zákazníkmi R5, R8 a R10, je potrebné nakonfigurovať BGP medzi týmito smerovačmi a ich susedmi v ISP1. Rovnako aj ohlasujeme požadovanú sieť zákazníka, v našom prípade Lo0. Na smerovači R2 BGP nekonfigurujeme.
-
 \noindent
 {\fontfamily{qcr}\selectfont
 \begin{small}
@@ -463,10 +483,13 @@ Z výpisov z R1 vyplýva, že konektivita zostala zachovaná ku všetkým smerov
 \subsection{Multiprotocol BGP}
 \subsubsection{Popis}
 \paragraph{}
-Multiprotokolové BGP (MP-BGP) je kombinácia BGP s, v tomto prípade, MPLS. Tak možeme poskytovať L3VPN službu viacerým zákazníkom, v tomto prípade zákazníkom RED a GREEN.
+Multiprotokolové BGP (MP-BGP) je kombinácia BGP s MPLS. Tak možeme poskytovať L3VPN službu viacerým zákazníkom. Naši zákazníci sú nazvaní RED a GREEN.
 
 \paragraph{}
 Zákazník RED mal loopback rozhrania s IP adresami 172.[21/22/23].0.1 /16 na smerovačoch v AS 65001. Zákazník GREEN mal dve loopback rozhrania: jedno na R1, druhé na R9 s IP adresami 172.[21/22].0.1 /16.
+
+\paragraph{}
+Problémom je, že siete zákazníka GREEN sa prekrývali so sieťami zákazníka RED. V takom prípade by PE smerovač nevedel určiť, komu pakety patria. Riešením je vytvorenie VRF tabuliek na PE smerovačoch. Každý zákazník má na PE smerovači vlastnú VRF tabuľku. VRF tabuľka je definovaná atribútmi Route Target a Route Distinguisher. Tieto atribúty musia byť unikátne pre každého zákazníka. PE smerovač pomocoutakto definovanej VRF zistí, ktorý smerovací záznam patrí do ktorej VRF tabuľky. Následne sa podľa spomenutých atribútov, ktorú smerovaciu tabuľku použiť na preposielanie paketov, aby boli doručené tomu správnemu zákazníkovi.
 
 \paragraph{}
 Topológia pre MP-BGP je znázornená na obr. \ref{fig:mpls_mpbgp_topo}.
@@ -480,7 +503,19 @@ Topológia pre MP-BGP je znázornená na obr. \ref{fig:mpls_mpbgp_topo}.
 
 \subsubsection{Konfigurácia}
 \paragraph{}
-MP-BGP sme konfigurovali na všetkých PE smerovačoch t.j. R1, R3, R4 a R9. Nižšie je uvedená konfigurácia pre R1.
+MP-BGP sme konfigurovali na \textbf{všetkých PE smerovačoch} t.j. R1, R3, R4 a R9. Nižšie je uvedená konfigurácia pre R1. Zapneme “Cisco express forwarding” príkazom “\say{ip cef} a MPLS príkazom \say{mpls ip}. Definujeme jednotlivé VRF tabuľky príkazom \say{ip vrf <názov\_zákazníka>} napr. \say{ip vrf RED}. V rámci VRF konfigurácie nastavíme Route Distinguisher, Route Target (pre import aj export - both); napr. pre zákazníka RED sú to príkazy \say{rd 110:1} pre Route Distinguisher a \say{ route-target export 110:1}, \say{ route-target import 110:1} pre Route Target. Následne pripojíme vytvorenú VRF tabuľku ku príslušným rozhraniam konkrétneho zákazníka príkazom \say{ip vrf forwarding RED} pre RED zákazníka resp. \say{ip vrf forwarding GREEN} pre GREEN zákazníka.
+
+\paragraph{}
+V rámci BGP konfigurácie sme na R1 potrebovali pridať ako susedov providerské hraničné smerovače ISP1 (R3, R4 a R9) príkazmi (napr. pre R3) \say{neighbor 10.255.255.3 remote-as 110} a \say{neighbor 10.255.255.3 update-source Loopback0}.
+
+\paragraph{}
+Ďalej sme na R1 zadali príkaz \say{address-family vpnv4}, kde sme jednotlivých susedov aktivovali, zapli sme odosielanie indentifikátorov komunity ostatným smerovačom vnútri ISP1 a nastavili ich ako klientov pre Route Reflector, ktorý sa nachádzal na R1. Na to slúžia príkazy (pre R3) \say{neighbor 10.255.255.3 activate}, \say{neighbor 10.255.255.3 send-community extended} a \say{neighbor 10.255.255.3 route-reflector-client}.
+
+\paragraph{}
+Nakoniec sme potrebovali redistribuovať siete od jednotlivých zákazníkov cez providera ISP1. Do módu na konfiguráciu VRF pre zákazníka zadáme príkaz \say{address-family ipv4 vrf <názov\_zákazníka>}. Pre zákazníka GREEN stačilo zadať príkaz \say{redistribute connected}, pomocou ktorého príkazov sa VRF naučí siete patriace zákazníkovi GREEN zo všetkých ostatných PE smerovačov v ISP1. 
+
+\paragraph{}
+Zákazníkovi RED sme do VRF konfigurácie v BGP zadali príkaz \say{redistribute connected}, ktorý má vyššie uvedený účinok. Ďalej sme pripojili oblasť 65001 ku VRF RED príkazmi \say{neighbor 192.168.15.5 remote-as 65001} a \say{neighbor 192.168.15.5 activate}. Lenže vzniká tu jeden problém: pokiaľ by chcela pobočka 1 komunikovať napr. s pobočkou 3, pobočka 3 tieto pakety zahodí, pretože v BGP platí pravidlo, že pokiaľ prijatý paket má rovnaké číslo AS ako má prijímajúci smerovač, tento paket sa zahodí, aby sa predišlo slučke. V tomto prípade je takéto správanie nežiadúce a dá sa ošetriť príkazom \say{neighbor 192.168.15.5 as-override}, ktorý zabezpečí prijatie paketu s rovnakým číslom AS.
 
 \noindent
 {\fontfamily{qcr}\selectfont
@@ -703,7 +738,7 @@ router bgp 65001
 }
 
 \paragraph{}
-Pokračovali sme konfiguráciou 
+Pokračovali sme konfiguráciou VRF tabuliek pre providerské smerovače.
 
 \noindent
 {\fontfamily{qcr}\selectfont
@@ -1295,5 +1330,84 @@ Reply to request 1 from 172.22.0.1, 80 ms
 \paragraph{}
 Po vykonaní príkazu \say{ip pim rp-address 10.255.255.1} sa zobrazili správy, ktoré hovoria o vytvorení tunelových rozhraní ku smerovačom, ktoré sa nachádzajú v multicastovej doméne. Na ping zákazníckej multicastovej skupiny odpovedali všetky smerovače nachádzajúce sa v zákazníckej multicastovej doméne t.j. R5, R8 a R10.
 
+\subsection{Otázky MPLS}
+\paragraph{}
+1. Podľa čoho sa MPLS rozhoduje pri preposielaní paketov?\\
+A. Static Route\\
+B. BGP\\
+C. L2 label +\\
+D. smerovací protokol\\
+
+\paragraph{}
+2. Ako sa nazýva akcia pridávania a odoberania labelov v MPLS?\\
+A. Plug and Play\\
+B. Wipe on / Wipe off\\
+C. Push and Pop +\\
+D. Take / Drop\\
+
+\paragraph{}
+3. Kde sa nachádza MPLS label v data L2 rámci?\\
+A. medzi IP a data\\
+B. medzi IP a MAC +\\
+C. v rámci vrstvy IP\\
+D. ani jedna z odpovedí nie je správna\\
+
+\paragraph{}
+4. Kolko bitov má MPLS label value v MPLS hlavičke?\\
+A. 10\\
+B. 16\\
+C. 20 +\\
+D. 21\\
+
+\paragraph{}
+5. Na ktorom UDP porte sú LDP posielané?\\
+A. 22\\
+B. 464\\
+C. 502\\
+D. 646 +\\
+
+
+
+
+
+
+
+
+
+\subsection{Otázky L3VPN, Hub and Spoke, Draft Rosen}
+\paragraph{}
+1. Konfigurácia L3 VPN sa uskutočňuje na:\\
+A. Customer Edge smerovačoch\\
+B. Provider Edge smerovačoch\\
+C. Customer Edge aj Provider Edge smerovačoch\\
+D. Route Reflector smerovači\\
+
+\paragraph{}
+2. Ako vieme zabezpečiť situáciu, kedy viacerí zákazníci používajú rovnaké privátne rozsahy?\\
+A. Nastavíme každému zákazníkovi rôzny Route Target pre export\\
+B. Nastavíme každému zákazníkovi rôzny Route Target pre import\\
+C. Nastavíme každému zákazníkovi rôzny Route Target pre import aj export +\\
+D. Nastavíme každému zákazníkovi rôzny Route Distinguisher\\
+
+\paragraph{}
+3. Čo potrebujeme spraviť pri L3 VPN na Customer Edge smerovačoch, pokiaľ má zákazník pripojené ku providerovi viaceré pobočky s rovnakým číslom AS?
+A. Vypnúť LDP\\
+B. Nastaviť odlišný Route Target pre každú pobočku\\
+C. Zmeniť Route Distinguisher\\
+D. Nastaviť AS-Override +\\
+
+\paragraph{}
+4. Prečo pri Hub \& Spoke VPN musíme mať odlišné Route Targety pre import a export?\\
+A. Aby sme zbytočne nezahlcovali linky\\
+B. Aby sa privátne adresy importovali na Hub smerovač +\\
+C. Aby Hub smerovač mohol plniť funkciu Route Reflectora\\
+D. Aby sme vytvorili záložnú cestu v prápade výpadku primárnej linky\\
+
+\paragraph{}
+5. Aký typ PIM módu sa používa pri Draft Rosen?\\
+A. Sparse Mode +\\
+B. Dense Mode\\
+C. Sparse-Dense Mode\\
+D. BSR\\
 
 \end{document}

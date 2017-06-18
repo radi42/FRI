@@ -113,3 +113,9 @@
 \contentsline {subsubsection}{Konfigur\IeC {\'a}cia}{22}
 \contentsline {subsubsection}{Overenie}{23}
 \contentsline {paragraph}{}{23}
+\contentsline {subsection}{\numberline {1.2.14}Ot\IeC {\'a}zky}{24}
+\contentsline {paragraph}{}{24}
+\contentsline {paragraph}{}{25}
+\contentsline {paragraph}{}{25}
+\contentsline {paragraph}{}{25}
+\contentsline {paragraph}{}{25}

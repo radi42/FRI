@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.2.18)  14 MAY 2017 13:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.6.17)  18 JUN 2017 18:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -323,7 +323,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 3.
 
-Overfull \hbox (9.69296pt too wide) in paragraph at lines 75--75
+Overfull \hbox (9.69296pt too wide) in paragraph at lines 78--78
  [][] []\OT1/ppl/m/n/12 Skr[]atenie hello a dead{interval []casova[]cov, zis-te
 -nie funk[]cnosti 
  []
@@ -374,334 +374,357 @@ Overfull \hbox (22.5194pt too wide) in paragraph at lines 200--201
 i ako point-to-point linky pr[]^^Pkazom
  []
 
-[5]
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 255--255
+[5] [6]
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 264--264
 []\OT1/pcr/m/n/10.95 Interface                  IP-Address      OK? Method Stat
 us   Protocol[] 
  []
 
 
-Overfull \hbox (0.25815pt too wide) in paragraph at lines 256--256
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 265--265
 []\OT1/pcr/m/n/10.95 FastEthernet0/0            10.1.12.1       YES manual up  
      up[] 
  []
 
 
-Overfull \hbox (0.25815pt too wide) in paragraph at lines 257--257
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 266--266
 []\OT1/pcr/m/n/10.95 FastEthernet0/1            10.100.15.1     YES manual up  
      up[] 
  []
 
 
-Overfull \hbox (0.25815pt too wide) in paragraph at lines 259--259
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 268--268
 []\OT1/pcr/m/n/10.95 Loopback0                  10.255.255.1    YES manual up  
      up[] 
  []
 
-[6]
-Overfull \hbox (65.95807pt too wide) in paragraph at lines 289--289
+
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 298--298
 []\OT1/pcr/m/n/10.95 LSPID                 LSP Seq Num  LSP Checksum  LSP Holdt
 ime      ATT/P/OL[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 290--290
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 299--299
 []\OT1/pcr/m/n/10.95 R1.00-00            * 0x0000000B   0x937D        1031     
          0/0/0[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 291--291
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 300--300
 []\OT1/pcr/m/n/10.95 R2.00-00              0x0000000A   0xB628        852      
          0/0/0[] 
  []
 
 LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 292.
+(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 301.
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 292--292
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 301--301
 []\OT1/pcr/b/n/10.95 R2.01-00              0x00000009   0x5821        901      
          0/0/0[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 293--293
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 302--302
 []\OT1/pcr/m/n/10.95 R3.00-00              0x0000000D   0xA6AA        681      
          0/0/0[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 294--294
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 303--303
 []\OT1/pcr/m/n/10.95 R4.00-00              0x0000000D   0xF394        764      
          0/0/0[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 295--295
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 304--304
 []\OT1/pcr/m/n/10.95 R10.00-00             0x0000000B   0xA9D4        846      
          0/0/0[] 
  []
 
 LaTeX Font Info:    Font shape `OT1/ppl/bx/it' in size <12> not available
-(Font)              Font shape `OT1/ppl/b/it' tried instead on input line 301.
+(Font)              Font shape `OT1/ppl/b/it' tried instead on input line 310.
 
-Overfull \hbox (6.53668pt too wide) in paragraph at lines 301--302
+Overfull \hbox (6.53668pt too wide) in paragraph at lines 310--311
 \OT1/ppl/m/n/12 rova[]cov s[]u spr[]avne na-sta-ven[]e k prisl[]uchaj[]ucim n[]
 azvom sme-rova[]cov. Vid[]^^Pme men[]a
  []
 
-
-Overfull \hbox (0.25815pt too wide) in paragraph at lines 322--322
+[7]
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 331--331
 []\OT1/pcr/m/n/10.95 R1(config)#ip route 10.255.255.5 255.255.255.255 f0/1 10.1
 00.15.5[] 
  []
 
-[7]
-Overfull \hbox (8.9486pt too wide) in paragraph at lines 394--395
+[8]
+Overfull \hbox (8.9486pt too wide) in paragraph at lines 403--404
 \OT1/ppl/m/n/12 sme-ro-va-cej ta-bul[]ke na R1 vid[]^^Pme pred-vo-len[]u cestu 
 ako ``S*'' z[]aznam. Je to d[]osledok
  []
 
 (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-32.def
 File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
-) [8]
-Overfull \hbox (52.81808pt too wide) in paragraph at lines 435--435
+)
+Overfull \hbox (52.81808pt too wide) in paragraph at lines 444--444
 []\OT1/pcr/m/n/10.95 System Id      Type Interface   IP Address      State Hold
 time Circuit Id[] 
  []
 
 
-Overfull \hbox (0.25815pt too wide) in paragraph at lines 436--436
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 445--445
 []\OT1/pcr/m/n/10.95 R8             L1   Fa0/0       10.1.38.8       UP    24  
      00[] 
  []
 
 
-Overfull \hbox (19.96812pt too wide) in paragraph at lines 437--437
+Overfull \hbox (19.96812pt too wide) in paragraph at lines 446--446
 []\OT1/pcr/b/n/10.95 R4             L2   Fa0/1       10.1.234.4      UP    27  
      R2.01[] 
  []
 
 
-Overfull \hbox (19.96812pt too wide) in paragraph at lines 438--438
+Overfull \hbox (19.96812pt too wide) in paragraph at lines 447--447
 []\OT1/pcr/m/n/10.95 R2             L2   Fa0/1       10.1.234.2      UP    8   
      R2.01[] 
  []
 
 [9]
-Overfull \hbox (59.38808pt too wide) in paragraph at lines 502--502
+Overfull \hbox (59.38808pt too wide) in paragraph at lines 511--511
 []\OT1/pcr/m/n/10.95 ----------------------------------------------------------
 ----------------[] 
  []
 
 
-Overfull \hbox (65.95807pt too wide) in paragraph at lines 508--508
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 517--517
 []\OT1/pcr/m/n/10.95 LSPID                 LSP Seq Num  LSP Checksum  LSP Holdt
 ime      ATT/P/OL[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 509--509
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 518--518
 []\OT1/pcr/m/n/10.95 R1.00-00              0x00000010   0x8982        1082     
          0/0/0[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 510--510
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 519--519
 []\OT1/pcr/m/n/10.95 R2.00-00            * 0x0000000F   0xE4F2        576      
          0/0/0[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 511--511
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 520--520
 []\OT1/pcr/m/n/10.95 R3.00-00              0x00000012   0xE861        783      
          0/0/0[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 512--512
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 521--521
 []\OT1/pcr/m/n/10.95 R4.00-00              0x00000012   0xC5BB        618      
          0/0/0[] 
  []
 
+[10]
 LaTeX Font Info:    Font shape `OT1/pcr/bx/it' in size <10.95> not available
-(Font)              Font shape `OT1/pcr/b/it' tried instead on input line 513.
+(Font)              Font shape `OT1/pcr/b/it' tried instead on input line 522.
 LaTeX Font Info:    Font shape `OT1/pcr/b/it' in size <10.95> not available
-(Font)              Font shape `OT1/pcr/b/sl' tried instead on input line 513.
+(Font)              Font shape `OT1/pcr/b/sl' tried instead on input line 522.
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 513--513
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 522--522
 []\OT1/pcr/b/n/10.95 R4.\OT1/pcr/b/sl/10.95 01\OT1/pcr/b/n/10.95 -00           
    0x00000002   0x403E        620               0/0/0[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 514--514
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 523--523
 []\OT1/pcr/m/n/10.95 R10.00-00             0x00000010   0x9FD9        1034     
          0/0/0[] 
  []
 
-[10]
-Overfull \hbox (59.38808pt too wide) in paragraph at lines 550--550
+
+Overfull \hbox (59.38808pt too wide) in paragraph at lines 559--559
 []\OT1/pcr/m/n/10.95 ----------------------------------------------------------
 ----------------[] 
  []
 
 
-Overfull \hbox (65.95807pt too wide) in paragraph at lines 556--556
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 565--565
 []\OT1/pcr/m/n/10.95 LSPID                 LSP Seq Num  LSP Checksum  LSP Holdt
 ime      ATT/P/OL[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 557--557
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 566--566
 []\OT1/pcr/m/n/10.95 R1.00-00              0x00000010   0x8982        343      
          0/0/0[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 558--558
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 567--567
 []\OT1/pcr/m/n/10.95 R2.00-00            * 0x00000011   0xA82F        1047     
          0/0/0[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 559--559
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 568--568
 []\OT1/pcr/b/n/10.95 R2.01-00            * 0x00000001   0x6819        1048     
          0/0/0[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 560--560
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 569--569
 []\OT1/pcr/m/n/10.95 R3.00-00              0x00000014   0x98B1        1045     
          0/0/0[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 561--561
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 570--570
 []\OT1/pcr/m/n/10.95 R4.00-00              0x00000014   0xE59B        1045     
          0/0/0[] 
  []
 
 LaTeX Font Info:    Font shape `OT1/pcr/m/it' in size <10.95> not available
-(Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 562.
+(Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 571.
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 562--562
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 571--571
 []\OT1/pcr/m/sl/10.95 R4.01-00              0x00000003   0xBF67        0 (1047)
           0/0/0[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 563--563
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 572--572
 []\OT1/pcr/m/n/10.95 R10.00-00             0x00000011   0x9DDA        1039     
          0/0/0[] 
  []
 
-
-Overfull \hbox (65.95807pt too wide) in paragraph at lines 578--578
+[11]
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 587--587
 []\OT1/pcr/m/n/10.95 LSPID                 LSP Seq Num  LSP Checksum  LSP Holdt
 ime      ATT/P/OL[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 579--579
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 588--588
 []\OT1/pcr/m/n/10.95 R1.00-00              0x00000012   0x8584        661      
          0/0/0[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 580--580
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 589--589
 []\OT1/pcr/m/n/10.95 R2.00-00            * 0x00000012   0xA630        484      
          0/0/0[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 581--581
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 590--590
 []\OT1/pcr/b/n/10.95 R2.01-00            * 0x00000002   0x661A        494      
          0/0/0[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 582--582
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 591--591
 []\OT1/pcr/m/n/10.95 R3.00-00              0x00000016   0x94B3        1182     
          0/0/0[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 583--583
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 592--592
 []\OT1/pcr/m/n/10.95 R4.00-00              0x00000015   0xE39C        470      
          0/0/0[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 584--584
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 593--593
 []\OT1/pcr/m/n/10.95 R10.00-00             0x00000012   0x9BDB        540      
          0/0/0[] 
  []
 
-[11] [12]
-Overfull \hbox (3.74055pt too wide) in paragraph at lines 674--675
+[12]
+Overfull \hbox (3.74055pt too wide) in paragraph at lines 683--684
  [] \OT1/ppl/m/n/12 Na sme-rova[]ci R9 sme zhor[]sili met-riku aby bol R3 prim[
 ]arny sme-rova[]c pre v[]setky
  []
 
 [13]
-Overfull \hbox (10.91615pt too wide) in paragraph at lines 760--761
+Overfull \hbox (10.91615pt too wide) in paragraph at lines 769--770
  [] \OT1/ppl/m/n/12 Z v[]ypisov pr[]^^Pkazu ``tra-ce-route'' z R8 a R9 na sme-r
 ova[]c R5 vid[]^^Pme, []ze pre vn[]utorn[]e
  []
 
 
-Overfull \hbox (4.00447pt too wide) in paragraph at lines 774--775
+Overfull \hbox (4.00447pt too wide) in paragraph at lines 783--784
  [] \OT1/ppl/m/n/12 Na R4 vy-tvor[]^^Pme ACL, v kto-rom po-vol[]^^Pme siete pri
 -po-jen[]e ku R5. Tie sa n[]asledne
  []
 
 [14]
-Overfull \hbox (59.38808pt too wide) in paragraph at lines 820--820
+Overfull \hbox (59.38808pt too wide) in paragraph at lines 829--829
+[]\OT1/pcr/m/n/10.95 ----------------------------------------------------------
+----------------[] 
+ []
+
+[15]
+Overfull \hbox (59.38808pt too wide) in paragraph at lines 855--855
 []\OT1/pcr/m/n/10.95 ----------------------------------------------------------
 ----------------[] 
  []
 
 
-Overfull \hbox (59.38808pt too wide) in paragraph at lines 846--846
+Overfull \hbox (59.38808pt too wide) in paragraph at lines 878--878
 []\OT1/pcr/m/n/10.95 ----------------------------------------------------------
 ----------------[] 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [15]
-Overfull \hbox (59.38808pt too wide) in paragraph at lines 869--869
-[]\OT1/pcr/m/n/10.95 ----------------------------------------------------------
-----------------[] 
- []
-
-
-Overfull \hbox (17.15793pt too wide) in paragraph at lines 891--891
+[16]
+Overfull \hbox (17.15793pt too wide) in paragraph at lines 900--900
 []\OT1/ppl/b/n/14.4 Skr^^Satenie hello a dead{interval ^^Tcasova^^Tcov, zis-te-
 nie funk^^Tcnosti
  []
 
-[16]
-Overfull \hbox (26.53812pt too wide) in paragraph at lines 923--923
+
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 932--932
 \OT1/pcr/b/n/10.95 (FastEthernet0/1), cir type L2, cir id 0102.5525.5002.01, le
 ngth 1497[] 
  []
 
 
-Overfull \hbox (26.53812pt too wide) in paragraph at lines 925--925
+Overfull \hbox (26.53812pt too wide) in paragraph at lines 934--934
 \OT1/pcr/b/n/10.95 (FastEthernet0/1), cir type L2, cir id 0102.5525.5002.01, le
 ngth 1497[] 
  []
 
 [17]
-Overfull \hbox (59.38808pt too wide) in paragraph at lines 970--970
+Overfull \hbox (59.38808pt too wide) in paragraph at lines 979--979
 []\OT1/pcr/m/n/10.95 ----------------------------------------------------------
 ----------------[] 
  []
 
-[18] (./dokumentacia_isis_vachalik_sisila.aux) ) 
+
+Underfull \hbox (badness 10000) in paragraph at lines 1011--1016
+
+ []
+
+[18]
+Underfull \hbox (badness 10000) in paragraph at lines 1018--1023
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1025--1030
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1032--1037
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1039--1044
+
+ []
+
+[19] (./dokumentacia_isis_vachalik_sisila.aux) ) 
 Here is how much of TeX's memory you used:
  5097 strings out of 493105
  68087 string characters out of 6137072
@@ -718,11 +741,11 @@ e/texlive/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/urw/palatino/uplbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
 w/palatino/uplr8a.pfb>
-Output written on dokumentacia_isis_vachalik_sisila.pdf (18 pages, 157566 bytes
+Output written on dokumentacia_isis_vachalik_sisila.pdf (19 pages, 161194 bytes
 ).
 PDF statistics:
- 92 PDF objects out of 1000 (max. 8388607)
- 63 compressed objects within 1 object stream
+ 96 PDF objects out of 1000 (max. 8388607)
+ 66 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

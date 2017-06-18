@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.2.18)  17 MAY 2017 14:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.6.17)  18 JUN 2017 17:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -351,91 +351,91 @@ LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <14.4> not available
 (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-32.def
 File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
 ) [4]
-LaTeX Font Info:    Try loading font information for OT1+qcr on input line 126.
+LaTeX Font Info:    Try loading font information for OT1+qcr on input line 130.
 
 
 (/usr/share/texmf/tex/latex/tex-gyre/ot1qcr.fd
 File: ot1qcr.fd 2009/09/25 v1.2 font definition file for OT1/qcr
 )
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 128.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 132.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 ) [5]
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 186--186
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 190--190
 []\OT1/pcr/m/n/10.95 Sending 1, 100-byte ICMP Echos to 239.0.0.1, timeout is 2 
 seconds:[] 
  []
 
 
-Overfull \hbox (0.25815pt too wide) in paragraph at lines 197--197
+Overfull \hbox (0.25815pt too wide) in paragraph at lines 201--201
 []\OT1/pcr/m/n/10.95 Address          Interface         Ver/   Nbr    Query  DR
      DR[] 
  []
 
 
-Overfull \hbox (72.52806pt too wide) in paragraph at lines 199--199
+Overfull \hbox (72.52806pt too wide) in paragraph at lines 203--203
 []\OT1/pcr/m/n/10.95 10.255.255.88    Loopback1         v2/D   0      30     1 
      10.255.255.88[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 200--200
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 204--204
 []\OT1/pcr/m/n/10.95 10.1.38.8        FastEthernet0/0   v2/D   1      30     1 
      10.1.38.8[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 201--201
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 205--205
 []\OT1/pcr/m/n/10.95 10.1.89.8        FastEthernet0/1   v2/D   1      30     1 
      10.1.89.9[] 
  []
 
 
-Overfull \hbox (65.95807pt too wide) in paragraph at lines 202--202
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 206--206
 []\OT1/pcr/m/n/10.95 10.255.255.8     Loopback0         v2/D   0      30     1 
      10.255.255.8[] 
  []
 
 
-Overfull \hbox (3.8373pt too wide) in paragraph at lines 225--226
-\OT1/ppl/m/n/12 sme-rova[]c R3 ``Sparse'' m[]od, na-roz-diel od ``Dense'' m[]od
-u, ne-zahl-cuje siet[] spr[]avami
+Overfull \hbox (10.96396pt too wide) in paragraph at lines 229--230
+\OT1/ppl/m/n/12 sme-rova[]cou. Na-miesto toho po-siela mul-ti-cas-tov[]y tok ib
+a t[]ym, ktor[]^^P si o to po[]ziadaj[]u
  []
 
 [6]
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 258--258
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 262--262
 []\OT1/pcr/m/n/10.95 Sending 1, 100-byte ICMP Echos to 239.0.0.1, timeout is 2 
 seconds:[] 
  []
 
 
-Overfull \hbox (19.96812pt too wide) in paragraph at lines 273--273
+Overfull \hbox (19.96812pt too wide) in paragraph at lines 277--277
 []\OT1/pcr/m/n/10.95 Address          Interface            Ver/   Nbr    Query 
  DR     DR[] 
  []
 
 
-Overfull \hbox (65.95807pt too wide) in paragraph at lines 275--275
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 279--279
 []\OT1/pcr/m/n/10.95 10.1.38.3        FastEthernet0/0      v2/S   1      30    
  1      10.1.38.8[] 
  []
 
 
-Overfull \hbox (65.95807pt too wide) in paragraph at lines 276--276
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 280--280
 []\OT1/pcr/m/n/10.95 10.1.23.3        FastEthernet0/1.23   v2/S   1      30    
  1      10.1.23.3[] 
  []
 
 
-Overfull \hbox (65.95807pt too wide) in paragraph at lines 277--277
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 281--281
 []\OT1/pcr/m/n/10.95 10.1.34.3        FastEthernet0/1.34   v2/S   1      30    
  1      10.1.34.4[] 
  []
 
 
-Overfull \hbox (85.66805pt too wide) in paragraph at lines 278--278
+Overfull \hbox (85.66805pt too wide) in paragraph at lines 282--282
 []\OT1/pcr/m/n/10.95 10.255.255.3     Loopback0            v2/S   0      30    
  1      10.255.255.3[] 
  []
@@ -444,219 +444,219 @@ Overfull \hbox (85.66805pt too wide) in paragraph at lines 278--278
 File: uni-34.def 2013/05/13 UCS: Unicode data U+2200..U+22FF
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 296.
+(Font)              <14.4> on input line 300.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 296.
+(Font)              <7> on input line 300.
 
-Overfull \hbox (9.59676pt too wide) in paragraph at lines 299--300
+Overfull \hbox (9.59676pt too wide) in paragraph at lines 303--304
 \OT1/ppl/m/n/12 po-mo-cou BSR. ``Sparse'' m[]od je pou[]z[]^^Pvan[]y na []s[]^^
 Prenie mul-ti-cas-tov[]eho toku, ``Dense''
  []
 
-[7]
-Overfull \hbox (6.82814pt too wide) in paragraph at lines 355--355
+[7] [8]
+Overfull \hbox (6.82814pt too wide) in paragraph at lines 359--359
 []\OT1/pcr/m/n/10.95 Sending 1, 100-byte ICMP Echos to 239.0.0.1, timeout is 2 
 seconds:[] 
  []
 
 
-Overfull \hbox (65.95807pt too wide) in paragraph at lines 361--361
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 365--365
 []\OT1/pcr/m/n/10.95 ----------------------------------------------------------
 -----------------[] 
  []
 
 
-Overfull \hbox (52.81808pt too wide) in paragraph at lines 365--365
+Overfull \hbox (52.81808pt too wide) in paragraph at lines 369--369
 []\OT1/pcr/m/n/10.95 Group: 239.0.0.1, RP: 10.255.255.3, v2, uptime 00:04:27, e
 xpires 00:02:19[] 
  []
 
 
-Overfull \hbox (65.95807pt too wide) in paragraph at lines 368--368
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 372--372
 []\OT1/pcr/m/n/10.95 ----------------------------------------------------------
 -----------------[] 
  []
 
-[8]
-Overfull \hbox (19.96812pt too wide) in paragraph at lines 373--373
+
+Overfull \hbox (19.96812pt too wide) in paragraph at lines 377--377
 []\OT1/pcr/m/n/10.95 Address          Interface            Ver/   Nbr    Query 
  DR     DR[] 
  []
 
 
-Overfull \hbox (65.95807pt too wide) in paragraph at lines 375--375
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 379--379
 []\OT1/pcr/m/n/10.95 10.1.49.4        FastEthernet0/0      v2/SD  1      30    
  1      10.1.49.9[] 
  []
 
 
-Overfull \hbox (65.95807pt too wide) in paragraph at lines 376--376
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 380--380
 []\OT1/pcr/m/n/10.95 10.1.24.4        FastEthernet0/1.24   v2/SD  1      30    
  1      10.1.24.4[] 
  []
 
 
-Overfull \hbox (65.95807pt too wide) in paragraph at lines 377--377
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 381--381
 []\OT1/pcr/m/n/10.95 10.1.34.4        FastEthernet0/1.34   v2/SD  1      30    
  1      10.1.34.4[] 
  []
 
 
-Overfull \hbox (52.81808pt too wide) in paragraph at lines 378--378
+Overfull \hbox (52.81808pt too wide) in paragraph at lines 382--382
 []\OT1/pcr/m/n/10.95 10.1.104.4       Serial1/0            v2/SD  1      30    
  1      0.0.0.0[] 
  []
 
 
-Overfull \hbox (85.66805pt too wide) in paragraph at lines 379--379
+Overfull \hbox (85.66805pt too wide) in paragraph at lines 383--383
 []\OT1/pcr/m/n/10.95 10.255.255.4     Loopback0            v2/SD  0      30    
  1      10.255.255.4[] 
  []
 
 
-Overfull \hbox (65.95807pt too wide) in paragraph at lines 382--382
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 386--386
 []\OT1/pcr/m/n/10.95 ----------------------------------------------------------
 -----------------[] 
  []
 
 
-Overfull \hbox (52.81808pt too wide) in paragraph at lines 387--387
+Overfull \hbox (52.81808pt too wide) in paragraph at lines 391--391
 []\OT1/pcr/m/n/10.95 Group Address  Interface        Uptime    Expires   Last R
 eporter   Group[] 
  []
 
 
-Overfull \hbox (79.09805pt too wide) in paragraph at lines 388--388
+Overfull \hbox (79.09805pt too wide) in paragraph at lines 392--392
 []                                                                    \OT1/pcr/
 m/n/10.95 Accounted[] 
  []
 
 
-Overfull \hbox (65.95807pt too wide) in paragraph at lines 393--393
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 397--397
 []\OT1/pcr/m/n/10.95 ----------------------------------------------------------
 -----------------[] 
  []
 
 
-Overfull \hbox (59.38808pt too wide) in paragraph at lines 413--413
+Overfull \hbox (59.38808pt too wide) in paragraph at lines 417--417
 []  \OT1/pcr/m/n/10.95 Source        Response Dest   Packet Statistics For     
 Only For Traffic[] 
  []
 
-
-Overfull \hbox (59.38808pt too wide) in paragraph at lines 414--414
+[9]
+Overfull \hbox (59.38808pt too wide) in paragraph at lines 418--418
 []\OT1/pcr/m/n/10.95 10.100.15.5     10.2.67.6       All Multicast Traffic     
 From 10.100.15.5[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 415--415
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 419--419
 []     \OT1/pcr/m/n/10.95 |       __/  rtt 87   ms   Lost/Sent = Pct  Rate     
 To 224.0.1.40[] 
  []
 
 
-Overfull \hbox (85.66805pt too wide) in paragraph at lines 416--416
+Overfull \hbox (85.66805pt too wide) in paragraph at lines 420--420
 []     \OT1/pcr/m/n/10.95 v      /     hop 87   ms   ---------------------     
 --------------------[] 
  []
 
 
-Overfull \hbox (52.81808pt too wide) in paragraph at lines 420--420
-[]     \OT1/pcr/m/n/10.95 v     |      hop -8   s     0/0 = --%      0 pps    0
-/0 = --%  0 pps[] 
- []
-
-
 Overfull \hbox (52.81808pt too wide) in paragraph at lines 424--424
-[]     \OT1/pcr/m/n/10.95 v     |      hop 2576 ms    0/0 = --%      0 pps    0
+[]     \OT1/pcr/m/n/10.95 v     |      hop -8   s     0/0 = --%      0 pps    0
 /0 = --%  0 pps[] 
  []
 
 
 Overfull \hbox (52.81808pt too wide) in paragraph at lines 428--428
-[]     \OT1/pcr/m/n/10.95 v     |      hop 15   s     0/0 = --%      0 pps    0
+[]     \OT1/pcr/m/n/10.95 v     |      hop 2576 ms    0/0 = --%      0 pps    0
 /0 = --%  0 pps[] 
  []
 
-[9]
+
 Overfull \hbox (52.81808pt too wide) in paragraph at lines 432--432
-[]     \OT1/pcr/m/n/10.95 v     |      hop -8   s     0/0 = --%      0 pps    0
+[]     \OT1/pcr/m/n/10.95 v     |      hop 15   s     0/0 = --%      0 pps    0
 /0 = --%  0 pps[] 
  []
 
 
 Overfull \hbox (52.81808pt too wide) in paragraph at lines 436--436
+[]     \OT1/pcr/m/n/10.95 v     |      hop -8   s     0/0 = --%      0 pps    0
+/0 = --%  0 pps[] 
+ []
+
+
+Overfull \hbox (52.81808pt too wide) in paragraph at lines 440--440
 []     \OT1/pcr/m/n/10.95 v     |      hop -1   s     0/0 = --%      0 pps    0
 /0 = --%  0 pps[] 
  []
 
 
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 439--439
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 443--443
 []     \OT1/pcr/m/n/10.95 v           hop 0    ms        0         0 pps       
     0    0 pps[] 
  []
 
-
-Overfull \hbox (6.5973pt too wide) in paragraph at lines 461--462
+[10]
+Overfull \hbox (6.5973pt too wide) in paragraph at lines 465--466
 \OT1/ppl/m/n/12 Vypli sme linku ``Fa0/1.23'' me-dzi R2 a R3 zme-nou IP ad-resy 
 na chybn[]u (z 10.1.23.3
  []
 
-[10]
-Overfull \hbox (46.2481pt too wide) in paragraph at lines 473--473
+
+Overfull \hbox (46.2481pt too wide) in paragraph at lines 477--477
 []\OT1/pcr/m/n/10.95 *Mar  2 23:53:39.844: %PIM-5-DRCHG: DR change from neighbo
 r 10.1.23.3 to 
  []
 
 
-Overfull \hbox (72.52806pt too wide) in paragraph at lines 496--496
+Overfull \hbox (72.52806pt too wide) in paragraph at lines 500--500
 []\OT1/pcr/m/n/10.95 Sending 10000000, 100-byte ICMP Echos to 10.255.255.8, tim
 eout is 1 seconds:[] 
  []
 
 
-Overfull \hbox (33.10811pt too wide) in paragraph at lines 497--497
+Overfull \hbox (33.10811pt too wide) in paragraph at lines 501--501
 []\OT1/pcr/m/n/10.95 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!![] 
  []
 
 
-Overfull \hbox (33.10811pt too wide) in paragraph at lines 498--498
+Overfull \hbox (33.10811pt too wide) in paragraph at lines 502--502
 []\OT1/pcr/m/n/10.95 !!!!!!!!!!!!!!!..............!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!![] 
  []
 
 
-Overfull \hbox (65.95807pt too wide) in paragraph at lines 500--500
+Overfull \hbox (65.95807pt too wide) in paragraph at lines 504--504
 []\OT1/pcr/m/n/10.95 Success rate is 98 percent (770/785), round-trip min/avg/m
 ax = 56/81/112 ms[] 
  []
 
 
-Overfull \hbox (39.6781pt too wide) in paragraph at lines 513--513
+Overfull \hbox (39.6781pt too wide) in paragraph at lines 517--517
 []\OT1/pcr/m/n/10.95 *Mar  5 23:05:28.230: %PIM-5-NBRCHG: neighbor 10.1.23.3 UP
  on interface 
  []
 
 
-Overfull \hbox (33.10811pt too wide) in paragraph at lines 514--514
+Overfull \hbox (33.10811pt too wide) in paragraph at lines 518--518
 []\OT1/pcr/m/n/10.95 *Mar  5 23:05:28.282: %PIM-5-DRCHG: DR change from neighbo
 r 0.0.0.0 to 
  []
 
-
-Overfull \hbox (59.38808pt too wide) in paragraph at lines 529--529
+[11]
+Overfull \hbox (59.38808pt too wide) in paragraph at lines 533--533
 []    \OT1/pcr/m/n/10.95 Info source: 10.255.255.9 (?), via bootstrap, priority
  0, holdtime 150[] 
  []
 
-[11] (./dokumentacia_multicast_isis_vachalik_sisila.aux) ) 
+[12] (./dokumentacia_multicast_isis_vachalik_sisila.aux) ) 
 Here is how much of TeX's memory you used:
- 5728 strings out of 493105
- 74971 string characters out of 6137072
- 150864 words of memory out of 5000000
- 9079 multiletter control sequences out of 15000+600000
+ 5729 strings out of 493105
+ 75000 string characters out of 6137072
+ 150910 words of memory out of 5000000
+ 9080 multiletter control sequences out of 15000+600000
  16283 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  37i,10n,35p,1055b,539s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -666,11 +666,11 @@ exmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type
 courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb
 8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on dokumentacia_multicast_isis_vachalik_sisila.pdf (11 pages, 14
-3299 bytes).
+Output written on dokumentacia_multicast_isis_vachalik_sisila.pdf (12 pages, 14
+5565 bytes).
 PDF statistics:
- 62 PDF objects out of 1000 (max. 8388607)
- 42 compressed objects within 1 object stream
+ 65 PDF objects out of 1000 (max. 8388607)
+ 44 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

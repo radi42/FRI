@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.2.18)  8 MAY 2017 09:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.6.17)  18 JUN 2017 15:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1158,27 +1158,7 @@ Overfull \hbox (39.6781pt too wide) in paragraph at lines 1701--1701
 = 36/38/40 ms[] 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1711--1717
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1718--1724
-
- []
-
-[31]
-Underfull \hbox (badness 10000) in paragraph at lines 1725--1731
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1732--1738
-
- []
-
-[32] (./dokumentacia_multiarea_ospf_vachalik_sisila_v2.aux) ) 
+[31] (./dokumentacia_multiarea_ospf_vachalik_sisila_v2.aux) ) 
 Here is how much of TeX's memory you used:
  4936 strings out of 493105
  65756 string characters out of 6137072
@@ -1194,11 +1174,11 @@ ublic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/cou
 rier/ucrb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb>
-Output written on dokumentacia_multiarea_ospf_vachalik_sisila_v2.pdf (32 pages,
- 172138 bytes).
+Output written on dokumentacia_multiarea_ospf_vachalik_sisila_v2.pdf (31 pages,
+ 169911 bytes).
 PDF statistics:
- 133 PDF objects out of 1000 (max. 8388607)
- 91 compressed objects within 1 object stream
+ 130 PDF objects out of 1000 (max. 8388607)
+ 89 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

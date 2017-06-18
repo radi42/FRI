@@ -1434,4 +1434,36 @@ Tracing the route to 10.255.255.5
 \paragraph{}
 Vidíme, že premávka bola presmerovaná z \textbf{R10 -\textgreater{} R4 -\textgreater{} R2 -\textgreater{} R1 -\textgreater{} R5} na \textbf{R10 -\textgreater{} R4 -\textgreater{} R2 -\textgreater{} R5}.
 
+\subsection{Otázky}
+\paragraph{}
+1. Čo je to BGP Routing Information Base (RIB)?\\
+A. Tabuľka topológie BGP, ktorá obsahuje informácie o NLRI naucené z BGP +\\
+B. BGP tabulka susedov\\
+C. BGP politiky smerovania pre všetky NLRI naučené z BGP\\
+D. BGP tabulka oblastí \\
+
+2. Ako sa používa cieľová adresa IP na urcenie a dosiahnutie susedov?\\
+A. Pomocou atribútu NEXT\_HOP propagovaného susedom\\
+B. Manuálne nakonfigurovaný pomocou príkazu neighbor +\\
+C. Odošle sa HELLO správa \\
+D. Definujte v skupine partnerov konfederácie\\
+
+3. V predvolenom nastavení BGP používa na výber najlepšej trasy?\\
+A. najnižšiu metriku\\
+B. najnižšiu Local Preference\\
+C. najkratší AS Path +\\
+D. najvacší Milti-Exit Discrimintor\\
+
+4. Ako BGP komunikuje so svojimi susedmi ?\\
+A. používa multicast adresu 224.0.0.2 na UDP port 1985\\
+B. používa multicast adresu 224.0.0.2 na UDP port 3222\\
+C. používa unicast adresu suseda na UDP port 520\\
+D. používa unicast adresu suseda na TCP port 179 +\\
+
+5. Aký typ správy BGP slúži na výmenu NLRI ?\\
+A. Hello\\
+B. Update +\\
+C. Notification\\
+D. Keepalive\\
+
 \end{document}

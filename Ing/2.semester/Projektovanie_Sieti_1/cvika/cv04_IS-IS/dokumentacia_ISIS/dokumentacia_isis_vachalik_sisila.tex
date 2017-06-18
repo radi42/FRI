@@ -199,10 +199,19 @@ Takto vytvorený NSAP identifikátor je hotový a použiteľný na konfiguráciu
 \paragraph{}
 Jednotlivé rozhrania sme podľa potreby nastavili ako point-to-point linky príkazom \say{isis network point-to-point}.
 
+\paragraph{}
+V IS-IS rozlišujeme 2 hlavné typy priľahlostí: L1 (intra-area) a L2 (inter-area). Ďalším je typ L1L2, ktorý slúži na premostenie smerovačov typu L1, L2 a L1L2. V OSPF by to bol ekvivalent ABR. Priame susedstvo L1 a L2 smerovačov nie je možné.
+
+\paragraph{}
+L1 smerovače si uchovávajú iba jednu link-state databázu, a to iba o svojej oblasti (intra-area). Komunikujú iba so smerovačmi, s ktorým majú L1 susedstvo t.j. s L1 a L1L2. L1L2 smerovače si uchovávajú dve link-state databázy: L1 (intra-area) aj L2 (inter-area). L1L2 smerovače štandardne prepúšťajú cesty jednosmerne, iba z L1 do L2, nie opačne (hoci aj to sa dá obísť správnou redistribúciou ciest k L1 smerovačom). L2 smerovače si tiež pamätajú L1 aj L2 link-state databázy, ale komunikujú iba so smerovačmi, s ktorým majú L2 susedstvo t.j. s L2 a L1L2. Smerovače typu L2 v IS-IS zaraďujeme do chrbticovej oblasti (ekvivalent OSPF oblasti 0).
+
+\paragraph{}
+Smerovače R1 a R2 boli typu L2. R3, R4 a R10 boli typu L1L2, pretože hraničili so smerovačmi typu L1. Smerovač R4 hraničil ešte s L1L2 smerovačom R10 L1 smerovače boli R6, R7, R8, R9.
+
 
 \subsubsection{Konfigurácia}
 \paragraph{}
-Nižšie uvádzame základnú konfiguráciu IS-IS pre R1.
+Nižšie uvádzame základnú konfiguráciu IS-IS pre R1. Rozhranie pridáme do IS-IS protokolu príkazom \say{ip router isis}. V nastaveniach procesu IS-IS (\say{router isis}) sme definovali Lo0 ako pasívne rozhranie (neposielajú sa Hello pakety) príkazom \say{passive-interface}. Nastavili sme NSAP identifikátor príkazom \say{net}, typ priľahlosti pre R1 sme nastavili ako L2 príkazom \say{is-type level-2}, a nakoniec sme nastavili rozšírenú metriku pre R1 príkazom \say{metric-style wide}. Rozšírená metrika je novšou implementáciou počítania metriky pre IS-IS. Pokiaľ sa rozhodneme použiť takúto metriku, musíme ju nastaviť na všetkých smerovačoch v IS-IS doméne.
 
 \noindent
 {\fontfamily{qcr}\selectfont
@@ -997,5 +1006,40 @@ Serial1/0 is up, line protocol is up
 \paragraph{}
 V obidvoch výpisoch vidíme, že \say{Circuit Type} je typu L1 aj L2 (level-1-2).
 
+\subsection{Otázky}
+\paragraph{}
+1. Narozdiel od ostaných smerovacích protokolov, ISIS ako jediný komunikuje na vrstve:\\
+  A. L1\\
+  B. L2 +\\
+  C. L3\\
+  D. L4\\
+
+\paragraph{}
+2. ISIS adresa pozostáva z troch castí. Area indentifier, System identifier a ... :\\
+  A. NET framework\\
+  B. NET selector +\\
+  C. NET protector\\
+  D. NET updater\\
+
+\paragraph{}
+3. Aká je prodvolená hodnota pre ISIS administrative distance?\\
+  A. 100\\
+  B. 110\\
+  C. 115 +\\
+  D. 120\\
+
+\paragraph{}
+4. Ktorý algoritmus používa protokol IS-IS na výpocet najlepšiej cesty?\\
+  A. Floydov\\
+  B. Dijskra +\\
+  C. A*\\
+  D. Bellman-Ford\\
+
+\paragraph{}
+5. Smerovanie v IS-IS pre Level 1 znamená: \\
+  A. Výmenu informácií medzi susedmi v rovnakej oblasti +\\
+  B. Výmenu informácií medzi ABR a viacerými oblastiami k nemu pripojeným\\
+  C. Výmenu informácií medzi všetkými smerovačmi pripojenými k backbonu\\
+  D. Neznamená nič, a nie je potrebné\\
 
 \end{document}
