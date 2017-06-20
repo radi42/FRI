@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.6.17)  18 JUN 2017 17:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.6.17)  20 JUN 2017 15:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -651,26 +651,51 @@ Overfull \hbox (59.38808pt too wide) in paragraph at lines 533--533
  0, holdtime 150[] 
  []
 
-[12] (./dokumentacia_multicast_isis_vachalik_sisila.aux) ) 
+
+Underfull \hbox (badness 10000) in paragraph at lines 545--550
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 552--557
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 559--564
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 566--571
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 573--578
+
+ []
+
+[12] [13] (./dokumentacia_multicast_isis_vachalik_sisila.aux) ) 
 Here is how much of TeX's memory you used:
- 5729 strings out of 493105
- 75000 string characters out of 6137072
+ 5730 strings out of 493105
+ 75008 string characters out of 6137072
  150910 words of memory out of 5000000
- 9080 multiletter control sequences out of 15000+600000
+ 9081 multiletter control sequences out of 15000+600000
  16283 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  37i,10n,35p,1055b,539s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/t
-exmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/
-courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb
-8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on dokumentacia_multicast_isis_vachalik_sisila.pdf (12 pages, 14
-5565 bytes).
+{/usr/share/texl
+ive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino
+/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on dokumentacia_multicast_isis_vachalik_sisila.pdf (13 pages, 14
+7160 bytes).
 PDF statistics:
- 65 PDF objects out of 1000 (max. 8388607)
- 44 compressed objects within 1 object stream
+ 69 PDF objects out of 1000 (max. 8388607)
+ 47 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -221,7 +221,7 @@ Z výpisu vyplýva, že protokol IS-IS na R1 je spustený. IS-IS databáza na R1
 \subsection{MPLS}
 \subsubsection{Popis}
 \paragraph{}
-Aby sme zabezpečili konektivitu medzi jednotlivými zákazníkmi R5, R8 a R10, bolo potrebné nakonfigurovať BGP a MPLS v sieti providera ISP1. Vďaka tomu bude pre zákazníka sieť za Provider Edge smerovačom transparentná. Providerské smerovače ohlasujú požadovanú sieť zákazníka, v našom prípade Lo0. Na smerovači R2 nekonfigurujeme BGP, pretože sa nachádza vnútri providerovej siete a nie na jej okraji. Najprv zapneme \say{Cisco express forwarding} príkazom \say{ip cef}. Nakoniec zapneme MPLS príkazom \say{mpls ip}. Príkaz \say{mpls ip} sme použili iba na rozhraniach vnútri providerskej siete, nie na PE smerovačoch smerom k zákazníkom (R2).
+Aby sme zabezpečili konektivitu medzi jednotlivými zákazníkmi R5, R8 a R10, bolo potrebné nakonfigurovať BGP a MPLS v sieti providera ISP1. Vďaka tomu bude pre zákazníka sieť \textbf{za} Provider Edge smerovačom transparentná. Providerské smerovače ohlasujú požadovanú sieť zákazníka, v našom prípade Lo0. Na smerovači R2 nekonfigurujeme BGP, pretože sa nachádza vnútri providerovej siete a nie na jej okraji. Najprv zapneme \say{Cisco express forwarding} príkazom \say{ip cef}. Nakoniec zapneme MPLS príkazom \say{mpls ip}. Príkaz \say{mpls ip} sme použili iba na rozhraniach vnútri providerskej siete, nie na PE smerovačoch smerom k zákazníkom (R2).
 
 \subsubsection{Konfigurácia}
 \paragraph{}
@@ -1378,7 +1378,7 @@ D. 646 +\\
 \paragraph{}
 1. Konfigurácia L3 VPN sa uskutočňuje na:\\
 A. Customer Edge smerovačoch\\
-B. Provider Edge smerovačoch\\
+B. Provider Edge smerovačoch +\\
 C. Customer Edge aj Provider Edge smerovačoch\\
 D. Route Reflector smerovači\\
 
