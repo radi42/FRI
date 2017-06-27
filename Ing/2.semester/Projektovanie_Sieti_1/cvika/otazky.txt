@@ -1,0 +1,227 @@
+=========================================
+OSPF
+=========================================
+1. Ktoré chakarteristkiky popisujú OSPF?
+A. Classfull 
+B. Classless +
+C. Link State Protocol +
+D. Distance Vector Protocol
+
+
+2. Ako zariadenia v stub oblasti vedia preposielať pakety do externých sietí ?
+A. ABR vloží default route do stub oblasti +
+B. statická cesta musí byt nakonfigurovaná
+C. zahodia sa všetky pakety pre externé siete
+D. statická default cesta musí byt nakonfigurovaná
+
+
+3. Ktorý vzorec sa používa v predvolenom nastavení v Cisco zariadeniach na vypočítavanie cost?
+A. (10^7)/bandwidth
+B. (10^8)/bandwidth +
+C. (100^8)/bandwidth
+D. nepočíta sa nič, Cost musí byt manuálne pridelený
+
+
+4. OSPF posiela 5 typov správ. Ktorý z nasledujúcich je typ 3 ?
+A. LSAck
+B. Hello
+C. DBD/DDP
+D. LSR +
+
+
+5. Ktorý typ siete nepotrebuje voliť DR v rámci OSPF?
+A. Non-Broadcast-Multiple-Access
+B. Broadcast
+C. Point-to-Point +
+D. Point-to-Multipoint
+
+
+
+=========================================
+IS-IS
+=========================================
+1. Narozdiel od ostaných smerovacích protokolov, ISIS ako jediný komunikuje na vrstve:
+  A. L1
+  B. L2 +
+  C. L3
+  D. L4
+
+
+2. ISIS adresa pozostáva z troch castí. Area indentifier, System identifier a ... :
+  A. NET framework
+  B. NET selector +
+  C. NET protector
+  D. NET updater
+
+
+3. Aká je prodvolená hodnota pre ISIS administrative distance?
+  A. 100
+  B. 110
+  C. 115 +
+  D. 120
+
+
+4. Ktorý algoritmus používa protokol IS-IS na výpocet najlepšiej cesty?
+  A. Floydov
+  B. Dijskra +
+  C. A*
+  D. Bellman-Ford
+
+
+5. Smerovanie v IS-IS pre Level 1 znamená: 
+  A. Výmenu informácií medzi susedmi v rovnakej oblasti +
+  B. Výmenu informácií medzi ABR a viacerými oblastiami k nemu pripojeným
+  C. Výmenu informácií medzi všetkými smerovačmi pripojenými k backbonu
+  D. Neznamená nič, a nie je potrebné
+
+
+
+=========================================
+Multicast
+=========================================
+1. Prvých 25 bitov multicastovej MAC-adresy?
+A. 01-00-5e +
+B. 01-00-01
+C. 09-00-01
+D. 08-09-07
+
+
+2. Ako môžeme vybrať RP?
+A. Static RP +
+B. BSR +
+C. Smart RP
+D. Auto RP +
+
+
+3. Čo je to RP?
+A. Začiatok multicast stromu
+B. Koniec multicast stromu
+C. Začiatok zdieľaného stromu +
+D. Miesto stretnutia pre zdroj a prijímač +
+
+
+4. Koľko bitov multicast IP adresy sa mapuje na multicast MAC adresu?
+A. 27
+B. 23 +
+C. 25
+D. 26
+
+
+5. V akom móde sa vytvára zdieľaný strom?
+A. Dense mód
+B. Sparse mód +
+C. Auto RP mód
+D. Zieľaný strom sa nevytvára
+
+
+
+=========================================
+BGP
+=========================================
+1. Čo je to BGP Routing Information Base (RIB)?
+A. Tabuľka topológie BGP, ktorá obsahuje informácie o NLRI naucené z BGP +
+B. BGP tabulka susedov
+C. BGP politiky smerovania pre všetky NLRI naučené z BGP
+D. BGP tabulka oblastí 
+
+2. Ako sa používa cieľová adresa IP na urcenie a dosiahnutie susedov?
+A. Pomocou atribútu NEXT_HOP propagovaného susedom
+B. Manuálne nakonfigurovaný pomocou príkazu neighbor +
+C. Odošle sa HELLO správa 
+D. Definujte v skupine partnerov konfederácie
+
+3. V predvolenom nastavení BGP používa na výber najlepšej trasy?
+A. najnižšiu metriku
+B. najnižšiu Local Preference
+C. najkratší AS Path +
+D. najvacší Milti-Exit Discrimintor
+
+4. Ako BGP komunikuje so svojimi susedmi ?
+A. používa multicast adresu 224.0.0.2 na UDP port 1985
+B. používa multicast adresu 224.0.0.2 na UDP port 3222
+C. používa unicast adresu suseda na UDP port 520
+D. používa unicast adresu suseda na TCP port 179 +
+
+5. Aký typ správy BGP slúži na výmenu NLRI ?
+A. Hello
+B. Update +
+C. Notification
+D. Keepalive
+
+
+
+=========================================
+MPLS
+=========================================
+1. Podľa čoho sa MPLS rozhoduje pri preposielaní paketov?
+A. Static Route
+B. BGP
+C. L2 label +
+D. smerovací protokol
+
+
+2. Ako sa nazýva akcia pridávania a odoberania labelov v MPLS?
+A. Plug and Play
+B. Wipe on / Wipe off
+C. Push and Pop +
+D. Take / Drop
+
+
+3. Kde sa nachádza MPLS label v data L2 rámci?
+A. medzi IP a data
+B. medzi IP a MAC +
+C. v rámci vrstvy IP
+D. ani jedna z odpovedí nie je správna
+
+
+4. Kolko bitov má MPLS label value v MPLS hlavičke?
+A. 10
+B. 16
+C. 20 +
+D. 21
+
+
+5. Na ktorom UDP porte sú LDP posielané?
+A. 22
+B. 464
+C. 502
+D. 646 +
+
+
+
+=========================================
+L3VPN, Hub and Spoke, Draft Rosen
+=========================================
+1. Konfigurácia L3 VPN sa uskutočňuje na:
+A. Customer Edge smerovačoch
+B. Provider Edge smerovačoch +
+C. Customer Edge aj Provider Edge smerovačoch
+D. Route Reflector smerovači
+
+
+2. Ako vieme zabezpečiť situáciu, kedy viacerí zákazníci používajú rovnaké privátne rozsahy?
+A. Nastavíme každému zákazníkovi rôzny Route Target pre export
+B. Nastavíme každému zákazníkovi rôzny Route Target pre import
+C. Nastavíme každému zákazníkovi rôzny Route Target pre import aj export +
+D. Nastavíme každému zákazníkovi rôzny Route Distinguisher
+
+
+3. Čo potrebujeme spraviť pri L3 VPN na Customer Edge smerovačoch, pokiaľ má zákazník pripojené ku providerovi viaceré pobočky s rovnakým číslom AS?
+A. Vypnúť LDP
+B. Nastaviť odlišný Route Target pre každú pobočku
+C. Zmeniť Route Distinguisher
+D. Nastaviť AS-Override +
+
+
+4. Prečo pri Hub & Spoke VPN musíme mať odlišné Route Targety pre import a export?
+A. Aby sme zbytočne nezahlcovali linky
+B. Aby sa privátne adresy importovali na Hub smerovač +
+C. Aby Hub smerovač mohol plniť funkciu Route Reflectora
+D. Aby sme vytvorili záložnú cestu v prápade výpadku primárnej linky
+
+
+5. Aký typ PIM módu sa používa pri Draft Rosen?
+A. Sparse Mode +
+B. Dense Mode
+C. Sparse-Dense Mode
+D. BSR
