@@ -1,0 +1,25 @@
+osmijanko - mal osmidunca; knizka od kristy bendovej
+
+osmijanko.fri.uniza.sk
+
+-prihlasenie ako na skolske pocitace 
+-md - markdown subor
+
+git init
+git status
+git add -A
+git status
+git commit -m "commit sprava"
+git status
+git log -info o commite.
+
+info o commite je do
+
+misolietavec - kauki
+
+ssh-keygen -> vsetko odenterovat -> vysledne kluce sa ulozia do adresara ~/.ssh
+
+potom v nastaveniach gitlabu pridat VEREJNY ssh kluc
+
+a potom mozeme pushovat do repozitara cez ssh namiesto https prikazom:
+git target (vid notebook)
