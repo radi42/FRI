@@ -57,7 +57,7 @@ Prihlasovacie údaje na jednotlivé zariadenia by nemali byť žiadne. Ak naprie
 
     # Presunieme obraz disku na správne miesto
     ssh root@<ip_adresa_UnetLabu>
-    mv hda.qcow2 /opt/unetlab/addons/dynamips/<nazov_image_suboru>.image
+    mv <nazov_image_suboru>.image /opt/unetlab/addons/dynamips/
 
 2.4) QEMU - Ak je obraz disku vo formáte "vdi", vykonáme tieto príkazy:
     # Nahráme obraz disku na server
