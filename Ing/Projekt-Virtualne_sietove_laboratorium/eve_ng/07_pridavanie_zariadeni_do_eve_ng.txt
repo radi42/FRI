@@ -146,7 +146,9 @@ Prihlasovacie údaje na jednotlivé zariadenia by nemali byť žiadne. Ak naprie
     - Cisco 7206 VXR podporuje rozširujúce karty na Ethernet porty
     
 4) Opravíme oprávnenia
+    sudo chown -R root:root /opt/unetlab/addons/
     /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+    reboot     #pre istotu, ale nie je to nutne - treba najprv otestovat vo web GUI
 
 5) Odskúšame pridané zariadenie vo webovom rozhraní. Zariadenie stačí pridať na pracovnú plochu, buď cez ikonku "plus" v nástrojovej lište, alebo pravým tlačidlom a zvoliť možnosť "Add node". Z rozbaľovacieho zoznamu vyberieme druh zariadenia, ktorý sme pridávali, ponecháme predvolené nastavenia a klikneme na "Add". Zariadenie spustíme tak, že naň klikneme pravým tlačidlom a zvolíme možnosť "Start".
 
