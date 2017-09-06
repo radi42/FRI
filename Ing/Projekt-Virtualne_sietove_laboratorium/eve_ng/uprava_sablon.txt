@@ -1,0 +1,23 @@
+Šablóny pre jednotlivé zariadenia sú uložené v adresári
+/opt/unetlab/html/templates
+
+-upraviť šablónu na Cisco ASA: vzdialený prístup je cez VNC, nie Telnet.
+
+  sudo nano asav.php
+
+Zmeníme riadok
+  $p['console'] = 'telnet';
+na
+  $p['console'] = 'vnc';
+
+-všetkým modelom Juniper smerovačov treba nastaviť veľkosť RAM na 4GB pre správne fungovanie.
+
+  cd /opt/unetlab/html/templates
+  sudo nano olive.php
+  sudo nano vmx.php
+  sudo nano vsrx.php
+
+Ak je potrebné, zmeníme riadok
+  $p['ram'] = 2048
+na
+  $p['ram'] = 4096
