@@ -1,1 +1,0 @@
-ako zalohovat vmware virtualky - snapshoty, kopirovanie konkretnych suborov do ineho kontajnera v pravidelnych intervaloch / pri zmene
