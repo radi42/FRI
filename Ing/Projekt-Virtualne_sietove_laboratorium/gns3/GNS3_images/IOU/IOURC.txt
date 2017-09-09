@@ -1,2 +1,0 @@
-[license]
-gns3-iouvm = cd11acbc599f2364

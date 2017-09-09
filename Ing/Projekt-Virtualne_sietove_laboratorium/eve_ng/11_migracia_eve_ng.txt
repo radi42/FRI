@@ -8,15 +8,15 @@ z adresára addons musíme vylúčiť podadresár "/opt/unetlab/addons/iol/lib",
 
 príkazom
   
-  scp -r <zdrojovy_adresar> andrej@158.193.152.42:<cielovy_adresar>
+  scp -r <zdrojovy_adresar> andrej@<ip_adr_servera>:<cielovy_adresar>
 resp.
   
   put -r <zdrojovy_adresar>/* <cielovy_adresar>	# ta hviezdička na konci zdrojového adresára je veľmi dôležitá ;)
-  scp -r /opt/unetlab/addons andrej@158.193.152.42:/home/andrej
-  scp -r /opt/unetlab/labs andrej@158.193.152.42:/home/andrej
-  scp -r /opt/unetlab/html/templates andrej@158.193.152.42:/home/andrej
+  scp -r /opt/unetlab/addons andrej@<ip_adr_servera>:/home/andrej
+  scp -r /opt/unetlab/labs andrej@<ip_adr_servera>:/home/andrej
+  scp -r /opt/unetlab/html/templates andrej@<ip_adr_servera>:/home/andrej
 
-Po skopirovani suborov treba vygenerovať novú Cisco IOU/IOL licenciu tak, ako je popísané v súbore "6_vytvorenie_cisco_iou_iol_licencie". Pokiaľ licenciu nevytvoríme na novom stroji znovu, nepôjdu Cisco IOL zariadenia!
+Po skopirovani suborov treba vygenerovať novú Cisco IOU/IOL licenciu tak, ako je popísané v súbore "06_vytvorenie_cisco_iou_iol_licencie". Pokiaľ licenciu nevytvoríme na novom stroji znovu, nepôjdu Cisco IOL zariadenia!
 
 IOL boxy kopirujeme opatrne po jednom, aby sme neprepisali jednak IOL licenciu, alebo "lib" adresar.
 

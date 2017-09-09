@@ -1,1 +1,19 @@
-vytvorenie, uprava, zmazanie pouzivatelov
+-Po prihlásení do EVE-ng klikneme na úvodnej obrazovke na "Management" -> "User management"
+-Zobrazí sa zoznam používateľov v EVE-ng.
+
+Vytvorenie používateľa
+-Klikneme na tlačidlo "Add user"
+-Vyplíme potrebné údaje (prinajmenšom polia označené hviezdičkou). Položku "POD" nemeníme.
+-Keďže ešte v EVE-ng nie je podporovaná rola bežného používateľa, položku "Role" nastavíme na "Administrator"
+-Používateľa uložíme kliknutím na tlačidlo "Add".
+-Použvateľský účet je teraz aktívny a je možné sa pomocou neho prihlásiť do EVE-ng.
+
+Vymazanie používateľa
+-V riadku konkrétneho používateľa klikneme na ikonku odpadkového koša v stĺpci "Actions".
+
+Úprava používateľa
+-V riadku konkrétneho používateľa klikneme na ikonku zápisníka "Ediit" v stĺpci "Actions".
+-Upravíme požadované údaje (položku "POD" neupravujeme!)
+
+Zmena hesla používateľa (v prípade zabudnutého hesla)
+-Upravíme používateľove polia "Password" a "Password Confirmation"
