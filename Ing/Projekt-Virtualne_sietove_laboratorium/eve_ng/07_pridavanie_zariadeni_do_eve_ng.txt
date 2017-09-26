@@ -152,13 +152,25 @@ Prihlasovacie údaje na jednotlivé zariadenia by nemali byť žiadne. Ak naprie
 
 5) Odskúšame pridané zariadenie vo webovom rozhraní. Zariadenie stačí pridať na pracovnú plochu, buď cez ikonku "plus" v nástrojovej lište, alebo pravým tlačidlom a zvoliť možnosť "Add node". Z rozbaľovacieho zoznamu vyberieme druh zariadenia, ktorý sme pridávali, ponecháme predvolené nastavenia a klikneme na "Add". Zariadenie spustíme tak, že naň klikneme pravým tlačidlom a zvolíme možnosť "Start".
 
+Poznámka pre Juniper Olive, Juniper VMx a Juniper VSRx:
+  Niekedy treba buchat chvilu na Enter, ked sa to zatne na viac ako 5 min obrazovke po nacitani kernela:
+
+Hit [Enter] to boot immediately, or space bar for command prompt.
+Booting [/kernel]...               
+platform_early_bootinit: M/T Series Early Boot Initialization
+Olive CPU
+GDB: debug ports: sio
+GDB: current port: sio
+KDB: debugger backends: ddb gdb
+KDB: current backend: ddb
+
 6) Teraz sa pokúsime k zariadeniu pripojiť. V EVE-ng sa k zariadeniam dá pripojiť buď cez "telnet", alebo cez "vnc". To, ktorý spôsob zvoliť sa líši podľa zariadenia (spôsob, ako sa pripojiť ku zariadeniam je uvedený v tabuľke).
 Pokiaľ máme pre zariadenie použiť spôsob pripojenia "telnet", použijeme terminál (pre linuxové distribúcie) resp. PuTTY (alebo iný emuátor terminálu pre Windows)
 Pre spôsob pripojenia "vnc" použijeme "UltraVNC Viewer" zo sady nástrojov "UltraVNC". Inštalačný balíček si môžeme stiahnuť na tejto adrese:
 http://www.uvnc.com/downloads/ultravnc/118-download-ultravnc-1212.html
 A vyberieme si balíček podľa architektúry operačného systému:
 "ultravnc 1212 X86 setup" pre 32 bitový Windows
-"ultravnc 1212 X86 setup" pre 64 bitový Windows
+"ultravnc 1212 X64 setup" pre 64 bitový Windows
 Práca s aplikáciou UltraVNC Viewer je jednoduchá: do adresného riadku zadáme adresu zariadenia a jeho port (tieto informácie sú uvedené v pravom dolnom rohu prehliadača, keď na zariadenie prejdeme myškou). Klikneme na "Connect" a mali by sme vidieť grafický výstup daného virtualizovaného zariadenia.
 
 6.1) Ak sme sa k zariadeniu pripojili, môžeme vypnúť zariadenie tak, že naň klikneme pravým tlačidlom a zvolíme možnosť "Stop".

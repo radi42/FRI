@@ -3,5 +3,19 @@ odskusat spravanie, ked sa spusti niekolko desiatok zariadeni naraz? ako sa bude
 A co windows a kvm_acceleration v template?
 A co cisco csr a ukms v kerneli?
 
--Juniper Olive pri 4GB: 16 zariadeni, ale trebalo restartovavat telnet relacie, lebo zamrzli. po znovupripojeni cez telnet ide v poriadku.
--Juniper Olive pri 2GB: 20 zariadeni v pohode s mensim sekanim; 
+-Juniper Olive pri 4GB:
+  zapnute uksm
+    16 zariadeni, ale trebalo restartovavat telnet relacie, lebo zamrzli. po znovupripojeni cez telnet ide v poriadku.
+
+-Juniper Olive pri 2GB:
+  zapnute uksm
+    20 zariadeni v pohode s mensim sekanim; naraz ich mozno oznacit (Ctrl+klik alebo mysou) a spustit naraz sposobom (najviac): 10 + 5 + 5, inak vsetky zariadenia zamrznu
+
+  10+5+5+1+1
+
+  vypnute uksm
+    
+-Juniper VMx
+-Juniper VSRx
+-Cisco Dynamips
+-Cisco IOU router / switch
