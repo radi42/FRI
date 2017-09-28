@@ -3,19 +3,56 @@ odskusat spravanie, ked sa spusti niekolko desiatok zariadeni naraz? ako sa bude
 A co windows a kvm_acceleration v template?
 A co cisco csr a ukms v kerneli?
 
+UKSM sa v EVE-ng verzii 2.0.3-68 da vypnut v lavej menu liste -> Status -> UKSM status. Defaultne by mal byt "ON". Vypneme ho vtedy, ked potrebujeme spustat viac ako 10 QEMU zariadeni (CISCO CSR, Juniper, ... Nevztahuje sa na Cisco IOL, tomu UKSM nevadi!)
+
+Udaje o zatazeni pochadzaju z polozky "Status" v lavej menu liste.
+
+=============================
 -Juniper Olive pri 4GB:
-  zapnute uksm
+  UKSM zapnute
     16 zariadeni, ale trebalo restartovavat telnet relacie, lebo zamrzli. po znovupripojeni cez telnet ide v poriadku.
 
 -Juniper Olive pri 2GB:
-  zapnute uksm
+  UKSM vypnute
     20 zariadeni v pohode s mensim sekanim; naraz ich mozno oznacit (Ctrl+klik alebo mysou) a spustit naraz sposobom (najviac): 10 + 5 + 5, inak vsetky zariadenia zamrznu
 
   10+5+5+1+1
 
   vypnute uksm
-    
+    meh
+=============================
 -Juniper VMx
+  zmenit RAM na 1024 v templejte (podla http://nil.uniza.sk/network-simulation-and-modelling/unetlab/unified-network-lab-how-run-juniper-junos-vmx-141r1)
+
+  UKSM zapnute
+    10+10 v pohode
+    10+10+8 100% CPU, 10% RAM
+
+  UKSM vypnute
+    10+10 pomale, seka, velka odozva z klavesnice
+=============================
 -Juniper VSRx
+
+
+  UKSM zapnute
+    
+
+  UKSM vypnute
+    5 v pohode
+    5+5 gui mrzne
+=============================
 -Cisco Dynamips
--Cisco IOU router / switch
+  -zmenit VXR templejt: RAM na 240MB a jednou 4E pridavnou kartou
+=============================
+-Cisco IOL router
+  128 je malo, 256 je vela => 240MB je akurat => upravit templejt IOL
+  
+  UKSM zapnute: 64	6%  RAM		13% CPU
+  UKSM vypnute: 55-64	13% RAM		8% CPU
+=============================
+-Cisco IOL switch
+  240MB je akurat aj pre IOL switch
+
+  UKSM zapnute: 64	5% RAM		13% CPU
+  UKSM vypnute: 64	9% RAM		11% CPU
+=============================
