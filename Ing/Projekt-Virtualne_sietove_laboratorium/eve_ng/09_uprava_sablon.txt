@@ -1,23 +1,49 @@
 Šablóny pre jednotlivé zariadenia sú uložené v adresári
 /opt/unetlab/html/templates
 
--upraviť šablónu na Cisco ASA: vzdialený prístup je cez VNC, nie Telnet.
+-Cisco ASA: vzdialený prístup je cez VNC, nie Telnet.
 
   sudo nano asav.php
 
-Zmeníme riadok
-  $p['console'] = 'telnet';
-na
+zmeníme parametre nasledovne:
   $p['console'] = 'vnc';
 
--všetkým modelom Juniper smerovačov treba nastaviť veľkosť RAM na 4GB pre správne fungovanie.
+-Cisco IOL: nastaviť veľkosť RAM na 240MB:
 
-  cd /opt/unetlab/html/templates
+  sudo nano iol.php
+
+zmeníme parametre nasledovne:
+  $p['ram'] = 240;
+
+-Cisco v7206VXR: nastaviť veľkosť RAM na 240MB (optimálne množstvo) a pridáme rozširujúcu
+kartu na 4 Ethernet porty.
+
+  sudo nano c7200.php
+
+zmeníme parametre nasledovne:
+  $p['ram'] = 240;
+  $p['slot1'] = 'PA-4E';
+
+-Juniper Olive: nastaviť veľkosť RAM na 2GB pre správne fungovanie.
+
   sudo nano olive.php
-  sudo nano vmx.php
-  sudo nano vsrx.php
 
-Ak je potrebné, zmeníme riadok
-  $p['ram'] = 2048
-na
-  $p['ram'] = 4096
+zmeníme parametre nasledovne:
+  $p['cpu'] = 4;
+  $p['ram'] = 2048;
+
+-Juniper vMX: nastaviť veľkosť RAM na 1GB (optimálne množstvo)
+
+  sudo nano olive.php
+
+zmeníme parametre nasledovne:
+  $p['cpu'] = 4;
+  $p['ram'] = 1024;
+
+-Juniper vSRX: nastaviť veľkosť RAM na 4GB pre správne fungovanie.
+
+  sudo nano olive.php
+
+zmeníme parametre nasledovne:
+  $p['cpu'] = 2;
+  $p['ram'] = 1024;
