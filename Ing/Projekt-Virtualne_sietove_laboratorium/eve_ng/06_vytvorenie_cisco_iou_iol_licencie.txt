@@ -80,3 +80,4 @@ Zdroje:
   https://www.youtube.com/watch?v=fk0E8FvSdlo
   http://askubuntu.com/questions/496520/vim-installation-in-ubuntu-14-04
   http://www.eve-ng.net/index.php/faq
+  http://www.eve-ng.net/index.php/documentation/howto-s/62-howto-add-cisco-iou-iol

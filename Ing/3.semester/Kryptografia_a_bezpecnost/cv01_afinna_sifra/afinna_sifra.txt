@@ -1,0 +1,9 @@
+# Afinna sifra (Affine cipher)
+
+Klucom je dvojica cisel (k1, k2), pricom (predpokladame 26 pismen abecedy):
+- NSD(k1, 26) = 1
+- 1 < k1 < 27
+- 0 < k2 < 27
+
+Vzorec
+pi = k1c * c1 + k2c mod 26;

@@ -181,58 +181,25 @@ Práca s aplikáciou UltraVNC Viewer je jednoduchá: do adresného riadku zadám
 
 7) V prípade, že sme obraz disku daného zariadenia museli skonvertovať, môžeme vymazať pôvodný (img/vmdk) obraz disku na serveri, resp. vdi súbor na lokálnom počítači.
 
-Zariadenie
-Spôsob virtualizácie
-Spôsob pripojenia
-Adresár pre obraz disku
-Cisco IOL
-IOU/IOL
-telnet
-/opt/unetlab/addons/iol/bin
-Cisco 7206 VXR
-dynamips
-telnet
-/opt/unetlab/addons/dynamips
-Cisco CSR 1000v
-QEMU
-telnet
-/opt/unetlab/addons/qemu/csr-1000v-<verzia>
-Cisco ASAv
-QEMU
-vnc
-/opt/unetlab/addons/qemu/asav-<verzia>
-Cisco vIOS L2
-QEMU
-telnet
-/opt/unetlab/addons/qemu/viosl2-<verzia>
-Juniper vMX
-QEMU
-telnet
-/opt/unetlab/addons/qemu/vmx-<verzia>
-Juniper vSRX
-QEMU
-telnet
-/opt/unetlab/addons/qemu/vsrx-<verzia>
-Juniper Olive
-QEMU
-telnet
-/opt/unetlab/addons/qemu/olive-<verzia>
-Mikrotik
-QEMU
-vnc
-/opt/unetlab/addons/qemu/mikrotik-<verzia>
-Linux host
-QEMU
-vnc
-/opt/unetlab/addons/qemu/linux-<nazov>-<verzia>
-Windows host
-QEMU
-vnc
-/opt/unetlab/addons/qemu/win-<nazov>-<verzia>
+Zariadenie	Spôsob virtualizácie	Spôsob pripojenia	Adresár pre obraz disku
+Cisco IOL	IOU/IOL			telnet			/opt/unetlab/addons/iol/bin
+Cisco 7206 VXR	dynamips		telnet			/opt/unetlab/addons/dynamips
+Cisco CSR 1000v	QEMU			telnet			/opt/unetlab/addons/qemu/csr-1000v-<verzia>
+Cisco ASAv	QEMU			vnc			/opt/unetlab/addons/qemu/asav-<verzia>
+Cisco vIOS L2	QEMU			telnet			/opt/unetlab/addons/qemu/viosl2-<verzia>
+Juniper vMX	QEMU			telnet			/opt/unetlab/addons/qemu/vmx-<verzia>
+Juniper vSRX	QEMU			telnet			/opt/unetlab/addons/qemu/vsrx-<verzia>
+Juniper Olive	QEMU			telnet			/opt/unetlab/addons/qemu/olive-<verzia>
+Mikrotik	QEMU			vnc			/opt/unetlab/addons/qemu/mikrotik-<verzia>
+Linux host	QEMU			vnc			/opt/unetlab/addons/qemu/linux-<nazov>-<verzia>
+Windows host	QEMU			vnc			/opt/unetlab/addons/qemu/win-<nazov>-<verzia>
 
 
 Zdroje:
     # Všeobecné
+    http://www.eve-ng.net/index.php/documentation/howto-s    <-- oficiálne návody na pridávanie zariadení (a ďalšie užitočné veci)
+    http://www.eve-ng.net/index.php/documentation/images-table    <-- ktoré zariadenia patria do ktorého priečinka a ako sa má volať qcow2 súbor
+
     http://www.randomhacks.co.uk/how-to-convert-virtualbox-vdi-to-kvm-qcow2/
     https://www.youtube.com/watch?v=fk0E8FvSdlo 
     https://www.digitalocean.com/community/tutorials/how-to-use-sftp-to-securely-transfer-files-with-a-remote-server
@@ -257,6 +224,7 @@ Zdroje:
     https://www.hydri.org/?p=61
 
     # Cisco IOU/IOL
+    http://www.eve-ng.net/index.php/documentation/howto-s/62-howto-add-cisco-iou-iol
     Cisco IOL Router
     https://drive.google.com/file/d/0BwTFjgBPz3MhLWpUTDVwMHp3amM/view
     Cisco IOL Switch

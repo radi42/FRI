@@ -31,3 +31,4 @@ resp.
 
 Zdroje:
 http://superuser.com/questions/387477/sftp-upload-all-files-directories-and-sub-directories-contained-in-a-folder#387543
+http://www.eve-ng.net/index.php/faq
