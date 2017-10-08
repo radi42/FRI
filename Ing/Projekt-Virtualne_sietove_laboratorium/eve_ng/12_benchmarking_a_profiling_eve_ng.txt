@@ -26,9 +26,9 @@ Nepridavat 50 zariadeni naraz, inak EVE-ng web gui zblbne. Zariadenia pridavat n
 -Juniper VSRx
   -VSRx po par minutach prestane hlasit syslogy o Scheduler Oinker
 
-  UKSM zapnute
-    
-  UKSM vypnute
+  UKSM zapnute: 4 zariadenia	CPU	RAM	ked ich spustim 5, tak stvrty sa po case sam vypne a vypisuje chybovu hlasku "Scheduler Oinker"
+  
+  UKSM vypnute:
     
 =============================
 -Cisco Dynamips
