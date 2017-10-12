@@ -10,6 +10,8 @@ Skontrolujeme, či beží apache:
 
   sudo netstat -plantu
 
+Upravíme šablóny pre zariadenia podľa návodu "09_uprava_sablon.txt"
+
 Ak vidíme, že na porte apache 80 beží, otvoríme internetový prehľadávač, vymažeme mu "Cache" a pripojíme sa na EVE-ng server.
 
 Zdroje:
