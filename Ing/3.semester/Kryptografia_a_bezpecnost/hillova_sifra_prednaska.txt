@@ -1,0 +1,6 @@
+ak budem pocitat index koincidencie z plaintextu alebo zo zasifrovaneho textu monoalfabetickou sifrou, budu velmi podobne
+  monoalfabeticka sifra (aj transpozicna sifra) bude mat index koincidencie velmi blizky zdrojovemu jazyku
+  
+  pri hillovej sifre je frekvencna analyza textu nefunkcna; informacia sa rozplynie pri zvacsujucej sa matici
+  
+  transpozicna sifra-poddruh hillovej sifry; znaky zostavaju, len sa meni ich poradie => index koincidencie zostava rovnaky; stlpec v kluci hovori, kam sa znak umiestni

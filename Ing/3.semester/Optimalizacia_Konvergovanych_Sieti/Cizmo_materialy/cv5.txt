@@ -1,0 +1,214 @@
+!
+
+!
+! Last configuration change at 12:03:52 UTC Thu Apr 20 2017
+! NVRAM config last updated at 14:00:01 UTC Thu Apr 20 2017
+!
+upgrade fpd auto
+version 15.5
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname R1
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+bsd-client server url https://cloudsso.cisco.com/as/token.oauth2
+!
+!
+!
+!
+!
+no ip icmp rate-limit unreachable
+!
+!
+!
+!
+!
+!
+ip name-server 8.8.8.8
+ip cef
+no ipv6 cef
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+redundancy
+!
+no cdp log mismatch duplex
+!
+ip tcp synwait-time 5
+!
+class-map match-all Trieda5
+ match dscp af33 
+class-map match-all Trieda4
+ match dscp af31 
+class-map match-all Trieda3
+ match dscp af21 
+class-map match-all Trieda2
+ match dscp af12 
+class-map match-all Trieda1
+ match dscp af11 
+class-map match-any TriedaAF11
+ match access-group 101
+class-map match-any TriedaAF33
+ match access-group 104
+class-map match-any TriedaAF31
+ match access-group 103
+class-map match-any TriedaAF12
+ match access-group 102
+class-map match-any TriedaAF21
+ match access-group 105
+!
+policy-map Znackovanie
+ class TriedaAF11
+  set dscp af11
+ class TriedaAF12
+  set dscp af12
+ class TriedaAF31
+  set dscp af31
+ class TriedaAF33
+  set dscp af33
+ class TriedaAF21
+  set dscp af21
+policy-map Shape
+ class Trieda1
+  bandwidth percent 25 
+ class Trieda2
+  bandwidth percent 25 
+ class Trieda3
+  bandwidth percent 25 
+ class class-default
+  bandwidth percent 25 
+  fair-queue
+  random-detect
+  random-detect ecn
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ ip address 10.0.1.1 255.255.255.0
+ duplex half
+ service-policy input Znackovanie
+!
+interface Serial1/0
+ bandwidth 128
+ ip address 10.0.12.1 255.255.255.0
+ serial restart-delay 0
+ clock rate 128000
+ service-policy output Shape
+!
+interface Serial1/1
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/2
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/3
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/4
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/5
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/6
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial1/7
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface FastEthernet2/0
+ no ip address
+ shutdown
+ duplex half
+!
+ip forward-protocol nd
+no ip http server
+no ip http secure-server
+!
+!
+ip nat inside source list 10 interface FastEthernet2/0 overload
+ip route 0.0.0.0 0.0.0.0 10.255.255.2
+ip route 10.0.2.0 255.255.255.0 10.0.12.2
+!
+!
+!
+access-list 10 permit any
+access-list 101 permit tcp any any eq 9001
+access-list 102 permit tcp any any eq 9002
+access-list 103 permit tcp any any eq 9003
+access-list 104 permit tcp any any eq 9004
+access-list 105 permit udp any any eq 9005
+!
+control-plane
+!
+!
+mgcp behavior rsip-range tgcp-only
+mgcp behavior comedia-role none
+mgcp behavior comedia-check-media-src disable
+mgcp behavior comedia-sdp-force disable
+!
+mgcp profile default
+!
+!
+!
+!
+gatekeeper
+ shutdown
+!
+!
+line con 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+ stopbits 1
+line aux 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+ stopbits 1
+line vty 0 4
+ login
+ transport input none
+!
+ntp master
+!
+end
