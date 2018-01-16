@@ -1,0 +1,27 @@
+//
+// Do any local configuration here
+//
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+//include "/etc/bind/zones.rfc1918";
+
+view "local" {
+    match-clients {192.168.1.0/24; 127.0.0.1;};
+    zone "sos1.local" {
+	type slave;
+        file "/etc/bind/slave/db.sos1.local";
+        allow-query {any;};
+        masters {192.168.1.2;};
+    };
+};
+
+view "public" {
+    match-clients {any;};
+    zone "sos1.local" {
+	type slave;
+        file "/etc/bind/slave/db.sos1.public";
+        allow-query {any;};
+        masters {192.168.1.2;};
+    };
+};
