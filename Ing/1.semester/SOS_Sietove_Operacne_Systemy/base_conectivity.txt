@@ -1,0 +1,181 @@
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+allow-hotplug ens3
+iface ens3 inet static
+address 158.193.153.190
+#address 158.193.153.189
+netmask 255.255.255.0
+gateway 158.193.153.1
+
+allow-hotplug ens4
+iface ens4 inet static
+address 192.168.1.1
+netmask 255.255.255.0
+
+
+/etc/resolv.conf
+
+/etc/sysctl.conf -> net.ipv4.ip_forward=1
+/proc/sys/net/ipv4/ip_forward -> 1
+
+
+#!/bin/sh
+#
+# IPTables firewall script.  There are many.  This is mine.
+#
+
+
+#
+# Ensure sane path
+#
+PATH=/sbin:/usr/sbin:/bin:/usr/bin
+
+#
+# When running from the command line, provide a -v option to print the
+# installed rules at the end.
+#
+verbose=
+if [ "$1" = "-v" ]; then
+    shift
+    verbose=on
+fi
+
+#
+# Rather than duplicate entries for iptables and ip6tables, have some small
+# wrapper functions do it for us.
+#
+# ip4tbl - apply ruleset for just iptables
+# ip6tbl - apply ruleset for just ip6tables
+# iptbl  - apply ruleset for both iptables and ip6tables
+#
+ip4tbl()
+{
+    iptables "$@"
+}
+ip6tbl()
+{
+    ip6tables "$@"
+}
+iptbl()
+{
+    ip4tbl "$@"
+    ip6tbl "$@"
+}
+
+#
+# Flush all rulesets
+#
+iptbl -F
+iptbl -X
+
+#
+# Block by default except outgoing traffic
+#
+iptbl -P INPUT DROP
+iptbl -P FORWARD DROP
+iptbl -P OUTPUT ACCEPT
+
+#
+# Allow everything on loopback
+#
+iptbl -A INPUT -i lo -j ACCEPT
+#
+# Permit established connections
+#
+iptbl -A INPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+
+#
+# Permit allowed services on all interfaces.
+#
+iptbl -A INPUT -p tcp -m tcp --dport 22 -j ACCEPT
+iptbl -A INPUT -p tcp --dport 22 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+iptbl -A OUTPUT -p tcp --sport 22 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+iptbl -A FORWARD -p tcp --sport 22 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+iptbl -A FORWARD -p tcp --dport 22 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+
+iptables -A OUTPUT -p udp -o ens3 --dport 53 -j ACCEPT
+iptables -A INPUT -p udp -i ens3 --sport 53 -j ACCEPT
+iptables -A FORWARD -p udp -i ens3 --sport 53 -j ACCEPT
+iptables -A FORWARD -p udp -i ens3 --dport 53 -j ACCEPT
+
+iptables -A OUTPUT -p tcp -o ens3 --dport 53 -j ACCEPT
+iptables -A INPUT -p tcp -i ens3 --sport 53 -j ACCEPT
+iptables -A FORWARD -p tcp -i ens3 --sport 53 -j ACCEPT
+iptables -A FORWARD -p tcp -i ens3 --dport 53 -j ACCEPT
+
+iptables -A OUTPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+iptables -A OUTPUT -p tcp --dport 80 -m state --state NEW -j ACCEPT
+iptables -A OUTPUT -p tcp --dport 21 -m state --state NEW -j ACCEPT
+iptables -A OUTPUT -o eth0 -p tcp -m tcp --dport 443 -m state --state NEW,ESTABLISHED -j ACCEPT
+# Permit ICMP and traceroute
+#
+ip4tbl -A INPUT -p icmp -j ACCEPT
+ip6tbl -A INPUT -p ipv6-icmp -j ACCEPT
+ip4tbl -A OUTPUT -p icmp -j ACCEPT
+ip4tbl -A FORWARD -p icmp -j ACCEPT
+iptbl -A INPUT -p udp -m udp --dport 33434:33523 -j ACCEPT
+
+#
+# NAT
+#
+ip4tbl -A FORWARD -i ens4 -j ACCEPT
+ip4tbl -t nat -A POSTROUTING -o ens3 -j MASQUERADE
+#
+# SSH
+#
+ip4tbl -A PREROUTING -t nat -i ens3 -p tcp --dport 1112 -j DNAT --to-destination 192.168.1.2:22
+ip4tbl -A FORWARD -p tcp -d 192.168.1.2 --dport 22 -j ACCEPT
+ip4tbl -A POSTROUTING -t nat -s 192.168.1.2 -o ens3 -j MASQUERADE
+
+ip4tbl -A PREROUTING -t nat -i ens3 -p tcp --dport 1113 -j DNAT --to-destination 192.168.1.3:22
+ip4tbl -A FORWARD -p tcp -d 192.168.1.3 --dport 22 -j ACCEPT
+ip4tbl -A POSTROUTING -t nat -s 192.168.1.3 -o ens3 -j MASQUERADE
+
+#
+#DNS
+#
+ip4tbl -A PREROUTING -t nat -i ens3 -p udp --dport 53 -j DNAT --to-destination 192.168.1.2:53
+ip4tbl -A FORWARD -p udp -d 192.168.1.2 --dport 53 -j ACCEPT
+
+ip4tbl -A PREROUTING -t nat -i ens3 -p tcp --dport 53 -j DNAT --to-destination 192.168.1.2:53
+ip4tbl -A FORWARD -p tcp -d 192.168.1.2 --dport 53 -j ACCEPT
+
+#ip4tbl -A OUTPUT -p udp -d 192.168.1.2 --dport 53 -m state --state NEW,ESTABLISHED -j ACCEPT
+#ip4tbl -A OUTPUT -p udp -d 192.168.1.3 --dport 53 -m state --state NEW,ESTABLISHED -j ACCEPT
+
+#ip4tbl -A OUTPUT -p udp -d 192.168.1.2 --dport 53 -m state --state NEW,ESTABLISHED -j ACCEPT
+#ip4tbl -A OUTPUT -p udp -d 192.168.1.3 --dport 53 -m state --state NEW,ESTABLISHED -j ACCEPT
+
+#ip4tbl -A OUTPUT -p tcp -d 192.168.1.2 --dport 53 -m state --state NEW,ESTABLISHED -j ACCEPT
+#ip4tbl -A OUTPUT -p tcp -d 192.168.1.3 --dport 53 -m state --state NEW,ESTABLISHED -j ACCEPT
+
+#ip4tbl -A INPUT -p udp -d 192.168.1.2 --sport 53 -m state --state NEW,ESTABLISHED -j ACCEPT
+#ip4tbl -A INPUT -p udp -d 192.168.1.3 --sport 53 -m state --state NEW,ESTABLISHED -j ACCEPT
+
+#ip4tbl -A INPUT -p tcp -d 192.168.1.2 --sport 53 -m state --state NEW,ESTABLISHED -j ACCEPT
+#ip4tbl -A INPUT -p tcp -d 192.168.1.3 --sport 53 -m state --state NEW,ESTABLISHED -j ACCEPT
+
+#
+# Log denied connections
+#
+#LOGCOMMON="-m limit --limit 5/min -j LOG --log-prefix 'iptables: ' --log-level 7"
+#iptbl -A INPUT -p tcp ${LOGCOMMON}
+#iptbl -A INPUT -p udp ${LOGCOMMON}
+#ip4tbl -A INPUT -p icmp ${LOGCOMMON}
+#ip6tbl -A INPUT -p ipv6-icmp ${LOGCOMMON}
+
+#
+# Finally, reject to keep open connections down
+#
+iptbl -A INPUT -j REJECT
+
+#
+# Display INPUT chain if verbose
+#
+if [ -n "${verbose}" ]; then
+    iptables  -L INPUT -vn --line-numbers
+    ip6tables -L INPUT -vn --line-numbers
+fi
