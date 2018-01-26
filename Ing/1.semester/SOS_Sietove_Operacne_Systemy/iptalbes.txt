@@ -1,0 +1,70 @@
+#!/bin/sh
+
+iptables -F
+iptables -X
+iptables -t nat -F
+iptables -t nat -X
+
+iptables -P INPUT DROP
+iptables -P FORWARD DROP
+iptables -P OUTPUT ACCEPT
+
+iptables -N SSH
+iptables -A SSH -p tcp --dport 22 -m state --state NEW -j ACCEPT
+iptables -A SSH -m limit 5/sec --limit-burst 50 -j ACCEPT
+iptables -A SSH -j DROP
+
+iptables -I INPUT -i lo -j ACCEPT
+iptables -A INPUT -p icmp -m state --state NEW -j ACCEPT
+iptables -I INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+iptables -I INPUT -m state --state INVALID -j DROP
+iptables -A INPUT -p tcp --dport 22 -m state --state NEW -j SSH
+#DNS
+iptables -A INPUT -p udp --dport 53 -j ACCEPT
+iptables -A INPUT -p tcp --dport 53 -j ACCEPT
+
+iptables -t nat -A POSTROUTING -o ens3 -j SNAT --to 158.193.XXX.XXX
+iptables -t nat -A PREROUTING -i ens3 -p tcp --dport 2222 -j DNAT --to 192.168.1.2:22
+iptables -t nat -A PREROUTING -i ens3 -p tcp --dport 2223 -j DNAT --to 192.168.1.3:22
+iptables -t nat -A PREROUTING -i ens3 -p tcp --dport 2224 -j DNAT --to 192.168.2.2:22
+#DNS
+iptables -A PREROUTING -t nat -d 158.193.XXX.XXX -p tcp --dport 53 -j DNAT --to 192.168.1.2:53
+iptables -A PREROUTING -t nat -d 158.193.XXX.XXX -p tcp --dport 53 -j DNAT --to 192.168.1.3:53
+iptables -A PREROUTING -t nat -d 158.193.XXX.XXX -p tcp --dport 53 -j DNAT --to 192.168.1.2:53
+iptables -A PREROUTING -t nat -d 158.193.XXX.XXX -p tcp --dport 53 -j DNAT --to 192.168.1.3:53
+#APACHE
+iptables -A PREROUTING -t nat -i ens3 -p tcp --dport 80 -j DNAT --to 192.168.1.2:80
+iptables -A PREROUTING -t nat -i ens3 -p tcp --dport 443 -j DNAT --to 192.168.1.2:443
+
+iptables -A FORWARD -m state --state ESTABLISHED,RELATED -j ACCEPT
+iptables -A FORWARD -m state --state INVALID -j DROP
+iptables -A FORWARD -s 192.168.1.2 -m state --state NEW -j ACCEPT
+iptables -A FORWARD -s 192.168.1.3 -m state --state NEW -j ACCEPT
+iptables -A FORWARD -s 192.168.2.2 -m state --state NEW -j ACCEPT
+
+iptables -A FORWARD -i ens3 -o ens4 -d 192.168.1.2 -p tcp --dport 22 -m state NEW -j ACCEPT
+iptables -A FORWARD -i ens3 -o ens4 -d 192.168.1.3 -p tcp --dport 22 -m state NEW -j ACCEPT
+iptables -A FORWARD -i ens3 -o ens5 -d 192.168.2.2 -p tcp --dport 22 -m state NEW -j ACCEPT
+iptables -A FORWARD -i ens3 -o ens5 -d 192.168.2.129 -p tcp --dport 22 -m state NEW -j ACCEPT
+iptables -A FORWARD -i ens3 -p icmp -m state --state NEW -j ACCEPT
+iptables -A FORWARD -d 169.254.169.254 -j DROP
+#DNS
+iptables -A FORWARD -d 192.168.1.2 -p tcp --dport 53 -j ACCEPT
+iptables -A FORWARD -d 192.168.1.2 -p udp --dport 53 -j ACCEPT
+iptables -A FORWARD -d 192.168.1.3 -p tcp --dport 53 -j ACCEPT
+iptables -A FORWARD -d 192.168.1.3 -p udp --dport 53 -j ACCEPT
+#APACHE
+iptables -A FORWARD -d 192.168.1.0/24 -p tcp --dport 80 -j ACCEPT
+iptables -A FORWARD -d 192.168.1.0/24 -s tcp --dport 80 -j ACCEPT
+iptables -A FORWARD -d 192.168.1.0/24 -p tcp --dport 443 -j ACCEPT
+iptables -A FORWARD -d 192.168.1.0/24 -s tcp --dport 443 -j ACCEPT
+#MAIL
+iptables -A PREROUTING -t nat -i ens3 -p tcp --dport 25 -j DNAT --to 192.168.1.2:25
+iptables -A PREROUTING -t nat -i ens3 -p udp --dport 25 -j DNAT --to 192.168.1.2:25
+iptables -A PREROUTING -t nat -i ens3 -p tcp --dport 143 -j DNAT --to 192.168.1.2:143
+iptables -A PREROUTING -t nat -i ens3 -p udp --dport 143 -j DNAT --to 192.168.1.2:143
+#MAIL
+iptables -A FORWARD -d 192.168.1.0/24 -p tcp --dport 25 -j ACCEPT
+iptables -A FORWARD -d 192.168.1.0/24 -p udp --dport 25 -j ACCEPT
+iptables -A FORWARD -d 192.168.1.0/24 -p tcp --dport 143 -j ACCEPT
+iptables -A FORWARD -d 192.168.1.0/24 -p udp --dport 143 -j ACCEPT
