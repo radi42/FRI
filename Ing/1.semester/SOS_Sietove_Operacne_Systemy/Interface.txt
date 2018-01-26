@@ -1,0 +1,39 @@
+/etc/network/interfaces.d
+---------------------------------------
+# the loopback network interfaces
+auto lo
+iface lo inet loopback
+
+# the primary network interfaces
+auto ens3:0
+allow-hotplug ens3:0
+iface ens3:0 inet static 
+address 000.000.000.000
+netmask 255.255.255.0
+gateway 000.000.000.000
+dns-nameservers 158.193.152.2
+up /etc/skript.sh
+
+
+auto ens3:1
+allow-hotplug ens3:1
+iface ens3:1 inet static
+address 000.000.000.000
+netmask 255.255.255.000
+gateway 000.000.000.000
+dns-nameservers 158.193.152.2
+
+auto ens4
+allow-hotplug ens4
+iface ens4 inet static
+		address 000.000.000.000
+		netmask 255.255.255.000
+		
+		
+----------------------------------
+/etc/sysctl.conf -> net.ipv4.ip_forward=1
+/proc/sys/net/ipv4/ip_forward -> 1
+
+mtu 1400 -> pre servery za interface
+
+chmod+x firewall
